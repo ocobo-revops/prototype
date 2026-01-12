@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ocobo | Architecture RevOps</title>
+    <meta name="description" content="Ocobo - Nous transformons la croissance en expérience simple, fluide et pilotable." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Bornia', 'Inter', 'sans-serif'], 
+              display: ['Bermia', 'Inter', 'sans-serif'],
+            },
+            colors: {
+              ocobo: {
+                dark: '#212323',
+                yellow: '#F1CF25',
+                yellowLight: '#FFFCEE',
+                mint: '#9ADBBA',
+                mintLight: '#EBFDF5',
+                sky: '#99D1DF',
+                skyLight: '#F0F9FB',
+                coral: '#FE9C87',
+                coralLight: '#FFF5F2',
+                gray: '#F5F5F5'
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* --- CHARGEMENT DES POLICES DEPUIS LE DOMAINE DE PRODUCTION --- */
+
+      /* BERMIA BLACK (Titres XXL) */
+      @font-face {
+        font-family: 'Bermia';
+        src: url('https://www.ocobo.co/fonts/bermia/Bermia-Black.woff') format('woff');
+        font-weight: 900;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* BORNIA REGULAR (Corps de texte - Format OTF) */
+      @font-face {
+        font-family: 'Bornia';
+        src: url('https://www.ocobo.co/fonts/bornia/Bornia-Regular.otf') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* BORNIA BOLD (OTF) */
+      @font-face {
+        font-family: 'Bornia';
+        src: url('https://www.ocobo.co/fonts/bornia/Bornia-Bold.otf') format('opentype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --font-display: "Bermia", Impact, sans-serif;
+        --font-sans: "Bornia", "Inter", sans-serif;
+      }
+
+      body {
+        font-family: 'Bornia', 'Inter', sans-serif;
+        background-color: #ffffff;
+        color: #212323;
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Bermia', 'Inter', sans-serif;
+        font-weight: 900;
+        letter-spacing: -0.02em;
+      }
+
+      .scroll-smooth {
+        scroll-behavior: smooth;
+      }
+      
+      ::selection {
+        background-color: #F1CF25;
+        color: #212323;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.10.1",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-router": "https://esm.sh/react-router@^7.11.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
