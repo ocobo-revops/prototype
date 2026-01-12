@@ -39,10 +39,11 @@ workflow_status:
     note: "User-selected discovery workflows"
     workflows:
       brainstorm-project:
-        status: optional
+        status: _bmad-output/analysis/brainstorming-session-2026-01-12.md
         agent: analyst
         command: /bmad:core:workflows:brainstorming
         note: "Creative exploration and ideation"
+        completed: 2026-01-12
       research:
         status: skipped
         agent: analyst
