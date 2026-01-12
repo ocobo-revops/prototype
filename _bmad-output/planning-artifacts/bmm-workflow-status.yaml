@@ -57,25 +57,28 @@ workflow_status:
     name: "Planning"
     workflows:
       prd:
-        status: required
+        status: _bmad-output/planning-artifacts/prd.md
         agent: pm
         command: /bmad:bmm:workflows:prd
         output: "Product Requirements Document with FRs and NFRs"
+        completed: 2026-01-12
       create-ux-design:
-        status: conditional
+        status: skipped
         condition: if_has_ui
         agent: ux-designer
         command: /bmad:bmm:workflows:create-ux-design
-        note: "Determined after PRD - user/agent decides if needed"
+        note: "Skipped - existing design validated, only rationalization needed"
 
   phase_3_solutioning:
     name: "Solutioning"
+    next_workflow: create-architecture
     workflows:
       create-architecture:
-        status: required
+        status: ready
         agent: architect
         command: /bmad:bmm:workflows:create-architecture
         output: "System architecture document"
+        note: "NEXT - Define component structure, file organization, DS patterns"
       create-epics-and-stories:
         status: required
         agent: pm
