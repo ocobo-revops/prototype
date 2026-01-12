@@ -71,7 +71,7 @@ workflow_status:
 
   phase_3_solutioning:
     name: "Solutioning"
-    next_workflow: create-epics-and-stories
+    next_workflow: implementation-readiness
     workflows:
       create-architecture:
         status: _bmad-output/planning-artifacts/architecture.md
@@ -80,10 +80,10 @@ workflow_status:
         output: "System architecture document"
         completed: 2026-01-13
       create-epics-and-stories:
-        status: ready
+        status: _bmad-output/planning-artifacts/epics.md
         agent: pm
         command: /bmad:bmm:workflows:create-epics-and-stories
-        note: "NEXT - Break down PRD into implementable epics and stories"
+        completed: 2026-01-13
       test-design:
         status: optional
         agent: tea
