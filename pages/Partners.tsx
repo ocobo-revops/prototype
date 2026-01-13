@@ -40,7 +40,7 @@ const ModularStackGrid = () => {
             className={`
               aspect-square rounded-2xl border transition-all duration-500 flex items-center justify-center
               ${item.type === 'logo' 
-                ? 'group bg-white border-gray-100 shadow-[0_8px_20px_-10px_rgba(0,0,0,0.08)] hover:shadow-xl hover:-translate-y-1 hover:border-ocobo-sky/30' 
+                ? 'group bg-white border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-ocobo-sky/30' 
                 : 'bg-gray-50/50 border-dashed border-gray-200 group/empty hover:bg-white hover:border-solid hover:border-ocobo-yellow/40'}
               animate-fade-in-up
             `}
@@ -555,7 +555,7 @@ const Partners: React.FC = () => {
                   </div>
 
                   <div className="lg:w-1/2 w-full">
-                      <div className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-gray-100 relative overflow-hidden">
+                      <div className="bg-white p-8 md:p-12 rounded-xl shadow-lg border border-gray-100 relative overflow-hidden">
                           {/* Multi-color top bar */}
                           <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-ocobo-yellow via-ocobo-sky to-ocobo-mint"></div>
                           
@@ -611,7 +611,7 @@ const Partners: React.FC = () => {
               </p>
               <div className="flex justify-center">
                   <Link to="/contact">
-                      <Button variant="primary" className="px-14 py-6 text-lg shadow-2xl bg-ocobo-dark border-none text-white">Prendre RDV</Button>
+                      <Button variant="primary" className="px-14 py-6 text-lg shadow-lg bg-ocobo-dark border-none text-white">Prendre RDV</Button>
                   </Link>
               </div>
           </div>

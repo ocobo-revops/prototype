@@ -32,29 +32,29 @@ const TeamPhotoIllustration = () => {
         <div className="absolute -bottom-6 -right-6 w-16 h-16 border-b-2 border-r-2 border-ocobo-dark/10 group-hover:border-ocobo-mint transition-colors duration-700"></div>
 
         {/* Main Photo Card */}
-        <div className="relative bg-white p-2.5 rounded-[3rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.2)] border border-gray-100 overflow-hidden transform group-hover:scale-[1.01] transition-transform duration-700">
+        <div className="relative bg-white p-2.5 rounded-sm shadow-hero border border-gray-100 overflow-hidden transform group-hover:scale-[1.01] transition-transform duration-700">
             {/* NOTE: Remplacer l'URL ci-dessous par le lien de votre photo une fois hébergée */}
             <img 
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" 
               alt="L'équipe Ocobo" 
-              className="w-full h-auto rounded-[2.8rem] grayscale contrast-[1.1] brightness-[1.05] group-hover:grayscale-0 transition-all duration-1000 ease-in-out"
+              className="w-full h-auto rounded-sm grayscale contrast-[1.1] brightness-[1.05] group-hover:grayscale-0 transition-all duration-1000 ease-in-out"
             />
             
             {/* Overlay Gradient for depth */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
             
             {/* Caption Badge */}
-            <div className="absolute bottom-10 left-10 bg-white/90 backdrop-blur-md px-6 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+            <div className="absolute bottom-10 left-10 bg-white/90 backdrop-blur-md px-6 py-3.5 rounded-md shadow-lg flex items-center gap-3 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
                 <div className="w-2.5 h-2.5 rounded-full bg-ocobo-mint animate-pulse"></div>
                 <span className="font-display font-black text-[11px] uppercase tracking-[0.25em] text-ocobo-dark">La Squad Ocobo</span>
             </div>
         </div>
 
         {/* Floating Architectural Icons */}
-        <div className="absolute -top-12 right-12 p-5 bg-white rounded-2xl shadow-xl transform rotate-12 animate-bounce-slow hidden md:flex border border-gray-50">
+        <div className="absolute -top-12 right-12 p-5 bg-white rounded-md shadow-lg transform rotate-12 animate-bounce-slow hidden md:flex border border-gray-50">
             <Sparkles className="text-ocobo-yellow" size={28} />
         </div>
-        <div className="absolute -bottom-10 left-24 p-5 bg-ocobo-dark text-white rounded-2xl shadow-xl transform -rotate-6 animate-bounce-slow hidden md:flex" style={{ animationDelay: '1s' }}>
+        <div className="absolute -bottom-10 left-24 p-5 bg-ocobo-dark text-white rounded-md shadow-lg transform -rotate-6 animate-bounce-slow hidden md:flex" style={{ animationDelay: '1s' }}>
             <Users size={24} />
         </div>
       </div>
@@ -224,7 +224,7 @@ const Studio: React.FC = () => {
               <Link to="/contact">
                   <Button 
                     variant="primary" 
-                    className="px-16 py-5 text-xs font-bold uppercase tracking-[0.25em] shadow-xl bg-ocobo-dark hover:bg-black transition-all hover:-translate-y-1"
+                    className="px-16 py-5 text-xs font-bold uppercase tracking-[0.25em] shadow-lg bg-ocobo-dark hover:bg-black transition-all hover:-translate-y-1"
                   >
                     Discuter avec le Studio
                   </Button>
@@ -251,7 +251,7 @@ const Studio: React.FC = () => {
               </div>
 
               <div className="grid md:grid-cols-3 gap-10">
-                  <div className="bg-white p-10 rounded-xl shadow-xl group hover:-translate-y-1 transition-transform duration-300">
+                  <div className="bg-white p-10 rounded-sm shadow-lg group hover:-translate-y-1 transition-transform duration-300">
                       <div className="w-16 h-16 bg-ocobo-dark text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-ocobo-mint transition-colors">
                           <Users size={28} />
                       </div>
@@ -260,7 +260,7 @@ const Studio: React.FC = () => {
                           Nous déployons une squad pluridisciplinaire qui rejoint votre environnement de travail quotidien.
                       </p>
                   </div>
-                  <div className="bg-white p-10 rounded-xl shadow-xl group hover:-translate-y-1 transition-transform duration-300">
+                  <div className="bg-white p-10 rounded-sm shadow-lg group hover:-translate-y-1 transition-transform duration-300">
                       <div className="w-16 h-16 bg-ocobo-dark text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-ocobo-sky transition-colors">
                           <Zap size={28} />
                       </div>
@@ -269,7 +269,7 @@ const Studio: React.FC = () => {
                           Pas de grands rapports théoriques. Nous délivrons des briques de système prêtes à l'emploi.
                       </p>
                   </div>
-                  <div className="bg-white p-10 rounded-xl shadow-xl group hover:-translate-y-1 transition-transform duration-300">
+                  <div className="bg-white p-10 rounded-sm shadow-lg group hover:-translate-y-1 transition-transform duration-300">
                       <div className="w-16 h-16 bg-ocobo-dark text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-ocobo-yellow transition-colors">
                           <Target size={28} />
                       </div>
@@ -312,7 +312,7 @@ const Studio: React.FC = () => {
                   {filteredTeam.map((member, idx) => (
                       <div 
                         key={`${member.name}-${activeFilter}`} 
-                        className={`group bg-white border border-gray-100 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden rounded-xl ${animate ? 'animate-card-entry' : 'opacity-0'}`}
+                        className={`group bg-white border border-gray-100 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden rounded-sm ${animate ? 'animate-card-entry' : 'opacity-0'}`}
                         style={{ animationDelay: `${idx * 0.05}s` }}
                       >
                           {/* Left trait that lights up on hover */}
@@ -365,7 +365,7 @@ const Studio: React.FC = () => {
               </p>
               <div className="flex justify-center">
                   <Link to="/contact">
-                      <Button variant="primary" className="px-14 py-6 text-lg shadow-2xl bg-ocobo-dark border-none text-white">Discuter avec le Studio</Button>
+                      <Button variant="primary" className="px-14 py-6 text-lg shadow-lg bg-ocobo-dark border-none text-white">Discuter avec le Studio</Button>
                   </Link>
               </div>
           </div>

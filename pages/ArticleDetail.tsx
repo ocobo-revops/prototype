@@ -190,7 +190,7 @@ const ArticleDetail: React.FC = () => {
             </div>
 
             {/* NEWSLETTER INTEGRATION */}
-            <div className="mt-20 bg-ocobo-yellow p-10 md:p-14 rounded-[2.5rem] relative overflow-hidden">
+            <div className="mt-20 bg-ocobo-yellow p-10 md:p-14 rounded-xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-4 opacity-5">
                     <Layout size={200} strokeWidth={1} />
                 </div>

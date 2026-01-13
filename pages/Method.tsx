@@ -282,7 +282,7 @@ const Method: React.FC = () => {
 
               <div className="grid lg:grid-cols-2 gap-10">
                   {/* Card 1: Alignment */}
-                  <div className="bg-white p-10 border-t-8 border-ocobo-yellow shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group">
+                  <div className="bg-white p-10 border-t-8 border-ocobo-yellow shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative group">
                       <div className="flex justify-between items-start mb-10">
                           <div className="bg-ocobo-yellow-light p-4 rounded-full text-ocobo-yellow">
                               <Layout size={32} />
@@ -294,7 +294,7 @@ const Method: React.FC = () => {
                           Avant de toucher aux outils, nous alignons les hommes. Nous cassons les silos entre Marketing, Sales et CS pour créer une seule équipe Revenue avec des objectifs communs.
                       </p>
                       
-                      <div className="bg-gray-50/50 p-8 rounded-2xl border border-gray-100">
+                      <div className="bg-gray-50/50 p-8 rounded-md border border-gray-100">
                           <span className="font-display font-bold text-[10px] uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">LIVRABLES CLÉS</span>
                           <div className="space-y-6">
                               <div className="flex gap-4 items-start group/item">
@@ -323,7 +323,7 @@ const Method: React.FC = () => {
                   </div>
 
                    {/* Card 2: Technologie */}
-                  <div className="bg-white p-10 border-t-8 border-ocobo-sky shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group">
+                  <div className="bg-white p-10 border-t-8 border-ocobo-sky shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative group">
                       <div className="flex justify-between items-start mb-10">
                           <div className="bg-ocobo-sky-light p-4 rounded-full text-ocobo-sky">
                               <Sliders size={32} />
@@ -335,7 +335,7 @@ const Method: React.FC = () => {
                           Nous construisons une stack connectée et épurée. Pas d'usine à gaz. Juste les bons outils, connectés au bon moment, pour servir les process.
                       </p>
                       
-                      <div className="bg-gray-50/50 p-8 rounded-2xl border border-gray-100">
+                      <div className="bg-gray-50/50 p-8 rounded-md border border-gray-100">
                           <span className="font-display font-bold text-[10px] uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">LIVRABLES CLÉS</span>
                           <div className="space-y-6">
                               <div className="flex gap-4 items-start group/item">
@@ -364,7 +364,7 @@ const Method: React.FC = () => {
                   </div>
 
                    {/* Card 3: Performance */}
-                  <div className="bg-white p-10 border-t-8 border-ocobo-mint shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group">
+                  <div className="bg-white p-10 border-t-8 border-ocobo-mint shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative group">
                       <div className="flex justify-between items-start mb-10">
                           <div className="bg-ocobo-mint-light p-4 rounded-full text-ocobo-mint">
                               <LineChart size={32} />
@@ -376,7 +376,7 @@ const Method: React.FC = () => {
                           On ne pilote pas ce qu'on ne mesure pas. Nous alignons les indicateurs et les incitations (rémunération) sur vos objectifs stratégiques.
                       </p>
                       
-                      <div className="bg-gray-50/50 p-8 rounded-2xl border border-gray-100">
+                      <div className="bg-gray-50/50 p-8 rounded-md border border-gray-100">
                           <span className="font-display font-bold text-[10px] uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">LIVRABLES CLÉS</span>
                           <div className="space-y-6">
                               <div className="flex gap-4 items-start group/item">
@@ -405,7 +405,7 @@ const Method: React.FC = () => {
                   </div>
 
                    {/* Card 4: Enablement */}
-                  <div className="bg-white p-10 border-t-8 border-ocobo-coral shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group">
+                  <div className="bg-white p-10 border-t-8 border-ocobo-coral shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 relative group">
                       <div className="flex justify-between items-start mb-10">
                           <div className="bg-ocobo-coral-light p-4 rounded-full text-ocobo-coral">
                               <GraduationCap size={32} />
@@ -417,7 +417,7 @@ const Method: React.FC = () => {
                           Le meilleur système ne vaut rien s'il n'est pas utilisé. Nous formons, coachons et documentons pour assurer l'adoption durable.
                       </p>
                       
-                      <div className="bg-gray-50/50 p-8 rounded-2xl border border-gray-100">
+                      <div className="bg-gray-50/50 p-8 rounded-md border border-gray-100">
                           <span className="font-display font-bold text-[10px] uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">LIVRABLES CLÉS</span>
                           <div className="space-y-6">
                               <div className="flex gap-4 items-start group/item">
@@ -459,7 +459,7 @@ const Method: React.FC = () => {
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left mt-24">
                    {/* Card 1 */}
-                   <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl hover:border-ocobo-yellow">
+                   <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-sm hover:border-ocobo-yellow">
                        <div className="w-12 h-12 bg-ocobo-yellow-light text-ocobo-yellow rounded-lg flex items-center justify-center mb-6">
                           <Target size={24} />
                        </div>
@@ -472,7 +472,7 @@ const Method: React.FC = () => {
                    </div>
 
                    {/* Card 2 */}
-                   <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl hover:border-ocobo-sky">
+                   <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-sm hover:border-ocobo-sky">
                        <div className="w-12 h-12 bg-ocobo-sky-light text-ocobo-sky rounded-lg flex items-center justify-center mb-6">
                           <Database size={24} />
                        </div>
@@ -485,7 +485,7 @@ const Method: React.FC = () => {
                    </div>
 
                    {/* Card 3 */}
-                   <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl hover:border-ocobo-mint">
+                   <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-sm hover:border-ocobo-mint">
                        <div className="w-12 h-12 bg-ocobo-mint-light text-ocobo-mint rounded-lg flex items-center justify-center mb-6">
                           <BarChart3 size={24} />
                        </div>
@@ -498,7 +498,7 @@ const Method: React.FC = () => {
                    </div>
 
                    {/* Card 4 */}
-                   <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl hover:border-ocobo-coral">
+                   <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-sm hover:border-ocobo-coral">
                        <div className="w-12 h-12 bg-ocobo-coral-light text-ocobo-coral rounded-lg flex items-center justify-center mb-6">
                           <RefreshCw size={24} />
                        </div>
@@ -511,7 +511,7 @@ const Method: React.FC = () => {
                    </div>
 
                    {/* Card 5 */}
-                   <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl hover:border-ocobo-yellow">
+                   <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-sm hover:border-ocobo-yellow">
                        <div className="w-12 h-12 bg-ocobo-yellow-light text-ocobo-yellow rounded-lg flex items-center justify-center mb-6">
                           <GraduationCap size={24} />
                        </div>
@@ -524,7 +524,7 @@ const Method: React.FC = () => {
                    </div>
 
                    {/* Card 6 */}
-                   <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl hover:border-ocobo-sky">
+                   <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-sm hover:border-ocobo-sky">
                        <div className="w-12 h-12 bg-ocobo-sky-light text-ocobo-sky rounded-lg flex items-center justify-center mb-6">
                           <Layers size={24} />
                        </div>

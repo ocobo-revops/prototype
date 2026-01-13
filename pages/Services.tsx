@@ -18,7 +18,7 @@ const ArchitecturalGrid = () => {
                 </div>
 
                 {/* Grid Container */}
-                <div className="relative z-10 bg-white border-2 border-ocobo-dark p-8 shadow-[10px_10px_0px_0px_rgba(33,35,35,1)] flex-grow">
+                <div className="relative z-10 bg-white border-2 border-ocobo-dark p-8 shadow-lg flex-grow">
                     <div className="grid grid-cols-2 gap-4 mb-4">
                         <div className="animate-box h-24 bg-ocobo-yellow-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group" style={{ animationDelay: '0.4s' }}>
                             <span className="font-display font-bold group-hover:text-ocobo-yellow transition-colors text-xs md:text-sm">MARKETING</span>
@@ -260,7 +260,7 @@ const Services: React.FC = () => {
                       Les entreprises qui passent à l’échelle ne misent pas sur l’empilement d’outils. Elles construisent un système de revenu clair, simple et pilotable.
                   </p>
                   <Link to="/contact">
-                      <Button className="bg-ocobo-dark text-white px-12 py-5 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all">
+                      <Button className="bg-ocobo-dark text-white px-12 py-5 text-lg shadow-xl hover:shadow-lg hover:-translate-y-1 transition-all">
                         Prendre RDV
                       </Button>
                   </Link>
@@ -292,7 +292,7 @@ const Services: React.FC = () => {
 
               {/* MOBILE LAYOUT (List) */}
               <div className="md:hidden space-y-8 pb-12">
-                  <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 relative overflow-hidden">
+                  <div className="bg-gray-50 p-6 rounded-md border border-gray-100 relative overflow-hidden">
                       <div className="absolute top-0 right-0 w-20 h-20 bg-ocobo-coral opacity-10 rounded-bl-full"></div>
                       <div className="flex items-center gap-4 mb-4">
                           <div className="w-10 h-10 bg-white border border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">1</div>
@@ -302,7 +302,7 @@ const Services: React.FC = () => {
                           <li className="flex items-start gap-2">• Manque de visibilité sur le business</li>
                       </ul>
                   </div>
-                  <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 relative overflow-hidden">
+                  <div className="bg-gray-50 p-6 rounded-md border border-gray-100 relative overflow-hidden">
                       <div className="absolute top-0 right-0 w-20 h-20 bg-ocobo-yellow opacity-10 rounded-bl-full"></div>
                       <div className="flex items-center gap-4 mb-4">
                           <div className="w-10 h-10 bg-white border border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">2</div>
@@ -312,7 +312,7 @@ const Services: React.FC = () => {
                           <li className="flex items-start gap-2">• Prévisions instables</li>
                       </ul>
                   </div>
-                  <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 relative overflow-hidden">
+                  <div className="bg-gray-50 p-6 rounded-md border border-gray-100 relative overflow-hidden">
                       <div className="absolute top-0 right-0 w-20 h-20 bg-ocobo-sky opacity-10 rounded-bl-full"></div>
                       <div className="flex items-center gap-4 mb-4">
                           <div className="w-10 h-10 bg-white border border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">3</div>
@@ -322,7 +322,7 @@ const Services: React.FC = () => {
                           <li className="flex items-start gap-2">• Trop d’outils, pas assez de clarté</li>
                       </ul>
                   </div>
-                  <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 relative overflow-hidden">
+                  <div className="bg-gray-50 p-6 rounded-md border border-gray-100 relative overflow-hidden">
                       <div className="absolute top-0 right-0 w-20 h-20 bg-ocobo-mint opacity-10 rounded-bl-full"></div>
                       <div className="flex items-center gap-4 mb-4">
                           <div className="w-10 h-10 bg-white border border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">4</div>
@@ -391,12 +391,12 @@ const Services: React.FC = () => {
                   {/* Service 1: Audit & Cadrage */}
                   <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
                       <div className="w-full md:w-5/12 sticky top-32">
-                           <div className="w-16 h-16 bg-ocobo-yellow text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-[4px_4px_0px_0px_rgba(33,35,35,1)] mb-8">1</div>
+                           <div className="w-16 h-16 bg-ocobo-yellow text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-md mb-8">1</div>
                            <h3 className="font-display text-3xl md:text-4xl font-bold text-ocobo-dark mb-4 leading-tight">Immersion, cadrage et plan d’action RevOps</h3>
                            <p className="text-gray-600 text-lg leading-relaxed">La vision claire pour savoir où agir.</p>
                       </div>
                       <div className="w-full md:w-7/12">
-                          <div className="bg-white border border-gray-100 p-8 md:p-10 hover:shadow-2xl hover:border-ocobo-yellow transition-all duration-300 group rounded-xl">
+                          <div className="bg-white border border-gray-100 p-8 md:p-10 hover:shadow-lg hover:border-ocobo-yellow transition-all duration-300 group rounded-sm">
                               <ul className="space-y-8">
                                   <li className="flex gap-5 items-start">
                                       <div className="mt-1 bg-ocobo-yellow-light p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
@@ -435,12 +435,12 @@ const Services: React.FC = () => {
                   {/* Service 2: Déploiement */}
                   <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
                       <div className="w-full md:w-5/12 sticky top-32">
-                           <div className="w-16 h-16 bg-ocobo-coral text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-[4px_4px_0px_0px_rgba(33,35,35,1)] mb-8">2</div>
+                           <div className="w-16 h-16 bg-ocobo-coral text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-md mb-8">2</div>
                            <h3 className="font-display text-3xl md:text-4xl font-bold text-ocobo-dark mb-4 leading-tight">Déploiement RevOps (Agile)</h3>
                            <p className="text-gray-600 text-lg leading-relaxed">Pour opérer et structurer la machine revenue en sprints de 2 semaines.</p>
                       </div>
                       <div className="w-full md:w-7/12">
-                          <div className="bg-white border border-gray-100 p-8 md:p-10 hover:shadow-2xl hover:border-ocobo-coral transition-all duration-300 group rounded-xl">
+                          <div className="bg-white border border-gray-100 p-8 md:p-10 hover:shadow-lg hover:border-ocobo-coral transition-all duration-300 group rounded-sm">
                               <ul className="grid md:grid-cols-2 gap-y-6 gap-x-8">
                                   {[
                                       "Funnel complet : demand gen → closing → onboarding → expansion",
@@ -468,12 +468,12 @@ const Services: React.FC = () => {
                   {/* Service 3: Coaching */}
                   <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
                       <div className="w-full md:w-5/12 sticky top-32">
-                           <div className="w-16 h-16 bg-ocobo-mint text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-[4px_4px_0px_0px_rgba(33,35,35,1)] mb-8">3</div>
+                           <div className="w-16 h-16 bg-ocobo-mint text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-md mb-8">3</div>
                            <h3 className="font-display text-3xl md:text-4xl font-bold text-ocobo-dark mb-4 leading-tight">Coaching & Formation</h3>
                            <p className="text-gray-600 text-lg leading-relaxed">Rendre vos équipes autonomes et capables de faire vivre le système.</p>
                       </div>
                       <div className="w-full md:w-7/12">
-                          <div className="bg-white border border-gray-100 p-8 md:p-10 hover:shadow-2xl hover:border-ocobo-mint transition-all duration-300 group rounded-xl">
+                          <div className="bg-white border border-gray-100 p-8 md:p-10 hover:shadow-lg hover:border-ocobo-mint transition-all duration-300 group rounded-sm">
                               <ul className="space-y-8">
                                   <li className="flex gap-5 items-start">
                                       <div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
@@ -537,9 +537,9 @@ const Services: React.FC = () => {
               <div className="grid lg:grid-cols-3 gap-12 lg:gap-8">
                   {/* Levier 1: Méthode */}
                   <Link to="/method" className="group flex flex-col h-full">
-                      <div className="relative p-10 bg-gray-50 rounded-[2.5rem] border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
+                      <div className="relative p-10 bg-gray-50 rounded-sm border border-gray-100 flex-grow transition-all duration-500 hover:shadow-lg hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
                           <div className="mb-12 flex justify-between items-center">
-                              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-ocobo-yellow shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
+                              <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center text-ocobo-yellow shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
                                   <Layers size={28} />
                               </div>
                               <ArrowRight className="text-gray-200 group-hover:text-ocobo-dark transition-colors" size={24} />
@@ -563,9 +563,9 @@ const Services: React.FC = () => {
 
                   {/* Levier 2: Technologie */}
                   <Link to="/technology" className="group flex flex-col h-full">
-                      <div className="relative p-10 bg-gray-50 rounded-[2.5rem] border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
+                      <div className="relative p-10 bg-gray-50 rounded-sm border border-gray-100 flex-grow transition-all duration-500 hover:shadow-lg hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
                           <div className="mb-12 flex justify-between items-center">
-                              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-ocobo-sky shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
+                              <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center text-ocobo-sky shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
                                   <Cpu size={28} />
                               </div>
                               <ArrowRight className="text-gray-200 group-hover:text-ocobo-dark transition-colors" size={24} />
@@ -593,9 +593,9 @@ const Services: React.FC = () => {
 
                   {/* Levier 3: Équipe */}
                   <Link to="/studio" className="group flex flex-col h-full">
-                      <div className="relative p-10 bg-gray-50 rounded-[2.5rem] border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
+                      <div className="relative p-10 bg-gray-50 rounded-sm border border-gray-100 flex-grow transition-all duration-500 hover:shadow-lg hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
                           <div className="mb-12 flex justify-between items-center">
-                              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-ocobo-mint shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
+                              <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center text-ocobo-mint shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
                                   <Users size={28} />
                               </div>
                               <ArrowRight className="text-gray-200 group-hover:text-ocobo-dark transition-colors" size={24} />
@@ -666,7 +666,7 @@ const Services: React.FC = () => {
                       { title: "Intégrer l'IA", color: "purple-500", icon: <Cpu size={24} />, items: ["Agents IA prospection", "Automatisation CRM after-call", "Scoring prédictif"] },
                       { title: "Former & Itérer", color: "dark", icon: <GraduationCap size={24} />, items: ["Pipeline review, roleplay", "Playbooks et templates", "Roadmap d’itération"] }
                   ].map((block, idx) => (
-                    <div key={idx} className={`bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl group`}>
+                    <div key={idx} className={`bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-sm group`}>
                       <div className={`w-12 h-12 mb-6 rounded-lg flex items-center justify-center ${block.color === 'dark' ? 'bg-gray-100 text-ocobo-dark' : block.color === 'purple-500' ? 'bg-purple-50 text-purple-500' : `bg-ocobo-${block.color}Light text-ocobo-${block.color}`}`}>
                           {block.icon}
                       </div>
@@ -729,7 +729,7 @@ const Services: React.FC = () => {
 
               <div className="flex justify-center">
                 <Link to="/contact">
-                    <Button variant="primary" className="px-12 py-5 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 bg-ocobo-dark text-white border-none">
+                    <Button variant="primary" className="px-12 py-5 text-lg shadow-xl hover:shadow-lg hover:-translate-y-1 bg-ocobo-dark text-white border-none">
                         Prendre RDV
                     </Button>
                 </Link>

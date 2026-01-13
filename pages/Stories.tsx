@@ -76,7 +76,7 @@ const StoriesIllustration = () => {
 
         {/* SATELLITE 1: ROI CARD (Coral) */}
         <foreignObject x="420" y="80" width="160" height="100" className="animate-float-gentle">
-            <div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-[8px_8px_0px_0px_rgba(254,156,135,1)]">
+            <div className="bg-white border-2 border-ocobo-dark p-4 rounded-md shadow-lg">
                 <div className="flex items-center gap-2 mb-2">
                     <TrendingUp size={14} className="text-ocobo-coral" />
                     <span className="text-[9px] font-black uppercase tracking-widest text-ocobo-dark opacity-40">Impact</span>
@@ -88,7 +88,7 @@ const StoriesIllustration = () => {
 
         {/* SATELLITE 2: AUTOMATION CARD (Sky) */}
         <foreignObject x="40" y="320" width="160" height="100" className="animate-float-gentle" style={{ animationDelay: '1.2s' }}>
-            <div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-[8px_8px_0px_0px_rgba(153,209,223,1)]">
+            <div className="bg-white border-2 border-ocobo-dark p-4 rounded-md shadow-lg">
                 <div className="flex items-center gap-2 mb-2">
                     <Zap size={14} className="text-ocobo-sky" />
                     <span className="text-[9px] font-black uppercase tracking-widest text-ocobo-dark opacity-40">Process</span>
@@ -100,7 +100,7 @@ const StoriesIllustration = () => {
 
         {/* SATELLITE 3: DATA CARD (Yellow) */}
         <foreignObject x="350" y="440" width="160" height="100" className="animate-float-gentle" style={{ animationDelay: '2.5s' }}>
-            <div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-[8px_8px_0px_0px_rgba(241,207,37,1)]">
+            <div className="bg-white border-2 border-ocobo-dark p-4 rounded-md shadow-lg">
                 <div className="flex items-center gap-2 mb-2">
                     <BarChart3 size={14} className="text-ocobo-yellow" />
                     <span className="text-[9px] font-black uppercase tracking-widest text-ocobo-dark opacity-40">Data</span>
@@ -112,7 +112,7 @@ const StoriesIllustration = () => {
 
         {/* SATELLITE 4: USER EXPERIENCE (Mint) */}
         <foreignObject x="50" y="60" width="160" height="100" className="animate-float-gentle" style={{ animationDelay: '0.6s' }}>
-            <div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-[8px_8px_0px_0px_rgba(154,219,186,1)]">
+            <div className="bg-white border-2 border-ocobo-dark p-4 rounded-md shadow-lg">
                 <div className="flex items-center gap-2 mb-2">
                     <Smile size={14} className="text-ocobo-mint" />
                     <span className="text-[9px] font-black uppercase tracking-widest text-ocobo-dark opacity-40">User Experience</span>
@@ -501,12 +501,12 @@ const Stories: React.FC = () => {
                 <Link 
                     key={item.id} 
                     to={`/stories/${item.id}`} 
-                    className={`group relative flex flex-col bg-white border border-gray-100 rounded-[2.5rem] p-6 transition-all duration-500 hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] hover:-translate-y-2 overflow-hidden h-full ${animate ? 'animate-fade-in-up' : ''}`}
+                    className={`group relative flex flex-col bg-white border border-gray-100 rounded-md p-6 transition-all duration-500 hover:shadow-hero hover:-translate-y-2 overflow-hidden h-full ${animate ? 'animate-fade-in-up' : ''}`}
                     style={{ animationDelay: `${idx * 0.05}s` }}
                 >
                     <div className={`absolute top-0 right-0 w-32 h-32 bg-ocobo-${item.color.split('-')[1]} opacity-0 group-hover:opacity-5 blur-3xl transition-opacity`}></div>
 
-                    <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-gray-50 mb-8">
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-md bg-gray-50 mb-8">
                         <img 
                             src={item.image} 
                             alt={item.company}
@@ -535,7 +535,7 @@ const Stories: React.FC = () => {
 
                         <div className="mt-auto space-y-4">
                             {/* ROI Section */}
-                            <div className="bg-gray-50 group-hover:bg-white border border-gray-100 p-5 rounded-2xl transition-all">
+                            <div className="bg-gray-50 group-hover:bg-white border border-gray-100 p-5 rounded-md transition-all">
                                 <span className="text-[8px] font-black uppercase tracking-[0.3em] text-gray-400 block mb-1">Impact mesuré</span>
                                 <div className="font-display text-xl font-black text-ocobo-dark flex items-center gap-3">
                                     {item.roi}
@@ -574,7 +574,7 @@ const Stories: React.FC = () => {
               </h2>
               <div className="flex justify-center">
                   <Link to="/contact">
-                      <Button variant="primary" className="px-14 py-6 text-lg shadow-[0_20px_50px_-10px_rgba(0,0,0,0.2)] bg-ocobo-dark text-white border-none hover:bg-black">
+                      <Button variant="primary" className="px-14 py-6 text-lg shadow-hero bg-ocobo-dark text-white border-none hover:bg-black">
                           Discutons de votre architecture
                       </Button>
                   </Link>

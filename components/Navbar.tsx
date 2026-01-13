@@ -179,7 +179,7 @@ const Navbar: React.FC = () => {
     const isExternal = subItem.path.startsWith('http');
     const content = (
       <>
-        <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-all group-hover/item:scale-105 ${getIconThemeClasses(subItem.color)}`}>
+        <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all group-hover/item:scale-105 ${getIconThemeClasses(subItem.color)}`}>
           {subItem.icon}
         </div>
         <div className="transition-transform group-hover/item:translate-x-1">
@@ -193,7 +193,7 @@ const Navbar: React.FC = () => {
       </>
     );
 
-    const className = `flex items-start gap-4 p-4 rounded-2xl transition-all group/item ${getSubMenuHoverClasses(subItem.color)}`;
+    const className = `flex items-start gap-4 p-4 rounded-md transition-all group/item ${getSubMenuHoverClasses(subItem.color)}`;
 
     if (isExternal) {
       return (
@@ -229,7 +229,7 @@ const Navbar: React.FC = () => {
           className={`
             relative w-full max-w-7xl transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-auto
             ${scrolled 
-              ? 'bg-white/80 backdrop-blur-lg border border-gray-100 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.12)] rounded-[2rem] py-2 px-3 md:px-6 lg:max-w-5xl' 
+              ? 'bg-white/80 backdrop-blur-lg border border-gray-100 shadow-lg rounded-full py-2 px-3 md:px-6 lg:max-w-5xl' 
               : 'bg-white/0 border-transparent py-4 px-0'
             }
             ${isOpen ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}
@@ -279,7 +279,7 @@ const Navbar: React.FC = () => {
                             ${isDropdownActive ? 'opacity-100 scale-100 translate-y-0 visible' : 'opacity-0 scale-95 -translate-y-4 invisible pointer-events-none'}
                         `}
                       >
-                        <div className="bg-white rounded-[2rem] p-2 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] border border-gray-50 overflow-hidden">
+                        <div className="bg-white rounded-lg p-2 shadow-lg border border-gray-50 overflow-hidden">
                           {item.dropdown.map((subItem, idx) => renderDropdownItem(subItem, idx))}
                         </div>
                       </div>
@@ -348,7 +348,7 @@ const Navbar: React.FC = () => {
                                         const isExternal = sub.path.startsWith('http');
                                         const mobileLinkContent = (
                                           <>
-                                              <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border border-gray-50 ${getIconThemeClasses(sub.color)}`}>
+                                              <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 border border-gray-50 ${getIconThemeClasses(sub.color)}`}>
                                                   {React.cloneElement(sub.icon as any, { size: 18 })}
                                               </div>
                                               <div>

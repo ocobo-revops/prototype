@@ -46,6 +46,19 @@ export default {
           white: '#FFFFFF',
           black: '#000000'
         }
+      },
+      borderRadius: {
+        sm: '0.5rem',   // 8px - Badges, small inputs
+        md: '1rem',     // 16px - Standard cards, buttons
+        lg: '1.5rem',   // 24px - Hero cards, sections
+        xl: '2.5rem',   // 40px - Premium cards, modals
+        full: '9999px'  // Pills, avatars
+      },
+      boxShadow: {
+        sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+        md: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+        lg: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
+        hero: '0 40px 100px -20px rgb(0 0 0 / 0.08)'
       }
     }
   },

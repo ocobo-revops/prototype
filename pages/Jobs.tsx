@@ -24,7 +24,7 @@ const VideoStoryCard = ({ episode, title, pitch, consultant, role, quote, icon, 
       </div>
 
       {/* Video Placeholder Card */}
-      <div className="relative aspect-[9/16] w-full rounded-[2rem] overflow-hidden bg-gray-800 border border-white/5 shadow-2xl group-hover:shadow-ocobo-yellow/10 transition-all duration-500">
+      <div className="relative aspect-[9/16] w-full rounded-md overflow-hidden bg-gray-800 border border-white/5 shadow-lg group-hover:shadow-ocobo-yellow/10 transition-all duration-500">
         <img 
           src={videoThumb} 
           className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" 
@@ -32,7 +32,7 @@ const VideoStoryCard = ({ episode, title, pitch, consultant, role, quote, icon, 
         />
         {/* Play Button Overlay */}
         <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 group-hover:scale-110 group-hover:bg-white group-hover:text-ocobo-dark transition-all duration-500 shadow-2xl">
+            <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 group-hover:scale-110 group-hover:bg-white group-hover:text-ocobo-dark transition-all duration-500 shadow-lg">
                 <Play fill="currentColor" size={28} className="ml-1" />
             </div>
         </div>
@@ -217,15 +217,15 @@ const Jobs: React.FC = () => {
              <div className="lg:w-1/2 relative mt-12 lg:mt-0">
                 <div className="grid grid-cols-2 gap-6">
                      <div className="space-y-6 mt-12">
-                         <div className="bg-ocobo-dark text-white p-8 aspect-square flex flex-col justify-between rounded-[2rem] shadow-xl">
+                         <div className="bg-ocobo-dark text-white p-8 aspect-square flex flex-col justify-between rounded-lg shadow-lg">
                              <Lightbulb size={32} className="text-ocobo-yellow" />
                              <span className="font-display font-bold text-xl">Intelligence Collective</span>
                          </div>
-                         <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80" className="w-full aspect-square object-cover rounded-[2rem] grayscale" />
+                         <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80" className="w-full aspect-square object-cover rounded-lg grayscale" />
                      </div>
                      <div className="space-y-6">
-                         <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=400&q=80" className="w-full aspect-square object-cover rounded-[2rem] grayscale" />
-                         <div className="bg-ocobo-yellow p-8 aspect-square flex flex-col justify-between rounded-[2rem] shadow-xl">
+                         <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=400&q=80" className="w-full aspect-square object-cover rounded-lg grayscale" />
+                         <div className="bg-ocobo-yellow p-8 aspect-square flex flex-col justify-between rounded-lg shadow-lg">
                              <span className="font-display font-bold text-4xl text-ocobo-dark">100%<br/>Impact</span>
                          </div>
                      </div>
@@ -273,7 +273,7 @@ const Jobs: React.FC = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {values.map((val, idx) => (
-                  <div key={idx} className={`p-10 rounded-[2.5rem] border ${val.border} ${val.bg} flex flex-col gap-6 hover:shadow-xl transition-all duration-500 group`}>
+                  <div key={idx} className={`p-10 rounded-xl border ${val.border} ${val.bg} flex flex-col gap-6 hover:shadow-xl transition-all duration-500 group`}>
                       <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-black/5 group-hover:scale-110 transition-transform duration-500">
                           {val.icon}
                       </div>
@@ -298,7 +298,7 @@ const Jobs: React.FC = () => {
          <div className="flex flex-col gap-6">
              {jobs.map((job) => (
                  <Link key={job.id} to={`/jobs/${job.id}`} className="group">
-                     <div className={`flex flex-col md:flex-row justify-between items-center p-8 md:p-12 rounded-[2.5rem] border border-gray-100 bg-white hover:bg-white hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] transition-all duration-500 relative overflow-hidden`}>
+                     <div className={`flex flex-col md:flex-row justify-between items-center p-8 md:p-12 rounded-xl border border-gray-100 bg-white hover:bg-white hover:shadow-hero transition-all duration-500 relative overflow-hidden`}>
                          {/* Hover Highlight Bar */}
                          <div className={`absolute top-0 left-0 w-1.5 h-full transition-all duration-500 opacity-0 group-hover:opacity-100 ${job.theme.split(' ')[1].replace('border-', 'bg-')}`}></div>
 
@@ -327,7 +327,7 @@ const Jobs: React.FC = () => {
 
       {/* 5. Processus de recrutement */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-40">
-          <div className="border-[1.5px] border-gray-100 rounded-[4rem] p-8 md:p-24 bg-gray-50/30 relative overflow-hidden">
+          <div className="border-[1.5px] border-gray-100 rounded-xl p-8 md:p-24 bg-gray-50/30 relative overflow-hidden">
             
             <div className="text-center mb-32 relative z-10">
                 <span className="font-display font-black text-ocobo-sky bg-ocobo-sky/10 px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-sky/20 rounded-full">
@@ -403,17 +403,17 @@ const Jobs: React.FC = () => {
               </div>
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 h-[500px]">
-                   <div className="col-span-2 row-span-2 relative overflow-hidden group rounded-[3rem]">
+                   <div className="col-span-2 row-span-2 relative overflow-hidden group rounded-xl">
                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale" />
                        <div className="absolute inset-0 bg-ocobo-dark/10 group-hover:bg-transparent transition-colors"></div>
                    </div>
-                   <div className="relative overflow-hidden group rounded-[2rem]">
+                   <div className="relative overflow-hidden group rounded-lg">
                         <img src="https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=400&q=80" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale" />
                    </div>
-                   <div className="relative overflow-hidden group rounded-[2rem]">
+                   <div className="relative overflow-hidden group rounded-lg">
                         <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=400&q=80" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale" />
                    </div>
-                   <div className="col-span-2 bg-ocobo-yellow p-12 flex flex-col justify-center items-start rounded-[3rem] shadow-xl">
+                   <div className="col-span-2 bg-ocobo-yellow p-12 flex flex-col justify-center items-start rounded-xl shadow-lg">
                         <span className="font-display font-black text-3xl text-ocobo-dark mb-6 tracking-tight leading-tight">Venez prendre <br/>un café.</span>
                         <p className="text-lg text-ocobo-dark/80 font-bold leading-relaxed">On adore parler RevOps, même si vous ne cherchez pas de job tout de suite.</p>
                    </div>

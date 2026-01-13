@@ -78,7 +78,7 @@ const WebinarDetail: React.FC = () => {
 
         {/* Video Player Section */}
         <div className="mb-20">
-          <div className="relative aspect-video w-full rounded-[2.5rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] bg-ocobo-dark group">
+          <div className="relative aspect-video w-full rounded-xl overflow-hidden shadow-hero bg-ocobo-dark group">
             <iframe 
               src={`https://www.youtube.com/embed/${webinar.youtubeId}?autoplay=0&rel=0&modestbranding=1`}
               title={webinar.title}
@@ -101,7 +101,7 @@ const WebinarDetail: React.FC = () => {
                 </p>
             </div>
 
-            <div className="bg-gray-50 p-10 rounded-[3rem] border border-gray-100">
+            <div className="bg-gray-50 p-10 rounded-xl border border-gray-100">
                 <h3 className="font-display text-2xl font-black text-ocobo-dark mb-8">Au programme :</h3>
                 <ul className="space-y-6">
                 {webinar.topics.map((topic: string, idx: number) => (
@@ -119,7 +119,7 @@ const WebinarDetail: React.FC = () => {
           {/* Sidebar CTA */}
           <div className="lg:col-span-4">
             <div className="sticky top-32">
-                <div className="p-10 bg-ocobo-dark rounded-[2.5rem] text-white shadow-2xl relative overflow-hidden">
+                <div className="p-10 bg-ocobo-dark rounded-xl text-white shadow-2xl relative overflow-hidden">
                     {/* Decorative element */}
                     <div className="absolute top-0 right-0 w-24 h-24 bg-ocobo-sky/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                     

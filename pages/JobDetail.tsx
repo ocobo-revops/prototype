@@ -248,7 +248,7 @@ const JobDetail: React.FC = () => {
             </div>
 
             {/* FORMULAIRE CANDIDATURE (Style Newsletter Blog) */}
-            <div id="apply" className="mt-24 bg-ocobo-yellow p-10 md:p-14 rounded-[2.5rem] relative overflow-hidden shadow-2xl scroll-mt-40">
+            <div id="apply" className="mt-24 bg-ocobo-yellow p-10 md:p-14 rounded-xl relative overflow-hidden shadow-lg scroll-mt-40">
                 {/* Motif architectural discret */}
                 <div className="absolute top-0 right-0 p-4 opacity-[0.05]">
                     <FileText size={200} strokeWidth={1} />

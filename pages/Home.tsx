@@ -140,9 +140,9 @@ const ModularStackGrid = () => {
           <div 
             key={i}
             className={`
-              aspect-square rounded-xl md:rounded-2xl border transition-all duration-500 flex items-center justify-center
+              aspect-square rounded-md md:rounded-lg border transition-all duration-500 flex items-center justify-center
               ${item.type === 'logo' 
-                ? 'group bg-white border-gray-100 shadow-[0_8px_20px_-10px_rgba(0,0,0,0.08)] hover:shadow-xl hover:-translate-y-1 hover:border-ocobo-sky/30' 
+                ? 'group bg-white border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-ocobo-sky/30' 
                 : 'bg-gray-50/50 border-dashed border-gray-200 group/empty hover:bg-white hover:border-solid hover:border-ocobo-yellow/40'}
             `}
           >
@@ -241,7 +241,7 @@ const Home: React.FC = () => {
                       <Link to="/contact">
                           <Button 
                             variant="primary" 
-                            className="px-14 py-6 text-sm font-bold uppercase tracking-[0.2em] shadow-xl bg-ocobo-dark hover:bg-black transition-all hover:-translate-y-1"
+                            className="px-14 py-6 text-sm font-bold uppercase tracking-[0.2em] shadow-lg bg-ocobo-dark hover:bg-black transition-all hover:-translate-y-1"
                           >
                             Rencontrer un architecte
                           </Button>
@@ -275,7 +275,7 @@ const Home: React.FC = () => {
                 <ClientMarquee />
             </div>
 
-            <div className="max-w-4xl mx-auto relative py-16 px-8 md:px-16 bg-white/5 rounded-[3rem] border border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm group/card">
+            <div className="max-w-4xl mx-auto relative py-16 px-8 md:px-16 bg-white/5 rounded-xl border border-white/10 shadow-lg overflow-hidden backdrop-blur-sm group/card">
                 {/* Massive Yellow Quote Mark - More visible */}
                 <div className="absolute top-12 left-10 text-ocobo-yellow/40 font-display font-black text-[120px] leading-none select-none pointer-events-none transform -translate-y-1/4">
                     “
@@ -291,7 +291,7 @@ const Home: React.FC = () => {
                   
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
                       <div className="flex items-center gap-6">
-                          <div className="w-14 h-14 bg-ocobo-yellow rounded-2xl flex items-center justify-center text-ocobo-dark font-display font-black text-xl shadow-xl transform rotate-3 group-hover/card:rotate-0 transition-transform duration-500">
+                          <div className="w-14 h-14 bg-ocobo-yellow rounded-lg flex items-center justify-center text-ocobo-dark font-display font-black text-xl shadow-lg transform rotate-3 group-hover/card:rotate-0 transition-transform duration-500">
                               AM
                           </div>
                           <div className="flex flex-col">
@@ -326,7 +326,7 @@ const Home: React.FC = () => {
                     Résultat : une cacophonie, des stacks qui débordent et des organisations qui avancent à tâtons.
                 </p>
             </div>
-            <div className="inline-flex items-center gap-3 px-8 py-3 bg-ocobo-dark text-white font-display font-black uppercase tracking-[0.2em] text-sm rounded-full transform hover:scale-105 transition-transform cursor-default shadow-xl">
+            <div className="inline-flex items-center gap-3 px-8 py-3 bg-ocobo-dark text-white font-display font-black uppercase tracking-[0.2em] text-sm rounded-full transform hover:scale-105 transition-transform cursor-default shadow-lg">
                 Nous refusons ce flou
             </div>
          </div>
@@ -339,8 +339,8 @@ const Home: React.FC = () => {
                     { title: "Fiabiliser", desc: "la donnée", icon: <Target size={28} />, color: "ocobo-sky", lightColor: "ocobo-sky-light" },
                     { title: "Piloter", desc: "la croissance", icon: <BarChart3 size={28} />, color: "ocobo-mint", lightColor: "ocobo-mint-light" }
                 ].map((item, i) => (
-                    <div key={i} className="group relative bg-white border border-gray-100 p-12 aspect-square rounded-2xl transition-all duration-500 hover:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-2 flex flex-col items-center justify-center text-center">
-                        <div className={`absolute inset-0 bg-${item.lightColor} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity`}></div>
+                    <div key={i} className="group relative bg-white border border-gray-100 p-12 aspect-square rounded-lg transition-all duration-500 hover:shadow-lg hover:-translate-y-2 flex flex-col items-center justify-center text-center">
+                        <div className={`absolute inset-0 bg-${item.lightColor} opacity-0 group-hover:opacity-10 rounded-lg transition-opacity`}></div>
                         
                         <div className={`mb-8 text-${item.color} transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}>
                             {item.icon}
@@ -412,7 +412,7 @@ const Home: React.FC = () => {
                           </li>
                       </ul>
                   </div>
-                  <div className="md:w-1/2 bg-white p-10 shadow-xl border border-gray-100 rounded-none relative">
+                  <div className="md:w-1/2 bg-white p-10 shadow-lg border border-gray-100 rounded-none relative">
                       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-ocobo-yellow via-ocobo-coral to-ocobo-sky"></div>
                       <h3 className="font-display text-2xl font-bold mb-8 text-center">Ce n’est pas un hasard.<br/>C’est une méthode.</h3>
                       <div className="space-y-4">
@@ -525,7 +525,7 @@ const Home: React.FC = () => {
 
               <div className="flex justify-center mt-16">
                   <Link to="/studio">
-                      <Button variant="white" className="px-10 py-4 font-bold border-none shadow-xl hover:shadow-2xl">
+                      <Button variant="white" className="px-10 py-4 font-bold border-none shadow-lg hover:shadow-2xl">
                           Découvrez le RevOps Studio
                       </Button>
                   </Link>
@@ -564,7 +564,7 @@ const Home: React.FC = () => {
               </p>
               <div className="flex justify-center">
                   <Link to="/contact">
-                      <Button variant="primary" className="px-12 py-5 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1">Prendre RDV</Button>
+                      <Button variant="primary" className="px-12 py-5 text-lg shadow-lg hover:shadow-2xl hover:-translate-y-1">Prendre RDV</Button>
                   </Link>
               </div>
           </div>
