@@ -32,7 +32,7 @@ const VideoStoryCard = ({ episode, title, pitch, consultant, role, quote, icon, 
         />
         {/* Play Button Overlay */}
         <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 group-hover:scale-110 group-hover:bg-white group-hover:text-ocobo-dark transition-all duration-500 shadow-lg">
+            <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 group-hover:scale-110 group-hover:bg-white group-hover:text-semantic-text transition-all duration-500 shadow-lg">
                 <Play fill="currentColor" size={28} className="ml-1" />
             </div>
         </div>
@@ -93,28 +93,28 @@ const Jobs: React.FC = () => {
       {
           title: "Excellence Senior",
           desc: "Ici, on ne bricole pas. On architecture des systèmes robustes avec l'exigence des meilleurs standards du marché.",
-          icon: <Sparkles className="text-ocobo-yellow" size={24} />,
-          bg: "bg-ocobo-yellow-light",
+          icon: <Sparkles className="text-semantic-primary" size={24} />,
+          bg: "bg-semantic-primary-light",
           border: "border-ocobo-yellow"
       },
       {
           title: "Transparence Radicale",
           desc: "Pas de politique, pas de non-dits. On progresse par le feedback honnête et la remise en question permanente.",
-          icon: <ShieldCheck className="text-ocobo-sky" size={24} />,
+          icon: <ShieldCheck className="text-semantic-info" size={24} />,
           bg: "bg-ocobo-sky-light",
           border: "border-ocobo-sky"
       },
       {
           title: "Impact Mesurable",
           desc: "Chaque sprint, chaque ligne de process, chaque dashboard doit créer de la valeur concrète pour nos clients.",
-          icon: <Zap className="text-ocobo-mint" size={24} />,
+          icon: <Zap className="text-semantic-success" size={24} />,
           bg: "bg-ocobo-mint-light",
           border: "border-ocobo-mint"
       },
       {
           title: "Esprit de Squad",
           desc: "On ne travaille jamais seul. On partage nos blocages, nos victoires et nos apprentissages en temps réel.",
-          icon: <Heart className="text-ocobo-coral" size={24} />,
+          icon: <Heart className="text-semantic-accent" size={24} />,
           bg: "bg-ocobo-coral-light",
           border: "border-ocobo-coral"
       }
@@ -128,7 +128,7 @@ const Jobs: React.FC = () => {
       location: "Paris / Remote",
       exp: "> 7 ans",
       tag: "Senior",
-      theme: "bg-ocobo-yellow-light border-ocobo-yellow"
+      theme: "bg-semantic-primary-light border-ocobo-yellow"
     },
     {
       id: 2,
@@ -196,10 +196,10 @@ const Jobs: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
          <div className="flex flex-col lg:flex-row items-start gap-20">
             <div className="lg:w-1/2">
-                <span className="font-display font-black text-ocobo-dark bg-ocobo-mint-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-mint/20">
+                <span className="font-display font-black text-semantic-text bg-ocobo-mint-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-mint/20">
                     RECRUTEMENT
                 </span>
-                <h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
+                <h1 className="font-display text-5xl md:text-7xl font-bold text-semantic-text mb-10 leading-[0.95] tracking-tight">
                     Rejoignez les<br/>architectes.
                 </h1>
                 <p className="text-xl text-gray-700 mb-8 leading-relaxed font-medium">
@@ -217,16 +217,16 @@ const Jobs: React.FC = () => {
              <div className="lg:w-1/2 relative mt-12 lg:mt-0">
                 <div className="grid grid-cols-2 gap-6">
                      <div className="space-y-6 mt-12">
-                         <div className="bg-ocobo-dark text-white p-8 aspect-square flex flex-col justify-between rounded-lg shadow-lg">
-                             <Lightbulb size={32} className="text-ocobo-yellow" />
+                         <div className="bg-semantic-text text-white p-8 aspect-square flex flex-col justify-between rounded-lg shadow-lg">
+                             <Lightbulb size={32} className="text-semantic-primary" />
                              <span className="font-display font-bold text-xl">Intelligence Collective</span>
                          </div>
                          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80" className="w-full aspect-square object-cover rounded-lg grayscale" />
                      </div>
                      <div className="space-y-6">
                          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=400&q=80" className="w-full aspect-square object-cover rounded-lg grayscale" />
-                         <div className="bg-ocobo-yellow p-8 aspect-square flex flex-col justify-between rounded-lg shadow-lg">
-                             <span className="font-display font-bold text-4xl text-ocobo-dark">100%<br/>Impact</span>
+                         <div className="bg-semantic-primary p-8 aspect-square flex flex-col justify-between rounded-lg shadow-lg">
+                             <span className="font-display font-bold text-4xl text-semantic-text">100%<br/>Impact</span>
                          </div>
                      </div>
                 </div>
@@ -235,7 +235,7 @@ const Jobs: React.FC = () => {
       </section>
 
       {/* 2. OCOBO STORIES (DARK MODE) */}
-      <section className="bg-ocobo-dark py-32 mb-24 relative overflow-hidden">
+      <section className="bg-semantic-text py-32 mb-24 relative overflow-hidden">
         {/* Subtle Background Pattern */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
              style={{ backgroundImage: 'radial-gradient(white 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
@@ -243,7 +243,7 @@ const Jobs: React.FC = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mb-20">
-            <span className="font-display font-black text-ocobo-yellow bg-ocobo-yellow/10 px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20 rounded-full">
+            <span className="font-display font-black text-semantic-primary bg-semantic-primary-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20 rounded-full">
                 SÉRIE ORIGINALE
             </span>
             <h2 className="font-display text-4xl md:text-6xl font-black text-white mb-8 tracking-tight">
@@ -265,10 +265,10 @@ const Jobs: React.FC = () => {
       {/* 3. NOS VALEURS / CULTURE (REINTEGRATED) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 mb-16">
           <div className="text-center mb-20">
-              <span className="font-display font-black text-ocobo-coral bg-ocobo-coral-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-coral/20 rounded-full">
+              <span className="font-display font-black text-semantic-accent bg-ocobo-coral-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-coral/20 rounded-full">
                   NOTRE ADN
               </span>
-              <h2 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark tracking-tight">Ce qui définit notre culture</h2>
+              <h2 className="font-display text-4xl md:text-6xl font-black text-semantic-text tracking-tight">Ce qui définit notre culture</h2>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -277,7 +277,7 @@ const Jobs: React.FC = () => {
                       <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-black/5 group-hover:scale-110 transition-transform duration-500">
                           {val.icon}
                       </div>
-                      <h3 className="font-display text-2xl font-bold text-ocobo-dark leading-tight">{val.title}</h3>
+                      <h3 className="font-display text-2xl font-bold text-semantic-text leading-tight">{val.title}</h3>
                       <p className="text-gray-600 text-sm font-medium leading-relaxed">{val.desc}</p>
                   </div>
               ))}
@@ -288,7 +288,7 @@ const Jobs: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-40">
          <div className="flex justify-between items-end mb-16">
             <div>
-                <h2 className="font-display text-4xl md:text-5xl font-black text-ocobo-dark tracking-tight">Postes ouverts</h2>
+                <h2 className="font-display text-4xl md:text-5xl font-black text-semantic-text tracking-tight">Postes ouverts</h2>
                 <p className="text-gray-500 font-medium mt-4">Nous recherchons des architectes passionnés par la donnée et les systèmes.</p>
             </div>
             <div className="hidden md:block">
@@ -304,17 +304,17 @@ const Jobs: React.FC = () => {
 
                          <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-16 w-full">
                              <div className="md:w-5/12">
-                                 <h3 className="font-display text-2xl md:text-3xl font-bold text-ocobo-dark group-hover:text-black transition-colors">{job.title}</h3>
+                                 <h3 className="font-display text-2xl md:text-3xl font-bold text-semantic-text group-hover:text-black transition-colors">{job.title}</h3>
                              </div>
                              
                              <div className="flex flex-wrap gap-6 text-sm font-bold text-gray-500 uppercase tracking-widest md:w-4/12">
-                                 <span className="flex items-center gap-2"><MapPin size={16} className="text-ocobo-coral" /> {job.location}</span>
+                                 <span className="flex items-center gap-2"><MapPin size={16} className="text-semantic-accent" /> {job.location}</span>
                                  <span className="flex items-center gap-2 px-3 py-1 bg-gray-50 rounded-lg">{job.type}</span>
                              </div>
 
                              <div className="md:w-3/12 flex justify-end items-center gap-6">
                                  <span className="text-xs font-black text-gray-400 uppercase tracking-widest">Exp : {job.exp}</span>
-                                 <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center text-gray-300 group-hover:bg-ocobo-dark group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-xl group-hover:-rotate-12">
+                                 <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center text-gray-300 group-hover:bg-semantic-text group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-xl group-hover:-rotate-12">
                                      <ArrowRight size={24} />
                                  </div>
                              </div>
@@ -330,10 +330,10 @@ const Jobs: React.FC = () => {
           <div className="border-[1.5px] border-gray-100 rounded-xl p-8 md:p-24 bg-gray-50/30 relative overflow-hidden">
             
             <div className="text-center mb-32 relative z-10">
-                <span className="font-display font-black text-ocobo-sky bg-ocobo-sky/10 px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-sky/20 rounded-full">
+                <span className="font-display font-black text-semantic-info bg-ocobo-sky-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-sky/20 rounded-full">
                     TRANSPARENCE
                 </span>
-                <h2 className="font-display text-4xl md:text-6xl font-black mb-6 text-ocobo-dark tracking-tight">Processus de recrutement</h2>
+                <h2 className="font-display text-4xl md:text-6xl font-black mb-6 text-semantic-text tracking-tight">Processus de recrutement</h2>
                 <p className="text-gray-500 text-xl font-medium">Simple, rigoureux et bienveillant.</p>
             </div>
             
@@ -359,7 +359,7 @@ const Jobs: React.FC = () => {
                                         
                                         {/* Icon Box */}
                                         <div className={`
-                                            w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-ocobo-dark shrink-0 shadow-lg border border-gray-100
+                                            w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-semantic-text shrink-0 shadow-lg border border-gray-100
                                             ${isEven ? 'md:order-2' : 'md:order-1'}
                                             order-1 transform transition-transform group-hover:scale-110
                                         `}>
@@ -371,8 +371,8 @@ const Jobs: React.FC = () => {
                                             ${isEven ? 'md:order-1' : 'md:order-2'}
                                             order-2
                                         `}>
-                                            <h3 className="font-display text-2xl font-bold text-ocobo-dark mb-2 tracking-tight">{step.title}</h3>
-                                            <p className="text-micro font-black text-ocobo-coral mb-3 uppercase tracking-[0.2em]">{step.duration}</p>
+                                            <h3 className="font-display text-2xl font-bold text-semantic-text mb-2 tracking-tight">{step.title}</h3>
+                                            <p className="text-micro font-black text-semantic-accent mb-3 uppercase tracking-[0.2em]">{step.duration}</p>
                                             <p className="text-base text-gray-500 leading-relaxed max-w-sm font-medium">{step.desc}</p>
                                         </div>
 
@@ -397,7 +397,7 @@ const Jobs: React.FC = () => {
                       <h2 className="font-display text-4xl font-black mb-2 tracking-tight">Nos bureaux</h2>
                       <p className="text-gray-500 font-medium text-lg italic">9ème arrondissement, Paris.</p>
                   </div>
-                  <a href="https://maps.google.com" target="_blank" className="inline-flex items-center gap-3 text-sm font-black uppercase tracking-widest text-ocobo-dark border-b-2 border-ocobo-yellow pb-1 hover:text-ocobo-coral hover:border-ocobo-coral transition-all">
+                  <a href="https://maps.google.com" target="_blank" className="inline-flex items-center gap-3 text-sm font-black uppercase tracking-widest text-semantic-text border-b-2 border-ocobo-yellow pb-1 hover:text-semantic-accent hover:border-ocobo-coral transition-all">
                     Voir sur Maps <ArrowRight size={14} />
                   </a>
               </div>
@@ -405,7 +405,7 @@ const Jobs: React.FC = () => {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 h-[500px]">
                    <div className="col-span-2 row-span-2 relative overflow-hidden group rounded-xl">
                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale" />
-                       <div className="absolute inset-0 bg-ocobo-dark/10 group-hover:bg-transparent transition-colors"></div>
+                       <div className="absolute inset-0 bg-semantic-text/10 group-hover:bg-transparent transition-colors"></div>
                    </div>
                    <div className="relative overflow-hidden group rounded-lg">
                         <img src="https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=400&q=80" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale" />
@@ -413,9 +413,9 @@ const Jobs: React.FC = () => {
                    <div className="relative overflow-hidden group rounded-lg">
                         <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=400&q=80" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale" />
                    </div>
-                   <div className="col-span-2 bg-ocobo-yellow p-12 flex flex-col justify-center items-start rounded-xl shadow-lg">
-                        <span className="font-display font-black text-3xl text-ocobo-dark mb-6 tracking-tight leading-tight">Venez prendre <br/>un café.</span>
-                        <p className="text-lg text-ocobo-dark/80 font-bold leading-relaxed">On adore parler RevOps, même si vous ne cherchez pas de job tout de suite.</p>
+                   <div className="col-span-2 bg-semantic-primary p-12 flex flex-col justify-center items-start rounded-xl shadow-lg">
+                        <span className="font-display font-black text-3xl text-semantic-text mb-6 tracking-tight leading-tight">Venez prendre <br/>un café.</span>
+                        <p className="text-lg text-semantic-text/80 font-bold leading-relaxed">On adore parler RevOps, même si vous ne cherchez pas de job tout de suite.</p>
                    </div>
               </div>
           </div>

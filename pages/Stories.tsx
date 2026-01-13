@@ -60,7 +60,7 @@ const StoriesIllustration = () => {
             
             {/* Core Box */}
             <rect x="-45" y="-45" width="90" height="90" rx="20" fill="#212323" className="shadow-2xl" />
-            <Star x="-20" y="-20" size={40} fill="#9ADBBA" className="text-ocobo-mint" />
+            <Star x="-20" y="-20" size={40} fill="#9ADBBA" className="text-semantic-success" />
             
             {/* Decorative dots around core */}
             {[0, 60, 120, 180, 240, 300].map((angle, i) => (
@@ -78,10 +78,10 @@ const StoriesIllustration = () => {
         <foreignObject x="420" y="80" width="160" height="100" className="animate-float-gentle">
             <div className="bg-white border-2 border-ocobo-dark p-4 rounded-md shadow-lg">
                 <div className="flex items-center gap-2 mb-2">
-                    <TrendingUp size={14} className="text-ocobo-coral" />
-                    <span className="text-micro font-black uppercase tracking-widest text-ocobo-dark opacity-40">Impact</span>
+                    <TrendingUp size={14} className="text-semantic-accent" />
+                    <span className="text-micro font-black uppercase tracking-widest text-semantic-text opacity-40">Impact</span>
                 </div>
-                <div className="text-2xl font-display font-black text-ocobo-dark leading-none">+50%</div>
+                <div className="text-2xl font-display font-black text-semantic-text leading-none">+50%</div>
                 <div className="text-micro font-bold text-gray-400 mt-1 uppercase">Efficacité GTM</div>
             </div>
         </foreignObject>
@@ -90,10 +90,10 @@ const StoriesIllustration = () => {
         <foreignObject x="40" y="320" width="160" height="100" className="animate-float-gentle" style={{ animationDelay: '1.2s' }}>
             <div className="bg-white border-2 border-ocobo-dark p-4 rounded-md shadow-lg">
                 <div className="flex items-center gap-2 mb-2">
-                    <Zap size={14} className="text-ocobo-sky" />
-                    <span className="text-micro font-black uppercase tracking-widest text-ocobo-dark opacity-40">Process</span>
+                    <Zap size={14} className="text-semantic-info" />
+                    <span className="text-micro font-black uppercase tracking-widest text-semantic-text opacity-40">Process</span>
                 </div>
-                <div className="text-2xl font-display font-black text-ocobo-dark leading-none">100%</div>
+                <div className="text-2xl font-display font-black text-semantic-text leading-none">100%</div>
                 <div className="text-micro font-bold text-gray-400 mt-1 uppercase">Automatisé</div>
             </div>
         </foreignObject>
@@ -102,10 +102,10 @@ const StoriesIllustration = () => {
         <foreignObject x="350" y="440" width="160" height="100" className="animate-float-gentle" style={{ animationDelay: '2.5s' }}>
             <div className="bg-white border-2 border-ocobo-dark p-4 rounded-md shadow-lg">
                 <div className="flex items-center gap-2 mb-2">
-                    <BarChart3 size={14} className="text-ocobo-yellow" />
-                    <span className="text-micro font-black uppercase tracking-widest text-ocobo-dark opacity-40">Data</span>
+                    <BarChart3 size={14} className="text-semantic-primary" />
+                    <span className="text-micro font-black uppercase tracking-widest text-semantic-text opacity-40">Data</span>
                 </div>
-                <div className="text-2xl font-display font-black text-ocobo-dark leading-none">Clean</div>
+                <div className="text-2xl font-display font-black text-semantic-text leading-none">Clean</div>
                 <div className="text-micro font-bold text-gray-400 mt-1 uppercase">Donnée fiable</div>
             </div>
         </foreignObject>
@@ -114,12 +114,12 @@ const StoriesIllustration = () => {
         <foreignObject x="50" y="60" width="160" height="100" className="animate-float-gentle" style={{ animationDelay: '0.6s' }}>
             <div className="bg-white border-2 border-ocobo-dark p-4 rounded-md shadow-lg">
                 <div className="flex items-center gap-2 mb-2">
-                    <Smile size={14} className="text-ocobo-mint" />
-                    <span className="text-micro font-black uppercase tracking-widest text-ocobo-dark opacity-40">User Experience</span>
+                    <Smile size={14} className="text-semantic-success" />
+                    <span className="text-micro font-black uppercase tracking-widest text-semantic-text opacity-40">User Experience</span>
                 </div>
                 <div className="flex items-center gap-3">
-                    <div className="text-2xl font-display font-black text-ocobo-dark leading-none">Fluidité</div>
-                    <svg width="24" height="24" viewBox="0 0 84 84" fill="none" className="text-ocobo-mint">
+                    <div className="text-2xl font-display font-black text-semantic-text leading-none">Fluidité</div>
+                    <svg width="24" height="24" viewBox="0 0 84 84" fill="none" className="text-semantic-success">
                         <circle cx="42" cy="42" r="38" stroke="currentColor" strokeWidth="6" />
                         <ellipse cx="32" cy="36" rx="4.5" ry="8" fill="currentColor" />
                         <ellipse cx="52" cy="36" rx="4.5" ry="8" fill="currentColor" />
@@ -157,7 +157,7 @@ const ClientMarquee = () => {
             <div className="flex animate-marquee-ultra-slow whitespace-nowrap">
                 {extendedClients.map((client, idx) => (
                     <div key={idx} className="flex items-center justify-center px-10 md:px-14">
-                        <span className="font-display font-black text-white/30 text-base md:text-xl tracking-[0.25em] uppercase hover:text-ocobo-yellow transition-colors cursor-default select-none">
+                        <span className="font-display font-black text-white/30 text-base md:text-xl tracking-[0.25em] uppercase hover:text-semantic-primary transition-colors cursor-default select-none">
                             {client}
                         </span>
                     </div>
@@ -448,10 +448,10 @@ const Stories: React.FC = () => {
       <section className="pt-40 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-20">
           <div className="lg:w-1/2">
-            <span className="font-display font-black text-ocobo-dark bg-ocobo-yellow-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
+            <span className="font-display font-black text-semantic-text bg-ocobo-yellow-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
                 SUCCESS STORIES
             </span>
-            <h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
+            <h1 className="font-display text-5xl md:text-7xl font-bold text-semantic-text mb-10 leading-[0.95] tracking-tight">
               Ils ont choisi<br/>l’architecture.
             </h1>
             <p className="text-xl text-gray-700 leading-relaxed font-medium max-w-md">
@@ -465,7 +465,7 @@ const Stories: React.FC = () => {
       </section>
 
       {/* Black Marquee Banner */}
-      <section className="bg-ocobo-dark overflow-hidden border-y border-white/5">
+      <section className="bg-semantic-text overflow-hidden border-y border-white/5">
         <ClientMarquee />
       </section>
 
@@ -483,8 +483,8 @@ const Stories: React.FC = () => {
                         onClick={() => setActiveFilter(cat)}
                         className={`px-8 py-2.5 rounded-full text-micro font-black uppercase tracking-[0.2em] transition-all duration-300 ${
                             activeFilter === cat 
-                            ? 'bg-ocobo-dark text-white shadow-xl scale-105' 
-                            : 'bg-gray-50 text-gray-400 hover:bg-gray-100 hover:text-ocobo-dark'
+                            ? 'bg-semantic-text text-white shadow-xl scale-105' 
+                            : 'bg-gray-50 text-gray-400 hover:bg-gray-100 hover:text-semantic-text'
                         }`}
                      >
                         {cat}
@@ -512,7 +512,7 @@ const Stories: React.FC = () => {
                             alt={item.company}
                             className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                         />
-                        <div className="absolute bottom-4 right-4 bg-ocobo-dark p-3 rounded-xl shadow-2xl opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+                        <div className="absolute bottom-4 right-4 bg-semantic-text p-3 rounded-xl shadow-2xl opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
                             <img src={item.logo} alt={item.company} className="h-4 w-auto object-contain" />
                         </div>
                     </div>
@@ -521,15 +521,15 @@ const Stories: React.FC = () => {
                     <div className="flex items-center gap-2 mb-4">
                         <span className="text-micro font-black uppercase tracking-[0.2em] text-gray-400">{item.segment}</span>
                         <span className="w-1 h-1 bg-gray-200 rounded-full"></span>
-                        <span className="text-micro font-black uppercase tracking-[0.2em] text-ocobo-dark">{item.company}</span>
+                        <span className="text-micro font-black uppercase tracking-[0.2em] text-semantic-text">{item.company}</span>
                     </div>
 
-                        <h3 className="font-display text-2xl font-bold text-ocobo-dark leading-tight mb-2 tracking-tight group-hover:text-black transition-colors">
+                        <h3 className="font-display text-2xl font-bold text-semantic-text leading-tight mb-2 tracking-tight group-hover:text-black transition-colors">
                             {item.headline}
                         </h3>
 
                     <div className="mb-6">
-                        <span className="text-micro font-black uppercase tracking-widest text-ocobo-dark opacity-60 block">{item.name}</span>
+                        <span className="text-micro font-black uppercase tracking-widest text-semantic-text opacity-60 block">{item.name}</span>
                         <span className="text-micro font-medium text-gray-400">{item.role}</span>
                     </div>
 
@@ -537,9 +537,9 @@ const Stories: React.FC = () => {
                             {/* ROI Section */}
                         <div className="bg-gray-50 group-hover:bg-white border border-gray-100 p-5 rounded-md transition-all">
                             <span className="text-micro font-black uppercase tracking-[0.3em] text-gray-400 block mb-1">Impact mesuré</span>
-                            <div className="font-display text-xl font-black text-ocobo-dark flex items-center gap-3">
+                            <div className="font-display text-xl font-black text-semantic-text flex items-center gap-3">
                                 {item.roi}
-                                <ArrowRight size={18} className="text-gray-300 group-hover:text-ocobo-dark group-hover:translate-x-1 transition-all" />
+                                <ArrowRight size={18} className="text-gray-300 group-hover:text-semantic-text group-hover:translate-x-1 transition-all" />
                             </div>
                         </div>
 
@@ -560,7 +560,7 @@ const Stories: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-ocobo-yellow py-32 text-center relative overflow-hidden">
+      <section className="bg-semantic-primary py-32 text-center relative overflow-hidden">
           <div className="absolute top-1/2 left-10 -translate-y-1/2 opacity-10">
               <Plus size={120} strokeWidth={1} />
           </div>
@@ -569,12 +569,12 @@ const Stories: React.FC = () => {
           </div>
 
           <div className="max-w-4xl mx-auto px-4 relative z-10">
-              <h2 className="font-display text-5xl md:text-7xl font-black text-ocobo-dark mb-10 leading-[0.9] tracking-tighter">
+              <h2 className="font-display text-5xl md:text-7xl font-black text-semantic-text mb-10 leading-[0.9] tracking-tighter">
                 Prêt à devenir la prochaine<br/>success story ?
               </h2>
               <div className="flex justify-center">
                   <Link to="/contact">
-                      <Button variant="primary" className="px-14 py-6 text-lg shadow-hero bg-ocobo-dark text-white border-none hover:bg-black">
+                      <Button variant="primary" className="px-14 py-6 text-lg shadow-hero bg-semantic-text text-white border-none hover:bg-black">
                           Discutons de votre architecture
                       </Button>
                   </Link>

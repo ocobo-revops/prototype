@@ -36,10 +36,10 @@ const Contact: React.FC = () => {
           {/* Left Side: Copy */}
           <div className="lg:w-1/2 pt-10">
             <div className="sticky top-32">
-              <span className="font-display font-bold text-ocobo-coral uppercase tracking-widest text-sm mb-4 block">
+              <span className="font-display font-bold text-semantic-accent uppercase tracking-widest text-sm mb-4 block">
                 Première consultation
               </span>
-              <h1 className="font-display text-5xl md:text-6xl font-bold text-ocobo-dark mb-8 leading-tight">
+              <h1 className="font-display text-5xl md:text-6xl font-bold text-semantic-text mb-8 leading-tight">
                 Parlez à un architecte.<br/>
                 <span className="text-gray-400">Pas à un vendeur.</span>
               </h1>
@@ -50,29 +50,29 @@ const Contact: React.FC = () => {
 
               <div className="space-y-8">
                  <div className="flex gap-6 items-start group">
-                    <div className="w-12 h-12 bg-ocobo-mint-light text-ocobo-mint rounded-sm flex items-center justify-center shrink-0 group-hover:bg-ocobo-mint group-hover:text-white transition-colors duration-300">
+                    <div className="w-12 h-12 bg-ocobo-mint-light text-semantic-success rounded-sm flex items-center justify-center shrink-0 group-hover:bg-ocobo-mint group-hover:text-white transition-colors duration-300">
                         <Check strokeWidth={3} size={20} />
                     </div>
                     <div>
-                        <h3 className="font-display text-lg font-bold text-ocobo-dark">Audit flash</h3>
+                        <h3 className="font-display text-lg font-bold text-semantic-text">Audit flash</h3>
                         <p className="text-sm text-gray-600">Diagnostic rapide de vos processus actuels et de votre stack.</p>
                     </div>
                  </div>
                  <div className="flex gap-6 items-start group">
-                    <div className="w-12 h-12 bg-ocobo-sky-light text-ocobo-sky rounded-sm flex items-center justify-center shrink-0 group-hover:bg-ocobo-sky group-hover:text-white transition-colors duration-300">
+                    <div className="w-12 h-12 bg-ocobo-sky-light text-semantic-info rounded-sm flex items-center justify-center shrink-0 group-hover:bg-ocobo-sky group-hover:text-white transition-colors duration-300">
                         <MessageSquare strokeWidth={3} size={20} />
                     </div>
                     <div>
-                        <h3 className="font-display text-lg font-bold text-ocobo-dark">Clarté radicale</h3>
+                        <h3 className="font-display text-lg font-bold text-semantic-text">Clarté radicale</h3>
                         <p className="text-sm text-gray-600">Recommandations stratégiques immédiates, sans jargon.</p>
                     </div>
                  </div>
                  <div className="flex gap-6 items-start group">
-                    <div className="w-12 h-12 bg-ocobo-yellow-light text-ocobo-yellow rounded-sm flex items-center justify-center shrink-0 group-hover:bg-ocobo-yellow group-hover:text-white transition-colors duration-300">
+                    <div className="w-12 h-12 bg-ocobo-yellow-light text-semantic-primary rounded-sm flex items-center justify-center shrink-0 group-hover:bg-ocobo-yellow group-hover:text-white transition-colors duration-300">
                         <Calendar strokeWidth={3} size={20} />
                     </div>
                     <div>
-                        <h3 className="font-display text-lg font-bold text-ocobo-dark">Zéro engagement</h3>
+                        <h3 className="font-display text-lg font-bold text-semantic-text">Zéro engagement</h3>
                         <p className="text-sm text-gray-600">Un échange entre pairs pour valider la pertinence d'une collaboration.</p>
                     </div>
                  </div>
@@ -85,7 +85,7 @@ const Contact: React.FC = () => {
             <div className="bg-white p-8 md:p-12 shadow-lg border border-gray-100 relative">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-ocobo-yellow via-ocobo-coral to-ocobo-sky"></div>
               
-              <h3 className="font-display text-2xl font-bold mb-8 text-ocobo-dark">
+              <h3 className="font-display text-2xl font-bold mb-8 text-semantic-text">
                   Dites-nous en plus sur vos enjeux
               </h3>
 
@@ -170,7 +170,7 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div className="pt-6">
-                    <Button type="submit" className="w-full py-4 text-base bg-ocobo-dark hover:bg-black text-white shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                    <Button type="submit" className="w-full py-4 text-base bg-semantic-text hover:bg-black text-white shadow-xl hover:shadow-2xl hover:-translate-y-1">
                         Prendre rendez-vous
                     </Button>
                     <p className="text-center text-xs text-gray-400 mt-4">

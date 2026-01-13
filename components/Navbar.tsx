@@ -139,10 +139,10 @@ const Navbar: React.FC = () => {
 
     // Menu principal uniquement noir/gris foncé, pas de couleur
     if (isDropdownActive || isCurrentPath) {
-      return 'text-ocobo-dark font-black';
+      return 'text-semantic-text font-black';
     }
     
-    return 'text-gray-500 hover:text-ocobo-dark';
+    return 'text-gray-500 hover:text-semantic-text';
   };
 
   const getSubMenuHoverClasses = (color: string) => {
@@ -157,12 +157,12 @@ const Navbar: React.FC = () => {
 
   const getIconThemeClasses = (color: string) => {
     const iconThemeMap: Record<string, string> = {
-      yellow: 'bg-ocobo-yellow/10 text-ocobo-yellow',
-      coral: 'bg-ocobo-coral/10 text-ocobo-coral',
-      mint: 'bg-ocobo-mint/10 text-ocobo-mint',
-      sky: 'bg-ocobo-sky/10 text-ocobo-sky',
+      yellow: 'bg-ocobo-yellow-light text-ocobo-yellow',
+      coral: 'bg-ocobo-coral-light text-ocobo-coral',
+      mint: 'bg-ocobo-mint-light text-ocobo-mint',
+      sky: 'bg-ocobo-sky-light text-ocobo-sky',
     };
-    return iconThemeMap[color] || 'bg-gray-50 text-ocobo-dark';
+    return iconThemeMap[color] || 'bg-gray-50 text-semantic-text';
   };
 
   const getHoverTextColor = (color: string) => {
@@ -172,7 +172,7 @@ const Navbar: React.FC = () => {
       mint: 'group-hover/item:text-ocobo-mint',
       sky: 'group-hover/item:text-ocobo-sky',
     };
-    return textThemeMap[color] || 'group-hover/item:text-ocobo-dark';
+    return textThemeMap[color] || 'group-hover/item:text-semantic-text';
   };
 
   const renderDropdownItem = (subItem: any, idx: number) => {
@@ -183,7 +183,7 @@ const Navbar: React.FC = () => {
           {subItem.icon}
         </div>
         <div className="transition-transform group-hover/item:translate-x-1">
-           <h4 className={`font-bold text-ocobo-dark text-[14px] mb-0.5 transition-colors ${getHoverTextColor(subItem.color)}`}>
+           <h4 className={`font-bold text-semantic-text text-[14px] mb-0.5 transition-colors ${getHoverTextColor(subItem.color)}`}>
               {subItem.label}
            </h4>
            <p className="text-[11px] text-gray-400 font-medium leading-tight">
@@ -293,8 +293,8 @@ const Navbar: React.FC = () => {
                <Link to="/contact" className="hidden md:block">
                 <Button className={`!py-2 !px-5 text-[11px] font-black uppercase tracking-widest border-none transition-all duration-700 
                   ${scrolled 
-                    ? 'bg-ocobo-dark text-white shadow-none scale-95' 
-                    : (useWhiteText ? 'bg-ocobo-yellow text-ocobo-dark shadow-xl' : 'bg-ocobo-dark text-white shadow-xl')
+                    ? 'bg-semantic-text text-white shadow-none scale-95' 
+                    : (useWhiteText ? 'bg-semantic-primary text-semantic-text shadow-xl' : 'bg-semantic-text text-white shadow-xl')
                   }`}>
                   Prendre RDV
                 </Button>
@@ -302,7 +302,7 @@ const Navbar: React.FC = () => {
 
               <button
                 onClick={() => setIsOpen(true)}
-                className={`md:hidden relative z-50 p-2.5 rounded-full transition-colors ${useWhiteText ? 'bg-white/10 text-white' : 'bg-black/5 text-ocobo-dark'}`}
+                className={`md:hidden relative z-50 p-2.5 rounded-full transition-colors ${useWhiteText ? 'bg-white/10 text-white' : 'bg-black/5 text-semantic-text'}`}
               >
                 <Menu size={20} />
               </button>
@@ -325,7 +325,7 @@ const Navbar: React.FC = () => {
                 />
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 text-ocobo-dark bg-gray-50 rounded-full active:scale-90 transition-transform"
+                  className="p-2 text-semantic-text bg-gray-50 rounded-full active:scale-90 transition-transform"
                 >
                   <X size={24} />
                 </button>
@@ -339,7 +339,7 @@ const Navbar: React.FC = () => {
                                 <Link 
                                     to={item.path} 
                                     onClick={() => setIsOpen(false)}
-                                    className="font-display text-[22px] font-black block tracking-tight text-ocobo-dark"
+                                    className="font-display text-[22px] font-black block tracking-tight text-semantic-text"
                                 >
                                     {item.label}
                                 </Link>
@@ -390,7 +390,7 @@ const Navbar: React.FC = () => {
                             <Link 
                                 to={item.path} 
                                 onClick={() => setIsOpen(false)}
-                                className="font-display text-[22px] font-black block tracking-tight text-ocobo-dark"
+                                className="font-display text-[22px] font-black block tracking-tight text-semantic-text"
                             >
                                 {item.label}
                             </Link>
@@ -401,7 +401,7 @@ const Navbar: React.FC = () => {
              
              <div className="mt-10">
                  <Link to="/contact" onClick={() => setIsOpen(false)}>
-                     <button className="w-full flex items-center justify-center gap-3 py-5 rounded-full bg-ocobo-dark text-white text-[13px] font-black uppercase tracking-[0.15em] shadow-2xl active:scale-[0.98] transition-all">
+                     <button className="w-full flex items-center justify-center gap-3 py-5 rounded-full bg-semantic-text text-white text-[13px] font-black uppercase tracking-[0.15em] shadow-2xl active:scale-[0.98] transition-all">
                         Prendre rendez-vous <ArrowRight size={16} />
                      </button>
                  </Link>

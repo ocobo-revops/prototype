@@ -43,10 +43,13 @@ development_status:
   # Epic 1: Design Tokens Foundation
   epic-1: done
   1-1-migrate-tailwind-configuration-from-cdn-to-local: done
-  1-2-define-color-tokens: done
+  1-2-define-color-tokens-primitives: done
+  1-2b-define-semantic-color-tokens: done
   1-3-define-spacing-radius-and-shadow-tokens: done
   1-4-define-typography-tokens: done
   1-5-create-token-documentation: skipped
+  1-6-migrate-to-semantic-color-tokens: done
+  1-7-review-color-token-strategy: optional
   epic-1-retrospective: optional
 
   # Epic 2: Core UI Components

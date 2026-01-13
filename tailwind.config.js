@@ -13,38 +13,53 @@ export default {
         display: ['Bermia', 'Inter', 'sans-serif'],
       },
       colors: {
+        // Primitive color tokens - reference CSS custom properties (single source of truth in index.css)
+        // Option B implementation: CSS variables as source of truth for runtime flexibility
         ocobo: {
-          dark: '#212323',
+          dark: 'var(--color-ocobo-dark)',
           yellow: {
-            DEFAULT: '#F1CF25',
-            light: '#FFFCEE'
+            DEFAULT: 'var(--color-ocobo-yellow)',
+            light: 'var(--color-ocobo-yellow-light)'
           },
           mint: {
-            DEFAULT: '#9ADBBA',
-            light: '#EBFDF5'
+            DEFAULT: 'var(--color-ocobo-mint)',
+            light: 'var(--color-ocobo-mint-light)'
           },
           sky: {
-            DEFAULT: '#99D1DF',
-            light: '#F0F9FB'
+            DEFAULT: 'var(--color-ocobo-sky)',
+            light: 'var(--color-ocobo-sky-light)'
           },
           coral: {
-            DEFAULT: '#FE9C87',
-            light: '#FFF5F2'
+            DEFAULT: 'var(--color-ocobo-coral)',
+            light: 'var(--color-ocobo-coral-light)'
           },
           gray: {
-            50: '#FAFAFA',
-            100: '#F5F5F5',
-            200: '#E5E5E5',
-            300: '#D4D4D4',
-            400: '#A3A3A3',
-            500: '#737373',
-            600: '#525252',
-            700: '#404040',
-            800: '#262626',
-            900: '#171717'
+            50: 'var(--color-ocobo-gray-50)',
+            100: 'var(--color-ocobo-gray-100)',
+            200: 'var(--color-ocobo-gray-200)',
+            300: 'var(--color-ocobo-gray-300)',
+            400: 'var(--color-ocobo-gray-400)',
+            500: 'var(--color-ocobo-gray-500)',
+            600: 'var(--color-ocobo-gray-600)',
+            700: 'var(--color-ocobo-gray-700)',
+            800: 'var(--color-ocobo-gray-800)',
+            900: 'var(--color-ocobo-gray-900)'
           },
-          white: '#FFFFFF',
-          black: '#000000'
+          white: 'var(--color-ocobo-white)',
+          black: 'var(--color-ocobo-black)'
+        },
+        // Semantic color tokens - reference CSS custom properties (Option B from spec)
+        semantic: {
+          primary: 'var(--color-semantic-primary)',
+          'primary-light': 'var(--color-semantic-primary-light)',
+          accent: 'var(--color-semantic-accent)',
+          success: 'var(--color-semantic-success)',
+          info: 'var(--color-semantic-info)',
+          surface: 'var(--color-semantic-surface)',
+          background: 'var(--color-semantic-background)',
+          text: 'var(--color-semantic-text)',
+          'text-muted': 'var(--color-semantic-text-muted)',
+          border: 'var(--color-semantic-border)'
         }
       },
       borderRadius: {

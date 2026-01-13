@@ -44,9 +44,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, theme, ic
     <div className={`group relative p-8 h-full ${currentTheme.bg} border-l-4 ${currentTheme.border} transition-all duration-300 hover:shadow-lg flex flex-col justify-between`}>
       <div>
         <div className="mb-6">
-            {icon && <div className="p-3 bg-white w-fit rounded-lg shadow-sm text-ocobo-dark">{icon}</div>}
+            {icon && <div className="p-3 bg-white w-fit rounded-lg shadow-sm text-semantic-text">{icon}</div>}
         </div>
-        <h3 className="font-display text-2xl font-bold mb-4 leading-tight text-ocobo-dark">
+        <h3 className="font-display text-2xl font-bold mb-4 leading-tight text-semantic-text">
           {title}
         </h3>
         <p className="text-gray-600 text-sm leading-relaxed mb-6">
@@ -55,7 +55,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, theme, ic
       </div>
       
       <div className="mt-auto">
-        <span className={`inline-flex items-center text-xs font-bold uppercase tracking-wider text-ocobo-dark border-b border-transparent ${currentTheme.hover} transition-colors`}>
+        <span className={`inline-flex items-center text-xs font-bold uppercase tracking-wider text-semantic-text border-b border-transparent ${currentTheme.hover} transition-colors`}>
           En savoir plus <ArrowRight className="ml-2 w-3 h-3" />
         </span>
       </div>

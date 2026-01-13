@@ -11,34 +11,34 @@ const ArchitecturalGrid = () => {
                 
                 {/* Axe Ordonnée : ALIGNEMENT */}
                 <div className="flex flex-col items-center justify-center py-4 shrink-0">
-                <div className="[writing-mode:vertical-lr] rotate-180 font-display font-bold text-ocobo-dark/40 text-micro uppercase tracking-[0.6em] mb-4">
+                <div className="[writing-mode:vertical-lr] rotate-180 font-display font-bold text-semantic-text/40 text-micro uppercase tracking-[0.6em] mb-4">
                     Alignement
                 </div>
-                    <div className="w-px bg-ocobo-dark/20 flex-grow animate-blueprint-line origin-top" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="w-px bg-semantic-text/20 flex-grow animate-blueprint-line origin-top" style={{ animationDelay: '0.2s' }}></div>
                 </div>
 
                 {/* Grid Container */}
                 <div className="relative z-10 bg-white border-2 border-ocobo-dark p-8 shadow-lg flex-grow">
                     <div className="grid grid-cols-2 gap-4 mb-4">
-                        <div className="animate-box h-24 bg-ocobo-yellow-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group" style={{ animationDelay: '0.4s' }}>
-                            <span className="font-display font-bold group-hover:text-ocobo-yellow transition-colors text-xs md:text-sm">MARKETING</span>
+                        <div className="animate-box h-24 bg-semantic-primary-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group" style={{ animationDelay: '0.4s' }}>
+                            <span className="font-display font-bold group-hover:text-semantic-primary transition-colors text-xs md:text-sm">MARKETING</span>
                         </div>
                         <div className="animate-box h-24 bg-ocobo-sky-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group" style={{ animationDelay: '0.5s' }}>
-                            <span className="font-display font-bold group-hover:text-ocobo-sky transition-colors text-xs md:text-sm">SALES</span>
+                            <span className="font-display font-bold group-hover:text-semantic-info transition-colors text-xs md:text-sm">SALES</span>
                         </div>
                         <div className="animate-box h-24 bg-ocobo-mint-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group" style={{ animationDelay: '0.6s' }}>
-                            <span className="font-display font-bold group-hover:text-ocobo-mint transition-colors text-xs md:text-sm">CLIENT</span>
+                            <span className="font-display font-bold group-hover:text-semantic-success transition-colors text-xs md:text-sm">CLIENT</span>
                         </div>
                         <div className="animate-box h-24 bg-ocobo-coral-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group" style={{ animationDelay: '0.7s' }}>
-                            <span className="font-display font-bold group-hover:text-ocobo-coral transition-colors text-xs md:text-sm">FINANCE</span>
+                            <span className="font-display font-bold group-hover:text-semantic-accent transition-colors text-xs md:text-sm">FINANCE</span>
                         </div>
                     </div>
 
                     {/* Foundation Line (X-Axis) */}
-                    <div className="h-2 bg-ocobo-dark w-full mb-4 animate-blueprint-line"></div>
+                    <div className="h-2 bg-semantic-text w-full mb-4 animate-blueprint-line"></div>
 
                     {/* Axe Abscisse labels */}
-                  <div className="flex justify-between text-micro md:text-micro font-bold uppercase tracking-widest text-ocobo-dark/60">
+                  <div className="flex justify-between text-micro md:text-micro font-bold uppercase tracking-widest text-semantic-text/60">
                       <span className="animate-box" style={{ animationDelay: '0.9s' }}>Technology</span>
                       <span className="animate-box" style={{ animationDelay: '1s' }}>Performance</span>
                       <span className="animate-box" style={{ animationDelay: '1.1s' }}>Enablement</span>
@@ -103,15 +103,15 @@ const PyramidSection = () => {
                     <div className="flex flex-col items-start text-left">
                         <div className="flex items-center gap-4 mb-3">
                             <div className="w-10 h-10 bg-white border-2 border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">1</div>
-                            <h3 className="font-display font-bold text-2xl text-ocobo-dark">CEO</h3>
+                            <h3 className="font-display font-bold text-2xl text-semantic-text">CEO</h3>
                         </div>
                         <ul className="text-sm text-gray-500 font-medium space-y-1">
                             <li className="flex items-start gap-2">
-                                <span className="w-1.5 h-1.5 rounded-full bg-ocobo-coral shrink-0 mt-1.5"></span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-semantic-accent shrink-0 mt-1.5"></span>
                                 Manque de visibilité sur le business
                             </li>
                             <li className="flex items-start gap-2">
-                                <span className="w-1.5 h-1.5 rounded-full bg-ocobo-coral shrink-0 mt-1.5"></span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-semantic-accent shrink-0 mt-1.5"></span>
                                 Vision difficile à traduire en actions
                             </li>
                         </ul>
@@ -124,21 +124,21 @@ const PyramidSection = () => {
                 <foreignObject x="30" y="140" width="320" height="200">
                     <div className="flex flex-col items-end text-right pr-4">
                         <div className="flex items-center gap-4 mb-3">
-                            <h3 className="font-display font-bold text-2xl text-ocobo-dark">Managers</h3>
+                            <h3 className="font-display font-bold text-2xl text-semantic-text">Managers</h3>
                             <div className="w-10 h-10 bg-white border-2 border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">2</div>
                         </div>
                         <ul className="text-sm text-gray-500 font-medium space-y-1">
                             <li className="flex items-start gap-2 justify-end">
                                 Prévisions instables
-                                <span className="w-1.5 h-1.5 rounded-full bg-ocobo-yellow shrink-0 mt-1.5"></span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-semantic-primary shrink-0 mt-1.5"></span>
                             </li>
                             <li className="flex items-start gap-2 justify-end">
                                 Peu d’insights pour faire progresser les équipes
-                                <span className="w-1.5 h-1.5 rounded-full bg-ocobo-yellow shrink-0 mt-1.5"></span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-semantic-primary shrink-0 mt-1.5"></span>
                             </li>
                             <li className="flex items-start gap-2 justify-end">
                                 Ressources mal allouées
-                                <span className="w-1.5 h-1.5 rounded-full bg-ocobo-yellow shrink-0 mt-1.5"></span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-semantic-primary shrink-0 mt-1.5"></span>
                             </li>
                         </ul>
                     </div>
@@ -151,19 +151,19 @@ const PyramidSection = () => {
                     <div className="flex flex-col items-start text-left">
                         <div className="flex items-center gap-4 mb-3">
                             <div className="w-10 h-10 bg-white border-2 border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">3</div>
-                            <h3 className="font-display font-bold text-2xl text-ocobo-dark">Équipes terrain</h3>
+                            <h3 className="font-display font-bold text-2xl text-semantic-text">Équipes terrain</h3>
                         </div>
                         <ul className="text-sm text-gray-500 font-medium space-y-1">
                             <li className="flex items-start gap-2">
-                                <span className="w-1.5 h-1.5 rounded-full bg-ocobo-sky shrink-0 mt-1.5"></span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-semantic-info shrink-0 mt-1.5"></span>
                                 Trop d’outils, pas assez de clarté
                             </li>
                             <li className="flex items-start gap-2">
-                                <span className="w-1.5 h-1.5 rounded-full bg-ocobo-sky shrink-0 mt-1.5"></span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-semantic-info shrink-0 mt-1.5"></span>
                                 Productivité en baisse
                             </li>
                             <li className="flex items-start gap-2">
-                                <span className="w-1.5 h-1.5 rounded-full bg-ocobo-sky shrink-0 mt-1.5"></span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-semantic-info shrink-0 mt-1.5"></span>
                                 Difficulté à comprendre la stratégie
                             </li>
                         </ul>
@@ -176,21 +176,21 @@ const PyramidSection = () => {
                 <foreignObject x="10" y="450" width="250" height="200">
                     <div className="flex flex-col items-end text-right pr-4">
                         <div className="flex items-center gap-4 mb-3">
-                            <h3 className="font-display text-2xl text-ocobo-dark">Clients</h3>
+                            <h3 className="font-display text-2xl text-semantic-text">Clients</h3>
                             <div className="w-10 h-10 bg-white border-2 border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">4</div>
                         </div>
                         <ul className="text-sm text-gray-500 font-medium space-y-1">
                             <li className="flex items-start gap-2 justify-end">
                                 Expérience inégale
-                                <span className="w-1.5 h-1.5 rounded-full bg-ocobo-mint shrink-0 mt-1.5"></span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-semantic-success shrink-0 mt-1.5"></span>
                             </li>
                             <li className="flex items-start gap-2 justify-end">
                                 Informations dispersées
-                                <span className="w-1.5 h-1.5 rounded-full bg-ocobo-mint shrink-0 mt-1.5"></span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-semantic-success shrink-0 mt-1.5"></span>
                             </li>
                             <li className="flex items-start gap-2 justify-end">
                                 Frictions dans le parcours
-                                <span className="w-1.5 h-1.5 rounded-full bg-ocobo-mint shrink-0 mt-1.5"></span>
+                                <span className="w-1.5 h-1.5 rounded-full bg-semantic-success shrink-0 mt-1.5"></span>
                             </li>
                         </ul>
                     </div>
@@ -249,10 +249,10 @@ const Services: React.FC = () => {
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 mb-16">
               {/* Left Content */}
               <div className="lg:w-1/2">
-                <span className="font-display font-black text-ocobo-dark bg-ocobo-yellow-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
+                <span className="font-display font-black text-semantic-text bg-semantic-primary-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
                   NOTRE OFFRE
                 </span>
-                  <h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
+                  <h1 className="font-display text-5xl md:text-7xl font-bold text-semantic-text mb-10 leading-[0.95] tracking-tight">
                       Un système.<br/>
                       <span className="text-gray-400">Pas des rustines.</span>
                   </h1>
@@ -260,7 +260,7 @@ const Services: React.FC = () => {
                       Les entreprises qui passent à l’échelle ne misent pas sur l’empilement d’outils. Elles construisent un système de revenu clair, simple et pilotable.
                   </p>
                   <Link to="/contact">
-                      <Button className="bg-ocobo-dark text-white px-12 py-5 text-lg shadow-xl hover:shadow-lg hover:-translate-y-1 transition-all">
+                      <Button className="bg-semantic-text text-white px-12 py-5 text-lg shadow-xl hover:shadow-lg hover:-translate-y-1 transition-all">
                         Prendre RDV
                       </Button>
                   </Link>
@@ -274,7 +274,7 @@ const Services: React.FC = () => {
 
           {/* SOBER SCROLL INDICATOR - Dominante Corail */}
           <div className="flex justify-center w-full animate-bounce-subtle">
-              <ChevronDown className="text-ocobo-coral opacity-30" size={28} strokeWidth={1.5} />
+              <ChevronDown className="text-semantic-accent opacity-30" size={28} strokeWidth={1.5} />
           </div>
       </section>
 
@@ -282,7 +282,7 @@ const Services: React.FC = () => {
       <section className="pt-12 md:pt-24 pb-0 bg-white overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-16 md:mb-24">
-                  <h2 className="font-display text-3xl md:text-5xl font-bold text-ocobo-dark mb-6 leading-tight">
+                  <h2 className="font-display text-3xl md:text-5xl font-bold text-semantic-text mb-6 leading-tight">
                     Quand la croissance s’accélère, <br className="hidden md:block" /> la complexité arrive.
                   </h2>
                   <p className="text-lg md:text-xl text-gray-600 font-medium">
@@ -293,40 +293,40 @@ const Services: React.FC = () => {
               {/* MOBILE LAYOUT (List) */}
               <div className="md:hidden space-y-8 pb-12">
                   <div className="bg-gray-50 p-6 rounded-md border border-gray-100 relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-20 h-20 bg-ocobo-coral opacity-10 rounded-bl-full"></div>
+                      <div className="absolute top-0 right-0 w-20 h-20 bg-semantic-accent opacity-10 rounded-bl-full"></div>
                       <div className="flex items-center gap-4 mb-4">
                           <div className="w-10 h-10 bg-white border border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">1</div>
-                          <h3 className="font-display text-xl font-bold text-ocobo-dark">CEO</h3>
+                          <h3 className="font-display text-xl font-bold text-semantic-text">CEO</h3>
                       </div>
                       <ul className="space-y-2 text-sm text-gray-600">
                           <li className="flex items-start gap-2">• Manque de visibilité sur le business</li>
                       </ul>
                   </div>
                   <div className="bg-gray-50 p-6 rounded-md border border-gray-100 relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-20 h-20 bg-ocobo-yellow opacity-10 rounded-bl-full"></div>
+                      <div className="absolute top-0 right-0 w-20 h-20 bg-semantic-primary opacity-10 rounded-bl-full"></div>
                       <div className="flex items-center gap-4 mb-4">
                           <div className="w-10 h-10 bg-white border border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">2</div>
-                          <h3 className="font-display text-xl font-bold text-ocobo-dark">Managers</h3>
+                          <h3 className="font-display text-xl font-bold text-semantic-text">Managers</h3>
                       </div>
                       <ul className="space-y-2 text-sm text-gray-600">
                           <li className="flex items-start gap-2">• Prévisions instables</li>
                       </ul>
                   </div>
                   <div className="bg-gray-50 p-6 rounded-md border border-gray-100 relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-20 h-20 bg-ocobo-sky opacity-10 rounded-bl-full"></div>
+                      <div className="absolute top-0 right-0 w-20 h-20 bg-semantic-info opacity-10 rounded-bl-full"></div>
                       <div className="flex items-center gap-4 mb-4">
                           <div className="w-10 h-10 bg-white border border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">3</div>
-                          <h3 className="font-display text-xl font-bold text-ocobo-dark">Équipes terrain</h3>
+                          <h3 className="font-display text-xl font-bold text-semantic-text">Équipes terrain</h3>
                       </div>
                       <ul className="space-y-2 text-sm text-gray-600">
                           <li className="flex items-start gap-2">• Trop d’outils, pas assez de clarté</li>
                       </ul>
                   </div>
                   <div className="bg-gray-50 p-6 rounded-md border border-gray-100 relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-20 h-20 bg-ocobo-mint opacity-10 rounded-bl-full"></div>
+                      <div className="absolute top-0 right-0 w-20 h-20 bg-semantic-success opacity-10 rounded-bl-full"></div>
                       <div className="flex items-center gap-4 mb-4">
                           <div className="w-10 h-10 bg-white border border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">4</div>
-                          <h3 className="font-display text-xl font-bold text-ocobo-dark">Clients</h3>
+                          <h3 className="font-display text-xl font-bold text-semantic-text">Clients</h3>
                       </div>
                       <ul className="space-y-2 text-sm text-gray-600">
                           <li className="flex items-start gap-2">• Expérience inégale</li>
@@ -342,7 +342,7 @@ const Services: React.FC = () => {
       </section>
 
       {/* BLOC 3 - TRANSITION (REDESIGN STYLE RECRUTEMENT) */}
-      <section className="py-24 bg-ocobo-dark text-white overflow-hidden">
+      <section className="py-24 bg-semantic-text text-white overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="border border-gray-700/50 p-12 md:p-20 relative">
                   <h2 className="font-display text-3xl md:text-5xl font-bold text-white mb-16 md:mb-20 text-center leading-tight">
@@ -351,25 +351,25 @@ const Services: React.FC = () => {
                   
                   <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
                       <div className="space-y-4">
-                          <h3 className="font-display text-2xl font-bold text-ocobo-yellow">Alignement</h3>
+                          <h3 className="font-display text-2xl font-bold text-semantic-primary">Alignement</h3>
                           <p className="text-sm text-gray-400 leading-relaxed">
                             Aligner Marketing, Sales, CS et Finance pour une vision commune et transverse du revenu.
                           </p>
                       </div>
                       <div className="space-y-4">
-                          <h3 className="font-display text-2xl font-bold text-ocobo-mint">Process</h3>
+                          <h3 className="font-display text-2xl font-bold text-semantic-success">Process</h3>
                           <p className="text-sm text-gray-400 leading-relaxed">
                             Fluidifier les parcours et supprimer les frictions opérationnelles à chaque étape du cycle de vie.
                           </p>
                       </div>
                       <div className="space-y-4">
-                          <h3 className="font-display text-2xl font-bold text-ocobo-coral">Data</h3>
+                          <h3 className="font-display text-2xl font-bold text-semantic-accent">Data</h3>
                           <p className="text-sm text-gray-400 leading-relaxed">
                             Fiabiliser la donnée pour transformer les intuitions en décisions factuelles et pilotables.
                           </p>
                       </div>
                       <div className="space-y-4">
-                          <h3 className="font-display text-2xl font-bold text-ocobo-sky">Performance</h3>
+                          <h3 className="font-display text-2xl font-bold text-semantic-info">Performance</h3>
                           <p className="text-sm text-gray-400 leading-relaxed">
                             Améliorer la conversion et le revenu à chaque étape clé du parcours client.
                           </p>
@@ -383,7 +383,7 @@ const Services: React.FC = () => {
       <section className="py-16 md:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-16 md:mb-24">
-                  <h2 className="font-display text-3xl md:text-5xl font-bold text-ocobo-dark mb-4 md:mb-6">Nous construisons et opérons les fondations RevOps</h2>
+                  <h2 className="font-display text-3xl md:text-5xl font-bold text-semantic-text mb-4 md:mb-6">Nous construisons et opérons les fondations RevOps</h2>
                   <p className="text-gray-600 text-lg">Nous construisons et opérons les fondations RevOps de votre organisation : process, outils, data et équipes alignés pour une croissance durable et maîtrisée.</p>
               </div>
 
@@ -391,37 +391,37 @@ const Services: React.FC = () => {
                   {/* Service 1: Audit & Cadrage */}
                   <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
                       <div className="w-full md:w-5/12 sticky top-32">
-                           <div className="w-16 h-16 bg-ocobo-yellow text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-md mb-8">1</div>
-                           <h3 className="font-display text-3xl md:text-4xl font-bold text-ocobo-dark mb-4 leading-tight">Immersion, cadrage et plan d’action RevOps</h3>
+                           <div className="w-16 h-16 bg-semantic-primary text-semantic-text flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-md mb-8">1</div>
+                           <h3 className="font-display text-3xl md:text-4xl font-bold text-semantic-text mb-4 leading-tight">Immersion, cadrage et plan d’action RevOps</h3>
                            <p className="text-gray-600 text-lg leading-relaxed">La vision claire pour savoir où agir.</p>
                       </div>
                       <div className="w-full md:w-7/12">
                           <div className="bg-white border border-gray-100 p-8 md:p-10 hover:shadow-lg hover:border-ocobo-yellow transition-all duration-300 group rounded-sm">
                               <ul className="space-y-8">
                                   <li className="flex gap-5 items-start">
-                                      <div className="mt-1 bg-ocobo-yellow-light p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
+                                      <div className="mt-1 bg-semantic-primary-light p-2 rounded-full text-semantic-primary group-hover:bg-semantic-primary group-hover:text-white transition-colors">
                                           <CheckCircle2 size={18} />
                                       </div>
                                       <div>
-                                          <h4 className="font-bold text-lg text-ocobo-dark mb-2">Diagnostic transversal</h4>
+                                          <h4 className="font-bold text-lg text-semantic-text mb-2">Diagnostic transversal</h4>
                                           <p className="text-sm text-gray-600 leading-relaxed">Analyse en profondeur des interactions et frictions entre les départements.</p>
                                       </div>
                                   </li>
                                   <li className="flex gap-5 items-start">
-                                      <div className="mt-1 bg-ocobo-yellow-light p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
+                                      <div className="mt-1 bg-semantic-primary-light p-2 rounded-full text-semantic-primary group-hover:bg-semantic-primary group-hover:text-white transition-colors">
                                           <CheckCircle2 size={18} />
                                       </div>
                                       <div>
-                                          <h4 className="font-bold text-lg text-ocobo-dark mb-2">Cartographie process / outils / data</h4>
+                                          <h4 className="font-bold text-lg text-semantic-text mb-2">Cartographie process / outils / data</h4>
                                           <p className="text-sm text-gray-600 leading-relaxed">Audit complet de l'infrastructure existante et des flux de travail.</p>
                                       </div>
                                   </li>
                                   <li className="flex gap-5 items-start">
-                                      <div className="mt-1 bg-ocobo-yellow-light p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
+                                      <div className="mt-1 bg-semantic-primary-light p-2 rounded-full text-semantic-primary group-hover:bg-semantic-primary group-hover:text-white transition-colors">
                                           <CheckCircle2 size={18} />
                                       </div>
                                       <div>
-                                          <h4 className="font-bold text-lg text-ocobo-dark mb-2">Priorisation et feuille de route</h4>
+                                          <h4 className="font-bold text-lg text-semantic-text mb-2">Priorisation et feuille de route</h4>
                                           <p className="text-sm text-gray-600 leading-relaxed">Un plan d'attaque chiffré et priorisé pour les mois à venir.</p>
                                       </div>
                                   </li>
@@ -435,8 +435,8 @@ const Services: React.FC = () => {
                   {/* Service 2: Déploiement */}
                   <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
                       <div className="w-full md:w-5/12 sticky top-32">
-                           <div className="w-16 h-16 bg-ocobo-coral text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-md mb-8">2</div>
-                           <h3 className="font-display text-3xl md:text-4xl font-bold text-ocobo-dark mb-4 leading-tight">Déploiement RevOps (Agile)</h3>
+                           <div className="w-16 h-16 bg-semantic-accent text-semantic-text flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-md mb-8">2</div>
+                           <h3 className="font-display text-3xl md:text-4xl font-bold text-semantic-text mb-4 leading-tight">Déploiement RevOps (Agile)</h3>
                            <p className="text-gray-600 text-lg leading-relaxed">Pour opérer et structurer la machine revenue en sprints de 2 semaines.</p>
                       </div>
                       <div className="w-full md:w-7/12">
@@ -452,7 +452,7 @@ const Services: React.FC = () => {
                                       "Rémunération variable claire, juste et motivante"
                                   ].map((item, i) => (
                                       <li key={i} className="flex items-start gap-4">
-                                          <div className="mt-0.5 text-ocobo-coral">
+                                          <div className="mt-0.5 text-semantic-accent">
                                               <CheckCircle2 size={18} />
                                           </div>
                                           <span className="font-medium text-gray-700 text-sm leading-snug">{item}</span>
@@ -468,46 +468,46 @@ const Services: React.FC = () => {
                   {/* Service 3: Coaching */}
                   <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
                       <div className="w-full md:w-5/12 sticky top-32">
-                           <div className="w-16 h-16 bg-ocobo-mint text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-md mb-8">3</div>
-                           <h3 className="font-display text-3xl md:text-4xl font-bold text-ocobo-dark mb-4 leading-tight">Coaching & Formation</h3>
+                           <div className="w-16 h-16 bg-semantic-success text-semantic-text flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-md mb-8">3</div>
+                           <h3 className="font-display text-3xl md:text-4xl font-bold text-semantic-text mb-4 leading-tight">Coaching & Formation</h3>
                            <p className="text-gray-600 text-lg leading-relaxed">Rendre vos équipes autonomes et capables de faire vivre le système.</p>
                       </div>
                       <div className="w-full md:w-7/12">
                           <div className="bg-white border border-gray-100 p-8 md:p-10 hover:shadow-lg hover:border-ocobo-mint transition-all duration-300 group rounded-sm">
                               <ul className="space-y-8">
                                   <li className="flex gap-5 items-start">
-                                      <div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+                                      <div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-semantic-success group-hover:bg-semantic-success group-hover:text-white transition-colors">
                                           <CheckCircle2 size={18} />
                                       </div>
                                       <div>
-                                          <h4 className="font-bold text-lg text-ocobo-dark mb-2">Acculturation RevOps pour dirigeants</h4>
+                                          <h4 className="font-bold text-lg text-semantic-text mb-2">Acculturation RevOps pour dirigeants</h4>
                                           <p className="text-sm text-gray-600 leading-relaxed">Aligner la vision stratégique et donner les clés de lecture aux décideurs.</p>
                                       </div>
                                   </li>
                                   <li className="flex gap-5 items-start">
-                                      <div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+                                      <div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-semantic-success group-hover:bg-semantic-success group-hover:text-white transition-colors">
                                           <CheckCircle2 size={18} />
                                       </div>
                                       <div>
-                                          <h4 className="font-bold text-lg text-ocobo-dark mb-2">Coaching Heads (Sales / CS / RevOps)</h4>
+                                          <h4 className="font-bold text-lg text-semantic-text mb-2">Coaching Heads (Sales / CS / RevOps)</h4>
                                           <p className="text-sm text-gray-600 leading-relaxed">Accompagnement individuel des responsables pour piloter l'excellence opérationnelle.</p>
                                       </div>
                                   </li>
                                   <li className="flex gap-5 items-start">
-                                      <div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+                                      <div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-semantic-success group-hover:bg-semantic-success group-hover:text-white transition-colors">
                                           <CheckCircle2 size={18} />
                                       </div>
                                       <div>
-                                          <h4 className="font-bold text-lg text-ocobo-dark mb-2">Montée en compétence des équipes</h4>
+                                          <h4 className="font-bold text-lg text-semantic-text mb-2">Montée en compétence des équipes</h4>
                                           <p className="text-sm text-gray-600 leading-relaxed">Formation pratique aux nouveaux rituels, outils et méthodes GTM.</p>
                                       </div>
                                   </li>
                                   <li className="flex gap-5 items-start">
-                                      <div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+                                      <div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-semantic-success group-hover:bg-semantic-success group-hover:text-white transition-colors">
                                           <CheckCircle2 size={18} />
                                       </div>
                                       <div>
-                                          <h4 className="font-bold text-lg text-ocobo-dark mb-2">Playbooks pratiques</h4>
+                                          <h4 className="font-bold text-lg text-semantic-text mb-2">Playbooks pratiques</h4>
                                           <p className="text-sm text-gray-600 leading-relaxed">Création de bibles opérationnelles pour ancrer durablement les process.</p>
                                       </div>
                                   </li>
@@ -523,10 +523,10 @@ const Services: React.FC = () => {
       <section className="py-24 bg-white border-y border-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-3xl mb-20">
-                <span className="font-display font-black text-ocobo-dark bg-ocobo-yellow-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20">
+                <span className="font-display font-black text-semantic-text bg-semantic-primary-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20">
                     LEVIERS DE CROISSANCE
                 </span>
-                  <h2 className="font-display text-4xl md:text-5xl font-bold text-ocobo-dark mb-8 leading-tight tracking-tight">
+                  <h2 className="font-display text-4xl md:text-5xl font-bold text-semantic-text mb-8 leading-tight tracking-tight">
                       Nos 3 leviers <br/>d’accompagnement.
                   </h2>
                   <p className="text-xl text-gray-500 font-medium leading-relaxed">
@@ -539,19 +539,19 @@ const Services: React.FC = () => {
                   <Link to="/method" className="group flex flex-col h-full">
                       <div className="relative p-10 bg-gray-50 rounded-sm border border-gray-100 flex-grow transition-all duration-500 hover:shadow-lg hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
                           <div className="mb-12 flex justify-between items-center">
-                              <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center text-ocobo-yellow shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
+                              <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center text-semantic-primary shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
                                   <Layers size={28} />
                               </div>
-                              <ArrowRight className="text-gray-200 group-hover:text-ocobo-dark transition-colors" size={24} />
+                              <ArrowRight className="text-gray-200 group-hover:text-semantic-text transition-colors" size={24} />
                           </div>
-                          <h3 className="font-display text-2xl font-bold mb-6 group-hover:text-ocobo-yellow transition-colors">Notre méthode</h3>
+                          <h3 className="font-display text-2xl font-bold mb-6 group-hover:text-semantic-primary transition-colors">Notre méthode</h3>
                           <p className="text-gray-400 font-display font-black text-micro uppercase tracking-widest mb-4">The Revenue Experience System™</p>
                           <p className="text-gray-600 text-sm leading-relaxed mb-10 font-medium flex-grow">
                               Une méthode vivante, opérée en sprints, conçue pour durer : alignement des équipes, stack utile, data fiable et équipes autonomes.
                           </p>
                           
                           {/* Internal Colored Separator */}
-                          <div className="w-full h-1 bg-ocobo-yellow opacity-20 mb-8 rounded-full group-hover:opacity-100 transition-opacity"></div>
+                          <div className="w-full h-1 bg-semantic-primary opacity-20 mb-8 rounded-full group-hover:opacity-100 transition-opacity"></div>
 
                           <div className="flex flex-wrap gap-2 h-[48px] content-start">
                           {['Alignment', 'Technology', 'Performance', 'Enablement'].map(tag => (
@@ -565,19 +565,19 @@ const Services: React.FC = () => {
                   <Link to="/technology" className="group flex flex-col h-full">
                       <div className="relative p-10 bg-gray-50 rounded-sm border border-gray-100 flex-grow transition-all duration-500 hover:shadow-lg hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
                           <div className="mb-12 flex justify-between items-center">
-                              <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center text-ocobo-sky shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
+                              <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center text-semantic-info shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
                                   <Cpu size={28} />
                               </div>
-                              <ArrowRight className="text-gray-200 group-hover:text-ocobo-dark transition-colors" size={24} />
+                              <ArrowRight className="text-gray-200 group-hover:text-semantic-text transition-colors" size={24} />
                           </div>
-                          <h3 className="font-display text-2xl font-bold mb-6 group-hover:text-ocobo-sky transition-colors">Notre technologie</h3>
+                          <h3 className="font-display text-2xl font-bold mb-6 group-hover:text-semantic-info transition-colors">Notre technologie</h3>
                           <p className="text-gray-400 font-display font-black text-micro uppercase tracking-widest mb-4">Infrastructure Unifiée</p>
                           <p className="text-gray-600 text-sm leading-relaxed mb-10 font-medium flex-grow">
                               Une stack rationalisée, co-conçue avec les leaders (HubSpot, Salesforce, Modjo...). Nous sommes des architectes agnostiques, chaque choix sert votre stratégie.
                           </p>
                           
                           {/* Internal Colored Separator */}
-                          <div className="w-full h-1 bg-ocobo-sky opacity-20 mb-8 rounded-full group-hover:opacity-100 transition-opacity"></div>
+                          <div className="w-full h-1 bg-semantic-info opacity-20 mb-8 rounded-full group-hover:opacity-100 transition-opacity"></div>
 
                           <div className="h-[48px] flex flex-col justify-start gap-3">
                               <div className="flex items-center gap-4 grayscale opacity-40 group-hover:opacity-100 group-hover:grayscale-0 transition-all">
@@ -595,19 +595,19 @@ const Services: React.FC = () => {
                   <Link to="/studio" className="group flex flex-col h-full">
                       <div className="relative p-10 bg-gray-50 rounded-sm border border-gray-100 flex-grow transition-all duration-500 hover:shadow-lg hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
                           <div className="mb-12 flex justify-between items-center">
-                              <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center text-ocobo-mint shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
+                              <div className="w-14 h-14 bg-white rounded-md flex items-center justify-center text-semantic-success shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
                                   <Users size={28} />
                               </div>
-                              <ArrowRight className="text-gray-200 group-hover:text-ocobo-dark transition-colors" size={24} />
+                              <ArrowRight className="text-gray-200 group-hover:text-semantic-text transition-colors" size={24} />
                           </div>
-                          <h3 className="font-display text-2xl font-bold mb-6 group-hover:text-ocobo-mint transition-colors">Notre équipe</h3>
+                          <h3 className="font-display text-2xl font-bold mb-6 group-hover:text-semantic-success transition-colors">Notre équipe</h3>
                           <p className="text-gray-400 font-display font-black text-micro uppercase tracking-widest mb-4">Le RevOps Studio</p>
                           <p className="text-gray-600 text-sm leading-relaxed mb-10 font-medium flex-grow">
                               Votre squad d’experts seniors, issus des meilleures scale-ups : TheFork, Qonto, Payfit, Spendesk... Ils pensent comme une direction Revenue embarquée.
                           </p>
                           
                           {/* Internal Colored Separator */}
-                          <div className="w-full h-1 bg-ocobo-mint opacity-20 mb-8 rounded-full group-hover:opacity-100 transition-opacity"></div>
+                          <div className="w-full h-1 bg-semantic-success opacity-20 mb-8 rounded-full group-hover:opacity-100 transition-opacity"></div>
 
                           <div className="h-[48px] flex flex-col justify-start">
                          <div className="text-micro font-black text-gray-400 uppercase tracking-widest leading-relaxed">
@@ -637,11 +637,11 @@ const Services: React.FC = () => {
                        { title: "Former", icon: <GraduationCap size={20} />, deliverable: "Kits formation" }
                    ].map((step, i) => (
                        <div key={i} className="bg-white p-8 border border-gray-100 hover:shadow-lg transition-all group">
-                           <div className="w-10 h-10 bg-ocobo-dark text-white flex items-center justify-center text-sm font-bold mb-6 group-hover:bg-ocobo-yellow group-hover:text-ocobo-dark transition-colors">{i + 1}</div>
-                           <h3 className="font-display text-xl font-bold text-ocobo-dark mb-3">{step.title}</h3>
+                           <div className="w-10 h-10 bg-semantic-text text-white flex items-center justify-center text-sm font-bold mb-6 group-hover:bg-semantic-primary group-hover:text-semantic-text transition-colors">{i + 1}</div>
+                           <h3 className="font-display text-xl font-bold text-semantic-text mb-3">{step.title}</h3>
                            <div className="pt-4 border-t border-gray-50">
                                <span className="text-micro font-black uppercase text-gray-400">Livrables :</span>
-                               <p className="text-xs font-bold text-ocobo-dark mt-1">{step.deliverable}</p>
+                               <p className="text-xs font-bold text-semantic-text mt-1">{step.deliverable}</p>
                            </div>
                        </div>
                    ))}
@@ -667,14 +667,14 @@ const Services: React.FC = () => {
                       { title: "Former & Itérer", color: "dark", icon: <GraduationCap size={24} />, items: ["Pipeline review, roleplay", "Playbooks et templates", "Roadmap d’itération"] }
                   ].map((block, idx) => (
                     <div key={idx} className={`bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-sm group`}>
-                      <div className={`w-12 h-12 mb-6 rounded-lg flex items-center justify-center ${block.color === 'dark' ? 'bg-gray-100 text-ocobo-dark' : block.color === 'purple-500' ? 'bg-purple-50 text-purple-500' : `bg-ocobo-${block.color}Light text-ocobo-${block.color}`}`}>
+                      <div className={`w-12 h-12 mb-6 rounded-lg flex items-center justify-center ${block.color === 'dark' ? 'bg-gray-100 text-semantic-text' : block.color === 'purple-500' ? 'bg-purple-50 text-purple-500' : `bg-ocobo-${block.color}Light text-ocobo-${block.color}`}`}>
                           {block.icon}
                       </div>
                       <h3 className="font-display font-bold text-xl mb-4">{block.title}</h3>
                       <ul className="space-y-3 text-sm text-gray-600">
                           {block.items.map((item, i) => (
                               <li key={i} className="flex items-center gap-3">
-                                  <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${block.color === 'dark' ? 'bg-ocobo-dark' : block.color === 'purple-500' ? 'bg-purple-500' : `bg-ocobo-${block.color}`}`}></div>
+                                  <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${block.color === 'dark' ? 'bg-semantic-text' : block.color === 'purple-500' ? 'bg-purple-500' : `bg-ocobo-${block.color}`}`}></div>
                                   {item}
                               </li>
                           ))}
@@ -686,28 +686,28 @@ const Services: React.FC = () => {
       </section>
 
       {/* BLOC POURQUOI OCOBO */}
-      <section className="py-24 bg-ocobo-dark text-white">
+      <section className="py-24 bg-semantic-text text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-16">
                   <h2 className="font-display text-4xl font-bold mb-6">Pourquoi choisir Ocobo</h2>
               </div>
               <div className="grid md:grid-cols-3 gap-12">
                   <div className="text-center">
-                      <div className="w-16 h-16 bg-ocobo-yellow rounded-full flex items-center justify-center text-ocobo-dark mx-auto mb-6">
+                      <div className="w-16 h-16 bg-semantic-primary rounded-full flex items-center justify-center text-semantic-text mx-auto mb-6">
                           <CheckCircle2 size={32} strokeWidth={4} />
                       </div>
                       <h3 className="font-display text-xl font-bold mb-4">Profils seniors</h3>
                       <p className="text-gray-300 leading-relaxed">Aucun junior. Nous opérons comme une direction Revenue interne embarquée.</p>
                   </div>
                   <div className="text-center">
-                      <div className="w-16 h-16 bg-ocobo-coral rounded-full flex items-center justify-center text-ocobo-dark mx-auto mb-6">
+                      <div className="w-16 h-16 bg-semantic-accent rounded-full flex items-center justify-center text-semantic-text mx-auto mb-6">
                           <CheckCircle2 size={32} strokeWidth={4} />
                       </div>
                       <h3 className="font-display text-xl font-bold mb-4">Impact réel</h3>
                       <p className="text-gray-300 leading-relaxed">Pas de slides inutiles. Nous construisons, opérons et transmettons.</p>
                   </div>
                   <div className="text-center">
-                      <div className="w-16 h-16 bg-ocobo-mint rounded-full flex items-center justify-center text-ocobo-dark mx-auto mb-6">
+                      <div className="w-16 h-16 bg-semantic-success rounded-full flex items-center justify-center text-semantic-text mx-auto mb-6">
                           <CheckCircle2 size={32} strokeWidth={4} />
                       </div>
                       <h3 className="font-display text-xl font-bold mb-4">Système durable</h3>
@@ -718,7 +718,7 @@ const Services: React.FC = () => {
       </section>
 
       {/* CTA FINAL - TEXTE MIS À JOUR & CENTRÉ */}
-      <section className="bg-ocobo-yellow py-24 text-ocobo-dark">
+      <section className="bg-semantic-primary py-24 text-semantic-text">
           <div className="max-w-4xl mx-auto px-4 text-center">
               <h2 className="font-display text-4xl md:text-5xl font-bold mb-8">Prenez le contrôle de votre croissance.</h2>
               
@@ -729,7 +729,7 @@ const Services: React.FC = () => {
 
               <div className="flex justify-center">
                 <Link to="/contact">
-                    <Button variant="primary" className="px-12 py-5 text-lg shadow-xl hover:shadow-lg hover:-translate-y-1 bg-ocobo-dark text-white border-none">
+                    <Button variant="primary" className="px-12 py-5 text-lg shadow-xl hover:shadow-lg hover:-translate-y-1 bg-semantic-text text-white border-none">
                         Prendre RDV
                     </Button>
                 </Link>

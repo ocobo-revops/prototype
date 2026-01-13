@@ -36,7 +36,7 @@ const NewsletterWidget: React.FC = () => {
               e.stopPropagation();
               setIsDismissed(true);
             }}
-            className="absolute -top-2 -right-2 w-6 h-6 bg-white text-ocobo-dark rounded-full flex items-center justify-center shadow-lg border border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-ocobo-coral hover:text-white"
+            className="absolute -top-2 -right-2 w-6 h-6 bg-white text-semantic-text rounded-full flex items-center justify-center shadow-lg border border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-semantic-accent hover:text-white"
             title="Ne plus afficher"
           >
             <X size={12} strokeWidth={3} />
@@ -44,18 +44,18 @@ const NewsletterWidget: React.FC = () => {
 
           <button 
             onClick={() => setIsExpanded(true)}
-            className="bg-ocobo-dark text-white p-4 rounded-md shadow-lg border border-white/10 flex items-center gap-3 hover:border-ocobo-yellow/50 transition-all"
+            className="bg-semantic-text text-white p-4 rounded-md shadow-lg border border-white/10 flex items-center gap-3 hover:border-semantic-primary/50 transition-all"
           >
             <div className="relative">
-              <Mail size={20} className="text-ocobo-yellow" />
-              <span className="absolute -top-1 -right-1 w-2 h-2 bg-ocobo-coral rounded-full animate-pulse"></span>
+              <Mail size={20} className="text-semantic-primary" />
+              <span className="absolute -top-1 -right-1 w-2 h-2 bg-semantic-accent rounded-full animate-pulse"></span>
             </div>
             <span className="text-[10px] font-black uppercase tracking-[0.2em] pr-2">La Lettre de l'Architecte</span>
           </button>
         </div>
       ) : (
-        <div className="bg-ocobo-dark text-white p-6 rounded-lg shadow-lg border border-white/10 w-[320px] relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1 bg-ocobo-yellow"></div>
+        <div className="bg-semantic-text text-white p-6 rounded-lg shadow-lg border border-white/10 w-[320px] relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-semantic-primary"></div>
           
           <button 
             onClick={() => setIsExpanded(false)}
@@ -66,8 +66,8 @@ const NewsletterWidget: React.FC = () => {
 
           <div className="mb-6 mt-2">
             <div className="flex items-center gap-2 mb-3">
-              <Sparkles size={14} className="text-ocobo-yellow" />
-              <span className="text-[9px] font-black uppercase tracking-[0.3em] text-ocobo-yellow">Newsletter Mensuelle</span>
+              <Sparkles size={14} className="text-semantic-primary" />
+              <span className="text-[9px] font-black uppercase tracking-[0.3em] text-semantic-primary">Newsletter Mensuelle</span>
             </div>
             <h4 className="font-display text-lg font-bold leading-tight mb-2">La science du revenu, <br/>directement dans votre boîte.</h4>
             <p className="text-[11px] text-gray-400 font-medium">Rejoignez 2 000+ leaders. <br/>Pas de spam, juste de l'architecture.</p>
@@ -78,11 +78,11 @@ const NewsletterWidget: React.FC = () => {
               type="email" 
               placeholder="votre@email.com" 
               required
-              className="w-full bg-white/5 border border-white/10 rounded-sm px-4 py-3 text-xs focus:outline-none focus:border-ocobo-yellow transition-all placeholder:text-gray-600"
+              className="w-full bg-white/5 border border-white/10 rounded-sm px-4 py-3 text-xs focus:outline-none focus:border-semantic-primary transition-all placeholder:text-gray-600"
             />
             <button 
               type="submit"
-              className="w-full bg-ocobo-yellow text-ocobo-dark py-3 rounded-sm text-[10px] font-black uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-white transition-all group"
+              className="w-full bg-semantic-primary text-semantic-text py-3 rounded-sm text-[10px] font-black uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-white transition-all group"
             >
               S'inscrire <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </button>

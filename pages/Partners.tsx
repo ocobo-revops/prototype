@@ -51,7 +51,7 @@ const ModularStackGrid = () => {
                 <img src={item.logo} alt={item.label} className="w-8 h-8 md:w-10 md:h-10 object-contain grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" />
               </div>
             ) : (
-              <Plus size={20} className="text-gray-200 group-hover/empty:text-ocobo-yellow transition-colors" />
+              <Plus size={20} className="text-gray-200 group-hover/empty:text-semantic-primary transition-colors" />
             )}
           </div>
         ))}
@@ -335,13 +335,13 @@ const Partners: React.FC = () => {
       {/* HERO TECHNOLOGIE */}
       <section className="pt-40 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
           <div className="max-w-4xl mx-auto mb-16 relative z-10">
-              <span className="font-display font-black text-ocobo-dark bg-ocobo-sky-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-sky/20">
+              <span className="font-display font-black text-semantic-text bg-ocobo-sky-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-sky/20">
                 TECHNOLOGIE
               </span>
               
-              <h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
+              <h1 className="font-display text-5xl md:text-7xl font-bold text-semantic-text mb-10 leading-[0.95] tracking-tight">
                   Un écosystème <br/>
-                  de solutions <span className="text-ocobo-sky italic">connectées.</span>
+                  de solutions <span className="text-semantic-info italic">connectées.</span>
               </h1>
               
               <p className="text-xl text-gray-700 mb-12 leading-relaxed font-medium max-w-2xl mx-auto">
@@ -357,7 +357,7 @@ const Partners: React.FC = () => {
               <Link to="/contact">
                   <Button 
                     variant="primary" 
-                    className="px-16 py-5 text-xs font-bold uppercase tracking-[0.25em] shadow-xl bg-ocobo-dark hover:bg-black transition-all hover:-translate-y-1"
+                    className="px-16 py-5 text-xs font-bold uppercase tracking-[0.25em] shadow-xl bg-semantic-text hover:bg-black transition-all hover:-translate-y-1"
                   >
                     Auditer ma stack
                   </Button>
@@ -365,12 +365,12 @@ const Partners: React.FC = () => {
           </div>
 
           <div className="mt-16 flex justify-center w-full animate-bounce-slow">
-              <ChevronDown className="text-ocobo-sky" size={24} strokeWidth={1.5} />
+              <ChevronDown className="text-semantic-info" size={24} strokeWidth={1.5} />
           </div>
       </section>
 
       {/* SECTION PHILOSOPHIE */}
-      <section className="bg-ocobo-dark py-32 text-white relative overflow-hidden">
+      <section className="bg-semantic-text py-32 text-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-[0.03]" 
                style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
           </div>
@@ -385,28 +385,28 @@ const Partners: React.FC = () => {
 
               <div className="grid md:grid-cols-3 gap-10">
                   <div className="bg-white p-10 rounded-xl shadow-xl group hover:-translate-y-1 transition-transform duration-300">
-                      <div className="w-16 h-16 bg-ocobo-dark text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-ocobo-sky transition-colors">
+                      <div className="w-16 h-16 bg-semantic-text text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-semantic-info transition-colors">
                           <Lock size={28} />
                       </div>
-                      <h3 className="font-display text-2xl font-black mb-4 text-ocobo-dark">Agnostique</h3>
+                      <h3 className="font-display text-2xl font-black mb-4 text-semantic-text">Agnostique</h3>
                       <p className="text-gray-600 leading-relaxed font-medium">
                           On ne force pas un outil. On choisit celui qui sert votre stratégie de manière juste.
                       </p>
                   </div>
                   <div className="bg-white p-10 rounded-xl shadow-xl group hover:-translate-y-1 transition-transform duration-300">
-                      <div className="w-16 h-16 bg-ocobo-dark text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-ocobo-mint transition-colors">
+                      <div className="w-16 h-16 bg-semantic-text text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-semantic-success transition-colors">
                           <LinkIcon size={28} />
                       </div>
-                      <h3 className="font-display text-2xl font-black mb-4 text-ocobo-dark">Connectée</h3>
+                      <h3 className="font-display text-2xl font-black mb-4 text-semantic-text">Connectée</h3>
                       <p className="text-gray-600 leading-relaxed font-medium">
                           La donnée doit circuler fluidement. Nous supprimons les silos pour une vérité unique.
                       </p>
                   </div>
                   <div className="bg-white p-10 rounded-xl shadow-xl group hover:-translate-y-1 transition-transform duration-300">
-                      <div className="w-16 h-16 bg-ocobo-dark text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-ocobo-yellow transition-colors">
+                      <div className="w-16 h-16 bg-semantic-text text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-semantic-primary transition-colors">
                           <ShieldCheck size={28} />
                       </div>
-                      <h3 className="font-display text-2xl font-black mb-4 text-ocobo-dark">Certifiée</h3>
+                      <h3 className="font-display text-2xl font-black mb-4 text-semantic-text">Certifiée</h3>
                       <p className="text-gray-600 leading-relaxed font-medium">
                           Nous sommes partenaires officiels et certifiés sur les solutions les plus puissantes du marché.
                       </p>
@@ -420,7 +420,7 @@ const Partners: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
                   <div>
-                      <h2 className="font-display text-4xl font-black mb-4 text-ocobo-dark tracking-tight">Notre Ecosystème Tech</h2>
+                      <h2 className="font-display text-4xl font-black mb-4 text-semantic-text tracking-tight">Notre Ecosystème Tech</h2>
                       <p className="text-gray-500 font-medium">Les solutions que nous implémentons, des partenariats officiels aux maîtrises techniques d'experts.</p>
                   </div>
                   <div className="flex flex-wrap gap-2">
@@ -429,7 +429,7 @@ const Partners: React.FC = () => {
                             key={cat}
                             onClick={() => setFilter(cat)}
                             className={`px-6 py-2.5 rounded-full text-micro font-black uppercase tracking-widest transition-all border ${
-                                filter === cat ? 'bg-ocobo-dark text-white border-ocobo-dark shadow-lg' : 'bg-gray-50 text-gray-500 border-gray-100 hover:border-ocobo-dark'
+                                filter === cat ? 'bg-semantic-text text-white border-ocobo-dark shadow-lg' : 'bg-gray-50 text-gray-500 border-gray-100 hover:border-ocobo-dark'
                             }`}
                           >
                             {cat === 'TOUS' ? 'Tous les outils' : cat === 'NO-CODE' ? 'No Code & Automatisation' : cat}
@@ -451,7 +451,7 @@ const Partners: React.FC = () => {
                               </div>
                               <div className="flex flex-col items-end gap-1">
                                 {partner.category.map(cat => (
-                                    <div key={cat} className="text-micro font-black uppercase tracking-widest bg-gray-100 text-gray-400 px-3 py-1 rounded-md group-hover:bg-ocobo-dark group-hover:text-white transition-all">
+                                    <div key={cat} className="text-micro font-black uppercase tracking-widest bg-gray-100 text-gray-400 px-3 py-1 rounded-md group-hover:bg-semantic-text group-hover:text-white transition-all">
                                         {cat === 'NO-CODE' ? 'No-Code & Automatisation' : cat}
                                     </div>
                                 ))}
@@ -459,10 +459,10 @@ const Partners: React.FC = () => {
                           </div>
                           
                           <div className="mb-6 flex-grow flex flex-col">
-                            <h3 className="font-display text-2xl font-black text-ocobo-dark mb-4 tracking-tight">{partner.name}</h3>
+                            <h3 className="font-display text-2xl font-black text-semantic-text mb-4 tracking-tight">{partner.name}</h3>
                             <div className="h-[48px] flex flex-wrap gap-1.5 mb-4 content-start overflow-hidden">
                                 {partner.tags.map((tag, tIdx) => (
-                                    <span key={tIdx} className="text-micro font-bold bg-gray-50 text-gray-400 border border-gray-100 px-2 py-0.5 rounded transition-all group-hover:border-ocobo-dark/10 group-hover:text-ocobo-dark whitespace-nowrap">
+                                    <span key={tIdx} className="text-micro font-bold bg-gray-50 text-gray-400 border border-gray-100 px-2 py-0.5 rounded transition-all group-hover:border-ocobo-dark/10 group-hover:text-semantic-text whitespace-nowrap">
                                         {tag}
                                     </span>
                                 ))}
@@ -471,7 +471,7 @@ const Partners: React.FC = () => {
                           </div>
 
                           {/* Horizontal Black Separator - Aligned correctly for all tiles */}
-                          <div className="w-full h-1 bg-ocobo-dark opacity-10 mb-6 rounded-full group-hover:opacity-100 transition-opacity"></div>
+                          <div className="w-full h-1 bg-semantic-text opacity-10 mb-6 rounded-full group-hover:opacity-100 transition-opacity"></div>
 
                           <div className="flex items-center justify-between mt-auto h-12">
                               <div className="flex-1">
@@ -484,19 +484,19 @@ const Partners: React.FC = () => {
                                           />
                                       </div>
                                   ) : partner.status === 'OFFICIAL' ? (
-                                      <div className="flex items-center gap-1.5 text-micro font-black uppercase tracking-widest text-ocobo-dark">
-                                          <Award size={12} className="text-ocobo-yellow" />
+                                      <div className="flex items-center gap-1.5 text-micro font-black uppercase tracking-widest text-semantic-text">
+                                          <Award size={12} className="text-semantic-primary" />
                                           Partenaire Officiel
                                       </div>
                                   ) : (
-                                      <div className="flex items-center gap-1.5 text-micro font-black uppercase tracking-widest text-gray-400 group-hover:text-ocobo-mint transition-colors">
+                                      <div className="flex items-center gap-1.5 text-micro font-black uppercase tracking-widest text-gray-400 group-hover:text-semantic-success transition-colors">
                                           <Zap size={12} className="opacity-50 group-hover:opacity-100" />
                                           Maîtrise Technique
                                       </div>
                                   )}
                               </div>
 
-                              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-ocobo-dark transition-colors p-2 transform group-hover:translate-x-1 duration-300">
+                              <a href="#" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-semantic-text transition-colors p-2 transform group-hover:translate-x-1 duration-300">
                                   <ExternalLink size={20} />
                               </a>
                           </div>
@@ -513,11 +513,11 @@ const Partners: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex flex-col lg:flex-row gap-20 items-center">
                   <div className="lg:w-1/2">
-                      <span className="font-display font-black text-ocobo-sky bg-ocobo-sky-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-sky/20">
+                      <span className="font-display font-black text-semantic-info bg-ocobo-sky-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-sky/20">
                           CO-CONSTRUCTION
                       </span>
-                      <h2 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-8 leading-[0.95] tracking-tight">
-                          Rejoignez <br/>l’écosystème <span className="text-ocobo-sky">Ocobo.</span>
+                      <h2 className="font-display text-4xl md:text-6xl font-black text-semantic-text mb-8 leading-[0.95] tracking-tight">
+                          Rejoignez <br/>l’écosystème <span className="text-semantic-info">Ocobo.</span>
                       </h2>
                       <p className="text-xl text-gray-600 mb-10 leading-relaxed font-medium">
                           Vous développez une solution logicielle qui transforme la croissance des entreprises B2B ? Intégrez notre écosystème d'architectes.
@@ -525,29 +525,29 @@ const Partners: React.FC = () => {
 
                       <div className="space-y-6 mb-12">
                           <div className="flex gap-5 items-start">
-                              <div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-sky shrink-0">
+                              <div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-semantic-info shrink-0">
                                   <Handshake size={20} />
                               </div>
                               <div>
-                                  <h4 className="font-bold text-ocobo-dark">Partenariat Stratégique</h4>
+                                  <h4 className="font-bold text-semantic-text">Partenariat Stratégique</h4>
                                   <p className="text-sm text-gray-500">Accès privilégié à notre Studio pour le déploiement de votre solution chez nos clients.</p>
                               </div>
                           </div>
                           <div className="flex gap-5 items-start">
-                              <div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-yellow shrink-0">
+                              <div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-semantic-primary shrink-0">
                                   <Sparkles size={20} />
                               </div>
                               <div>
-                                  <h4 className="font-bold text-ocobo-dark">Co-Marketing & Events</h4>
+                                  <h4 className="font-bold text-semantic-text">Co-Marketing & Events</h4>
                                   <p className="text-sm text-gray-500">Webinars, podcasts et masterclasses en commun pour évangéliser le marché.</p>
                               </div>
                           </div>
                           <div className="flex gap-5 items-start">
-                              <div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-mint shrink-0">
+                              <div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-semantic-success shrink-0">
                                   <Layers size={20} />
                               </div>
                               <div>
-                                  <h4 className="font-bold text-ocobo-dark">Expertise Produit</h4>
+                                  <h4 className="font-bold text-semantic-text">Expertise Produit</h4>
                                   <p className="text-sm text-gray-500">Feedback opérationnel de nos architectes seniors pour optimiser vos intégrations.</p>
                               </div>
                           </div>
@@ -561,16 +561,16 @@ const Partners: React.FC = () => {
                           
                           {formSubmitted ? (
                             <div className="py-12 text-center animate-fade-in-up">
-                                <div className="w-20 h-20 bg-ocobo-mint-light text-ocobo-mint rounded-full flex items-center justify-center mx-auto mb-6">
+                                <div className="w-20 h-20 bg-ocobo-mint-light text-semantic-success rounded-full flex items-center justify-center mx-auto mb-6">
                                     <CheckCircle2 size={40} />
                                 </div>
-                                <h3 className="font-display text-2xl font-black text-ocobo-dark mb-4">Demande reçue !</h3>
+                                <h3 className="font-display text-2xl font-black text-semantic-text mb-4">Demande reçue !</h3>
                                 <p className="text-gray-500 mb-8">Notre équipe étudiera votre solution et vous recontactera sous 48h.</p>
-                                <button onClick={() => setFormSubmitted(false)} className="text-micro font-black uppercase tracking-widest text-gray-400 hover:text-ocobo-dark transition-colors">Envoyer une autre demande</button>
+                                <button onClick={() => setFormSubmitted(false)} className="text-micro font-black uppercase tracking-widest text-gray-400 hover:text-semantic-text transition-colors">Envoyer une autre demande</button>
                             </div>
                           ) : (
                             <form onSubmit={handlePartnerSubmit} className="space-y-6">
-                                <h3 className="font-display text-2xl font-black text-ocobo-dark mb-8">Devenez partenaire</h3>
+                                <h3 className="font-display text-2xl font-black text-semantic-text mb-8">Devenez partenaire</h3>
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
                                         <label className="text-micro font-black uppercase tracking-[0.2em] text-gray-400">Nom de la solution*</label>
@@ -589,7 +589,7 @@ const Partners: React.FC = () => {
                                     <label className="text-micro font-black uppercase tracking-[0.2em] text-gray-400">Votre message</label>
                                     <textarea rows={4} placeholder="Parlez-nous de votre vision et de vos envies de partenariat..." className="w-full bg-gray-50 border border-gray-100 focus:border-ocobo-dark focus:bg-white outline-none p-4 rounded-none text-sm font-bold placeholder:text-gray-300 resize-none"></textarea>
                                 </div>
-                                <button type="submit" className="w-full py-5 bg-ocobo-dark text-white font-black uppercase tracking-[0.25em] text-xs rounded-none hover:bg-black transition-all shadow-xl flex items-center justify-center gap-3 group">
+                                <button type="submit" className="w-full py-5 bg-semantic-text text-white font-black uppercase tracking-[0.25em] text-xs rounded-none hover:bg-black transition-all shadow-xl flex items-center justify-center gap-3 group">
                                     Soumettre ma solution <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                 </button>
                             </form>
@@ -601,17 +601,17 @@ const Partners: React.FC = () => {
       </section>
 
       {/* CTA FINAL */}
-      <section className="bg-ocobo-sky py-28 text-center relative overflow-hidden">
+      <section className="bg-semantic-info py-28 text-center relative overflow-hidden">
            <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-              <h2 className="font-display text-5xl md:text-6xl font-black text-ocobo-dark mb-10 leading-[0.9] tracking-tight">
+              <h2 className="font-display text-5xl md:text-6xl font-black text-semantic-text mb-10 leading-[0.9] tracking-tight">
                 Besoin d'un architecte pour votre stack ?
               </h2>
-              <p className="text-xl text-ocobo-dark/70 mb-12 font-bold">
+              <p className="text-xl text-semantic-text/70 mb-12 font-bold">
                   Évaluons ensemble l'interconnexion de vos outils pour supprimer les silos.
               </p>
               <div className="flex justify-center">
                   <Link to="/contact">
-                      <Button variant="primary" className="px-14 py-6 text-lg shadow-lg bg-ocobo-dark border-none text-white">Prendre RDV</Button>
+                      <Button variant="primary" className="px-14 py-6 text-lg shadow-lg bg-semantic-text border-none text-white">Prendre RDV</Button>
                   </Link>
               </div>
           </div>

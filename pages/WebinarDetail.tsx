@@ -53,32 +53,32 @@ const WebinarDetail: React.FC = () => {
         
         {/* Back Button */}
         <div className="mb-12">
-          <Link to="/resources" className="inline-flex items-center text-gray-400 hover:text-ocobo-dark font-black uppercase tracking-[0.2em] text-micro transition-colors">
+          <Link to="/resources" className="inline-flex items-center text-gray-400 hover:text-semantic-text font-black uppercase tracking-[0.2em] text-micro transition-colors">
             <ArrowLeft size={14} className="mr-2" /> Retour à la librairie
           </Link>
         </div>
 
         {/* Header Section */}
         <div className="max-w-4xl mb-16">
-          <span className="font-display font-black text-ocobo-sky bg-ocobo-sky-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-sky/20 rounded-sm">
+          <span className="font-display font-black text-semantic-info bg-ocobo-sky-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-sky/20 rounded-sm">
             WEBINAR / {webinar.category}
           </span>
-          <h1 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-8 leading-tight tracking-tight">
+          <h1 className="font-display text-4xl md:text-6xl font-black text-semantic-text mb-8 leading-tight tracking-tight">
             {webinar.title}
           </h1>
           <div className="flex gap-8 text-xs font-black text-gray-400 uppercase tracking-widest">
             <div className="flex items-center gap-2">
-              <Calendar size={14} className="text-ocobo-yellow" /> {webinar.date}
+              <Calendar size={14} className="text-semantic-primary" /> {webinar.date}
             </div>
             <div className="flex items-center gap-2">
-              <Clock size={14} className="text-ocobo-sky" /> {webinar.duration}
+              <Clock size={14} className="text-semantic-info" /> {webinar.duration}
             </div>
           </div>
         </div>
 
         {/* Video Player Section */}
         <div className="mb-20">
-          <div className="relative aspect-video w-full rounded-xl overflow-hidden shadow-hero bg-ocobo-dark group">
+          <div className="relative aspect-video w-full rounded-xl overflow-hidden shadow-hero bg-semantic-text group">
             <iframe 
               src={`https://www.youtube.com/embed/${webinar.youtubeId}?autoplay=0&rel=0&modestbranding=1`}
               title={webinar.title}
@@ -95,21 +95,21 @@ const WebinarDetail: React.FC = () => {
           {/* Content Body */}
           <div className="lg:col-span-8 space-y-16">
             <div>
-                <h2 className="font-display text-3xl font-black text-ocobo-dark mb-8 tracking-tight">Résumé du webinar</h2>
+                <h2 className="font-display text-3xl font-black text-semantic-text mb-8 tracking-tight">Résumé du webinar</h2>
                 <p className="text-xl text-gray-600 font-medium leading-relaxed mb-10">
                 {webinar.description}
                 </p>
             </div>
 
             <div className="bg-gray-50 p-10 rounded-xl border border-gray-100">
-                <h3 className="font-display text-2xl font-black text-ocobo-dark mb-8">Au programme :</h3>
+                <h3 className="font-display text-2xl font-black text-semantic-text mb-8">Au programme :</h3>
                 <ul className="space-y-6">
                 {webinar.topics.map((topic: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-5 group">
-                        <div className="mt-1 w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-ocobo-sky shrink-0 shadow-sm group-hover:bg-ocobo-sky group-hover:text-white transition-all">
+                        <div className="mt-1 w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-semantic-info shrink-0 shadow-sm group-hover:bg-ocobo-sky group-hover:text-white transition-all">
                             <CheckCircle2 size={14} />
                         </div>
-                        <span className="text-lg font-bold text-ocobo-dark group-hover:text-black transition-colors">{topic}</span>
+                        <span className="text-lg font-bold text-semantic-text group-hover:text-black transition-colors">{topic}</span>
                     </li>
                 ))}
                 </ul>
@@ -119,7 +119,7 @@ const WebinarDetail: React.FC = () => {
           {/* Sidebar CTA */}
           <div className="lg:col-span-4">
             <div className="sticky top-32">
-                <div className="p-10 bg-ocobo-dark rounded-xl text-white shadow-2xl relative overflow-hidden">
+                <div className="p-10 bg-semantic-text rounded-xl text-white shadow-2xl relative overflow-hidden">
                     {/* Decorative element */}
                     <div className="absolute top-0 right-0 w-24 h-24 bg-ocobo-sky/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                     
@@ -149,11 +149,11 @@ const WebinarDetail: React.FC = () => {
 
                 {/* Related Resource link */}
                 <div className="mt-8 p-8 border border-gray-100 rounded-3xl bg-white shadow-sm hover:shadow-md transition-all group cursor-pointer">
-                    <span className="text-micro font-black text-ocobo-coral uppercase tracking-widest mb-2 block">Dernier Article</span>
-                    <h5 className="font-display text-lg font-bold text-ocobo-dark group-hover:text-ocobo-yellow transition-colors leading-tight">
+                    <span className="text-micro font-black text-semantic-accent uppercase tracking-widest mb-2 block">Dernier Article</span>
+                    <h5 className="font-display text-lg font-bold text-semantic-text group-hover:text-semantic-primary transition-colors leading-tight">
                         Pourquoi votre reporting HubSpot est faux (et comment le réparer)
                     </h5>
-                    <div className="mt-4 flex items-center text-micro font-black text-gray-300 group-hover:text-ocobo-dark transition-colors uppercase tracking-[0.2em]">
+                    <div className="mt-4 flex items-center text-micro font-black text-gray-300 group-hover:text-semantic-text transition-colors uppercase tracking-[0.2em]">
                         Lire l'article <ArrowRight size={14} className="ml-2" />
                     </div>
                 </div>
@@ -164,8 +164,8 @@ const WebinarDetail: React.FC = () => {
         {/* Footer Area with more webinars */}
         <div className="mt-40 pt-20 border-t border-gray-100">
           <div className="flex items-center justify-between mb-12">
-            <h3 className="font-display text-3xl font-black text-ocobo-dark">Autres masterclasses</h3>
-            <Link to="/resources" className="text-micro font-black uppercase tracking-[0.3em] text-gray-400 hover:text-ocobo-dark transition-colors flex items-center gap-2">
+            <h3 className="font-display text-3xl font-black text-semantic-text">Autres masterclasses</h3>
+            <Link to="/resources" className="text-micro font-black uppercase tracking-[0.3em] text-gray-400 hover:text-semantic-text transition-colors flex items-center gap-2">
                 Tout voir <ArrowRight size={14} />
             </Link>
           </div>
@@ -176,17 +176,17 @@ const WebinarDetail: React.FC = () => {
                     <div className="aspect-[16/10] overflow-hidden rounded-2xl mb-6 bg-gray-100 relative shadow-sm">
                         <img src={`https://picsum.photos/600/400?grayscale&random=${i+60}`} className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Related" />
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center text-ocobo-dark opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
+                            <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center text-semantic-text opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
                                 <Play fill="currentColor" size={16} />
                             </div>
                         </div>
                     </div>
-                    <span className="font-display font-black text-micro uppercase tracking-[0.2em] text-ocobo-sky mb-3 block">WEBINAR</span>
-                    <h4 className="font-display text-xl font-black text-ocobo-dark mb-4 group-hover:text-ocobo-sky transition-colors leading-tight">
+                    <span className="font-display font-black text-micro uppercase tracking-[0.2em] text-semantic-info mb-3 block">WEBINAR</span>
+                    <h4 className="font-display text-xl font-black text-semantic-text mb-4 group-hover:text-semantic-info transition-colors leading-tight">
                         Scaling des flux Data : les secrets des leaders SaaS
                     </h4>
                     <div className="flex items-center text-micro font-black uppercase tracking-widest text-gray-400 gap-2">
-                        <div className="flex items-center gap-1 group-hover:text-ocobo-dark transition-colors">
+                        <div className="flex items-center gap-1 group-hover:text-semantic-text transition-colors">
                             Voir le replay <ArrowRight size={12} />
                         </div>
                     </div>

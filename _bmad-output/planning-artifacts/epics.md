@@ -216,7 +216,7 @@ So that I can read and understand all design tokens from a single file.
 **And** the CDN script is removed from index.html
 **And** `npm run dev` and `npm run build` work without errors
 
-### Story 1.2: Define Color Tokens
+### Story 1.2: Define Color Tokens (Primitives)
 
 As an **AI Agent**,
 I want all color values defined as tokens in tailwind.config.js,
@@ -224,11 +224,49 @@ So that I can reference colors consistently using `bg-ocobo-yellow`, `text-ocobo
 
 **Acceptance Criteria:**
 
-**Given** the design system specification defines color primitives and semantics
+**Given** the design system specification defines color primitives
 **When** I define colors in tailwind.config.js under `theme.extend.colors.ocobo`
 **Then** all colors (dark, yellow, mint, sky, coral, gray scale) are accessible
 **And** light variants use DEFAULT pattern (e.g., `yellow.light`)
 **And** classes like `bg-ocobo-yellow-light` work correctly
+
+### Story 1.2b: Define Semantic Color Tokens
+
+As an **AI Agent**,
+I want semantic color tokens that reference primitive tokens,
+So that I can use intention-based classes like `bg-primary`, `text-muted`, `border-default` instead of hardcoded color names.
+
+**Acceptance Criteria:**
+
+**Given** primitive color tokens are defined in tailwind.config.js (Story 1.2)
+**When** I define semantic tokens under `theme.extend.colors.semantic`
+**Then** the following semantic tokens are available:
+
+| Token | Reference | Tailwind Class |
+|-------|-----------|----------------|
+| `primary` | `ocobo.yellow.DEFAULT` | `bg-semantic-primary` |
+| `primary-light` | `ocobo.yellow.light` | `bg-semantic-primary-light` |
+| `accent` | `ocobo.coral.DEFAULT` | `bg-semantic-accent` |
+| `success` | `ocobo.mint.DEFAULT` | `bg-semantic-success` |
+| `info` | `ocobo.sky.DEFAULT` | `bg-semantic-info` |
+| `surface` | `gray.50` | `bg-semantic-surface` |
+| `background` | `white` | `bg-semantic-background` |
+| `text` | `ocobo.dark` | `text-semantic-text` |
+| `text-muted` | `gray.600` | `text-semantic-muted` |
+| `border` | `gray.200` | `border-semantic-border` |
+
+**And** semantic tokens use CSS custom properties for runtime flexibility:
+```css
+--color-primary: var(--color-ocobo-yellow);
+```
+
+**And** changing a primitive value automatically updates all semantic references
+
+**And** documentation in `docs/design-system/tokens.md` includes semantic token mapping table
+
+**Dependencies:** Story 1.2 (primitive tokens must exist first)
+
+**NFRs covered:** NFR1 (all color values derive from tokens), NFR12 (token changes propagate automatically)
 
 ### Story 1.3: Define Spacing, Radius, and Shadow Tokens
 
@@ -968,14 +1006,14 @@ So that I can preview HeroSection, CtaSection, etc.
 
 | Epic | Name | Stories |
 |------|------|---------|
-| Epic 1 | Design Tokens Foundation | 5 |
+| Epic 1 | Design Tokens Foundation | 6 |
 | Epic 2 | Core UI Components | 9 |
 | Epic 3 | Section Components | 8 |
 | Epic 4 | Navbar Refactoring | 5 |
 | Epic 5 | Page Refactoring | 13 |
 | Epic 6 | AI Documentation | 5 |
 | Epic 7 | Design System Showcase | 5 |
-| **Total** | | **50 stories** |
+| **Total** | | **51 stories** |
 
 ### FR/NFR Coverage
 
