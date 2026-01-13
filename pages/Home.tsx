@@ -334,10 +334,10 @@ const Home: React.FC = () => {
          <div className="max-w-7xl mx-auto px-4 mt-28 relative z-10">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                 {[
-                    { title: "Aligner", desc: "les équipes", icon: <Layout size={28} />, color: "ocobo-coral", lightColor: "ocobo-coralLight" },
-                    { title: "Simplifier", desc: "les process", icon: <Zap size={28} />, color: "ocobo-yellow", lightColor: "ocobo-yellowLight" },
-                    { title: "Fiabiliser", desc: "la donnée", icon: <Target size={28} />, color: "ocobo-sky", lightColor: "ocobo-skyLight" },
-                    { title: "Piloter", desc: "la croissance", icon: <BarChart3 size={28} />, color: "ocobo-mint", lightColor: "ocobo-mintLight" }
+                    { title: "Aligner", desc: "les équipes", icon: <Layout size={28} />, color: "ocobo-coral", lightColor: "ocobo-coral-light" },
+                    { title: "Simplifier", desc: "les process", icon: <Zap size={28} />, color: "ocobo-yellow", lightColor: "ocobo-yellow-light" },
+                    { title: "Fiabiliser", desc: "la donnée", icon: <Target size={28} />, color: "ocobo-sky", lightColor: "ocobo-sky-light" },
+                    { title: "Piloter", desc: "la croissance", icon: <BarChart3 size={28} />, color: "ocobo-mint", lightColor: "ocobo-mint-light" }
                 ].map((item, i) => (
                     <div key={i} className="group relative bg-white border border-gray-100 p-12 aspect-square rounded-2xl transition-all duration-500 hover:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-2 flex flex-col items-center justify-center text-center">
                         <div className={`absolute inset-0 bg-${item.lightColor} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity`}></div>
@@ -367,7 +367,7 @@ const Home: React.FC = () => {
          </div>
 
          <div className="text-center mt-32 max-w-4xl mx-auto px-4">
-             <div className="inline-block px-5 py-2 bg-ocobo-mintLight text-ocobo-mint font-display font-black uppercase tracking-[0.3em] text-[10px] mb-8 rounded-full border border-ocobo-mint/20">
+             <div className="inline-block px-5 py-2 bg-ocobo-mint-light text-ocobo-mint font-display font-black uppercase tracking-[0.3em] text-[10px] mb-8 rounded-full border border-ocobo-mint/20">
                 Notre Mission
              </div>
              <h3 className="font-display text-4xl md:text-5xl font-black mb-6 tracking-tight">Démocratiser la science du revenu.</h3>
@@ -416,19 +416,19 @@ const Home: React.FC = () => {
                       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-ocobo-yellow via-ocobo-coral to-ocobo-sky"></div>
                       <h3 className="font-display text-2xl font-bold mb-8 text-center">Ce n’est pas un hasard.<br/>C’est une méthode.</h3>
                       <div className="space-y-4">
-                          <div className="p-4 bg-ocobo-yellowLight border-l-4 border-ocobo-yellow">
+                          <div className="p-4 bg-ocobo-yellow-light border-l-4 border-ocobo-yellow">
                               <span className="font-bold text-ocobo-dark">Alignment</span>
                               <p className="text-xs text-gray-600">Aligner les équipes qui font le revenu.</p>
                           </div>
-                          <div className="p-4 bg-ocobo-skyLight border-l-4 border-ocobo-sky">
+                          <div className="p-4 bg-ocobo-sky-light border-l-4 border-ocobo-sky">
                               <span className="font-bold text-ocobo-dark">Technology</span>
                               <p className="text-xs text-gray-600">Une stack claire, connectée, utile.</p>
                           </div>
-                          <div className="p-4 bg-ocobo-mintLight border-l-4 border-ocobo-mint">
+                          <div className="p-4 bg-ocobo-mint-light border-l-4 border-ocobo-mint">
                               <span className="font-bold text-ocobo-dark">Performance</span>
                               <p className="text-xs text-gray-600">Indicateurs fiables, pilotage, cockpit.</p>
                           </div>
-                          <div className="p-4 bg-ocobo-coralLight border-l-4 border-ocobo-coral">
+                          <div className="p-4 bg-ocobo-coral-light border-l-4 border-ocobo-coral">
                               <span className="font-bold text-ocobo-dark">Enablement</span>
                               <p className="text-xs text-gray-600">Equipes formées et autonomes.</p>
                           </div>

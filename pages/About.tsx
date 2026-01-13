@@ -337,7 +337,7 @@ const About: React.FC = () => {
              </div>
              
              <div className="text-center mt-12 flex flex-col items-center gap-8">
-                 <p className="font-bold text-xl">Trois parcours, une même conviction : <span className="bg-ocobo-yellowLight px-2">la croissance a besoin d’architectes, pas de techniciens.</span></p>
+                 <p className="font-bold text-xl">Trois parcours, une même conviction : <span className="bg-ocobo-yellow-light px-2">la croissance a besoin d’architectes, pas de techniciens.</span></p>
                  <Link to="/studio">
                      <Button variant="primary" className="px-8 py-4">Rencontrez le reste de l'équipe</Button>
                  </Link>
@@ -386,7 +386,7 @@ const About: React.FC = () => {
       </section>
 
       {/* BLOC 6 - CTA FINAL */}
-      <section className="bg-ocobo-skyLight py-24 text-center">
+      <section className="bg-ocobo-sky-light py-24 text-center">
           <div className="max-w-3xl mx-auto px-4">
               <h2 className="font-display text-4xl font-bold text-ocobo-dark mb-6">Parlons de votre machine revenue.</h2>
               <p className="text-xl text-gray-600 mb-4">30 minutes pour éclairer, diagnostiquer, orienter.</p>

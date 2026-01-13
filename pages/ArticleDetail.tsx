@@ -86,7 +86,7 @@ const ArticleDetail: React.FC = () => {
 
         {/* HERO ARTICLE */}
         <div className="max-w-4xl mx-auto text-center mb-20">
-          <span className="font-display font-bold text-ocobo-coral bg-ocobo-coralLight px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-coral/20">
+          <span className="font-display font-bold text-ocobo-coral bg-ocobo-coral-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-coral/20">
             {article.category}
           </span>
           <h1 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-10 leading-[1.05] tracking-tight">

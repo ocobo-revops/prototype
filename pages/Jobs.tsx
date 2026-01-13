@@ -94,28 +94,28 @@ const Jobs: React.FC = () => {
           title: "Excellence Senior",
           desc: "Ici, on ne bricole pas. On architecture des systèmes robustes avec l'exigence des meilleurs standards du marché.",
           icon: <Sparkles className="text-ocobo-yellow" size={24} />,
-          bg: "bg-ocobo-yellowLight",
+          bg: "bg-ocobo-yellow-light",
           border: "border-ocobo-yellow"
       },
       {
           title: "Transparence Radicale",
           desc: "Pas de politique, pas de non-dits. On progresse par le feedback honnête et la remise en question permanente.",
           icon: <ShieldCheck className="text-ocobo-sky" size={24} />,
-          bg: "bg-ocobo-skyLight",
+          bg: "bg-ocobo-sky-light",
           border: "border-ocobo-sky"
       },
       {
           title: "Impact Mesurable",
           desc: "Chaque sprint, chaque ligne de process, chaque dashboard doit créer de la valeur concrète pour nos clients.",
           icon: <Zap className="text-ocobo-mint" size={24} />,
-          bg: "bg-ocobo-mintLight",
+          bg: "bg-ocobo-mint-light",
           border: "border-ocobo-mint"
       },
       {
           title: "Esprit de Squad",
           desc: "On ne travaille jamais seul. On partage nos blocages, nos victoires et nos apprentissages en temps réel.",
           icon: <Heart className="text-ocobo-coral" size={24} />,
-          bg: "bg-ocobo-coralLight",
+          bg: "bg-ocobo-coral-light",
           border: "border-ocobo-coral"
       }
   ];
@@ -128,7 +128,7 @@ const Jobs: React.FC = () => {
       location: "Paris / Remote",
       exp: "> 7 ans",
       tag: "Senior",
-      theme: "bg-ocobo-yellowLight border-ocobo-yellow"
+      theme: "bg-ocobo-yellow-light border-ocobo-yellow"
     },
     {
       id: 2,
@@ -137,7 +137,7 @@ const Jobs: React.FC = () => {
       location: "Paris / Remote",
       exp: "4-6 ans",
       tag: "Confirmé",
-      theme: "bg-ocobo-skyLight border-ocobo-sky"
+      theme: "bg-ocobo-sky-light border-ocobo-sky"
     },
     {
       id: 3,
@@ -146,7 +146,7 @@ const Jobs: React.FC = () => {
       location: "Paris / Remote",
       exp: "> 3 ans",
       tag: "Expert",
-      theme: "bg-ocobo-mintLight border-ocobo-mint"
+      theme: "bg-ocobo-mint-light border-ocobo-mint"
     }
   ];
 
@@ -196,7 +196,7 @@ const Jobs: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
          <div className="flex flex-col lg:flex-row items-start gap-20">
             <div className="lg:w-1/2">
-                <span className="font-display font-black text-ocobo-dark bg-ocobo-mintLight px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-mint/20">
+                <span className="font-display font-black text-ocobo-dark bg-ocobo-mint-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-mint/20">
                     RECRUTEMENT
                 </span>
                 <h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
@@ -265,7 +265,7 @@ const Jobs: React.FC = () => {
       {/* 3. NOS VALEURS / CULTURE (REINTEGRATED) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 mb-16">
           <div className="text-center mb-20">
-              <span className="font-display font-black text-ocobo-coral bg-ocobo-coralLight px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-coral/20 rounded-full">
+              <span className="font-display font-black text-ocobo-coral bg-ocobo-coral-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-coral/20 rounded-full">
                   NOTRE ADN
               </span>
               <h2 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark tracking-tight">Ce qui définit notre culture</h2>

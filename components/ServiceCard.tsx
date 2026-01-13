@@ -13,22 +13,22 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, theme, ic
   const themeStyles = {
     [ThemeColor.YELLOW]: {
       border: 'border-l-ocobo-yellow',
-      bg: 'bg-ocobo-yellowLight',
+      bg: 'bg-ocobo-yellow-light',
       hover: 'group-hover:text-ocobo-yellow',
     },
     [ThemeColor.MINT]: {
       border: 'border-l-ocobo-mint',
-      bg: 'bg-ocobo-mintLight',
+      bg: 'bg-ocobo-mint-light',
       hover: 'group-hover:text-ocobo-mint',
     },
     [ThemeColor.SKY]: {
       border: 'border-l-ocobo-sky',
-      bg: 'bg-ocobo-skyLight',
+      bg: 'bg-ocobo-sky-light',
       hover: 'group-hover:text-ocobo-sky',
     },
     [ThemeColor.CORAL]: {
       border: 'border-l-ocobo-coral',
-      bg: 'bg-ocobo-coralLight',
+      bg: 'bg-ocobo-coral-light',
       hover: 'group-hover:text-ocobo-coral',
     },
     [ThemeColor.DARK]: {

@@ -448,7 +448,7 @@ const Stories: React.FC = () => {
       <section className="pt-40 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-20">
           <div className="lg:w-1/2">
-            <span className="font-display font-black text-ocobo-dark bg-ocobo-yellowLight px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
+            <span className="font-display font-black text-ocobo-dark bg-ocobo-yellow-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
                 SUCCESS STORIES
             </span>
             <h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">

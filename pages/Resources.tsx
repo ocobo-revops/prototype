@@ -212,7 +212,7 @@ const Resources: React.FC = () => {
                         <Button className="whitespace-nowrap">S'inscrire</Button>
                     </div>
                 </div>
-                <div className="bg-ocobo-yellowLight p-10 border border-ocobo-yellow/20 relative">
+                <div className="bg-ocobo-yellow-light p-10 border border-ocobo-yellow/20 relative">
                     <div className="absolute -top-4 -left-4 w-8 h-8 bg-ocobo-dark"></div>
                     <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-ocobo-dark"></div>
                     <h3 className="font-display text-2xl font-bold mb-4">Dernier playbook envoyé :</h3>

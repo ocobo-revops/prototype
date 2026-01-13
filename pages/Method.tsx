@@ -216,7 +216,7 @@ const Method: React.FC = () => {
       {/* HERO METHODE - UNIFORMISÉ & CENTRÉ AVEC ANIMATION LIGHT ET ESPACES RÉDUITS */}
       <section className="pt-40 pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center overflow-hidden">
           <div className="max-w-4xl mx-auto mb-8 relative z-10">
-              <span className="font-display font-black text-ocobo-dark bg-ocobo-yellowLight px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
+              <span className="font-display font-black text-ocobo-dark bg-ocobo-yellow-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
                 NOTRE MÉTHODE
               </span>
               
@@ -284,7 +284,7 @@ const Method: React.FC = () => {
                   {/* Card 1: Alignment */}
                   <div className="bg-white p-10 border-t-8 border-ocobo-yellow shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group">
                       <div className="flex justify-between items-start mb-10">
-                          <div className="bg-ocobo-yellowLight p-4 rounded-full text-ocobo-yellow">
+                          <div className="bg-ocobo-yellow-light p-4 rounded-full text-ocobo-yellow">
                               <Layout size={32} />
                           </div>
                           <span className="text-7xl font-display font-bold text-gray-100/60 leading-none select-none">01</span>
@@ -298,21 +298,21 @@ const Method: React.FC = () => {
                           <span className="font-display font-bold text-[10px] uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">LIVRABLES CLÉS</span>
                           <div className="space-y-6">
                               <div className="flex gap-4 items-start group/item">
-                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-yellow ring-4 ring-ocobo-yellowLight shrink-0"></div>
+                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-yellow ring-4 ring-ocobo-yellow-light shrink-0"></div>
                                   <div>
                                       <h4 className="text-sm font-bold text-ocobo-dark mb-1 leading-snug">Cartographie du cycle de vie (Lifecycle Map)</h4>
                                       <p className="text-xs text-gray-500 leading-relaxed">Visualisation précise du parcours client et des points de friction.</p>
                                   </div>
                               </div>
                               <div className="flex gap-4 items-start group/item">
-                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-yellow ring-4 ring-ocobo-yellowLight shrink-0"></div>
+                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-yellow ring-4 ring-ocobo-yellow-light shrink-0"></div>
                                   <div>
                                       <h4 className="text-sm font-bold text-ocobo-dark mb-1 leading-snug">Protocoles de "Handover" & SLAs</h4>
                                       <p className="text-xs text-gray-500 leading-relaxed">Règles strictes de passage de relais entre équipes (fini les zones grises).</p>
                                   </div>
                               </div>
                               <div className="flex gap-4 items-start group/item">
-                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-yellow ring-4 ring-ocobo-yellowLight shrink-0"></div>
+                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-yellow ring-4 ring-ocobo-yellow-light shrink-0"></div>
                                   <div>
                                       <h4 className="text-sm font-bold text-ocobo-dark mb-1 leading-snug">Dictionnaire de données (KPIS clés)</h4>
                                       <p className="text-xs text-gray-500 leading-relaxed">Définitions partagées par toute l'entreprise pour garantir l'intégrité de la donnée.</p>
@@ -325,7 +325,7 @@ const Method: React.FC = () => {
                    {/* Card 2: Technologie */}
                   <div className="bg-white p-10 border-t-8 border-ocobo-sky shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group">
                       <div className="flex justify-between items-start mb-10">
-                          <div className="bg-ocobo-skyLight p-4 rounded-full text-ocobo-sky">
+                          <div className="bg-ocobo-sky-light p-4 rounded-full text-ocobo-sky">
                               <Sliders size={32} />
                           </div>
                           <span className="text-7xl font-display font-bold text-gray-100/60 leading-none select-none">02</span>
@@ -339,21 +339,21 @@ const Method: React.FC = () => {
                           <span className="font-display font-bold text-[10px] uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">LIVRABLES CLÉS</span>
                           <div className="space-y-6">
                               <div className="flex gap-4 items-start group/item">
-                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-sky ring-4 ring-ocobo-skyLight shrink-0"></div>
+                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-sky ring-4 ring-ocobo-sky-light shrink-0"></div>
                                   <div>
                                       <h4 className="text-sm font-bold text-ocobo-dark mb-1 leading-snug">Audit & assainissement de la Stack</h4>
                                       <p className="text-xs text-gray-500 leading-relaxed">Nettoyage des dettes techniques et suppression des outils redondants.</p>
                                   </div>
                               </div>
                               <div className="flex gap-4 items-start group/item">
-                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-sky ring-4 ring-ocobo-skyLight shrink-0"></div>
+                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-sky ring-4 ring-ocobo-sky-light shrink-0"></div>
                                   <div>
                                       <h4 className="text-sm font-bold text-ocobo-dark mb-1 leading-snug">Architecture de données scalable (Core Model)</h4>
                                       <p className="text-xs text-gray-500 leading-relaxed">Structure CRM prête pour le multi-segment et l'hyper-croissance.</p>
                                   </div>
                               </div>
                               <div className="flex gap-4 items-start group/item">
-                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-sky ring-4 ring-ocobo-skyLight shrink-0"></div>
+                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-sky ring-4 ring-ocobo-sky-light shrink-0"></div>
                                   <div>
                                       <h4 className="text-sm font-bold text-ocobo-dark mb-1 leading-snug">Flux d'enrichissement & routage automatisé</h4>
                                       <p className="text-xs text-gray-500 leading-relaxed">Mécanismes pour livrer la bonne info au bon commercial, au bon moment.</p>
@@ -366,7 +366,7 @@ const Method: React.FC = () => {
                    {/* Card 3: Performance */}
                   <div className="bg-white p-10 border-t-8 border-ocobo-mint shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group">
                       <div className="flex justify-between items-start mb-10">
-                          <div className="bg-ocobo-mintLight p-4 rounded-full text-ocobo-mint">
+                          <div className="bg-ocobo-mint-light p-4 rounded-full text-ocobo-mint">
                               <LineChart size={32} />
                           </div>
                           <span className="text-7xl font-display font-bold text-gray-100/60 leading-none select-none">03</span>
@@ -380,21 +380,21 @@ const Method: React.FC = () => {
                           <span className="font-display font-bold text-[10px] uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">LIVRABLES CLÉS</span>
                           <div className="space-y-6">
                               <div className="flex gap-4 items-start group/item">
-                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-mint ring-4 ring-ocobo-mintLight shrink-0"></div>
+                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-mint ring-4 ring-ocobo-mint-light shrink-0"></div>
                                   <div>
                                       <h4 className="text-sm font-bold text-ocobo-dark mb-1 leading-snug">Dashboards COMEX & Investisseurs</h4>
                                       <p className="text-xs text-gray-500 leading-relaxed">Vues macro pour le pilotage stratégique (CAC, LTV, Churn) et reporting financier.</p>
                                   </div>
                               </div>
                               <div className="flex gap-4 items-start group/item">
-                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-mint ring-4 ring-ocobo-mintLight shrink-0"></div>
+                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-mint ring-4 ring-ocobo-mint-light shrink-0"></div>
                                   <div>
                                       <h4 className="text-sm font-bold text-ocobo-dark mb-1 leading-snug">Plans de commissionnement (Comp Plans)</h4>
                                       <p className="text-xs text-gray-500 leading-relaxed">Modèles de variable qui orientent les comportements vers la valeur réelle.</p>
                                   </div>
                               </div>
                               <div className="flex gap-4 items-start group/item">
-                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-mint ring-4 ring-ocobo-mintLight shrink-0"></div>
+                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-mint ring-4 ring-ocobo-mint-light shrink-0"></div>
                                   <div>
                                       <h4 className="text-sm font-bold text-ocobo-dark mb-1 leading-snug">Fiabilisation du Forecast</h4>
                                       <p className="text-xs text-gray-500 leading-relaxed">Routines pour passer de la "devinette" à une prévision fiable (+/- 10%).</p>
@@ -407,7 +407,7 @@ const Method: React.FC = () => {
                    {/* Card 4: Enablement */}
                   <div className="bg-white p-10 border-t-8 border-ocobo-coral shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group">
                       <div className="flex justify-between items-start mb-10">
-                          <div className="bg-ocobo-coralLight p-4 rounded-full text-ocobo-coral">
+                          <div className="bg-ocobo-coral-light p-4 rounded-full text-ocobo-coral">
                               <GraduationCap size={32} />
                           </div>
                           <span className="text-7xl font-display font-bold text-gray-100/60 leading-none select-none">04</span>
@@ -421,21 +421,21 @@ const Method: React.FC = () => {
                           <span className="font-display font-bold text-[10px] uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">LIVRABLES CLÉS</span>
                           <div className="space-y-6">
                               <div className="flex gap-4 items-start group/item">
-                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-coral ring-4 ring-ocobo-coralLight shrink-0"></div>
+                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-coral ring-4 ring-ocobo-coral-light shrink-0"></div>
                                   <div>
                                       <h4 className="text-sm font-bold text-ocobo-dark mb-1 leading-snug">Playbooks d'exécution</h4>
                                       <p className="text-xs text-gray-500 leading-relaxed">Guides pratiques (Sales & Ops) pour standardiser les méthodes de travail.</p>
                                   </div>
                               </div>
                               <div className="flex gap-4 items-start group/item">
-                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-coral ring-4 ring-ocobo-coralLight shrink-0"></div>
+                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-coral ring-4 ring-ocobo-coral-light shrink-0"></div>
                                   <div>
                                       <h4 className="text-sm font-bold text-ocobo-dark mb-1 leading-snug">Documentation technique pérenne</h4>
                                       <p className="text-xs text-gray-500 leading-relaxed">Wiki complet pour ne plus dépendre de la connaissance individuelle.</p>
                                   </div>
                               </div>
                               <div className="flex gap-4 items-start group/item">
-                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-coral ring-4 ring-ocobo-coralLight shrink-0"></div>
+                                  <div className="mt-1.5 w-2 h-2 rounded-full bg-ocobo-coral ring-4 ring-ocobo-coral-light shrink-0"></div>
                                   <div>
                                       <h4 className="text-sm font-bold text-ocobo-dark mb-1 leading-snug">Routines d'onboarding CRM</h4>
                                       <p className="text-xs text-gray-500 leading-relaxed">Parcours de formation pour rendre les nouveaux entrants opérationnels vite.</p>
@@ -460,7 +460,7 @@ const Method: React.FC = () => {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left mt-24">
                    {/* Card 1 */}
                    <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl hover:border-ocobo-yellow">
-                       <div className="w-12 h-12 bg-ocobo-yellowLight text-ocobo-yellow rounded-lg flex items-center justify-center mb-6">
+                       <div className="w-12 h-12 bg-ocobo-yellow-light text-ocobo-yellow rounded-lg flex items-center justify-center mb-6">
                           <Target size={24} />
                        </div>
                        <h3 className="font-display text-xl font-bold mb-4">Génération de Revenu</h3>
@@ -473,7 +473,7 @@ const Method: React.FC = () => {
 
                    {/* Card 2 */}
                    <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl hover:border-ocobo-sky">
-                       <div className="w-12 h-12 bg-ocobo-skyLight text-ocobo-sky rounded-lg flex items-center justify-center mb-6">
+                       <div className="w-12 h-12 bg-ocobo-sky-light text-ocobo-sky rounded-lg flex items-center justify-center mb-6">
                           <Database size={24} />
                        </div>
                        <h3 className="font-display text-xl font-bold mb-4">Architecture & Data</h3>
@@ -486,7 +486,7 @@ const Method: React.FC = () => {
 
                    {/* Card 3 */}
                    <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl hover:border-ocobo-mint">
-                       <div className="w-12 h-12 bg-ocobo-mintLight text-ocobo-mint rounded-lg flex items-center justify-center mb-6">
+                       <div className="w-12 h-12 bg-ocobo-mint-light text-ocobo-mint rounded-lg flex items-center justify-center mb-6">
                           <BarChart3 size={24} />
                        </div>
                        <h3 className="font-display text-xl font-bold mb-4">Pilotage & Performance</h3>
@@ -499,7 +499,7 @@ const Method: React.FC = () => {
 
                    {/* Card 4 */}
                    <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl hover:border-ocobo-coral">
-                       <div className="w-12 h-12 bg-ocobo-coralLight text-ocobo-coral rounded-lg flex items-center justify-center mb-6">
+                       <div className="w-12 h-12 bg-ocobo-coral-light text-ocobo-coral rounded-lg flex items-center justify-center mb-6">
                           <RefreshCw size={24} />
                        </div>
                        <h3 className="font-display text-xl font-bold mb-4">Customer Success & Expansion</h3>
@@ -512,7 +512,7 @@ const Method: React.FC = () => {
 
                    {/* Card 5 */}
                    <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl hover:border-ocobo-yellow">
-                       <div className="w-12 h-12 bg-ocobo-yellowLight text-ocobo-yellow rounded-lg flex items-center justify-center mb-6">
+                       <div className="w-12 h-12 bg-ocobo-yellow-light text-ocobo-yellow rounded-lg flex items-center justify-center mb-6">
                           <GraduationCap size={24} />
                        </div>
                        <h3 className="font-display text-xl font-bold mb-4">Sales Enablement</h3>
@@ -525,7 +525,7 @@ const Method: React.FC = () => {
 
                    {/* Card 6 */}
                    <div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl hover:border-ocobo-sky">
-                       <div className="w-12 h-12 bg-ocobo-skyLight text-ocobo-sky rounded-lg flex items-center justify-center mb-6">
+                       <div className="w-12 h-12 bg-ocobo-sky-light text-ocobo-sky rounded-lg flex items-center justify-center mb-6">
                           <Layers size={24} />
                        </div>
                        <h3 className="font-display text-xl font-bold mb-4">Gouvernance & Stratégie</h3>

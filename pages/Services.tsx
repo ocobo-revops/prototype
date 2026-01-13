@@ -20,16 +20,16 @@ const ArchitecturalGrid = () => {
                 {/* Grid Container */}
                 <div className="relative z-10 bg-white border-2 border-ocobo-dark p-8 shadow-[10px_10px_0px_0px_rgba(33,35,35,1)] flex-grow">
                     <div className="grid grid-cols-2 gap-4 mb-4">
-                        <div className="animate-box h-24 bg-ocobo-yellowLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group" style={{ animationDelay: '0.4s' }}>
+                        <div className="animate-box h-24 bg-ocobo-yellow-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group" style={{ animationDelay: '0.4s' }}>
                             <span className="font-display font-bold group-hover:text-ocobo-yellow transition-colors text-xs md:text-sm">MARKETING</span>
                         </div>
-                        <div className="animate-box h-24 bg-ocobo-skyLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group" style={{ animationDelay: '0.5s' }}>
+                        <div className="animate-box h-24 bg-ocobo-sky-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group" style={{ animationDelay: '0.5s' }}>
                             <span className="font-display font-bold group-hover:text-ocobo-sky transition-colors text-xs md:text-sm">SALES</span>
                         </div>
-                        <div className="animate-box h-24 bg-ocobo-mintLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group" style={{ animationDelay: '0.6s' }}>
+                        <div className="animate-box h-24 bg-ocobo-mint-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group" style={{ animationDelay: '0.6s' }}>
                             <span className="font-display font-bold group-hover:text-ocobo-mint transition-colors text-xs md:text-sm">CLIENT</span>
                         </div>
-                        <div className="animate-box h-24 bg-ocobo-coralLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group" style={{ animationDelay: '0.7s' }}>
+                        <div className="animate-box h-24 bg-ocobo-coral-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group" style={{ animationDelay: '0.7s' }}>
                             <span className="font-display font-bold group-hover:text-ocobo-coral transition-colors text-xs md:text-sm">FINANCE</span>
                         </div>
                     </div>
@@ -249,7 +249,7 @@ const Services: React.FC = () => {
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 mb-16">
               {/* Left Content */}
               <div className="lg:w-1/2">
-                  <span className="font-display font-black text-ocobo-dark bg-ocobo-yellowLight px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
+                  <span className="font-display font-black text-ocobo-dark bg-ocobo-yellow-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
                     NOTRE OFFRE
                   </span>
                   <h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
@@ -399,7 +399,7 @@ const Services: React.FC = () => {
                           <div className="bg-white border border-gray-100 p-8 md:p-10 hover:shadow-2xl hover:border-ocobo-yellow transition-all duration-300 group rounded-xl">
                               <ul className="space-y-8">
                                   <li className="flex gap-5 items-start">
-                                      <div className="mt-1 bg-ocobo-yellowLight p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
+                                      <div className="mt-1 bg-ocobo-yellow-light p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
                                           <CheckCircle2 size={18} />
                                       </div>
                                       <div>
@@ -408,7 +408,7 @@ const Services: React.FC = () => {
                                       </div>
                                   </li>
                                   <li className="flex gap-5 items-start">
-                                      <div className="mt-1 bg-ocobo-yellowLight p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
+                                      <div className="mt-1 bg-ocobo-yellow-light p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
                                           <CheckCircle2 size={18} />
                                       </div>
                                       <div>
@@ -417,7 +417,7 @@ const Services: React.FC = () => {
                                       </div>
                                   </li>
                                   <li className="flex gap-5 items-start">
-                                      <div className="mt-1 bg-ocobo-yellowLight p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
+                                      <div className="mt-1 bg-ocobo-yellow-light p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
                                           <CheckCircle2 size={18} />
                                       </div>
                                       <div>
@@ -476,7 +476,7 @@ const Services: React.FC = () => {
                           <div className="bg-white border border-gray-100 p-8 md:p-10 hover:shadow-2xl hover:border-ocobo-mint transition-all duration-300 group rounded-xl">
                               <ul className="space-y-8">
                                   <li className="flex gap-5 items-start">
-                                      <div className="mt-1 bg-ocobo-mintLight p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+                                      <div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
                                           <CheckCircle2 size={18} />
                                       </div>
                                       <div>
@@ -485,7 +485,7 @@ const Services: React.FC = () => {
                                       </div>
                                   </li>
                                   <li className="flex gap-5 items-start">
-                                      <div className="mt-1 bg-ocobo-mintLight p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+                                      <div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
                                           <CheckCircle2 size={18} />
                                       </div>
                                       <div>
@@ -494,7 +494,7 @@ const Services: React.FC = () => {
                                       </div>
                                   </li>
                                   <li className="flex gap-5 items-start">
-                                      <div className="mt-1 bg-ocobo-mintLight p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+                                      <div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
                                           <CheckCircle2 size={18} />
                                       </div>
                                       <div>
@@ -503,7 +503,7 @@ const Services: React.FC = () => {
                                       </div>
                                   </li>
                                   <li className="flex gap-5 items-start">
-                                      <div className="mt-1 bg-ocobo-mintLight p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+                                      <div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
                                           <CheckCircle2 size={18} />
                                       </div>
                                       <div>
@@ -523,7 +523,7 @@ const Services: React.FC = () => {
       <section className="py-24 bg-white border-y border-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-3xl mb-20">
-                  <span className="font-display font-black text-ocobo-dark bg-ocobo-yellowLight px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20">
+                  <span className="font-display font-black text-ocobo-dark bg-ocobo-yellow-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20">
                       LEVIERS DE CROISSANCE
                   </span>
                   <h2 className="font-display text-4xl md:text-5xl font-bold text-ocobo-dark mb-8 leading-tight tracking-tight">

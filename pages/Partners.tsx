@@ -335,7 +335,7 @@ const Partners: React.FC = () => {
       {/* HERO TECHNOLOGIE */}
       <section className="pt-40 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
           <div className="max-w-4xl mx-auto mb-16 relative z-10">
-              <span className="font-display font-black text-ocobo-dark bg-ocobo-skyLight px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-sky/20">
+              <span className="font-display font-black text-ocobo-dark bg-ocobo-sky-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-sky/20">
                 TECHNOLOGIE
               </span>
               
@@ -513,7 +513,7 @@ const Partners: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex flex-col lg:flex-row gap-20 items-center">
                   <div className="lg:w-1/2">
-                      <span className="font-display font-black text-ocobo-sky bg-ocobo-skyLight px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-sky/20">
+                      <span className="font-display font-black text-ocobo-sky bg-ocobo-sky-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-sky/20">
                           CO-CONSTRUCTION
                       </span>
                       <h2 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-8 leading-[0.95] tracking-tight">
@@ -561,7 +561,7 @@ const Partners: React.FC = () => {
                           
                           {formSubmitted ? (
                             <div className="py-12 text-center animate-fade-in-up">
-                                <div className="w-20 h-20 bg-ocobo-mintLight text-ocobo-mint rounded-full flex items-center justify-center mx-auto mb-6">
+                                <div className="w-20 h-20 bg-ocobo-mint-light text-ocobo-mint rounded-full flex items-center justify-center mx-auto mb-6">
                                     <CheckCircle2 size={40} />
                                 </div>
                                 <h3 className="font-display text-2xl font-black text-ocobo-dark mb-4">Demande reçue !</h3>

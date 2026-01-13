@@ -121,7 +121,7 @@ const JobDetail: React.FC = () => {
 
         {/* HERO OFFRE (Style Blog) */}
         <div className="max-w-5xl mx-auto text-center mb-20">
-          <span className="font-display font-bold text-ocobo-yellow bg-ocobo-yellowLight px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20">
+          <span className="font-display font-bold text-ocobo-yellow bg-ocobo-yellow-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20">
             {job.category}
           </span>
           <h1 className="font-display text-4xl md:text-7xl font-black text-ocobo-dark mb-10 leading-[1.05] tracking-tight">
@@ -302,7 +302,7 @@ const JobDetail: React.FC = () => {
                     ].map((other, i) => (
                         <div key={i} className="group p-8 border border-gray-100 bg-white hover:border-ocobo-yellow hover:shadow-xl transition-all rounded-2xl">
                             <div className="flex items-center gap-3 mb-4">
-                                <span className="text-[9px] font-black uppercase tracking-widest text-ocobo-coral bg-ocobo-coralLight px-2 py-0.5 border border-ocobo-coral/10">{other.exp}</span>
+                                <span className="text-[9px] font-black uppercase tracking-widest text-ocobo-coral bg-ocobo-coral-light px-2 py-0.5 border border-ocobo-coral/10">{other.exp}</span>
                                 <span className="text-[9px] font-black uppercase tracking-widest text-gray-300">{other.type}</span>
                             </div>
                             <h4 className="font-display text-2xl font-black text-ocobo-dark mb-6 group-hover:text-ocobo-yellow transition-colors leading-tight">

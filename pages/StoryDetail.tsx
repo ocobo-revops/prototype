@@ -254,7 +254,7 @@ const StoryDetail: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-16 items-start mb-24">
             <div className="lg:w-2/3">
                 <div className="flex items-center gap-4 mb-8">
-                    <span className="font-display font-black text-[10px] uppercase tracking-[0.3em] text-ocobo-dark bg-ocobo-mintLight px-4 py-1.5 border border-ocobo-mint/20 rounded-full">
+                    <span className="font-display font-black text-[10px] uppercase tracking-[0.3em] text-ocobo-dark bg-ocobo-mint-light px-4 py-1.5 border border-ocobo-mint/20 rounded-full">
                         {story.segment}
                     </span>
                     <span className="w-1.5 h-1.5 rounded-full bg-ocobo-yellow"></span>

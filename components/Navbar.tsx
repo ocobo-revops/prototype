@@ -147,10 +147,10 @@ const Navbar: React.FC = () => {
 
   const getSubMenuHoverClasses = (color: string) => {
     const subThemeMap: Record<string, string> = {
-      yellow: 'hover:bg-ocobo-yellowLight',
-      coral: 'hover:bg-ocobo-coralLight',
-      mint: 'hover:bg-ocobo-mintLight',
-      sky: 'hover:bg-ocobo-skyLight',
+      yellow: 'hover:bg-ocobo-yellow-light',
+      coral: 'hover:bg-ocobo-coral-light',
+      mint: 'hover:bg-ocobo-mint-light',
+      sky: 'hover:bg-ocobo-sky-light',
     };
     return subThemeMap[color] || 'hover:bg-gray-50';
   };
