@@ -73,7 +73,7 @@ const ArticleDetail: React.FC = () => {
         
         {/* BREADCRUMBS & TOP NAV */}
         <div className="mb-12 flex items-center justify-between">
-          <Link to="/resources" className="inline-flex items-center text-gray-400 hover:text-ocobo-dark font-black uppercase tracking-widest text-[10px] transition-colors">
+          <Link to="/resources" className="inline-flex items-center text-gray-400 hover:text-ocobo-dark font-black uppercase tracking-widest text-micro transition-colors">
             <ArrowLeft size={14} className="mr-2" /> Retour au blog
           </Link>
           <div className="flex items-center gap-4 text-gray-300">
@@ -86,7 +86,7 @@ const ArticleDetail: React.FC = () => {
 
         {/* HERO ARTICLE */}
         <div className="max-w-4xl mx-auto text-center mb-20">
-          <span className="font-display font-bold text-ocobo-coral bg-ocobo-coral-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-coral/20">
+          <span className="font-display font-bold text-ocobo-coral bg-ocobo-coral-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-coral/20">
             {article.category}
           </span>
           <h1 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-10 leading-[1.05] tracking-tight">
@@ -110,7 +110,7 @@ const ArticleDetail: React.FC = () => {
           {/* SIDEBAR : SOMMAIRE */}
           <aside className="lg:w-1/4">
             <div className="sticky top-32">
-              <h4 className="font-display font-black text-[10px] uppercase tracking-[0.4em] text-ocobo-dark mb-8">Sommaire</h4>
+              <h4 className="font-display font-black text-micro uppercase tracking-[0.4em] text-ocobo-dark mb-8">Sommaire</h4>
               <nav className="space-y-4">
                 {article.sections.map((section) => (
                   <a 
@@ -205,7 +205,7 @@ const ArticleDetail: React.FC = () => {
                             placeholder="votre@email.com" 
                             className="flex-grow px-6 py-4 bg-white/90 focus:bg-white border-none outline-none text-ocobo-dark font-bold placeholder-gray-400 rounded-xl"
                         />
-                        <button className="px-8 py-4 bg-ocobo-dark text-white font-black uppercase tracking-widest text-[10px] rounded-xl hover:bg-black transition-all">S'inscrire</button>
+                        <button className="px-8 py-4 bg-ocobo-dark text-white font-black uppercase tracking-widest text-micro rounded-xl hover:bg-black transition-all">S'inscrire</button>
                     </form>
                 </div>
             </div>
@@ -221,11 +221,11 @@ const ArticleDetail: React.FC = () => {
                         <div className="aspect-[16/10] overflow-hidden rounded-2xl mb-6 bg-gray-100 border border-gray-100">
                             <img src={`https://picsum.photos/600/400?grayscale&random=${i+20}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" alt="Related" />
                         </div>
-                        <span className="font-display font-bold text-[9px] uppercase tracking-widest text-ocobo-coral mb-3 block">Performance</span>
+                        <span className="font-display font-bold text-micro uppercase tracking-widest text-ocobo-coral mb-3 block">Performance</span>
                         <h4 className="font-display text-xl font-bold text-ocobo-dark mb-4 group-hover:text-ocobo-yellow transition-colors leading-tight">
                             Comment réduire votre CAC via l'automatisation RevOps
                         </h4>
-                        <div className="flex items-center text-[10px] font-black uppercase tracking-widest text-gray-400 gap-2">
+                        <div className="flex items-center text-micro font-black uppercase tracking-widest text-gray-400 gap-2">
                             <span>8 MIN</span>
                             <span className="w-1 h-1 bg-gray-200 rounded-full"></span>
                             <div className="flex items-center gap-1 group-hover:text-ocobo-dark transition-colors">

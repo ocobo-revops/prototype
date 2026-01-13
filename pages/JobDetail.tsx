@@ -114,14 +114,14 @@ const JobDetail: React.FC = () => {
         
         {/* BREADCRUMBS & TOP NAV (Style Blog) */}
         <div className="mb-12 flex items-center justify-between">
-          <Link to="/jobs" className="inline-flex items-center text-gray-400 hover:text-ocobo-dark font-black uppercase tracking-widest text-[10px] transition-colors">
+          <Link to="/jobs" className="inline-flex items-center text-gray-400 hover:text-ocobo-dark font-black uppercase tracking-widest text-micro transition-colors">
             <ArrowLeft size={14} className="mr-2" /> Retour aux offres
           </Link>
         </div>
 
         {/* HERO OFFRE (Style Blog) */}
         <div className="max-w-5xl mx-auto text-center mb-20">
-          <span className="font-display font-bold text-ocobo-yellow bg-ocobo-yellow-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20">
+          <span className="font-display font-bold text-ocobo-yellow bg-ocobo-yellow-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20">
             {job.category}
           </span>
           <h1 className="font-display text-4xl md:text-7xl font-black text-ocobo-dark mb-10 leading-[1.05] tracking-tight">
@@ -143,7 +143,7 @@ const JobDetail: React.FC = () => {
           {/* SIDEBAR : SOMMAIRE (Style Blog) */}
           <aside className="lg:w-1/4">
             <div className="sticky top-32">
-              <h4 className="font-display font-black text-[10px] uppercase tracking-[0.4em] text-ocobo-dark mb-8">Navigation</h4>
+              <h4 className="font-display font-black text-micro uppercase tracking-[0.4em] text-ocobo-dark mb-8">Navigation</h4>
               <nav className="space-y-4">
                 {job.sections.map((section) => (
                   <a 
@@ -183,14 +183,14 @@ const JobDetail: React.FC = () => {
                           "Équipe issue des tops scale-ups",
                           "Impact GTM direct"
                       ].map((benefit, i) => (
-                        <li key={i} className="flex items-start gap-3 text-[10px] font-bold uppercase tracking-widest text-gray-400">
+                        <li key={i} className="flex items-start gap-3 text-micro font-bold uppercase tracking-widest text-gray-400">
                             <Plus size={12} className="text-ocobo-yellow shrink-0 mt-0.5" />
                             {benefit}
                         </li>
                       ))}
                   </ul>
                   <a href="#apply">
-                      <button className="w-full py-3 bg-ocobo-yellow text-ocobo-dark font-black text-[10px] uppercase tracking-widest rounded-lg hover:bg-white transition-colors">Postuler maintenant</button>
+                      <button className="w-full py-3 bg-ocobo-yellow text-ocobo-dark font-black text-micro uppercase tracking-widest rounded-lg hover:bg-white transition-colors">Postuler maintenant</button>
                   </a>
               </div>
             </div>
@@ -263,28 +263,28 @@ const JobDetail: React.FC = () => {
                     <form className="space-y-8 max-w-2xl">
                         <div className="grid md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-[10px] font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">Prénom Nom*</label>
+                                <label className="text-micro font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">Prénom Nom*</label>
                                 <input type="text" className="w-full bg-white/90 focus:bg-white border-none outline-none text-ocobo-dark font-bold p-4 rounded-xl placeholder-gray-300" placeholder="John Doe" />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-[10px] font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">Email Pro*</label>
+                                <label className="text-micro font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">Email Pro*</label>
                                 <input type="email" className="w-full bg-white/90 focus:bg-white border-none outline-none text-ocobo-dark font-bold p-4 rounded-xl placeholder-gray-300" placeholder="john@company.com" />
                             </div>
                             <div className="space-y-2 md:col-span-2">
-                                <label className="text-[10px] font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">Lien LinkedIn*</label>
+                                <label className="text-micro font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">Lien LinkedIn*</label>
                                 <input type="url" className="w-full bg-white/90 focus:bg-white border-none outline-none text-ocobo-dark font-bold p-4 rounded-xl placeholder-gray-300" placeholder="https://linkedin.com/in/..." />
                             </div>
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-[10px] font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">Ton CV (PDF)*</label>
+                            <label className="text-micro font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">Ton CV (PDF)*</label>
                             <div className="border-2 border-dashed border-ocobo-dark/10 p-10 text-center bg-white/40 rounded-2xl hover:bg-white transition-all cursor-pointer group">
                                 <FileText className="mx-auto mb-3 text-ocobo-dark/20 group-hover:text-ocobo-dark transition-colors" size={32} />
-                                <p className="text-[10px] font-black uppercase tracking-widest text-ocobo-dark/40 group-hover:text-ocobo-dark transition-colors">Dépose ton fichier ou clique ici</p>
+                                <p className="text-micro font-black uppercase tracking-widest text-ocobo-dark/40 group-hover:text-ocobo-dark transition-colors">Dépose ton fichier ou clique ici</p>
                             </div>
                         </div>
 
-                        <button className="w-full py-5 bg-ocobo-dark text-white font-black uppercase tracking-[0.4em] text-[11px] rounded-xl hover:bg-black transition-all shadow-xl flex items-center justify-center gap-3 group">
+                        <button className="w-full py-5 bg-ocobo-dark text-white font-black uppercase tracking-[0.4em] text-xs rounded-xl hover:bg-black transition-all shadow-xl flex items-center justify-center gap-3 group">
                             <Send size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /> 
                             Envoyer ma candidature
                         </button>
@@ -302,13 +302,13 @@ const JobDetail: React.FC = () => {
                     ].map((other, i) => (
                         <div key={i} className="group p-8 border border-gray-100 bg-white hover:border-ocobo-yellow hover:shadow-xl transition-all rounded-2xl">
                             <div className="flex items-center gap-3 mb-4">
-                                <span className="text-[9px] font-black uppercase tracking-widest text-ocobo-coral bg-ocobo-coral-light px-2 py-0.5 border border-ocobo-coral/10">{other.exp}</span>
-                                <span className="text-[9px] font-black uppercase tracking-widest text-gray-300">{other.type}</span>
+                                <span className="text-micro font-black uppercase tracking-widest text-ocobo-coral bg-ocobo-coral-light px-2 py-0.5 border border-ocobo-coral/10">{other.exp}</span>
+                                <span className="text-micro font-black uppercase tracking-widest text-gray-300">{other.type}</span>
                             </div>
                             <h4 className="font-display text-2xl font-black text-ocobo-dark mb-6 group-hover:text-ocobo-yellow transition-colors leading-tight">
                                 {other.title}
                             </h4>
-                            <div className="flex items-center text-[10px] font-black uppercase tracking-widest text-gray-400 gap-2">
+                            <div className="flex items-center text-micro font-black uppercase tracking-widest text-gray-400 gap-2">
                                 <div className="flex items-center gap-1 group-hover:text-ocobo-dark transition-colors">
                                     Voir l'offre <ArrowRight size={12} />
                                 </div>

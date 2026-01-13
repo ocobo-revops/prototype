@@ -335,7 +335,7 @@ const Partners: React.FC = () => {
       {/* HERO TECHNOLOGIE */}
       <section className="pt-40 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
           <div className="max-w-4xl mx-auto mb-16 relative z-10">
-              <span className="font-display font-black text-ocobo-dark bg-ocobo-sky-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-sky/20">
+              <span className="font-display font-black text-ocobo-dark bg-ocobo-sky-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-sky/20">
                 TECHNOLOGIE
               </span>
               
@@ -428,7 +428,7 @@ const Partners: React.FC = () => {
                           <button
                             key={cat}
                             onClick={() => setFilter(cat)}
-                            className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all border ${
+                            className={`px-6 py-2.5 rounded-full text-micro font-black uppercase tracking-widest transition-all border ${
                                 filter === cat ? 'bg-ocobo-dark text-white border-ocobo-dark shadow-lg' : 'bg-gray-50 text-gray-500 border-gray-100 hover:border-ocobo-dark'
                             }`}
                           >
@@ -451,7 +451,7 @@ const Partners: React.FC = () => {
                               </div>
                               <div className="flex flex-col items-end gap-1">
                                 {partner.category.map(cat => (
-                                    <div key={cat} className="text-[8px] font-black uppercase tracking-widest bg-gray-100 text-gray-400 px-3 py-1 rounded-md group-hover:bg-ocobo-dark group-hover:text-white transition-all">
+                                    <div key={cat} className="text-micro font-black uppercase tracking-widest bg-gray-100 text-gray-400 px-3 py-1 rounded-md group-hover:bg-ocobo-dark group-hover:text-white transition-all">
                                         {cat === 'NO-CODE' ? 'No-Code & Automatisation' : cat}
                                     </div>
                                 ))}
@@ -462,7 +462,7 @@ const Partners: React.FC = () => {
                             <h3 className="font-display text-2xl font-black text-ocobo-dark mb-4 tracking-tight">{partner.name}</h3>
                             <div className="h-[48px] flex flex-wrap gap-1.5 mb-4 content-start overflow-hidden">
                                 {partner.tags.map((tag, tIdx) => (
-                                    <span key={tIdx} className="text-[8px] font-bold bg-gray-50 text-gray-400 border border-gray-100 px-2 py-0.5 rounded transition-all group-hover:border-ocobo-dark/10 group-hover:text-ocobo-dark whitespace-nowrap">
+                                    <span key={tIdx} className="text-micro font-bold bg-gray-50 text-gray-400 border border-gray-100 px-2 py-0.5 rounded transition-all group-hover:border-ocobo-dark/10 group-hover:text-ocobo-dark whitespace-nowrap">
                                         {tag}
                                     </span>
                                 ))}
@@ -484,12 +484,12 @@ const Partners: React.FC = () => {
                                           />
                                       </div>
                                   ) : partner.status === 'OFFICIAL' ? (
-                                      <div className="flex items-center gap-1.5 text-[8px] font-black uppercase tracking-widest text-ocobo-dark">
+                                      <div className="flex items-center gap-1.5 text-micro font-black uppercase tracking-widest text-ocobo-dark">
                                           <Award size={12} className="text-ocobo-yellow" />
                                           Partenaire Officiel
                                       </div>
                                   ) : (
-                                      <div className="flex items-center gap-1.5 text-[8px] font-black uppercase tracking-widest text-gray-400 group-hover:text-ocobo-mint transition-colors">
+                                      <div className="flex items-center gap-1.5 text-micro font-black uppercase tracking-widest text-gray-400 group-hover:text-ocobo-mint transition-colors">
                                           <Zap size={12} className="opacity-50 group-hover:opacity-100" />
                                           Maîtrise Technique
                                       </div>
@@ -513,7 +513,7 @@ const Partners: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex flex-col lg:flex-row gap-20 items-center">
                   <div className="lg:w-1/2">
-                      <span className="font-display font-black text-ocobo-sky bg-ocobo-sky-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-sky/20">
+                      <span className="font-display font-black text-ocobo-sky bg-ocobo-sky-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-sky/20">
                           CO-CONSTRUCTION
                       </span>
                       <h2 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-8 leading-[0.95] tracking-tight">
@@ -566,30 +566,30 @@ const Partners: React.FC = () => {
                                 </div>
                                 <h3 className="font-display text-2xl font-black text-ocobo-dark mb-4">Demande reçue !</h3>
                                 <p className="text-gray-500 mb-8">Notre équipe étudiera votre solution et vous recontactera sous 48h.</p>
-                                <button onClick={() => setFormSubmitted(false)} className="text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-ocobo-dark transition-colors">Envoyer une autre demande</button>
+                                <button onClick={() => setFormSubmitted(false)} className="text-micro font-black uppercase tracking-widest text-gray-400 hover:text-ocobo-dark transition-colors">Envoyer une autre demande</button>
                             </div>
                           ) : (
                             <form onSubmit={handlePartnerSubmit} className="space-y-6">
                                 <h3 className="font-display text-2xl font-black text-ocobo-dark mb-8">Devenez partenaire</h3>
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
-                                        <label className="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400">Nom de la solution*</label>
+                                        <label className="text-micro font-black uppercase tracking-[0.2em] text-gray-400">Nom de la solution*</label>
                                         <input required type="text" placeholder="ex: HubSpot" className="w-full bg-gray-50 border border-gray-100 focus:border-ocobo-dark focus:bg-white outline-none p-4 rounded-none text-sm font-bold placeholder:text-gray-300" />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400">Site Web*</label>
+                                        <label className="text-micro font-black uppercase tracking-[0.2em] text-gray-400">Site Web*</label>
                                         <input required type="url" placeholder="https://..." className="w-full bg-gray-50 border border-gray-100 focus:border-ocobo-dark focus:bg-white outline-none p-4 rounded-none text-sm font-bold placeholder:text-gray-300" />
                                     </div>
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400">E-mail pro*</label>
+                                    <label className="text-micro font-black uppercase tracking-[0.2em] text-gray-400">E-mail pro*</label>
                                     <input required type="email" placeholder="nom@solution.com" className="w-full bg-gray-50 border border-gray-100 focus:border-ocobo-dark focus:bg-white outline-none p-4 rounded-none text-sm font-bold placeholder:text-gray-300" />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400">Votre message</label>
+                                    <label className="text-micro font-black uppercase tracking-[0.2em] text-gray-400">Votre message</label>
                                     <textarea rows={4} placeholder="Parlez-nous de votre vision et de vos envies de partenariat..." className="w-full bg-gray-50 border border-gray-100 focus:border-ocobo-dark focus:bg-white outline-none p-4 rounded-none text-sm font-bold placeholder:text-gray-300 resize-none"></textarea>
                                 </div>
-                                <button type="submit" className="w-full py-5 bg-ocobo-dark text-white font-black uppercase tracking-[0.25em] text-[11px] rounded-none hover:bg-black transition-all shadow-xl flex items-center justify-center gap-3 group">
+                                <button type="submit" className="w-full py-5 bg-ocobo-dark text-white font-black uppercase tracking-[0.25em] text-xs rounded-none hover:bg-black transition-all shadow-xl flex items-center justify-center gap-3 group">
                                     Soumettre ma solution <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                 </button>
                             </form>

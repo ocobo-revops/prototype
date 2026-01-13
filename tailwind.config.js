@@ -59,6 +59,20 @@ export default {
         md: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
         lg: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
         hero: '0 40px 100px -20px rgb(0 0 0 / 0.08)'
+      },
+      fontSize: {
+        micro: ['10px', { lineHeight: '1.4' }],  // Badges, labels uppercase
+        xs: ['12px', { lineHeight: '1.4' }],     // Captions, metadata
+        sm: ['14px', { lineHeight: '1.5' }],     // Body small, UI elements
+        base: ['16px', { lineHeight: '1.5' }],   // Body default
+        lg: ['18px', { lineHeight: '1.6' }],     // Body large, lead
+        xl: ['20px', { lineHeight: '1.5' }],     // Subheadings
+        '2xl': ['24px', { lineHeight: '1.4' }],  // H4
+        '3xl': ['30px', { lineHeight: '1.3' }],  // H3
+        '4xl': ['36px', { lineHeight: '1.2' }],  // H2
+        '5xl': ['48px', { lineHeight: '1.1' }],  // H1
+        '6xl': ['60px', { lineHeight: '1.1' }],  // Hero mobile
+        '7xl': ['72px', { lineHeight: '1.0' }]   // Hero desktop
       }
     }
   },

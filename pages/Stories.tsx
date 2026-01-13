@@ -79,10 +79,10 @@ const StoriesIllustration = () => {
             <div className="bg-white border-2 border-ocobo-dark p-4 rounded-md shadow-lg">
                 <div className="flex items-center gap-2 mb-2">
                     <TrendingUp size={14} className="text-ocobo-coral" />
-                    <span className="text-[9px] font-black uppercase tracking-widest text-ocobo-dark opacity-40">Impact</span>
+                    <span className="text-micro font-black uppercase tracking-widest text-ocobo-dark opacity-40">Impact</span>
                 </div>
                 <div className="text-2xl font-display font-black text-ocobo-dark leading-none">+50%</div>
-                <div className="text-[8px] font-bold text-gray-400 mt-1 uppercase">Efficacité GTM</div>
+                <div className="text-micro font-bold text-gray-400 mt-1 uppercase">Efficacité GTM</div>
             </div>
         </foreignObject>
 
@@ -91,10 +91,10 @@ const StoriesIllustration = () => {
             <div className="bg-white border-2 border-ocobo-dark p-4 rounded-md shadow-lg">
                 <div className="flex items-center gap-2 mb-2">
                     <Zap size={14} className="text-ocobo-sky" />
-                    <span className="text-[9px] font-black uppercase tracking-widest text-ocobo-dark opacity-40">Process</span>
+                    <span className="text-micro font-black uppercase tracking-widest text-ocobo-dark opacity-40">Process</span>
                 </div>
                 <div className="text-2xl font-display font-black text-ocobo-dark leading-none">100%</div>
-                <div className="text-[8px] font-bold text-gray-400 mt-1 uppercase">Automatisé</div>
+                <div className="text-micro font-bold text-gray-400 mt-1 uppercase">Automatisé</div>
             </div>
         </foreignObject>
 
@@ -103,10 +103,10 @@ const StoriesIllustration = () => {
             <div className="bg-white border-2 border-ocobo-dark p-4 rounded-md shadow-lg">
                 <div className="flex items-center gap-2 mb-2">
                     <BarChart3 size={14} className="text-ocobo-yellow" />
-                    <span className="text-[9px] font-black uppercase tracking-widest text-ocobo-dark opacity-40">Data</span>
+                    <span className="text-micro font-black uppercase tracking-widest text-ocobo-dark opacity-40">Data</span>
                 </div>
                 <div className="text-2xl font-display font-black text-ocobo-dark leading-none">Clean</div>
-                <div className="text-[8px] font-bold text-gray-400 mt-1 uppercase">Donnée fiable</div>
+                <div className="text-micro font-bold text-gray-400 mt-1 uppercase">Donnée fiable</div>
             </div>
         </foreignObject>
 
@@ -115,7 +115,7 @@ const StoriesIllustration = () => {
             <div className="bg-white border-2 border-ocobo-dark p-4 rounded-md shadow-lg">
                 <div className="flex items-center gap-2 mb-2">
                     <Smile size={14} className="text-ocobo-mint" />
-                    <span className="text-[9px] font-black uppercase tracking-widest text-ocobo-dark opacity-40">User Experience</span>
+                    <span className="text-micro font-black uppercase tracking-widest text-ocobo-dark opacity-40">User Experience</span>
                 </div>
                 <div className="flex items-center gap-3">
                     <div className="text-2xl font-display font-black text-ocobo-dark leading-none">Fluidité</div>
@@ -126,7 +126,7 @@ const StoriesIllustration = () => {
                         <path d="M26 55 C34 65, 50 65, 58 55" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
                     </svg>
                 </div>
-                <div className="text-[8px] font-bold text-gray-400 mt-1 uppercase">Adoption & Engagement</div>
+                <div className="text-micro font-bold text-gray-400 mt-1 uppercase">Adoption & Engagement</div>
             </div>
         </foreignObject>
 
@@ -448,7 +448,7 @@ const Stories: React.FC = () => {
       <section className="pt-40 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-20">
           <div className="lg:w-1/2">
-            <span className="font-display font-black text-ocobo-dark bg-ocobo-yellow-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
+            <span className="font-display font-black text-ocobo-dark bg-ocobo-yellow-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
                 SUCCESS STORIES
             </span>
             <h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
@@ -474,14 +474,14 @@ const Stories: React.FC = () => {
          <div className="flex flex-col md:flex-row justify-between items-center border-t border-b border-gray-100 py-8 gap-6">
              <div className="flex items-center gap-3">
                 <Filter size={14} className="text-gray-400" />
-                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400">Filtrer par segment</span>
+                <span className="text-micro font-black uppercase tracking-[0.4em] text-gray-400">Filtrer par segment</span>
              </div>
              <div className="flex flex-wrap justify-center gap-3">
                  {categories.map((cat) => (
                      <button 
                         key={cat}
                         onClick={() => setActiveFilter(cat)}
-                        className={`px-8 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-300 ${
+                        className={`px-8 py-2.5 rounded-full text-micro font-black uppercase tracking-[0.2em] transition-all duration-300 ${
                             activeFilter === cat 
                             ? 'bg-ocobo-dark text-white shadow-xl scale-105' 
                             : 'bg-gray-50 text-gray-400 hover:bg-gray-100 hover:text-ocobo-dark'
@@ -518,40 +518,40 @@ const Stories: React.FC = () => {
                     </div>
 
                     <div className="flex flex-col flex-grow">
-                        <div className="flex items-center gap-2 mb-4">
-                            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400">{item.segment}</span>
-                            <span className="w-1 h-1 bg-gray-200 rounded-full"></span>
-                            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-ocobo-dark">{item.company}</span>
-                        </div>
+                    <div className="flex items-center gap-2 mb-4">
+                        <span className="text-micro font-black uppercase tracking-[0.2em] text-gray-400">{item.segment}</span>
+                        <span className="w-1 h-1 bg-gray-200 rounded-full"></span>
+                        <span className="text-micro font-black uppercase tracking-[0.2em] text-ocobo-dark">{item.company}</span>
+                    </div>
 
                         <h3 className="font-display text-2xl font-bold text-ocobo-dark leading-tight mb-2 tracking-tight group-hover:text-black transition-colors">
                             {item.headline}
                         </h3>
 
-                        <div className="mb-6">
-                            <span className="text-[10px] font-black uppercase tracking-widest text-ocobo-dark opacity-60 block">{item.name}</span>
-                            <span className="text-[9px] font-medium text-gray-400">{item.role}</span>
-                        </div>
+                    <div className="mb-6">
+                        <span className="text-micro font-black uppercase tracking-widest text-ocobo-dark opacity-60 block">{item.name}</span>
+                        <span className="text-micro font-medium text-gray-400">{item.role}</span>
+                    </div>
 
                         <div className="mt-auto space-y-4">
                             {/* ROI Section */}
-                            <div className="bg-gray-50 group-hover:bg-white border border-gray-100 p-5 rounded-md transition-all">
-                                <span className="text-[8px] font-black uppercase tracking-[0.3em] text-gray-400 block mb-1">Impact mesuré</span>
-                                <div className="font-display text-xl font-black text-ocobo-dark flex items-center gap-3">
-                                    {item.roi}
-                                    <ArrowRight size={18} className="text-gray-300 group-hover:text-ocobo-dark group-hover:translate-x-1 transition-all" />
-                                </div>
+                        <div className="bg-gray-50 group-hover:bg-white border border-gray-100 p-5 rounded-md transition-all">
+                            <span className="text-micro font-black uppercase tracking-[0.3em] text-gray-400 block mb-1">Impact mesuré</span>
+                            <div className="font-display text-xl font-black text-ocobo-dark flex items-center gap-3">
+                                {item.roi}
+                                <ArrowRight size={18} className="text-gray-300 group-hover:text-ocobo-dark group-hover:translate-x-1 transition-all" />
                             </div>
+                        </div>
 
-                            {/* Tools Section */}
-                            <div className="px-5 py-3 border-t border-gray-100 flex items-center justify-between">
-                                <span className="text-[8px] font-black uppercase tracking-[0.3em] text-gray-400">Stack Opérée</span>
-                                <div className="flex items-center gap-3 grayscale opacity-40 group-hover:opacity-100 transition-all">
-                                    {item.tools.map((tool, tIdx) => (
-                                        <img key={tIdx} src={tool} className="h-3.5 w-auto object-contain" alt="tool" />
-                                    ))}
-                                </div>
+                        {/* Tools Section */}
+                        <div className="px-5 py-3 border-t border-gray-100 flex items-center justify-between">
+                            <span className="text-micro font-black uppercase tracking-[0.3em] text-gray-400">Stack Opérée</span>
+                            <div className="flex items-center gap-3 grayscale opacity-40 group-hover:opacity-100 transition-all">
+                                {item.tools.map((tool, tIdx) => (
+                                    <img key={tIdx} src={tool} className="h-3.5 w-auto object-contain" alt="tool" />
+                                ))}
                             </div>
+                        </div>
                         </div>
                     </div>
                 </Link>

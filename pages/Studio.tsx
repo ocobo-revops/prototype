@@ -46,7 +46,7 @@ const TeamPhotoIllustration = () => {
             {/* Caption Badge */}
             <div className="absolute bottom-10 left-10 bg-white/90 backdrop-blur-md px-6 py-3.5 rounded-md shadow-lg flex items-center gap-3 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
                 <div className="w-2.5 h-2.5 rounded-full bg-ocobo-mint animate-pulse"></div>
-                <span className="font-display font-black text-[11px] uppercase tracking-[0.25em] text-ocobo-dark">La Squad Ocobo</span>
+                <span className="font-display font-black text-xs uppercase tracking-[0.25em] text-ocobo-dark">La Squad Ocobo</span>
             </div>
         </div>
 
@@ -200,7 +200,7 @@ const Studio: React.FC = () => {
       {/* HERO STUDIO - REIMAGINED WITH PHOTO ILLUSTRATION */}
       <section className="pt-40 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
           <div className="max-w-4xl mx-auto mb-16">
-              <span className="font-display font-black text-ocobo-dark bg-ocobo-mint-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-mint/20">
+              <span className="font-display font-black text-ocobo-dark bg-ocobo-mint-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-mint/20">
                 RevOps Studio
               </span>
               
@@ -296,7 +296,7 @@ const Studio: React.FC = () => {
                           <button
                             key={cat}
                             onClick={() => setActiveFilter(cat)}
-                            className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all border ${
+                            className={`px-6 py-2.5 rounded-full text-micro font-black uppercase tracking-widest transition-all border ${
                                 activeFilter === cat
                                 ? 'bg-ocobo-dark text-white border-ocobo-dark shadow-lg'
                                 : 'bg-gray-50 text-gray-500 border-gray-100 hover:border-ocobo-dark hover:text-ocobo-dark'
@@ -319,9 +319,9 @@ const Studio: React.FC = () => {
                           <div className={`absolute top-0 left-0 w-1.5 h-full bg-gray-50 transition-colors duration-300 ${member.hoverClass}`}></div>
 
                           {/* Dynamic Badge with hover effect */}
-                          <div className={`absolute top-0 right-0 px-4 py-1.5 rounded-bl-xl font-display font-black text-[8px] uppercase tracking-widest shadow-sm bg-gray-100 text-gray-400 transition-all duration-300 ${member.hoverClass}`}>
-                              {member.category}
-                          </div>
+                      <div className={`absolute top-0 right-0 px-4 py-1.5 rounded-bl-xl font-display font-black text-micro uppercase tracking-widest shadow-sm bg-gray-100 text-gray-400 transition-all duration-300 ${member.hoverClass}`}>
+                          {member.category}
+                      </div>
 
                           <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-gray-50 group-hover:border-ocobo-dark transition-all duration-500 shadow-sm bg-gray-50">
                               <img src={member.img} alt={member.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
@@ -329,9 +329,9 @@ const Studio: React.FC = () => {
                           
                           <div className="text-center">
                             <h3 className="font-display text-xl font-black text-ocobo-dark mb-1">{member.name}</h3>
-                            <p className="text-[9px] font-black text-gray-400 uppercase tracking-[0.2em] mb-4 h-6 flex items-center justify-center">
-                                {member.role}
-                            </p>
+                        <p className="text-micro font-black text-gray-400 uppercase tracking-[0.2em] mb-4 h-6 flex items-center justify-center">
+                            {member.role}
+                        </p>
 
                             <p className="text-gray-500 text-sm mb-6 leading-relaxed min-h-[4rem] font-medium">
                                 {member.desc}

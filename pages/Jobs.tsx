@@ -196,7 +196,7 @@ const Jobs: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
          <div className="flex flex-col lg:flex-row items-start gap-20">
             <div className="lg:w-1/2">
-                <span className="font-display font-black text-ocobo-dark bg-ocobo-mint-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-mint/20">
+                <span className="font-display font-black text-ocobo-dark bg-ocobo-mint-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-mint/20">
                     RECRUTEMENT
                 </span>
                 <h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
@@ -243,7 +243,7 @@ const Jobs: React.FC = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl mb-20">
-            <span className="font-display font-black text-ocobo-yellow bg-ocobo-yellow/10 px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20 rounded-full">
+            <span className="font-display font-black text-ocobo-yellow bg-ocobo-yellow/10 px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20 rounded-full">
                 SÉRIE ORIGINALE
             </span>
             <h2 className="font-display text-4xl md:text-6xl font-black text-white mb-8 tracking-tight">
@@ -265,7 +265,7 @@ const Jobs: React.FC = () => {
       {/* 3. NOS VALEURS / CULTURE (REINTEGRATED) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 mb-16">
           <div className="text-center mb-20">
-              <span className="font-display font-black text-ocobo-coral bg-ocobo-coral-light px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-coral/20 rounded-full">
+              <span className="font-display font-black text-ocobo-coral bg-ocobo-coral-light px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-coral/20 rounded-full">
                   NOTRE ADN
               </span>
               <h2 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark tracking-tight">Ce qui définit notre culture</h2>
@@ -292,7 +292,7 @@ const Jobs: React.FC = () => {
                 <p className="text-gray-500 font-medium mt-4">Nous recherchons des architectes passionnés par la donnée et les systèmes.</p>
             </div>
             <div className="hidden md:block">
-                <span className="text-[10px] font-black uppercase tracking-widest text-gray-300">3 OPPORTUNITÉS DISPONIBLES</span>
+                <span className="text-micro font-black uppercase tracking-widest text-gray-300">3 OPPORTUNITÉS DISPONIBLES</span>
             </div>
          </div>
          <div className="flex flex-col gap-6">
@@ -330,7 +330,7 @@ const Jobs: React.FC = () => {
           <div className="border-[1.5px] border-gray-100 rounded-xl p-8 md:p-24 bg-gray-50/30 relative overflow-hidden">
             
             <div className="text-center mb-32 relative z-10">
-                <span className="font-display font-black text-ocobo-sky bg-ocobo-sky/10 px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-sky/20 rounded-full">
+                <span className="font-display font-black text-ocobo-sky bg-ocobo-sky/10 px-4 py-1.5 text-micro uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-sky/20 rounded-full">
                     TRANSPARENCE
                 </span>
                 <h2 className="font-display text-4xl md:text-6xl font-black mb-6 text-ocobo-dark tracking-tight">Processus de recrutement</h2>
@@ -372,7 +372,7 @@ const Jobs: React.FC = () => {
                                             order-2
                                         `}>
                                             <h3 className="font-display text-2xl font-bold text-ocobo-dark mb-2 tracking-tight">{step.title}</h3>
-                                            <p className="text-[10px] font-black text-ocobo-coral mb-3 uppercase tracking-[0.2em]">{step.duration}</p>
+                                            <p className="text-micro font-black text-ocobo-coral mb-3 uppercase tracking-[0.2em]">{step.duration}</p>
                                             <p className="text-base text-gray-500 leading-relaxed max-w-sm font-medium">{step.desc}</p>
                                         </div>
 

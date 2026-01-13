@@ -149,7 +149,7 @@ const ModularStackGrid = () => {
             {item.type === 'logo' ? (
               <div className="flex flex-col items-center gap-1.5">
                 <img src={item.logo} alt={item.label} className="w-6 h-6 md:w-8 md:h-8 object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
-                <span className="text-[6px] md:text-[8px] font-black uppercase tracking-widest text-ocobo-dark opacity-30">{item.label}</span>
+                <span className="text-[6px] md:text-micro font-black uppercase tracking-widest text-ocobo-dark opacity-30">{item.label}</span>
               </div>
             ) : (
               <Plus size={16} className="text-gray-200 group-hover/empty:text-ocobo-yellow transition-colors" />
@@ -265,7 +265,7 @@ const Home: React.FC = () => {
 
          <div className="max-w-7xl mx-auto px-4 relative z-10">
             <div className="mb-16 text-center">
-                <span className="font-display font-black text-white/40 text-[9px] uppercase tracking-[0.4em] mb-4 inline-block">
+                <span className="font-display font-black text-white/40 text-micro uppercase tracking-[0.4em] mb-4 inline-block">
                     Ils nous font confiance
                 </span>
                 <h3 className="text-white text-3xl md:text-5xl font-bold mb-8 tracking-tight">La preuve par l'expérience</h3>
@@ -296,14 +296,14 @@ const Home: React.FC = () => {
                           </div>
                           <div className="flex flex-col">
                               <p className="text-white font-black text-lg tracking-tight">Arnaud Meunier</p>
-                              <p className="text-[10px] font-black text-ocobo-yellow uppercase tracking-[0.25em] opacity-70">CSO @ ePack Hygiène</p>
+                               <p className="text-micro font-black text-ocobo-yellow uppercase tracking-[0.25em] opacity-70">CSO @ ePack Hygiène</p>
                           </div>
                       </div>
                       
-                      <Link to="/stories" className="group/btn flex items-center gap-4 text-white/40 hover:text-ocobo-yellow transition-colors font-display font-black text-[9px] uppercase tracking-[0.3em]">
-                          Découvrir nos stories
-                          <ArrowRight size={14} className="group-hover/btn:translate-x-2 transition-transform" />
-                      </Link>
+                       <Link to="/stories" className="group/btn flex items-center gap-4 text-white/40 hover:text-ocobo-yellow transition-colors font-display font-black text-micro uppercase tracking-[0.3em]">
+                           Découvrir nos stories
+                           <ArrowRight size={14} className="group-hover/btn:translate-x-2 transition-transform" />
+                       </Link>
                   </div>
                 </div>
             </div>
@@ -346,17 +346,17 @@ const Home: React.FC = () => {
                             {item.icon}
                         </div>
 
-                        <span className="font-display font-black text-ocobo-dark/30 text-[10px] uppercase tracking-[0.5em] mb-4">
-                            Organiser =
-                        </span>
+                       <span className="font-display font-black text-ocobo-dark/30 text-micro uppercase tracking-[0.5em] mb-4">
+                           Organiser =
+                       </span>
                         
                         <h3 className={`font-display text-4xl font-black text-ocobo-dark group-hover:text-${item.color} mb-3 tracking-tighter transition-colors`}>
                             {item.title}
                         </h3>
                         
-                        <p className="text-gray-400 font-bold text-[10px] uppercase tracking-[0.2em]">
-                            {item.desc}
-                        </p>
+                         <p className="text-gray-400 font-bold text-micro uppercase tracking-[0.2em]">
+                           {item.desc}
+                         </p>
 
                         <div className="absolute bottom-6 opacity-0 group-hover:opacity-20 transition-opacity">
                             <Plus size={20} className="text-ocobo-dark" />
@@ -367,7 +367,7 @@ const Home: React.FC = () => {
          </div>
 
          <div className="text-center mt-32 max-w-4xl mx-auto px-4">
-             <div className="inline-block px-5 py-2 bg-ocobo-mint-light text-ocobo-mint font-display font-black uppercase tracking-[0.3em] text-[10px] mb-8 rounded-full border border-ocobo-mint/20">
+             <div className="inline-block px-5 py-2 bg-ocobo-mint-light text-ocobo-mint font-display font-black uppercase tracking-[0.3em] text-micro mb-8 rounded-full border border-ocobo-mint/20">
                 Notre Mission
              </div>
              <h3 className="font-display text-4xl md:text-5xl font-black mb-6 tracking-tight">Démocratiser la science du revenu.</h3>
