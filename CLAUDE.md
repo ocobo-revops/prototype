@@ -10,10 +10,10 @@ Ocobo is a React 19 single-page application built with TypeScript and Vite, show
 
 ### Development
 ```bash
-npm install              # Install dependencies
-npm run dev             # Start development server on http://localhost:3000
-npm run build           # Create production build in dist/
-npm run preview         # Preview production build locally
+pnpm install              # Install dependencies
+pnpm run dev             # Start development server on http://localhost:3000
+pnpm run build           # Create production build in dist/
+pnpm run preview         # Preview production build locally
 ```
 
 ### Environment Setup
