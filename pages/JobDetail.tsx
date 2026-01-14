@@ -20,7 +20,7 @@ import {
   Twitter,
   MessageSquare
 } from 'lucide-react';
-import Button from '../components/Button';
+import Button from '../components/button-legacy';
 
 const JobDetail: React.FC = () => {
   const { id } = useParams();

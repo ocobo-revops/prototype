@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Users, Zap, Target, ShieldCheck, Linkedin, Star, ArrowRight, Cpu, BarChart3, Layers, GraduationCap, Hammer, Compass, MousePointer2, RefreshCw, Plus, ChevronDown, Sparkles } from 'lucide-react';
-import Button from '../components/Button';
+import Button from '../components/button-legacy';
 import { Link } from 'react-router';
 
 const TeamPhotoIllustration = () => {

@@ -55,7 +55,8 @@ development_status:
   # Epic 2: Core UI Components
   epic-2: in-progress
   2-1-create-container-component: done
-  2-2-create-button-component: backlog
+  2-2-create-button-component: done
+  2-2b-create-design-system-showcase-page: done
   2-3-create-badge-component: backlog
   2-4-create-input-component: backlog
   2-5-create-card-composition-system-context-and-root: backlog

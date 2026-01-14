@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Mic, Video, BookOpen, Play, Calendar, ArrowRight } from 'lucide-react';
-import Button from '../components/Button';
+import Button from '../components/button-legacy';
 import { Link } from 'react-router';
 
 const Resources: React.FC = () => {

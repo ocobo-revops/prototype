@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Layers, Database, Cpu, Link as LinkIcon, Lock, ExternalLink, Plus, ShieldCheck, Sparkles, ChevronDown, CheckCircle2, Award, Zap, Send, Handshake } from 'lucide-react';
-import Button from '../components/Button';
+import Button from '../components/button-legacy';
 import { Link } from 'react-router';
 
 const ModularStackGrid = () => {

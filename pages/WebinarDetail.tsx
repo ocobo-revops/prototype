@@ -2,7 +2,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router';
 import { ArrowLeft, Play, Calendar, Clock, ArrowRight, Video, CheckCircle2 } from 'lucide-react';
-import Button from '../components/Button';
+import Button from '../components/button-legacy';
 
 const WebinarDetail: React.FC = () => {
   const { slug } = useParams();

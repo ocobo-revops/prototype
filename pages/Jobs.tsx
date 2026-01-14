@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Button from '../components/Button';
+import Button from '../components/button-legacy';
 import { ArrowRight, Star, MapPin, Briefcase, GraduationCap, Phone, Video, Settings, PenTool, Users, CheckCircle, Lightbulb, Play, Quote, Zap, ShieldCheck, Heart, Sparkles } from 'lucide-react';
 import { Link } from 'react-router';
 

@@ -19,7 +19,7 @@ import {
   Plus,
   Compass
 } from 'lucide-react';
-import Button from '../components/Button';
+import Button from '../components/button-legacy';
 
 // Configuration exhaustive des 14 Stories
 const STORY_DATA: Record<string, any> = {

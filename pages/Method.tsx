@@ -1,6 +1,6 @@
 import React from 'react';
 import { Layout, Sliders, LineChart, GraduationCap, ArrowDown, Target, Database, BarChart3, RefreshCw, Star, MousePointer2, Sparkles, Zap, Layers, ShieldCheck, Compass, Heart, CheckCircle2, ChevronDown, Plus } from 'lucide-react';
-import Button from '../components/Button';
+import Button from '../components/button-legacy';
 import { Link } from 'react-router';
 
 const AttioPillarsIllustration = () => {

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { CheckCircle2, Layout, BarChart3, GraduationCap, Cog, Search, Cpu, Plus, ChevronDown, Zap, Target, RefreshCw, Layers, Users, ArrowRight } from 'lucide-react';
-import Button from '../components/Button';
+import Button from '../components/button-legacy';
 import { Link } from 'react-router';
 
 const ArchitecturalGrid = () => {

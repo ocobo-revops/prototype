@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router';
 // Added missing 'Layout' icon to imports from 'lucide-react'
 import { ArrowLeft, Clock, Calendar, Share2, Linkedin, Twitter, MessageSquare, ArrowRight, CheckCircle2, Layout } from 'lucide-react';
-import Button from '../components/Button';
+import Button from '../components/button-legacy';
 
 const ArticleDetail: React.FC = () => {
   const { slug } = useParams();

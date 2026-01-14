@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Star, Filter, Plus, Zap, BarChart3, TrendingUp, Clock, Target, CheckCircle2, Smile } from 'lucide-react';
 import { Link } from 'react-router';
-import Button from '../components/Button';
+import Button from '../components/button-legacy';
 
 const StoriesIllustration = () => {
   return (

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Heart, Mic, Youtube, BookOpen, Layers, Cpu, Briefcase, Users, ArrowRight, Sparkles } from 'lucide-react';
 import { Link, useLocation } from 'react-router';
-import Button from './Button';
+import Button from './button-legacy';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);

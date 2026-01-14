@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 // Added missing Linkedin icon to imports from 'lucide-react'
 import { Play, Pause, SkipBack, SkipForward, Volume2, Calendar, Clock, ArrowRight, ExternalLink, Search, Filter, Headphones, Share2, Star, Linkedin } from 'lucide-react';
-import Button from '../components/Button';
+import Button from '../components/button-legacy';
 
 const Podcast: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);

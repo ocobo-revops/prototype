@@ -1,6 +1,6 @@
 import React from 'react';
 import { Linkedin, Quote, ArrowRight, Check, MousePointer2, Plus } from 'lucide-react';
-import Button from '../components/Button';
+import Button from '../components/button-legacy';
 import { Link } from 'react-router';
 
 const DataIllustration = () => {

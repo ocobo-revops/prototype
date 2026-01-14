@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Button from '../components/Button';
+import Button from '../components/button-legacy';
 import { Check, ArrowRight, Calendar, MessageSquare } from 'lucide-react';
 
 const Contact: React.FC = () => {

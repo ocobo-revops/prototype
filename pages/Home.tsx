@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { ArrowRight, Check, Quote, X, CheckCircle2, Layout, Layers, BarChart3, Users, Zap, Target, MousePointer2, Plus, Sliders, Cpu, ChevronDown, Star } from 'lucide-react';
-import Button from '../components/Button';
+import Button from '../components/button-legacy';
 import { Link } from 'react-router';
 
 const DashboardIllustration = () => {
