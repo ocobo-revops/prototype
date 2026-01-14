@@ -8,13 +8,17 @@ This contains everything you need to run your app locally.
 
 View your app in AI Studio: https://ai.studio/apps/drive/1XC-Q0YPDamuw1PItnxd0vSYWMNqnQjCX
 
+## Agent navigation
+
+For AI agents, start with the canonical entry point at `docs/index.md`, then include any task-specific docs it references.
+
 ## Run Locally
 
 **Prerequisites:**  Node.js
 
 
 1. Install dependencies:
-   `npm install`
+   `pnpm install`
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
-   `npm run dev`
+   `pnpm run dev`
