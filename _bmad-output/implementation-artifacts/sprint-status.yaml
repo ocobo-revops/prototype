@@ -53,22 +53,22 @@ development_status:
   epic-1-retrospective: optional
 
   # Epic 2: Core UI Components
-  epic-2: in-progress
+  epic-2: done
   2-1-create-container-component: done
   2-2-create-button-component: done
   2-2b-create-design-system-showcase-page: done
   2-3-create-badge-component: done
   2-4-create-input-component: done
-  2-5-create-card-composition-system-context-and-root: backlog
-  2-6-create-card-composition-system-header-primitives: backlog
-  2-7-create-card-composition-system-body-and-footer: backlog
-  2-8-create-card-composition-system-media-and-avatar: backlog
-  2-9-create-component-documentation: backlog
+  2-5-create-card-composition-system-context-and-root: done
+  2-6-create-card-composition-system-header-primitives: done
+  2-7-create-card-composition-system-body-and-footer: done
+  2-8-create-card-composition-system-media-and-avatar: done
+  2-9-create-component-documentation: done
   epic-2-retrospective: optional
 
-  # Epic 3: Section Components
-  epic-3: backlog
-  3-1-create-base-section-component: backlog
+   # Epic 3: Section Components
+   epic-3: in-progress
+   3-1-create-base-section-component: review
   3-2-create-herosection-component: backlog
   3-3-create-ctasection-component: backlog
   3-4-create-featuresection-component: backlog
