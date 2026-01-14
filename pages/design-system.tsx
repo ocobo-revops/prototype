@@ -1,5 +1,7 @@
 import { Container } from '../components/container'
 import { Button } from '../components/button'
+import { Badge } from '../components/badge'
+import { Input } from '../components/input'
 
 /**
  * Design System Showcase Page
@@ -148,13 +150,136 @@ export default function DesignSystem() {
           </div>
         </section>
 
+        {/* Badge Component */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-ocobo-dark mb-6">Badge</h2>
+          
+          {/* By Variant */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Variants</h3>
+            <div className="flex flex-wrap gap-4 bg-white rounded-lg p-6">
+              <Badge variant="solid">solid</Badge>
+              <Badge variant="outline">outline</Badge>
+              <Badge variant="subtle">subtle</Badge>
+            </div>
+          </div>
+
+          {/* By Size */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Sizes</h3>
+            <div className="flex flex-wrap items-center gap-4 bg-white rounded-lg p-6">
+              <Badge size="normal">normal</Badge>
+              <Badge size="big">big</Badge>
+            </div>
+          </div>
+
+          {/* By Color Palette */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Color Palettes (subtle variant)</h3>
+            <div className="flex flex-wrap gap-4 bg-white rounded-lg p-6">
+              <Badge colorPalette="yellow">yellow</Badge>
+              <Badge colorPalette="mint">mint</Badge>
+              <Badge colorPalette="sky">sky</Badge>
+              <Badge colorPalette="coral">coral</Badge>
+              <Badge colorPalette="dark">dark</Badge>
+            </div>
+          </div>
+
+          {/* Full Matrix */}
+          <div>
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Full Matrix (Variant x Color)</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full bg-white rounded-lg">
+                <thead>
+                  <tr className="border-b border-ocobo-gray-200">
+                    <th className="p-4 text-left text-sm text-ocobo-gray-600">Variant</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">yellow</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">mint</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">sky</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">coral</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">dark</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {(['solid', 'outline', 'subtle'] as const).map((variant) => (
+                    <tr key={variant} className="border-b border-ocobo-gray-100">
+                      <td className="p-4 text-sm font-medium text-ocobo-dark">{variant}</td>
+                      <td className="p-4 text-center"><Badge variant={variant} colorPalette="yellow">Badge</Badge></td>
+                      <td className="p-4 text-center"><Badge variant={variant} colorPalette="mint">Badge</Badge></td>
+                      <td className="p-4 text-center"><Badge variant={variant} colorPalette="sky">Badge</Badge></td>
+                      <td className="p-4 text-center"><Badge variant={variant} colorPalette="coral">Badge</Badge></td>
+                      <td className="p-4 text-center"><Badge variant={variant} colorPalette="dark">Badge</Badge></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* Input Component */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-ocobo-dark mb-6">Input</h2>
+          
+          {/* By Size */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Sizes</h3>
+            <div className="space-y-4 bg-white rounded-lg p-6 max-w-md">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-2">size="sm"</p>
+                <Input size="sm" placeholder="Small input" />
+              </div>
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-2">size="md" (default)</p>
+                <Input size="md" placeholder="Medium input" />
+              </div>
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-2">size="lg"</p>
+                <Input size="lg" placeholder="Large input" />
+              </div>
+            </div>
+          </div>
+
+          {/* States */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">States</h3>
+            <div className="space-y-4 bg-white rounded-lg p-6 max-w-md">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-2">Normal</p>
+                <Input placeholder="Click to focus" />
+              </div>
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-2">Disabled</p>
+                <Input placeholder="Disabled input" disabled />
+              </div>
+            </div>
+          </div>
+
+          {/* Types */}
+          <div>
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Input Types</h3>
+            <div className="space-y-4 bg-white rounded-lg p-6 max-w-md">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-2">type="text"</p>
+                <Input type="text" placeholder="Text input" />
+              </div>
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-2">type="email"</p>
+                <Input type="email" placeholder="email@example.com" />
+              </div>
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-2">type="password"</p>
+                <Input type="password" placeholder="Password" />
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Placeholder for future components */}
         <section className="mb-16">
           <h2 className="text-2xl font-bold text-ocobo-dark mb-6">Coming Soon</h2>
           <div className="bg-white rounded-lg p-6 text-ocobo-gray-500">
             <ul className="list-disc list-inside space-y-2">
-              <li>Badge component</li>
-              <li>Input component</li>
               <li>Card composition system</li>
               <li>Section components</li>
             </ul>
