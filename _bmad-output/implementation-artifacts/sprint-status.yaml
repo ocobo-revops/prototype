@@ -68,7 +68,7 @@ development_status:
 
    # Epic 3: Section Components
    epic-3: in-progress
-   3-1-create-base-section-component: review
+   3-1-create-base-section-component: done
   3-2-create-herosection-component: backlog
   3-3-create-ctasection-component: backlog
   3-4-create-featuresection-component: backlog
