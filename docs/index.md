@@ -7,6 +7,12 @@
 
 ---
 
+## Canonical agent entry
+
+This file is the canonical entry point for AI agents. Share this file first, then include the task-specific docs listed below.
+
+---
+
 ## 📋 Quick Reference
 
 | Attribute | Value |
@@ -35,13 +41,13 @@
 
 ```bash
 # Install dependencies
-npm install
+pnpm install
 
 # Setup environment
 echo "GEMINI_API_KEY=your_key" > .env.local
 
 # Start development
-npm run dev
+pnpm run dev
 ```
 
 **Access:** http://localhost:3000
@@ -94,8 +100,8 @@ Setup instructions, development workflow, commands, troubleshooting, and common 
 
 - **[README.md](../README.md)** - Original project documentation with quick start guide
   - Prerequisites: Node.js
-  - Setup: npm install, configure GEMINI_API_KEY
-  - Run: npm run dev
+  - Setup: pnpm install, configure GEMINI_API_KEY
+  - Run: pnpm run dev
   - AI Studio link included
 
 ---
@@ -165,7 +171,7 @@ prototype/
 
 ### For AI-Assisted Development
 
-**Provide this index.md to AI agents** along with specific documentation files based on the task:
+**Provide this index.md to AI agents** as the canonical entry point, along with specific documentation files based on the task:
 
 - **UI Changes:** Component Inventory + Architecture
 - **API Integration:** API Architecture + Data Models
@@ -178,10 +184,10 @@ prototype/
 
 | Command | Purpose |
 |---------|---------|
-| `npm install` | Install dependencies |
-| `npm run dev` | Start dev server (port 3000) |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build |
+| `pnpm install` | Install dependencies |
+| `pnpm run dev` | Start dev server (port 3000) |
+| `pnpm run build` | Build for production |
+| `pnpm run preview` | Preview production build |
 
 ---
 
@@ -222,7 +228,7 @@ prototype/
 - **Dependencies:** 7 production, 4 development
 - **Lines of Code:** ~1000+ (estimated)
 - **Build Tool:** Vite 6.2.0
-- **Test Coverage:** Not configured (opportunity for improvement)
+- **Tests:** Vitest configured, coverage not configured
 
 ---
 
@@ -234,7 +240,7 @@ prototype/
    ```bash
    git clone <repo-url>
    cd prototype
-   npm install
+   pnpm install
    ```
 
 2. **Configure Environment**
@@ -245,7 +251,7 @@ prototype/
 
 3. **Start Development**
    ```bash
-   npm run dev
+   pnpm run dev
    # Open http://localhost:3000
    ```
 
@@ -362,8 +368,8 @@ To generate more detailed documentation with implementation-level analysis:
 - [ ] Review README.md for additional context
 
 ### Short Term (Development)
-- [ ] Add testing framework (Vitest recommended)
-- [ ] Implement component tests
+- [ ] Expand test coverage (Vitest already configured)
+- [ ] Implement additional component tests
 - [ ] Add error boundaries
 - [ ] Setup CI/CD pipeline
 
