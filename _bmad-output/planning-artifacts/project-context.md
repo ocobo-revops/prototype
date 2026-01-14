@@ -138,6 +138,11 @@ prototype/
 - Custom hooks for reusable logic
 - Props interfaces defined inline or in types.ts
 
+**File Organization:**
+- Single-file components go directly in `components/` (e.g., `components/container.tsx`)
+- Only create subfolders when component has multiple files (context, sub-components)
+- All file/folder names lowercase with kebab-case (e.g., `button.tsx`, not `Button.tsx`)
+
 **Styling:**
 - Use semantic tokens for intentional styling: `text-semantic-text`, `bg-semantic-primary`
 - Use primitive tokens for decorative elements: `border-ocobo-yellow`, `bg-ocobo-mint-light`

@@ -135,36 +135,39 @@ _This document builds collaboratively through step-by-step discovery. Sections a
 
 ### Component Organization
 
-**Decision:** Folder-per-component with centralized index.ts exports
+**Decision:** Flat structure for single-file components, folders only for multi-file components
+
+**CRITICAL RULES:**
+- All file/folder names MUST be lowercase with kebab-case
+- Single-file components go directly in `components/` root
+- Only create subfolders when component has multiple files (context, sub-components)
 
 **Structure:**
 ```
 components/
-├── Button/
+├── button.tsx              # Single file → root level
+├── badge.tsx               # Single file → root level  
+├── input.tsx               # Single file → root level
+├── container.tsx           # Single file → root level
+├── card/                   # Multi-file → subfolder (lowercase!)
 │   ├── index.ts
-│   └── Button.tsx
-├── Card/
+│   ├── card-context.ts
+│   ├── card-root.tsx
+│   ├── card-header.tsx
+│   ├── card-body.tsx
+│   └── card-footer.tsx
+├── section/                # Multi-file → subfolder (lowercase!)
 │   ├── index.ts
-│   ├── CardRoot.tsx
-│   ├── CardHeader.tsx
-│   ├── CardTitle.tsx
-│   ├── CardDescription.tsx
-│   ├── CardBody.tsx
-│   └── CardFooter.tsx
-├── Section/
-│   ├── index.ts
-│   ├── Section.tsx
-│   ├── HeroSection.tsx
-│   ├── CtaSection.tsx
+│   ├── hero-section.tsx
+│   ├── cta-section.tsx
 │   └── ...
-└── Showcase/
+└── showcase/               # Multi-file → subfolder (lowercase!)
     ├── index.ts
-    ├── TokensShowcase.tsx
-    ├── ComponentsShowcase.tsx
-    └── SectionsShowcase.tsx
+    ├── tokens-showcase.tsx
+    └── components-showcase.tsx
 ```
 
-**Rationale:** Clear for AI navigation, Park UI compatible, centralized exports
+**Rationale:** Simpler structure, fewer files to manage, lowercase convention consistent
 
 ### Token Architecture
 
