@@ -1018,12 +1018,252 @@ export default function DesignSystem() {
           </div>
         </section>
 
+        {/* Feature Section Component */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-ocobo-dark mb-6">Feature Section</h2>
+          
+          {/* Background Variants */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Background Variants</h3>
+            <div className="space-y-8">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">background="light" (default)</p>
+                <Section.Feature background="light">
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold mb-4">Light Background</h3>
+                    <p className="text-ocobo-gray-600 mb-6">Default white background with dark text for contrast.</p>
+                    <div className="grid md:grid-cols-3 gap-6">
+                      <Card.Root variant="outlined" colorPalette="yellow">
+                        <Card.IconBox colorPalette="yellow">
+                          <span className="text-2xl">⚡</span>
+                        </Card.IconBox>
+                        <Card.Header>
+                          <Card.Title>Feature One</Card.Title>
+                          <Card.Description>Description of feature one.</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                      <Card.Root variant="outlined" colorPalette="mint">
+                        <Card.IconBox colorPalette="mint">
+                          <span className="text-2xl">🎯</span>
+                        </Card.IconBox>
+                        <Card.Header>
+                          <Card.Title>Feature Two</Card.Title>
+                          <Card.Description>Description of feature two.</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                      <Card.Root variant="outlined" colorPalette="sky">
+                        <Card.IconBox colorPalette="sky">
+                          <span className="text-2xl">📊</span>
+                        </Card.IconBox>
+                        <Card.Header>
+                          <Card.Title>Feature Three</Card.Title>
+                          <Card.Description>Description of feature three.</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                    </div>
+                  </div>
+                </Section.Feature>
+              </div>
+              
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">background="dark"</p>
+                <Section.Feature background="dark">
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold mb-4">Dark Background</h3>
+                    <p className="text-ocobo-gray-300 mb-6">Dark background with light text for high contrast.</p>
+                    <div className="grid md:grid-cols-3 gap-6">
+                      <Card.Root variant="filled" colorPalette="yellow">
+                        <Card.IconBox colorPalette="yellow" solid>
+                          <span className="text-2xl">🚀</span>
+                        </Card.IconBox>
+                        <Card.Header>
+                          <Card.Title>Fast</Card.Title>
+                          <Card.Description>Lightning fast performance.</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                      <Card.Root variant="filled" colorPalette="mint">
+                        <Card.IconBox colorPalette="mint" solid>
+                          <span className="text-2xl">🔒</span>
+                        </Card.IconBox>
+                        <Card.Header>
+                          <Card.Title>Secure</Card.Title>
+                          <Card.Description>Enterprise-grade security.</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                      <Card.Root variant="filled" colorPalette="sky">
+                        <Card.IconBox colorPalette="sky" solid>
+                          <span className="text-2xl">📈</span>
+                        </Card.IconBox>
+                        <Card.Header>
+                          <Card.Title>Scalable</Card.Title>
+                          <Card.Description>Grows with your needs.</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                    </div>
+                  </div>
+                </Section.Feature>
+              </div>
+            </div>
+          </div>
+
+          {/* With Decorative Blobs */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">With Decorative Blobs</h3>
+            <div className="space-y-8">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">withBlobs={'{true}'} + background="light"</p>
+                <Section.Feature background="light" withBlobs>
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold mb-4">Features with Blobs</h3>
+                    <p className="text-ocobo-gray-600 mb-6">Decorative background elements add visual interest.</p>
+                    <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                      <Card.Root>
+                        <Card.Header>
+                          <Card.Title>Responsive Blobs</Card.Title>
+                          <Card.Description>Mobile-first sizing (w-32 → md:w-48 → lg:w-64)</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                      <Card.Root>
+                        <Card.Header>
+                          <Card.Title>Token-Based</Card.Title>
+                          <Card.Description>Uses ocobo.yellow and ocobo.mint colors</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                    </div>
+                  </div>
+                </Section.Feature>
+              </div>
+              
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">withBlobs={'{true}'} + background="dark"</p>
+                <Section.Feature background="dark" withBlobs>
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold mb-4">Dark with Blobs</h3>
+                    <p className="text-ocobo-gray-300 mb-6">Blobs create depth on dark backgrounds.</p>
+                    <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                      <Card.Root variant="outlined" colorPalette="yellow">
+                        <Card.Header>
+                          <Card.Title className="text-white">Absolute Positioning</Card.Title>
+                          <Card.Description className="text-ocobo-gray-300">Blobs are absolute to Section, with overflow-hidden</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                      <Card.Root variant="outlined" colorPalette="mint">
+                        <Card.Header>
+                          <Card.Title className="text-white">Low Opacity</Card.Title>
+                          <Card.Description className="text-ocobo-gray-300">opacity-20 with blur-3xl for subtle effect</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                    </div>
+                  </div>
+                </Section.Feature>
+              </div>
+            </div>
+          </div>
+
+          {/* Composition Flexibility */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Full Composition Flexibility</h3>
+            <div className="space-y-8">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">Custom content (not just Cards)</p>
+                <Section.Feature background="light" withBlobs>
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold mb-4">Flexible Content</h3>
+                    <p className="text-ocobo-gray-600 mb-6">FeatureSection accepts any children.</p>
+                    <div className="flex flex-wrap justify-center gap-4">
+                      <Badge colorPalette="yellow" size="big">Composable</Badge>
+                      <Badge colorPalette="mint" size="big">Flexible</Badge>
+                      <Badge colorPalette="sky" size="big">Reusable</Badge>
+                      <Badge colorPalette="coral" size="big">Clean</Badge>
+                    </div>
+                    <div className="mt-6">
+                      <Button variant="solid" size="lg" showArrow>
+                        Learn More
+                      </Button>
+                    </div>
+                  </div>
+                </Section.Feature>
+              </div>
+              
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">Grid layout with mixed card variants</p>
+                <Section.Feature background="dark">
+                  <div className="text-center mb-8">
+                    <h3 className="text-2xl font-bold mb-4">Mix and Match</h3>
+                    <p className="text-ocobo-gray-300">Combine different card styles and layouts.</p>
+                  </div>
+                  <div className="grid md:grid-cols-4 gap-4">
+                    <Card.Root variant="elevated">
+                      <Card.Header>
+                        <Card.Title as="h4">Elevated</Card.Title>
+                      </Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="outlined" colorPalette="yellow">
+                      <Card.Header>
+                        <Card.Title as="h4">Outlined</Card.Title>
+                      </Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="filled" colorPalette="mint">
+                      <Card.Header>
+                        <Card.Title as="h4">Filled</Card.Title>
+                      </Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="ghost">
+                      <Card.Header>
+                        <Card.Title as="h4">Ghost</Card.Title>
+                      </Card.Header>
+                    </Card.Root>
+                  </div>
+                </Section.Feature>
+              </div>
+            </div>
+          </div>
+
+          {/* Props Matrix */}
+          <div>
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Props Matrix</h3>
+            <div className="overflow-x-auto bg-white rounded-lg p-4">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-ocobo-gray-200">
+                    <th className="p-4 text-left text-sm text-ocobo-gray-600">Background</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">withBlobs=false</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">withBlobs=true</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-ocobo-gray-100">
+                    <td className="p-4 text-sm font-medium text-ocobo-dark">light</td>
+                    <td className="p-4 text-center text-xs text-ocobo-gray-500">White bg + dark text</td>
+                    <td className="p-4 text-center text-xs text-ocobo-gray-500">+ Yellow/Mint blobs</td>
+                  </tr>
+                  <tr className="border-b border-ocobo-gray-100">
+                    <td className="p-4 text-sm font-medium text-ocobo-dark">dark</td>
+                    <td className="p-4 text-center text-xs text-ocobo-gray-500">Dark bg + light text</td>
+                    <td className="p-4 text-center text-xs text-ocobo-gray-500">+ Yellow/Mint blobs</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className="mt-4 text-sm text-ocobo-gray-500">
+                <p><strong>Key Features:</strong></p>
+                <ul className="list-disc list-inside space-y-1 mt-2">
+                  <li>Text color auto-adjusts for contrast (AC1)</li>
+                  <li>Decorative blobs responsive (w-32 → md:w-48 → lg:w-64)</li>
+                  <li>Composes Section + Container</li>
+                  <li>Accepts any children (full flexibility)</li>
+                  <li>className applied to Container for custom layout</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Placeholder for future components */}
         <section className="mb-16">
           <h2 className="text-2xl font-bold text-ocobo-dark mb-6">Coming Soon</h2>
           <div className="bg-white rounded-lg p-6 text-ocobo-gray-500">
             <ul className="list-disc list-inside space-y-2">
-              <li>More section components (Feature, Grid, Testimonial, Stats)</li>
+              <li>More section components (Grid, Testimonial, Stats)</li>
               <li>Navigation components</li>
             </ul>
           </div>

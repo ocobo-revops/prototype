@@ -16,7 +16,7 @@ const spacingClasses = {
 } as const
 
 const backgroundClasses = {
-  white: 'bg-white',
+  white: 'bg-white text-ocobo-dark',
   gray: 'bg-ocobo-gray-100',
   dark: 'bg-ocobo-dark text-white',
   yellow: 'bg-ocobo-yellow',
