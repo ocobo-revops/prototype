@@ -3,6 +3,7 @@ import { Button } from '../components/button'
 import { Badge } from '../components/badge'
 import { Input } from '../components/input'
 import { Card } from '../components/card'
+import { Section } from '../components/Section'
 
 /**
  * Design System Showcase Page
@@ -835,13 +836,195 @@ export default function DesignSystem() {
           </div>
         </section>
 
+        {/* CTA Section Component */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-ocobo-dark mb-6">CTA Section</h2>
+          
+          {/* Variants */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Variants</h3>
+            <div className="space-y-8">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">variant="simple" (button only)</p>
+                <Section.Cta
+                  variant="simple"
+                  title="Ready to get started?"
+                  description="Join thousands of teams already using our platform."
+                  buttonText="Start Free Trial"
+                  onButtonClick={() => alert('Button clicked!')}
+                />
+              </div>
+              
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">variant="with-form" (email capture)</p>
+                <Section.Cta
+                  variant="with-form"
+                  colorPalette="mint"
+                  title="Subscribe to our newsletter"
+                  description="Get the latest updates and insights delivered to your inbox."
+                  buttonText="Subscribe"
+                  inputPlaceholder="your.email@example.com"
+                  onFormSubmit={(email) => alert(`Subscribed: ${email}`)}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Color Palettes */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Color Palettes (simple variant)</h3>
+            <div className="space-y-8">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">colorPalette="yellow" (default)</p>
+                <Section.Cta
+                  variant="simple"
+                  colorPalette="yellow"
+                  title="Yellow Background"
+                  description="Default brand color with solid button."
+                  buttonText="Learn More"
+                />
+              </div>
+              
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">colorPalette="dark"</p>
+                <Section.Cta
+                  variant="simple"
+                  colorPalette="dark"
+                  title="Dark Background"
+                  description="High contrast with inverse button variant."
+                  buttonText="Get Started"
+                />
+              </div>
+              
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">colorPalette="mint"</p>
+                <Section.Cta
+                  variant="simple"
+                  colorPalette="mint"
+                  title="Mint Background"
+                  description="Fresh accent color for secondary CTAs."
+                  buttonText="Explore"
+                />
+              </div>
+              
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">colorPalette="sky"</p>
+                <Section.Cta
+                  variant="simple"
+                  colorPalette="sky"
+                  title="Sky Background"
+                  description="Calm secondary color alternative."
+                  buttonText="Discover"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Form Variant with Different Palettes */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Form Variant + Color Palettes</h3>
+            <div className="space-y-8">
+              <Section.Cta
+                variant="with-form"
+                colorPalette="yellow"
+                title="Stay in the loop"
+                description="Weekly insights and updates."
+                buttonText="Join"
+                inputPlaceholder="Enter email"
+                onFormSubmit={(email) => console.log('Submitted:', email)}
+              />
+              
+              <Section.Cta
+                variant="with-form"
+                colorPalette="dark"
+                title="Get early access"
+                description="Be the first to know about new features."
+                buttonText="Notify Me"
+                inputPlaceholder="your@email.com"
+                onFormSubmit={(email) => console.log('Submitted:', email)}
+              />
+            </div>
+          </div>
+
+          {/* With Custom Content */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">With Custom Children</h3>
+            <Section.Cta
+              variant="simple"
+              colorPalette="yellow"
+              title="Flexible Content"
+              description="You can add custom children below the main content."
+              buttonText="Primary Action"
+            >
+              <div className="flex gap-4 mt-4">
+                <Badge colorPalette="dark">Feature 1</Badge>
+                <Badge colorPalette="dark">Feature 2</Badge>
+                <Badge colorPalette="dark">Feature 3</Badge>
+              </div>
+            </Section.Cta>
+          </div>
+
+          {/* Full Matrix */}
+          <div>
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Full Matrix (Variant x ColorPalette)</h3>
+            <div className="overflow-x-auto bg-white rounded-lg p-4">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-ocobo-gray-200">
+                    <th className="p-4 text-left text-sm text-ocobo-gray-600">Variant</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">yellow</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">dark</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">mint</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">sky</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-ocobo-gray-100">
+                    <td className="p-4 text-sm font-medium text-ocobo-dark">simple</td>
+                    <td className="p-4">
+                      <div className="text-center text-xs text-ocobo-gray-500 mb-2">Click to see →</div>
+                    </td>
+                    <td className="p-4">
+                      <div className="text-center text-xs text-ocobo-gray-500 mb-2">Scroll up ↑</div>
+                    </td>
+                    <td className="p-4">
+                      <div className="text-center text-xs text-ocobo-gray-500 mb-2">See examples</div>
+                    </td>
+                    <td className="p-4">
+                      <div className="text-center text-xs text-ocobo-gray-500 mb-2">above</div>
+                    </td>
+                  </tr>
+                  <tr className="border-b border-ocobo-gray-100">
+                    <td className="p-4 text-sm font-medium text-ocobo-dark">with-form</td>
+                    <td className="p-4">
+                      <div className="text-center text-xs text-ocobo-gray-500">Demonstrated</div>
+                    </td>
+                    <td className="p-4">
+                      <div className="text-center text-xs text-ocobo-gray-500">in sections</div>
+                    </td>
+                    <td className="p-4">
+                      <div className="text-center text-xs text-ocobo-gray-500">above</div>
+                    </td>
+                    <td className="p-4">
+                      <div className="text-center text-xs text-ocobo-gray-500">↑</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p className="text-sm text-ocobo-gray-500 mt-4 text-center">
+                Note: Full-width sections are better viewed in context above rather than in a table.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Placeholder for future components */}
         <section className="mb-16">
           <h2 className="text-2xl font-bold text-ocobo-dark mb-6">Coming Soon</h2>
           <div className="bg-white rounded-lg p-6 text-ocobo-gray-500">
             <ul className="list-disc list-inside space-y-2">
-              <li>Card composition complete (Media, Avatar, Badge added)</li>
-              <li>Section components</li>
+              <li>More section components (Feature, Grid, Testimonial, Stats)</li>
+              <li>Navigation components</li>
             </ul>
           </div>
         </section>

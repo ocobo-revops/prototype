@@ -66,11 +66,11 @@ development_status:
   2-9-create-component-documentation: done
   epic-2-retrospective: optional
 
-   # Epic 3: Section Components
-   epic-3: in-progress
-   3-1-create-base-section-component: done
-  3-2-create-herosection-component: backlog
-  3-3-create-ctasection-component: backlog
+  # Epic 3: Section Components
+  epic-3: in-progress
+  3-1-create-base-section-component: done
+  3-2-create-herosection-component: done
+  3-3-create-ctasection-component: done
   3-4-create-featuresection-component: backlog
   3-5-create-gridsection-component: backlog
   3-6-create-testimonialsection-component: backlog
