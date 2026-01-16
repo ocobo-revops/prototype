@@ -1258,12 +1258,209 @@ export default function DesignSystem() {
           </div>
         </section>
 
+        {/* Grid Section Component */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-ocobo-dark mb-6">Grid Section</h2>
+
+          {/* Column Variants */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Column Variants</h3>
+            <div className="space-y-8">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">columns={'{2}'}</p>
+                <div className="bg-white rounded-lg p-6">
+                  <Section.Grid columns={2}>
+                    <Card.Root variant="outlined" colorPalette="yellow">
+                      <Card.Header><Card.Title>Item 1</Card.Title></Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="outlined" colorPalette="mint">
+                      <Card.Header><Card.Title>Item 2</Card.Title></Card.Header>
+                    </Card.Root>
+                  </Section.Grid>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">columns={'{3}'} (default)</p>
+                <div className="bg-white rounded-lg p-6">
+                  <Section.Grid columns={3}>
+                    <Card.Root variant="outlined" colorPalette="yellow">
+                      <Card.Header><Card.Title>Item 1</Card.Title></Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="outlined" colorPalette="mint">
+                      <Card.Header><Card.Title>Item 2</Card.Title></Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="outlined" colorPalette="sky">
+                      <Card.Header><Card.Title>Item 3</Card.Title></Card.Header>
+                    </Card.Root>
+                  </Section.Grid>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">columns={'{4}'}</p>
+                <div className="bg-white rounded-lg p-6">
+                  <Section.Grid columns={4}>
+                    <Card.Root variant="filled" colorPalette="yellow" size="sm">
+                      <Card.Header><Card.Title>Item 1</Card.Title></Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="filled" colorPalette="mint" size="sm">
+                      <Card.Header><Card.Title>Item 2</Card.Title></Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="filled" colorPalette="sky" size="sm">
+                      <Card.Header><Card.Title>Item 3</Card.Title></Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="filled" colorPalette="coral" size="sm">
+                      <Card.Header><Card.Title>Item 4</Card.Title></Card.Header>
+                    </Card.Root>
+                  </Section.Grid>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Gap Variants */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Gap Variants</h3>
+            <div className="space-y-8">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">gap="md" (gap-6, default)</p>
+                <div className="bg-white rounded-lg p-6">
+                  <Section.Grid columns={3} gap="md">
+                    {[1, 2, 3].map((i) => (
+                      <Card.Root key={i} variant="outlined" colorPalette="yellow">
+                        <Card.Header><Card.Title>Card {i}</Card.Title></Card.Header>
+                      </Card.Root>
+                    ))}
+                  </Section.Grid>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">gap="lg" (gap-8)</p>
+                <div className="bg-white rounded-lg p-6">
+                  <Section.Grid columns={3} gap="lg">
+                    {[1, 2, 3].map((i) => (
+                      <Card.Root key={i} variant="outlined" colorPalette="mint">
+                        <Card.Header><Card.Title>Card {i}</Card.Title></Card.Header>
+                      </Card.Root>
+                    ))}
+                  </Section.Grid>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Responsive Behavior */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Responsive Behavior</h3>
+            <div className="bg-white rounded-lg p-6">
+              <p className="text-sm text-ocobo-gray-600 mb-4">
+                Resize window to see responsive breakpoints: Mobile (1 col) → Tablet (2 col) → Desktop (full)
+              </p>
+              <Section.Grid columns={4} gap="lg">
+                {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                  <Card.Root key={i} variant="outlined" colorPalette={(['yellow', 'mint', 'sky', 'coral'] as const)[(i - 1) % 4]} size="sm">
+                    <Card.Header><Card.Title>Item {i}</Card.Title></Card.Header>
+                  </Card.Root>
+                ))}
+              </Section.Grid>
+            </div>
+          </div>
+
+          {/* Usage with Feature Section */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Composition with FeatureSection</h3>
+            <p className="text-sm text-ocobo-gray-500 mb-4">GridSection inside FeatureSection for page layouts</p>
+            <Section.Feature background="dark" withBlobs>
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold">Our Features</h3>
+                <p className="text-ocobo-gray-300 mt-2">GridSection provides the grid, FeatureSection provides the context.</p>
+              </div>
+              <Section.Grid columns={3} gap="lg">
+                <Card.Root variant="filled" colorPalette="yellow">
+                  <Card.IconBox colorPalette="yellow" solid>
+                    <span className="text-2xl">⚡</span>
+                  </Card.IconBox>
+                  <Card.Header>
+                    <Card.Title>Fast</Card.Title>
+                    <Card.Description>Lightning fast performance.</Card.Description>
+                  </Card.Header>
+                </Card.Root>
+                <Card.Root variant="filled" colorPalette="mint">
+                  <Card.IconBox colorPalette="mint" solid>
+                    <span className="text-2xl">🔒</span>
+                  </Card.IconBox>
+                  <Card.Header>
+                    <Card.Title>Secure</Card.Title>
+                    <Card.Description>Enterprise-grade security.</Card.Description>
+                  </Card.Header>
+                </Card.Root>
+                <Card.Root variant="filled" colorPalette="sky">
+                  <Card.IconBox colorPalette="sky" solid>
+                    <span className="text-2xl">📈</span>
+                  </Card.IconBox>
+                  <Card.Header>
+                    <Card.Title>Scalable</Card.Title>
+                    <Card.Description>Grows with your needs.</Card.Description>
+                  </Card.Header>
+                </Card.Root>
+              </Section.Grid>
+            </Section.Feature>
+          </div>
+
+          {/* Props Matrix */}
+          <div>
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Props Matrix</h3>
+            <div className="overflow-x-auto bg-white rounded-lg p-4">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-ocobo-gray-200">
+                    <th className="p-4 text-left text-sm text-ocobo-gray-600">Prop</th>
+                    <th className="p-4 text-left text-sm text-ocobo-gray-600">Type</th>
+                    <th className="p-4 text-left text-sm text-ocobo-gray-600">Default</th>
+                    <th className="p-4 text-left text-sm text-ocobo-gray-600">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-ocobo-gray-100">
+                    <td className="p-4 text-sm font-mono">columns</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">2 | 3 | 4</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">3</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">Number of columns at desktop breakpoint</td>
+                  </tr>
+                  <tr className="border-b border-ocobo-gray-100">
+                    <td className="p-4 text-sm font-mono">gap</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">'md' | 'lg'</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">'md'</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">Gap between items (md=gap-6, lg=gap-8)</td>
+                  </tr>
+                  <tr className="border-b border-ocobo-gray-100">
+                    <td className="p-4 text-sm font-mono">className</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">string</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">''</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">Additional Tailwind classes</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className="mt-4 text-sm text-ocobo-gray-500">
+                <p><strong>Responsive Breakpoints:</strong></p>
+                <ul className="list-disc list-inside space-y-1 mt-2">
+                  <li><strong>Mobile (default):</strong> 1 column always</li>
+                  <li><strong>Tablet (md:):</strong> 2 columns (or 1 for columns=2)</li>
+                  <li><strong>Desktop (lg:):</strong> Full column count</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Placeholder for future components */}
         <section className="mb-16">
           <h2 className="text-2xl font-bold text-ocobo-dark mb-6">Coming Soon</h2>
           <div className="bg-white rounded-lg p-6 text-ocobo-gray-500">
             <ul className="list-disc list-inside space-y-2">
-              <li>More section components (Grid, Testimonial, Stats)</li>
+              <li>More section components (Testimonial, Stats, DecorativeBlob)</li>
               <li>Navigation components</li>
             </ul>
           </div>
