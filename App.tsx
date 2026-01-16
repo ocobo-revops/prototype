@@ -19,6 +19,7 @@ import Resources from './pages/Resources';
 import Podcast from './pages/Podcast';
 import ArticleDetail from './pages/ArticleDetail';
 import WebinarDetail from './pages/WebinarDetail';
+import DesignSystem from './pages/design-system';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -53,6 +54,7 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/jobs/:id" element={<JobDetail />} />
+            <Route path="/design-system" element={<DesignSystem />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </main>

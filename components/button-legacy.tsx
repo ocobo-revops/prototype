@@ -17,9 +17,9 @@ const Button: React.FC<ButtonProps> = ({
   const baseStyles = "rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2 group";
   
   const variants = {
-    primary: "bg-ocobo-dark text-white hover:bg-gray-800 border border-transparent",
-    outline: "bg-transparent text-ocobo-dark border border-ocobo-dark hover:bg-ocobo-dark hover:text-white",
-    white: "bg-white text-ocobo-dark hover:bg-gray-100 border border-transparent"
+    primary: "bg-semantic-text text-white hover:bg-gray-800 border border-transparent",
+    outline: "bg-transparent text-semantic-text border border-semantic-text hover:bg-semantic-text hover:text-white",
+    white: "bg-white text-semantic-text hover:bg-gray-100 border border-transparent"
   };
 
   return (

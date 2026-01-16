@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Mic, Video, BookOpen, Play, Calendar, ArrowRight } from 'lucide-react';
-import Button from '../components/Button';
+import Button from '../components/button-legacy';
 import { Link } from 'react-router';
 
 const Resources: React.FC = () => {
@@ -83,8 +83,8 @@ const Resources: React.FC = () => {
         {/* Header */}
         <div className="mb-20 border-b border-gray-200 pb-12 flex flex-col md:flex-row justify-between items-end gap-8">
             <div className="max-w-2xl">
-                <span className="font-display font-bold text-ocobo-coral uppercase tracking-widest text-sm mb-2 block">RevOps Library</span>
-                <h1 className="font-display text-5xl font-bold text-ocobo-dark mb-6">Explorez la science du revenu.</h1>
+                <span className="font-display font-bold text-semantic-accent uppercase tracking-widest text-sm mb-2 block">RevOps Library</span>
+                <h1 className="font-display text-5xl font-bold text-semantic-text mb-6">Explorez la science du revenu.</h1>
                 <p className="text-xl text-gray-600 font-medium">
                     Articles, interviews et masterclasses pour structurer votre croissance.
                 </p>
@@ -103,7 +103,7 @@ const Resources: React.FC = () => {
                         onClick={() => setActiveTab(tab.id as any)}
                         className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 border ${
                             activeTab === tab.id 
-                            ? 'bg-ocobo-dark text-white border-ocobo-dark' 
+                            ? 'bg-semantic-text text-white border-ocobo-dark' 
                             : 'bg-white text-gray-600 border-gray-200 hover:border-gray-300 hover:bg-gray-50'
                         }`}
                     >
@@ -116,7 +116,7 @@ const Resources: React.FC = () => {
         {/* Featured Resource (First item) */}
         {activeTab === 'all' && (
             <div className="mb-16">
-                <div className="group relative rounded-3xl overflow-hidden bg-ocobo-dark text-white grid md:grid-cols-2 shadow-2xl">
+                <div className="group relative rounded-3xl overflow-hidden bg-semantic-text text-white grid md:grid-cols-2 shadow-2xl">
                     <div className="relative overflow-hidden h-64 md:h-auto">
                         <img 
                             src="https://picsum.photos/800/600?grayscale&random=99" 
@@ -126,8 +126,8 @@ const Resources: React.FC = () => {
                         <div className="absolute inset-0 bg-gradient-to-t from-ocobo-dark/90 to-transparent md:bg-gradient-to-r"></div>
                     </div>
                     <div className="p-10 md:p-16 flex flex-col justify-center items-start">
-                        <span className="bg-ocobo-yellow text-ocobo-dark px-3 py-1 rounded text-xs font-bold uppercase tracking-widest mb-6">À la une</span>
-                        <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 group-hover:text-ocobo-yellow transition-colors">
+                        <span className="bg-semantic-primary text-semantic-text px-3 py-1 rounded text-xs font-bold uppercase tracking-widest mb-6">À la une</span>
+                        <h2 className="font-display text-3xl md:text-4xl font-bold mb-6 group-hover:text-semantic-primary transition-colors">
                             The Revenue Experience System™ : Le Framework complet
                         </h2>
                         <p className="text-gray-400 mb-8 leading-relaxed">
@@ -155,7 +155,7 @@ const Resources: React.FC = () => {
                         />
                         
                         {/* Type Badge */}
-                        <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-ocobo-dark flex items-center gap-2 shadow-sm">
+                        <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-semantic-text flex items-center gap-2 shadow-sm">
                             {item.type === 'podcast' && <Mic size={12} />}
                             {item.type === 'webinar' && <Video size={12} />}
                             {item.type === 'blog' && <BookOpen size={12} />}
@@ -164,8 +164,8 @@ const Resources: React.FC = () => {
 
                         {/* Play Button Overlay */}
                         {(item.type === 'podcast' || item.type === 'webinar') && (
-                            <div className="absolute inset-0 flex items-center justify-center bg-ocobo-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-ocobo-dark shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                            <div className="absolute inset-0 flex items-center justify-center bg-semantic-text/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-semantic-text shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                                     <Play fill="currentColor" size={24} className="ml-1" />
                                 </div>
                             </div>
@@ -178,17 +178,17 @@ const Resources: React.FC = () => {
                             <span>{item.date}</span>
                         </div>
 
-                        <h3 className="font-display text-2xl font-bold mb-3 group-hover:text-ocobo-coral transition-colors leading-tight">
+                        <h3 className="font-display text-2xl font-bold mb-3 group-hover:text-semantic-accent transition-colors leading-tight">
                             {item.title}
                         </h3>
                         
                         <div className="mt-auto pt-4 flex items-center text-sm font-medium text-gray-500 border-t border-gray-100">
                              {item.guest ? (
-                                 <span>Invité : <span className="text-ocobo-dark">{item.guest}</span></span>
+                                 <span>Invité : <span className="text-semantic-text">{item.guest}</span></span>
                              ) : (
                                  <span>{item.readTime || item.status}</span>
                              )}
-                             <ArrowRight size={16} className="ml-auto opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-ocobo-dark" />
+                             <ArrowRight size={16} className="ml-auto opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-semantic-text" />
                         </div>
                     </div>
                 </Link>
@@ -212,16 +212,16 @@ const Resources: React.FC = () => {
                         <Button className="whitespace-nowrap">S'inscrire</Button>
                     </div>
                 </div>
-                <div className="bg-ocobo-yellowLight p-10 border border-ocobo-yellow/20 relative">
-                    <div className="absolute -top-4 -left-4 w-8 h-8 bg-ocobo-dark"></div>
-                    <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-ocobo-dark"></div>
+                <div className="bg-ocobo-yellow-light p-10 border border-ocobo-yellow/20 relative">
+                    <div className="absolute -top-4 -left-4 w-8 h-8 bg-semantic-text"></div>
+                    <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-semantic-text"></div>
                     <h3 className="font-display text-2xl font-bold mb-4">Dernier playbook envoyé :</h3>
                     <div className="bg-white p-6 shadow-sm border border-gray-100 flex items-start gap-4">
-                        <div className="w-12 h-12 bg-ocobo-mint/20 text-ocobo-mint flex items-center justify-center font-bold text-xl">
+                        <div className="w-12 h-12 bg-ocobo-mint/20 text-semantic-success flex items-center justify-center font-bold text-xl">
                             <span className="font-display">%</span>
                         </div>
                         <div>
-                            <h4 className="font-bold text-ocobo-dark">Modèle de Variable Sales 2024</h4>
+                            <h4 className="font-bold text-semantic-text">Modèle de Variable Sales 2024</h4>
                             <p className="text-sm text-gray-500 mt-1">Template GSheet + Guide de calcul</p>
                         </div>
                     </div>

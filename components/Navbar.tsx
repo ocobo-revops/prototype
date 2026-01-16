@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Heart, Mic, Youtube, BookOpen, Layers, Cpu, Briefcase, Users, ArrowRight, Sparkles } from 'lucide-react';
 import { Link, useLocation } from 'react-router';
-import Button from './Button';
+import Button from './button-legacy';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -139,30 +139,30 @@ const Navbar: React.FC = () => {
 
     // Menu principal uniquement noir/gris foncé, pas de couleur
     if (isDropdownActive || isCurrentPath) {
-      return 'text-ocobo-dark font-black';
+      return 'text-semantic-text font-black';
     }
     
-    return 'text-gray-500 hover:text-ocobo-dark';
+    return 'text-gray-500 hover:text-semantic-text';
   };
 
   const getSubMenuHoverClasses = (color: string) => {
     const subThemeMap: Record<string, string> = {
-      yellow: 'hover:bg-ocobo-yellowLight',
-      coral: 'hover:bg-ocobo-coralLight',
-      mint: 'hover:bg-ocobo-mintLight',
-      sky: 'hover:bg-ocobo-skyLight',
+      yellow: 'hover:bg-ocobo-yellow-light',
+      coral: 'hover:bg-ocobo-coral-light',
+      mint: 'hover:bg-ocobo-mint-light',
+      sky: 'hover:bg-ocobo-sky-light',
     };
     return subThemeMap[color] || 'hover:bg-gray-50';
   };
 
   const getIconThemeClasses = (color: string) => {
     const iconThemeMap: Record<string, string> = {
-      yellow: 'bg-ocobo-yellow/10 text-ocobo-yellow',
-      coral: 'bg-ocobo-coral/10 text-ocobo-coral',
-      mint: 'bg-ocobo-mint/10 text-ocobo-mint',
-      sky: 'bg-ocobo-sky/10 text-ocobo-sky',
+      yellow: 'bg-ocobo-yellow-light text-ocobo-yellow',
+      coral: 'bg-ocobo-coral-light text-ocobo-coral',
+      mint: 'bg-ocobo-mint-light text-ocobo-mint',
+      sky: 'bg-ocobo-sky-light text-ocobo-sky',
     };
-    return iconThemeMap[color] || 'bg-gray-50 text-ocobo-dark';
+    return iconThemeMap[color] || 'bg-gray-50 text-semantic-text';
   };
 
   const getHoverTextColor = (color: string) => {
@@ -172,18 +172,18 @@ const Navbar: React.FC = () => {
       mint: 'group-hover/item:text-ocobo-mint',
       sky: 'group-hover/item:text-ocobo-sky',
     };
-    return textThemeMap[color] || 'group-hover/item:text-ocobo-dark';
+    return textThemeMap[color] || 'group-hover/item:text-semantic-text';
   };
 
   const renderDropdownItem = (subItem: any, idx: number) => {
     const isExternal = subItem.path.startsWith('http');
     const content = (
       <>
-        <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-all group-hover/item:scale-105 ${getIconThemeClasses(subItem.color)}`}>
+        <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all group-hover/item:scale-105 ${getIconThemeClasses(subItem.color)}`}>
           {subItem.icon}
         </div>
         <div className="transition-transform group-hover/item:translate-x-1">
-           <h4 className={`font-bold text-ocobo-dark text-[14px] mb-0.5 transition-colors ${getHoverTextColor(subItem.color)}`}>
+           <h4 className={`font-bold text-semantic-text text-[14px] mb-0.5 transition-colors ${getHoverTextColor(subItem.color)}`}>
               {subItem.label}
            </h4>
            <p className="text-[11px] text-gray-400 font-medium leading-tight">
@@ -193,7 +193,7 @@ const Navbar: React.FC = () => {
       </>
     );
 
-    const className = `flex items-start gap-4 p-4 rounded-2xl transition-all group/item ${getSubMenuHoverClasses(subItem.color)}`;
+    const className = `flex items-start gap-4 p-4 rounded-md transition-all group/item ${getSubMenuHoverClasses(subItem.color)}`;
 
     if (isExternal) {
       return (
@@ -229,7 +229,7 @@ const Navbar: React.FC = () => {
           className={`
             relative w-full max-w-7xl transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-auto
             ${scrolled 
-              ? 'bg-white/80 backdrop-blur-lg border border-gray-100 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.12)] rounded-[2rem] py-2 px-3 md:px-6 lg:max-w-5xl' 
+              ? 'bg-white/80 backdrop-blur-lg border border-gray-100 shadow-lg rounded-full py-2 px-3 md:px-6 lg:max-w-5xl' 
               : 'bg-white/0 border-transparent py-4 px-0'
             }
             ${isOpen ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}
@@ -279,7 +279,7 @@ const Navbar: React.FC = () => {
                             ${isDropdownActive ? 'opacity-100 scale-100 translate-y-0 visible' : 'opacity-0 scale-95 -translate-y-4 invisible pointer-events-none'}
                         `}
                       >
-                        <div className="bg-white rounded-[2rem] p-2 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] border border-gray-50 overflow-hidden">
+                        <div className="bg-white rounded-lg p-2 shadow-lg border border-gray-50 overflow-hidden">
                           {item.dropdown.map((subItem, idx) => renderDropdownItem(subItem, idx))}
                         </div>
                       </div>
@@ -293,8 +293,8 @@ const Navbar: React.FC = () => {
                <Link to="/contact" className="hidden md:block">
                 <Button className={`!py-2 !px-5 text-[11px] font-black uppercase tracking-widest border-none transition-all duration-700 
                   ${scrolled 
-                    ? 'bg-ocobo-dark text-white shadow-none scale-95' 
-                    : (useWhiteText ? 'bg-ocobo-yellow text-ocobo-dark shadow-xl' : 'bg-ocobo-dark text-white shadow-xl')
+                    ? 'bg-semantic-text text-white shadow-none scale-95' 
+                    : (useWhiteText ? 'bg-semantic-primary text-semantic-text shadow-xl' : 'bg-semantic-text text-white shadow-xl')
                   }`}>
                   Prendre RDV
                 </Button>
@@ -302,7 +302,7 @@ const Navbar: React.FC = () => {
 
               <button
                 onClick={() => setIsOpen(true)}
-                className={`md:hidden relative z-50 p-2.5 rounded-full transition-colors ${useWhiteText ? 'bg-white/10 text-white' : 'bg-black/5 text-ocobo-dark'}`}
+                className={`md:hidden relative z-50 p-2.5 rounded-full transition-colors ${useWhiteText ? 'bg-white/10 text-white' : 'bg-black/5 text-semantic-text'}`}
               >
                 <Menu size={20} />
               </button>
@@ -325,7 +325,7 @@ const Navbar: React.FC = () => {
                 />
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-2 text-ocobo-dark bg-gray-50 rounded-full active:scale-90 transition-transform"
+                  className="p-2 text-semantic-text bg-gray-50 rounded-full active:scale-90 transition-transform"
                 >
                   <X size={24} />
                 </button>
@@ -339,7 +339,7 @@ const Navbar: React.FC = () => {
                                 <Link 
                                     to={item.path} 
                                     onClick={() => setIsOpen(false)}
-                                    className="font-display text-[22px] font-black block tracking-tight text-ocobo-dark"
+                                    className="font-display text-[22px] font-black block tracking-tight text-semantic-text"
                                 >
                                     {item.label}
                                 </Link>
@@ -348,7 +348,7 @@ const Navbar: React.FC = () => {
                                         const isExternal = sub.path.startsWith('http');
                                         const mobileLinkContent = (
                                           <>
-                                              <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border border-gray-50 ${getIconThemeClasses(sub.color)}`}>
+                                              <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 border border-gray-50 ${getIconThemeClasses(sub.color)}`}>
                                                   {React.cloneElement(sub.icon as any, { size: 18 })}
                                               </div>
                                               <div>
@@ -390,7 +390,7 @@ const Navbar: React.FC = () => {
                             <Link 
                                 to={item.path} 
                                 onClick={() => setIsOpen(false)}
-                                className="font-display text-[22px] font-black block tracking-tight text-ocobo-dark"
+                                className="font-display text-[22px] font-black block tracking-tight text-semantic-text"
                             >
                                 {item.label}
                             </Link>
@@ -401,7 +401,7 @@ const Navbar: React.FC = () => {
              
              <div className="mt-10">
                  <Link to="/contact" onClick={() => setIsOpen(false)}>
-                     <button className="w-full flex items-center justify-center gap-3 py-5 rounded-full bg-ocobo-dark text-white text-[13px] font-black uppercase tracking-[0.15em] shadow-2xl active:scale-[0.98] transition-all">
+                     <button className="w-full flex items-center justify-center gap-3 py-5 rounded-full bg-semantic-text text-white text-[13px] font-black uppercase tracking-[0.15em] shadow-2xl active:scale-[0.98] transition-all">
                         Prendre rendez-vous <ArrowRight size={16} />
                      </button>
                  </Link>

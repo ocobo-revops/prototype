@@ -1,0 +1,123 @@
+# generated: 2026-01-13
+# project: prototype
+# project_key: prototype
+# tracking_system: file-system
+# story_location: _bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when first story is created
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically creates next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+
+generated: 2026-01-13
+project: prototype
+project_key: prototype
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+
+development_status:
+  # Epic 1: Design Tokens Foundation
+  epic-1: done
+  1-1-migrate-tailwind-configuration-from-cdn-to-local: done
+  1-2-define-color-tokens-primitives: done
+  1-2b-define-semantic-color-tokens: done
+  1-3-define-spacing-radius-and-shadow-tokens: done
+  1-4-define-typography-tokens: done
+  1-5-create-token-documentation: skipped
+  1-6-migrate-to-semantic-color-tokens: done
+  1-7-review-color-token-strategy: optional
+  epic-1-retrospective: optional
+
+  # Epic 2: Core UI Components
+  epic-2: done
+  2-1-create-container-component: done
+  2-2-create-button-component: done
+  2-2b-create-design-system-showcase-page: done
+  2-3-create-badge-component: done
+  2-4-create-input-component: done
+  2-5-create-card-composition-system-context-and-root: done
+  2-6-create-card-composition-system-header-primitives: done
+  2-7-create-card-composition-system-body-and-footer: done
+  2-8-create-card-composition-system-media-and-avatar: done
+  2-9-create-component-documentation: done
+  epic-2-retrospective: optional
+
+  # Epic 3: Section Components
+  epic-3: in-progress
+  3-1-create-base-section-component: done
+  3-2-create-herosection-component: done
+  3-3-create-ctasection-component: done
+  3-4-create-featuresection-component: done
+  3-5-create-gridsection-component: done
+  3-6-create-testimonialsection-component: backlog
+  3-7-create-statssection-component: backlog
+  3-8-create-decorativeblob-component: backlog
+  epic-3-retrospective: optional
+
+  # Epic 4: Navbar Refactoring
+  epic-4: backlog
+  4-1-create-navbar-component-structure: backlog
+  4-2-extract-navbarlogo-component: backlog
+  4-3-extract-navbarmenu-component: backlog
+  4-4-extract-navbarmobile-component: backlog
+  4-5-compose-final-navbar: backlog
+  epic-4-retrospective: optional
+
+  # Epic 5: Page Refactoring
+  epic-5: backlog
+  5-1-refactor-home-page: backlog
+  5-2-refactor-services-page: backlog
+  5-3-refactor-method-page: backlog
+  5-4-refactor-studio-page: backlog
+  5-5-refactor-partners-page: backlog
+  5-6-refactor-stories-page: backlog
+  5-7-refactor-about-page: backlog
+  5-8-refactor-jobs-page: backlog
+  5-9-refactor-resources-page: backlog
+  5-10-refactor-podcast-page: backlog
+  5-11-refactor-contact-page: backlog
+  5-12-refactor-detail-pages-article-job-story-webinar: backlog
+  5-13-delete-deprecated-components: backlog
+  epic-5-retrospective: optional
+
+  # Epic 6: AI Documentation
+  epic-6: backlog
+  6-1-update-claude-md-as-ai-navigation-entry-point: backlog
+  6-2-create-tokens-documentation: backlog
+  6-3-create-components-catalog: backlog
+  6-4-create-patterns-documentation: backlog
+  6-5-create-ai-migration-guide: backlog
+  epic-6-retrospective: optional
+
+  # Epic 7: Design System Showcase
+  epic-7: backlog
+  7-1-create-showcase-page-route: backlog
+  7-2-create-token-showcase-sections: backlog
+  7-3-create-core-components-showcase: backlog
+  7-4-create-card-composition-showcase: backlog
+  7-5-create-section-components-showcase: backlog
+  epic-7-retrospective: optional

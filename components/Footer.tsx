@@ -21,14 +21,14 @@ const Footer: React.FC = () => {
             />
             
             <div className="flex space-x-4">
-              <a href="https://www.linkedin.com/company/ocobofr/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-white hover:text-ocobo-dark transition-all duration-300">
+              <a href="https://www.linkedin.com/company/ocobofr/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-white hover:text-semantic-text transition-all duration-300">
                 <Linkedin size={16} />
               </a>
-              <a href="https://www.youtube.com/@Ocobo-Revenue" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-white hover:text-ocobo-dark transition-all duration-300">
+              <a href="https://www.youtube.com/@Ocobo-Revenue" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-white hover:text-semantic-text transition-all duration-300">
                 <Youtube size={16} />
               </a>
             </div>
-            <Link to="/contact" className="inline-flex items-center text-xs font-bold uppercase tracking-widest border border-white/30 rounded-full px-6 py-3 hover:bg-white hover:text-ocobo-dark transition-all">
+            <Link to="/contact" className="inline-flex items-center text-xs font-bold uppercase tracking-widest border border-white/30 rounded-full px-6 py-3 hover:bg-white hover:text-semantic-text transition-all">
               Prendre RDV <ArrowRight className="ml-2 w-3 h-3" />
             </Link>
           </div>
@@ -37,8 +37,8 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-display font-bold mb-6 text-gray-400 text-sm uppercase tracking-wider">Ocobo</h4>
             <ul className="space-y-3 text-sm text-gray-300">
-              <li><Link to="/about" className="hover:text-ocobo-yellow transition-colors">Qui sommes-nous</Link></li>
-              <li><Link to="/jobs" className="hover:text-ocobo-yellow transition-colors">Nous rejoindre</Link></li>
+              <li><Link to="/about" className="hover:text-semantic-primary transition-colors">Qui sommes-nous</Link></li>
+              <li><Link to="/jobs" className="hover:text-semantic-primary transition-colors">Nous rejoindre</Link></li>
             </ul>
           </div>
 
@@ -46,9 +46,9 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-display font-bold mb-6 text-gray-400 text-sm uppercase tracking-wider">Méthode</h4>
             <ul className="space-y-3 text-sm text-gray-300">
-              <li><Link to="/method" className="hover:text-ocobo-yellow transition-colors">The Revenue Experience System</Link></li>
-              <li><Link to="/technology" className="hover:text-ocobo-yellow transition-colors">Technologie</Link></li>
-              <li><Link to="/studio" className="hover:text-ocobo-yellow transition-colors">Le RevOps Studio</Link></li>
+              <li><Link to="/method" className="hover:text-semantic-primary transition-colors">The Revenue Experience System</Link></li>
+              <li><Link to="/technology" className="hover:text-semantic-primary transition-colors">Technologie</Link></li>
+              <li><Link to="/studio" className="hover:text-semantic-primary transition-colors">Le RevOps Studio</Link></li>
             </ul>
           </div>
 
@@ -60,9 +60,9 @@ const Footer: React.FC = () => {
                 <input 
                   type="email" 
                   placeholder="votre@email.com" 
-                  className="w-full bg-white text-ocobo-dark px-4 py-3 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-ocobo-yellow"
+                  className="w-full bg-white text-semantic-text px-4 py-3 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-semantic-primary"
                 />
-                <button type="button" className="absolute right-1 top-1 bottom-1 bg-ocobo-dark text-white text-xs px-3 rounded hover:bg-gray-800 transition-colors">
+                <button type="button" className="absolute right-1 top-1 bottom-1 bg-semantic-text text-white text-xs px-3 rounded hover:bg-gray-800 transition-colors">
                   S'inscrire
                 </button>
               </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Linkedin, Quote, ArrowRight, Check, MousePointer2, Plus } from 'lucide-react';
-import Button from '../components/Button';
+import Button from '../components/button-legacy';
 import { Link } from 'react-router';
 
 const DataIllustration = () => {
@@ -21,7 +21,7 @@ const DataIllustration = () => {
       `}</style>
       <div className="relative w-full max-w-3xl h-[280px] md:h-[420px] mx-auto p-4 flex flex-col items-center">
         {/* Illustration Container */}
-        <div className="relative w-full h-full bg-[#FCFAF5] rounded-[2rem] p-6 md:p-8 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] border border-gray-100 group/svg overflow-hidden">
+        <div className="relative w-full h-full bg-[#FCFAF5] rounded-lg p-6 md:p-8 shadow-hero border border-gray-100 group/svg overflow-hidden">
           <svg viewBox="0 0 800 500" className="w-full h-full" preserveAspectRatio="xMidYMid meet">
             {/* Background Bars (Grey/Black) - Following the image structure */}
             <g className="bars">
@@ -109,7 +109,7 @@ const DataIllustration = () => {
           </svg>
         </div>
         <div className="mt-10 text-center max-w-lg mx-auto">
-             <h3 className="font-display text-xl md:text-2xl font-bold text-ocobo-dark mb-3 uppercase tracking-[0.2em]">Transformer le bruit en signal.</h3>
+             <h3 className="font-display text-xl md:text-2xl font-bold text-semantic-text mb-3 uppercase tracking-[0.2em]">Transformer le bruit en signal.</h3>
              <p className="text-gray-400 text-sm md:text-base font-medium leading-relaxed px-4">L'architecture n'est pas qu'une question de structure, c'est une question de vision. Savoir où regarder pour trouver la croissance.</p>
         </div>
       </div>
@@ -121,7 +121,7 @@ const IconSeparator = () => {
   return (
     <div className="flex justify-center items-center gap-10 md:gap-20 pt-16 pb-0 bg-white">
       {/* Left Star/Sparkle - Exactly like provided image */}
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-ocobo-dark">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-semantic-text">
         <circle cx="24" cy="24" r="3.5" fill="currentColor" />
         {/* Horizontal & Vertical lines */}
         <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" strokeWidth="2.5" />
@@ -132,7 +132,7 @@ const IconSeparator = () => {
       </svg>
       
       {/* Smiley Face - Exactly like provided image */}
-      <svg width="84" height="84" viewBox="0 0 84 84" fill="none" className="text-ocobo-dark">
+      <svg width="84" height="84" viewBox="0 0 84 84" fill="none" className="text-semantic-text">
         <circle cx="42" cy="42" r="38" stroke="currentColor" strokeWidth="3" />
         {/* Eyes: Vertical Ovals */}
         <ellipse cx="32" cy="36" rx="4.5" ry="8" fill="currentColor" />
@@ -145,7 +145,7 @@ const IconSeparator = () => {
       </svg>
 
       {/* Right Star/Sparkle - Exactly like provided image */}
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-ocobo-dark">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-semantic-text">
         <circle cx="24" cy="24" r="3.5" fill="currentColor" />
         <line x1="24" y1="4" x2="24" y2="44" stroke="currentColor" strokeWidth="2.5" />
         <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" strokeWidth="2.5" />
@@ -163,8 +163,8 @@ const About: React.FC = () => {
       {/* BLOC 1 - HERO & MISSION */}
       <section className="pt-40 pb-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto mb-20">
-            <h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-8 leading-[0.9] tracking-tight">
-                Notre mission : <br/>démocratiser la <span className="text-ocobo-yellow">science du revenu.</span>
+            <h1 className="font-display text-5xl md:text-7xl font-bold text-semantic-text mb-8 leading-[0.9] tracking-tight">
+                Notre mission : <br/>démocratiser la <span className="text-semantic-primary">science du revenu.</span>
             </h1>
             <p className="text-xl text-gray-700 leading-relaxed mb-6 font-medium">
                 Rendre accessible à toutes les organisations B2B une discipline réservée, jusqu’ici, aux scale-ups les plus avancées.
@@ -179,15 +179,15 @@ const About: React.FC = () => {
       </section>
 
       {/* BLOC 2 - MANIFESTE (STYLE POÉTIQUE & IMPACTANT - VERSION NOIRE) */}
-      <section className="py-32 bg-ocobo-dark text-white relative overflow-hidden">
+      <section className="py-32 bg-semantic-text text-white relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
           <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-          <div className="absolute top-1/2 left-0 w-32 h-32 bg-ocobo-yellow/10 rounded-full -translate-x-1/2 blur-3xl opacity-50"></div>
+          <div className="absolute top-1/2 left-0 w-32 h-32 bg-semantic-primary/10 rounded-full -translate-x-1/2 blur-3xl opacity-50"></div>
           <div className="absolute top-1/4 right-0 w-40 h-40 bg-ocobo-sky/10 rounded-full translate-x-1/2 blur-3xl opacity-50"></div>
 
           <div className="max-w-4xl mx-auto px-6 text-left relative z-10">
               <div className="flex justify-center md:justify-start mb-24">
-                <span className="font-display font-bold text-ocobo-dark bg-ocobo-yellow px-6 py-2 text-xs uppercase tracking-[0.3em] inline-block rounded-full shadow-lg">
+                <span className="font-display font-bold text-semantic-text bg-semantic-primary px-6 py-2 text-xs uppercase tracking-[0.3em] inline-block rounded-full shadow-lg">
                     Manifeste
                 </span>
               </div>
@@ -206,7 +206,7 @@ const About: React.FC = () => {
                   <div className="space-y-4 border-l-4 border-ocobo-yellow pl-8 py-2">
                       <p className="text-xl md:text-3xl font-bold text-white leading-tight">Chez Ocobo, nous refusons la confusion, le bruit, les mirages technologiques.</p>
                       <p className="text-xl md:text-3xl font-bold text-white leading-tight">Pour nous, le RevOps n’est pas un métier technique.</p>
-                      <p className="text-xl md:text-3xl font-bold text-ocobo-yellow leading-tight italic">C’est une discipline stratégique : l’architecture de votre revenu.</p>
+                      <p className="text-xl md:text-3xl font-bold text-semantic-primary leading-tight italic">C’est une discipline stratégique : l’architecture de votre revenu.</p>
                   </div>
 
                   {/* Stanza 3 */}
@@ -221,11 +221,11 @@ const About: React.FC = () => {
                       <p className="text-xl md:text-3xl font-medium text-white leading-tight">Nous existons pour appeler les choses par leur nom,</p>
                       <p className="text-xl md:text-3xl font-medium text-white leading-tight">ramener de la clarté dans un monde de jargon</p>
                       <p className="text-xl md:text-3xl font-medium text-white leading-tight">et offrir aux organisations un privilège rare :</p>
-                      <p className="text-xl md:text-3xl font-bold text-ocobo-yellow leading-tight">l’expérience d’une croissance simple, saine et maîtrisée.</p>
+                      <p className="text-xl md:text-3xl font-bold text-semantic-primary leading-tight">l’expérience d’une croissance simple, saine et maîtrisée.</p>
                   </div>
 
                   {/* Stanza 5 - The Invitation */}
-                  <div className="relative pt-20 pb-16 px-8 md:px-12 bg-white/5 rounded-[2.5rem] border border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm">
+                  <div className="relative pt-20 pb-16 px-8 md:px-12 bg-white/5 rounded-xl border border-white/10 shadow-lg overflow-hidden backdrop-blur-sm">
                       {/* Top multi-color line */}
                       <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-ocobo-yellow via-ocobo-coral to-ocobo-sky"></div>
                       
@@ -233,26 +233,26 @@ const About: React.FC = () => {
                       
                       <div className="space-y-8">
                           <div className="flex items-start gap-5">
-                              <div className="bg-ocobo-yellow rounded-full p-1 mt-1.5 shrink-0">
-                                <ArrowRight size={16} className="text-ocobo-dark" />
+                              <div className="bg-semantic-primary rounded-full p-1 mt-1.5 shrink-0">
+                                <ArrowRight size={16} className="text-semantic-text" />
                               </div>
                               <p className="text-xl md:text-3xl font-medium text-gray-300 leading-tight">à regarder votre machine revenue en face,</p>
                           </div>
                           <div className="flex items-start gap-5">
-                              <div className="bg-ocobo-yellow rounded-full p-1 mt-1.5 shrink-0">
-                                <ArrowRight size={16} className="text-ocobo-dark" />
+                              <div className="bg-semantic-primary rounded-full p-1 mt-1.5 shrink-0">
+                                <ArrowRight size={16} className="text-semantic-text" />
                               </div>
                               <p className="text-xl md:text-3xl font-medium text-gray-300 leading-tight">à préférer la vérité opérationnelle aux illusions de performance,</p>
                           </div>
                           <div className="flex items-start gap-5">
-                              <div className="bg-ocobo-yellow rounded-full p-1 mt-1.5 shrink-0">
-                                <ArrowRight size={16} className="text-ocobo-dark" />
+                              <div className="bg-semantic-primary rounded-full p-1 mt-1.5 shrink-0">
+                                <ArrowRight size={16} className="text-semantic-text" />
                               </div>
                               <p className="text-xl md:text-3xl font-medium text-gray-300 leading-tight">à faire primer la stratégie sur l’urgence,</p>
                           </div>
                           <div className="flex items-start gap-5">
-                              <div className="bg-ocobo-yellow rounded-full p-1 mt-1.5 shrink-0">
-                                <ArrowRight size={16} className="text-ocobo-dark" />
+                              <div className="bg-semantic-primary rounded-full p-1 mt-1.5 shrink-0">
+                                <ArrowRight size={16} className="text-semantic-text" />
                               </div>
                               <p className="text-xl md:text-3xl font-medium text-gray-300 leading-tight">
                                 à construire votre revenu non comme un empilement, <br className="hidden md:block" />
@@ -276,7 +276,7 @@ const About: React.FC = () => {
                               alt="Ocobo Logo" 
                               className="h-16 md:h-20 w-auto mb-8 object-contain" 
                           />
-                          <p className="font-display text-xl md:text-3xl text-ocobo-yellow uppercase tracking-[0.3em] font-bold leading-tight">La clarté au service du revenu.</p>
+                          <p className="font-display text-xl md:text-3xl text-semantic-primary uppercase tracking-[0.3em] font-bold leading-tight">La clarté au service du revenu.</p>
                       </div>
                   </div>
               </div>
@@ -291,7 +291,7 @@ const About: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
              <div className="text-center mb-16 max-w-3xl mx-auto">
                  <h2 className="font-display text-4xl font-bold mb-6">L’équipe fondatrice</h2>
-                 <p className="text-xl font-medium text-ocobo-dark mb-4">Une équipe 100% senior. Issue des meilleures scale-ups. Construite pour l’impact.</p>
+                 <p className="text-xl font-medium text-semantic-text mb-4">Une équipe 100% senior. Issue des meilleures scale-ups. Construite pour l’impact.</p>
                  <p className="text-gray-600">Nous ne sommes ni des juniors, ni des exécutants externes. Nous opérons comme une direction Revenue embarquée : exigeante, stratégique, opérationnelle.</p>
              </div>
 
@@ -301,12 +301,12 @@ const About: React.FC = () => {
                      <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-ocobo-yellow">
                          <img src="https://placehold.co/200x200/F3F4F6/F3F4F6" alt="Benjamin Boileux" className="w-full h-full object-cover" />
                      </div>
-                     <h3 className="font-display text-2xl font-bold text-ocobo-dark mb-1">Benjamin Boileux</h3>
+                     <h3 className="font-display text-2xl font-bold text-semantic-text mb-1">Benjamin Boileux</h3>
                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Architecte RevOps & Associé</p>
                      <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                         12+ ans en Ops, CRM, Product et Revenue Operations (TheFork, Tripadvisor, Yousign). Spécialiste des systèmes et du pilotage opérationnel.
                      </p>
-                     <a href="#" className="inline-block text-gray-400 hover:text-ocobo-dark"><Linkedin size={20} /></a>
+                     <a href="#" className="inline-block text-gray-400 hover:text-semantic-text"><Linkedin size={20} /></a>
                  </div>
 
                  {/* Aude */}
@@ -314,12 +314,12 @@ const About: React.FC = () => {
                      <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-ocobo-coral">
                          <img src="https://placehold.co/200x200/F3F4F6/F3F4F6" alt="Aude Cadiot" className="w-full h-full object-cover" />
                      </div>
-                     <h3 className="font-display text-2xl font-bold text-ocobo-dark mb-1">Aude Cadiot</h3>
+                     <h3 className="font-display text-2xl font-bold text-semantic-text mb-1">Aude Cadiot</h3>
                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Architecte RevOps & Associée</p>
                      <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                         Référence française du Revenue Operations (TheFork, Spendesk). Experte du customer journey, des organisations GTM, du scaling d’équipes RevOps.
                      </p>
-                     <a href="#" className="inline-block text-gray-400 hover:text-ocobo-dark"><Linkedin size={20} /></a>
+                     <a href="#" className="inline-block text-gray-400 hover:text-semantic-text"><Linkedin size={20} /></a>
                  </div>
 
                  {/* Corentin */}
@@ -327,17 +327,17 @@ const About: React.FC = () => {
                      <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-ocobo-sky">
                          <img src="https://placehold.co/200x200/F3F4F6/F3F4F6" alt="Corentin Guérin" className="w-full h-full object-cover" />
                      </div>
-                     <h3 className="font-display text-2xl font-bold text-ocobo-dark mb-1">Corentin Guérin</h3>
+                     <h3 className="font-display text-2xl font-bold text-semantic-text mb-1">Corentin Guérin</h3>
                      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Analyste & Stratège Revenue, Associé</p>
                      <p className="text-gray-600 text-sm mb-6 leading-relaxed">
                         Finance, Deloitte, Business Ops (TheFork). Spécialiste du forecasting, de la performance, des rémunérations variables et du pricing.
                      </p>
-                     <a href="#" className="inline-block text-gray-400 hover:text-ocobo-dark"><Linkedin size={20} /></a>
+                     <a href="#" className="inline-block text-gray-400 hover:text-semantic-text"><Linkedin size={20} /></a>
                  </div>
              </div>
              
              <div className="text-center mt-12 flex flex-col items-center gap-8">
-                 <p className="font-bold text-xl">Trois parcours, une même conviction : <span className="bg-ocobo-yellowLight px-2">la croissance a besoin d’architectes, pas de techniciens.</span></p>
+                 <p className="font-bold text-xl">Trois parcours, une même conviction : <span className="bg-semantic-primary-light px-2">la croissance a besoin d’architectes, pas de techniciens.</span></p>
                  <Link to="/studio">
                      <Button variant="primary" className="px-8 py-4">Rencontrez le reste de l'équipe</Button>
                  </Link>
@@ -346,28 +346,28 @@ const About: React.FC = () => {
       </section>
 
       {/* BLOC 4 - VALEURS */}
-      <section className="py-24 bg-ocobo-dark text-white">
+      <section className="py-24 bg-semantic-text text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="font-display text-4xl font-bold mb-16 text-center">Ce qui nous lie</h2>
 
               <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
                   <div>
-                      <h3 className="text-ocobo-yellow font-display text-2xl font-bold mb-4">Clarté radicale</h3>
+                      <h3 className="text-semantic-primary font-display text-2xl font-bold mb-4">Clarté radicale</h3>
                       <p className="text-gray-300">Nommer les problèmes. Rendre simple ce qui était obscur.</p>
                       <p className="text-sm text-gray-500 mt-2 italic">→ Dire la vérité sur le revenu</p>
                   </div>
                   <div>
-                      <h3 className="text-ocobo-mint font-display text-2xl font-bold mb-4">Simplicité pragmatique</h3>
+                      <h3 className="text-semantic-success font-display text-2xl font-bold mb-4">Simplicité pragmatique</h3>
                       <p className="text-gray-300">Moins de complexité. Moins d’outils. Moins de bruit.</p>
                       <p className="text-sm text-gray-500 mt-2 italic">→ Une mécanique de précision, pas une usine à gaz</p>
                   </div>
                   <div>
-                      <h3 className="text-ocobo-sky font-display text-2xl font-bold mb-4">Exigence senior</h3>
+                      <h3 className="text-semantic-info font-display text-2xl font-bold mb-4">Exigence senior</h3>
                       <p className="text-gray-300">Des profils qui ont vécu les enjeux, les crises, les restructurations.</p>
                       <p className="text-sm text-gray-500 mt-2 italic">→ Parler C-level, agir opérationnel</p>
                   </div>
                   <div>
-                      <h3 className="text-ocobo-coral font-display text-2xl font-bold mb-4">Architecture avant la maçonnerie</h3>
+                      <h3 className="text-semantic-accent font-display text-2xl font-bold mb-4">Architecture avant la maçonnerie</h3>
                       <p className="text-gray-300">Pas d’outil sans intention. Pas d’automatisation sans vision. Il ne suffit pas de connecter les tuyaux, encore faut-il que l'eau circule.</p>
                       <p className="text-sm text-gray-500 mt-2 italic">→ La tech suit la stratégie, jamais l’inverse</p>
                   </div>
@@ -386,11 +386,11 @@ const About: React.FC = () => {
       </section>
 
       {/* BLOC 6 - CTA FINAL */}
-      <section className="bg-ocobo-skyLight py-24 text-center">
+      <section className="bg-ocobo-sky-light py-24 text-center">
           <div className="max-w-3xl mx-auto px-4">
-              <h2 className="font-display text-4xl font-bold text-ocobo-dark mb-6">Parlons de votre machine revenue.</h2>
+              <h2 className="font-display text-4xl font-bold text-semantic-text mb-6">Parlons de votre machine revenue.</h2>
               <p className="text-xl text-gray-600 mb-4">30 minutes pour éclairer, diagnostiquer, orienter.</p>
-              <p className="text-lg text-ocobo-dark font-medium mb-10">Zéro détour. Zéro jargon. Rien que la vérité sur votre croissance et vos options.</p>
+              <p className="text-lg text-semantic-text font-medium mb-10">Zéro détour. Zéro jargon. Rien que la vérité sur votre croissance et vos options.</p>
               <Link to="/contact" className="inline-block">
                   <Button variant="primary" className="px-12 py-5 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1">Rencontrer un architecte RevOps</Button>
               </Link>

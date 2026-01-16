@@ -1,0 +1,1472 @@
+import { Container } from '../components/container'
+import { Button } from '../components/button'
+import { Badge } from '../components/badge'
+import { Input } from '../components/input'
+import { Card } from '../components/card'
+import { Section } from '../components/Section'
+
+/**
+ * Design System Showcase Page
+ * Living documentation of all DS components.
+ * Route: /design-system (hidden from navbar)
+ */
+export default function DesignSystem() {
+  const colors = [
+    { name: 'yellow', bg: 'bg-ocobo-yellow', light: 'bg-ocobo-yellow-light' },
+    { name: 'mint', bg: 'bg-ocobo-mint', light: 'bg-ocobo-mint-light' },
+    { name: 'sky', bg: 'bg-ocobo-sky', light: 'bg-ocobo-sky-light' },
+    { name: 'coral', bg: 'bg-ocobo-coral', light: 'bg-ocobo-coral-light' },
+    { name: 'dark', bg: 'bg-ocobo-dark', light: 'bg-ocobo-gray-100' },
+  ] as const
+
+  const variants = ['solid', 'inverse', 'outline'] as const
+  const sizes = ['sm', 'md', 'lg'] as const
+
+  return (
+    <div className="min-h-screen bg-ocobo-gray-50 py-12">
+      <Container size="lg">
+        <h1 className="text-4xl font-display font-bold text-ocobo-dark mb-2">
+          Design System
+        </h1>
+        <p className="text-ocobo-gray-600 mb-12">
+          Living documentation of Ocobo design tokens and components.
+        </p>
+
+        {/* Color Tokens */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-ocobo-dark mb-6">Color Tokens</h2>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {colors.map((color) => (
+              <div key={color.name} className="space-y-2">
+                <div className={`${color.bg} h-20 rounded-lg`} />
+                <div className={`${color.light} h-10 rounded-lg`} />
+                <p className="text-sm text-ocobo-gray-600 text-center">{color.name}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Container Component */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-ocobo-dark mb-6">Container</h2>
+          <div className="space-y-4">
+            {(['sm', 'md', 'lg', 'full'] as const).map((size) => (
+              <div key={size} className="bg-white rounded-lg p-4">
+                <p className="text-sm text-ocobo-gray-500 mb-2">size="{size}"</p>
+                <Container size={size}>
+                  <div className="bg-ocobo-yellow-light border-2 border-dashed border-ocobo-yellow rounded-lg p-4 text-center">
+                    Container {size}
+                  </div>
+                </Container>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Button Component */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-ocobo-dark mb-6">Button</h2>
+          
+          {/* By Variant */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Variants</h3>
+            <div className="flex flex-wrap gap-4 bg-white rounded-lg p-6">
+              {variants.map((variant) => (
+                <Button key={variant} variant={variant}>
+                  {variant}
+                </Button>
+              ))}
+            </div>
+          </div>
+
+          {/* By Size */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Sizes</h3>
+            <div className="flex flex-wrap items-center gap-4 bg-white rounded-lg p-6">
+              {sizes.map((size) => (
+                <Button key={size} size={size}>
+                  {size}
+                </Button>
+              ))}
+            </div>
+          </div>
+
+          {/* With Arrow */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">With Arrow (showArrow)</h3>
+            <div className="flex flex-wrap gap-4 bg-white rounded-lg p-6">
+              {variants.map((variant) => (
+                <Button key={variant} variant={variant} showArrow>
+                  {variant}
+                </Button>
+              ))}
+            </div>
+          </div>
+
+          {/* Full Matrix */}
+          <div>
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Full Matrix (Variant x Size)</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full bg-white rounded-lg">
+                <thead>
+                  <tr className="border-b border-ocobo-gray-200">
+                    <th className="p-4 text-left text-sm text-ocobo-gray-600">Variant</th>
+                    {sizes.map((size) => (
+                      <th key={size} className="p-4 text-center text-sm text-ocobo-gray-600">
+                        {size}
+                      </th>
+                    ))}
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">with arrow</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {variants.map((variant) => (
+                    <tr key={variant} className="border-b border-ocobo-gray-100">
+                      <td className="p-4 text-sm font-medium text-ocobo-dark">{variant}</td>
+                      {sizes.map((size) => (
+                        <td key={`${variant}-${size}`} className="p-4 text-center">
+                          <Button variant={variant} size={size}>
+                            Button
+                          </Button>
+                        </td>
+                      ))}
+                      <td className="p-4 text-center">
+                        <Button variant={variant} showArrow>
+                          Button
+                        </Button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Inverse on dark background */}
+          <div className="mt-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Inverse on Dark Background</h3>
+            <div className="flex flex-wrap gap-4 bg-ocobo-dark rounded-lg p-6">
+              <Button variant="inverse">Inverse</Button>
+              <Button variant="inverse" showArrow>Inverse with arrow</Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Badge Component */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-ocobo-dark mb-6">Badge</h2>
+          
+          {/* By Variant */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Variants</h3>
+            <div className="flex flex-wrap gap-4 bg-white rounded-lg p-6">
+              <Badge variant="solid">solid</Badge>
+              <Badge variant="outline">outline</Badge>
+              <Badge variant="subtle">subtle</Badge>
+            </div>
+          </div>
+
+          {/* By Size */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Sizes</h3>
+            <div className="flex flex-wrap items-center gap-4 bg-white rounded-lg p-6">
+              <Badge size="normal">normal</Badge>
+              <Badge size="big">big</Badge>
+            </div>
+          </div>
+
+          {/* By Color Palette */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Color Palettes (subtle variant)</h3>
+            <div className="flex flex-wrap gap-4 bg-white rounded-lg p-6">
+              <Badge colorPalette="yellow">yellow</Badge>
+              <Badge colorPalette="mint">mint</Badge>
+              <Badge colorPalette="sky">sky</Badge>
+              <Badge colorPalette="coral">coral</Badge>
+              <Badge colorPalette="dark">dark</Badge>
+            </div>
+          </div>
+
+          {/* Full Matrix */}
+          <div>
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Full Matrix (Variant x Color)</h3>
+            <div className="overflow-x-auto">
+              <table className="w-full bg-white rounded-lg">
+                <thead>
+                  <tr className="border-b border-ocobo-gray-200">
+                    <th className="p-4 text-left text-sm text-ocobo-gray-600">Variant</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">yellow</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">mint</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">sky</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">coral</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">dark</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {(['solid', 'outline', 'subtle'] as const).map((variant) => (
+                    <tr key={variant} className="border-b border-ocobo-gray-100">
+                      <td className="p-4 text-sm font-medium text-ocobo-dark">{variant}</td>
+                      <td className="p-4 text-center"><Badge variant={variant} colorPalette="yellow">Badge</Badge></td>
+                      <td className="p-4 text-center"><Badge variant={variant} colorPalette="mint">Badge</Badge></td>
+                      <td className="p-4 text-center"><Badge variant={variant} colorPalette="sky">Badge</Badge></td>
+                      <td className="p-4 text-center"><Badge variant={variant} colorPalette="coral">Badge</Badge></td>
+                      <td className="p-4 text-center"><Badge variant={variant} colorPalette="dark">Badge</Badge></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* Input Component */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-ocobo-dark mb-6">Input</h2>
+          
+          {/* By Size */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Sizes</h3>
+            <div className="space-y-4 bg-white rounded-lg p-6 max-w-md">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-2">size="sm"</p>
+                <Input size="sm" placeholder="Small input" />
+              </div>
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-2">size="md" (default)</p>
+                <Input size="md" placeholder="Medium input" />
+              </div>
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-2">size="lg"</p>
+                <Input size="lg" placeholder="Large input" />
+              </div>
+            </div>
+          </div>
+
+          {/* States */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">States</h3>
+            <div className="space-y-4 bg-white rounded-lg p-6 max-w-md">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-2">Normal</p>
+                <Input placeholder="Click to focus" />
+              </div>
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-2">Disabled</p>
+                <Input placeholder="Disabled input" disabled />
+              </div>
+            </div>
+          </div>
+
+          {/* Types */}
+          <div>
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Input Types</h3>
+            <div className="space-y-4 bg-white rounded-lg p-6 max-w-md">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-2">type="text"</p>
+                <Input type="text" placeholder="Text input" />
+              </div>
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-2">type="email"</p>
+                <Input type="email" placeholder="email@example.com" />
+              </div>
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-2">type="password"</p>
+                <Input type="password" placeholder="Password" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Card Component */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-ocobo-dark mb-6">Card</h2>
+          
+          {/* By Variant */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Variants</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              <Card.Root variant="default">
+                <p className="font-medium">Default</p>
+                <p className="text-sm text-ocobo-gray-500">White bg, subtle shadow</p>
+              </Card.Root>
+              <Card.Root variant="outlined" colorPalette="mint">
+                <p className="font-medium">Outlined</p>
+                <p className="text-sm text-ocobo-gray-500">White bg, colored border</p>
+              </Card.Root>
+              <Card.Root variant="ghost">
+                <p className="font-medium">Ghost</p>
+                <p className="text-sm text-ocobo-gray-500">Transparent bg</p>
+              </Card.Root>
+              <Card.Root variant="filled" colorPalette="sky">
+                <p className="font-medium">Filled</p>
+                <p className="text-sm text-ocobo-gray-500">Colored light bg</p>
+              </Card.Root>
+              <Card.Root variant="elevated">
+                <p className="font-medium">Elevated</p>
+                <p className="text-sm text-ocobo-gray-500">White bg, larger shadow</p>
+              </Card.Root>
+            </div>
+          </div>
+
+          {/* By Size */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Sizes</h3>
+            <div className="flex flex-wrap items-start gap-4">
+              <Card.Root size="sm">
+                <p className="font-medium">Small (p-4)</p>
+              </Card.Root>
+              <Card.Root size="md">
+                <p className="font-medium">Medium (p-6)</p>
+              </Card.Root>
+              <Card.Root size="lg">
+                <p className="font-medium">Large (p-8)</p>
+              </Card.Root>
+            </div>
+          </div>
+
+          {/* Outlined with Color Palettes */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Outlined + Color Palettes</h3>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+              {(['yellow', 'mint', 'sky', 'coral', 'dark'] as const).map((color) => (
+                <Card.Root key={color} variant="outlined" colorPalette={color} size="sm">
+                  <p className="font-medium capitalize">{color}</p>
+                </Card.Root>
+              ))}
+            </div>
+          </div>
+
+          {/* Filled with Color Palettes */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Filled + Color Palettes</h3>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+              {(['yellow', 'mint', 'sky', 'coral', 'dark'] as const).map((color) => (
+                <Card.Root key={color} variant="filled" colorPalette={color} size="sm">
+                  <p className="font-medium capitalize">{color}</p>
+                </Card.Root>
+              ))}
+            </div>
+          </div>
+
+          {/* Card.IconBox */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Card.IconBox (Icon containers)</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <Card.Root variant="outlined" colorPalette="yellow">
+                <Card.IconBox colorPalette="yellow">
+                  <span className="text-2xl">⚡</span>
+                </Card.IconBox>
+                <Card.Header>
+                  <Card.Title>Light Background</Card.Title>
+                  <Card.Description>Default icon box style</Card.Description>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root variant="outlined" colorPalette="mint">
+                <Card.IconBox colorPalette="mint" solid>
+                  <span className="text-2xl">🎯</span>
+                </Card.IconBox>
+                <Card.Header>
+                  <Card.Title>Solid Background</Card.Title>
+                  <Card.Description>With solid=true prop</Card.Description>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root>
+                <Card.IconBox colorPalette="sky" size="lg">
+                  <span className="text-3xl">📊</span>
+                </Card.IconBox>
+                <Card.Header>
+                  <Card.Title>Large Size</Card.Title>
+                  <Card.Description>size="lg" for bigger icons</Card.Description>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root>
+                <Card.IconBox colorPalette="dark" solid>
+                  <span className="text-2xl">🔒</span>
+                </Card.IconBox>
+                <Card.Header>
+                  <Card.Title>Dark Solid</Card.Title>
+                  <Card.Description>Dark palette with solid</Card.Description>
+                </Card.Header>
+              </Card.Root>
+            </div>
+          </div>
+
+          {/* Header Composition */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Header Composition (Card.Header, Card.Title, Card.Description)</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Card.Root size="sm">
+                <Card.Header>
+                  <Card.Title>Small Card</Card.Title>
+                  <Card.Description>This is a small card with header primitives.</Card.Description>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root size="md">
+                <Card.Header>
+                  <Card.Title>Medium Card</Card.Title>
+                  <Card.Description>This is a medium card with header primitives. Text scales with size.</Card.Description>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root size="lg">
+                <Card.Header>
+                  <Card.Title>Large Card</Card.Title>
+                  <Card.Description>This is a large card with header primitives. Notice the larger text and spacing.</Card.Description>
+                </Card.Header>
+              </Card.Root>
+            </div>
+          </div>
+
+          {/* Title with `as` prop */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Polymorphic Title (as prop)</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Card.Root variant="outlined" colorPalette="mint">
+                <Card.Header>
+                  <Card.Title as="h2">H2 Title</Card.Title>
+                  <Card.Description>Using as="h2" for semantic heading.</Card.Description>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root variant="outlined" colorPalette="sky">
+                <Card.Header>
+                  <Card.Title as="h4">H4 Title</Card.Title>
+                  <Card.Description>Using as="h4" for smaller heading.</Card.Description>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root variant="outlined" colorPalette="coral">
+                <Card.Header>
+                  <Card.Title as="p">Paragraph Title</Card.Title>
+                  <Card.Description>Using as="p" when semantic heading not needed.</Card.Description>
+                </Card.Header>
+              </Card.Root>
+            </div>
+          </div>
+
+          {/* Title with accent prop */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Accent Title (accent prop)</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Card.Root variant="filled" colorPalette="mint">
+                <Card.Header>
+                  <Card.Title accent>Mint Accent</Card.Title>
+                  <Card.Description>Title uses colorPalette color with accent prop.</Card.Description>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root variant="filled" colorPalette="coral">
+                <Card.Header>
+                  <Card.Title accent>Coral Accent</Card.Title>
+                  <Card.Description>Accent color matches Card.Root colorPalette.</Card.Description>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root variant="filled" colorPalette="sky">
+                <Card.Header>
+                  <Card.Title>No Accent (default)</Card.Title>
+                  <Card.Description>Without accent prop, title is dark.</Card.Description>
+                </Card.Header>
+              </Card.Root>
+            </div>
+          </div>
+
+          {/* Body and Footer */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Body and Footer (Card.Body, Card.Footer)</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Card.Root size="sm">
+                <Card.Header>
+                  <Card.Title>Small Card</Card.Title>
+                  <Card.Description>With body and footer</Card.Description>
+                </Card.Header>
+                <Card.Body>
+                  <p className="text-sm">Body content with mt-2 margin.</p>
+                </Card.Body>
+                <Card.Footer>
+                  <span className="text-xs text-ocobo-gray-500">Footer with gap-2</span>
+                </Card.Footer>
+              </Card.Root>
+              <Card.Root size="md">
+                <Card.Header>
+                  <Card.Title>Medium Card</Card.Title>
+                  <Card.Description>Default size composition</Card.Description>
+                </Card.Header>
+                <Card.Body>
+                  <p className="text-sm">Body content with mt-3 margin. This is the default size for cards.</p>
+                </Card.Body>
+                <Card.Footer>
+                  <span className="text-sm text-ocobo-gray-500">Footer with gap-3</span>
+                </Card.Footer>
+              </Card.Root>
+              <Card.Root size="lg">
+                <Card.Header>
+                  <Card.Title>Large Card</Card.Title>
+                  <Card.Description>Larger spacing throughout</Card.Description>
+                </Card.Header>
+                <Card.Body>
+                  <p>Body content with mt-4 margin. Larger text and spacing for emphasis.</p>
+                </Card.Body>
+                <Card.Footer>
+                  <span className="text-ocobo-gray-500">Footer with gap-4</span>
+                </Card.Footer>
+              </Card.Root>
+            </div>
+          </div>
+
+          {/* Card.Media */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Card.Media (Aspect Ratios)</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Card.Root>
+                <Card.Media src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop" alt="Team meeting" aspectRatio="video" />
+                <Card.Header>
+                  <Card.Title>Video (16:9)</Card.Title>
+                  <Card.Description>Default aspect ratio</Card.Description>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root>
+                <Card.Media src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=400&fit=crop" alt="Team" aspectRatio="square" />
+                <Card.Header>
+                  <Card.Title>Square (1:1)</Card.Title>
+                  <Card.Description>Perfect for avatars/icons</Card.Description>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root>
+                <Card.Media src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=200&fit=crop" alt="Wide view" aspectRatio="wide" />
+                <Card.Header>
+                  <Card.Title>Wide (21:9)</Card.Title>
+                  <Card.Description>Cinematic ratio</Card.Description>
+                </Card.Header>
+              </Card.Root>
+            </div>
+          </div>
+
+          {/* Card.Media with bleed */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Card.Media with Bleed</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <Card.Root>
+                <Card.Media src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=200&fit=crop" alt="No bleed" />
+                <Card.Header>
+                  <Card.Title>Without Bleed</Card.Title>
+                  <Card.Description>Image has padding, rounded corners</Card.Description>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root>
+                <Card.Media src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=200&fit=crop" alt="With bleed" bleed />
+                <Card.Header>
+                  <Card.Title>With Bleed</Card.Title>
+                  <Card.Description>Image extends to card edges</Card.Description>
+                </Card.Header>
+              </Card.Root>
+            </div>
+          </div>
+
+          {/* Card.Badge - Inset positions */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Card.Badge (Inset Positions)</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <Card.Root>
+                <Card.Badge position="top-left">
+                  <Badge colorPalette="coral" size="normal">New</Badge>
+                </Card.Badge>
+                <Card.Header>
+                  <Card.Title>Top Left</Card.Title>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root>
+                <Card.Badge position="top-right">
+                  <Badge colorPalette="mint" size="normal">Featured</Badge>
+                </Card.Badge>
+                <Card.Header>
+                  <Card.Title>Top Right</Card.Title>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root>
+                <Card.Badge position="bottom-left">
+                  <Badge colorPalette="sky" size="normal">Info</Badge>
+                </Card.Badge>
+                <Card.Header>
+                  <Card.Title>Bottom Left</Card.Title>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root>
+                <Card.Badge position="bottom-right">
+                  <Badge colorPalette="yellow" size="normal">Sale</Badge>
+                </Card.Badge>
+                <Card.Header>
+                  <Card.Title>Bottom Right</Card.Title>
+                </Card.Header>
+              </Card.Root>
+            </div>
+          </div>
+
+          {/* Card.Badge - Flush positions */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Card.Badge (Flush Positions)</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <Card.Root variant="outlined" colorPalette="mint">
+                <Card.Badge position="flush-top-left">
+                  <span className="bg-ocobo-coral text-white px-3 py-1 text-xs font-bold uppercase tracking-wider">Hot</span>
+                </Card.Badge>
+                <Card.Header>
+                  <Card.Title>Flush Top-Left</Card.Title>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root variant="outlined" colorPalette="sky">
+                <Card.Badge position="flush-top-right">
+                  <span className="bg-ocobo-mint text-ocobo-dark px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-bl-lg">Category</span>
+                </Card.Badge>
+                <Card.Header>
+                  <Card.Title>Flush Top-Right</Card.Title>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root variant="outlined" colorPalette="coral">
+                <Card.Badge position="flush-bottom-left">
+                  <span className="bg-ocobo-dark text-white px-3 py-1 text-xs font-bold">Footer</span>
+                </Card.Badge>
+                <Card.Header>
+                  <Card.Title>Flush Bottom-Left</Card.Title>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root variant="outlined" colorPalette="yellow">
+                <Card.Badge position="flush-bottom-right">
+                  <span className="bg-ocobo-yellow text-ocobo-dark px-3 py-1 text-xs font-bold">Action</span>
+                </Card.Badge>
+                <Card.Header>
+                  <Card.Title>Flush Bottom-Right</Card.Title>
+                </Card.Header>
+              </Card.Root>
+            </div>
+          </div>
+
+          {/* Card.Avatar */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Card.Avatar (Sizes)</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Card.Root>
+                <Card.Header>
+                  <div className="flex items-center gap-3">
+                    <Card.Avatar src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="User" size="sm" />
+                    <div>
+                      <Card.Title as="p">Small Avatar</Card.Title>
+                      <Card.Description>32x32 pixels</Card.Description>
+                    </div>
+                  </div>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root>
+                <Card.Header>
+                  <div className="flex items-center gap-3">
+                    <Card.Avatar src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="User" size="md" />
+                    <div>
+                      <Card.Title as="p">Medium Avatar</Card.Title>
+                      <Card.Description>48x48 pixels (default)</Card.Description>
+                    </div>
+                  </div>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root>
+                <Card.Header>
+                  <div className="flex items-center gap-3">
+                    <Card.Avatar src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="User" size="lg" />
+                    <div>
+                      <Card.Title as="p">Large Avatar</Card.Title>
+                      <Card.Description>64x64 pixels</Card.Description>
+                    </div>
+                  </div>
+                </Card.Header>
+              </Card.Root>
+            </div>
+          </div>
+
+          {/* Card.Avatar with borders */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Card.Avatar with Borders</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Card.Root>
+                <Card.Header>
+                  <div className="flex items-center gap-3">
+                    <Card.Avatar src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="User" size="md" border="none" />
+                    <div>
+                      <Card.Title as="p">No Border</Card.Title>
+                      <Card.Description>border="none" (default)</Card.Description>
+                    </div>
+                  </div>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root>
+                <Card.Header>
+                  <div className="flex items-center gap-3">
+                    <Card.Avatar src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="User" size="md" border="light" />
+                    <div>
+                      <Card.Title as="p">Light Border</Card.Title>
+                      <Card.Description>border="light" - subtle gray</Card.Description>
+                    </div>
+                  </div>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root>
+                <Card.Header>
+                  <div className="flex items-center gap-3">
+                    <Card.Avatar src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="User" size="md" border="dark" />
+                    <div>
+                      <Card.Title as="p">Dark Border</Card.Title>
+                      <Card.Description>border="dark" - strong contrast</Card.Description>
+                    </div>
+                  </div>
+                </Card.Header>
+              </Card.Root>
+            </div>
+          </div>
+
+          {/* Card.Avatar with colored borders (like founders section) */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Card.Avatar with Colored Borders</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Card.Root>
+                <div className="text-center">
+                  <Card.Avatar size="lg" border="yellow" initials="BB" />
+                  <Card.Header>
+                    <Card.Title>Benjamin B.</Card.Title>
+                    <Card.Description>border="yellow"</Card.Description>
+                  </Card.Header>
+                </div>
+              </Card.Root>
+              <Card.Root>
+                <div className="text-center">
+                  <Card.Avatar size="lg" border="coral" initials="AC" />
+                  <Card.Header>
+                    <Card.Title>Aude C.</Card.Title>
+                    <Card.Description>border="coral"</Card.Description>
+                  </Card.Header>
+                </div>
+              </Card.Root>
+              <Card.Root>
+                <div className="text-center">
+                  <Card.Avatar size="lg" border="sky" initials="CG" />
+                  <Card.Header>
+                    <Card.Title>Corentin G.</Card.Title>
+                    <Card.Description>border="sky"</Card.Description>
+                  </Card.Header>
+                </div>
+              </Card.Root>
+            </div>
+          </div>
+
+          {/* Card.Avatar with initials */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Card.Avatar with Initials Fallback</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <Card.Root>
+                <Card.Header>
+                  <div className="flex items-center gap-3">
+                    <Card.Avatar initials="JD" size="sm" />
+                    <div>
+                      <Card.Title as="p">John Doe</Card.Title>
+                      <Card.Description>Initials when no image</Card.Description>
+                    </div>
+                  </div>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root>
+                <Card.Header>
+                  <div className="flex items-center gap-3">
+                    <Card.Avatar initials="AB" size="md" border="light" />
+                    <div>
+                      <Card.Title as="p">Alice Brown</Card.Title>
+                      <Card.Description>With light border</Card.Description>
+                    </div>
+                  </div>
+                </Card.Header>
+              </Card.Root>
+              <Card.Root>
+                <Card.Header>
+                  <div className="flex items-center gap-3">
+                    <Card.Avatar initials="XY" size="lg" border="dark" />
+                    <div>
+                      <Card.Title as="p">Xavier York</Card.Title>
+                      <Card.Description>Large with dark border</Card.Description>
+                    </div>
+                  </div>
+                </Card.Header>
+              </Card.Root>
+            </div>
+          </div>
+
+          {/* Complete Card Example */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Complete Card Composition</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <Card.Root variant="outlined" colorPalette="mint">
+                <Card.Header>
+                  <Card.Title>Feature Card</Card.Title>
+                  <Card.Description>A complete card with all primitives</Card.Description>
+                </Card.Header>
+                <Card.Body>
+                  <p className="text-sm text-ocobo-gray-600">
+                    This card demonstrates the full composition system with Header, Title, 
+                    Description, Body, and Footer working together.
+                  </p>
+                </Card.Body>
+                <Card.Footer>
+                  <span className="text-sm text-ocobo-mint">Learn more →</span>
+                </Card.Footer>
+              </Card.Root>
+              <Card.Root variant="elevated" className="relative">
+                <Card.Badge position="top-right">
+                  <Badge colorPalette="coral">Hot</Badge>
+                </Card.Badge>
+                <Card.Media src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=200&fit=crop" alt="Team" bleed />
+                <Card.Header>
+                  <div className="flex items-center gap-3">
+                    <Card.Avatar initials="OC" size="sm" />
+                    <div>
+                      <Card.Title as="p">Full Composition</Card.Title>
+                      <Card.Description>Media + Badge + Avatar</Card.Description>
+                    </div>
+                  </div>
+                </Card.Header>
+                <Card.Body>
+                  <p className="text-sm text-ocobo-gray-600">
+                    This card showcases all Card primitives working together.
+                  </p>
+                </Card.Body>
+                <Card.Footer>
+                  <Button size="sm">Action</Button>
+                </Card.Footer>
+              </Card.Root>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section Component */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-ocobo-dark mb-6">CTA Section</h2>
+          
+          {/* Variants */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Variants</h3>
+            <div className="space-y-8">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">variant="simple" (button only)</p>
+                <Section.Cta
+                  variant="simple"
+                  title="Ready to get started?"
+                  description="Join thousands of teams already using our platform."
+                  buttonText="Start Free Trial"
+                  onButtonClick={() => alert('Button clicked!')}
+                />
+              </div>
+              
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">variant="with-form" (email capture)</p>
+                <Section.Cta
+                  variant="with-form"
+                  colorPalette="mint"
+                  title="Subscribe to our newsletter"
+                  description="Get the latest updates and insights delivered to your inbox."
+                  buttonText="Subscribe"
+                  inputPlaceholder="your.email@example.com"
+                  onFormSubmit={(email) => alert(`Subscribed: ${email}`)}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Color Palettes */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Color Palettes (simple variant)</h3>
+            <div className="space-y-8">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">colorPalette="yellow" (default)</p>
+                <Section.Cta
+                  variant="simple"
+                  colorPalette="yellow"
+                  title="Yellow Background"
+                  description="Default brand color with solid button."
+                  buttonText="Learn More"
+                />
+              </div>
+              
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">colorPalette="dark"</p>
+                <Section.Cta
+                  variant="simple"
+                  colorPalette="dark"
+                  title="Dark Background"
+                  description="High contrast with inverse button variant."
+                  buttonText="Get Started"
+                />
+              </div>
+              
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">colorPalette="mint"</p>
+                <Section.Cta
+                  variant="simple"
+                  colorPalette="mint"
+                  title="Mint Background"
+                  description="Fresh accent color for secondary CTAs."
+                  buttonText="Explore"
+                />
+              </div>
+              
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">colorPalette="sky"</p>
+                <Section.Cta
+                  variant="simple"
+                  colorPalette="sky"
+                  title="Sky Background"
+                  description="Calm secondary color alternative."
+                  buttonText="Discover"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Form Variant with Different Palettes */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Form Variant + Color Palettes</h3>
+            <div className="space-y-8">
+              <Section.Cta
+                variant="with-form"
+                colorPalette="yellow"
+                title="Stay in the loop"
+                description="Weekly insights and updates."
+                buttonText="Join"
+                inputPlaceholder="Enter email"
+                onFormSubmit={(email) => console.log('Submitted:', email)}
+              />
+              
+              <Section.Cta
+                variant="with-form"
+                colorPalette="dark"
+                title="Get early access"
+                description="Be the first to know about new features."
+                buttonText="Notify Me"
+                inputPlaceholder="your@email.com"
+                onFormSubmit={(email) => console.log('Submitted:', email)}
+              />
+            </div>
+          </div>
+
+          {/* With Custom Content */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">With Custom Children</h3>
+            <Section.Cta
+              variant="simple"
+              colorPalette="yellow"
+              title="Flexible Content"
+              description="You can add custom children below the main content."
+              buttonText="Primary Action"
+            >
+              <div className="flex gap-4 mt-4">
+                <Badge colorPalette="dark">Feature 1</Badge>
+                <Badge colorPalette="dark">Feature 2</Badge>
+                <Badge colorPalette="dark">Feature 3</Badge>
+              </div>
+            </Section.Cta>
+          </div>
+
+          {/* Full Matrix */}
+          <div>
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Full Matrix (Variant x ColorPalette)</h3>
+            <div className="overflow-x-auto bg-white rounded-lg p-4">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-ocobo-gray-200">
+                    <th className="p-4 text-left text-sm text-ocobo-gray-600">Variant</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">yellow</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">dark</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">mint</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">sky</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-ocobo-gray-100">
+                    <td className="p-4 text-sm font-medium text-ocobo-dark">simple</td>
+                    <td className="p-4">
+                      <div className="text-center text-xs text-ocobo-gray-500 mb-2">Click to see →</div>
+                    </td>
+                    <td className="p-4">
+                      <div className="text-center text-xs text-ocobo-gray-500 mb-2">Scroll up ↑</div>
+                    </td>
+                    <td className="p-4">
+                      <div className="text-center text-xs text-ocobo-gray-500 mb-2">See examples</div>
+                    </td>
+                    <td className="p-4">
+                      <div className="text-center text-xs text-ocobo-gray-500 mb-2">above</div>
+                    </td>
+                  </tr>
+                  <tr className="border-b border-ocobo-gray-100">
+                    <td className="p-4 text-sm font-medium text-ocobo-dark">with-form</td>
+                    <td className="p-4">
+                      <div className="text-center text-xs text-ocobo-gray-500">Demonstrated</div>
+                    </td>
+                    <td className="p-4">
+                      <div className="text-center text-xs text-ocobo-gray-500">in sections</div>
+                    </td>
+                    <td className="p-4">
+                      <div className="text-center text-xs text-ocobo-gray-500">above</div>
+                    </td>
+                    <td className="p-4">
+                      <div className="text-center text-xs text-ocobo-gray-500">↑</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p className="text-sm text-ocobo-gray-500 mt-4 text-center">
+                Note: Full-width sections are better viewed in context above rather than in a table.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Feature Section Component */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-ocobo-dark mb-6">Feature Section</h2>
+          
+          {/* Background Variants */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Background Variants</h3>
+            <div className="space-y-8">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">background="light" (default)</p>
+                <Section.Feature background="light">
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold mb-4">Light Background</h3>
+                    <p className="text-ocobo-gray-600 mb-6">Default white background with dark text for contrast.</p>
+                    <div className="grid md:grid-cols-3 gap-6">
+                      <Card.Root variant="outlined" colorPalette="yellow">
+                        <Card.IconBox colorPalette="yellow">
+                          <span className="text-2xl">⚡</span>
+                        </Card.IconBox>
+                        <Card.Header>
+                          <Card.Title>Feature One</Card.Title>
+                          <Card.Description>Description of feature one.</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                      <Card.Root variant="outlined" colorPalette="mint">
+                        <Card.IconBox colorPalette="mint">
+                          <span className="text-2xl">🎯</span>
+                        </Card.IconBox>
+                        <Card.Header>
+                          <Card.Title>Feature Two</Card.Title>
+                          <Card.Description>Description of feature two.</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                      <Card.Root variant="outlined" colorPalette="sky">
+                        <Card.IconBox colorPalette="sky">
+                          <span className="text-2xl">📊</span>
+                        </Card.IconBox>
+                        <Card.Header>
+                          <Card.Title>Feature Three</Card.Title>
+                          <Card.Description>Description of feature three.</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                    </div>
+                  </div>
+                </Section.Feature>
+              </div>
+              
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">background="dark"</p>
+                <Section.Feature background="dark">
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold mb-4">Dark Background</h3>
+                    <p className="text-ocobo-gray-300 mb-6">Dark background with light text for high contrast.</p>
+                    <div className="grid md:grid-cols-3 gap-6">
+                      <Card.Root variant="filled" colorPalette="yellow">
+                        <Card.IconBox colorPalette="yellow" solid>
+                          <span className="text-2xl">🚀</span>
+                        </Card.IconBox>
+                        <Card.Header>
+                          <Card.Title>Fast</Card.Title>
+                          <Card.Description>Lightning fast performance.</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                      <Card.Root variant="filled" colorPalette="mint">
+                        <Card.IconBox colorPalette="mint" solid>
+                          <span className="text-2xl">🔒</span>
+                        </Card.IconBox>
+                        <Card.Header>
+                          <Card.Title>Secure</Card.Title>
+                          <Card.Description>Enterprise-grade security.</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                      <Card.Root variant="filled" colorPalette="sky">
+                        <Card.IconBox colorPalette="sky" solid>
+                          <span className="text-2xl">📈</span>
+                        </Card.IconBox>
+                        <Card.Header>
+                          <Card.Title>Scalable</Card.Title>
+                          <Card.Description>Grows with your needs.</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                    </div>
+                  </div>
+                </Section.Feature>
+              </div>
+            </div>
+          </div>
+
+          {/* With Decorative Blobs */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">With Decorative Blobs</h3>
+            <div className="space-y-8">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">withBlobs={'{true}'} + background="light"</p>
+                <Section.Feature background="light" withBlobs>
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold mb-4">Features with Blobs</h3>
+                    <p className="text-ocobo-gray-600 mb-6">Decorative background elements add visual interest.</p>
+                    <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                      <Card.Root>
+                        <Card.Header>
+                          <Card.Title>Responsive Blobs</Card.Title>
+                          <Card.Description>Mobile-first sizing (w-32 → md:w-48 → lg:w-64)</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                      <Card.Root>
+                        <Card.Header>
+                          <Card.Title>Token-Based</Card.Title>
+                          <Card.Description>Uses ocobo.yellow and ocobo.mint colors</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                    </div>
+                  </div>
+                </Section.Feature>
+              </div>
+              
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">withBlobs={'{true}'} + background="dark"</p>
+                <Section.Feature background="dark" withBlobs>
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold mb-4">Dark with Blobs</h3>
+                    <p className="text-ocobo-gray-300 mb-6">Blobs create depth on dark backgrounds.</p>
+                    <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                      <Card.Root variant="outlined" colorPalette="yellow">
+                        <Card.Header>
+                          <Card.Title className="text-white">Absolute Positioning</Card.Title>
+                          <Card.Description className="text-ocobo-gray-300">Blobs are absolute to Section, with overflow-hidden</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                      <Card.Root variant="outlined" colorPalette="mint">
+                        <Card.Header>
+                          <Card.Title className="text-white">Low Opacity</Card.Title>
+                          <Card.Description className="text-ocobo-gray-300">opacity-20 with blur-3xl for subtle effect</Card.Description>
+                        </Card.Header>
+                      </Card.Root>
+                    </div>
+                  </div>
+                </Section.Feature>
+              </div>
+            </div>
+          </div>
+
+          {/* Composition Flexibility */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Full Composition Flexibility</h3>
+            <div className="space-y-8">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">Custom content (not just Cards)</p>
+                <Section.Feature background="light" withBlobs>
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold mb-4">Flexible Content</h3>
+                    <p className="text-ocobo-gray-600 mb-6">FeatureSection accepts any children.</p>
+                    <div className="flex flex-wrap justify-center gap-4">
+                      <Badge colorPalette="yellow" size="big">Composable</Badge>
+                      <Badge colorPalette="mint" size="big">Flexible</Badge>
+                      <Badge colorPalette="sky" size="big">Reusable</Badge>
+                      <Badge colorPalette="coral" size="big">Clean</Badge>
+                    </div>
+                    <div className="mt-6">
+                      <Button variant="solid" size="lg" showArrow>
+                        Learn More
+                      </Button>
+                    </div>
+                  </div>
+                </Section.Feature>
+              </div>
+              
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">Grid layout with mixed card variants</p>
+                <Section.Feature background="dark">
+                  <div className="text-center mb-8">
+                    <h3 className="text-2xl font-bold mb-4">Mix and Match</h3>
+                    <p className="text-ocobo-gray-300">Combine different card styles and layouts.</p>
+                  </div>
+                  <div className="grid md:grid-cols-4 gap-4">
+                    <Card.Root variant="elevated">
+                      <Card.Header>
+                        <Card.Title as="h4">Elevated</Card.Title>
+                      </Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="outlined" colorPalette="yellow">
+                      <Card.Header>
+                        <Card.Title as="h4">Outlined</Card.Title>
+                      </Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="filled" colorPalette="mint">
+                      <Card.Header>
+                        <Card.Title as="h4">Filled</Card.Title>
+                      </Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="ghost">
+                      <Card.Header>
+                        <Card.Title as="h4">Ghost</Card.Title>
+                      </Card.Header>
+                    </Card.Root>
+                  </div>
+                </Section.Feature>
+              </div>
+            </div>
+          </div>
+
+          {/* Props Matrix */}
+          <div>
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Props Matrix</h3>
+            <div className="overflow-x-auto bg-white rounded-lg p-4">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-ocobo-gray-200">
+                    <th className="p-4 text-left text-sm text-ocobo-gray-600">Background</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">withBlobs=false</th>
+                    <th className="p-4 text-center text-sm text-ocobo-gray-600">withBlobs=true</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-ocobo-gray-100">
+                    <td className="p-4 text-sm font-medium text-ocobo-dark">light</td>
+                    <td className="p-4 text-center text-xs text-ocobo-gray-500">White bg + dark text</td>
+                    <td className="p-4 text-center text-xs text-ocobo-gray-500">+ Yellow/Mint blobs</td>
+                  </tr>
+                  <tr className="border-b border-ocobo-gray-100">
+                    <td className="p-4 text-sm font-medium text-ocobo-dark">dark</td>
+                    <td className="p-4 text-center text-xs text-ocobo-gray-500">Dark bg + light text</td>
+                    <td className="p-4 text-center text-xs text-ocobo-gray-500">+ Yellow/Mint blobs</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className="mt-4 text-sm text-ocobo-gray-500">
+                <p><strong>Key Features:</strong></p>
+                <ul className="list-disc list-inside space-y-1 mt-2">
+                  <li>Text color auto-adjusts for contrast (AC1)</li>
+                  <li>Decorative blobs responsive (w-32 → md:w-48 → lg:w-64)</li>
+                  <li>Composes Section + Container</li>
+                  <li>Accepts any children (full flexibility)</li>
+                  <li>className applied to Container for custom layout</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Grid Section Component */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-ocobo-dark mb-6">Grid Section</h2>
+
+          {/* Column Variants */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Column Variants</h3>
+            <div className="space-y-8">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">columns={'{2}'}</p>
+                <div className="bg-white rounded-lg p-6">
+                  <Section.Grid columns={2}>
+                    <Card.Root variant="outlined" colorPalette="yellow">
+                      <Card.Header><Card.Title>Item 1</Card.Title></Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="outlined" colorPalette="mint">
+                      <Card.Header><Card.Title>Item 2</Card.Title></Card.Header>
+                    </Card.Root>
+                  </Section.Grid>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">columns={'{3}'} (default)</p>
+                <div className="bg-white rounded-lg p-6">
+                  <Section.Grid columns={3}>
+                    <Card.Root variant="outlined" colorPalette="yellow">
+                      <Card.Header><Card.Title>Item 1</Card.Title></Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="outlined" colorPalette="mint">
+                      <Card.Header><Card.Title>Item 2</Card.Title></Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="outlined" colorPalette="sky">
+                      <Card.Header><Card.Title>Item 3</Card.Title></Card.Header>
+                    </Card.Root>
+                  </Section.Grid>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">columns={'{4}'}</p>
+                <div className="bg-white rounded-lg p-6">
+                  <Section.Grid columns={4}>
+                    <Card.Root variant="filled" colorPalette="yellow" size="sm">
+                      <Card.Header><Card.Title>Item 1</Card.Title></Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="filled" colorPalette="mint" size="sm">
+                      <Card.Header><Card.Title>Item 2</Card.Title></Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="filled" colorPalette="sky" size="sm">
+                      <Card.Header><Card.Title>Item 3</Card.Title></Card.Header>
+                    </Card.Root>
+                    <Card.Root variant="filled" colorPalette="coral" size="sm">
+                      <Card.Header><Card.Title>Item 4</Card.Title></Card.Header>
+                    </Card.Root>
+                  </Section.Grid>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Gap Variants */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Gap Variants</h3>
+            <div className="space-y-8">
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">gap="md" (gap-6, default)</p>
+                <div className="bg-white rounded-lg p-6">
+                  <Section.Grid columns={3} gap="md">
+                    {[1, 2, 3].map((i) => (
+                      <Card.Root key={i} variant="outlined" colorPalette="yellow">
+                        <Card.Header><Card.Title>Card {i}</Card.Title></Card.Header>
+                      </Card.Root>
+                    ))}
+                  </Section.Grid>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-sm text-ocobo-gray-500 mb-4">gap="lg" (gap-8)</p>
+                <div className="bg-white rounded-lg p-6">
+                  <Section.Grid columns={3} gap="lg">
+                    {[1, 2, 3].map((i) => (
+                      <Card.Root key={i} variant="outlined" colorPalette="mint">
+                        <Card.Header><Card.Title>Card {i}</Card.Title></Card.Header>
+                      </Card.Root>
+                    ))}
+                  </Section.Grid>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Responsive Behavior */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Responsive Behavior</h3>
+            <div className="bg-white rounded-lg p-6">
+              <p className="text-sm text-ocobo-gray-600 mb-4">
+                Resize window to see responsive breakpoints: Mobile (1 col) → Tablet (2 col) → Desktop (full)
+              </p>
+              <Section.Grid columns={4} gap="lg">
+                {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                  <Card.Root key={i} variant="outlined" colorPalette={(['yellow', 'mint', 'sky', 'coral'] as const)[(i - 1) % 4]} size="sm">
+                    <Card.Header><Card.Title>Item {i}</Card.Title></Card.Header>
+                  </Card.Root>
+                ))}
+              </Section.Grid>
+            </div>
+          </div>
+
+          {/* Usage with Feature Section */}
+          <div className="mb-8">
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Composition with FeatureSection</h3>
+            <p className="text-sm text-ocobo-gray-500 mb-4">GridSection inside FeatureSection for page layouts</p>
+            <Section.Feature background="dark" withBlobs>
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold">Our Features</h3>
+                <p className="text-ocobo-gray-300 mt-2">GridSection provides the grid, FeatureSection provides the context.</p>
+              </div>
+              <Section.Grid columns={3} gap="lg">
+                <Card.Root variant="filled" colorPalette="yellow">
+                  <Card.IconBox colorPalette="yellow" solid>
+                    <span className="text-2xl">⚡</span>
+                  </Card.IconBox>
+                  <Card.Header>
+                    <Card.Title>Fast</Card.Title>
+                    <Card.Description>Lightning fast performance.</Card.Description>
+                  </Card.Header>
+                </Card.Root>
+                <Card.Root variant="filled" colorPalette="mint">
+                  <Card.IconBox colorPalette="mint" solid>
+                    <span className="text-2xl">🔒</span>
+                  </Card.IconBox>
+                  <Card.Header>
+                    <Card.Title>Secure</Card.Title>
+                    <Card.Description>Enterprise-grade security.</Card.Description>
+                  </Card.Header>
+                </Card.Root>
+                <Card.Root variant="filled" colorPalette="sky">
+                  <Card.IconBox colorPalette="sky" solid>
+                    <span className="text-2xl">📈</span>
+                  </Card.IconBox>
+                  <Card.Header>
+                    <Card.Title>Scalable</Card.Title>
+                    <Card.Description>Grows with your needs.</Card.Description>
+                  </Card.Header>
+                </Card.Root>
+              </Section.Grid>
+            </Section.Feature>
+          </div>
+
+          {/* Props Matrix */}
+          <div>
+            <h3 className="text-lg font-semibold text-ocobo-dark mb-4">Props Matrix</h3>
+            <div className="overflow-x-auto bg-white rounded-lg p-4">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b border-ocobo-gray-200">
+                    <th className="p-4 text-left text-sm text-ocobo-gray-600">Prop</th>
+                    <th className="p-4 text-left text-sm text-ocobo-gray-600">Type</th>
+                    <th className="p-4 text-left text-sm text-ocobo-gray-600">Default</th>
+                    <th className="p-4 text-left text-sm text-ocobo-gray-600">Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-ocobo-gray-100">
+                    <td className="p-4 text-sm font-mono">columns</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">2 | 3 | 4</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">3</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">Number of columns at desktop breakpoint</td>
+                  </tr>
+                  <tr className="border-b border-ocobo-gray-100">
+                    <td className="p-4 text-sm font-mono">gap</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">'md' | 'lg'</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">'md'</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">Gap between items (md=gap-6, lg=gap-8)</td>
+                  </tr>
+                  <tr className="border-b border-ocobo-gray-100">
+                    <td className="p-4 text-sm font-mono">className</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">string</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">''</td>
+                    <td className="p-4 text-sm text-ocobo-gray-600">Additional Tailwind classes</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div className="mt-4 text-sm text-ocobo-gray-500">
+                <p><strong>Responsive Breakpoints:</strong></p>
+                <ul className="list-disc list-inside space-y-1 mt-2">
+                  <li><strong>Mobile (default):</strong> 1 column always</li>
+                  <li><strong>Tablet (md:):</strong> 2 columns (or 1 for columns=2)</li>
+                  <li><strong>Desktop (lg:):</strong> Full column count</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Placeholder for future components */}
+        <section className="mb-16">
+          <h2 className="text-2xl font-bold text-ocobo-dark mb-6">Coming Soon</h2>
+          <div className="bg-white rounded-lg p-6 text-ocobo-gray-500">
+            <ul className="list-disc list-inside space-y-2">
+              <li>More section components (Testimonial, Stats, DecorativeBlob)</li>
+              <li>Navigation components</li>
+            </ul>
+          </div>
+        </section>
+
+      </Container>
+    </div>
+  )
+}

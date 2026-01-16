@@ -39,10 +39,11 @@ workflow_status:
     note: "User-selected discovery workflows"
     workflows:
       brainstorm-project:
-        status: optional
+        status: _bmad-output/analysis/brainstorming-session-2026-01-12.md
         agent: analyst
         command: /bmad:core:workflows:brainstorming
         note: "Creative exploration and ideation"
+        completed: 2026-01-12
       research:
         status: skipped
         agent: analyst
@@ -56,46 +57,50 @@ workflow_status:
     name: "Planning"
     workflows:
       prd:
-        status: required
+        status: _bmad-output/planning-artifacts/prd.md
         agent: pm
         command: /bmad:bmm:workflows:prd
         output: "Product Requirements Document with FRs and NFRs"
+        completed: 2026-01-12
       create-ux-design:
-        status: conditional
+        status: skipped
         condition: if_has_ui
         agent: ux-designer
         command: /bmad:bmm:workflows:create-ux-design
-        note: "Determined after PRD - user/agent decides if needed"
+        note: "Skipped - existing design validated, only rationalization needed"
 
   phase_3_solutioning:
     name: "Solutioning"
     workflows:
       create-architecture:
-        status: required
+        status: _bmad-output/planning-artifacts/architecture.md
         agent: architect
         command: /bmad:bmm:workflows:create-architecture
         output: "System architecture document"
+        completed: 2026-01-13
       create-epics-and-stories:
-        status: required
+        status: _bmad-output/planning-artifacts/epics.md
         agent: pm
         command: /bmad:bmm:workflows:create-epics-and-stories
-        note: "Break down PRD into implementable epics and stories"
+        completed: 2026-01-13
       test-design:
         status: optional
         agent: tea
         command: /bmad:bmm:workflows:testarch-test-design
         output: "System-level testability review"
       implementation-readiness:
-        status: required
+        status: _bmad-output/planning-artifacts/implementation-readiness-report-2026-01-13.md
         agent: architect
         command: /bmad:bmm:workflows:check-implementation-readiness
         note: "Validates PRD + Architecture + Epics + UX (if applicable)"
+        completed: 2026-01-13
 
   phase_4_implementation:
     name: "Implementation"
     workflows:
       sprint-planning:
-        status: required
+        status: _bmad-output/implementation-artifacts/sprint-status.yaml
         agent: sm
         command: /bmad:bmm:workflows:sprint-planning
         note: "Creates sprint plan - subsequent work tracked in sprint-status.yaml"
+        completed: 2026-01-13
