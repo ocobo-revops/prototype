@@ -11,8 +11,8 @@ This guide provides instructions for setting up, developing, and building the Oc
 ## Prerequisites
 
 ### Required Software
-- **Node.js** - JavaScript runtime (version not specified, recommend latest LTS)
-- **npm** - Package manager (comes with Node.js)
+- **Node.js** - JavaScript runtime (LTS recommended)
+- **pnpm** - Package manager
 
 ### Required Accounts/Keys
 - **Google Gemini API Key** - For AI features integration
@@ -29,7 +29,7 @@ cd prototype
 
 ### 2. Install Dependencies
 ```bash
-npm install
+pnpm install
 ```
 
 **Installed Packages:**
@@ -61,7 +61,7 @@ GEMINI_API_KEY=your_api_key_here
 ### Start Development Server
 
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 **Dev Server Configuration:**
@@ -79,7 +79,7 @@ npm run dev
 ### Build for Production
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 **Build Process:**
@@ -91,7 +91,7 @@ npm run build
 ### Preview Production Build
 
 ```bash
-npm run preview
+pnpm run preview
 ```
 
 **Purpose:** Test production build locally before deployment
@@ -120,9 +120,9 @@ src/
 
 | Command | Purpose | Usage |
 |---------|---------|-------|
-| `npm run dev` | Start dev server | Development |
-| `npm run build` | Build for production | Deployment prep |
-| `npm run preview` | Preview production build | Testing |
+| `pnpm run dev` | Start dev server | Development |
+| `pnpm run build` | Build for production | Deployment prep |
+| `pnpm run preview` | Preview production build | Testing |
 
 ## TypeScript Configuration
 
@@ -138,7 +138,7 @@ src/
 ```bash
 # TypeScript will check types during:
 - Development (Vite dev server)
-- Build process (npm run build)
+- Build process (pnpm run build)
 ```
 
 ## Code Organization Guidelines
@@ -217,7 +217,7 @@ const apiKey = process.env.GEMINI_API_KEY;
 - Console logging for debugging
 
 ### TypeScript Errors
-- Check terminal output during `npm run dev`
+- Check terminal output during `pnpm run dev`
 - IDE integration (VS Code recommended)
 - Type errors shown in editor
 
@@ -249,9 +249,9 @@ server: { port: 3001 }
 - Restart dev server after changing `.env.local`
 
 **TypeScript errors:**
-- Run `npm install` to ensure all types are installed
+- Run `pnpm install` to ensure all types are installed
 - Check `tsconfig.json` for correct configuration
-- Clear cache and restart: `rm -rf node_modules && npm install`
+- Clear cache and restart: `rm -rf node_modules && pnpm install`
 
 ## IDE Setup
 
@@ -287,8 +287,8 @@ Consider adding:
 ## Deployment Preparation
 
 ### Pre-Deployment Checklist
-- [ ] Run `npm run build` successfully
-- [ ] Test production build with `npm run preview`
+- [ ] Run `pnpm run build` successfully
+- [ ] Test production build with `pnpm run preview`
 - [ ] Verify environment variables for production
 - [ ] Check API keys are configured for production environment
 - [ ] Review build output in `dist/`

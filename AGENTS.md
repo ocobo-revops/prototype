@@ -1,0 +1,42 @@
+# Ocobo prototype
+
+React 19 SPA for Ocobo revenue ops agency website.
+
+## Commands
+
+```bash
+pnpm install
+pnpm run dev      # localhost:3000
+pnpm run build
+pnpm test
+```
+
+## Environment
+
+Set `GEMINI_API_KEY` in `.env.local`
+
+## Rules
+
+- Use `pnpm` only
+- Use `mgrep` for code search
+- Do not `git commit` or `git push`; ask before `git add`
+- Prefer existing files over creating new ones
+
+## Codebase pointers
+
+| Path | Purpose |
+|------|---------|
+| `index.html` → `index.tsx` → `App.tsx` | Entry flow |
+| `pages/` | Route components |
+| `components/` | Shared UI |
+| `types.ts` | Type definitions |
+
+## Detailed docs
+
+Load only when task-relevant:
+
+- [Architecture](docs/architecture.md) - system design, patterns
+- [Components](docs/component-inventory.md) - UI catalogue
+- [Data models](docs/data-models.md) - TypeScript interfaces
+- [API](docs/api-architecture.md) - Gemini integration, state
+- [Development](docs/development-guide.md) - setup, workflow
