@@ -188,3 +188,14 @@ Created: 2026-01-20T12:00:00Z
 - pnpm build: ✅ exit 0
 - No @keyframes remain in .tsx files
 - No inline `<style>` tags remain in pages/
+
+---
+
+## Feature 16: Build passes with new Tailwind config
+**Status:** ✅ Completed 2026-01-20
+
+### Verified
+- pnpm build: ✅ exit 0
+- No TypeScript errors
+- No Tailwind warnings (only chunk size suggestion)
+- dist/ contains: index.html, robots.txt, assets/index-*.js (541KB), assets/index-*.css (82KB)
