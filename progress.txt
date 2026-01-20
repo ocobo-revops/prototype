@@ -324,3 +324,31 @@ Created: 2026-01-20T12:00:00Z
 
 ### Verified
 - pnpm build: ✅ exit 0
+
+---
+
+## Feature 11: Container and Section layout primitives
+**Status:** ✅ Completed 2026-01-20
+
+### Changes
+- Created components/organisms/Container.tsx with:
+  - max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 (standard layout)
+  - narrow prop for max-w-5xl variant
+  - className pass-through
+- Created components/organisms/Section.tsx with:
+  - bg prop: white | gray | dark | yellow | sky | mint | coral
+  - padding prop: sm | md | lg (default lg = py-24)
+  - className pass-through
+- Exported from components/organisms/index.ts
+- Replaced 12 inline patterns in Home.tsx:
+  - Container: hero section, testimonials, pain points, feature cards, interventions, comparatif, stack, CTA
+  - Section: dark bg, white bg, gray bg, yellow bg
+
+### Files modified
+- components/organisms/Container.tsx (new)
+- components/organisms/Section.tsx (new)
+- components/organisms/index.ts (updated exports)
+- pages/Home.tsx (refactored to use Container/Section)
+
+### Verified
+- pnpm build: ✅ exit 0

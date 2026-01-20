@@ -3,6 +3,7 @@ import type React from 'react';
 import { Link } from 'react-router';
 import { Button } from '../components/atoms';
 import { FeatureCard, TestimonialCard } from '../components/molecules';
+import { Container, Section } from '../components/organisms';
 import { ThemeColor } from '../types';
 
 const DashboardIllustration = () => {
@@ -465,7 +466,7 @@ const Home: React.FC = () => {
 	return (
 		<div className="w-full">
 			{/* HERO SECTION - REFINED LOADING SEQUENCE */}
-			<section className="pt-40 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+			<Container className="pt-40 pb-24 relative overflow-hidden">
 				<div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 relative z-10">
 					<div className="lg:w-1/2">
 						<h1
@@ -520,10 +521,10 @@ const Home: React.FC = () => {
 						<DashboardIllustration />
 					</div>
 				</div>
-			</section>
+			</Container>
 
 			{/* BLOC 2 - LOGOS DÉFILANTS ET TÉMOIGNAGES - STYLE À PROPOS AFFINÉ */}
-			<section className="bg-ocobo-dark py-20 md:py-32 relative overflow-hidden">
+			<Section bg="dark" className="py-20 md:py-32 relative overflow-hidden">
 				<div
 					className="absolute inset-0 opacity-[0.02]"
 					style={{
@@ -534,7 +535,7 @@ const Home: React.FC = () => {
 
 				<div className="absolute top-1/2 left-0 w-64 h-64 bg-ocobo-yellow/5 rounded-full -translate-x-1/2 blur-3xl opacity-30"></div>
 
-				<div className="max-w-7xl mx-auto px-4 relative z-10">
+				<Container className="relative z-10">
 					<div className="mb-16 text-center">
 						<span className="font-display font-black text-white/40 text-2xs uppercase tracking-[0.4em] mb-4 inline-block">
 							Ils nous font confiance
@@ -556,11 +557,11 @@ const Home: React.FC = () => {
 						ctaLink="/stories"
 						className="max-w-4xl mx-auto"
 					/>
-				</div>
-			</section>
+				</Container>
+			</Section>
 
 			{/* BLOC 3 - PAIN POINT ET POSITIONNEMENT */}
-			<section className="py-32 bg-white relative overflow-hidden">
+			<Section bg="white" className="py-32 relative overflow-hidden">
 				<div
 					className="absolute inset-0 opacity-[0.03] pointer-events-none"
 					style={{
@@ -569,7 +570,7 @@ const Home: React.FC = () => {
 					}}
 				></div>
 
-				<div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+				<Container narrow className="text-center relative z-10">
 					<h2 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
 						Le RevOps est partout. <br />
 						Mais personne ne comprend vraiment ce dont il s’agit.
@@ -585,9 +586,9 @@ const Home: React.FC = () => {
 					<div className="inline-flex items-center gap-3 px-8 py-3 bg-ocobo-dark text-white font-display font-black uppercase tracking-[0.2em] text-sm rounded-full transform hover:scale-105 transition-transform cursor-default shadow-xl">
 						Nous refusons ce flou
 					</div>
-				</div>
+				</Container>
 
-				<div className="max-w-7xl mx-auto px-4 mt-28 relative z-10">
+				<Container className="mt-28 relative z-10">
 					<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
 						<FeatureCard
 							icon={<Layout size={28} />}
@@ -618,7 +619,7 @@ const Home: React.FC = () => {
 							label="Organiser ="
 						/>
 					</div>
-				</div>
+				</Container>
 
 				<div className="text-center mt-32 max-w-4xl mx-auto px-4">
 					<div className="inline-block px-5 py-2 bg-ocobo-mintLight text-ocobo-mint font-display font-black uppercase tracking-[0.3em] text-2xs mb-8 rounded-full border border-ocobo-mint/20">
@@ -632,11 +633,11 @@ const Home: React.FC = () => {
 						croissance saine et maîtrisée.
 					</p>
 				</div>
-			</section>
+			</Section>
 
 			{/* BLOC 5 - CE QUI CHANGE AVEC OCOBO */}
-			<section className="py-24 bg-gray-50">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<Section bg="gray">
+				<Container>
 					<div className="flex flex-col md:flex-row items-center gap-16">
 						<div className="md:w-1/2">
 							<h2 className="font-display text-4xl font-bold text-ocobo-dark mb-6">
@@ -731,12 +732,12 @@ const Home: React.FC = () => {
 							</div>
 						</div>
 					</div>
-				</div>
-			</section>
+				</Container>
+			</Section>
 
 			{/* BLOC 7 - CE QUE NOUS FAISONS (NOS INTERVENTIONS) */}
-			<section className="py-24 bg-white">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<Section bg="white">
+				<Container>
 					<h2 className="font-display text-4xl font-bold text-ocobo-dark mb-4 text-center">
 						Nos interventions
 					</h2>
@@ -787,12 +788,12 @@ const Home: React.FC = () => {
 							<Button variant="outline">Voir nos offres</Button>
 						</Link>
 					</div>
-				</div>
-			</section>
+				</Container>
+			</Section>
 
 			{/* BLOC 7 - COMPARATIF */}
-			<section className="py-24 bg-ocobo-dark text-white">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<Section bg="dark">
+				<Container>
 					<div className="text-center mb-16">
 						<h2 className="font-display text-4xl font-bold mb-4">
 							Pourquoi Ocobo n’est pas un intégrateur.
@@ -863,12 +864,12 @@ const Home: React.FC = () => {
 							</Button>
 						</Link>
 					</div>
-				</div>
-			</section>
+				</Container>
+			</Section>
 
 			{/* BLOC 8 - RÉASSURANCE / STACK */}
-			<section className="py-24 bg-white">
-				<div className="max-w-7xl mx-auto px-4 text-center">
+			<Section bg="white">
+				<Container className="text-center">
 					<h2 className="font-display text-4xl font-bold mb-6">
 						La bonne technologie. Au bon moment. Pour les bonnes raisons.
 					</h2>
@@ -894,11 +895,11 @@ const Home: React.FC = () => {
 							utile.
 						</p>
 					</div>
-				</div>
-			</section>
+				</Container>
+			</Section>
 
 			{/* BLOC 9 - CTA FINAL */}
-			<section className="bg-ocobo-yellow py-24 text-ocobo-dark">
+			<Section bg="yellow">
 				<div className="max-w-4xl mx-auto px-4 text-center">
 					<h2 className="font-display text-5xl font-bold text-ocobo-dark mb-6 tracking-tighter">
 						Rencontrer un architecte RevOps
@@ -919,7 +920,7 @@ const Home: React.FC = () => {
 						</Link>
 					</div>
 				</div>
-			</section>
+			</Section>
 		</div>
 	);
 };
