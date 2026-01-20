@@ -14,17 +14,6 @@ import Button from '../components/Button';
 const TeamPhotoIllustration = () => {
 	return (
 		<div className="relative w-full max-w-4xl mx-auto py-12 px-4 group">
-			<style>{`
-        @keyframes float-blob {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          33% { transform: translate(30px, -50px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
-        }
-        .animate-float-blob {
-          animation: float-blob 12s infinite ease-in-out;
-        }
-      `}</style>
-
 			{/* BACKGROUND DECORATIVE SPHERES - FAVORING THE SQUAD ASPECT */}
 			<div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
 				<div
@@ -205,24 +194,6 @@ const Studio: React.FC = () => {
 
 	return (
 		<div className="w-full bg-white">
-			<style>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(15px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-card-entry {
-          opacity: 0;
-          animation: fadeInUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
-        @keyframes bounce-slow {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(6px); }
-        }
-        .animate-bounce-slow {
-          animation: bounce-slow 3s ease-in-out infinite;
-        }
-      `}</style>
-
 			{/* HERO STUDIO - REIMAGINED WITH PHOTO ILLUSTRATION */}
 			<section className="pt-40 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
 				<div className="max-w-4xl mx-auto mb-16">
@@ -367,7 +338,7 @@ const Studio: React.FC = () => {
 						{filteredTeam.map((member, idx) => (
 							<div
 								key={`${member.name}-${activeFilter}`}
-								className={`group bg-white border border-gray-100 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden rounded-xl ${animate ? 'animate-card-entry' : 'opacity-0'}`}
+								className={`group bg-white border border-gray-100 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden rounded-xl ${animate ? 'opacity-0 animate-fade-in-up-small' : 'opacity-0'}`}
 								style={{ animationDelay: `${idx * 0.05}s` }}
 							>
 								{/* Left trait that lights up on hover */}

@@ -153,3 +153,38 @@ Created: 2026-01-20T12:00:00Z
 ### Verified
 - pnpm build: ✅ exit 0
 - No shadow-[*] patterns remain in source files
+
+---
+
+## Feature 5: Custom animations moved from inline styles to Tailwind config
+**Status:** ✅ Completed 2026-01-20
+
+### Changes
+- Added keyframes to tailwind.config.ts extend.keyframes:
+  - float-cursor, float-very-slow, float-gentle, float-grid, float-blob
+  - slow-fade, fade-in-up, fade-in-up-small, hero-reveal, gentle-reveal
+  - bounce-slow, bounce-subtle
+  - spin-slow, radar-sweep
+  - marquee, marquee-ultra-slow
+  - blueprint-in, box-pop
+- Added animation utilities to extend.animation with proper timing functions
+- Removed all inline `<style>` tags with @keyframes from 8 page components
+
+### Files modified
+- tailwind.config.ts (keyframes + animation)
+- pages/: About, Home, Method, Stories, Podcast, Services, Partners, Studio
+
+### Class name mappings
+- animate-hero-reveal-fast → opacity-0 animate-hero-reveal
+- pillar-animate → opacity-0 animate-gentle-reveal
+- animate-fade-in-up → opacity-0 animate-fade-in-up
+- animate-card-entry → opacity-0 animate-fade-in-up-small
+- animate-blueprint-line → origin-left animate-blueprint-in
+- animate-box → opacity-0 animate-box-pop
+- animate-float-illustration → animate-float-grid
+- animate-marquee-ultra-slow → flex w-max animate-marquee-ultra-slow
+
+### Verified
+- pnpm build: ✅ exit 0
+- No @keyframes remain in .tsx files
+- No inline `<style>` tags remain in pages/

@@ -120,16 +120,6 @@ const ModularStackGrid = () => {
 					</div>
 				))}
 			</div>
-
-			<style>{`
-        @keyframes fadeInUpTuile {
-          from { opacity: 0; transform: translateY(15px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in-up {
-          animation: fadeInUpTuile 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-      `}</style>
 		</div>
 	);
 };
@@ -451,24 +441,6 @@ const Partners: React.FC = () => {
 
 	return (
 		<div className="w-full bg-white">
-			<style>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(15px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-card-entry {
-          opacity: 0;
-          animation: fadeInUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
-        @keyframes bounce-slow {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(6px); }
-        }
-        .animate-bounce-slow {
-          animation: bounce-slow 3s ease-in-out infinite;
-        }
-      `}</style>
-
 			{/* HERO TECHNOLOGIE */}
 			<section className="pt-40 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
 				<div className="max-w-4xl mx-auto mb-16 relative z-10">
@@ -610,7 +582,7 @@ const Partners: React.FC = () => {
 						{filtered.map((partner, idx) => (
 							<div
 								key={`${partner.name}-${filter}`}
-								className={`group bg-white border border-gray-100 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden rounded-xl flex flex-col h-full ${animate ? 'animate-card-entry' : 'opacity-0'}`}
+								className={`group bg-white border border-gray-100 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden rounded-xl flex flex-col h-full ${animate ? 'opacity-0 animate-fade-in-up-small' : 'opacity-0'}`}
 								style={{ animationDelay: `${idx * 0.05}s` }}
 							>
 								<div className="flex justify-between items-start mb-8">

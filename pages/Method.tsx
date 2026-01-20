@@ -17,24 +17,6 @@ import Button from '../components/Button';
 const AttioPillarsIllustration = () => {
 	return (
 		<div className="relative w-full max-w-[520px] aspect-square flex items-center justify-center overflow-visible">
-			<style>{`
-        @keyframes gentleReveal {
-          0% { opacity: 0; transform: translateY(10px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); transform-origin: center; }
-          to { transform: rotate(360deg); transform-origin: center; }
-        }
-        .pillar-animate {
-          opacity: 0;
-          animation: gentleReveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
-        .animate-spin-slow {
-          animation: spin-slow 20s linear infinite;
-        }
-      `}</style>
-
 			{/* ATTIO-STYLE FINE DOTS BACKGROUND - RESTRAINED AREA */}
 			<div
 				className="absolute inset-4 opacity-[0.12]"
@@ -62,7 +44,7 @@ const AttioPillarsIllustration = () => {
 
 					{/* PILLAR 1: ALIGNEMENT (Yellow) */}
 					<g
-						className="group/p1 cursor-default pillar-animate"
+						className="group/p1 cursor-default opacity-0 animate-gentle-reveal"
 						style={{ animationDelay: '0.2s' }}
 					>
 						<rect
@@ -101,7 +83,7 @@ const AttioPillarsIllustration = () => {
 
 					{/* PILLAR 2: TECHNOLOGIE (Sky) */}
 					<g
-						className="group/p2 cursor-default pillar-animate"
+						className="group/p2 cursor-default opacity-0 animate-gentle-reveal"
 						style={{ animationDelay: '0.35s' }}
 					>
 						<rect
@@ -140,7 +122,7 @@ const AttioPillarsIllustration = () => {
 
 					{/* PILLAR 3: PERFORMANCE (Mint) */}
 					<g
-						className="group/p3 cursor-default pillar-animate"
+						className="group/p3 cursor-default opacity-0 animate-gentle-reveal"
 						style={{ animationDelay: '0.5s' }}
 					>
 						<rect
@@ -184,7 +166,7 @@ const AttioPillarsIllustration = () => {
 
 					{/* PILLAR 4: ENABLEMENT (Coral) */}
 					<g
-						className="group/p4 cursor-default pillar-animate"
+						className="group/p4 cursor-default opacity-0 animate-gentle-reveal"
 						style={{ animationDelay: '0.65s' }}
 					>
 						<rect
@@ -227,7 +209,10 @@ const AttioPillarsIllustration = () => {
 					</g>
 
 					{/* CENTRAL CORE NODE */}
-					<g className="pillar-animate" style={{ animationDelay: '0.9s' }}>
+					<g
+						className="opacity-0 animate-gentle-reveal"
+						style={{ animationDelay: '0.9s' }}
+					>
 						<circle cx="250" cy="250" r="25" fill="#212323" />
 						<path
 							d="M242,250 L258,250 M250,242 L250,258"
@@ -559,16 +544,6 @@ const Method: React.FC = () => {
 					<ChevronDown className="text-gray-200" size={24} strokeWidth={1.5} />
 				</div>
 			</section>
-
-			<style>{`
-        @keyframes bounce-slow {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(6px); }
-        }
-        .animate-bounce-slow {
-          animation: bounce-slow 3s ease-in-out infinite;
-        }
-      `}</style>
 
 			{/* THE REVENUE EXPERIENCE SYSTEM™ */}
 			<section className="bg-gray-50 py-32 border-y border-gray-100 relative overflow-hidden">

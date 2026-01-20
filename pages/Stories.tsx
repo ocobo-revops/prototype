@@ -16,22 +16,6 @@ import Button from '../components/Button';
 const StoriesIllustration = () => {
 	return (
 		<div className="relative w-full max-w-[540px] aspect-square flex items-center justify-center overflow-visible">
-			<style>{`
-        @keyframes float-gentle {
-          0%, 100% { transform: translateY(0) rotate(0deg); }
-          50% { transform: translateY(-15px) rotate(2deg); }
-        }
-        @keyframes radar-sweep {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .animate-radar-sweep {
-          transform-origin: 300px 300px;
-          animation: radar-sweep 10s linear infinite;
-        }
-        .animate-float-gentle { animation: float-gentle 8s ease-in-out infinite; }
-      `}</style>
-
 			{/* BACKGROUND ARCHITECTURAL GRID */}
 			<div
 				className="absolute inset-0 opacity-[0.05] pointer-events-none"
@@ -64,7 +48,10 @@ const StoriesIllustration = () => {
 				</g>
 
 				{/* RADAR SWEEP ANIMATION - DARKENED */}
-				<g className="animate-radar-sweep">
+				<g
+					className="animate-radar-sweep"
+					style={{ transformOrigin: '300px 300px' }}
+				>
 					<path
 						d="M300,300 L300,0 A300,300 0 0,1 512,87 Z"
 						fill="url(#radarGradient)"
@@ -595,26 +582,6 @@ const Stories: React.FC = () => {
 
 	return (
 		<div className="w-full bg-white">
-			<style>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in-up {
-          opacity: 0;
-          animation: fadeInUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
-        .animate-marquee-ultra-slow {
-          animation: marquee-ultra-slow 90s linear infinite;
-          display: flex;
-          width: max-content;
-        }
-        @keyframes marquee-ultra-slow {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-33.33%); }
-        }
-      `}</style>
-
 			{/* Hero Section */}
 			<section className="pt-40 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-20">
@@ -677,7 +644,7 @@ const Stories: React.FC = () => {
 						<Link
 							key={item.id}
 							to={`/stories/${item.id}`}
-							className={`group relative flex flex-col bg-white border border-gray-100 rounded-5xl p-6 transition-all duration-500 hover:shadow-soft-xl hover:-translate-y-2 overflow-hidden h-full ${animate ? 'animate-fade-in-up' : ''}`}
+							className={`group relative flex flex-col bg-white border border-gray-100 rounded-5xl p-6 transition-all duration-500 hover:shadow-soft-xl hover:-translate-y-2 overflow-hidden h-full ${animate ? 'opacity-0 animate-fade-in-up' : ''}`}
 							style={{ animationDelay: `${idx * 0.05}s` }}
 						>
 							<div

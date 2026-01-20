@@ -15,7 +15,7 @@ import Button from '../components/Button';
 const DashboardIllustration = () => {
 	return (
 		<div
-			className="relative w-full max-w-[580px] aspect-square flex items-center justify-center animate-hero-reveal-fast"
+			className="relative w-full max-w-[580px] aspect-square flex items-center justify-center opacity-0 animate-hero-reveal"
 			style={{ animationDelay: '0.4s' }}
 		>
 			{/* SHARP ARCHITECTURAL BACKGROUND SHAPES - More refined */}
@@ -451,7 +451,7 @@ const ClientMarquee = () => {
 			<div className="absolute left-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-r from-ocobo-dark to-transparent z-10 pointer-events-none"></div>
 			<div className="absolute right-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-l from-ocobo-dark to-transparent z-10 pointer-events-none"></div>
 
-			<div className="flex animate-marquee-ultra-slow whitespace-nowrap">
+			<div className="flex w-max animate-marquee-ultra-slow whitespace-nowrap">
 				{extendedClients.map((client, idx) => (
 					<div
 						key={idx}
@@ -471,37 +471,12 @@ const ClientMarquee = () => {
 const Home: React.FC = () => {
 	return (
 		<div className="w-full">
-			<style>{`
-        @keyframes float-very-slow {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-12px); }
-        }
-        @keyframes hero-reveal-soft {
-          from { opacity: 0; transform: translateY(15px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-float-very-slow { animation: float-very-slow 12s ease-in-out infinite; }
-        .animate-hero-reveal-fast {
-          opacity: 0;
-          animation: hero-reveal-soft 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
-        .animate-marquee-ultra-slow {
-          animation: marquee-ultra-slow 90s linear infinite;
-          display: flex;
-          width: max-content;
-        }
-        @keyframes marquee-ultra-slow {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-33.33%); }
-        }
-      `}</style>
-
 			{/* HERO SECTION - REFINED LOADING SEQUENCE */}
 			<section className="pt-40 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative overflow-hidden">
 				<div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 relative z-10">
 					<div className="lg:w-1/2">
 						<h1
-							className="font-display text-4xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight animate-hero-reveal-fast"
+							className="font-display text-4xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight opacity-0 animate-hero-reveal"
 							style={{ animationDelay: '0.1s' }}
 						>
 							L'architecture
@@ -512,7 +487,7 @@ const Home: React.FC = () => {
 						</h1>
 
 						<p
-							className="text-xl md:text-2xl text-gray-700 mb-10 leading-relaxed font-medium max-w-xl animate-hero-reveal-fast"
+							className="text-xl md:text-2xl text-gray-700 mb-10 leading-relaxed font-medium max-w-xl opacity-0 animate-hero-reveal"
 							style={{ animationDelay: '0.2s' }}
 						>
 							Voici comment nous transformons la croissance en{' '}
@@ -522,7 +497,7 @@ const Home: React.FC = () => {
 						</p>
 
 						<div
-							className="mb-14 py-1.5 animate-hero-reveal-fast"
+							className="mb-14 py-1.5 opacity-0 animate-hero-reveal"
 							style={{ animationDelay: '0.3s' }}
 						>
 							<p className="font-display text-lg md:text-xl font-normal text-ocobo-dark leading-tight tracking-tight">
@@ -534,7 +509,7 @@ const Home: React.FC = () => {
 						</div>
 
 						<div
-							className="flex flex-col sm:flex-row gap-6 items-start animate-hero-reveal-fast"
+							className="flex flex-col sm:flex-row gap-6 items-start opacity-0 animate-hero-reveal"
 							style={{ animationDelay: '0.4s' }}
 						>
 							<Link to="/contact">

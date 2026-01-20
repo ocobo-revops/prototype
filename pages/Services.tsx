@@ -17,7 +17,7 @@ import Button from '../components/Button';
 
 const ArchitecturalGrid = () => {
 	return (
-		<div className="relative w-full max-w-[500px] animate-float-illustration">
+		<div className="relative w-full max-w-[500px] animate-float-grid">
 			<div className="flex items-stretch gap-4 relative">
 				{/* Axe Ordonnée : ALIGNEMENT */}
 				<div className="flex flex-col items-center justify-center py-4 shrink-0">
@@ -25,7 +25,7 @@ const ArchitecturalGrid = () => {
 						Alignement
 					</div>
 					<div
-						className="w-px bg-ocobo-dark/20 flex-grow animate-blueprint-line origin-top"
+						className="w-px bg-ocobo-dark/20 flex-grow origin-left animate-blueprint-in origin-top"
 						style={{ animationDelay: '0.2s' }}
 					></div>
 				</div>
@@ -34,7 +34,7 @@ const ArchitecturalGrid = () => {
 				<div className="relative z-10 bg-white border-2 border-ocobo-dark p-8 shadow-offset-lg flex-grow">
 					<div className="grid grid-cols-2 gap-4 mb-4">
 						<div
-							className="animate-box h-24 bg-ocobo-yellowLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
+							className="opacity-0 animate-box-pop h-24 bg-ocobo-yellowLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
 							style={{ animationDelay: '0.4s' }}
 						>
 							<span className="font-display font-bold group-hover:text-ocobo-yellow transition-colors text-xs md:text-sm">
@@ -42,7 +42,7 @@ const ArchitecturalGrid = () => {
 							</span>
 						</div>
 						<div
-							className="animate-box h-24 bg-ocobo-skyLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
+							className="opacity-0 animate-box-pop h-24 bg-ocobo-skyLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
 							style={{ animationDelay: '0.5s' }}
 						>
 							<span className="font-display font-bold group-hover:text-ocobo-sky transition-colors text-xs md:text-sm">
@@ -50,7 +50,7 @@ const ArchitecturalGrid = () => {
 							</span>
 						</div>
 						<div
-							className="animate-box h-24 bg-ocobo-mintLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
+							className="opacity-0 animate-box-pop h-24 bg-ocobo-mintLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
 							style={{ animationDelay: '0.6s' }}
 						>
 							<span className="font-display font-bold group-hover:text-ocobo-mint transition-colors text-xs md:text-sm">
@@ -58,7 +58,7 @@ const ArchitecturalGrid = () => {
 							</span>
 						</div>
 						<div
-							className="animate-box h-24 bg-ocobo-coralLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
+							className="opacity-0 animate-box-pop h-24 bg-ocobo-coralLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
 							style={{ animationDelay: '0.7s' }}
 						>
 							<span className="font-display font-bold group-hover:text-ocobo-coral transition-colors text-xs md:text-sm">
@@ -68,17 +68,26 @@ const ArchitecturalGrid = () => {
 					</div>
 
 					{/* Foundation Line (X-Axis) */}
-					<div className="h-2 bg-ocobo-dark w-full mb-4 animate-blueprint-line"></div>
+					<div className="h-2 bg-ocobo-dark w-full mb-4 origin-left animate-blueprint-in"></div>
 
 					{/* Axe Abscisse labels */}
 					<div className="flex justify-between text-2xs md:text-2xs font-bold uppercase tracking-widest text-ocobo-dark/60">
-						<span className="animate-box" style={{ animationDelay: '0.9s' }}>
+						<span
+							className="opacity-0 animate-box-pop"
+							style={{ animationDelay: '0.9s' }}
+						>
 							Technology
 						</span>
-						<span className="animate-box" style={{ animationDelay: '1s' }}>
+						<span
+							className="opacity-0 animate-box-pop"
+							style={{ animationDelay: '1s' }}
+						>
 							Performance
 						</span>
-						<span className="animate-box" style={{ animationDelay: '1.1s' }}>
+						<span
+							className="opacity-0 animate-box-pop"
+							style={{ animationDelay: '1.1s' }}
+						>
 							Enablement
 						</span>
 					</div>
@@ -303,47 +312,6 @@ const PyramidSection = () => {
 const Services: React.FC = () => {
 	return (
 		<div className="w-full">
-			<style>{`
-        @keyframes blueprint-in {
-          from { opacity: 0; transform: scaleX(0); }
-          to { opacity: 1; transform: scaleX(1); }
-        }
-        @keyframes box-pop {
-          0% { opacity: 0; transform: translateY(20px) scale(0.9); }
-          100% { opacity: 1; transform: translateY(0) scale(1); }
-        }
-        @keyframes float-grid {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-8px); }
-        }
-        @keyframes bounce-subtle {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(8px); }
-        }
-        .animate-blueprint-line {
-          transform-origin: left;
-          animation: blueprint-in 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
-        .animate-box {
-          opacity: 0;
-          animation: box-pop 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
-        .animate-float-illustration {
-          animation: float-grid 6s ease-in-out infinite;
-        }
-        .animate-bounce-subtle {
-          animation: bounce-subtle 3s ease-in-out infinite;
-        }
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(15px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-card-entry {
-          opacity: 0;
-          animation: fadeInUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-        }
-      `}</style>
-
 			{/* BLOC 1 - HERO OFFRE */}
 			<section className="pt-40 pb-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
 				<div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 mb-16">

@@ -86,21 +86,6 @@ const Podcast: React.FC = () => {
 
 	return (
 		<div className="w-full bg-white">
-			<style>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-          display: flex;
-          width: 200%;
-          animation: marquee 20s linear infinite;
-        }
-        .animate-marquee:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-
 			{/* HERO SECTION - REVENUE ECHOES BRANDING */}
 			<section className="pt-48 pb-24 md:pt-64 md:pb-32 bg-ocobo-dark relative overflow-hidden">
 				{/* Decorative Grid Background */}

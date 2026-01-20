@@ -6,19 +6,6 @@ import Button from '../components/Button';
 const DataIllustration = () => {
 	return (
 		<div className="w-full overflow-hidden">
-			<style>{`
-        @keyframes float-cursor {
-          0%, 100% { transform: translate(430px, 430px) rotate(-10deg); }
-          50% { transform: translate(440px, 420px) rotate(-5deg); }
-        }
-        @keyframes slow-fade {
-          0%, 100% { opacity: 0.1; }
-          50% { opacity: 0.85; }
-        }
-        .animate-float-cursor { animation: float-cursor 5s infinite ease-in-out; }
-        .animate-slow-fade { animation: slow-fade 6s infinite ease-in-out; }
-        .bar-transition { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-      `}</style>
 			<div className="relative w-full max-w-3xl h-[280px] md:h-[420px] mx-auto p-4 flex flex-col items-center">
 				{/* Illustration Container */}
 				<div className="relative w-full h-full bg-[#FCFAF5] rounded-4xl p-6 md:p-8 shadow-soft-xl border border-gray-100 group/svg overflow-hidden">
