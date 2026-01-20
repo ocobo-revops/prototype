@@ -8,7 +8,10 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"typecheck": "tsc",
-		"test": "vitest"
+		"test": "vitest",
+		"ralph": "./scripts/ralph-once.sh",
+		"ralph:afk": "./scripts/afk-ralph.sh",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"lucide-react": "^0.561.0",
@@ -21,6 +24,8 @@
 	"devDependencies": {
 		"@types/node": "^22.14.0",
 		"@vitejs/plugin-react": "^5.0.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.7",
 		"typescript": "~5.8.2",
 		"vite": "^6.2.0"
 	}
