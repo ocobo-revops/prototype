@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 import { Link } from 'react-router';
-import { Button } from '../components/atoms';
+import { Badge, Button } from '../components/atoms';
 
 const AttioPillarsIllustration = () => {
 	return (
@@ -503,9 +503,9 @@ const Method: React.FC = () => {
 			{/* HERO METHODE - UNIFORMISÉ & CENTRÉ AVEC ANIMATION LIGHT ET ESPACES RÉDUITS */}
 			<section className="pt-40 pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center overflow-hidden">
 				<div className="max-w-4xl mx-auto mb-8 relative z-10">
-					<span className="font-display font-black text-ocobo-dark bg-ocobo-yellowLight px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
+					<Badge variant="yellow" className="mb-10">
 						NOTRE MÉTHODE
-					</span>
+					</Badge>
 
 					<h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
 						4 piliers pour <br />

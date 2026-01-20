@@ -14,6 +14,7 @@ import {
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
+import { Badge } from '../components/atoms';
 
 const ArticleDetail: React.FC = () => {
 	const { slug } = useParams();
@@ -113,9 +114,9 @@ const ArticleDetail: React.FC = () => {
 
 				{/* HERO ARTICLE */}
 				<div className="max-w-4xl mx-auto text-center mb-20">
-					<span className="font-display font-bold text-ocobo-coral bg-ocobo-coralLight px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-coral/20">
+					<Badge variant="coral" className="mb-8">
 						{article.category}
-					</span>
+					</Badge>
 					<h1 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-10 leading-[1.05] tracking-tight">
 						{article.title}
 					</h1>

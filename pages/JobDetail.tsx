@@ -17,6 +17,7 @@ import {
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
+import { Badge } from '../components/atoms';
 
 const JobDetail: React.FC = () => {
 	const { id } = useParams();
@@ -146,9 +147,9 @@ const JobDetail: React.FC = () => {
 
 				{/* HERO OFFRE (Style Blog) */}
 				<div className="max-w-5xl mx-auto text-center mb-20">
-					<span className="font-display font-bold text-ocobo-yellow bg-ocobo-yellowLight px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20">
+					<Badge variant="yellow" className="mb-8">
 						{job.category}
-					</span>
+					</Badge>
 					<h1 className="font-display text-4xl md:text-7xl font-black text-ocobo-dark mb-10 leading-[1.05] tracking-tight">
 						{job.title}
 					</h1>

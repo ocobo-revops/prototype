@@ -229,3 +229,31 @@ Created: 2026-01-20T12:00:00Z
 
 ### Verified
 - pnpm build: ✅ exit 0
+
+---
+
+## Feature 7: Badge component created with colour variants
+**Status:** ✅ Completed 2026-01-20
+
+### Changes
+- Created components/atoms/Badge.tsx with:
+  - variant prop: yellow | mint | sky | coral | dark | gray
+  - size prop: sm | md
+  - rounded prop: sm | full
+  - className for additional styling
+- Exported from components/atoms/index.ts
+- Replaced 12 inline badge patterns across 9 pages
+
+### Files modified
+- components/atoms/Badge.tsx (new file)
+- components/atoms/index.ts (added Badge export)
+- pages/: WebinarDetail, ArticleDetail, JobDetail, Jobs, Stories, Method, Partners, Studio, Services
+
+### Variant mappings
+- bg-ocobo-yellowLight + text-ocobo-dark → variant="yellow"
+- bg-ocobo-mintLight + text-ocobo-dark → variant="mint"
+- bg-ocobo-skyLight + text-ocobo-sky → variant="sky"
+- bg-ocobo-coralLight + text-ocobo-coral → variant="coral"
+
+### Verified
+- pnpm build: ✅ exit 0

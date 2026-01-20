@@ -16,7 +16,7 @@ import {
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
-import { Button } from '../components/atoms';
+import { Badge, Button } from '../components/atoms';
 
 const ModularStackGrid = () => {
 	const items = [
@@ -444,9 +444,9 @@ const Partners: React.FC = () => {
 			{/* HERO TECHNOLOGIE */}
 			<section className="pt-40 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
 				<div className="max-w-4xl mx-auto mb-16 relative z-10">
-					<span className="font-display font-black text-ocobo-dark bg-ocobo-skyLight px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-sky/20">
+					<Badge variant="sky" className="mb-10">
 						TECHNOLOGIE
-					</span>
+					</Badge>
 
 					<h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
 						Un écosystème <br />
@@ -675,9 +675,9 @@ const Partners: React.FC = () => {
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="flex flex-col lg:flex-row gap-20 items-center">
 						<div className="lg:w-1/2">
-							<span className="font-display font-black text-ocobo-sky bg-ocobo-skyLight px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-sky/20">
+							<Badge variant="sky" className="mb-10">
 								CO-CONSTRUCTION
-							</span>
+							</Badge>
 							<h2 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-8 leading-[0.95] tracking-tight">
 								Rejoignez <br />
 								l’écosystème <span className="text-ocobo-sky">Ocobo.</span>

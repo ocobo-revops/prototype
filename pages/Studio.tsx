@@ -9,7 +9,7 @@ import {
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
-import { Button } from '../components/atoms';
+import { Badge, Button } from '../components/atoms';
 
 const TeamPhotoIllustration = () => {
 	return (
@@ -197,9 +197,9 @@ const Studio: React.FC = () => {
 			{/* HERO STUDIO - REIMAGINED WITH PHOTO ILLUSTRATION */}
 			<section className="pt-40 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
 				<div className="max-w-4xl mx-auto mb-16">
-					<span className="font-display font-black text-ocobo-dark bg-ocobo-mintLight px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-mint/20">
+					<Badge variant="mint" className="mb-10">
 						RevOps Studio
-					</span>
+					</Badge>
 
 					<h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
 						Une direction Revenue Ops <br />

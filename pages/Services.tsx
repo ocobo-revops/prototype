@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 import { Link } from 'react-router';
-import { Button } from '../components/atoms';
+import { Badge, Button } from '../components/atoms';
 
 const ArchitecturalGrid = () => {
 	return (
@@ -317,9 +317,9 @@ const Services: React.FC = () => {
 				<div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 mb-16">
 					{/* Left Content */}
 					<div className="lg:w-1/2">
-						<span className="font-display font-black text-ocobo-dark bg-ocobo-yellowLight px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
+						<Badge variant="yellow" className="mb-10">
 							NOTRE OFFRE
-						</span>
+						</Badge>
 						<h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
 							Un système.
 							<br />
@@ -700,9 +700,9 @@ const Services: React.FC = () => {
 			<section className="py-24 bg-white border-y border-gray-50">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="max-w-3xl mb-20">
-						<span className="font-display font-black text-ocobo-dark bg-ocobo-yellowLight px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20">
+						<Badge variant="yellow" className="mb-8">
 							LEVIERS DE CROISSANCE
-						</span>
+						</Badge>
 						<h2 className="font-display text-4xl md:text-5xl font-bold text-ocobo-dark mb-8 leading-tight tracking-tight">
 							Nos 3 leviers <br />
 							d’accompagnement.

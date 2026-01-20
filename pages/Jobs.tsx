@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 import { Link } from 'react-router';
+import { Badge } from '../components/atoms';
 
 const VideoStoryCard = ({
 	episode,
@@ -226,9 +227,9 @@ const Jobs: React.FC = () => {
 			<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
 				<div className="flex flex-col lg:flex-row items-start gap-20">
 					<div className="lg:w-1/2">
-						<span className="font-display font-black text-ocobo-dark bg-ocobo-mintLight px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-mint/20">
+						<Badge variant="mint" className="mb-10">
 							RECRUTEMENT
-						</span>
+						</Badge>
 						<h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
 							Rejoignez les
 							<br />

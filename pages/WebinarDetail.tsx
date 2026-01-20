@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 import { Link, useParams } from 'react-router';
-import { Button } from '../components/atoms';
+import { Badge, Button } from '../components/atoms';
 
 const WebinarDetail: React.FC = () => {
 	const { slug } = useParams();
@@ -74,9 +74,9 @@ const WebinarDetail: React.FC = () => {
 
 				{/* Header Section */}
 				<div className="max-w-4xl mb-16">
-					<span className="font-display font-black text-ocobo-sky bg-ocobo-skyLight px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-sky/20 rounded-sm">
+					<Badge variant="sky" className="mb-8">
 						WEBINAR / {webinar.category}
-					</span>
+					</Badge>
 					<h1 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-8 leading-tight tracking-tight">
 						{webinar.title}
 					</h1>
