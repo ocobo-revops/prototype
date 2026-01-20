@@ -80,6 +80,7 @@ const Button: React.FC<ButtonProps> = ({
 	);
 
 	// Filter out component-specific props
+	// biome-ignore lint/suspicious/noExplicitAny: polymorphic props require type assertion
 	const { to, href, ...htmlProps } = props as any;
 
 	if (to) {

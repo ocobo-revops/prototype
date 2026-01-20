@@ -14,7 +14,7 @@ import type React from 'react';
 import { Link, useParams } from 'react-router';
 import { Button } from '../components/atoms';
 
-// Configuration exhaustive des 14 Stories
+// biome-ignore lint/suspicious/noExplicitAny: complex story data structure
 const STORY_DATA: Record<string, any> = {
 	yousign: {
 		company: 'Yousign',
@@ -408,9 +408,10 @@ const StoryDetail: React.FC = () => {
 				</div>
 
 				<div className="grid md:grid-cols-3 gap-0 mb-32 border border-gray-100 bg-gray-50/30 rounded-6xl overflow-hidden">
+					{/* biome-ignore lint/suspicious/noExplicitAny: story data */}
 					{story.results.map((res: any, idx: number) => (
 						<div
-							key={idx}
+							key={res.label}
 							className={`flex flex-col items-center text-center p-12 ${idx !== 2 ? 'border-b md:border-b-0 md:border-r border-gray-100' : ''}`}
 						>
 							<div className="mb-6 bg-white p-4 rounded-2xl shadow-sm">
@@ -441,9 +442,9 @@ const StoryDetail: React.FC = () => {
 								{story.mission.intro}
 							</div>
 							<div className="grid sm:grid-cols-2 gap-6">
-								{story.mission.objectives.map((obj: string, i: number) => (
+								{story.mission.objectives.map((obj: string) => (
 									<div
-										key={i}
+										key={obj}
 										className="p-6 bg-white border border-gray-100 rounded-2xl flex items-start gap-4"
 									>
 										<Check
@@ -469,8 +470,9 @@ const StoryDetail: React.FC = () => {
 							<div className="space-y-10 relative">
 								<div className="absolute left-[2.4rem] top-10 bottom-10 w-px border-l-2 border-dashed border-gray-200"></div>
 
+								{/* biome-ignore lint/suspicious/noExplicitAny: story data */}
 								{story.phases.map((phase: any, idx: number) => (
-									<div key={idx} className="relative pl-24 group">
+									<div key={phase.title} className="relative pl-24 group">
 										<div className="absolute left-0 top-0 w-20 h-20 bg-white border-2 border-ocobo-dark rounded-3xl flex items-center justify-center font-display text-3xl font-black group-hover:bg-ocobo-dark group-hover:text-white transition-colors duration-500 shadow-xl z-10">
 											0{idx + 1}
 										</div>
@@ -482,8 +484,8 @@ const StoryDetail: React.FC = () => {
 												{phase.desc}
 											</p>
 											<ul className="space-y-4">
-												{phase.items.map((item: string, i: number) => (
-													<li key={i} className="flex items-start gap-3">
+												{phase.items.map((item: string) => (
+													<li key={item} className="flex items-start gap-3">
 														<div className="w-1.5 h-1.5 rounded-full bg-ocobo-mint mt-1.5 shrink-0"></div>
 														<span className="text-gray-600 text-sm font-medium">
 															{item}
@@ -508,8 +510,9 @@ const StoryDetail: React.FC = () => {
 							</div>
 
 							<div className="space-y-20">
-								{story.interview.map((item: any, idx: number) => (
-									<div key={idx} className="relative">
+								{/* biome-ignore lint/suspicious/noExplicitAny: story data */}
+								{story.interview.map((item: any) => (
+									<div key={item.q} className="relative">
 										<div className="mb-6 flex items-center gap-3">
 											<div className="w-8 h-px bg-ocobo-yellow"></div>
 											<h4 className="font-display text-xl font-bold text-ocobo-dark leading-tight max-w-xl">
@@ -617,8 +620,8 @@ const StoryDetail: React.FC = () => {
 								</h4>
 
 								<ul className="space-y-5">
-									{story.livrables.map((item: string, i: number) => (
-										<li key={i} className="flex items-start gap-4 group">
+									{story.livrables.map((item: string) => (
+										<li key={item} className="flex items-start gap-4 group">
 											<div className="mt-1 bg-white/10 p-1 rounded group-hover:bg-ocobo-mint transition-colors">
 												<Check
 													size={12}
@@ -637,7 +640,10 @@ const StoryDetail: React.FC = () => {
 										Parlons de vos projets
 									</p>
 									<Link to="/contact">
-										<button className="w-full py-4 bg-white text-ocobo-dark font-black text-xs uppercase tracking-[0.2em] rounded-xl hover:bg-ocobo-mint transition-all shadow-xl flex items-center justify-center gap-2 group">
+										<button
+											type="button"
+											className="w-full py-4 bg-white text-ocobo-dark font-black text-xs uppercase tracking-[0.2em] rounded-xl hover:bg-ocobo-mint transition-all shadow-xl flex items-center justify-center gap-2 group"
+										>
 											Prendre RDV{' '}
 											<ArrowRight
 												size={14}

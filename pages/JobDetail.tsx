@@ -20,7 +20,7 @@ import { Link, useParams } from 'react-router';
 import { Badge } from '../components/atoms';
 
 const JobDetail: React.FC = () => {
-	const { id } = useParams();
+	const { id: _ } = useParams();
 	const [activeSection, setActiveSection] = useState<string>('mission');
 
 	// Mock data structuré pour correspondre aux sections du blog
@@ -154,9 +154,9 @@ const JobDetail: React.FC = () => {
 						{job.title}
 					</h1>
 					<div className="flex flex-wrap items-center justify-center gap-6 text-xs font-black text-gray-400 uppercase tracking-widest">
-						{job.meta.map((m, i) => (
+						{job.meta.map((m) => (
 							<div
-								key={i}
+								key={m.label}
 								className="flex items-center gap-2.5 px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-full"
 							>
 								{m.icon}
@@ -218,9 +218,9 @@ const JobDetail: React.FC = () => {
 										'Culture du feedback radical',
 										'Équipe issue des tops scale-ups',
 										'Impact GTM direct',
-									].map((benefit, i) => (
+									].map((benefit) => (
 										<li
-											key={i}
+											key={benefit}
 											className="flex items-start gap-3 text-2xs font-bold uppercase tracking-widest text-gray-400"
 										>
 											<Plus
@@ -232,7 +232,10 @@ const JobDetail: React.FC = () => {
 									))}
 								</ul>
 								<a href="#apply">
-									<button className="w-full py-3 bg-ocobo-yellow text-ocobo-dark font-black text-2xs uppercase tracking-widest rounded-lg hover:bg-white transition-colors">
+									<button
+										type="button"
+										className="w-full py-3 bg-ocobo-yellow text-ocobo-dark font-black text-2xs uppercase tracking-widest rounded-lg hover:bg-white transition-colors"
+									>
 										Postuler maintenant
 									</button>
 								</a>
@@ -262,9 +265,9 @@ const JobDetail: React.FC = () => {
 										<p className="mb-10">{section.content}</p>
 										{section.list && (
 											<ul className="space-y-4 mt-8">
-												{section.list.map((item, i) => (
+												{section.list.map((item) => (
 													<li
-														key={i}
+														key={item}
 														className="flex items-start gap-5 p-6 bg-gray-50/50 rounded-xl border border-transparent hover:border-ocobo-yellow/20 hover:bg-white transition-all group"
 													>
 														<div className="mt-1 text-gray-200 group-hover:text-ocobo-yellow transition-colors">
@@ -340,6 +343,7 @@ const JobDetail: React.FC = () => {
 								<form className="space-y-8 max-w-2xl">
 									<div className="grid md:grid-cols-2 gap-6">
 										<div className="space-y-2">
+											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 											<label className="text-2xs font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">
 												Prénom Nom*
 											</label>
@@ -350,6 +354,7 @@ const JobDetail: React.FC = () => {
 											/>
 										</div>
 										<div className="space-y-2">
+											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 											<label className="text-2xs font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">
 												Email Pro*
 											</label>
@@ -360,6 +365,7 @@ const JobDetail: React.FC = () => {
 											/>
 										</div>
 										<div className="space-y-2 md:col-span-2">
+											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 											<label className="text-2xs font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">
 												Lien LinkedIn*
 											</label>
@@ -372,6 +378,7 @@ const JobDetail: React.FC = () => {
 									</div>
 
 									<div className="space-y-2">
+										{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 										<label className="text-2xs font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">
 											Ton CV (PDF)*
 										</label>
@@ -386,7 +393,10 @@ const JobDetail: React.FC = () => {
 										</div>
 									</div>
 
-									<button className="w-full py-5 bg-ocobo-dark text-white font-black uppercase tracking-[0.4em] text-xs rounded-xl hover:bg-black transition-all shadow-xl flex items-center justify-center gap-3 group">
+									<button
+										type="button"
+										className="w-full py-5 bg-ocobo-dark text-white font-black uppercase tracking-[0.4em] text-xs rounded-xl hover:bg-black transition-all shadow-xl flex items-center justify-center gap-3 group"
+									>
 										<Send
 											size={14}
 											className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
@@ -410,9 +420,9 @@ const JobDetail: React.FC = () => {
 										type: 'CDI',
 									},
 									{ title: 'Revenue Data Analyst', exp: 'Expert', type: 'CDI' },
-								].map((other, i) => (
+								].map((other) => (
 									<div
-										key={i}
+										key={other.title}
 										className="group p-8 border border-gray-100 bg-white hover:border-ocobo-yellow hover:shadow-xl transition-all rounded-2xl"
 									>
 										<div className="flex items-center gap-3 mb-4">

@@ -11,7 +11,6 @@ import {
 	Target,
 } from 'lucide-react';
 import type React from 'react';
-import { Link } from 'react-router';
 import { Badge, Button } from '../components/atoms';
 
 const AttioPillarsIllustration = () => {

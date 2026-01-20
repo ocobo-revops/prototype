@@ -18,16 +18,25 @@ import type React from 'react';
 import { Link } from 'react-router';
 import { Badge } from '../components/atoms';
 
-const VideoStoryCard = ({
+interface VideoStoryCardProps {
+	episode: string;
+	pitch: string;
+	consultant: string;
+	role: string;
+	quote: string;
+	icon: string;
+	videoThumb: string;
+}
+
+const _VideoStoryCard: React.FC<VideoStoryCardProps> = ({
 	episode,
-	title,
 	pitch,
 	consultant,
 	role,
 	quote,
 	icon,
 	videoThumb,
-}: any) => {
+}) => {
 	return (
 		<div className="flex flex-col gap-4 group">
 			{/* Title Header */}
@@ -263,12 +272,14 @@ const Jobs: React.FC = () => {
 								</div>
 								<img
 									src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80"
+									alt="Team collaboration"
 									className="w-full aspect-square object-cover rounded-4xl grayscale"
 								/>
 							</div>
 							<div className="space-y-6">
 								<img
 									src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=400&q=80"
+									alt="Team meeting"
 									className="w-full aspect-square object-cover rounded-4xl grayscale"
 								/>
 								<div className="bg-ocobo-yellow p-8 aspect-square flex flex-col justify-between rounded-4xl shadow-xl">
@@ -310,8 +321,17 @@ const Jobs: React.FC = () => {
 					</div>
 
 					<div className="grid md:grid-cols-3 gap-12 lg:gap-16">
-						{stories.map((story, idx) => (
-							<VideoStoryCard key={idx} {...story} />
+						{stories.map((story) => (
+							<_VideoStoryCard
+								key={story.episode}
+								episode={story.episode}
+								pitch={story.pitch}
+								consultant={story.consultant}
+								role={story.role}
+								quote={story.quote}
+								icon={story.icon}
+								videoThumb={story.videoThumb}
+							/>
 						))}
 					</div>
 				</div>
@@ -329,9 +349,9 @@ const Jobs: React.FC = () => {
 				</div>
 
 				<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-					{values.map((val, idx) => (
+					{values.map((val) => (
 						<div
-							key={idx}
+							key={val.title}
 							className={`p-10 rounded-5xl border ${val.border} ${val.bg} flex flex-col gap-6 hover:shadow-xl transition-all duration-500 group`}
 						>
 							<div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-black/5 group-hover:scale-110 transition-transform duration-500">
@@ -436,7 +456,7 @@ const Jobs: React.FC = () => {
 
 								return (
 									<div
-										key={idx}
+										key={step.title}
 										className={`relative flex flex-col md:flex-row items-center w-full ${isEven ? 'md:flex-row-reverse' : ''}`}
 									>
 										{/* Center Circle */}
@@ -516,6 +536,7 @@ const Jobs: React.FC = () => {
 						<div className="col-span-2 row-span-2 relative overflow-hidden group rounded-6xl">
 							<img
 								src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+								alt="Ocobo office space"
 								className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale"
 							/>
 							<div className="absolute inset-0 bg-ocobo-dark/10 group-hover:bg-transparent transition-colors"></div>
@@ -523,12 +544,14 @@ const Jobs: React.FC = () => {
 						<div className="relative overflow-hidden group rounded-4xl">
 							<img
 								src="https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=400&q=80"
+								alt="Office interior"
 								className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale"
 							/>
 						</div>
 						<div className="relative overflow-hidden group rounded-4xl">
 							<img
 								src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=400&q=80"
+								alt="Meeting room"
 								className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale"
 							/>
 						</div>

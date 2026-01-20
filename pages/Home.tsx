@@ -1,6 +1,5 @@
 import { BarChart3, Check, Layout, Plus, Target, X, Zap } from 'lucide-react';
 import type React from 'react';
-import { Link } from 'react-router';
 import { Button } from '../components/atoms';
 import { FeatureCard, TestimonialCard } from '../components/molecules';
 import { Container, Section } from '../components/organisms';
@@ -476,7 +475,7 @@ const ModularStackGrid = () => {
 			<div className="grid grid-cols-4 gap-3 md:gap-4 relative z-10 h-full">
 				{items.map((item, i) => (
 					<div
-						key={i}
+						key={item.label ?? `empty-${i}`}
 						className={`
               aspect-square rounded-xl md:rounded-2xl border transition-all duration-500 flex items-center justify-center
               ${
@@ -538,7 +537,8 @@ const ClientMarquee = () => {
 			<div className="flex w-max animate-marquee-ultra-slow whitespace-nowrap">
 				{extendedClients.map((client, idx) => (
 					<div
-						key={idx}
+						// biome-ignore lint/suspicious/noArrayIndexKey: marquee animation requires duplicate elements
+						key={`${client}-${idx}`}
 						className="flex items-center justify-center px-10 md:px-14"
 					>
 						<span className="font-display font-black text-white/20 text-base md:text-lg tracking-[0.25em] uppercase hover:text-ocobo-yellow transition-colors cursor-default select-none">
@@ -906,8 +906,8 @@ const Home: React.FC = () => {
 									'Travaille en immersion, en sprints courts',
 									'Opère comme une direction revenue, pas comme un prestataire',
 									'Mesure l’impact, pas les livrables',
-								].map((item, i) => (
-									<li key={i} className="flex items-start gap-3">
+								].map((item) => (
+									<li key={item} className="flex items-start gap-3">
 										<Check
 											className="text-ocobo-mint shrink-0 mt-1"
 											size={18}
@@ -929,8 +929,8 @@ const Home: React.FC = () => {
 									'Reproduisent les silos (Sales Ops, Marketing Ops…)',
 									'Livrent des dashboards illisibles',
 									'Confondent complexité et performance',
-								].map((item, i) => (
-									<li key={i} className="flex items-start gap-3">
+								].map((item) => (
+									<li key={item} className="flex items-start gap-3">
 										<X className="text-red-400 shrink-0 mt-1" size={18} />
 										<span>{item}</span>
 									</li>

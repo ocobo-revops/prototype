@@ -8,7 +8,6 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router';
 import { Badge, Button } from '../components/atoms';
 
 const TeamPhotoIllustration = () => {
@@ -319,6 +318,7 @@ const Studio: React.FC = () => {
 						<div className="flex flex-wrap gap-2">
 							{categories.map((cat) => (
 								<button
+									type="button"
 									key={cat}
 									onClick={() => setActiveFilter(cat)}
 									className={`px-6 py-2.5 rounded-full text-2xs font-black uppercase tracking-widest transition-all border ${

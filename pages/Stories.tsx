@@ -99,9 +99,9 @@ const StoriesIllustration = () => {
 					/>
 
 					{/* Decorative dots around core */}
-					{[0, 60, 120, 180, 240, 300].map((angle, i) => (
+					{[0, 60, 120, 180, 240, 300].map((angle) => (
 						<circle
-							key={i}
+							key={angle}
 							cx={Math.cos((angle * Math.PI) / 180) * 55}
 							cy={Math.sin((angle * Math.PI) / 180) * 55}
 							r="2.5"
@@ -295,7 +295,8 @@ const ClientMarquee = () => {
 			<div className="flex animate-marquee-ultra-slow whitespace-nowrap">
 				{extendedClients.map((client, idx) => (
 					<div
-						key={idx}
+						// biome-ignore lint/suspicious/noArrayIndexKey: marquee animation requires duplicate elements
+						key={`${client}-${idx}`}
 						className="flex items-center justify-center px-10 md:px-14"
 					>
 						<span className="font-display font-black text-white/30 text-base md:text-xl tracking-[0.25em] uppercase hover:text-ocobo-yellow transition-colors cursor-default select-none">
@@ -622,6 +623,7 @@ const Stories: React.FC = () => {
 					<div className="flex flex-wrap justify-center gap-3">
 						{categories.map((cat) => (
 							<button
+								type="button"
 								key={cat}
 								onClick={() => setActiveFilter(cat)}
 								className={`px-8 py-2.5 rounded-full text-2xs font-black uppercase tracking-[0.2em] transition-all duration-300 ${
@@ -711,9 +713,9 @@ const Stories: React.FC = () => {
 											Stack Opérée
 										</span>
 										<div className="flex items-center gap-3 grayscale opacity-40 group-hover:opacity-100 transition-all">
-											{item.tools.map((tool, tIdx) => (
+											{item.tools.map((tool) => (
 												<img
-													key={tIdx}
+													key={tool}
 													src={tool}
 													className="h-3.5 w-auto object-contain"
 													alt="tool"

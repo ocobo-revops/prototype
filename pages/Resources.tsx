@@ -102,13 +102,26 @@ const Resources: React.FC = () => {
 					<div className="flex flex-wrap gap-2">
 						{[
 							{ id: 'all', label: 'Tout voir' },
-							{ id: 'podcast', label: 'Podcast', icon: <Mic size={14} /> },
-							{ id: 'webinar', label: 'Webinars', icon: <Video size={14} /> },
-							{ id: 'blog', label: 'Articles', icon: <BookOpen size={14} /> },
+							{
+								id: 'podcast' as const,
+								label: 'Podcast',
+								icon: <Mic size={14} />,
+							},
+							{
+								id: 'webinar' as const,
+								label: 'Webinars',
+								icon: <Video size={14} />,
+							},
+							{
+								id: 'blog' as const,
+								label: 'Articles',
+								icon: <BookOpen size={14} />,
+							},
 						].map((tab) => (
 							<button
+								type="button"
 								key={tab.id}
-								onClick={() => setActiveTab(tab.id as any)}
+								onClick={() => setActiveTab(tab.id)}
 								className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 border ${
 									activeTab === tab.id
 										? 'bg-ocobo-dark text-white border-ocobo-dark'

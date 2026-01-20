@@ -122,7 +122,10 @@ const Podcast: React.FC = () => {
 							</p>
 
 							<div className="flex flex-wrap gap-4">
-								<button className="flex items-center gap-3 px-6 py-3 bg-white text-ocobo-dark rounded-full font-bold text-xs uppercase tracking-widest hover:bg-ocobo-yellow transition-colors group">
+								<button
+									type="button"
+									className="flex items-center gap-3 px-6 py-3 bg-white text-ocobo-dark rounded-full font-bold text-xs uppercase tracking-widest hover:bg-ocobo-yellow transition-colors group"
+								>
 									<Headphones size={18} /> S'abonner
 								</button>
 								<div className="flex items-center gap-4 px-6 py-3 bg-white/5 border border-white/10 rounded-full grayscale opacity-50">
@@ -181,10 +184,14 @@ const Podcast: React.FC = () => {
 									</div>
 
 									<div className="flex items-center justify-center gap-10">
-										<button className="text-white/40 hover:text-white transition-colors">
+										<button
+											type="button"
+											className="text-white/40 hover:text-white transition-colors"
+										>
 											<SkipBack size={24} />
 										</button>
 										<button
+											type="button"
 											onClick={() => setIsPlaying(!isPlaying)}
 											className="w-20 h-20 bg-ocobo-yellow text-ocobo-dark rounded-full flex items-center justify-center shadow-xl hover:scale-105 transition-all"
 										>
@@ -194,7 +201,10 @@ const Podcast: React.FC = () => {
 												<Play size={32} fill="currentColor" className="ml-1" />
 											)}
 										</button>
-										<button className="text-white/40 hover:text-white transition-colors">
+										<button
+											type="button"
+											className="text-white/40 hover:text-white transition-colors"
+										>
 											<SkipForward size={24} />
 										</button>
 									</div>
@@ -275,6 +285,7 @@ const Podcast: React.FC = () => {
 											<div className="w-10 h-10 rounded-full overflow-hidden grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 transition-all border border-gray-100">
 												<img
 													src={ep.image}
+													alt={ep.guest}
 													className="w-full h-full object-cover"
 												/>
 											</div>
@@ -303,6 +314,7 @@ const Podcast: React.FC = () => {
 								Aucun épisode trouvé pour cette recherche.
 							</p>
 							<button
+								type="button"
 								onClick={() => setSearchTerm('')}
 								className="mt-4 text-ocobo-dark font-black uppercase tracking-widest text-2xs underline"
 							>

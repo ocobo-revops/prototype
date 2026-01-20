@@ -196,6 +196,7 @@ const Navbar: React.FC = () => {
 		return textThemeMap[color] || 'group-hover/item:text-ocobo-dark';
 	};
 
+	// biome-ignore lint/suspicious/noExplicitAny: dropdown item type from navigation config
 	const renderDropdownItem = (subItem: any, idx: number) => {
 		const isExternal = subItem.path.startsWith('http');
 		const content = (
@@ -281,6 +282,7 @@ const Navbar: React.FC = () => {
 								const isCurrentPath = location.pathname === item.path;
 
 								return (
+									// biome-ignore lint/a11y/noStaticElementInteractions: dropdown hover behaviour
 									<div
 										key={item.label}
 										className="relative"
@@ -341,6 +343,7 @@ const Navbar: React.FC = () => {
 							</Link>
 
 							<button
+								type="button"
 								onClick={() => setIsOpen(true)}
 								className={`md:hidden relative z-50 p-2.5 rounded-full transition-colors ${useWhiteText ? 'bg-white/10 text-white' : 'bg-black/5 text-ocobo-dark'}`}
 							>
@@ -366,6 +369,7 @@ const Navbar: React.FC = () => {
 							className="h-8"
 						/>
 						<button
+							type="button"
 							onClick={() => setIsOpen(false)}
 							className="p-2 text-ocobo-dark bg-gray-50 rounded-full active:scale-90 transition-transform"
 						>
@@ -374,8 +378,8 @@ const Navbar: React.FC = () => {
 					</div>
 
 					<div className="flex-grow space-y-8 overflow-y-auto scrollbar-hide">
-						{navigation.map((item, idx) => (
-							<div key={idx} className="space-y-4">
+						{navigation.map((item) => (
+							<div key={item.label} className="space-y-4">
 								{item.dropdown ? (
 									<div className="space-y-5">
 										<Link
@@ -386,13 +390,14 @@ const Navbar: React.FC = () => {
 											{item.label}
 										</Link>
 										<div className="space-y-5 pl-2">
-											{item.dropdown.map((sub, subIdx) => {
+											{item.dropdown.map((sub, _subIdx) => {
 												const isExternal = sub.path.startsWith('http');
 												const mobileLinkContent = (
 													<>
 														<div
 															className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border border-gray-50 ${getIconThemeClasses(sub.color)}`}
 														>
+															{/* biome-ignore lint/suspicious/noExplicitAny: cloneElement requires any */}
 															{React.cloneElement(sub.icon as any, {
 																size: 18,
 															})}
@@ -413,7 +418,7 @@ const Navbar: React.FC = () => {
 												if (isExternal) {
 													return (
 														<a
-															key={subIdx}
+															key={sub.path}
 															href={sub.path}
 															target="_blank"
 															rel="noopener noreferrer"
@@ -427,7 +432,7 @@ const Navbar: React.FC = () => {
 
 												return (
 													<Link
-														key={subIdx}
+														key={sub.path}
 														to={sub.path}
 														onClick={() => setIsOpen(false)}
 														className="flex items-center gap-4 group active:translate-x-1 transition-transform"
@@ -453,7 +458,10 @@ const Navbar: React.FC = () => {
 
 					<div className="mt-10">
 						<Link to="/contact" onClick={() => setIsOpen(false)}>
-							<button className="w-full flex items-center justify-center gap-3 py-5 rounded-full bg-ocobo-dark text-white text-sm font-black uppercase tracking-[0.15em] shadow-2xl active:scale-[0.98] transition-all">
+							<button
+								type="button"
+								className="w-full flex items-center justify-center gap-3 py-5 rounded-full bg-ocobo-dark text-white text-sm font-black uppercase tracking-[0.15em] shadow-2xl active:scale-[0.98] transition-all"
+							>
 								Prendre rendez-vous <ArrowRight size={16} />
 							</button>
 						</Link>

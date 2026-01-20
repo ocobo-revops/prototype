@@ -15,7 +15,6 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router';
 import { Badge, Button } from '../components/atoms';
 
 const ModularStackGrid = () => {
@@ -87,7 +86,7 @@ const ModularStackGrid = () => {
 			<div className="grid grid-cols-4 gap-4 relative z-10 h-full">
 				{items.map((item, i) => (
 					<div
-						key={i}
+						key={item.label || `empty-${i}`}
 						className={`
               aspect-square rounded-2xl border transition-all duration-500 flex items-center justify-center
               ${
@@ -559,6 +558,7 @@ const Partners: React.FC = () => {
 						<div className="flex flex-wrap gap-2">
 							{categories.map((cat) => (
 								<button
+									type="button"
 									key={cat}
 									onClick={() => setFilter(cat)}
 									className={`px-6 py-2.5 rounded-full text-2xs font-black uppercase tracking-widest transition-all border ${
@@ -609,9 +609,9 @@ const Partners: React.FC = () => {
 										{partner.name}
 									</h3>
 									<div className="h-[48px] flex flex-wrap gap-1.5 mb-4 content-start overflow-hidden">
-										{partner.tags.map((tag, tIdx) => (
+										{partner.tags.map((tag) => (
 											<span
-												key={tIdx}
+												key={tag}
 												className="text-2xs font-bold bg-gray-50 text-gray-400 border border-gray-100 px-2 py-0.5 rounded transition-all group-hover:border-ocobo-dark/10 group-hover:text-ocobo-dark whitespace-nowrap"
 											>
 												{tag}
@@ -751,6 +751,7 @@ const Partners: React.FC = () => {
 											sous 48h.
 										</p>
 										<button
+											type="button"
 											onClick={() => setFormSubmitted(false)}
 											className="text-2xs font-black uppercase tracking-widest text-gray-400 hover:text-ocobo-dark transition-colors"
 										>
@@ -764,6 +765,7 @@ const Partners: React.FC = () => {
 										</h3>
 										<div className="grid md:grid-cols-2 gap-6">
 											<div className="space-y-2">
+												{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 												<label className="text-2xs font-black uppercase tracking-[0.2em] text-gray-400">
 													Nom de la solution*
 												</label>
@@ -775,6 +777,7 @@ const Partners: React.FC = () => {
 												/>
 											</div>
 											<div className="space-y-2">
+												{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 												<label className="text-2xs font-black uppercase tracking-[0.2em] text-gray-400">
 													Site Web*
 												</label>
@@ -787,6 +790,7 @@ const Partners: React.FC = () => {
 											</div>
 										</div>
 										<div className="space-y-2">
+											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 											<label className="text-2xs font-black uppercase tracking-[0.2em] text-gray-400">
 												E-mail pro*
 											</label>
@@ -798,6 +802,7 @@ const Partners: React.FC = () => {
 											/>
 										</div>
 										<div className="space-y-2">
+											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 											<label className="text-2xs font-black uppercase tracking-[0.2em] text-gray-400">
 												Votre message
 											</label>

@@ -17,7 +17,7 @@ import { Link, useParams } from 'react-router';
 import { Badge } from '../components/atoms';
 
 const ArticleDetail: React.FC = () => {
-	const { slug } = useParams();
+	const { slug: _slug } = useParams();
 	const [activeSection, setActiveSection] = useState<string>('');
 
 	// Simulation de données d'article basées sur l'URL fournie
@@ -103,10 +103,16 @@ const ArticleDetail: React.FC = () => {
 					<div className="flex items-center gap-4 text-gray-300">
 						<Share2 size={16} />
 						<span className="h-4 w-px bg-gray-200"></span>
-						<button className="hover:text-ocobo-dark transition-colors">
+						<button
+							type="button"
+							className="hover:text-ocobo-dark transition-colors"
+						>
 							<Linkedin size={16} />
 						</button>
-						<button className="hover:text-ocobo-dark transition-colors">
+						<button
+							type="button"
+							className="hover:text-ocobo-dark transition-colors"
+						>
 							<Twitter size={16} />
 						</button>
 					</div>
@@ -166,7 +172,10 @@ const ArticleDetail: React.FC = () => {
 									modèle RevOps.
 								</p>
 								<Link to="/contact">
-									<button className="w-full py-3 bg-ocobo-yellow text-ocobo-dark font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-white transition-colors">
+									<button
+										type="button"
+										className="w-full py-3 bg-ocobo-yellow text-ocobo-dark font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-white transition-colors"
+									>
 										Discuter avec nous
 									</button>
 								</Link>
@@ -196,9 +205,9 @@ const ArticleDetail: React.FC = () => {
 										<p className="mb-6">{section.content}</p>
 										{section.list && (
 											<ul className="space-y-4 mt-8">
-												{section.list.map((item, i) => (
+												{section.list.map((item) => (
 													<li
-														key={i}
+														key={item}
 														className="flex items-start gap-4 p-5 bg-gray-50 rounded-xl border border-transparent hover:border-ocobo-yellow/20 transition-all"
 													>
 														<div className="mt-1 text-ocobo-yellow">
@@ -273,7 +282,10 @@ const ArticleDetail: React.FC = () => {
 										placeholder="votre@email.com"
 										className="flex-grow px-6 py-4 bg-white/90 focus:bg-white border-none outline-none text-ocobo-dark font-bold placeholder-gray-400 rounded-xl"
 									/>
-									<button className="px-8 py-4 bg-ocobo-dark text-white font-black uppercase tracking-widest text-2xs rounded-xl hover:bg-black transition-all">
+									<button
+										type="submit"
+										className="px-8 py-4 bg-ocobo-dark text-white font-black uppercase tracking-widest text-2xs rounded-xl hover:bg-black transition-all"
+									>
 										S'inscrire
 									</button>
 								</form>

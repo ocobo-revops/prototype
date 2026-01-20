@@ -20,7 +20,7 @@ import Studio from './pages/Studio';
 import WebinarDetail from './pages/WebinarDetail';
 
 const ScrollToTop = () => {
-	const { pathname } = useLocation();
+	const { pathname: _ } = useLocation();
 
 	React.useEffect(() => {
 		window.scrollTo(0, 0);

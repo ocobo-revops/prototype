@@ -34,6 +34,7 @@ const NewsletterWidget: React.FC = () => {
 				<div className="relative group">
 					{/* Bouton de fermeture rapide (X) sur le badge réduit */}
 					<button
+						type="button"
 						onClick={(e) => {
 							e.stopPropagation();
 							setIsDismissed(true);
@@ -45,6 +46,7 @@ const NewsletterWidget: React.FC = () => {
 					</button>
 
 					<button
+						type="button"
 						onClick={() => setIsExpanded(true)}
 						className="bg-ocobo-dark text-white p-4 rounded-2xl shadow-2xl border border-white/10 flex items-center gap-3 hover:border-ocobo-yellow/50 transition-all"
 					>
@@ -62,6 +64,7 @@ const NewsletterWidget: React.FC = () => {
 					<div className="absolute top-0 left-0 w-full h-1 bg-ocobo-yellow"></div>
 
 					<button
+						type="button"
 						onClick={() => setIsExpanded(false)}
 						className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors"
 					>
@@ -111,6 +114,7 @@ const NewsletterWidget: React.FC = () => {
 					</form>
 
 					<button
+						type="button"
 						onClick={() => {
 							setIsDismissed(true);
 						}}

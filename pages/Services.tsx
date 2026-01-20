@@ -605,8 +605,8 @@ const Services: React.FC = () => {
 											'Automatisations utiles',
 											'Data fiable & pilotable',
 											'Rémunération variable claire, juste et motivante',
-										].map((item, i) => (
-											<li key={i} className="flex items-start gap-4">
+										].map((item) => (
+											<li key={item} className="flex items-start gap-4">
 												<div className="mt-0.5 text-ocobo-coral">
 													<CheckCircle2 size={18} />
 												</div>
@@ -877,7 +877,7 @@ const Services: React.FC = () => {
 							},
 						].map((step, i) => (
 							<div
-								key={i}
+								key={step.title}
 								className="bg-white p-8 border border-gray-100 hover:shadow-lg transition-all group"
 							>
 								<div className="w-10 h-10 bg-ocobo-dark text-white flex items-center justify-center text-sm font-bold mb-6 group-hover:bg-ocobo-yellow group-hover:text-ocobo-dark transition-colors">
@@ -974,9 +974,9 @@ const Services: React.FC = () => {
 									'Roadmap d’itération',
 								],
 							},
-						].map((block, idx) => (
+						].map((block) => (
 							<div
-								key={idx}
+								key={block.title}
 								className={`bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl group`}
 							>
 								<div
@@ -988,8 +988,8 @@ const Services: React.FC = () => {
 									{block.title}
 								</h3>
 								<ul className="space-y-3 text-sm text-gray-600">
-									{block.items.map((item, i) => (
-										<li key={i} className="flex items-center gap-3">
+									{block.items.map((item) => (
+										<li key={item} className="flex items-center gap-3">
 											<div
 												className={`w-1.5 h-1.5 rounded-full shrink-0 ${block.color === 'dark' ? 'bg-ocobo-dark' : block.color === 'purple-500' ? 'bg-purple-500' : `bg-ocobo-${block.color}`}`}
 											></div>

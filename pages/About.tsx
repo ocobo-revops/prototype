@@ -1,6 +1,5 @@
 import { ArrowRight, Linkedin } from 'lucide-react';
 import type React from 'react';
-import { Link } from 'react-router';
 import { Button } from '../components/atoms';
 
 const DataIllustration = () => {
@@ -41,9 +40,9 @@ const DataIllustration = () => {
 								{ x: 670, h: 340 },
 								{ x: 700, h: 300 },
 								{ x: 730, h: 360 },
-							].map((bar, i) => {
+							].map((bar) => {
 								return (
-									<g key={i}>
+									<g key={bar.x}>
 										{/* Bottom part of bar (filled) */}
 										<rect
 											x={bar.x}
@@ -177,6 +176,7 @@ const IconSeparator = () => {
 				fill="none"
 				className="text-ocobo-dark"
 			>
+				<title>Decorative illustration</title>
 				<circle cx="24" cy="24" r="3.5" fill="currentColor" />
 				{/* Horizontal & Vertical lines */}
 				<line
@@ -222,6 +222,7 @@ const IconSeparator = () => {
 				fill="none"
 				className="text-ocobo-dark"
 			>
+				<title>Decorative illustration</title>
 				<circle cx="42" cy="42" r="38" stroke="currentColor" strokeWidth="3" />
 				{/* Eyes: Vertical Ovals */}
 				<ellipse cx="32" cy="36" rx="4.5" ry="8" fill="currentColor" />
@@ -262,6 +263,7 @@ const IconSeparator = () => {
 				fill="none"
 				className="text-ocobo-dark"
 			>
+				<title>Decorative illustration</title>
 				<circle cx="24" cy="24" r="3.5" fill="currentColor" />
 				<line
 					x1="24"

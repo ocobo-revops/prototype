@@ -13,7 +13,7 @@ import { Badge, Button } from '../components/atoms';
 const WebinarDetail: React.FC = () => {
 	const { slug } = useParams();
 
-	// Mock data matching the Resources page for consistency
+	// biome-ignore lint/suspicious/noExplicitAny: mock data structure
 	const webinars: Record<string, any> = {
 		'nettoyer-crm-5-etapes': {
 			title: 'Masterclass : Nettoyer son CRM en 5 étapes',
@@ -122,8 +122,8 @@ const WebinarDetail: React.FC = () => {
 								Au programme :
 							</h3>
 							<ul className="space-y-6">
-								{webinar.topics.map((topic: string, idx: number) => (
-									<li key={idx} className="flex items-start gap-5 group">
+								{webinar.topics.map((topic: string) => (
+									<li key={topic} className="flex items-start gap-5 group">
 										<div className="mt-1 w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-ocobo-sky shrink-0 shadow-sm group-hover:bg-ocobo-sky group-hover:text-white transition-all">
 											<CheckCircle2 size={14} />
 										</div>
