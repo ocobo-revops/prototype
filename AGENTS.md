@@ -19,8 +19,15 @@ Set `GEMINI_API_KEY` in `.env.local`
 
 - Use `pnpm` only
 - Use `mgrep` for code search
-- Do not `git commit` or `git push`; ask before `git add`
+- Do not `git push`; ask before `git add` (unless running ralph loop)
 - Prefer existing files over creating new ones
+
+## Ralph loop
+
+When running via `ralph-once.sh` or `afk-ralph.sh`:
+- Commit after each completed story without asking
+- Use conventional commit format
+- Update progress.txt after committing
 
 ## Codebase pointers
 
