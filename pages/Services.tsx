@@ -14,6 +14,7 @@ import {
 import type React from 'react';
 import { Link } from 'react-router';
 import { Badge, Button } from '../components/atoms';
+import { SectionHeader } from '../components/organisms';
 
 const ArchitecturalGrid = () => {
 	return (
@@ -496,16 +497,11 @@ const Services: React.FC = () => {
 			{/* BLOC OFFRES DETAILLEES */}
 			<section className="py-16 md:py-24 bg-white">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="text-center mb-16 md:mb-24">
-						<h2 className="font-display text-3xl md:text-5xl font-bold text-ocobo-dark mb-4 md:mb-6">
-							Nous construisons et opérons les fondations RevOps
-						</h2>
-						<p className="text-gray-600 text-lg">
-							Nous construisons et opérons les fondations RevOps de votre
-							organisation : process, outils, data et équipes alignés pour une
-							croissance durable et maîtrisée.
-						</p>
-					</div>
+					<SectionHeader
+						title="Nous construisons et opérons les fondations RevOps"
+						subtitle="Nous construisons et opérons les fondations RevOps de votre organisation : process, outils, data et équipes alignés pour une croissance durable et maîtrisée."
+						className="mb-16 md:mb-24"
+					/>
 
 					<div className="space-y-24">
 						{/* Service 1: Audit & Cadrage */}
@@ -699,19 +695,13 @@ const Services: React.FC = () => {
 			{/* BLOC 4 - NOS 3 LEVIERS D'ACCOMPAGNEMENT */}
 			<section className="py-24 bg-white border-y border-gray-50">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="max-w-3xl mb-20">
-						<Badge variant="yellow" className="mb-8">
-							LEVIERS DE CROISSANCE
-						</Badge>
-						<h2 className="font-display text-4xl md:text-5xl font-bold text-ocobo-dark mb-8 leading-tight tracking-tight">
-							Nos 3 leviers <br />
-							d’accompagnement.
-						</h2>
-						<p className="text-xl text-gray-500 font-medium leading-relaxed">
-							Pour mettre votre stratégie Revenue en mouvement, nous combinons
-							méthode, technologie et expertise.
-						</p>
-					</div>
+					<SectionHeader
+						badge="LEVIERS DE CROISSANCE"
+						title="Nos 3 leviers d'accompagnement."
+						subtitle="Pour mettre votre stratégie Revenue en mouvement, nous combinons méthode, technologie et expertise."
+						centered={false}
+						className="max-w-3xl mb-20"
+					/>
 
 					<div className="grid lg:grid-cols-3 gap-12 lg:gap-8">
 						{/* Levier 1: Méthode */}
@@ -851,11 +841,7 @@ const Services: React.FC = () => {
 			{/* BLOC METHODE */}
 			<section className="py-24 bg-gray-50">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="text-center mb-16">
-						<h2 className="font-display text-4xl font-bold mb-6">
-							Notre méthode en 4 étapes
-						</h2>
-					</div>
+					<SectionHeader title="Notre méthode en 4 étapes" className="mb-16" />
 					<div className="grid md:grid-cols-4 gap-6">
 						{[
 							{
@@ -1009,11 +995,11 @@ const Services: React.FC = () => {
 			{/* BLOC POURQUOI OCOBO */}
 			<section className="py-24 bg-ocobo-dark text-white">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="text-center mb-16">
-						<h2 className="font-display text-4xl font-bold mb-6">
-							Pourquoi choisir Ocobo
-						</h2>
-					</div>
+					<SectionHeader
+						title="Pourquoi choisir Ocobo"
+						light
+						className="mb-16"
+					/>
 					<div className="grid md:grid-cols-3 gap-12">
 						<div className="text-center">
 							<div className="w-16 h-16 bg-ocobo-yellow rounded-full flex items-center justify-center text-ocobo-dark mx-auto mb-6">

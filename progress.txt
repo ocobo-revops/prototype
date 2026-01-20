@@ -15,6 +15,7 @@ Read this section FIRST on each iteration.
 - Button.tsx in components/atoms/ is the reference pattern for component structure
 - Import atoms from components/atoms (e.g. `import { Button } from '../components/atoms'`)
 - Import molecules from components/molecules (e.g. `import { FeatureCard } from '../components/molecules'`)
+- Import organisms from components/organisms (e.g. `import { SectionHeader } from '../components/organisms'`)
 
 ---
 
@@ -301,6 +302,25 @@ Created: 2026-01-20T12:00:00Z
 - components/molecules/TestimonialCard.tsx (new)
 - components/molecules/index.ts (new)
 - pages/Home.tsx (refactored to use new components)
+
+### Verified
+- pnpm build: ✅ exit 0
+
+---
+
+## Feature 10: SectionHeader component for consistent section titles
+**Status:** ✅ Completed 2026-01-20
+
+### Changes
+- Created components/organisms/ folder structure
+- Created SectionHeader.tsx with: badge, badgeVariant, title, subtitle, centered, light props
+- Exported from components/organisms/index.ts
+- Replaced 4 inline section headers in Services.tsx
+
+### Files modified
+- components/organisms/SectionHeader.tsx (new)
+- components/organisms/index.ts (new)
+- pages/Services.tsx (refactored to use SectionHeader)
 
 ### Verified
 - pnpm build: ✅ exit 0
