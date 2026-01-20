@@ -518,7 +518,7 @@ const Method: React.FC = () => {
 			{/* HERO METHODE - UNIFORMISÉ & CENTRÉ AVEC ANIMATION LIGHT ET ESPACES RÉDUITS */}
 			<section className="pt-40 pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center overflow-hidden">
 				<div className="max-w-4xl mx-auto mb-8 relative z-10">
-					<span className="font-display font-black text-ocobo-dark bg-ocobo-yellowLight px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
+					<span className="font-display font-black text-ocobo-dark bg-ocobo-yellowLight px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
 						NOTRE MÉTHODE
 					</span>
 
@@ -613,7 +613,7 @@ const Method: React.FC = () => {
 							</p>
 
 							<div className="bg-gray-50/50 p-8 rounded-2xl border border-gray-100">
-								<span className="font-display font-bold text-[10px] uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">
+								<span className="font-display font-bold text-2xs uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">
 									LIVRABLES CLÉS
 								</span>
 								<div className="space-y-6">
@@ -677,7 +677,7 @@ const Method: React.FC = () => {
 							</p>
 
 							<div className="bg-gray-50/50 p-8 rounded-2xl border border-gray-100">
-								<span className="font-display font-bold text-[10px] uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">
+								<span className="font-display font-bold text-2xs uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">
 									LIVRABLES CLÉS
 								</span>
 								<div className="space-y-6">
@@ -741,7 +741,7 @@ const Method: React.FC = () => {
 							</p>
 
 							<div className="bg-gray-50/50 p-8 rounded-2xl border border-gray-100">
-								<span className="font-display font-bold text-[10px] uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">
+								<span className="font-display font-bold text-2xs uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">
 									LIVRABLES CLÉS
 								</span>
 								<div className="space-y-6">
@@ -805,7 +805,7 @@ const Method: React.FC = () => {
 							</p>
 
 							<div className="bg-gray-50/50 p-8 rounded-2xl border border-gray-100">
-								<span className="font-display font-bold text-[10px] uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">
+								<span className="font-display font-bold text-2xs uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">
 									LIVRABLES CLÉS
 								</span>
 								<div className="space-y-6">

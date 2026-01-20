@@ -54,3 +54,32 @@ Created: 2026-01-20T12:00:00Z
 ### Verified
 - pnpm build: ✅ exit 0
 - pnpm dev: ✅ serves correctly
+
+---
+
+## Feature 2: Typography scale standardised from 139 arbitrary values to 10
+**Status:** ✅ Completed 2026-01-20
+
+### Changes
+- Added fontSize scale to tailwind.config.ts:
+  - text-2xs: 10px (badges, labels)
+  - text-xs: 11px (small text)
+  - text-sm: 13px
+  - text-base: 14px
+  - text-lg to text-9xl: standard scale
+- Replaced all arbitrary text-[*px] classes across 15 files:
+  - text-[6px], text-[8px], text-[9px], text-[10px] → text-2xs
+  - text-[11px] → text-xs
+  - text-[13px] → text-sm
+  - text-[14px] → text-base
+  - text-[22px] → text-2xl
+  - text-[120px] → text-9xl (decorative)
+
+### Files modified
+- tailwind.config.ts (fontSize scale)
+- pages/: Method, WebinarDetail, Stories, ArticleDetail, Home, Partners, JobDetail, Podcast, StoryDetail, Services, Jobs, Studio
+- components/: NewsletterWidget, Navbar
+
+### Verified
+- pnpm build: ✅ exit 0
+- No text-[*px] patterns remain in source files

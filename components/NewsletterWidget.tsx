@@ -52,7 +52,7 @@ const NewsletterWidget: React.FC = () => {
 							<Mail size={20} className="text-ocobo-yellow" />
 							<span className="absolute -top-1 -right-1 w-2 h-2 bg-ocobo-coral rounded-full animate-pulse"></span>
 						</div>
-						<span className="text-[10px] font-black uppercase tracking-[0.2em] pr-2">
+						<span className="text-2xs font-black uppercase tracking-[0.2em] pr-2">
 							La Lettre de l'Architecte
 						</span>
 					</button>
@@ -71,7 +71,7 @@ const NewsletterWidget: React.FC = () => {
 					<div className="mb-6 mt-2">
 						<div className="flex items-center gap-2 mb-3">
 							<Sparkles size={14} className="text-ocobo-yellow" />
-							<span className="text-[9px] font-black uppercase tracking-[0.3em] text-ocobo-yellow">
+							<span className="text-2xs font-black uppercase tracking-[0.3em] text-ocobo-yellow">
 								Newsletter Mensuelle
 							</span>
 						</div>
@@ -79,7 +79,7 @@ const NewsletterWidget: React.FC = () => {
 							La science du revenu, <br />
 							directement dans votre boîte.
 						</h4>
-						<p className="text-[11px] text-gray-400 font-medium">
+						<p className="text-xs text-gray-400 font-medium">
 							Rejoignez 2 000+ leaders. <br />
 							Pas de spam, juste de l'architecture.
 						</p>
@@ -100,7 +100,7 @@ const NewsletterWidget: React.FC = () => {
 						/>
 						<button
 							type="submit"
-							className="w-full bg-ocobo-yellow text-ocobo-dark py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-white transition-all group"
+							className="w-full bg-ocobo-yellow text-ocobo-dark py-3 rounded-xl text-2xs font-black uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-white transition-all group"
 						>
 							S'inscrire{' '}
 							<ArrowRight
@@ -114,7 +114,7 @@ const NewsletterWidget: React.FC = () => {
 						onClick={() => {
 							setIsDismissed(true);
 						}}
-						className="w-full mt-4 text-[9px] font-bold text-gray-600 hover:text-gray-400 uppercase tracking-widest transition-colors"
+						className="w-full mt-4 text-2xs font-bold text-gray-600 hover:text-gray-400 uppercase tracking-widest transition-colors"
 					>
 						Masquer définitivement
 					</button>

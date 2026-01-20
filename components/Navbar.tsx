@@ -207,11 +207,11 @@ const Navbar: React.FC = () => {
 				</div>
 				<div className="transition-transform group-hover/item:translate-x-1">
 					<h4
-						className={`font-bold text-ocobo-dark text-[14px] mb-0.5 transition-colors ${getHoverTextColor(subItem.color)}`}
+						className={`font-bold text-ocobo-dark text-base mb-0.5 transition-colors ${getHoverTextColor(subItem.color)}`}
 					>
 						{subItem.label}
 					</h4>
-					<p className="text-[11px] text-gray-400 font-medium leading-tight">
+					<p className="text-xs text-gray-400 font-medium leading-tight">
 						{subItem.description}
 					</p>
 				</div>
@@ -291,7 +291,7 @@ const Navbar: React.FC = () => {
 										<Link
 											to={item.path}
 											className={`
-                        px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-300 flex items-center gap-1
+                        px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 flex items-center gap-1
                         ${getThemeClasses(isDropdownActive, isCurrentPath)}
                       `}
 										>
@@ -327,7 +327,7 @@ const Navbar: React.FC = () => {
 						<div className="flex items-center gap-3">
 							<Link to="/contact" className="hidden md:block">
 								<Button
-									className={`!py-2 !px-5 text-[11px] font-black uppercase tracking-widest border-none transition-all duration-700 
+									className={`!py-2 !px-5 text-xs font-black uppercase tracking-widest border-none transition-all duration-700 
                   ${
 										scrolled
 											? 'bg-ocobo-dark text-white shadow-none scale-95'
@@ -381,7 +381,7 @@ const Navbar: React.FC = () => {
 										<Link
 											to={item.path}
 											onClick={() => setIsOpen(false)}
-											className="font-display text-[22px] font-black block tracking-tight text-ocobo-dark"
+											className="font-display text-2xl font-black block tracking-tight text-ocobo-dark"
 										>
 											{item.label}
 										</Link>
@@ -399,11 +399,11 @@ const Navbar: React.FC = () => {
 														</div>
 														<div>
 															<span
-																className={`font-bold text-[14px] block leading-tight transition-colors ${getHoverTextColor(sub.color).replace('group-hover/item:', '')}`}
+																className={`font-bold text-base block leading-tight transition-colors ${getHoverTextColor(sub.color).replace('group-hover/item:', '')}`}
 															>
 																{sub.label}
 															</span>
-															<span className="text-[11px] text-gray-400 font-medium">
+															<span className="text-xs text-gray-400 font-medium">
 																{sub.description}
 															</span>
 														</div>
@@ -442,7 +442,7 @@ const Navbar: React.FC = () => {
 									<Link
 										to={item.path}
 										onClick={() => setIsOpen(false)}
-										className="font-display text-[22px] font-black block tracking-tight text-ocobo-dark"
+										className="font-display text-2xl font-black block tracking-tight text-ocobo-dark"
 									>
 										{item.label}
 									</Link>
@@ -453,7 +453,7 @@ const Navbar: React.FC = () => {
 
 					<div className="mt-10">
 						<Link to="/contact" onClick={() => setIsOpen(false)}>
-							<button className="w-full flex items-center justify-center gap-3 py-5 rounded-full bg-ocobo-dark text-white text-[13px] font-black uppercase tracking-[0.15em] shadow-2xl active:scale-[0.98] transition-all">
+							<button className="w-full flex items-center justify-center gap-3 py-5 rounded-full bg-ocobo-dark text-white text-sm font-black uppercase tracking-[0.15em] shadow-2xl active:scale-[0.98] transition-all">
 								Prendre rendez-vous <ArrowRight size={16} />
 							</button>
 						</Link>

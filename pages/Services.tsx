@@ -21,7 +21,7 @@ const ArchitecturalGrid = () => {
 			<div className="flex items-stretch gap-4 relative">
 				{/* Axe Ordonnée : ALIGNEMENT */}
 				<div className="flex flex-col items-center justify-center py-4 shrink-0">
-					<div className="[writing-mode:vertical-lr] rotate-180 font-display font-bold text-ocobo-dark/40 text-[10px] uppercase tracking-[0.6em] mb-4">
+					<div className="[writing-mode:vertical-lr] rotate-180 font-display font-bold text-ocobo-dark/40 text-2xs uppercase tracking-[0.6em] mb-4">
 						Alignement
 					</div>
 					<div
@@ -71,7 +71,7 @@ const ArchitecturalGrid = () => {
 					<div className="h-2 bg-ocobo-dark w-full mb-4 animate-blueprint-line"></div>
 
 					{/* Axe Abscisse labels */}
-					<div className="flex justify-between text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-ocobo-dark/60">
+					<div className="flex justify-between text-2xs md:text-2xs font-bold uppercase tracking-widest text-ocobo-dark/60">
 						<span className="animate-box" style={{ animationDelay: '0.9s' }}>
 							Technology
 						</span>
@@ -349,7 +349,7 @@ const Services: React.FC = () => {
 				<div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 mb-16">
 					{/* Left Content */}
 					<div className="lg:w-1/2">
-						<span className="font-display font-black text-ocobo-dark bg-ocobo-yellowLight px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
+						<span className="font-display font-black text-ocobo-dark bg-ocobo-yellowLight px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-10 inline-block border border-ocobo-yellow/20">
 							NOTRE OFFRE
 						</span>
 						<h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
@@ -729,7 +729,7 @@ const Services: React.FC = () => {
 			<section className="py-24 bg-white border-y border-gray-50">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="max-w-3xl mb-20">
-						<span className="font-display font-black text-ocobo-dark bg-ocobo-yellowLight px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20">
+						<span className="font-display font-black text-ocobo-dark bg-ocobo-yellowLight px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20">
 							LEVIERS DE CROISSANCE
 						</span>
 						<h2 className="font-display text-4xl md:text-5xl font-bold text-ocobo-dark mb-8 leading-tight tracking-tight">
@@ -758,7 +758,7 @@ const Services: React.FC = () => {
 								<h3 className="font-display text-2xl font-bold mb-6 group-hover:text-ocobo-yellow transition-colors">
 									Notre méthode
 								</h3>
-								<p className="text-gray-400 font-display font-black text-[10px] uppercase tracking-widest mb-4">
+								<p className="text-gray-400 font-display font-black text-2xs uppercase tracking-widest mb-4">
 									The Revenue Experience System™
 								</p>
 								<p className="text-gray-600 text-sm leading-relaxed mb-10 font-medium flex-grow">
@@ -775,7 +775,7 @@ const Services: React.FC = () => {
 										(tag) => (
 											<span
 												key={tag}
-												className="px-3 py-1 bg-white border border-gray-100 rounded-full text-[9px] font-black uppercase tracking-wider text-gray-400"
+												className="px-3 py-1 bg-white border border-gray-100 rounded-full text-2xs font-black uppercase tracking-wider text-gray-400"
 											>
 												{tag}
 											</span>
@@ -800,7 +800,7 @@ const Services: React.FC = () => {
 								<h3 className="font-display text-2xl font-bold mb-6 group-hover:text-ocobo-sky transition-colors">
 									Notre technologie
 								</h3>
-								<p className="text-gray-400 font-display font-black text-[10px] uppercase tracking-widest mb-4">
+								<p className="text-gray-400 font-display font-black text-2xs uppercase tracking-widest mb-4">
 									Infrastructure Unifiée
 								</p>
 								<p className="text-gray-600 text-sm leading-relaxed mb-10 font-medium flex-grow">
@@ -851,7 +851,7 @@ const Services: React.FC = () => {
 								<h3 className="font-display text-2xl font-bold mb-6 group-hover:text-ocobo-mint transition-colors">
 									Notre équipe
 								</h3>
-								<p className="text-gray-400 font-display font-black text-[10px] uppercase tracking-widest mb-4">
+								<p className="text-gray-400 font-display font-black text-2xs uppercase tracking-widest mb-4">
 									Le RevOps Studio
 								</p>
 								<p className="text-gray-600 text-sm leading-relaxed mb-10 font-medium flex-grow">
@@ -864,10 +864,10 @@ const Services: React.FC = () => {
 								<div className="w-full h-1 bg-ocobo-mint opacity-20 mb-8 rounded-full group-hover:opacity-100 transition-opacity"></div>
 
 								<div className="h-[48px] flex flex-col justify-start">
-									<div className="text-[9px] font-black text-gray-400 uppercase tracking-widest leading-relaxed">
+									<div className="text-2xs font-black text-gray-400 uppercase tracking-widest leading-relaxed">
 										TheFork • Qonto • Payfit
 									</div>
-									<div className="text-[9px] font-black text-gray-400 uppercase tracking-widest leading-relaxed">
+									<div className="text-2xs font-black text-gray-400 uppercase tracking-widest leading-relaxed">
 										Spendesk • Zenchef
 									</div>
 								</div>
@@ -919,7 +919,7 @@ const Services: React.FC = () => {
 									{step.title}
 								</h3>
 								<div className="pt-4 border-t border-gray-50">
-									<span className="text-[10px] font-black uppercase text-gray-400">
+									<span className="text-2xs font-black uppercase text-gray-400">
 										Livrables :
 									</span>
 									<p className="text-xs font-bold text-ocobo-dark mt-1">

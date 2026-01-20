@@ -409,7 +409,7 @@ const ModularStackGrid = () => {
 									alt={item.label}
 									className="w-6 h-6 md:w-8 md:h-8 object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all"
 								/>
-								<span className="text-[6px] md:text-[8px] font-black uppercase tracking-widest text-ocobo-dark opacity-30">
+								<span className="text-2xs md:text-2xs font-black uppercase tracking-widest text-ocobo-dark opacity-30">
 									{item.label}
 								</span>
 							</div>
@@ -568,7 +568,7 @@ const Home: React.FC = () => {
 
 				<div className="max-w-7xl mx-auto px-4 relative z-10">
 					<div className="mb-16 text-center">
-						<span className="font-display font-black text-white/40 text-[9px] uppercase tracking-[0.4em] mb-4 inline-block">
+						<span className="font-display font-black text-white/40 text-2xs uppercase tracking-[0.4em] mb-4 inline-block">
 							Ils nous font confiance
 						</span>
 						<h3 className="text-white text-3xl md:text-5xl font-bold mb-8 tracking-tight">
@@ -582,7 +582,7 @@ const Home: React.FC = () => {
 
 					<div className="max-w-4xl mx-auto relative py-16 px-8 md:px-16 bg-white/5 rounded-[3rem] border border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm group/card">
 						{/* Massive Yellow Quote Mark - More visible */}
-						<div className="absolute top-12 left-10 text-ocobo-yellow/40 font-display font-black text-[120px] leading-none select-none pointer-events-none transform -translate-y-1/4">
+						<div className="absolute top-12 left-10 text-ocobo-yellow/40 font-display font-black text-9xl leading-none select-none pointer-events-none transform -translate-y-1/4">
 							“
 						</div>
 
@@ -605,7 +605,7 @@ const Home: React.FC = () => {
 										<p className="text-white font-black text-lg tracking-tight">
 											Arnaud Meunier
 										</p>
-										<p className="text-[10px] font-black text-ocobo-yellow uppercase tracking-[0.25em] opacity-70">
+										<p className="text-2xs font-black text-ocobo-yellow uppercase tracking-[0.25em] opacity-70">
 											CSO @ ePack Hygiène
 										</p>
 									</div>
@@ -613,7 +613,7 @@ const Home: React.FC = () => {
 
 								<Link
 									to="/stories"
-									className="group/btn flex items-center gap-4 text-white/40 hover:text-ocobo-yellow transition-colors font-display font-black text-[9px] uppercase tracking-[0.3em]"
+									className="group/btn flex items-center gap-4 text-white/40 hover:text-ocobo-yellow transition-colors font-display font-black text-2xs uppercase tracking-[0.3em]"
 								>
 									Découvrir nos stories
 									<ArrowRight
@@ -701,7 +701,7 @@ const Home: React.FC = () => {
 									{item.icon}
 								</div>
 
-								<span className="font-display font-black text-ocobo-dark/30 text-[10px] uppercase tracking-[0.5em] mb-4">
+								<span className="font-display font-black text-ocobo-dark/30 text-2xs uppercase tracking-[0.5em] mb-4">
 									Organiser =
 								</span>
 
@@ -711,7 +711,7 @@ const Home: React.FC = () => {
 									{item.title}
 								</h3>
 
-								<p className="text-gray-400 font-bold text-[10px] uppercase tracking-[0.2em]">
+								<p className="text-gray-400 font-bold text-2xs uppercase tracking-[0.2em]">
 									{item.desc}
 								</p>
 
@@ -724,7 +724,7 @@ const Home: React.FC = () => {
 				</div>
 
 				<div className="text-center mt-32 max-w-4xl mx-auto px-4">
-					<div className="inline-block px-5 py-2 bg-ocobo-mintLight text-ocobo-mint font-display font-black uppercase tracking-[0.3em] text-[10px] mb-8 rounded-full border border-ocobo-mint/20">
+					<div className="inline-block px-5 py-2 bg-ocobo-mintLight text-ocobo-mint font-display font-black uppercase tracking-[0.3em] text-2xs mb-8 rounded-full border border-ocobo-mint/20">
 						Notre Mission
 					</div>
 					<h3 className="font-display text-4xl md:text-5xl font-black mb-6 tracking-tight">

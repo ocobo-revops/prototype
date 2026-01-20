@@ -95,7 +95,7 @@ const ArticleDetail: React.FC = () => {
 				<div className="mb-12 flex items-center justify-between">
 					<Link
 						to="/resources"
-						className="inline-flex items-center text-gray-400 hover:text-ocobo-dark font-black uppercase tracking-widest text-[10px] transition-colors"
+						className="inline-flex items-center text-gray-400 hover:text-ocobo-dark font-black uppercase tracking-widest text-2xs transition-colors"
 					>
 						<ArrowLeft size={14} className="mr-2" /> Retour au blog
 					</Link>
@@ -113,7 +113,7 @@ const ArticleDetail: React.FC = () => {
 
 				{/* HERO ARTICLE */}
 				<div className="max-w-4xl mx-auto text-center mb-20">
-					<span className="font-display font-bold text-ocobo-coral bg-ocobo-coralLight px-4 py-1.5 text-[10px] uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-coral/20">
+					<span className="font-display font-bold text-ocobo-coral bg-ocobo-coralLight px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-coral/20">
 						{article.category}
 					</span>
 					<h1 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-10 leading-[1.05] tracking-tight">
@@ -136,7 +136,7 @@ const ArticleDetail: React.FC = () => {
 					{/* SIDEBAR : SOMMAIRE */}
 					<aside className="lg:w-1/4">
 						<div className="sticky top-32">
-							<h4 className="font-display font-black text-[10px] uppercase tracking-[0.4em] text-ocobo-dark mb-8">
+							<h4 className="font-display font-black text-2xs uppercase tracking-[0.4em] text-ocobo-dark mb-8">
 								Sommaire
 							</h4>
 							<nav className="space-y-4">
@@ -272,7 +272,7 @@ const ArticleDetail: React.FC = () => {
 										placeholder="votre@email.com"
 										className="flex-grow px-6 py-4 bg-white/90 focus:bg-white border-none outline-none text-ocobo-dark font-bold placeholder-gray-400 rounded-xl"
 									/>
-									<button className="px-8 py-4 bg-ocobo-dark text-white font-black uppercase tracking-widest text-[10px] rounded-xl hover:bg-black transition-all">
+									<button className="px-8 py-4 bg-ocobo-dark text-white font-black uppercase tracking-widest text-2xs rounded-xl hover:bg-black transition-all">
 										S'inscrire
 									</button>
 								</form>
@@ -296,13 +296,13 @@ const ArticleDetail: React.FC = () => {
 										alt="Related"
 									/>
 								</div>
-								<span className="font-display font-bold text-[9px] uppercase tracking-widest text-ocobo-coral mb-3 block">
+								<span className="font-display font-bold text-2xs uppercase tracking-widest text-ocobo-coral mb-3 block">
 									Performance
 								</span>
 								<h4 className="font-display text-xl font-bold text-ocobo-dark mb-4 group-hover:text-ocobo-yellow transition-colors leading-tight">
 									Comment réduire votre CAC via l'automatisation RevOps
 								</h4>
-								<div className="flex items-center text-[10px] font-black uppercase tracking-widest text-gray-400 gap-2">
+								<div className="flex items-center text-2xs font-black uppercase tracking-widest text-gray-400 gap-2">
 									<span>8 MIN</span>
 									<span className="w-1 h-1 bg-gray-200 rounded-full"></span>
 									<div className="flex items-center gap-1 group-hover:text-ocobo-dark transition-colors">

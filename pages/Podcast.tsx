@@ -117,7 +117,7 @@ const Podcast: React.FC = () => {
 						<div className="lg:w-1/2">
 							<div className="flex items-center gap-3 mb-8">
 								<span className="w-12 h-px bg-ocobo-yellow"></span>
-								<span className="font-display font-black text-ocobo-yellow text-[10px] uppercase tracking-[0.4em]">
+								<span className="font-display font-black text-ocobo-yellow text-2xs uppercase tracking-[0.4em]">
 									Ocobo Originals
 								</span>
 							</div>
@@ -174,7 +174,7 @@ const Podcast: React.FC = () => {
 										/>
 									</div>
 									<div>
-										<span className="text-[10px] font-black text-ocobo-yellow uppercase tracking-[0.3em] block mb-2">
+										<span className="text-2xs font-black text-ocobo-yellow uppercase tracking-[0.3em] block mb-2">
 											Dernier Épisode — #{episodes[0].number}
 										</span>
 										<h3 className="font-display text-2xl font-bold text-white leading-tight">
@@ -189,7 +189,7 @@ const Podcast: React.FC = () => {
 										<div className="h-1.5 w-full bg-white/10 rounded-full relative overflow-hidden">
 											<div className="absolute left-0 top-0 bottom-0 w-1/3 bg-ocobo-yellow"></div>
 										</div>
-										<div className="flex justify-between text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+										<div className="flex justify-between text-2xs font-bold text-gray-500 uppercase tracking-widest">
 											<span>12:45</span>
 											<span>{episodes[0].duration}</span>
 										</div>
@@ -269,11 +269,11 @@ const Podcast: React.FC = () => {
 								<div className="flex flex-col justify-between py-2 flex-grow">
 									<div>
 										<div className="flex items-center gap-3 mb-4">
-											<span className="text-[10px] font-black uppercase tracking-[0.2em] text-ocobo-yellow">
+											<span className="text-2xs font-black uppercase tracking-[0.2em] text-ocobo-yellow">
 												{ep.category}
 											</span>
 											<span className="w-1 h-1 bg-gray-200 rounded-full"></span>
-											<span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">
+											<span className="text-2xs font-black uppercase tracking-[0.2em] text-gray-400">
 												{ep.date}
 											</span>
 										</div>
@@ -294,17 +294,17 @@ const Podcast: React.FC = () => {
 												/>
 											</div>
 											<div>
-												<p className="text-[11px] font-black text-ocobo-dark uppercase tracking-widest leading-none mb-1">
+												<p className="text-xs font-black text-ocobo-dark uppercase tracking-widest leading-none mb-1">
 													{ep.guest}
 												</p>
-												<p className="text-[9px] font-medium text-gray-400 uppercase tracking-widest">
+												<p className="text-2xs font-medium text-gray-400 uppercase tracking-widest">
 													{ep.role}
 												</p>
 											</div>
 										</div>
 										<div className="flex items-center gap-2 text-gray-300">
 											<Clock size={14} />
-											<span className="text-[10px] font-black uppercase tracking-widest">
+											<span className="text-2xs font-black uppercase tracking-widest">
 												{ep.duration}
 											</span>
 										</div>
@@ -319,7 +319,7 @@ const Podcast: React.FC = () => {
 							</p>
 							<button
 								onClick={() => setSearchTerm('')}
-								className="mt-4 text-ocobo-dark font-black uppercase tracking-widest text-[10px] underline"
+								className="mt-4 text-ocobo-dark font-black uppercase tracking-widest text-2xs underline"
 							>
 								Réinitialiser la recherche
 							</button>
@@ -374,7 +374,7 @@ const Podcast: React.FC = () => {
 			{/* CALL TO ACTION */}
 			<section className="bg-ocobo-yellow py-32 relative overflow-hidden">
 				<div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-					<span className="font-display font-black text-ocobo-dark opacity-30 text-[11px] uppercase tracking-[0.4em] mb-8 inline-block">
+					<span className="font-display font-black text-ocobo-dark opacity-30 text-xs uppercase tracking-[0.4em] mb-8 inline-block">
 						Prochainement
 					</span>
 					<h2 className="font-display text-5xl md:text-7xl font-black text-ocobo-dark mb-10 leading-[0.9] tracking-tighter">
