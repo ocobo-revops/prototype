@@ -1,7 +1,7 @@
 import { Calendar, Check, MessageSquare } from 'lucide-react';
 import type React from 'react';
 import { useState } from 'react';
-import { Button } from '../components/atoms';
+import { Button, Input } from '../components/atoms';
 
 const Contact: React.FC = () => {
 	const [formState, setFormState] = useState({
@@ -108,75 +108,44 @@ const Contact: React.FC = () => {
 							</h3>
 
 							<form onSubmit={handleSubmit} className="space-y-6">
-								<div>
-									<label
-										htmlFor="email"
-										className="block text-xs font-bold uppercase text-gray-500 mb-2"
-									>
-										E-mail professionnel*
-									</label>
-									<input
-										type="email"
-										name="email"
-										required
-										className="w-full px-4 py-4 bg-gray-50 border border-gray-100 focus:border-ocobo-dark focus:bg-white focus:ring-0 outline-none transition-all placeholder-gray-300"
-										placeholder="name@company.com"
-										value={formState.email}
-										onChange={handleChange}
-									/>
-								</div>
+								<Input
+									type="email"
+									name="email"
+									label="E-mail professionnel*"
+									required
+									placeholder="name@company.com"
+									className="placeholder-gray-300"
+									value={formState.email}
+									onChange={handleChange}
+								/>
 
 								<div className="grid grid-cols-2 gap-4">
-									<div>
-										<label
-											htmlFor="firstName"
-											className="block text-xs font-bold uppercase text-gray-500 mb-2"
-										>
-											Prénom*
-										</label>
-										<input
-											type="text"
-											name="firstName"
-											required
-											className="w-full px-4 py-4 bg-gray-50 border border-gray-100 focus:border-ocobo-dark focus:bg-white focus:ring-0 outline-none transition-all"
-											value={formState.firstName}
-											onChange={handleChange}
-										/>
-									</div>
-									<div>
-										<label
-											htmlFor="lastName"
-											className="block text-xs font-bold uppercase text-gray-500 mb-2"
-										>
-											Nom*
-										</label>
-										<input
-											type="text"
-											name="lastName"
-											required
-											className="w-full px-4 py-4 bg-gray-50 border border-gray-100 focus:border-ocobo-dark focus:bg-white focus:ring-0 outline-none transition-all"
-											value={formState.lastName}
-											onChange={handleChange}
-										/>
-									</div>
-								</div>
-
-								<div>
-									<label
-										htmlFor="role"
-										className="block text-xs font-bold uppercase text-gray-500 mb-2"
-									>
-										Intitulé du poste*
-									</label>
-									<input
+									<Input
 										type="text"
-										name="role"
+										name="firstName"
+										label="Prénom*"
 										required
-										className="w-full px-4 py-4 bg-gray-50 border border-gray-100 focus:border-ocobo-dark focus:bg-white focus:ring-0 outline-none transition-all"
-										value={formState.role}
+										value={formState.firstName}
+										onChange={handleChange}
+									/>
+									<Input
+										type="text"
+										name="lastName"
+										label="Nom*"
+										required
+										value={formState.lastName}
 										onChange={handleChange}
 									/>
 								</div>
+
+								<Input
+									type="text"
+									name="role"
+									label="Intitulé du poste*"
+									required
+									value={formState.role}
+									onChange={handleChange}
+								/>
 
 								<div>
 									<label
@@ -202,21 +171,13 @@ const Contact: React.FC = () => {
 									</select>
 								</div>
 
-								<div>
-									<label
-										htmlFor="source"
-										className="block text-xs font-bold uppercase text-gray-500 mb-2"
-									>
-										Comment nous avez-vous connus ?
-									</label>
-									<input
-										type="text"
-										name="source"
-										className="w-full px-4 py-4 bg-gray-50 border border-gray-100 focus:border-ocobo-dark focus:bg-white focus:ring-0 outline-none transition-all"
-										value={formState.source}
-										onChange={handleChange}
-									/>
-								</div>
+								<Input
+									type="text"
+									name="source"
+									label="Comment nous avez-vous connus ?"
+									value={formState.source}
+									onChange={handleChange}
+								/>
 
 								<div className="pt-6">
 									<Button
