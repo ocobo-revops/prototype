@@ -399,3 +399,27 @@ Created: 2026-01-20T12:00:00Z
 ### Verified
 - pnpm storybook: ✅ launches on http://localhost:6006
 - pnpm build: ✅ exit 0
+
+---
+
+## Feature 14: Stories for atomic components
+**Status:** ✅ Completed 2026-01-20
+
+### Changes
+- Created Button.stories.tsx with all variants (primary, outline, white) and sizes (sm, md, lg)
+- Created Badge.stories.tsx with all colour variants (yellow, mint, sky, coral, dark, gray)
+- Created Input.stories.tsx with states (default, label, error, disabled)
+- Each story file includes:
+  - Individual story per variant
+  - AllVariants story showing matrix of options
+  - autodocs tag for automatic documentation
+  - argTypes for interactive controls
+
+### Files created
+- components/atoms/Button.stories.tsx
+- components/atoms/Badge.stories.tsx
+- components/atoms/Input.stories.tsx
+
+### Verified
+- pnpm build: ✅ exit 0
+- pnpm storybook: ✅ launches, stories render correctly
