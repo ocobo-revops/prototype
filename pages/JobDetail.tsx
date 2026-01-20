@@ -320,7 +320,7 @@ const JobDetail: React.FC = () => {
 						{/* FORMULAIRE CANDIDATURE (Style Newsletter Blog) */}
 						<div
 							id="apply"
-							className="mt-24 bg-ocobo-yellow p-10 md:p-14 rounded-[2.5rem] relative overflow-hidden shadow-2xl scroll-mt-40"
+							className="mt-24 bg-ocobo-yellow p-10 md:p-14 rounded-5xl relative overflow-hidden shadow-2xl scroll-mt-40"
 						>
 							{/* Motif architectural discret */}
 							<div className="absolute top-0 right-0 p-4 opacity-[0.05]">

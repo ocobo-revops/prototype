@@ -83,3 +83,32 @@ Created: 2026-01-20T12:00:00Z
 ### Verified
 - pnpm build: ✅ exit 0
 - No text-[*px] patterns remain in source files
+
+---
+
+## Feature 3: Border radius scale standardised to 6 values
+**Status:** ✅ Completed 2026-01-20
+
+### Changes
+- Added borderRadius scale to tailwind.config.ts:
+  - rounded-4xl: 2rem (32px) - for rounded-[2rem]
+  - rounded-5xl: 2.5rem (40px) - for rounded-[2.5rem], rounded-[2.8rem]
+  - rounded-6xl: 3rem (48px) - for rounded-[3rem]
+  - rounded-7xl: 4rem (64px) - for rounded-[4rem]
+- Replaced all arbitrary rounded-[*rem] classes across 13 files
+
+### Files modified
+- tailwind.config.ts (borderRadius scale)
+- pages/: JobDetail, ArticleDetail, Podcast, About, Stories, Studio, Home, WebinarDetail, StoryDetail, Jobs, Services
+- components/: Navbar, NewsletterWidget
+
+### Mapping used
+- rounded-[2rem] → rounded-4xl
+- rounded-[2.5rem] → rounded-5xl
+- rounded-[2.8rem] → rounded-5xl (nearest)
+- rounded-[3rem] → rounded-6xl
+- rounded-[4rem] → rounded-7xl
+
+### Verified
+- pnpm build: ✅ exit 0
+- No rounded-[*rem] patterns remain in source files
