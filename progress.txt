@@ -14,6 +14,7 @@ Read this section FIRST on each iteration.
 - ThemeColor enum exists in types.ts (YELLOW, MINT, SKY, CORAL, DARK)
 - Button.tsx in components/atoms/ is the reference pattern for component structure
 - Import atoms from components/atoms (e.g. `import { Button } from '../components/atoms'`)
+- Import molecules from components/molecules (e.g. `import { FeatureCard } from '../components/molecules'`)
 
 ---
 
@@ -276,6 +277,30 @@ Created: 2026-01-20T12:00:00Z
 - components/atoms/Input.tsx (new file)
 - components/atoms/index.ts (added Input export)
 - pages/Contact.tsx (replaced inline inputs)
+
+### Verified
+- pnpm build: ✅ exit 0
+
+---
+
+## Feature 9: Card component created with base, feature, testimonial variants
+**Status:** ✅ Completed 2026-01-20
+
+### Changes
+- Created components/molecules/ folder structure
+- Created Card.tsx as base card component (simple container)
+- Created FeatureCard.tsx with: icon, title, description, colour, label props
+- Created TestimonialCard.tsx with: quote, authorName, authorRole, ctaText, ctaLink props
+- Exported from components/molecules/index.ts
+- Replaced Home.tsx pain point cards (4) with FeatureCard
+- Replaced Home.tsx testimonial with TestimonialCard
+
+### Files modified
+- components/molecules/Card.tsx (new)
+- components/molecules/FeatureCard.tsx (new)
+- components/molecules/TestimonialCard.tsx (new)
+- components/molecules/index.ts (new)
+- pages/Home.tsx (refactored to use new components)
 
 ### Verified
 - pnpm build: ✅ exit 0

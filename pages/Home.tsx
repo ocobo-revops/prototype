@@ -1,16 +1,9 @@
-import {
-	ArrowRight,
-	BarChart3,
-	Check,
-	Layout,
-	Plus,
-	Target,
-	X,
-	Zap,
-} from 'lucide-react';
+import { BarChart3, Check, Layout, Plus, Target, X, Zap } from 'lucide-react';
 import type React from 'react';
 import { Link } from 'react-router';
 import { Button } from '../components/atoms';
+import { FeatureCard, TestimonialCard } from '../components/molecules';
+import { ThemeColor } from '../types';
 
 const DashboardIllustration = () => {
 	return (
@@ -555,50 +548,14 @@ const Home: React.FC = () => {
 						<ClientMarquee />
 					</div>
 
-					<div className="max-w-4xl mx-auto relative py-16 px-8 md:px-16 bg-white/5 rounded-6xl border border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm group/card">
-						{/* Massive Yellow Quote Mark - More visible */}
-						<div className="absolute top-12 left-10 text-ocobo-yellow/40 font-display font-black text-9xl leading-none select-none pointer-events-none transform -translate-y-1/4">
-							“
-						</div>
-
-						<div className="relative z-10">
-							<p className="text-white font-display text-lg md:text-2xl font-medium mb-12 leading-relaxed max-w-2xl mx-auto md:mx-0">
-								Nous avons fait appel à Ocobo dans notre seconde phase
-								d’hypercroissance afin de réinventer notre modèle de
-								commissionnement.
-							</p>
-
-							{/* Multi-color separator line style "Inside" */}
-							<div className="w-full h-1 bg-gradient-to-r from-ocobo-yellow via-ocobo-coral to-ocobo-sky opacity-40 mb-10"></div>
-
-							<div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-								<div className="flex items-center gap-6">
-									<div className="w-14 h-14 bg-ocobo-yellow rounded-2xl flex items-center justify-center text-ocobo-dark font-display font-black text-xl shadow-xl transform rotate-3 group-hover/card:rotate-0 transition-transform duration-500">
-										AM
-									</div>
-									<div className="flex flex-col">
-										<p className="text-white font-black text-lg tracking-tight">
-											Arnaud Meunier
-										</p>
-										<p className="text-2xs font-black text-ocobo-yellow uppercase tracking-[0.25em] opacity-70">
-											CSO @ ePack Hygiène
-										</p>
-									</div>
-								</div>
-
-								<Link
-									to="/stories"
-									className="group/btn flex items-center gap-4 text-white/40 hover:text-ocobo-yellow transition-colors font-display font-black text-2xs uppercase tracking-[0.3em]"
-								>
-									Découvrir nos stories
-									<ArrowRight
-										size={14}
-										className="group-hover/btn:translate-x-2 transition-transform"
-									/>
-								</Link>
-							</div>
-						</div>
-					</div>
+					<TestimonialCard
+						quote="Nous avons fait appel à Ocobo dans notre seconde phase d'hypercroissance afin de réinventer notre modèle de commissionnement."
+						authorName="Arnaud Meunier"
+						authorRole="CSO @ ePack Hygiène"
+						ctaText="Découvrir nos stories"
+						ctaLink="/stories"
+						className="max-w-4xl mx-auto"
+					/>
 				</div>
 			</section>
 
@@ -632,69 +589,34 @@ const Home: React.FC = () => {
 
 				<div className="max-w-7xl mx-auto px-4 mt-28 relative z-10">
 					<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-						{[
-							{
-								title: 'Aligner',
-								desc: 'les équipes',
-								icon: <Layout size={28} />,
-								color: 'ocobo-coral',
-								lightColor: 'ocobo-coralLight',
-							},
-							{
-								title: 'Simplifier',
-								desc: 'les process',
-								icon: <Zap size={28} />,
-								color: 'ocobo-yellow',
-								lightColor: 'ocobo-yellowLight',
-							},
-							{
-								title: 'Fiabiliser',
-								desc: 'la donnée',
-								icon: <Target size={28} />,
-								color: 'ocobo-sky',
-								lightColor: 'ocobo-skyLight',
-							},
-							{
-								title: 'Piloter',
-								desc: 'la croissance',
-								icon: <BarChart3 size={28} />,
-								color: 'ocobo-mint',
-								lightColor: 'ocobo-mintLight',
-							},
-						].map((item, i) => (
-							<div
-								key={i}
-								className="group relative bg-white border border-gray-100 p-12 aspect-square rounded-2xl transition-all duration-500 hover:shadow-soft-lg hover:-translate-y-2 flex flex-col items-center justify-center text-center"
-							>
-								<div
-									className={`absolute inset-0 bg-${item.lightColor} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity`}
-								></div>
-
-								<div
-									className={`mb-8 text-${item.color} transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}
-								>
-									{item.icon}
-								</div>
-
-								<span className="font-display font-black text-ocobo-dark/30 text-2xs uppercase tracking-[0.5em] mb-4">
-									Organiser =
-								</span>
-
-								<h3
-									className={`font-display text-4xl font-black text-ocobo-dark group-hover:text-${item.color} mb-3 tracking-tighter transition-colors`}
-								>
-									{item.title}
-								</h3>
-
-								<p className="text-gray-400 font-bold text-2xs uppercase tracking-[0.2em]">
-									{item.desc}
-								</p>
-
-								<div className="absolute bottom-6 opacity-0 group-hover:opacity-20 transition-opacity">
-									<Plus size={20} className="text-ocobo-dark" />
-								</div>
-							</div>
-						))}
+						<FeatureCard
+							icon={<Layout size={28} />}
+							title="Aligner"
+							description="les équipes"
+							colour={ThemeColor.CORAL}
+							label="Organiser ="
+						/>
+						<FeatureCard
+							icon={<Zap size={28} />}
+							title="Simplifier"
+							description="les process"
+							colour={ThemeColor.YELLOW}
+							label="Organiser ="
+						/>
+						<FeatureCard
+							icon={<Target size={28} />}
+							title="Fiabiliser"
+							description="la donnée"
+							colour={ThemeColor.SKY}
+							label="Organiser ="
+						/>
+						<FeatureCard
+							icon={<BarChart3 size={28} />}
+							title="Piloter"
+							description="la croissance"
+							colour={ThemeColor.MINT}
+							label="Organiser ="
+						/>
 					</div>
 				</div>
 
