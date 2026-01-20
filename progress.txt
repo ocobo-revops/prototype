@@ -8,7 +8,8 @@ Read this section FIRST on each iteration.
 - Use pnpm, not npm
 - Do not git commit or push; ask before git add
 - Prefer existing files over creating new ones
-- Current Tailwind config is inline in index.html lines 18-42
+- Tailwind v4 config in tailwind.config.ts, PostCSS via @tailwindcss/postcss
+- CSS entry point: src/styles/globals.css (imported in index.tsx)
 - Fonts loaded from production domain: ocobo.co/fonts/
 - ThemeColor enum exists in types.ts (YELLOW, MINT, SKY, CORAL, DARK)
 - Button.tsx is the reference pattern for component structure
@@ -38,3 +39,18 @@ Created: 2026-01-20T12:00:00Z
 6. **Validation** (16-17): Build + visual regression
 
 ---
+
+## Feature 1: Tailwind config migrated from inline CDN to tailwind.config.ts
+**Status:** ✅ Completed 2026-01-20
+
+### Changes
+- Installed: tailwindcss, postcss, autoprefixer, @tailwindcss/postcss
+- Created: tailwind.config.ts with theme from index.html
+- Created: postcss.config.js with @tailwindcss/postcss
+- Created: src/styles/globals.css with @import "tailwindcss", @config, @font-face
+- Updated: index.tsx to import globals.css
+- Updated: index.html removed CDN script, inline config, inline styles
+
+### Verified
+- pnpm build: ✅ exit 0
+- pnpm dev: ✅ serves correctly

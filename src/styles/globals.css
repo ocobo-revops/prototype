@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+/* --- Custom Fonts from Production Domain --- */
+
+/* BERMIA BLACK (Display headings) */
+@font-face {
+	font-family: "Bermia";
+	src: url("https://www.ocobo.co/fonts/bermia/Bermia-Black.woff") format("woff");
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* BORNIA REGULAR (Body text) */
+@font-face {
+	font-family: "Bornia";
+	src: url("https://www.ocobo.co/fonts/bornia/Bornia-Regular.otf")
+		format("opentype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* BORNIA BOLD */
+@font-face {
+	font-family: "Bornia";
+	src: url("https://www.ocobo.co/fonts/bornia/Bornia-Bold.otf")
+		format("opentype");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* --- CSS Custom Properties --- */
+:root {
+	--font-display: "Bermia", Impact, sans-serif;
+	--font-sans: "Bornia", "Inter", sans-serif;
+}
+
+/* --- Base Styles --- */
+body {
+	font-family: "Bornia", "Inter", sans-serif;
+	background-color: #ffffff;
+	color: #212323;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Bermia", "Inter", sans-serif;
+	font-weight: 900;
+	letter-spacing: -0.02em;
+}
+
+.scroll-smooth {
+	scroll-behavior: smooth;
+}
+
+::selection {
+	background-color: #f1cf25;
+	color: #212323;
+}
