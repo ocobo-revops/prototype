@@ -93,7 +93,7 @@ const WebinarDetail: React.FC = () => {
 
 				{/* Video Player Section */}
 				<div className="mb-20">
-					<div className="relative aspect-video w-full rounded-5xl overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] bg-ocobo-dark group">
+					<div className="relative aspect-video w-full rounded-5xl overflow-hidden shadow-soft-2xl bg-ocobo-dark group">
 						<iframe
 							src={`https://www.youtube.com/embed/${webinar.youtubeId}?autoplay=0&rel=0&modestbranding=1`}
 							title={webinar.title}

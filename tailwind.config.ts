@@ -46,6 +46,34 @@ export default {
 					gray: '#F5F5F5',
 				},
 			},
+			boxShadow: {
+				// Soft diffused shadows (UI elements)
+				soft: '0 8px 20px -10px rgba(0,0,0,0.08)',
+				'soft-md': '0 15px 40px -10px rgba(0,0,0,0.12)',
+				'soft-lg': '0 25px 60px -15px rgba(0,0,0,0.15)',
+				'soft-xl': '0 40px 100px -20px rgba(0,0,0,0.08)',
+				'soft-2xl': '0 50px 100px -20px rgba(0,0,0,0.15)',
+				'soft-3xl': '0 50px 100px -20px rgba(0,0,0,0.2)',
+				'soft-dark': '0 30px 100px -20px rgba(0,0,0,0.5)',
+				// Button/CTA shadow
+				button: '0 20px 50px -10px rgba(0,0,0,0.2)',
+				// Form shadow
+				form: '0 20px 50px rgba(0,0,0,0.05)',
+				// Method card shadow
+				card: '0 15px 50px -15px rgba(0,0,0,0.05)',
+				// Colored glow
+				'glow-yellow': '0 50px 100px -20px rgba(241,207,37,0.3)',
+				// Ring shadow
+				ring: '0 0 0 10px #fcfcfc',
+				// Brutalist offset shadows
+				'offset-sm': '4px 4px 0px 0px rgba(33,35,35,1)',
+				'offset-md': '8px 8px 0px 0px rgba(33,35,35,1)',
+				'offset-lg': '10px 10px 0px 0px rgba(33,35,35,1)',
+				'offset-coral': '8px 8px 0px 0px rgba(254,156,135,1)',
+				'offset-sky': '8px 8px 0px 0px rgba(153,209,223,1)',
+				'offset-yellow': '8px 8px 0px 0px rgba(241,207,37,1)',
+				'offset-mint': '8px 8px 0px 0px rgba(154,219,186,1)',
+			},
 		},
 	},
 	plugins: [],

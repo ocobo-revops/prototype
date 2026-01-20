@@ -131,7 +131,7 @@ const StoriesIllustration = () => {
 					height="100"
 					className="animate-float-gentle"
 				>
-					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-[8px_8px_0px_0px_rgba(254,156,135,1)]">
+					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset-coral">
 						<div className="flex items-center gap-2 mb-2">
 							<TrendingUp size={14} className="text-ocobo-coral" />
 							<span className="text-2xs font-black uppercase tracking-widest text-ocobo-dark opacity-40">
@@ -156,7 +156,7 @@ const StoriesIllustration = () => {
 					className="animate-float-gentle"
 					style={{ animationDelay: '1.2s' }}
 				>
-					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-[8px_8px_0px_0px_rgba(153,209,223,1)]">
+					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset-sky">
 						<div className="flex items-center gap-2 mb-2">
 							<Zap size={14} className="text-ocobo-sky" />
 							<span className="text-2xs font-black uppercase tracking-widest text-ocobo-dark opacity-40">
@@ -181,7 +181,7 @@ const StoriesIllustration = () => {
 					className="animate-float-gentle"
 					style={{ animationDelay: '2.5s' }}
 				>
-					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-[8px_8px_0px_0px_rgba(241,207,37,1)]">
+					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset-yellow">
 						<div className="flex items-center gap-2 mb-2">
 							<BarChart3 size={14} className="text-ocobo-yellow" />
 							<span className="text-2xs font-black uppercase tracking-widest text-ocobo-dark opacity-40">
@@ -206,7 +206,7 @@ const StoriesIllustration = () => {
 					className="animate-float-gentle"
 					style={{ animationDelay: '0.6s' }}
 				>
-					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-[8px_8px_0px_0px_rgba(154,219,186,1)]">
+					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset-mint">
 						<div className="flex items-center gap-2 mb-2">
 							<Smile size={14} className="text-ocobo-mint" />
 							<span className="text-2xs font-black uppercase tracking-widest text-ocobo-dark opacity-40">
@@ -677,7 +677,7 @@ const Stories: React.FC = () => {
 						<Link
 							key={item.id}
 							to={`/stories/${item.id}`}
-							className={`group relative flex flex-col bg-white border border-gray-100 rounded-5xl p-6 transition-all duration-500 hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] hover:-translate-y-2 overflow-hidden h-full ${animate ? 'animate-fade-in-up' : ''}`}
+							className={`group relative flex flex-col bg-white border border-gray-100 rounded-5xl p-6 transition-all duration-500 hover:shadow-soft-xl hover:-translate-y-2 overflow-hidden h-full ${animate ? 'animate-fade-in-up' : ''}`}
 							style={{ animationDelay: `${idx * 0.05}s` }}
 						>
 							<div
@@ -780,7 +780,7 @@ const Stories: React.FC = () => {
 						<Link to="/contact">
 							<Button
 								variant="primary"
-								className="px-14 py-6 text-lg shadow-[0_20px_50px_-10px_rgba(0,0,0,0.2)] bg-ocobo-dark text-white border-none hover:bg-black"
+								className="px-14 py-6 text-lg shadow-button bg-ocobo-dark text-white border-none hover:bg-black"
 							>
 								Discutons de votre architecture
 							</Button>

@@ -397,7 +397,7 @@ const ModularStackGrid = () => {
               aspect-square rounded-xl md:rounded-2xl border transition-all duration-500 flex items-center justify-center
               ${
 								item.type === 'logo'
-									? 'group bg-white border-gray-100 shadow-[0_8px_20px_-10px_rgba(0,0,0,0.08)] hover:shadow-xl hover:-translate-y-1 hover:border-ocobo-sky/30'
+									? 'group bg-white border-gray-100 shadow-soft hover:shadow-xl hover:-translate-y-1 hover:border-ocobo-sky/30'
 									: 'bg-gray-50/50 border-dashed border-gray-200 group/empty hover:bg-white hover:border-solid hover:border-ocobo-yellow/40'
 							}
             `}
@@ -689,7 +689,7 @@ const Home: React.FC = () => {
 						].map((item, i) => (
 							<div
 								key={i}
-								className="group relative bg-white border border-gray-100 p-12 aspect-square rounded-2xl transition-all duration-500 hover:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-2 flex flex-col items-center justify-center text-center"
+								className="group relative bg-white border border-gray-100 p-12 aspect-square rounded-2xl transition-all duration-500 hover:shadow-soft-lg hover:-translate-y-2 flex flex-col items-center justify-center text-center"
 							>
 								<div
 									className={`absolute inset-0 bg-${item.lightColor} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity`}

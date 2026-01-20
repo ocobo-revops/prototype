@@ -594,7 +594,7 @@ const Method: React.FC = () => {
 
 					<div className="grid lg:grid-cols-2 gap-10">
 						{/* Card 1: Alignment */}
-						<div className="bg-white p-10 border-t-8 border-ocobo-yellow shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group">
+						<div className="bg-white p-10 border-t-8 border-ocobo-yellow shadow-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group">
 							<div className="flex justify-between items-start mb-10">
 								<div className="bg-ocobo-yellowLight p-4 rounded-full text-ocobo-yellow">
 									<Layout size={32} />
@@ -658,7 +658,7 @@ const Method: React.FC = () => {
 						</div>
 
 						{/* Card 2: Technologie */}
-						<div className="bg-white p-10 border-t-8 border-ocobo-sky shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group">
+						<div className="bg-white p-10 border-t-8 border-ocobo-sky shadow-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group">
 							<div className="flex justify-between items-start mb-10">
 								<div className="bg-ocobo-skyLight p-4 rounded-full text-ocobo-sky">
 									<Sliders size={32} />
@@ -722,7 +722,7 @@ const Method: React.FC = () => {
 						</div>
 
 						{/* Card 3: Performance */}
-						<div className="bg-white p-10 border-t-8 border-ocobo-mint shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group">
+						<div className="bg-white p-10 border-t-8 border-ocobo-mint shadow-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group">
 							<div className="flex justify-between items-start mb-10">
 								<div className="bg-ocobo-mintLight p-4 rounded-full text-ocobo-mint">
 									<LineChart size={32} />
@@ -786,7 +786,7 @@ const Method: React.FC = () => {
 						</div>
 
 						{/* Card 4: Enablement */}
-						<div className="bg-white p-10 border-t-8 border-ocobo-coral shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group">
+						<div className="bg-white p-10 border-t-8 border-ocobo-coral shadow-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group">
 							<div className="flex justify-between items-start mb-10">
 								<div className="bg-ocobo-coralLight p-4 rounded-full text-ocobo-coral">
 									<GraduationCap size={32} />

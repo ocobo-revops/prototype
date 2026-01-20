@@ -255,7 +255,7 @@ const Navbar: React.FC = () => {
             relative w-full max-w-7xl transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-auto
             ${
 							scrolled
-								? 'bg-white/80 backdrop-blur-lg border border-gray-100 shadow-[0_15px_40px_-10px_rgba(0,0,0,0.12)] rounded-4xl py-2 px-3 md:px-6 lg:max-w-5xl'
+								? 'bg-white/80 backdrop-blur-lg border border-gray-100 shadow-soft-md rounded-4xl py-2 px-3 md:px-6 lg:max-w-5xl'
 								: 'bg-white/0 border-transparent py-4 px-0'
 						}
             ${isOpen ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}
@@ -312,7 +312,7 @@ const Navbar: React.FC = () => {
                             ${isDropdownActive ? 'opacity-100 scale-100 translate-y-0 visible' : 'opacity-0 scale-95 -translate-y-4 invisible pointer-events-none'}
                         `}
 											>
-												<div className="bg-white rounded-4xl p-2 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] border border-gray-50 overflow-hidden">
+												<div className="bg-white rounded-4xl p-2 shadow-soft-lg border border-gray-50 overflow-hidden">
 													{item.dropdown.map((subItem, idx) =>
 														renderDropdownItem(subItem, idx),
 													)}

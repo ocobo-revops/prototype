@@ -246,7 +246,7 @@ const Podcast: React.FC = () => {
 						filteredEpisodes.map((ep) => (
 							<div
 								key={ep.id}
-								className="group relative flex flex-col md:flex-row gap-10 p-8 bg-white border border-gray-100 rounded-6xl hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08)] hover:-translate-y-2 transition-all duration-500"
+								className="group relative flex flex-col md:flex-row gap-10 p-8 bg-white border border-gray-100 rounded-6xl hover:shadow-soft-xl hover:-translate-y-2 transition-all duration-500"
 							>
 								{/* Architectural Number Overlay */}
 								<div className="absolute -top-4 -left-4 w-12 h-12 bg-white border border-gray-100 rounded-xl shadow-lg flex items-center justify-center font-display font-black text-ocobo-dark/20 text-xl z-20">

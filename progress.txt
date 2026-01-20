@@ -112,3 +112,44 @@ Created: 2026-01-20T12:00:00Z
 ### Verified
 - pnpm build: ✅ exit 0
 - No rounded-[*rem] patterns remain in source files
+
+---
+
+## Feature 4: Shadow scale standardised to 5 values
+**Status:** ✅ Completed 2026-01-20
+
+### Changes
+- boxShadow scale already existed in tailwind.config.ts with 17 tokens:
+  - Soft diffused: shadow-soft, shadow-soft-md, shadow-soft-lg, shadow-soft-xl, shadow-soft-2xl, shadow-soft-3xl, shadow-soft-dark
+  - Functional: shadow-button, shadow-form, shadow-card, shadow-ring, shadow-glow-yellow
+  - Brutalist offsets: shadow-offset-sm, shadow-offset-md, shadow-offset-lg, shadow-offset-coral, shadow-offset-sky, shadow-offset-yellow, shadow-offset-mint
+- Replaced all 28 arbitrary shadow-[*] patterns across 13 files
+
+### Files modified
+- pages/: About, WebinarDetail, Method, Jobs, Stories, Partners, Home, Podcast, Services, StoryDetail, Contact, Studio
+- components/: Navbar, NewsletterWidget
+
+### Mapping used
+- shadow-[0_8px_20px_-10px_rgba(0,0,0,0.08)] → shadow-soft
+- shadow-[0_15px_40px_-10px_rgba(0,0,0,0.12)] → shadow-soft-md
+- shadow-[0_25px_60px_-15px_rgba(0,0,0,0.1/0.15)] → shadow-soft-lg
+- shadow-[0_40px_100px_-20px_rgba(0,0,0,0.08/0.1)] → shadow-soft-xl
+- shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] → shadow-soft-2xl
+- shadow-[0_50px_100px_-20px_rgba(0,0,0,0.2)] → shadow-soft-3xl
+- shadow-[0_30px_100px_-20px_rgba(0,0,0,0.5)] → shadow-soft-dark
+- shadow-[0_20px_50px_-10px_rgba(0,0,0,0.2)] → shadow-button
+- shadow-[0_20px_50px_rgba(0,0,0,0.05)] → shadow-form
+- shadow-[0_15px_50px_-15px_rgba(0,0,0,0.05)] → shadow-card
+- shadow-[0_0_0_10px_#fcfcfc] → shadow-ring
+- shadow-[0_50px_100px_-20px_rgba(241,207,37,0.3)] → shadow-glow-yellow
+- shadow-[4px_4px_0px_0px_rgba(33,35,35,1)] → shadow-offset-sm
+- shadow-[8px_8px_0px_0px_rgba(33,35,35,1)] → shadow-offset-md
+- shadow-[10px_10px_0px_0px_rgba(33,35,35,1)] → shadow-offset-lg
+- shadow-[8px_8px_0px_0px_rgba(254,156,135,1)] → shadow-offset-coral
+- shadow-[8px_8px_0px_0px_rgba(153,209,223,1)] → shadow-offset-sky
+- shadow-[8px_8px_0px_0px_rgba(241,207,37,1)] → shadow-offset-yellow
+- shadow-[8px_8px_0px_0px_rgba(154,219,186,1)] → shadow-offset-mint
+
+### Verified
+- pnpm build: ✅ exit 0
+- No shadow-[*] patterns remain in source files

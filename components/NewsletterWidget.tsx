@@ -58,7 +58,7 @@ const NewsletterWidget: React.FC = () => {
 					</button>
 				</div>
 			) : (
-				<div className="bg-ocobo-dark text-white p-6 rounded-4xl shadow-[0_30px_100px_-20px_rgba(0,0,0,0.5)] border border-white/10 w-[320px] relative overflow-hidden">
+				<div className="bg-ocobo-dark text-white p-6 rounded-4xl shadow-soft-dark border border-white/10 w-[320px] relative overflow-hidden">
 					<div className="absolute top-0 left-0 w-full h-1 bg-ocobo-yellow"></div>
 
 					<button

@@ -651,7 +651,7 @@ const StoryDetail: React.FC = () => {
 					</div>
 				</div>
 
-				<div className="bg-ocobo-yellow p-12 md:p-24 rounded-7xl text-center text-ocobo-dark relative overflow-hidden shadow-[0_50px_100px_-20px_rgba(241,207,37,0.3)]">
+				<div className="bg-ocobo-yellow p-12 md:p-24 rounded-7xl text-center text-ocobo-dark relative overflow-hidden shadow-glow-yellow">
 					<div
 						className="absolute inset-0 opacity-[0.1]"
 						style={{

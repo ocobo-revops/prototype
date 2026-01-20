@@ -92,7 +92,7 @@ const ModularStackGrid = () => {
               aspect-square rounded-2xl border transition-all duration-500 flex items-center justify-center
               ${
 								item.type === 'logo'
-									? 'group bg-white border-gray-100 shadow-[0_8px_20px_-10px_rgba(0,0,0,0.08)] hover:shadow-xl hover:-translate-y-1 hover:border-ocobo-sky/30'
+									? 'group bg-white border-gray-100 shadow-soft hover:shadow-xl hover:-translate-y-1 hover:border-ocobo-sky/30'
 									: 'bg-gray-50/50 border-dashed border-gray-200 group/empty hover:bg-white hover:border-solid hover:border-ocobo-yellow/40'
 							}
               animate-fade-in-up

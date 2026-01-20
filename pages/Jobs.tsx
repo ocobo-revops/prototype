@@ -369,7 +369,7 @@ const Jobs: React.FC = () => {
 					{jobs.map((job) => (
 						<Link key={job.id} to={`/jobs/${job.id}`} className="group">
 							<div
-								className={`flex flex-col md:flex-row justify-between items-center p-8 md:p-12 rounded-5xl border border-gray-100 bg-white hover:bg-white hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] transition-all duration-500 relative overflow-hidden`}
+								className={`flex flex-col md:flex-row justify-between items-center p-8 md:p-12 rounded-5xl border border-gray-100 bg-white hover:bg-white hover:shadow-soft-xl transition-all duration-500 relative overflow-hidden`}
 							>
 								{/* Hover Highlight Bar */}
 								<div
@@ -439,7 +439,7 @@ const Jobs: React.FC = () => {
 										className={`relative flex flex-col md:flex-row items-center w-full ${isEven ? 'md:flex-row-reverse' : ''}`}
 									>
 										{/* Center Circle */}
-										<div className="absolute left-6 md:left-1/2 w-4 h-4 bg-white border-[2.5px] border-ocobo-dark rounded-full z-10 -translate-x-1/2 shadow-[0_0_0_10px_#fcfcfc]"></div>
+										<div className="absolute left-6 md:left-1/2 w-4 h-4 bg-white border-[2.5px] border-ocobo-dark rounded-full z-10 -translate-x-1/2 shadow-ring"></div>
 
 										{/* Content Half */}
 										<div
