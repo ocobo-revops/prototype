@@ -1,0 +1,40 @@
+## Codebase Patterns
+<!--
+Reusable patterns discovered during implementation.
+Add new patterns here as you learn them.
+Read this section FIRST on each iteration.
+-->
+
+- Use pnpm, not npm
+- Do not git commit or push; ask before git add
+- Prefer existing files over creating new ones
+- Current Tailwind config is inline in index.html lines 18-42
+- Fonts loaded from production domain: ocobo.co/fonts/
+- ThemeColor enum exists in types.ts (YELLOW, MINT, SKY, CORAL, DARK)
+- Button.tsx is the reference pattern for component structure
+
+---
+
+# Progress Log
+
+Project: Design System Extraction
+Source: docs/prd/design-system-extraction.md
+Branch: sprint/design-system
+Created: 2026-01-20T12:00:00Z
+
+## Initial Setup
+- Created stories.json with 17 features
+- High priority: 7 features (tokens + validation)
+- Medium priority: 8 features (components + storybook)
+- Low priority: 2 features (SVGs + molecular stories)
+- Ready for implementation
+
+### Feature breakdown by phase
+1. **Infrastructure** (1-5): Tailwind config, typography, radii, shadows, animations
+2. **Atoms** (6-8): Button sizes, Badge, Input
+3. **Molecules** (9-11): Card variants, SectionHeader, Container/Section
+4. **Polish** (12): SVG currentColor refactor
+5. **Documentation** (13-15): Storybook setup + stories
+6. **Validation** (16-17): Build + visual regression
+
+---
