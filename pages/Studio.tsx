@@ -9,7 +9,7 @@ import {
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
-import Button from '../components/Button';
+import { Button } from '../components/atoms';
 
 const TeamPhotoIllustration = () => {
 	return (

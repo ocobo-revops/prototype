@@ -12,7 +12,8 @@ Read this section FIRST on each iteration.
 - CSS entry point: src/styles/globals.css (imported in index.tsx)
 - Fonts loaded from production domain: ocobo.co/fonts/
 - ThemeColor enum exists in types.ts (YELLOW, MINT, SKY, CORAL, DARK)
-- Button.tsx is the reference pattern for component structure
+- Button.tsx in components/atoms/ is the reference pattern for component structure
+- Import atoms from components/atoms (e.g. `import { Button } from '../components/atoms'`)
 
 ---
 
@@ -199,3 +200,32 @@ Created: 2026-01-20T12:00:00Z
 - No TypeScript errors
 - No Tailwind warnings (only chunk size suggestion)
 - dist/ contains: index.html, robots.txt, assets/index-*.js (541KB), assets/index-*.css (82KB)
+
+---
+
+## Feature 6: Button component enhanced with size variants
+**Status:** ✅ Completed 2026-01-20
+
+### Changes
+- Added size prop to Button: sm | md | lg (default: md)
+- Size styles:
+  - sm: px-4 py-2 text-xs, icon w-3 h-3
+  - md: px-6 py-3 text-sm, icon w-4 h-4
+  - lg: px-8 py-4 text-base, icon w-5 h-5
+- Created components/atoms/ folder structure
+- Moved Button.tsx to components/atoms/Button.tsx
+- Created components/atoms/index.ts for barrel exports
+- Updated all imports (13 files) to use named import from atoms
+
+### Files modified
+- components/atoms/Button.tsx (new location + size prop)
+- components/atoms/index.ts (new file)
+- pages/: About, Contact, Home, Method, Partners, Podcast, Resources, Services, Stories, StoryDetail, Studio, WebinarDetail
+- components/: Navbar
+
+### Size mappings applied
+- About.tsx: px-8 py-4 → size="lg"
+- Services.tsx: px-12 py-5 text-lg → size="lg" (with shadow retained)
+
+### Verified
+- pnpm build: ✅ exit 0

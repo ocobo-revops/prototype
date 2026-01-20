@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router';
-import Button from './Button';
+import { Button } from './atoms';
 
 const Navbar: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);

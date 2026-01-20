@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 import { Link } from 'react-router';
-import Button from '../components/Button';
+import { Button } from '../components/atoms';
 
 const ArchitecturalGrid = () => {
 	return (
@@ -331,7 +331,10 @@ const Services: React.FC = () => {
 							clair, simple et pilotable.
 						</p>
 						<Link to="/contact">
-							<Button className="bg-ocobo-dark text-white px-12 py-5 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all">
+							<Button
+								size="lg"
+								className="shadow-xl hover:shadow-2xl hover:-translate-y-1"
+							>
 								Prendre RDV
 							</Button>
 						</Link>

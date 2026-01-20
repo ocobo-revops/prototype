@@ -1,7 +1,7 @@
 import { Calendar, Check, MessageSquare } from 'lucide-react';
 import type React from 'react';
 import { useState } from 'react';
-import Button from '../components/Button';
+import { Button } from '../components/atoms';
 
 const Contact: React.FC = () => {
 	const [formState, setFormState] = useState({

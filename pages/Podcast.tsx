@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 import { useState } from 'react';
-import Button from '../components/Button';
+import { Button } from '../components/atoms';
 
 const Podcast: React.FC = () => {
 	const [isPlaying, setIsPlaying] = useState(false);

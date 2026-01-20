@@ -2,7 +2,7 @@ import { ArrowRight, BookOpen, Mic, Play, Video } from 'lucide-react';
 import type React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router';
-import Button from '../components/Button';
+import { Button } from '../components/atoms';
 
 const Resources: React.FC = () => {
 	const [activeTab, setActiveTab] = useState<

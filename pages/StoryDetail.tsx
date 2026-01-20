@@ -12,7 +12,7 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 import { Link, useParams } from 'react-router';
-import Button from '../components/Button';
+import { Button } from '../components/atoms';
 
 // Configuration exhaustive des 14 Stories
 const STORY_DATA: Record<string, any> = {

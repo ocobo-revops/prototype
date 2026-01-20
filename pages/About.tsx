@@ -1,7 +1,7 @@
 import { ArrowRight, Linkedin } from 'lucide-react';
 import type React from 'react';
 import { Link } from 'react-router';
-import Button from '../components/Button';
+import { Button } from '../components/atoms';
 
 const DataIllustration = () => {
 	return (
@@ -599,7 +599,7 @@ const About: React.FC = () => {
 							</span>
 						</p>
 						<Link to="/studio">
-							<Button variant="primary" className="px-8 py-4">
+							<Button variant="primary" size="lg">
 								Rencontrez le reste de l'équipe
 							</Button>
 						</Link>
