@@ -423,3 +423,24 @@ Created: 2026-01-20T12:00:00Z
 ### Verified
 - pnpm build: ✅ exit 0
 - pnpm storybook: ✅ launches, stories render correctly
+
+---
+
+## Feature 15: Stories for molecular components
+**Status:** ✅ Completed 2026-01-20
+
+### Changes
+- Created Card.stories.tsx with Default and WithCustomClass stories
+- Created FeatureCard.stories.tsx with colour variants (yellow, mint, sky, coral) and AllColours grid
+- Created TestimonialCard.stories.tsx with Default, WithCTA, CustomInitials, LongQuote stories
+- Created SectionHeader.stories.tsx (in organisms/) with variants, alignments, light mode, AllBadgeVariants
+- Each story file includes autodocs tag and interactive argTypes controls
+
+### Files created
+- components/molecules/Card.stories.tsx
+- components/molecules/FeatureCard.stories.tsx
+- components/molecules/TestimonialCard.stories.tsx
+- components/organisms/SectionHeader.stories.tsx
+
+### Verified
+- pnpm build: ✅ exit 0
