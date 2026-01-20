@@ -378,3 +378,24 @@ Created: 2026-01-20T12:00:00Z
 - pnpm build: ✅ exit 0
 - No fill="#212323" patterns remain
 - No stroke="#212323" patterns remain
+
+---
+
+## Feature 13: Storybook setup with Vite
+**Status:** ✅ Completed 2026-01-20
+
+### Changes
+- Installed Storybook 10.1.11 via pnpm dlx storybook@latest init --builder vite
+- Addons: chromatic, vitest, a11y, docs, onboarding
+- Updated .storybook/main.ts: stories path to components/**/*.stories.@(js|jsx|mjs|ts|tsx)
+- Updated .storybook/preview.ts: import globals.css for Tailwind
+- Removed template stories from src/stories/
+
+### Files created/modified
+- .storybook/main.ts (updated stories path)
+- .storybook/preview.ts (added globals.css import)
+- package.json (storybook scripts + devDependencies)
+
+### Verified
+- pnpm storybook: ✅ launches on http://localhost:6006
+- pnpm build: ✅ exit 0
