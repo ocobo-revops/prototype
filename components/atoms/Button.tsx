@@ -1,12 +1,43 @@
 import { ArrowRight } from 'lucide-react';
 import type React from 'react';
+import { Link } from 'react-router';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface BaseButtonProps {
 	variant?: 'primary' | 'outline' | 'white';
 	size?: 'sm' | 'md' | 'lg';
 	showArrow?: boolean;
 	children: React.ReactNode;
+	className?: string;
 }
+
+interface ButtonAsButtonProps
+	extends BaseButtonProps,
+		React.ButtonHTMLAttributes<HTMLButtonElement> {
+	as?: 'button' | undefined;
+	href?: undefined;
+	to?: undefined;
+}
+
+interface ButtonAsAnchorProps
+	extends BaseButtonProps,
+		React.AnchorHTMLAttributes<HTMLAnchorElement> {
+	as?: 'a';
+	href: string;
+	to?: undefined;
+}
+
+interface ButtonAsLinkProps
+	extends BaseButtonProps,
+		Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> {
+	as?: 'link';
+	to: string;
+	href?: undefined;
+}
+
+type ButtonProps =
+	| ButtonAsButtonProps
+	| ButtonAsAnchorProps
+	| ButtonAsLinkProps;
 
 const Button: React.FC<ButtonProps> = ({
 	variant = 'primary',
@@ -15,17 +46,17 @@ const Button: React.FC<ButtonProps> = ({
 	children,
 	className = '',
 	...props
-}) => {
+}: ButtonProps) => {
 	const baseStyles =
-		'rounded-full font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2 group';
+		'rounded-full font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2';
 
 	const variants = {
 		primary:
-			'bg-ocobo-dark text-white hover:bg-gray-800 border border-transparent',
+			'bg-ocobo-dark text-white hover:bg-gray focus-visible:outline-white border border-transparent',
 		outline:
-			'bg-transparent text-ocobo-dark border border-ocobo-dark hover:bg-ocobo-dark hover:text-white',
+			'bg-transparent text-ocobo-dark border border-ocobo-dark hover:bg-ocobo-dark hover:text-white focus-visible:outline-ocobo-dark',
 		white:
-			'bg-white text-ocobo-dark hover:bg-gray-100 border border-transparent',
+			'bg-white text-ocobo-dark hover:bg-gray-100 focus-visible:outline-ocobo-dark border border-transparent',
 	};
 
 	const sizes = {
@@ -40,17 +71,39 @@ const Button: React.FC<ButtonProps> = ({
 		lg: 'w-5 h-5',
 	};
 
+	const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
+
+	const arrowIcon = showArrow && (
+		<ArrowRight
+			className={`${iconSizes[size]} transition-transform duration-300 group-hover:translate-x-1`}
+		/>
+	);
+
+	// Filter out component-specific props
+	const { to, href, ...htmlProps } = props as any;
+
+	if (to) {
+		return (
+			<Link to={to} className={classes} {...htmlProps}>
+				{children}
+				{arrowIcon}
+			</Link>
+		);
+	}
+
+	if (href) {
+		return (
+			<a href={href} className={classes} {...htmlProps}>
+				{children}
+				{arrowIcon}
+			</a>
+		);
+	}
+
 	return (
-		<button
-			className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
-			{...props}
-		>
+		<button className={classes} {...htmlProps}>
 			{children}
-			{showArrow && (
-				<ArrowRight
-					className={`${iconSizes[size]} transition-transform duration-300 group-hover:translate-x-1`}
-				/>
-			)}
+			{arrowIcon}
 		</button>
 	);
 };

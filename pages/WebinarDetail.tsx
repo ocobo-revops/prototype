@@ -151,14 +151,14 @@ const WebinarDetail: React.FC = () => {
 									l'assainissement de vos systèmes pour libérer votre
 									croissance.
 								</p>
-								<Link to="/contact" className="block">
-									<Button
-										variant="white"
-										className="w-full !py-4 text-2xs font-black uppercase tracking-widest border-none hover:bg-ocobo-sky hover:text-white transition-all"
-									>
-										Réserver mon audit flash
-									</Button>
-								</Link>
+								<Button
+									variant="white"
+									size="lg"
+									className="w-full text-2xs font-black uppercase tracking-widest border-none hover:bg-ocobo-sky hover:text-white transition-all"
+									to="/contact"
+								>
+									Réserver mon audit flash
+								</Button>
 
 								<div className="mt-10 pt-8 border-t border-white/10 flex items-center gap-4">
 									<div className="flex -space-x-2">

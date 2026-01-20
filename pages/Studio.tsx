@@ -221,14 +221,13 @@ const Studio: React.FC = () => {
 						système à vos côtés."
 					</div>
 
-					<Link to="/contact">
-						<Button
-							variant="primary"
-							className="px-16 py-5 text-xs font-bold uppercase tracking-[0.25em] shadow-xl bg-ocobo-dark hover:bg-black transition-all hover:-translate-y-1"
-						>
-							Discuter avec le Studio
-						</Button>
-					</Link>
+					<Button
+						variant="primary"
+						className="px-16 py-5 text-xs font-bold uppercase tracking-[0.25em] shadow-xl bg-ocobo-dark hover:bg-black transition-all hover:-translate-y-1"
+						to="/contact"
+					>
+						Discuter avec le Studio
+					</Button>
 				</div>
 
 				<div className="mt-16 flex justify-center w-full animate-bounce-slow">
@@ -401,14 +400,13 @@ const Studio: React.FC = () => {
 						niveau supérieur.
 					</p>
 					<div className="flex justify-center">
-						<Link to="/contact">
-							<Button
-								variant="primary"
-								className="px-14 py-6 text-lg shadow-2xl bg-ocobo-dark border-none text-white"
-							>
-								Discuter avec le Studio
-							</Button>
-						</Link>
+						<Button
+							variant="primary"
+							className="px-14 py-6 text-lg shadow-2xl bg-ocobo-dark border-none text-white"
+							to="/contact"
+						>
+							Discuter avec le Studio
+						</Button>
 					</div>
 				</div>
 			</section>

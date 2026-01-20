@@ -343,14 +343,13 @@ const Services: React.FC = () => {
 							l’empilement d’outils. Elles construisent un système de revenu
 							clair, simple et pilotable.
 						</p>
-						<Link to="/contact">
-							<Button
-								size="lg"
-								className="shadow-xl hover:shadow-2xl hover:-translate-y-1"
-							>
-								Prendre RDV
-							</Button>
-						</Link>
+						<Button
+							size="lg"
+							className="shadow-xl hover:shadow-2xl hover:-translate-y-1"
+							to="/contact"
+						>
+							Prendre RDV
+						</Button>
 					</div>
 
 					{/* Right Illustration */}
@@ -1068,14 +1067,13 @@ const Services: React.FC = () => {
 					</div>
 
 					<div className="flex justify-center">
-						<Link to="/contact">
-							<Button
-								variant="primary"
-								className="px-12 py-5 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 bg-ocobo-dark text-white border-none"
-							>
-								Prendre RDV
-							</Button>
-						</Link>
+						<Button
+							variant="primary"
+							className="px-12 py-5 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 bg-ocobo-dark text-white border-none"
+							to="/contact"
+						>
+							Prendre RDV
+						</Button>
 					</div>
 				</div>
 			</section>

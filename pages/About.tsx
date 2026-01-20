@@ -595,14 +595,12 @@ const About: React.FC = () => {
 						<p className="font-bold text-xl">
 							Trois parcours, une même conviction :{' '}
 							<span className="bg-ocobo-yellowLight px-2">
-								la croissance a besoin d’architectes, pas de techniciens.
+								la croissance a besoin d'architectes, pas de techniciens.
 							</span>
 						</p>
-						<Link to="/studio">
-							<Button variant="primary" size="lg">
-								Rencontrez le reste de l'équipe
-							</Button>
-						</Link>
+						<Button variant="primary" size="lg" to="/studio">
+							Rencontrez le reste de l'équipe
+						</Button>
 					</div>
 				</div>
 			</section>
@@ -701,14 +699,13 @@ const About: React.FC = () => {
 						Zéro détour. Zéro jargon. Rien que la vérité sur votre croissance et
 						vos options.
 					</p>
-					<Link to="/contact" className="inline-block">
-						<Button
-							variant="primary"
-							className="px-12 py-5 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1"
-						>
-							Rencontrer un architecte RevOps
-						</Button>
-					</Link>
+					<Button
+						variant="primary"
+						className="px-12 py-5 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1"
+						to="/contact"
+					>
+						Rencontrer un architecte RevOps
+					</Button>
 				</div>
 			</section>
 		</div>

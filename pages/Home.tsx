@@ -596,14 +596,9 @@ const Home: React.FC = () => {
 							className="flex flex-col sm:flex-row gap-6 items-start opacity-0 animate-hero-reveal"
 							style={{ animationDelay: '0.4s' }}
 						>
-							<Link to="/contact">
-								<Button
-									variant="primary"
-									className="px-14 py-6 text-sm font-bold uppercase tracking-[0.2em] shadow-xl bg-ocobo-dark hover:bg-black transition-all hover:-translate-y-1"
-								>
-									Rencontrer un architecte
-								</Button>
-							</Link>
+							<Button variant="primary" to="/contact">
+								Rencontrer un architecte
+							</Button>
 						</div>
 					</div>
 
@@ -816,9 +811,9 @@ const Home: React.FC = () => {
 								<p className="font-display font-bold text-sm uppercase tracking-wider mb-4">
 									The Revenue Experience System™
 								</p>
-								<Link to="/method">
-									<Button className="w-full">Découvrir notre méthode</Button>
-								</Link>
+								<Button to="/method" className="w-full">
+									Découvrir notre méthode
+								</Button>
 							</div>
 						</div>
 					</div>
@@ -874,9 +869,9 @@ const Home: React.FC = () => {
 					</div>
 
 					<div className="flex justify-center mt-12">
-						<Link to="/offer">
-							<Button variant="outline">Voir nos offres</Button>
-						</Link>
+						<Button variant="outline" to="/offer">
+							Voir nos offres
+						</Button>
 					</div>
 				</Container>
 			</Section>
@@ -945,14 +940,13 @@ const Home: React.FC = () => {
 					</div>
 
 					<div className="flex justify-center mt-16">
-						<Link to="/studio">
-							<Button
-								variant="white"
-								className="px-10 py-4 font-bold border-none shadow-xl hover:shadow-2xl"
-							>
-								Découvrez le RevOps Studio
-							</Button>
-						</Link>
+						<Button
+							variant="white"
+							to="/studio"
+							className="px-10 py-4 font-bold border-none shadow-xl hover:shadow-2xl"
+						>
+							Découvrez le RevOps Studio
+						</Button>
 					</div>
 				</Container>
 			</Section>
@@ -972,14 +966,13 @@ const Home: React.FC = () => {
 					<ModularStackGrid />
 
 					<div className="mt-8 flex flex-col items-center">
-						<Link to="/technology">
-							<Button
-								variant="outline"
-								className="px-10 py-4 font-bold border-2"
-							>
-								Nos solutions partenaires
-							</Button>
-						</Link>
+						<Button
+							variant="outline"
+							to="/technology"
+							className="px-10 py-4 font-bold border-2"
+						>
+							Nos solutions partenaires
+						</Button>
 						<p className="mt-6 text-gray-400 text-xs font-bold uppercase tracking-[0.2em]">
 							Notre rôle : démanteler les usines à gaz et rendre votre stack
 							utile.
@@ -1000,14 +993,9 @@ const Home: React.FC = () => {
 						Vous repartez avec plus de clarté.
 					</p>
 					<div className="flex justify-center">
-						<Link to="/contact">
-							<Button
-								variant="primary"
-								className="px-12 py-5 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1"
-							>
-								Prendre RDV
-							</Button>
-						</Link>
+						<Button variant="primary" to="/contact">
+							Prendre RDV
+						</Button>
 					</div>
 				</div>
 			</Section>

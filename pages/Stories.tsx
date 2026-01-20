@@ -744,14 +744,13 @@ const Stories: React.FC = () => {
 						success story ?
 					</h2>
 					<div className="flex justify-center">
-						<Link to="/contact">
-							<Button
-								variant="primary"
-								className="px-14 py-6 text-lg shadow-button bg-ocobo-dark text-white border-none hover:bg-black"
-							>
-								Discutons de votre architecture
-							</Button>
-						</Link>
+						<Button
+							variant="primary"
+							className="px-14 py-6 text-lg shadow-button bg-ocobo-dark text-white border-none hover:bg-black"
+							to="/contact"
+						>
+							Discutons de votre architecture
+						</Button>
 					</div>
 				</div>
 			</section>

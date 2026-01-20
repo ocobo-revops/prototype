@@ -667,14 +667,13 @@ const StoryDetail: React.FC = () => {
 							Votre machine revenue mérite une architecture d'élite.
 						</h2>
 						<div className="flex justify-center">
-							<Link to="/contact">
-								<Button
-									variant="primary"
-									className="px-14 py-6 text-lg bg-ocobo-dark text-white border-none shadow-2xl hover:scale-105 transition-transform"
-								>
-									Démarrer mon audit RevOps
-								</Button>
-							</Link>
+							<Button
+								variant="primary"
+								className="px-14 py-6 text-lg bg-ocobo-dark text-white border-none shadow-2xl hover:scale-105 transition-transform"
+								to="/contact"
+							>
+								Démarrer mon audit RevOps
+							</Button>
 						</div>
 					</div>
 				</div>

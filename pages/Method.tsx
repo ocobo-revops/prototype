@@ -538,14 +538,13 @@ const Method: React.FC = () => {
 						résultat d'un système pensé pour durer et pour favoriser l'usage."
 					</div>
 
-					<Link to="/contact">
-						<Button
-							variant="primary"
-							className="px-16 py-5 text-xs font-bold uppercase tracking-[0.25em] shadow-xl bg-ocobo-dark hover:bg-black transition-all hover:-translate-y-1"
-						>
-							Auditer mon système
-						</Button>
-					</Link>
+					<Button
+						variant="primary"
+						className="px-16 py-5 text-xs font-bold uppercase tracking-[0.25em] shadow-xl bg-ocobo-dark hover:bg-black transition-all hover:-translate-y-1"
+						to="/contact"
+					>
+						Auditer mon système
+					</Button>
 				</div>
 
 				<div className="mt-16 flex justify-center w-full animate-bounce-slow">
@@ -1007,14 +1006,13 @@ const Method: React.FC = () => {
 						les plus performantes (TheFork, PayFit, Spendesk).
 					</p>
 					<div className="flex justify-center">
-						<Link to="/contact">
-							<Button
-								variant="primary"
-								className="px-12 py-5 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 border-none bg-ocobo-dark text-white"
-							>
-								Bâtir mon architecture
-							</Button>
-						</Link>
+						<Button
+							variant="primary"
+							className="px-12 py-5 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 border-none bg-ocobo-dark text-white"
+							to="/contact"
+						>
+							Bâtir mon architecture
+						</Button>
 					</div>
 				</div>
 			</section>
