@@ -48,7 +48,7 @@ const Button: React.FC<ButtonProps> = ({
 	...props
 }: ButtonProps) => {
 	const baseStyles =
-		'rounded-full font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2';
+		'rounded-full font-semibold tracking-wide transition-colors duration-300 flex items-center justify-center gap-2 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 hover:[&>svg]:translate-x-1';
 
 	const variants = {
 		primary:
@@ -75,7 +75,7 @@ const Button: React.FC<ButtonProps> = ({
 
 	const arrowIcon = showArrow && (
 		<ArrowRight
-			className={`${iconSizes[size]} transition-transform duration-300 group-hover:translate-x-1`}
+			className={`${iconSizes[size]} transition-transform duration-300`}
 		/>
 	);
 
