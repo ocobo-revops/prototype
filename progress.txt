@@ -352,3 +352,29 @@ Created: 2026-01-20T12:00:00Z
 
 ### Verified
 - pnpm build: ✅ exit 0
+
+---
+
+## Feature 12: SVGs refactored to use currentColor
+**Status:** ✅ Completed 2026-01-20
+
+### Changes
+- Replaced all hardcoded `fill="#212323"` with `fill="currentColor"` across 5 files
+- Replaced all hardcoded `stroke="#212323"` with `stroke="currentColor"` across 5 files
+- Added `text-ocobo-dark` className to parent SVG elements to ensure colour inheritance
+
+### Files modified
+- pages/About.tsx (DataIllustration SVG)
+- pages/Stories.tsx (StoriesIllustration SVG)
+- pages/Method.tsx (AttioPillarsIllustration, UnifiedBowtie SVGs)
+- pages/Services.tsx (ArchitecturalGrid, PyramidSection SVGs)
+- pages/Home.tsx (DashboardIllustration SVG)
+
+### Replacements made
+- 49 fill="#212323" → fill="currentColor"
+- 59 stroke="#212323" → stroke="currentColor"
+
+### Verified
+- pnpm build: ✅ exit 0
+- No fill="#212323" patterns remain
+- No stroke="#212323" patterns remain

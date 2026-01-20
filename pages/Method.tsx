@@ -28,10 +28,13 @@ const AttioPillarsIllustration = () => {
 
 			{/* CENTRAL ARCHITECTURAL GRID */}
 			<div className="relative z-10 w-full h-full flex items-center justify-center">
-				<svg viewBox="0 0 500 500" className="w-full h-full overflow-visible">
+				<svg
+					viewBox="0 0 500 500"
+					className="w-full h-full overflow-visible text-ocobo-dark"
+				>
 					{/* MAIN CONNECTING LINES (Subtle) */}
 					<g
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="0.5"
 						strokeDasharray="4 4"
 						opacity="0.1"
@@ -53,7 +56,7 @@ const AttioPillarsIllustration = () => {
 							width="160"
 							height="160"
 							fill="white"
-							stroke="#212323"
+							stroke="currentColor"
 							strokeWidth="1.5"
 							className="transition-all duration-500 group-hover/p1:-translate-y-1 shadow-sm"
 						/>
@@ -65,7 +68,7 @@ const AttioPillarsIllustration = () => {
 							x="150"
 							y="210"
 							textAnchor="middle"
-							fill="#212323"
+							fill="currentColor"
 							fontSize="10"
 							fontWeight="900"
 							className="font-display uppercase tracking-[0.2em]"
@@ -92,7 +95,7 @@ const AttioPillarsIllustration = () => {
 							width="160"
 							height="160"
 							fill="white"
-							stroke="#212323"
+							stroke="currentColor"
 							strokeWidth="1.5"
 							className="transition-all duration-500 group-hover/p2:-translate-y-1 shadow-sm"
 						/>
@@ -104,7 +107,7 @@ const AttioPillarsIllustration = () => {
 							x="350"
 							y="210"
 							textAnchor="middle"
-							fill="#212323"
+							fill="currentColor"
 							fontSize="10"
 							fontWeight="900"
 							className="font-display uppercase tracking-[0.2em]"
@@ -131,7 +134,7 @@ const AttioPillarsIllustration = () => {
 							width="160"
 							height="160"
 							fill="white"
-							stroke="#212323"
+							stroke="currentColor"
 							strokeWidth="1.5"
 							className="transition-all duration-500 group-hover/p3:translate-y-1 shadow-sm"
 						/>
@@ -148,7 +151,7 @@ const AttioPillarsIllustration = () => {
 							x="150"
 							y="410"
 							textAnchor="middle"
-							fill="#212323"
+							fill="currentColor"
 							fontSize="10"
 							fontWeight="900"
 							className="font-display uppercase tracking-[0.2em]"
@@ -175,7 +178,7 @@ const AttioPillarsIllustration = () => {
 							width="160"
 							height="160"
 							fill="white"
-							stroke="#212323"
+							stroke="currentColor"
 							strokeWidth="1.5"
 							className="transition-all duration-500 group-hover/p4:translate-y-1 shadow-sm"
 						/>
@@ -192,7 +195,7 @@ const AttioPillarsIllustration = () => {
 							x="350"
 							y="410"
 							textAnchor="middle"
-							fill="#212323"
+							fill="currentColor"
 							fontSize="10"
 							fontWeight="900"
 							className="font-display uppercase tracking-[0.2em]"
@@ -213,7 +216,7 @@ const AttioPillarsIllustration = () => {
 						className="opacity-0 animate-gentle-reveal"
 						style={{ animationDelay: '0.9s' }}
 					>
-						<circle cx="250" cy="250" r="25" fill="#212323" />
+						<circle cx="250" cy="250" r="25" fill="currentColor" />
 						<path
 							d="M242,250 L258,250 M250,242 L250,258"
 							stroke="white"
@@ -225,7 +228,7 @@ const AttioPillarsIllustration = () => {
 							cy="250"
 							r="35"
 							fill="none"
-							stroke="#212323"
+							stroke="currentColor"
 							strokeWidth="0.5"
 							strokeDasharray="2 4"
 							className="animate-spin-slow"
@@ -252,7 +255,7 @@ const UnifiedBowtie = () => {
 
 				<svg
 					viewBox="0 0 1200 350"
-					className="w-full h-full overflow-visible"
+					className="w-full h-full overflow-visible text-ocobo-dark"
 					fill="none"
 				>
 					<defs>
@@ -277,14 +280,19 @@ const UnifiedBowtie = () => {
 						>
 							<polygon
 								points="0 0, 10 3.5, 0 7"
-								fill="#212323"
+								fill="currentColor"
 								fillOpacity="0.2"
 							/>
 						</marker>
 					</defs>
 
 					{/* CYCLIC LOOPS (Subtle Overlays) */}
-					<g stroke="#212323" strokeWidth="1" strokeOpacity="0.1" fill="none">
+					<g
+						stroke="currentColor"
+						strokeWidth="1"
+						strokeOpacity="0.1"
+						fill="none"
+					>
 						{/* Left Loop: Acquisition Cycle */}
 						<path d="M 350,110 C 300,50 150,50 100,110" strokeDasharray="3 3" />
 						<path
@@ -296,7 +304,7 @@ const UnifiedBowtie = () => {
 							x="225"
 							y="45"
 							textAnchor="middle"
-							fill="#212323"
+							fill="currentColor"
 							fillOpacity="0.15"
 							fontSize="7"
 							fontWeight="900"
@@ -319,7 +327,7 @@ const UnifiedBowtie = () => {
 							x="975"
 							y="45"
 							textAnchor="middle"
-							fill="#212323"
+							fill="currentColor"
 							fillOpacity="0.15"
 							fontSize="7"
 							fontWeight="900"
@@ -333,14 +341,14 @@ const UnifiedBowtie = () => {
 					<path
 						d="M40,60 L540,140 L540,210 L40,290 Z"
 						fill="white"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="0.5"
 						strokeOpacity="0.2"
 					/>
 					<path
 						d="M1160,60 L660,140 L660,210 L1160,290 Z"
 						fill="white"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="0.5"
 						strokeOpacity="0.2"
 					/>
@@ -357,7 +365,7 @@ const UnifiedBowtie = () => {
 
 					{/* STAGE DIVIDERS (Subtle Dashed) */}
 					<g
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="0.5"
 						strokeDasharray="4 4"
 						strokeOpacity="0.15"
@@ -375,7 +383,7 @@ const UnifiedBowtie = () => {
 							y="125"
 							width="120"
 							height="100"
-							fill="#212323"
+							fill="currentColor"
 							rx="4"
 							className="shadow-lg"
 						/>
@@ -413,7 +421,7 @@ const UnifiedBowtie = () => {
 
 					{/* FLOW INDICATORS (MQL, SQL, SQO, ACTIF, UPSELL, CROSSELL) */}
 					<g
-						fill="#212323"
+						fill="currentColor"
 						fillOpacity="0.3"
 						fontSize="8"
 						fontWeight="900"
@@ -447,7 +455,7 @@ const UnifiedBowtie = () => {
 						className="font-display"
 						fontSize="11"
 						fontWeight="900"
-						fill="#212323"
+						fill="currentColor"
 						letterSpacing="0.05em"
 					>
 						{/* Stage 1 */}
@@ -485,7 +493,7 @@ const UnifiedBowtie = () => {
 					</g>
 
 					{/* DECORATIVE PLUS SIGNS AT INTERSECTIONS */}
-					<g stroke="#212323" strokeOpacity="0.2" strokeWidth="1">
+					<g stroke="currentColor" strokeOpacity="0.2" strokeWidth="1">
 						<path d="M206,60 v-6 m-3,3 h6" />
 						<path d="M373,85 v-6 m-3,3 h6" />
 						<path d="M826,85 v-6 m-3,3 h6" />

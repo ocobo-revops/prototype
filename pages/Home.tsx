@@ -41,7 +41,7 @@ const DashboardIllustration = () => {
 
 			<svg
 				viewBox="0 0 600 600"
-				className="relative z-10 w-full h-full overflow-visible"
+				className="relative z-10 w-full h-full overflow-visible text-ocobo-dark"
 				fill="none"
 			>
 				{/* WINDOW 1: HORIZONTAL BARS (TOP LEFT) - Higher rx and thinner stroke */}
@@ -53,7 +53,7 @@ const DashboardIllustration = () => {
 						height="180"
 						rx="16"
 						fill="white"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="1.5"
 						className="shadow-2xl"
 					/>
@@ -62,25 +62,60 @@ const DashboardIllustration = () => {
 						y1="145"
 						x2="330"
 						y2="145"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="1.5"
 					/>
-					<circle cx="80" cy="122" r="3.5" fill="#212323" />
-					<circle cx="100" cy="122" r="3.5" fill="#212323" />
-					<circle cx="120" cy="122" r="3.5" fill="#212323" />
+					<circle cx="80" cy="122" r="3.5" fill="currentColor" />
+					<circle cx="100" cy="122" r="3.5" fill="currentColor" />
+					<circle cx="120" cy="122" r="3.5" fill="currentColor" />
 
 					<g transform="translate(85, 175)">
-						<rect x="0" y="0" width="200" height="6" rx="3" fill="#212323" />
-						<rect x="0" y="20" width="170" height="6" rx="3" fill="#212323" />
-						<rect x="0" y="40" width="185" height="6" rx="3" fill="#212323" />
-						<rect x="0" y="60" width="130" height="6" rx="3" fill="#212323" />
-						<rect x="0" y="80" width="160" height="6" rx="3" fill="#212323" />
+						<rect
+							x="0"
+							y="0"
+							width="200"
+							height="6"
+							rx="3"
+							fill="currentColor"
+						/>
+						<rect
+							x="0"
+							y="20"
+							width="170"
+							height="6"
+							rx="3"
+							fill="currentColor"
+						/>
+						<rect
+							x="0"
+							y="40"
+							width="185"
+							height="6"
+							rx="3"
+							fill="currentColor"
+						/>
+						<rect
+							x="0"
+							y="60"
+							width="130"
+							height="6"
+							rx="3"
+							fill="currentColor"
+						/>
+						<rect
+							x="0"
+							y="80"
+							width="160"
+							height="6"
+							rx="3"
+							fill="currentColor"
+						/>
 						<line
 							x1="-15"
 							y1="-10"
 							x2="-15"
 							y2="95"
-							stroke="#212323"
+							stroke="currentColor"
 							strokeWidth="1"
 							strokeOpacity="0.3"
 						/>
@@ -99,7 +134,7 @@ const DashboardIllustration = () => {
 						height="230"
 						rx="16"
 						fill="white"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="1.5"
 						className="shadow-2xl"
 					/>
@@ -108,22 +143,28 @@ const DashboardIllustration = () => {
 						y1="145"
 						x2="530"
 						y2="145"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="1.5"
 					/>
-					<circle cx="380" cy="122" r="3.5" fill="#212323" />
-					<circle cx="400" cy="122" r="3.5" fill="#212323" />
+					<circle cx="380" cy="122" r="3.5" fill="currentColor" />
+					<circle cx="400" cy="122" r="3.5" fill="currentColor" />
 
 					<g transform="translate(440, 240)">
-						<circle cx="0" cy="0" r="60" stroke="#212323" strokeWidth="1.5" />
+						<circle
+							cx="0"
+							cy="0"
+							r="60"
+							stroke="currentColor"
+							strokeWidth="1.5"
+						/>
 						<path
 							d="M0,0 L0,-60 A60,60 0 0,1 52,-30 Z"
-							fill="#212323"
+							fill="currentColor"
 							transform="rotate(30)"
 						/>
 						<path
 							d="M0,0 L-60,0 A60,60 0 0,1 -30,-52 Z"
-							fill="#212323"
+							fill="currentColor"
 							opacity="0.8"
 						/>
 						<line
@@ -131,7 +172,7 @@ const DashboardIllustration = () => {
 							y1="0"
 							x2="60"
 							y2="0"
-							stroke="#212323"
+							stroke="currentColor"
 							strokeWidth="1"
 						/>
 						<line
@@ -139,7 +180,7 @@ const DashboardIllustration = () => {
 							y1="0"
 							x2="-30"
 							y2="52"
-							stroke="#212323"
+							stroke="currentColor"
 							strokeWidth="1"
 						/>
 					</g>
@@ -157,7 +198,7 @@ const DashboardIllustration = () => {
 						height="150"
 						rx="16"
 						fill="white"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="1.5"
 						className="shadow-2xl"
 					/>
@@ -166,20 +207,20 @@ const DashboardIllustration = () => {
 						y1="395"
 						x2="530"
 						y2="395"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="1.5"
 					/>
-					<circle cx="380" cy="372" r="3.5" fill="#212323" />
+					<circle cx="380" cy="372" r="3.5" fill="currentColor" />
 
 					<path
 						d="M 375,460 Q 405,400 435,460 T 495,460"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="1.5"
 						fill="none"
 					/>
 					<path
 						d="M 375,445 Q 415,485 455,435 T 515,445"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="1"
 						strokeDasharray="4 4"
 						fill="none"
@@ -189,7 +230,7 @@ const DashboardIllustration = () => {
 						y1="480"
 						x2="510"
 						y2="480"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="1"
 						strokeOpacity="0.2"
 					/>
@@ -207,7 +248,7 @@ const DashboardIllustration = () => {
 						height="210"
 						rx="16"
 						fill="white"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="1.5"
 						className="shadow-2xl"
 					/>
@@ -216,16 +257,51 @@ const DashboardIllustration = () => {
 						y1="350"
 						x2="330"
 						y2="350"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="1.5"
 					/>
 
 					<g transform="translate(225, 490)">
-						<rect x="0" y="-40" width="12" rx="2" height="40" fill="#212323" />
-						<rect x="18" y="-70" width="12" rx="2" height="70" fill="#212323" />
-						<rect x="36" y="-55" width="12" rx="2" height="55" fill="#212323" />
-						<rect x="54" y="-30" width="12" rx="2" height="30" fill="#212323" />
-						<rect x="72" y="-85" width="12" rx="2" height="85" fill="#212323" />
+						<rect
+							x="0"
+							y="-40"
+							width="12"
+							rx="2"
+							height="40"
+							fill="currentColor"
+						/>
+						<rect
+							x="18"
+							y="-70"
+							width="12"
+							rx="2"
+							height="70"
+							fill="currentColor"
+						/>
+						<rect
+							x="36"
+							y="-55"
+							width="12"
+							rx="2"
+							height="55"
+							fill="currentColor"
+						/>
+						<rect
+							x="54"
+							y="-30"
+							width="12"
+							rx="2"
+							height="30"
+							fill="currentColor"
+						/>
+						<rect
+							x="72"
+							y="-85"
+							width="12"
+							rx="2"
+							height="85"
+							fill="currentColor"
+						/>
 					</g>
 				</g>
 
@@ -241,7 +317,7 @@ const DashboardIllustration = () => {
 						height="210"
 						rx="16"
 						fill="white"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="1.5"
 						className="shadow-2xl"
 					/>
@@ -250,7 +326,7 @@ const DashboardIllustration = () => {
 						y1="350"
 						x2="180"
 						y2="350"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="1.5"
 					/>
 
@@ -260,7 +336,7 @@ const DashboardIllustration = () => {
 							y1="-30"
 							x2="0"
 							y2="30"
-							stroke="#212323"
+							stroke="currentColor"
 							strokeWidth="1"
 						/>
 						<rect
@@ -269,7 +345,7 @@ const DashboardIllustration = () => {
 							width="8"
 							rx="1"
 							height="24"
-							stroke="#212323"
+							stroke="currentColor"
 							strokeWidth="1"
 							fill="white"
 						/>
@@ -278,25 +354,39 @@ const DashboardIllustration = () => {
 							y1="-45"
 							x2="22"
 							y2="25"
-							stroke="#212323"
+							stroke="currentColor"
 							strokeWidth="1"
 						/>
-						<rect x="18" y="-22" width="8" rx="1" height="35" fill="#212323" />
+						<rect
+							x="18"
+							y="-22"
+							width="8"
+							rx="1"
+							height="35"
+							fill="currentColor"
+						/>
 						<line
 							x1="44"
 							y1="-25"
 							x2="44"
 							y2="55"
-							stroke="#212323"
+							stroke="currentColor"
 							strokeWidth="1"
 						/>
-						<rect x="40" y="5" width="8" rx="1" height="40" fill="#212323" />
+						<rect
+							x="40"
+							y="5"
+							width="8"
+							rx="1"
+							height="40"
+							fill="currentColor"
+						/>
 						<line
 							x1="66"
 							y1="-55"
 							x2="66"
 							y2="15"
-							stroke="#212323"
+							stroke="currentColor"
 							strokeWidth="1"
 						/>
 						<rect
@@ -305,7 +395,7 @@ const DashboardIllustration = () => {
 							width="8"
 							rx="1"
 							height="30"
-							stroke="#212323"
+							stroke="currentColor"
 							strokeWidth="1"
 							fill="white"
 						/>

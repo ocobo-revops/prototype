@@ -28,7 +28,7 @@ const StoriesIllustration = () => {
 
 			<svg
 				viewBox="0 0 600 600"
-				className="w-full h-full overflow-visible"
+				className="w-full h-full overflow-visible text-ocobo-dark"
 				fill="none"
 			>
 				<defs>
@@ -39,7 +39,7 @@ const StoriesIllustration = () => {
 				</defs>
 
 				{/* RADIAL RADAR CIRCLES - DARKENED GRADIENT OF OPACITY */}
-				<g stroke="#212323" strokeWidth="0.5">
+				<g stroke="currentColor" strokeWidth="0.5">
 					<circle cx="300" cy="300" r="60" opacity="0.3" />
 					<circle cx="300" cy="300" r="120" opacity="0.2" />
 					<circle cx="300" cy="300" r="180" opacity="0.12" />
@@ -62,7 +62,7 @@ const StoriesIllustration = () => {
 						y1="300"
 						x2="300"
 						y2="0"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="0.5"
 						opacity="0.25"
 					/>
@@ -87,7 +87,7 @@ const StoriesIllustration = () => {
 						width="90"
 						height="90"
 						rx="20"
-						fill="#212323"
+						fill="currentColor"
 						className="shadow-2xl"
 					/>
 					<Star
@@ -253,12 +253,12 @@ const StoriesIllustration = () => {
 					/>
 					<path
 						d="M50,50 l10,0 m-5,-5 l0,10"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="2"
 					/>
 					<path
 						d="M550,50 l10,0 m-5,-5 l0,10"
-						stroke="#212323"
+						stroke="currentColor"
 						strokeWidth="2"
 					/>
 				</g>

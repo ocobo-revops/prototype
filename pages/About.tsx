@@ -11,7 +11,7 @@ const DataIllustration = () => {
 				<div className="relative w-full h-full bg-[#FCFAF5] rounded-4xl p-6 md:p-8 shadow-soft-xl border border-gray-100 group/svg overflow-hidden">
 					<svg
 						viewBox="0 0 800 500"
-						className="w-full h-full"
+						className="w-full h-full text-ocobo-dark"
 						preserveAspectRatio="xMidYMid meet"
 					>
 						{/* Background Bars (Grey/Black) - Following the image structure */}
@@ -50,7 +50,7 @@ const DataIllustration = () => {
 											y={450 - bar.h}
 											width="14"
 											height={bar.h}
-											fill="#212323"
+											fill="currentColor"
 											className="bar-transition"
 										/>
 										{/* Inner detail (white segment) */}
@@ -68,7 +68,7 @@ const DataIllustration = () => {
 											width="14"
 											height={bar.h}
 											fill="none"
-											stroke="#212323"
+											stroke="currentColor"
 											strokeWidth="1.5"
 										/>
 									</g>
@@ -92,7 +92,7 @@ const DataIllustration = () => {
 								width="205"
 								height="400"
 								fill="none"
-								stroke="#212323"
+								stroke="currentColor"
 								strokeWidth="2"
 								strokeDasharray="4 4"
 							/>
@@ -101,23 +101,23 @@ const DataIllustration = () => {
 						{/* Sparkles / Crosses (Static as requested) */}
 						<path
 							d="M110,410 l4,8 l8,4 l-8,4 l-4,8 l-4,-8 l-8,-4 l8,-4 Z"
-							fill="#212323"
+							fill="currentColor"
 						/>
 						<path
 							d="M180,120 l3,6 l6,3 l-6,3 l-3,6 l-3,-6 l-6,-3 l6,-3 Z"
-							fill="#212323"
+							fill="currentColor"
 						/>
 						<path
 							d="M520,30 l4,8 l8,4 l-8,4 l-4,8 l-4,-8 l-8,-4 l8,-4 Z"
-							fill="#212323"
+							fill="currentColor"
 						/>
 						<path
 							d="M750,150 l3,6 l6,3 l-6,3 l-3,6 l-3,-6 l-6,-3 l6,-3 Z"
-							fill="#212323"
+							fill="currentColor"
 						/>
 						<path
 							d="M620,400 l4,8 l8,4 l-8,4 l-4,8 l-4,-8 l-8,-4 l8,-4 Z"
-							fill="#212323"
+							fill="currentColor"
 						/>
 
 						{/* Logo Spinner Icon (Bottom Right of yellow zone) */}
@@ -127,18 +127,18 @@ const DataIllustration = () => {
 								cy="0"
 								r="18"
 								fill="white"
-								stroke="#212323"
+								stroke="currentColor"
 								strokeWidth="1.5"
 							/>
 							<path
 								d="M-8,-8 C-4,-12 4,-12 8,-8 M-8,8 C-4,12 4,12 8,8 M-12,0 C-12,-4 -12,4 -12,0 M12,0 C12,-4 12,4 12,0"
-								stroke="#212323"
+								stroke="currentColor"
 								strokeWidth="1.5"
 								strokeLinecap="round"
 							/>
 							<path
 								d="M-5,-5 L5,5 M-5,5 L5,-5"
-								stroke="#212323"
+								stroke="currentColor"
 								strokeWidth="1"
 							/>
 						</g>
@@ -147,7 +147,7 @@ const DataIllustration = () => {
 						<path
 							transform="translate(470, 455) scale(1.2)"
 							d="M0,0 L25,40 L10,35 L0,55 Z"
-							fill="#212323"
+							fill="currentColor"
 							className="animate-float-cursor"
 						/>
 					</svg>
