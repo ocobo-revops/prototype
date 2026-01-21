@@ -16,6 +16,7 @@ import {
 	AttioPillarsIllustration,
 	UnifiedBowtie,
 } from '../components/illustrations';
+import Grid from '../components/layout/Grid';
 
 const Method: React.FC = () => {
 	return (
@@ -51,9 +52,10 @@ const Method: React.FC = () => {
 					</div>
 
 					<Button
-						variant="primary"
-						className="px-16 py-5 text-xs font-bold uppercase tracking-[0.25em] shadow-xl bg-ocobo-dark hover:bg-black transition-all hover:-translate-y-1"
+						variant="cta"
+						size="xl"
 						to="/contact"
+						className="uppercase tracking-[0.25em] font-bold"
 					>
 						Auditer mon système
 					</Button>
@@ -86,7 +88,7 @@ const Method: React.FC = () => {
 						</p>
 					</div>
 
-					<div className="grid lg:grid-cols-2 gap-10">
+					<Grid lg={2} gap={10}>
 						{/* Card 1: Alignment */}
 						<div className="bg-white p-10 border-t-8 border-ocobo-yellow shadow-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative group">
 							<div className="flex justify-between items-start mb-10">
@@ -342,7 +344,7 @@ const Method: React.FC = () => {
 								</div>
 							</div>
 						</div>
-					</div>
+					</Grid>
 				</div>
 			</section>
 
@@ -359,7 +361,7 @@ const Method: React.FC = () => {
 					{/* THE RE-ENGINEERED BOWTIE */}
 					<UnifiedBowtie />
 
-					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left mt-24">
+					<Grid md={2} lg={3} gap={8} className="text-left mt-24">
 						{/* Card 1 */}
 						<div className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl hover:border-ocobo-yellow">
 							<div className="w-12 h-12 bg-ocobo-yellow-light text-ocobo-yellow rounded-lg flex items-center justify-center mb-6">
@@ -503,7 +505,7 @@ const Method: React.FC = () => {
 								</li>
 							</ul>
 						</div>
-					</div>
+					</Grid>
 				</div>
 			</section>
 
@@ -518,11 +520,7 @@ const Method: React.FC = () => {
 						les plus performantes (TheFork, PayFit, Spendesk).
 					</p>
 					<div className="flex justify-center">
-						<Button
-							variant="primary"
-							className="px-12 py-5 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 border-none bg-ocobo-dark text-white"
-							to="/contact"
-						>
+						<Button variant="cta" size="xl" to="/contact">
 							Bâtir mon architecture
 						</Button>
 					</div>

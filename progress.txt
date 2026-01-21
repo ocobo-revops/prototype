@@ -193,3 +193,14 @@ Created: 2026-01-21T10:30:00Z
 - Only warning: chunk size >500KB (expected for SPA)
 
 ---
+
+## Feature 16: Refactor Method.tsx to component assembly
+- Replaced 2 inline grids with Grid component
+- Grid lg={2} gap={10} for pillar cards
+- Grid md={2} lg={3} gap={8} for scope cards
+- FlexPair not applicable (bullet lists, not icon+content pairs)
+- Removed Button className overrides → variant="cta" size="xl"
+- File still 537 lines (content-heavy page)
+- Build passes
+
+---
