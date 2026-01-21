@@ -73,3 +73,11 @@ Created: 2026-01-21T10:30:00Z
 - Build passes
 
 ---
+
+## Feature 5: Button xl size variant
+- Added 'xl' to size type
+- xl styles: px-12 py-5 text-lg
+- xl icon: w-6 h-6
+- Build passes
+
+---
