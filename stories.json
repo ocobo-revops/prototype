@@ -29,10 +29,10 @@
 				"Export as compound component (Grid.Cols)",
 				"Verify: renders grid md:grid-cols-X gap-Y classes"
 			],
-			"passes": false,
+			"passes": true,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": null
+			"completed_at": "2026-01-21T11:00:00Z"
 		},
 		{
 			"id": 2,

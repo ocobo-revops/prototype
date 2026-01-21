@@ -30,3 +30,12 @@ Created: 2026-01-21T10:30:00Z
 - Ready for implementation
 
 ---
+
+## Feature 1: Grid compound component
+- Created components/layout/Grid.tsx
+- GridRoot: gap prop (4|6|8|10|12) → gap-X classes
+- Grid.Cols: base/md/lg props → responsive grid-cols-X classes
+- Exported as compound component (Grid.Cols pattern)
+- Build passes
+
+---
