@@ -112,10 +112,10 @@
 				"Add cta styles: shadow-xl, hover:-translate-y-1, hover:shadow-2xl",
 				"Verify: Button variant='cta' has correct hover effects"
 			],
-			"passes": false,
+			"passes": true,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": null
+			"completed_at": "2026-01-21T17:12:00Z"
 		},
 		{
 			"id": 7,

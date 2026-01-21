@@ -81,3 +81,11 @@ Created: 2026-01-21T10:30:00Z
 - Build passes
 
 ---
+
+## Feature 6: Button cta variant
+- Added 'cta' to variant type
+- cta styles: shadow-xl, hover:-translate-y-1, hover:shadow-2xl
+- Changed baseStyles transition-colors → transition-all for transform
+- Build passes
+
+---
