@@ -66,7 +66,7 @@ const WebinarDetail: React.FC = () => {
 				<div className="mb-12">
 					<Link
 						to="/resources"
-						className="inline-flex items-center text-gray-400 hover:text-ocobo-dark font-black uppercase tracking-[0.2em] text-2xs transition-colors"
+						className="inline-flex items-center text-gray-400 hover:text-ocobo-dark font-black uppercase tracking-[0.2em] text-xs transition-colors"
 					>
 						<ArrowLeft size={14} className="mr-2" /> Retour à la librairie
 					</Link>
@@ -93,7 +93,7 @@ const WebinarDetail: React.FC = () => {
 
 				{/* Video Player Section */}
 				<div className="mb-20">
-					<div className="relative aspect-video w-full rounded-5xl overflow-hidden shadow-soft-2xl bg-ocobo-dark group">
+					<div className="relative aspect-video w-full rounded-3xl overflow-hidden shadow-soft-lg bg-ocobo-dark group">
 						<iframe
 							src={`https://www.youtube.com/embed/${webinar.youtubeId}?autoplay=0&rel=0&modestbranding=1`}
 							title={webinar.title}
@@ -117,7 +117,7 @@ const WebinarDetail: React.FC = () => {
 							</p>
 						</div>
 
-						<div className="bg-gray-50 p-10 rounded-6xl border border-gray-100">
+						<div className="bg-gray-50 p-10 rounded-3xl border border-gray-100">
 							<h3 className="font-display text-2xl font-black text-ocobo-dark mb-8">
 								Au programme :
 							</h3>
@@ -139,7 +139,7 @@ const WebinarDetail: React.FC = () => {
 					{/* Sidebar CTA */}
 					<div className="lg:col-span-4">
 						<div className="sticky top-32">
-							<div className="p-10 bg-ocobo-dark rounded-5xl text-white shadow-2xl relative overflow-hidden">
+							<div className="p-10 bg-ocobo-dark rounded-3xl text-white shadow-2xl relative overflow-hidden">
 								{/* Decorative element */}
 								<div className="absolute top-0 right-0 w-24 h-24 bg-ocobo-sky/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 
@@ -154,7 +154,7 @@ const WebinarDetail: React.FC = () => {
 								<Button
 									variant="white"
 									size="lg"
-									className="w-full text-2xs font-black uppercase tracking-widest border-none hover:bg-ocobo-sky hover:text-white transition-all"
+									className="w-full text-xs font-black uppercase tracking-widest border-none hover:bg-ocobo-sky hover:text-white transition-all"
 									to="/contact"
 								>
 									Réserver mon audit flash
@@ -174,7 +174,7 @@ const WebinarDetail: React.FC = () => {
 											</div>
 										))}
 									</div>
-									<span className="text-2xs font-black text-gray-500 uppercase tracking-widest leading-none">
+									<span className="text-xs font-black text-gray-500 uppercase tracking-widest leading-none">
 										+100 architectes <br /> déjà engagés
 									</span>
 								</div>
@@ -182,14 +182,14 @@ const WebinarDetail: React.FC = () => {
 
 							{/* Related Resource link */}
 							<div className="mt-8 p-8 border border-gray-100 rounded-3xl bg-white shadow-sm hover:shadow-md transition-all group cursor-pointer">
-								<span className="text-2xs font-black text-ocobo-coral uppercase tracking-widest mb-2 block">
+								<span className="text-xs font-black text-ocobo-coral uppercase tracking-widest mb-2 block">
 									Dernier Article
 								</span>
 								<h5 className="font-display text-lg font-bold text-ocobo-dark group-hover:text-ocobo-yellow transition-colors leading-tight">
 									Pourquoi votre reporting HubSpot est faux (et comment le
 									réparer)
 								</h5>
-								<div className="mt-4 flex items-center text-2xs font-black text-gray-300 group-hover:text-ocobo-dark transition-colors uppercase tracking-[0.2em]">
+								<div className="mt-4 flex items-center text-xs font-black text-gray-300 group-hover:text-ocobo-dark transition-colors uppercase tracking-[0.2em]">
 									Lire l'article <ArrowRight size={14} className="ml-2" />
 								</div>
 							</div>
@@ -205,7 +205,7 @@ const WebinarDetail: React.FC = () => {
 						</h3>
 						<Link
 							to="/resources"
-							className="text-2xs font-black uppercase tracking-[0.3em] text-gray-400 hover:text-ocobo-dark transition-colors flex items-center gap-2"
+							className="text-xs font-black uppercase tracking-[0.3em] text-gray-400 hover:text-ocobo-dark transition-colors flex items-center gap-2"
 						>
 							Tout voir <ArrowRight size={14} />
 						</Link>
@@ -226,13 +226,13 @@ const WebinarDetail: React.FC = () => {
 										</div>
 									</div>
 								</div>
-								<span className="font-display font-black text-2xs uppercase tracking-[0.2em] text-ocobo-sky mb-3 block">
+								<span className="font-display font-black text-xs uppercase tracking-[0.2em] text-ocobo-sky mb-3 block">
 									WEBINAR
 								</span>
 								<h4 className="font-display text-xl font-black text-ocobo-dark mb-4 group-hover:text-ocobo-sky transition-colors leading-tight">
 									Scaling des flux Data : les secrets des leaders SaaS
 								</h4>
-								<div className="flex items-center text-2xs font-black uppercase tracking-widest text-gray-400 gap-2">
+								<div className="flex items-center text-xs font-black uppercase tracking-widest text-gray-400 gap-2">
 									<div className="flex items-center gap-1 group-hover:text-ocobo-dark transition-colors">
 										Voir le replay <ArrowRight size={12} />
 									</div>

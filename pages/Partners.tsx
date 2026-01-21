@@ -447,7 +447,7 @@ const Partners: React.FC = () => {
 						TECHNOLOGIE
 					</Badge>
 
-					<h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
+					<h1 className="font-display text-5xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
 						Un écosystème <br />
 						de solutions{' '}
 						<span className="text-ocobo-sky italic">connectées.</span>
@@ -561,7 +561,7 @@ const Partners: React.FC = () => {
 									type="button"
 									key={cat}
 									onClick={() => setFilter(cat)}
-									className={`px-6 py-2.5 rounded-full text-2xs font-black uppercase tracking-widest transition-all border ${
+									className={`px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all border ${
 										filter === cat
 											? 'bg-ocobo-dark text-white border-ocobo-dark shadow-lg'
 											: 'bg-gray-50 text-gray-500 border-gray-100 hover:border-ocobo-dark'
@@ -596,7 +596,7 @@ const Partners: React.FC = () => {
 										{partner.category.map((cat) => (
 											<div
 												key={cat}
-												className="text-2xs font-black uppercase tracking-widest bg-gray-100 text-gray-400 px-3 py-1 rounded-md group-hover:bg-ocobo-dark group-hover:text-white transition-all"
+												className="text-xs font-black uppercase tracking-widest bg-gray-100 text-gray-400 px-3 py-1 rounded-md group-hover:bg-ocobo-dark group-hover:text-white transition-all"
 											>
 												{cat === 'NO-CODE' ? 'No-Code & Automatisation' : cat}
 											</div>
@@ -612,7 +612,7 @@ const Partners: React.FC = () => {
 										{partner.tags.map((tag) => (
 											<span
 												key={tag}
-												className="text-2xs font-bold bg-gray-50 text-gray-400 border border-gray-100 px-2 py-0.5 rounded transition-all group-hover:border-ocobo-dark/10 group-hover:text-ocobo-dark whitespace-nowrap"
+												className="text-xs font-bold bg-gray-50 text-gray-400 border border-gray-100 px-2 py-0.5 rounded transition-all group-hover:border-ocobo-dark/10 group-hover:text-ocobo-dark whitespace-nowrap"
 											>
 												{tag}
 											</span>
@@ -637,12 +637,12 @@ const Partners: React.FC = () => {
 												/>
 											</div>
 										) : partner.status === 'OFFICIAL' ? (
-											<div className="flex items-center gap-1.5 text-2xs font-black uppercase tracking-widest text-ocobo-dark">
+											<div className="flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-ocobo-dark">
 												<Award size={12} className="text-ocobo-yellow" />
 												Partenaire Officiel
 											</div>
 										) : (
-											<div className="flex items-center gap-1.5 text-2xs font-black uppercase tracking-widest text-gray-400 group-hover:text-ocobo-mint transition-colors">
+											<div className="flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-gray-400 group-hover:text-ocobo-mint transition-colors">
 												<Zap
 													size={12}
 													className="opacity-50 group-hover:opacity-100"
@@ -734,13 +734,13 @@ const Partners: React.FC = () => {
 						</div>
 
 						<div className="lg:w-1/2 w-full">
-							<div className="bg-white p-8 md:p-12 rounded-5xl shadow-2xl border border-gray-100 relative overflow-hidden">
+							<div className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden">
 								{/* Multi-color top bar */}
 								<div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-ocobo-yellow via-ocobo-sky to-ocobo-mint"></div>
 
 								{formSubmitted ? (
 									<div className="py-12 text-center animate-fade-in-up">
-										<div className="w-20 h-20 bg-ocobo-mintLight text-ocobo-mint rounded-full flex items-center justify-center mx-auto mb-6">
+										<div className="w-20 h-20 bg-ocobo-mint-light text-ocobo-mint rounded-full flex items-center justify-center mx-auto mb-6">
 											<CheckCircle2 size={40} />
 										</div>
 										<h3 className="font-display text-2xl font-black text-ocobo-dark mb-4">
@@ -753,7 +753,7 @@ const Partners: React.FC = () => {
 										<button
 											type="button"
 											onClick={() => setFormSubmitted(false)}
-											className="text-2xs font-black uppercase tracking-widest text-gray-400 hover:text-ocobo-dark transition-colors"
+											className="text-xs font-black uppercase tracking-widest text-gray-400 hover:text-ocobo-dark transition-colors"
 										>
 											Envoyer une autre demande
 										</button>
@@ -766,7 +766,7 @@ const Partners: React.FC = () => {
 										<div className="grid md:grid-cols-2 gap-6">
 											<div className="space-y-2">
 												{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-												<label className="text-2xs font-black uppercase tracking-[0.2em] text-gray-400">
+												<label className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">
 													Nom de la solution*
 												</label>
 												<input
@@ -778,7 +778,7 @@ const Partners: React.FC = () => {
 											</div>
 											<div className="space-y-2">
 												{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-												<label className="text-2xs font-black uppercase tracking-[0.2em] text-gray-400">
+												<label className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">
 													Site Web*
 												</label>
 												<input
@@ -791,7 +791,7 @@ const Partners: React.FC = () => {
 										</div>
 										<div className="space-y-2">
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-											<label className="text-2xs font-black uppercase tracking-[0.2em] text-gray-400">
+											<label className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">
 												E-mail pro*
 											</label>
 											<input
@@ -803,7 +803,7 @@ const Partners: React.FC = () => {
 										</div>
 										<div className="space-y-2">
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-											<label className="text-2xs font-black uppercase tracking-[0.2em] text-gray-400">
+											<label className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">
 												Votre message
 											</label>
 											<textarea

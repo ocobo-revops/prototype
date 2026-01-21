@@ -54,7 +54,7 @@ const Contact: React.FC = () => {
 
 							<div className="space-y-8">
 								<div className="flex gap-6 items-start group">
-									<div className="w-12 h-12 bg-ocobo-mintLight text-ocobo-mint rounded-xl flex items-center justify-center shrink-0 group-hover:bg-ocobo-mint group-hover:text-white transition-colors duration-300">
+									<div className="w-12 h-12 bg-ocobo-mint-light text-ocobo-mint rounded-xl flex items-center justify-center shrink-0 group-hover:bg-ocobo-mint group-hover:text-white transition-colors duration-300">
 										<Check strokeWidth={3} size={20} />
 									</div>
 									<div>
@@ -68,7 +68,7 @@ const Contact: React.FC = () => {
 									</div>
 								</div>
 								<div className="flex gap-6 items-start group">
-									<div className="w-12 h-12 bg-ocobo-skyLight text-ocobo-sky rounded-xl flex items-center justify-center shrink-0 group-hover:bg-ocobo-sky group-hover:text-white transition-colors duration-300">
+									<div className="w-12 h-12 bg-ocobo-sky-light text-ocobo-sky rounded-xl flex items-center justify-center shrink-0 group-hover:bg-ocobo-sky group-hover:text-white transition-colors duration-300">
 										<MessageSquare strokeWidth={3} size={20} />
 									</div>
 									<div>
@@ -81,7 +81,7 @@ const Contact: React.FC = () => {
 									</div>
 								</div>
 								<div className="flex gap-6 items-start group">
-									<div className="w-12 h-12 bg-ocobo-yellowLight text-ocobo-yellow rounded-xl flex items-center justify-center shrink-0 group-hover:bg-ocobo-yellow group-hover:text-white transition-colors duration-300">
+									<div className="w-12 h-12 bg-ocobo-yellow-light text-ocobo-yellow rounded-xl flex items-center justify-center shrink-0 group-hover:bg-ocobo-yellow group-hover:text-white transition-colors duration-300">
 										<Calendar strokeWidth={3} size={20} />
 									</div>
 									<div>
@@ -100,7 +100,7 @@ const Contact: React.FC = () => {
 
 					{/* Right Side: Form */}
 					<div className="lg:w-1/2">
-						<div className="bg-white p-8 md:p-12 shadow-form border border-gray-100 relative">
+						<div className="bg-white p-8 md:p-12 shadow-card border border-gray-100 relative">
 							<div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-ocobo-yellow via-ocobo-coral to-ocobo-sky"></div>
 
 							<h3 className="font-display text-2xl font-bold mb-8 text-ocobo-dark">

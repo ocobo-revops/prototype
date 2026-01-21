@@ -54,13 +54,13 @@ const NewsletterWidget: React.FC = () => {
 							<Mail size={20} className="text-ocobo-yellow" />
 							<span className="absolute -top-1 -right-1 w-2 h-2 bg-ocobo-coral rounded-full animate-pulse"></span>
 						</div>
-						<span className="text-2xs font-black uppercase tracking-[0.2em] pr-2">
+						<span className="text-xs font-black uppercase tracking-[0.2em] pr-2">
 							La Lettre de l'Architecte
 						</span>
 					</button>
 				</div>
 			) : (
-				<div className="bg-ocobo-dark text-white p-6 rounded-4xl shadow-soft-dark border border-white/10 w-[320px] relative overflow-hidden">
+				<div className="bg-ocobo-dark text-white p-6 rounded-3xl shadow-dark border border-white/10 w-[320px] relative overflow-hidden">
 					<div className="absolute top-0 left-0 w-full h-1 bg-ocobo-yellow"></div>
 
 					<button
@@ -74,7 +74,7 @@ const NewsletterWidget: React.FC = () => {
 					<div className="mb-6 mt-2">
 						<div className="flex items-center gap-2 mb-3">
 							<Sparkles size={14} className="text-ocobo-yellow" />
-							<span className="text-2xs font-black uppercase tracking-[0.3em] text-ocobo-yellow">
+							<span className="text-xs font-black uppercase tracking-[0.3em] text-ocobo-yellow">
 								Newsletter Mensuelle
 							</span>
 						</div>
@@ -103,7 +103,7 @@ const NewsletterWidget: React.FC = () => {
 						/>
 						<button
 							type="submit"
-							className="w-full bg-ocobo-yellow text-ocobo-dark py-3 rounded-xl text-2xs font-black uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-white transition-all group"
+							className="w-full bg-ocobo-yellow text-ocobo-dark py-3 rounded-xl text-xs font-black uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-white transition-all group"
 						>
 							S'inscrire{' '}
 							<ArrowRight
@@ -118,7 +118,7 @@ const NewsletterWidget: React.FC = () => {
 						onClick={() => {
 							setIsDismissed(true);
 						}}
-						className="w-full mt-4 text-2xs font-bold text-gray-600 hover:text-gray-400 uppercase tracking-widest transition-colors"
+						className="w-full mt-4 text-xs font-bold text-gray-600 hover:text-gray-400 uppercase tracking-widest transition-colors"
 					>
 						Masquer définitivement
 					</button>

@@ -7,7 +7,7 @@ const DataIllustration = () => {
 		<div className="w-full overflow-hidden">
 			<div className="relative w-full max-w-3xl h-[280px] md:h-[420px] mx-auto p-4 flex flex-col items-center">
 				{/* Illustration Container */}
-				<div className="relative w-full h-full bg-[#FCFAF5] rounded-4xl p-6 md:p-8 shadow-soft-xl border border-gray-100 group/svg overflow-hidden">
+				<div className="relative w-full h-full bg-[#FCFAF5] rounded-3xl p-6 md:p-8 shadow-soft-lg border border-gray-100 group/svg overflow-hidden">
 					<svg
 						viewBox="0 0 800 500"
 						className="w-full h-full text-ocobo-dark"
@@ -308,7 +308,7 @@ const About: React.FC = () => {
 			{/* BLOC 1 - HERO & MISSION */}
 			<section className="pt-40 pb-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="text-center max-w-4xl mx-auto mb-20">
-					<h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-8 leading-[0.9] tracking-tight">
+					<h1 className="font-display text-5xl md:text-6xl font-bold text-ocobo-dark mb-8 leading-[0.9] tracking-tight">
 						Notre mission : <br />
 						démocratiser la{' '}
 						<span className="text-ocobo-yellow">science du revenu.</span>
@@ -411,7 +411,7 @@ const About: React.FC = () => {
 						</div>
 
 						{/* Stanza 5 - The Invitation */}
-						<div className="relative pt-20 pb-16 px-8 md:px-12 bg-white/5 rounded-5xl border border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm">
+						<div className="relative pt-20 pb-16 px-8 md:px-12 bg-white/5 rounded-3xl border border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm">
 							{/* Top multi-color line */}
 							<div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-ocobo-yellow via-ocobo-coral to-ocobo-sky"></div>
 
@@ -596,7 +596,7 @@ const About: React.FC = () => {
 					<div className="text-center mt-12 flex flex-col items-center gap-8">
 						<p className="font-bold text-xl">
 							Trois parcours, une même conviction :{' '}
-							<span className="bg-ocobo-yellowLight px-2">
+							<span className="bg-ocobo-yellow-light px-2">
 								la croissance a besoin d'architectes, pas de techniciens.
 							</span>
 						</p>
@@ -689,7 +689,7 @@ const About: React.FC = () => {
 			</section>
 
 			{/* BLOC 6 - CTA FINAL */}
-			<section className="bg-ocobo-skyLight py-24 text-center">
+			<section className="bg-ocobo-sky-light py-24 text-center">
 				<div className="max-w-3xl mx-auto px-4">
 					<h2 className="font-display text-4xl font-bold text-ocobo-dark mb-6">
 						Parlons de votre machine revenue.

@@ -22,7 +22,7 @@ const ArchitecturalGrid = () => {
 			<div className="flex items-stretch gap-4 relative">
 				{/* Axe Ordonnée : ALIGNEMENT */}
 				<div className="flex flex-col items-center justify-center py-4 shrink-0">
-					<div className="[writing-mode:vertical-lr] rotate-180 font-display font-bold text-ocobo-dark/40 text-2xs uppercase tracking-[0.6em] mb-4">
+					<div className="[writing-mode:vertical-lr] rotate-180 font-display font-bold text-ocobo-dark/40 text-xs uppercase tracking-[0.6em] mb-4">
 						Alignement
 					</div>
 					<div
@@ -32,10 +32,10 @@ const ArchitecturalGrid = () => {
 				</div>
 
 				{/* Grid Container */}
-				<div className="relative z-10 bg-white border-2 border-ocobo-dark p-8 shadow-offset-lg flex-grow">
+				<div className="relative z-10 bg-white border-2 border-ocobo-dark p-8 shadow-offset flex-grow">
 					<div className="grid grid-cols-2 gap-4 mb-4">
 						<div
-							className="opacity-0 animate-box-pop h-24 bg-ocobo-yellowLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
+							className="opacity-0 animate-box-pop h-24 bg-ocobo-yellow-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
 							style={{ animationDelay: '0.4s' }}
 						>
 							<span className="font-display font-bold group-hover:text-ocobo-yellow transition-colors text-xs md:text-sm">
@@ -43,7 +43,7 @@ const ArchitecturalGrid = () => {
 							</span>
 						</div>
 						<div
-							className="opacity-0 animate-box-pop h-24 bg-ocobo-skyLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
+							className="opacity-0 animate-box-pop h-24 bg-ocobo-sky-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
 							style={{ animationDelay: '0.5s' }}
 						>
 							<span className="font-display font-bold group-hover:text-ocobo-sky transition-colors text-xs md:text-sm">
@@ -51,7 +51,7 @@ const ArchitecturalGrid = () => {
 							</span>
 						</div>
 						<div
-							className="opacity-0 animate-box-pop h-24 bg-ocobo-mintLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
+							className="opacity-0 animate-box-pop h-24 bg-ocobo-mint-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
 							style={{ animationDelay: '0.6s' }}
 						>
 							<span className="font-display font-bold group-hover:text-ocobo-mint transition-colors text-xs md:text-sm">
@@ -59,7 +59,7 @@ const ArchitecturalGrid = () => {
 							</span>
 						</div>
 						<div
-							className="opacity-0 animate-box-pop h-24 bg-ocobo-coralLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
+							className="opacity-0 animate-box-pop h-24 bg-ocobo-coral-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
 							style={{ animationDelay: '0.7s' }}
 						>
 							<span className="font-display font-bold group-hover:text-ocobo-coral transition-colors text-xs md:text-sm">
@@ -72,7 +72,7 @@ const ArchitecturalGrid = () => {
 					<div className="h-2 bg-ocobo-dark w-full mb-4 origin-left animate-blueprint-in"></div>
 
 					{/* Axe Abscisse labels */}
-					<div className="flex justify-between text-2xs md:text-2xs font-bold uppercase tracking-widest text-ocobo-dark/60">
+					<div className="flex justify-between text-xs md:text-xs font-bold uppercase tracking-widest text-ocobo-dark/60">
 						<span
 							className="opacity-0 animate-box-pop"
 							style={{ animationDelay: '0.9s' }}
@@ -333,7 +333,7 @@ const Services: React.FC = () => {
 						<Badge variant="yellow" className="mb-10">
 							NOTRE OFFRE
 						</Badge>
-						<h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
+						<h1 className="font-display text-5xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
 							Un système.
 							<br />
 							<span className="text-gray-400">Pas des rustines.</span>
@@ -518,7 +518,7 @@ const Services: React.FC = () => {
 						{/* Service 1: Audit & Cadrage */}
 						<div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
 							<div className="w-full md:w-5/12 sticky top-32">
-								<div className="w-16 h-16 bg-ocobo-yellow text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-offset-sm mb-8">
+								<div className="w-16 h-16 bg-ocobo-yellow text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-offset mb-8">
 									1
 								</div>
 								<h3 className="font-display text-3xl md:text-4xl font-bold text-ocobo-dark mb-4 leading-tight">
@@ -532,7 +532,7 @@ const Services: React.FC = () => {
 								<div className="bg-white border border-gray-100 p-8 md:p-10 hover:shadow-2xl hover:border-ocobo-yellow transition-all duration-300 group rounded-xl">
 									<ul className="space-y-8">
 										<li className="flex gap-5 items-start">
-											<div className="mt-1 bg-ocobo-yellowLight p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
+											<div className="mt-1 bg-ocobo-yellow-light p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
 												<CheckCircle2 size={18} />
 											</div>
 											<div>
@@ -546,7 +546,7 @@ const Services: React.FC = () => {
 											</div>
 										</li>
 										<li className="flex gap-5 items-start">
-											<div className="mt-1 bg-ocobo-yellowLight p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
+											<div className="mt-1 bg-ocobo-yellow-light p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
 												<CheckCircle2 size={18} />
 											</div>
 											<div>
@@ -560,7 +560,7 @@ const Services: React.FC = () => {
 											</div>
 										</li>
 										<li className="flex gap-5 items-start">
-											<div className="mt-1 bg-ocobo-yellowLight p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
+											<div className="mt-1 bg-ocobo-yellow-light p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
 												<CheckCircle2 size={18} />
 											</div>
 											<div>
@@ -583,7 +583,7 @@ const Services: React.FC = () => {
 						{/* Service 2: Déploiement */}
 						<div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
 							<div className="w-full md:w-5/12 sticky top-32">
-								<div className="w-16 h-16 bg-ocobo-coral text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-offset-sm mb-8">
+								<div className="w-16 h-16 bg-ocobo-coral text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-offset mb-8">
 									2
 								</div>
 								<h3 className="font-display text-3xl md:text-4xl font-bold text-ocobo-dark mb-4 leading-tight">
@@ -625,7 +625,7 @@ const Services: React.FC = () => {
 						{/* Service 3: Coaching */}
 						<div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
 							<div className="w-full md:w-5/12 sticky top-32">
-								<div className="w-16 h-16 bg-ocobo-mint text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-offset-sm mb-8">
+								<div className="w-16 h-16 bg-ocobo-mint text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-offset mb-8">
 									3
 								</div>
 								<h3 className="font-display text-3xl md:text-4xl font-bold text-ocobo-dark mb-4 leading-tight">
@@ -640,7 +640,7 @@ const Services: React.FC = () => {
 								<div className="bg-white border border-gray-100 p-8 md:p-10 hover:shadow-2xl hover:border-ocobo-mint transition-all duration-300 group rounded-xl">
 									<ul className="space-y-8">
 										<li className="flex gap-5 items-start">
-											<div className="mt-1 bg-ocobo-mintLight p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+											<div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
 												<CheckCircle2 size={18} />
 											</div>
 											<div>
@@ -654,7 +654,7 @@ const Services: React.FC = () => {
 											</div>
 										</li>
 										<li className="flex gap-5 items-start">
-											<div className="mt-1 bg-ocobo-mintLight p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+											<div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
 												<CheckCircle2 size={18} />
 											</div>
 											<div>
@@ -668,7 +668,7 @@ const Services: React.FC = () => {
 											</div>
 										</li>
 										<li className="flex gap-5 items-start">
-											<div className="mt-1 bg-ocobo-mintLight p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+											<div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
 												<CheckCircle2 size={18} />
 											</div>
 											<div>
@@ -682,7 +682,7 @@ const Services: React.FC = () => {
 											</div>
 										</li>
 										<li className="flex gap-5 items-start">
-											<div className="mt-1 bg-ocobo-mintLight p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+											<div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
 												<CheckCircle2 size={18} />
 											</div>
 											<div>
@@ -717,7 +717,7 @@ const Services: React.FC = () => {
 					<div className="grid lg:grid-cols-3 gap-12 lg:gap-8">
 						{/* Levier 1: Méthode */}
 						<Link to="/method" className="group flex flex-col h-full">
-							<div className="relative p-10 bg-gray-50 rounded-5xl border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
+							<div className="relative p-10 bg-gray-50 rounded-3xl border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
 								<div className="mb-12 flex justify-between items-center">
 									<div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-ocobo-yellow shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
 										<Layers size={28} />
@@ -730,7 +730,7 @@ const Services: React.FC = () => {
 								<h3 className="font-display text-2xl font-bold mb-6 group-hover:text-ocobo-yellow transition-colors">
 									Notre méthode
 								</h3>
-								<p className="text-gray-400 font-display font-black text-2xs uppercase tracking-widest mb-4">
+								<p className="text-gray-400 font-display font-black text-xs uppercase tracking-widest mb-4">
 									The Revenue Experience System™
 								</p>
 								<p className="text-gray-600 text-sm leading-relaxed mb-10 font-medium flex-grow">
@@ -747,7 +747,7 @@ const Services: React.FC = () => {
 										(tag) => (
 											<span
 												key={tag}
-												className="px-3 py-1 bg-white border border-gray-100 rounded-full text-2xs font-black uppercase tracking-wider text-gray-400"
+												className="px-3 py-1 bg-white border border-gray-100 rounded-full text-xs font-black uppercase tracking-wider text-gray-400"
 											>
 												{tag}
 											</span>
@@ -759,7 +759,7 @@ const Services: React.FC = () => {
 
 						{/* Levier 2: Technologie */}
 						<Link to="/technology" className="group flex flex-col h-full">
-							<div className="relative p-10 bg-gray-50 rounded-5xl border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
+							<div className="relative p-10 bg-gray-50 rounded-3xl border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
 								<div className="mb-12 flex justify-between items-center">
 									<div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-ocobo-sky shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
 										<Cpu size={28} />
@@ -772,7 +772,7 @@ const Services: React.FC = () => {
 								<h3 className="font-display text-2xl font-bold mb-6 group-hover:text-ocobo-sky transition-colors">
 									Notre technologie
 								</h3>
-								<p className="text-gray-400 font-display font-black text-2xs uppercase tracking-widest mb-4">
+								<p className="text-gray-400 font-display font-black text-xs uppercase tracking-widest mb-4">
 									Infrastructure Unifiée
 								</p>
 								<p className="text-gray-600 text-sm leading-relaxed mb-10 font-medium flex-grow">
@@ -810,7 +810,7 @@ const Services: React.FC = () => {
 
 						{/* Levier 3: Équipe */}
 						<Link to="/studio" className="group flex flex-col h-full">
-							<div className="relative p-10 bg-gray-50 rounded-5xl border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
+							<div className="relative p-10 bg-gray-50 rounded-3xl border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
 								<div className="mb-12 flex justify-between items-center">
 									<div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-ocobo-mint shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
 										<Users size={28} />
@@ -823,7 +823,7 @@ const Services: React.FC = () => {
 								<h3 className="font-display text-2xl font-bold mb-6 group-hover:text-ocobo-mint transition-colors">
 									Notre équipe
 								</h3>
-								<p className="text-gray-400 font-display font-black text-2xs uppercase tracking-widest mb-4">
+								<p className="text-gray-400 font-display font-black text-xs uppercase tracking-widest mb-4">
 									Le RevOps Studio
 								</p>
 								<p className="text-gray-600 text-sm leading-relaxed mb-10 font-medium flex-grow">
@@ -836,10 +836,10 @@ const Services: React.FC = () => {
 								<div className="w-full h-1 bg-ocobo-mint opacity-20 mb-8 rounded-full group-hover:opacity-100 transition-opacity"></div>
 
 								<div className="h-[48px] flex flex-col justify-start">
-									<div className="text-2xs font-black text-gray-400 uppercase tracking-widest leading-relaxed">
+									<div className="text-xs font-black text-gray-400 uppercase tracking-widest leading-relaxed">
 										TheFork • Qonto • Payfit
 									</div>
-									<div className="text-2xs font-black text-gray-400 uppercase tracking-widest leading-relaxed">
+									<div className="text-xs font-black text-gray-400 uppercase tracking-widest leading-relaxed">
 										Spendesk • Zenchef
 									</div>
 								</div>
@@ -887,7 +887,7 @@ const Services: React.FC = () => {
 									{step.title}
 								</h3>
 								<div className="pt-4 border-t border-gray-50">
-									<span className="text-2xs font-black uppercase text-gray-400">
+									<span className="text-xs font-black uppercase text-gray-400">
 										Livrables :
 									</span>
 									<p className="text-xs font-bold text-ocobo-dark mt-1">
@@ -980,7 +980,7 @@ const Services: React.FC = () => {
 								className={`bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl group`}
 							>
 								<div
-									className={`w-12 h-12 mb-6 rounded-lg flex items-center justify-center ${block.color === 'dark' ? 'bg-gray-100 text-ocobo-dark' : block.color === 'purple-500' ? 'bg-purple-50 text-purple-500' : `bg-ocobo-${block.color}Light text-ocobo-${block.color}`}`}
+									className={`w-12 h-12 mb-6 rounded-lg flex items-center justify-center ${block.color === 'dark' ? 'bg-gray-100 text-ocobo-dark' : block.color === 'purple-500' ? 'bg-purple-50 text-purple-500' : `bg-ocobo-${block.color}-light text-ocobo-${block.color}`}`}
 								>
 									{block.icon}
 								</div>

@@ -96,7 +96,7 @@ const ArticleDetail: React.FC = () => {
 				<div className="mb-12 flex items-center justify-between">
 					<Link
 						to="/resources"
-						className="inline-flex items-center text-gray-400 hover:text-ocobo-dark font-black uppercase tracking-widest text-2xs transition-colors"
+						className="inline-flex items-center text-gray-400 hover:text-ocobo-dark font-black uppercase tracking-widest text-xs transition-colors"
 					>
 						<ArrowLeft size={14} className="mr-2" /> Retour au blog
 					</Link>
@@ -143,7 +143,7 @@ const ArticleDetail: React.FC = () => {
 					{/* SIDEBAR : SOMMAIRE */}
 					<aside className="lg:w-1/4">
 						<div className="sticky top-32">
-							<h4 className="font-display font-black text-2xs uppercase tracking-[0.4em] text-ocobo-dark mb-8">
+							<h4 className="font-display font-black text-xs uppercase tracking-[0.4em] text-ocobo-dark mb-8">
 								Sommaire
 							</h4>
 							<nav className="space-y-4">
@@ -264,7 +264,7 @@ const ArticleDetail: React.FC = () => {
 						</div>
 
 						{/* NEWSLETTER INTEGRATION */}
-						<div className="mt-20 bg-ocobo-yellow p-10 md:p-14 rounded-5xl relative overflow-hidden">
+						<div className="mt-20 bg-ocobo-yellow p-10 md:p-14 rounded-3xl relative overflow-hidden">
 							<div className="absolute top-0 right-0 p-4 opacity-5">
 								<Layout size={200} strokeWidth={1} />
 							</div>
@@ -284,7 +284,7 @@ const ArticleDetail: React.FC = () => {
 									/>
 									<button
 										type="submit"
-										className="px-8 py-4 bg-ocobo-dark text-white font-black uppercase tracking-widest text-2xs rounded-xl hover:bg-black transition-all"
+										className="px-8 py-4 bg-ocobo-dark text-white font-black uppercase tracking-widest text-xs rounded-xl hover:bg-black transition-all"
 									>
 										S'inscrire
 									</button>
@@ -309,13 +309,13 @@ const ArticleDetail: React.FC = () => {
 										alt="Related"
 									/>
 								</div>
-								<span className="font-display font-bold text-2xs uppercase tracking-widest text-ocobo-coral mb-3 block">
+								<span className="font-display font-bold text-xs uppercase tracking-widest text-ocobo-coral mb-3 block">
 									Performance
 								</span>
 								<h4 className="font-display text-xl font-bold text-ocobo-dark mb-4 group-hover:text-ocobo-yellow transition-colors leading-tight">
 									Comment réduire votre CAC via l'automatisation RevOps
 								</h4>
-								<div className="flex items-center text-2xs font-black uppercase tracking-widest text-gray-400 gap-2">
+								<div className="flex items-center text-xs font-black uppercase tracking-widest text-gray-400 gap-2">
 									<span>8 MIN</span>
 									<span className="w-1 h-1 bg-gray-200 rounded-full"></span>
 									<div className="flex items-center gap-1 group-hover:text-ocobo-dark transition-colors">

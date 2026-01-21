@@ -12,10 +12,10 @@ interface FeatureCardProps {
 }
 
 const colourStyles: Record<ThemeColor, { bg: string; text: string }> = {
-	yellow: { bg: 'bg-ocobo-yellowLight', text: 'text-ocobo-yellow' },
-	mint: { bg: 'bg-ocobo-mintLight', text: 'text-ocobo-mint' },
-	sky: { bg: 'bg-ocobo-skyLight', text: 'text-ocobo-sky' },
-	coral: { bg: 'bg-ocobo-coralLight', text: 'text-ocobo-coral' },
+	yellow: { bg: 'bg-ocobo-yellow-light', text: 'text-ocobo-yellow' },
+	mint: { bg: 'bg-ocobo-mint-light', text: 'text-ocobo-mint' },
+	sky: { bg: 'bg-ocobo-sky-light', text: 'text-ocobo-sky' },
+	coral: { bg: 'bg-ocobo-coral-light', text: 'text-ocobo-coral' },
 	dark: { bg: 'bg-gray-100', text: 'text-ocobo-dark' },
 };
 
@@ -44,7 +44,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 			</div>
 
 			{label && (
-				<span className="font-display font-black text-ocobo-dark/30 text-2xs uppercase tracking-[0.5em] mb-4">
+				<span className="font-display font-black text-ocobo-dark/30 text-xs uppercase tracking-[0.5em] mb-4">
 					{label}
 				</span>
 			)}
@@ -55,7 +55,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 				{title}
 			</h3>
 
-			<p className="text-gray-400 font-bold text-2xs uppercase tracking-[0.2em]">
+			<p className="text-gray-400 font-bold text-xs uppercase tracking-[0.2em]">
 				{description}
 			</p>
 

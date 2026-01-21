@@ -56,7 +56,7 @@ const _VideoStoryCard: React.FC<VideoStoryCardProps> = ({
 			</div>
 
 			{/* Video Placeholder Card */}
-			<div className="relative aspect-[9/16] w-full rounded-4xl overflow-hidden bg-gray-800 border border-white/5 shadow-2xl group-hover:shadow-ocobo-yellow/10 transition-all duration-500">
+			<div className="relative aspect-[9/16] w-full rounded-3xl overflow-hidden bg-gray-800 border border-white/5 shadow-2xl group-hover:shadow-ocobo-yellow/10 transition-all duration-500">
 				<img
 					src={videoThumb}
 					className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
@@ -135,28 +135,28 @@ const Jobs: React.FC = () => {
 			title: 'Excellence Senior',
 			desc: "Ici, on ne bricole pas. On architecture des systèmes robustes avec l'exigence des meilleurs standards du marché.",
 			icon: <Sparkles className="text-ocobo-yellow" size={24} />,
-			bg: 'bg-ocobo-yellowLight',
+			bg: 'bg-ocobo-yellow-light',
 			border: 'border-ocobo-yellow',
 		},
 		{
 			title: 'Transparence Radicale',
 			desc: 'Pas de politique, pas de non-dits. On progresse par le feedback honnête et la remise en question permanente.',
 			icon: <ShieldCheck className="text-ocobo-sky" size={24} />,
-			bg: 'bg-ocobo-skyLight',
+			bg: 'bg-ocobo-sky-light',
 			border: 'border-ocobo-sky',
 		},
 		{
 			title: 'Impact Mesurable',
 			desc: 'Chaque sprint, chaque ligne de process, chaque dashboard doit créer de la valeur concrète pour nos clients.',
 			icon: <Zap className="text-ocobo-mint" size={24} />,
-			bg: 'bg-ocobo-mintLight',
+			bg: 'bg-ocobo-mint-light',
 			border: 'border-ocobo-mint',
 		},
 		{
 			title: 'Esprit de Squad',
 			desc: 'On ne travaille jamais seul. On partage nos blocages, nos victoires et nos apprentissages en temps réel.',
 			icon: <Heart className="text-ocobo-coral" size={24} />,
-			bg: 'bg-ocobo-coralLight',
+			bg: 'bg-ocobo-coral-light',
 			border: 'border-ocobo-coral',
 		},
 	];
@@ -169,7 +169,7 @@ const Jobs: React.FC = () => {
 			location: 'Paris / Remote',
 			exp: '> 7 ans',
 			tag: 'Senior',
-			theme: 'bg-ocobo-yellowLight border-ocobo-yellow',
+			theme: 'bg-ocobo-yellow-light border-ocobo-yellow',
 		},
 		{
 			id: 2,
@@ -178,7 +178,7 @@ const Jobs: React.FC = () => {
 			location: 'Paris / Remote',
 			exp: '4-6 ans',
 			tag: 'Confirmé',
-			theme: 'bg-ocobo-skyLight border-ocobo-sky',
+			theme: 'bg-ocobo-sky-light border-ocobo-sky',
 		},
 		{
 			id: 3,
@@ -187,7 +187,7 @@ const Jobs: React.FC = () => {
 			location: 'Paris / Remote',
 			exp: '> 3 ans',
 			tag: 'Expert',
-			theme: 'bg-ocobo-mintLight border-ocobo-mint',
+			theme: 'bg-ocobo-mint-light border-ocobo-mint',
 		},
 	];
 
@@ -239,7 +239,7 @@ const Jobs: React.FC = () => {
 						<Badge variant="mint" className="mb-10">
 							RECRUTEMENT
 						</Badge>
-						<h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
+						<h1 className="font-display text-5xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
 							Rejoignez les
 							<br />
 							architectes.
@@ -264,7 +264,7 @@ const Jobs: React.FC = () => {
 					<div className="lg:w-1/2 relative mt-12 lg:mt-0">
 						<div className="grid grid-cols-2 gap-6">
 							<div className="space-y-6 mt-12">
-								<div className="bg-ocobo-dark text-white p-8 aspect-square flex flex-col justify-between rounded-4xl shadow-xl">
+								<div className="bg-ocobo-dark text-white p-8 aspect-square flex flex-col justify-between rounded-3xl shadow-xl">
 									<Lightbulb size={32} className="text-ocobo-yellow" />
 									<span className="font-display font-bold text-xl">
 										Intelligence Collective
@@ -273,16 +273,16 @@ const Jobs: React.FC = () => {
 								<img
 									src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80"
 									alt="Team collaboration"
-									className="w-full aspect-square object-cover rounded-4xl grayscale"
+									className="w-full aspect-square object-cover rounded-3xl grayscale"
 								/>
 							</div>
 							<div className="space-y-6">
 								<img
 									src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=400&q=80"
 									alt="Team meeting"
-									className="w-full aspect-square object-cover rounded-4xl grayscale"
+									className="w-full aspect-square object-cover rounded-3xl grayscale"
 								/>
-								<div className="bg-ocobo-yellow p-8 aspect-square flex flex-col justify-between rounded-4xl shadow-xl">
+								<div className="bg-ocobo-yellow p-8 aspect-square flex flex-col justify-between rounded-3xl shadow-xl">
 									<span className="font-display font-bold text-4xl text-ocobo-dark">
 										100%
 										<br />
@@ -308,7 +308,7 @@ const Jobs: React.FC = () => {
 
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 					<div className="max-w-3xl mb-20">
-						<span className="font-display font-black text-ocobo-yellow bg-ocobo-yellow/10 px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20 rounded-full">
+						<span className="font-display font-black text-ocobo-yellow bg-ocobo-yellow/10 px-4 py-1.5 text-xs uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20 rounded-full">
 							SÉRIE ORIGINALE
 						</span>
 						<h2 className="font-display text-4xl md:text-6xl font-black text-white mb-8 tracking-tight">
@@ -340,7 +340,7 @@ const Jobs: React.FC = () => {
 			{/* 3. NOS VALEURS / CULTURE (REINTEGRATED) */}
 			<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 mb-16">
 				<div className="text-center mb-20">
-					<span className="font-display font-black text-ocobo-coral bg-ocobo-coralLight px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-coral/20 rounded-full">
+					<span className="font-display font-black text-ocobo-coral bg-ocobo-coral-light px-4 py-1.5 text-xs uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-coral/20 rounded-full">
 						NOTRE ADN
 					</span>
 					<h2 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark tracking-tight">
@@ -352,7 +352,7 @@ const Jobs: React.FC = () => {
 					{values.map((val) => (
 						<div
 							key={val.title}
-							className={`p-10 rounded-5xl border ${val.border} ${val.bg} flex flex-col gap-6 hover:shadow-xl transition-all duration-500 group`}
+							className={`p-10 rounded-3xl border ${val.border} ${val.bg} flex flex-col gap-6 hover:shadow-xl transition-all duration-500 group`}
 						>
 							<div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-black/5 group-hover:scale-110 transition-transform duration-500">
 								{val.icon}
@@ -381,7 +381,7 @@ const Jobs: React.FC = () => {
 						</p>
 					</div>
 					<div className="hidden md:block">
-						<span className="text-2xs font-black uppercase tracking-widest text-gray-300">
+						<span className="text-xs font-black uppercase tracking-widest text-gray-300">
 							3 OPPORTUNITÉS DISPONIBLES
 						</span>
 					</div>
@@ -390,7 +390,7 @@ const Jobs: React.FC = () => {
 					{jobs.map((job) => (
 						<Link key={job.id} to={`/jobs/${job.id}`} className="group">
 							<div
-								className={`flex flex-col md:flex-row justify-between items-center p-8 md:p-12 rounded-5xl border border-gray-100 bg-white hover:bg-white hover:shadow-soft-xl transition-all duration-500 relative overflow-hidden`}
+								className={`flex flex-col md:flex-row justify-between items-center p-8 md:p-12 rounded-3xl border border-gray-100 bg-white hover:bg-white hover:shadow-soft-lg transition-all duration-500 relative overflow-hidden`}
 							>
 								{/* Hover Highlight Bar */}
 								<div
@@ -431,9 +431,9 @@ const Jobs: React.FC = () => {
 
 			{/* 5. Processus de recrutement */}
 			<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-40">
-				<div className="border-[1.5px] border-gray-100 rounded-7xl p-8 md:p-24 bg-gray-50/30 relative overflow-hidden">
+				<div className="border-[1.5px] border-gray-100 rounded-3xl p-8 md:p-24 bg-gray-50/30 relative overflow-hidden">
 					<div className="text-center mb-32 relative z-10">
-						<span className="font-display font-black text-ocobo-sky bg-ocobo-sky/10 px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-sky/20 rounded-full">
+						<span className="font-display font-black text-ocobo-sky bg-ocobo-sky/10 px-4 py-1.5 text-xs uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-sky/20 rounded-full">
 							TRANSPARENCE
 						</span>
 						<h2 className="font-display text-4xl md:text-6xl font-black mb-6 text-ocobo-dark tracking-tight">
@@ -490,7 +490,7 @@ const Jobs: React.FC = () => {
 													<h3 className="font-display text-2xl font-bold text-ocobo-dark mb-2 tracking-tight">
 														{step.title}
 													</h3>
-													<p className="text-2xs font-black text-ocobo-coral mb-3 uppercase tracking-[0.2em]">
+													<p className="text-xs font-black text-ocobo-coral mb-3 uppercase tracking-[0.2em]">
 														{step.duration}
 													</p>
 													<p className="text-base text-gray-500 leading-relaxed max-w-sm font-medium">
@@ -533,7 +533,7 @@ const Jobs: React.FC = () => {
 					</div>
 
 					<div className="grid grid-cols-2 md:grid-cols-4 gap-6 h-[500px]">
-						<div className="col-span-2 row-span-2 relative overflow-hidden group rounded-6xl">
+						<div className="col-span-2 row-span-2 relative overflow-hidden group rounded-3xl">
 							<img
 								src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
 								alt="Ocobo office space"
@@ -541,21 +541,21 @@ const Jobs: React.FC = () => {
 							/>
 							<div className="absolute inset-0 bg-ocobo-dark/10 group-hover:bg-transparent transition-colors"></div>
 						</div>
-						<div className="relative overflow-hidden group rounded-4xl">
+						<div className="relative overflow-hidden group rounded-3xl">
 							<img
 								src="https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=400&q=80"
 								alt="Office interior"
 								className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale"
 							/>
 						</div>
-						<div className="relative overflow-hidden group rounded-4xl">
+						<div className="relative overflow-hidden group rounded-3xl">
 							<img
 								src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=400&q=80"
 								alt="Meeting room"
 								className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale"
 							/>
 						</div>
-						<div className="col-span-2 bg-ocobo-yellow p-12 flex flex-col justify-center items-start rounded-6xl shadow-xl">
+						<div className="col-span-2 bg-ocobo-yellow p-12 flex flex-col justify-center items-start rounded-3xl shadow-xl">
 							<span className="font-display font-black text-3xl text-ocobo-dark mb-6 tracking-tight leading-tight">
 								Venez prendre <br />
 								un café.

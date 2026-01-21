@@ -40,12 +40,12 @@ const TeamPhotoIllustration = () => {
 				<div className="absolute -bottom-6 -right-6 w-16 h-16 border-b-2 border-r-2 border-ocobo-dark/10 group-hover:border-ocobo-mint transition-colors duration-700"></div>
 
 				{/* Main Photo Card */}
-				<div className="relative bg-white p-2.5 rounded-6xl shadow-soft-3xl border border-gray-100 overflow-hidden transform group-hover:scale-[1.01] transition-transform duration-700">
+				<div className="relative bg-white p-2.5 rounded-3xl shadow-soft-lg border border-gray-100 overflow-hidden transform group-hover:scale-[1.01] transition-transform duration-700">
 					{/* NOTE: Remplacer l'URL ci-dessous par le lien de votre photo une fois hébergée */}
 					<img
 						src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
 						alt="L'équipe Ocobo"
-						className="w-full h-auto rounded-5xl grayscale contrast-[1.1] brightness-[1.05] group-hover:grayscale-0 transition-all duration-1000 ease-in-out"
+						className="w-full h-auto rounded-3xl grayscale contrast-[1.1] brightness-[1.05] group-hover:grayscale-0 transition-all duration-1000 ease-in-out"
 					/>
 
 					{/* Overlay Gradient for depth */}
@@ -200,7 +200,7 @@ const Studio: React.FC = () => {
 						RevOps Studio
 					</Badge>
 
-					<h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
+					<h1 className="font-display text-5xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
 						Une direction Revenue Ops <br />
 						<span className="text-ocobo-mint italic">embarquée.</span>
 					</h1>
@@ -321,7 +321,7 @@ const Studio: React.FC = () => {
 									type="button"
 									key={cat}
 									onClick={() => setActiveFilter(cat)}
-									className={`px-6 py-2.5 rounded-full text-2xs font-black uppercase tracking-widest transition-all border ${
+									className={`px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all border ${
 										activeFilter === cat
 											? 'bg-ocobo-dark text-white border-ocobo-dark shadow-lg'
 											: 'bg-gray-50 text-gray-500 border-gray-100 hover:border-ocobo-dark hover:text-ocobo-dark'
@@ -347,7 +347,7 @@ const Studio: React.FC = () => {
 
 								{/* Dynamic Badge with hover effect */}
 								<div
-									className={`absolute top-0 right-0 px-4 py-1.5 rounded-bl-xl font-display font-black text-2xs uppercase tracking-widest shadow-sm bg-gray-100 text-gray-400 transition-all duration-300 ${member.hoverClass}`}
+									className={`absolute top-0 right-0 px-4 py-1.5 rounded-bl-xl font-display font-black text-xs uppercase tracking-widest shadow-sm bg-gray-100 text-gray-400 transition-all duration-300 ${member.hoverClass}`}
 								>
 									{member.category}
 								</div>
@@ -364,7 +364,7 @@ const Studio: React.FC = () => {
 									<h3 className="font-display text-xl font-black text-ocobo-dark mb-1">
 										{member.name}
 									</h3>
-									<p className="text-2xs font-black text-gray-400 uppercase tracking-[0.2em] mb-4 h-6 flex items-center justify-center">
+									<p className="text-xs font-black text-gray-400 uppercase tracking-[0.2em] mb-4 h-6 flex items-center justify-center">
 										{member.role}
 									</p>
 

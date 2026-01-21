@@ -102,11 +102,11 @@ const Podcast: React.FC = () => {
 						<div className="lg:w-1/2">
 							<div className="flex items-center gap-3 mb-8">
 								<span className="w-12 h-px bg-ocobo-yellow"></span>
-								<span className="font-display font-black text-ocobo-yellow text-2xs uppercase tracking-[0.4em]">
+								<span className="font-display font-black text-ocobo-yellow text-xs uppercase tracking-[0.4em]">
 									Ocobo Originals
 								</span>
 							</div>
-							<h1 className="font-display text-6xl md:text-8xl font-black text-white mb-8 leading-[0.9] tracking-tighter">
+							<h1 className="font-display text-6xl md:text-6xl font-black text-white mb-8 leading-[0.9] tracking-tighter">
 								Revenue
 								<br />
 								<span
@@ -150,7 +150,7 @@ const Podcast: React.FC = () => {
 
 						{/* SPOTLIGHT PLAYER CARD */}
 						<div className="lg:w-1/2">
-							<div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-6xl shadow-2xl relative">
+							<div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-3xl shadow-2xl relative">
 								<div className="absolute top-0 right-0 w-32 h-32 bg-ocobo-yellow/10 rounded-full blur-3xl"></div>
 
 								<div className="flex items-center gap-6 mb-10">
@@ -162,7 +162,7 @@ const Podcast: React.FC = () => {
 										/>
 									</div>
 									<div>
-										<span className="text-2xs font-black text-ocobo-yellow uppercase tracking-[0.3em] block mb-2">
+										<span className="text-xs font-black text-ocobo-yellow uppercase tracking-[0.3em] block mb-2">
 											Dernier Épisode — #{episodes[0].number}
 										</span>
 										<h3 className="font-display text-2xl font-bold text-white leading-tight">
@@ -177,7 +177,7 @@ const Podcast: React.FC = () => {
 										<div className="h-1.5 w-full bg-white/10 rounded-full relative overflow-hidden">
 											<div className="absolute left-0 top-0 bottom-0 w-1/3 bg-ocobo-yellow"></div>
 										</div>
-										<div className="flex justify-between text-2xs font-bold text-gray-500 uppercase tracking-widest">
+										<div className="flex justify-between text-xs font-bold text-gray-500 uppercase tracking-widest">
 											<span>12:45</span>
 											<span>{episodes[0].duration}</span>
 										</div>
@@ -241,14 +241,14 @@ const Podcast: React.FC = () => {
 						filteredEpisodes.map((ep) => (
 							<div
 								key={ep.id}
-								className="group relative flex flex-col md:flex-row gap-10 p-8 bg-white border border-gray-100 rounded-6xl hover:shadow-soft-xl hover:-translate-y-2 transition-all duration-500"
+								className="group relative flex flex-col md:flex-row gap-10 p-8 bg-white border border-gray-100 rounded-3xl hover:shadow-soft-lg hover:-translate-y-2 transition-all duration-500"
 							>
 								{/* Architectural Number Overlay */}
 								<div className="absolute -top-4 -left-4 w-12 h-12 bg-white border border-gray-100 rounded-xl shadow-lg flex items-center justify-center font-display font-black text-ocobo-dark/20 text-xl z-20">
 									{ep.number}
 								</div>
 
-								<div className="md:w-1/3 aspect-[4/3] relative overflow-hidden rounded-4xl shrink-0">
+								<div className="md:w-1/3 aspect-[4/3] relative overflow-hidden rounded-3xl shrink-0">
 									<img
 										src={ep.image}
 										alt={ep.guest}
@@ -264,11 +264,11 @@ const Podcast: React.FC = () => {
 								<div className="flex flex-col justify-between py-2 flex-grow">
 									<div>
 										<div className="flex items-center gap-3 mb-4">
-											<span className="text-2xs font-black uppercase tracking-[0.2em] text-ocobo-yellow">
+											<span className="text-xs font-black uppercase tracking-[0.2em] text-ocobo-yellow">
 												{ep.category}
 											</span>
 											<span className="w-1 h-1 bg-gray-200 rounded-full"></span>
-											<span className="text-2xs font-black uppercase tracking-[0.2em] text-gray-400">
+											<span className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">
 												{ep.date}
 											</span>
 										</div>
@@ -293,14 +293,14 @@ const Podcast: React.FC = () => {
 												<p className="text-xs font-black text-ocobo-dark uppercase tracking-widest leading-none mb-1">
 													{ep.guest}
 												</p>
-												<p className="text-2xs font-medium text-gray-400 uppercase tracking-widest">
+												<p className="text-xs font-medium text-gray-400 uppercase tracking-widest">
 													{ep.role}
 												</p>
 											</div>
 										</div>
 										<div className="flex items-center gap-2 text-gray-300">
 											<Clock size={14} />
-											<span className="text-2xs font-black uppercase tracking-widest">
+											<span className="text-xs font-black uppercase tracking-widest">
 												{ep.duration}
 											</span>
 										</div>
@@ -309,14 +309,14 @@ const Podcast: React.FC = () => {
 							</div>
 						))
 					) : (
-						<div className="text-center py-20 bg-gray-50 rounded-6xl border border-dashed border-gray-200">
+						<div className="text-center py-20 bg-gray-50 rounded-3xl border border-dashed border-gray-200">
 							<p className="text-gray-400 font-display font-bold text-xl">
 								Aucun épisode trouvé pour cette recherche.
 							</p>
 							<button
 								type="button"
 								onClick={() => setSearchTerm('')}
-								className="mt-4 text-ocobo-dark font-black uppercase tracking-widest text-2xs underline"
+								className="mt-4 text-ocobo-dark font-black uppercase tracking-widest text-xs underline"
 							>
 								Réinitialiser la recherche
 							</button>
@@ -374,7 +374,7 @@ const Podcast: React.FC = () => {
 					<span className="font-display font-black text-ocobo-dark opacity-30 text-xs uppercase tracking-[0.4em] mb-8 inline-block">
 						Prochainement
 					</span>
-					<h2 className="font-display text-5xl md:text-7xl font-black text-ocobo-dark mb-10 leading-[0.9] tracking-tighter">
+					<h2 className="font-display text-5xl md:text-6xl font-black text-ocobo-dark mb-10 leading-[0.9] tracking-tighter">
 						Ne manquez plus aucun
 						<br />
 						écho stratégique.

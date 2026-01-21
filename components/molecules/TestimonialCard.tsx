@@ -31,10 +31,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
 	return (
 		<div
-			className={`relative py-16 px-8 md:px-16 bg-white/5 rounded-6xl border border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm group/card ${className}`}
+			className={`relative py-16 px-8 md:px-16 bg-white/5 rounded-3xl border border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm group/card ${className}`}
 		>
 			{/* Yellow quote mark */}
-			<div className="absolute top-12 left-10 text-ocobo-yellow/40 font-display font-black text-9xl leading-none select-none pointer-events-none transform -translate-y-1/4">
+			<div className="absolute top-12 left-10 text-ocobo-yellow/40 font-display font-black text-6xl leading-none select-none pointer-events-none transform -translate-y-1/4">
 				"
 			</div>
 
@@ -55,7 +55,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 							<p className="text-white font-black text-lg tracking-tight">
 								{authorName}
 							</p>
-							<p className="text-2xs font-black text-ocobo-yellow uppercase tracking-[0.25em] opacity-70">
+							<p className="text-xs font-black text-ocobo-yellow uppercase tracking-[0.25em] opacity-70">
 								{authorRole}
 							</p>
 						</div>
@@ -64,7 +64,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 					{ctaText && ctaLink && (
 						<Link
 							to={ctaLink}
-							className="group/btn flex items-center gap-4 text-white/40 hover:text-ocobo-yellow transition-colors font-display font-black text-2xs uppercase tracking-[0.3em]"
+							className="group/btn flex items-center gap-4 text-white/40 hover:text-ocobo-yellow transition-colors font-display font-black text-xs uppercase tracking-[0.3em]"
 						>
 							{ctaText}
 							<ArrowRight
