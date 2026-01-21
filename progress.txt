@@ -76,3 +76,17 @@ Created: 2026-01-21T12:00:00Z
 - `pnpm build` passes (exit 0)
 
 ---
+
+## Feature 4: Border-radius reduced to xl, 2xl, 3xl + full
+**Status:** ✅ Passed
+**Completed:** 2026-01-21T14:00:00Z
+
+### Changes
+- `tailwind.config.ts` already has minimal borderRadius: `2xl` (16px), `3xl` (24px)
+- No `4xl/5xl/6xl/7xl` tokens existed in config
+- No usages of removed tokens or arbitrary values (`rounded-[2rem]` etc) in codebase
+
+### Verification
+- `pnpm build` passes (exit 0)
+
+---
