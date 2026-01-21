@@ -231,10 +231,10 @@
 				"Update all imports",
 				"Verify: all illustrations render correctly"
 			],
-			"passes": false,
+			"passes": true,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": null
+			"completed_at": "2026-01-21T19:00:00Z"
 		},
 		{
 			"id": 14,

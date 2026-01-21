@@ -163,3 +163,16 @@ Created: 2026-01-21T10:30:00Z
 - Build passes
 
 ---
+
+## Feature 13: SVG illustrations moved to components/illustrations/
+- Created components/illustrations/ folder
+- Extracted DashboardIllustration from Home.tsx
+- Extracted AttioPillarsIllustration from Method.tsx
+- Extracted UnifiedBowtie from Method.tsx
+- Extracted ArchitecturalGrid from Services.tsx
+- Extracted PyramidSection from Services.tsx
+- Created index.ts barrel export
+- Updated imports in Home.tsx, Method.tsx, Services.tsx
+- Build passes
+
+---
