@@ -138,3 +138,17 @@ Created: 2026-01-21T10:30:00Z
 - Build passes
 
 ---
+
+## Feature 14: Tailwind CSS component utilities
+- Added to src/styles/globals.css (not index.css - Tailwind v4 structure)
+- .badge-label: font-display font-weight-900 text-xs uppercase tracking-0.3em
+- .card-base: white bg, gray-100 border, rounded-2xl, p-8
+- .card-interactive: card-base + hover:shadow-xl transition
+- .flex-center: flex items-center justify-center
+- .logo-muted: grayscale opacity-40 → hover:normal
+- .section-default: py-24 bg-white
+- .section-dark: py-24 bg-ocobo-dark text-white
+- Note: Tailwind v4 uses plain CSS classes after imports (not @layer)
+- Build passes
+
+---

@@ -40,10 +40,7 @@
 
 /* --- Base Styles --- */
 body {
-	font-family: "Bornia", "Inter", sans-serif;
-	background-color: #ffffff;
-	color: #212323;
-	-webkit-font-smoothing: antialiased;
+	@apply font-sans bg-white text-ocobo-dark antialiased;
 }
 
 h1,
@@ -52,9 +49,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Bermia", "Inter", sans-serif;
-	font-weight: 900;
-	letter-spacing: -0.02em;
+	@apply font-display font-black tracking-tight;
 }
 
 .scroll-smooth {
@@ -62,6 +57,42 @@ h6 {
 }
 
 ::selection {
-	background-color: #f1cf25;
-	color: #212323;
+	@apply bg-ocobo-yellow text-ocobo-dark;
+}
+
+/* --- Component Utilities --- */
+
+/* Badge label: font-display, bold, uppercase, tracked */
+.badge-label {
+	@apply font-display text-xs font-black uppercase tracking-[0.3em];
+}
+
+/* Card base: white bg, border, rounded, padding */
+.card-base {
+	@apply bg-white border border-gray-100 rounded-2xl p-8;
+}
+
+/* Card interactive: card-base + hover shadow */
+.card-interactive {
+	@apply bg-white border border-gray-100 rounded-2xl p-8 transition-shadow duration-200 ease-in-out hover:shadow-soft-lg;
+}
+
+/* Flex center: shorthand for flex items-center justify-center */
+.flex-center {
+	@apply flex items-center justify-center;
+}
+
+/* Logo muted: grayscale + reduced opacity for client logos */
+.logo-muted {
+	@apply grayscale opacity-40 transition-all duration-300 ease-in-out hover:grayscale-0 hover:opacity-100;
+}
+
+/* Section default: standard padding, white bg */
+.section-default {
+	@apply py-24 bg-white;
+}
+
+/* Section dark: dark bg with white text */
+.section-dark {
+	@apply py-24 bg-ocobo-dark text-white;
 }
