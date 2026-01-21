@@ -97,3 +97,11 @@ Created: 2026-01-21T10:30:00Z
 - Build passes
 
 ---
+
+## Feature 8: Button fullWidth prop
+- Added fullWidth boolean prop to BaseButtonProps
+- Default: false
+- When true: applies w-full class
+- Build passes
+
+---

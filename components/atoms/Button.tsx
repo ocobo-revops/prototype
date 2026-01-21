@@ -6,6 +6,7 @@ interface BaseButtonProps {
 	variant?: 'primary' | 'outline' | 'white' | 'cta' | 'nav';
 	size?: 'sm' | 'md' | 'lg' | 'xl';
 	showArrow?: boolean;
+	fullWidth?: boolean;
 	children: React.ReactNode;
 	className?: string;
 }
@@ -43,6 +44,7 @@ const Button: React.FC<ButtonProps> = ({
 	variant = 'primary',
 	size = 'md',
 	showArrow = true,
+	fullWidth = false,
 	children,
 	className = '',
 	...props
@@ -75,7 +77,10 @@ const Button: React.FC<ButtonProps> = ({
 		xl: 'w-6 h-6',
 	};
 
-	const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
+	const widthClass = fullWidth ? 'w-full' : '';
+
+	const classes =
+		`${baseStyles} ${variants[variant]} ${sizes[size]} ${widthClass} ${className}`.trim();
 
 	const arrowIcon = showArrow && (
 		<ArrowRight
