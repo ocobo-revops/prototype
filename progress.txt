@@ -92,8 +92,8 @@ Created: 2026-01-21T10:30:00Z
 
 ## Feature 7: Button nav variant
 - Added 'nav' to variant type
-- nav styles: bg-transparent, text-current, hover:bg-black/5
-- Contextual: inherits text color from parent
+- nav styles: bg-transparent, text-current, hover:bg-current/10
+- Contextual: inherits text color from parent, hover works on light/dark
 - Build passes
 
 ---
