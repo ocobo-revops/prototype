@@ -61,3 +61,15 @@ Created: 2026-01-21T10:30:00Z
 - Build passes
 
 ---
+
+## Feature 4: StickyAside compound component
+- Created components/layout/StickyAside.tsx
+- StickyAsideRoot: gap prop (6|8|10|12|16), asideWidth prop ('1/3'|'4/12'|'5/12')
+- Context used to pass asideWidth to children
+- StickyAside.Sidebar: lg:sticky lg:top-24 lg:self-start + width class
+- StickyAside.Content: complementary width class
+- Responsive: flex-col → lg:flex-row
+- Exported as compound component
+- Build passes
+
+---
