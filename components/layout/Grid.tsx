@@ -5,15 +5,10 @@ type ColCount = 1 | 2 | 3 | 4 | 5 | 6;
 
 interface GridProps {
 	children: React.ReactNode;
-	gap?: GapSize;
-	className?: string;
-}
-
-interface GridColsProps {
-	children: React.ReactNode;
-	base?: ColCount;
+	cols?: ColCount;
 	md?: ColCount;
 	lg?: ColCount;
+	gap?: GapSize;
 	className?: string;
 }
 
@@ -52,38 +47,26 @@ const lgColClasses: Record<ColCount, string> = {
 	6: 'lg:grid-cols-6',
 };
 
-const GridRoot: React.FC<GridProps> = ({
+const Grid: React.FC<GridProps> = ({
 	children,
+	cols = 1,
+	md,
+	lg,
 	gap = 6,
 	className = '',
 }) => {
-	return (
-		<div className={`grid ${gapClasses[gap]} ${className}`}>{children}</div>
-	);
+	const classes = [
+		'grid',
+		colClasses[cols],
+		md && mdColClasses[md],
+		lg && lgColClasses[lg],
+		gapClasses[gap],
+		className,
+	]
+		.filter(Boolean)
+		.join(' ');
+
+	return <div className={classes}>{children}</div>;
 };
-
-const GridCols: React.FC<GridColsProps> = ({
-	children,
-	base = 1,
-	md,
-	lg,
-	className = '',
-}) => {
-	const baseClass = colClasses[base];
-	const mdClass = md ? mdColClasses[md] : '';
-	const lgClass = lg ? lgColClasses[lg] : '';
-
-	return (
-		<div
-			className={`grid ${baseClass} ${mdClass} ${lgClass} ${className}`.trim()}
-		>
-			{children}
-		</div>
-	);
-};
-
-const Grid = Object.assign(GridRoot, {
-	Cols: GridCols,
-});
 
 export default Grid;
