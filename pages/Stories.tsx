@@ -646,7 +646,7 @@ const Stories: React.FC = () => {
 						<Link
 							key={item.id}
 							to={`/stories/${item.id}`}
-							className={`group relative flex flex-col bg-white border border-gray-100 rounded-5xl p-6 transition-all duration-500 hover:shadow-soft-lg hover:-translate-y-2 overflow-hidden h-full ${animate ? 'opacity-0 animate-fade-in-up' : ''}`}
+							className={`group relative flex flex-col bg-white border border-gray-100 rounded-3xl p-6 transition-all duration-500 hover:shadow-soft-lg hover:-translate-y-2 overflow-hidden h-full ${animate ? 'opacity-0 animate-fade-in-up' : ''}`}
 							style={{ animationDelay: `${idx * 0.05}s` }}
 						>
 							<div

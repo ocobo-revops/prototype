@@ -31,7 +31,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
 	return (
 		<div
-			className={`relative py-16 px-8 md:px-16 bg-white/5 rounded-6xl border border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm group/card ${className}`}
+			className={`relative py-16 px-8 md:px-16 bg-white/5 rounded-3xl border border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm group/card ${className}`}
 		>
 			{/* Yellow quote mark */}
 			<div className="absolute top-12 left-10 text-ocobo-yellow/40 font-display font-black text-9xl leading-none select-none pointer-events-none transform -translate-y-1/4">

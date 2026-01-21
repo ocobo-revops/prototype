@@ -397,7 +397,7 @@ const StoryDetail: React.FC = () => {
 						</h1>
 					</div>
 					<div className="lg:w-1/3 flex lg:justify-end lg:pt-20">
-						<div className="bg-ocobo-dark p-8 rounded-4xl shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+						<div className="bg-ocobo-dark p-8 rounded-3xl shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
 							<img
 								src={story.logo}
 								alt={story.company}
@@ -407,7 +407,7 @@ const StoryDetail: React.FC = () => {
 					</div>
 				</div>
 
-				<div className="grid md:grid-cols-3 gap-0 mb-32 border border-gray-100 bg-gray-50/30 rounded-6xl overflow-hidden">
+				<div className="grid md:grid-cols-3 gap-0 mb-32 border border-gray-100 bg-gray-50/30 rounded-3xl overflow-hidden">
 					{/* biome-ignore lint/suspicious/noExplicitAny: story data */}
 					{story.results.map((res: any, idx: number) => (
 						<div
@@ -476,7 +476,7 @@ const StoryDetail: React.FC = () => {
 										<div className="absolute left-0 top-0 w-20 h-20 bg-white border-2 border-ocobo-dark rounded-3xl flex items-center justify-center font-display text-3xl font-black group-hover:bg-ocobo-dark group-hover:text-white transition-colors duration-500 shadow-xl z-10">
 											0{idx + 1}
 										</div>
-										<div className="p-10 bg-white border border-gray-100 rounded-5xl group-hover:border-ocobo-dark transition-all duration-500 hover:shadow-2xl">
+										<div className="p-10 bg-white border border-gray-100 rounded-3xl group-hover:border-ocobo-dark transition-all duration-500 hover:shadow-2xl">
 											<h3 className="font-display text-2xl font-bold mb-4">
 												{phase.title}
 											</h3>
@@ -532,8 +532,8 @@ const StoryDetail: React.FC = () => {
 								))}
 							</div>
 
-							<div className="mt-24 p-10 bg-gray-50 rounded-6xl border border-gray-100 flex flex-col md:flex-row items-center gap-10">
-								<div className="w-32 h-32 rounded-4xl overflow-hidden grayscale border-4 border-white shadow-xl rotate-3">
+							<div className="mt-24 p-10 bg-gray-50 rounded-3xl border border-gray-100 flex flex-col md:flex-row items-center gap-10">
+								<div className="w-32 h-32 rounded-3xl overflow-hidden grayscale border-4 border-white shadow-xl rotate-3">
 									<img
 										src={story.image}
 										alt={story.name}
@@ -558,7 +558,7 @@ const StoryDetail: React.FC = () => {
 
 					<div className="lg:col-span-4">
 						<div className="sticky top-32 space-y-10">
-							<div className="bg-white border border-gray-100 p-10 rounded-5xl shadow-sm">
+							<div className="bg-white border border-gray-100 p-10 rounded-3xl shadow-sm">
 								<h4 className="font-display font-black text-2xs uppercase tracking-[0.4em] text-ocobo-dark mb-8">
 									Process & Outils
 								</h4>
@@ -613,7 +613,7 @@ const StoryDetail: React.FC = () => {
 								</div>
 							</div>
 
-							<div className="bg-ocobo-dark p-10 rounded-5xl text-white relative overflow-hidden shadow-2xl">
+							<div className="bg-ocobo-dark p-10 rounded-3xl text-white relative overflow-hidden shadow-2xl">
 								<div className="absolute top-0 right-0 w-32 h-32 bg-ocobo-mint/10 rounded-full blur-3xl"></div>
 								<h4 className="font-display font-black text-2xs uppercase tracking-[0.4em] text-white/40 mb-8">
 									Livrables de la mission
@@ -657,7 +657,7 @@ const StoryDetail: React.FC = () => {
 					</div>
 				</div>
 
-				<div className="bg-ocobo-yellow p-12 md:p-24 rounded-7xl text-center text-ocobo-dark relative overflow-hidden">
+				<div className="bg-ocobo-yellow p-12 md:p-24 rounded-3xl text-center text-ocobo-dark relative overflow-hidden">
 					<div
 						className="absolute inset-0 opacity-[0.1]"
 						style={{

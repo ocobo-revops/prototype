@@ -150,7 +150,7 @@ const Podcast: React.FC = () => {
 
 						{/* SPOTLIGHT PLAYER CARD */}
 						<div className="lg:w-1/2">
-							<div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-6xl shadow-2xl relative">
+							<div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-3xl shadow-2xl relative">
 								<div className="absolute top-0 right-0 w-32 h-32 bg-ocobo-yellow/10 rounded-full blur-3xl"></div>
 
 								<div className="flex items-center gap-6 mb-10">
@@ -241,14 +241,14 @@ const Podcast: React.FC = () => {
 						filteredEpisodes.map((ep) => (
 							<div
 								key={ep.id}
-								className="group relative flex flex-col md:flex-row gap-10 p-8 bg-white border border-gray-100 rounded-6xl hover:shadow-soft-lg hover:-translate-y-2 transition-all duration-500"
+								className="group relative flex flex-col md:flex-row gap-10 p-8 bg-white border border-gray-100 rounded-3xl hover:shadow-soft-lg hover:-translate-y-2 transition-all duration-500"
 							>
 								{/* Architectural Number Overlay */}
 								<div className="absolute -top-4 -left-4 w-12 h-12 bg-white border border-gray-100 rounded-xl shadow-lg flex items-center justify-center font-display font-black text-ocobo-dark/20 text-xl z-20">
 									{ep.number}
 								</div>
 
-								<div className="md:w-1/3 aspect-[4/3] relative overflow-hidden rounded-4xl shrink-0">
+								<div className="md:w-1/3 aspect-[4/3] relative overflow-hidden rounded-3xl shrink-0">
 									<img
 										src={ep.image}
 										alt={ep.guest}
@@ -309,7 +309,7 @@ const Podcast: React.FC = () => {
 							</div>
 						))
 					) : (
-						<div className="text-center py-20 bg-gray-50 rounded-6xl border border-dashed border-gray-200">
+						<div className="text-center py-20 bg-gray-50 rounded-3xl border border-dashed border-gray-200">
 							<p className="text-gray-400 font-display font-bold text-xl">
 								Aucun épisode trouvé pour cette recherche.
 							</p>

@@ -734,7 +734,7 @@ const Partners: React.FC = () => {
 						</div>
 
 						<div className="lg:w-1/2 w-full">
-							<div className="bg-white p-8 md:p-12 rounded-5xl shadow-2xl border border-gray-100 relative overflow-hidden">
+							<div className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden">
 								{/* Multi-color top bar */}
 								<div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-ocobo-yellow via-ocobo-sky to-ocobo-mint"></div>
 

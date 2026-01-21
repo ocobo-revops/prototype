@@ -23,10 +23,6 @@ export default {
 			borderRadius: {
 				'2xl': '1rem', // 16px
 				'3xl': '1.5rem', // 24px
-				'4xl': '2rem', // 32px - formerly rounded-[2rem]
-				'5xl': '2.5rem', // 40px - formerly rounded-[2.5rem]
-				'6xl': '3rem', // 48px - formerly rounded-[3rem]
-				'7xl': '4rem', // 64px - formerly rounded-[4rem]
 			},
 			colors: {
 				ocobo: {

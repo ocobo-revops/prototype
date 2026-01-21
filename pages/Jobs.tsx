@@ -56,7 +56,7 @@ const _VideoStoryCard: React.FC<VideoStoryCardProps> = ({
 			</div>
 
 			{/* Video Placeholder Card */}
-			<div className="relative aspect-[9/16] w-full rounded-4xl overflow-hidden bg-gray-800 border border-white/5 shadow-2xl group-hover:shadow-ocobo-yellow/10 transition-all duration-500">
+			<div className="relative aspect-[9/16] w-full rounded-3xl overflow-hidden bg-gray-800 border border-white/5 shadow-2xl group-hover:shadow-ocobo-yellow/10 transition-all duration-500">
 				<img
 					src={videoThumb}
 					className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
@@ -264,7 +264,7 @@ const Jobs: React.FC = () => {
 					<div className="lg:w-1/2 relative mt-12 lg:mt-0">
 						<div className="grid grid-cols-2 gap-6">
 							<div className="space-y-6 mt-12">
-								<div className="bg-ocobo-dark text-white p-8 aspect-square flex flex-col justify-between rounded-4xl shadow-xl">
+								<div className="bg-ocobo-dark text-white p-8 aspect-square flex flex-col justify-between rounded-3xl shadow-xl">
 									<Lightbulb size={32} className="text-ocobo-yellow" />
 									<span className="font-display font-bold text-xl">
 										Intelligence Collective
@@ -273,16 +273,16 @@ const Jobs: React.FC = () => {
 								<img
 									src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80"
 									alt="Team collaboration"
-									className="w-full aspect-square object-cover rounded-4xl grayscale"
+									className="w-full aspect-square object-cover rounded-3xl grayscale"
 								/>
 							</div>
 							<div className="space-y-6">
 								<img
 									src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=400&q=80"
 									alt="Team meeting"
-									className="w-full aspect-square object-cover rounded-4xl grayscale"
+									className="w-full aspect-square object-cover rounded-3xl grayscale"
 								/>
-								<div className="bg-ocobo-yellow p-8 aspect-square flex flex-col justify-between rounded-4xl shadow-xl">
+								<div className="bg-ocobo-yellow p-8 aspect-square flex flex-col justify-between rounded-3xl shadow-xl">
 									<span className="font-display font-bold text-4xl text-ocobo-dark">
 										100%
 										<br />
@@ -352,7 +352,7 @@ const Jobs: React.FC = () => {
 					{values.map((val) => (
 						<div
 							key={val.title}
-							className={`p-10 rounded-5xl border ${val.border} ${val.bg} flex flex-col gap-6 hover:shadow-xl transition-all duration-500 group`}
+							className={`p-10 rounded-3xl border ${val.border} ${val.bg} flex flex-col gap-6 hover:shadow-xl transition-all duration-500 group`}
 						>
 							<div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-black/5 group-hover:scale-110 transition-transform duration-500">
 								{val.icon}
@@ -390,7 +390,7 @@ const Jobs: React.FC = () => {
 					{jobs.map((job) => (
 						<Link key={job.id} to={`/jobs/${job.id}`} className="group">
 							<div
-								className={`flex flex-col md:flex-row justify-between items-center p-8 md:p-12 rounded-5xl border border-gray-100 bg-white hover:bg-white hover:shadow-soft-lg transition-all duration-500 relative overflow-hidden`}
+								className={`flex flex-col md:flex-row justify-between items-center p-8 md:p-12 rounded-3xl border border-gray-100 bg-white hover:bg-white hover:shadow-soft-lg transition-all duration-500 relative overflow-hidden`}
 							>
 								{/* Hover Highlight Bar */}
 								<div
@@ -431,7 +431,7 @@ const Jobs: React.FC = () => {
 
 			{/* 5. Processus de recrutement */}
 			<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-40">
-				<div className="border-[1.5px] border-gray-100 rounded-7xl p-8 md:p-24 bg-gray-50/30 relative overflow-hidden">
+				<div className="border-[1.5px] border-gray-100 rounded-3xl p-8 md:p-24 bg-gray-50/30 relative overflow-hidden">
 					<div className="text-center mb-32 relative z-10">
 						<span className="font-display font-black text-ocobo-sky bg-ocobo-sky/10 px-4 py-1.5 text-2xs uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-sky/20 rounded-full">
 							TRANSPARENCE
@@ -533,7 +533,7 @@ const Jobs: React.FC = () => {
 					</div>
 
 					<div className="grid grid-cols-2 md:grid-cols-4 gap-6 h-[500px]">
-						<div className="col-span-2 row-span-2 relative overflow-hidden group rounded-6xl">
+						<div className="col-span-2 row-span-2 relative overflow-hidden group rounded-3xl">
 							<img
 								src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
 								alt="Ocobo office space"
@@ -541,21 +541,21 @@ const Jobs: React.FC = () => {
 							/>
 							<div className="absolute inset-0 bg-ocobo-dark/10 group-hover:bg-transparent transition-colors"></div>
 						</div>
-						<div className="relative overflow-hidden group rounded-4xl">
+						<div className="relative overflow-hidden group rounded-3xl">
 							<img
 								src="https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=400&q=80"
 								alt="Office interior"
 								className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale"
 							/>
 						</div>
-						<div className="relative overflow-hidden group rounded-4xl">
+						<div className="relative overflow-hidden group rounded-3xl">
 							<img
 								src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=400&q=80"
 								alt="Meeting room"
 								className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale"
 							/>
 						</div>
-						<div className="col-span-2 bg-ocobo-yellow p-12 flex flex-col justify-center items-start rounded-6xl shadow-xl">
+						<div className="col-span-2 bg-ocobo-yellow p-12 flex flex-col justify-center items-start rounded-3xl shadow-xl">
 							<span className="font-display font-black text-3xl text-ocobo-dark mb-6 tracking-tight leading-tight">
 								Venez prendre <br />
 								un café.

@@ -7,7 +7,7 @@ const DataIllustration = () => {
 		<div className="w-full overflow-hidden">
 			<div className="relative w-full max-w-3xl h-[280px] md:h-[420px] mx-auto p-4 flex flex-col items-center">
 				{/* Illustration Container */}
-				<div className="relative w-full h-full bg-[#FCFAF5] rounded-4xl p-6 md:p-8 shadow-soft-lg border border-gray-100 group/svg overflow-hidden">
+				<div className="relative w-full h-full bg-[#FCFAF5] rounded-3xl p-6 md:p-8 shadow-soft-lg border border-gray-100 group/svg overflow-hidden">
 					<svg
 						viewBox="0 0 800 500"
 						className="w-full h-full text-ocobo-dark"
@@ -411,7 +411,7 @@ const About: React.FC = () => {
 						</div>
 
 						{/* Stanza 5 - The Invitation */}
-						<div className="relative pt-20 pb-16 px-8 md:px-12 bg-white/5 rounded-5xl border border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm">
+						<div className="relative pt-20 pb-16 px-8 md:px-12 bg-white/5 rounded-3xl border border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm">
 							{/* Top multi-color line */}
 							<div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-ocobo-yellow via-ocobo-coral to-ocobo-sky"></div>
 

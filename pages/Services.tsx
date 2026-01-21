@@ -717,7 +717,7 @@ const Services: React.FC = () => {
 					<div className="grid lg:grid-cols-3 gap-12 lg:gap-8">
 						{/* Levier 1: Méthode */}
 						<Link to="/method" className="group flex flex-col h-full">
-							<div className="relative p-10 bg-gray-50 rounded-5xl border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
+							<div className="relative p-10 bg-gray-50 rounded-3xl border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
 								<div className="mb-12 flex justify-between items-center">
 									<div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-ocobo-yellow shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
 										<Layers size={28} />
@@ -759,7 +759,7 @@ const Services: React.FC = () => {
 
 						{/* Levier 2: Technologie */}
 						<Link to="/technology" className="group flex flex-col h-full">
-							<div className="relative p-10 bg-gray-50 rounded-5xl border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
+							<div className="relative p-10 bg-gray-50 rounded-3xl border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
 								<div className="mb-12 flex justify-between items-center">
 									<div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-ocobo-sky shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
 										<Cpu size={28} />
@@ -810,7 +810,7 @@ const Services: React.FC = () => {
 
 						{/* Levier 3: Équipe */}
 						<Link to="/studio" className="group flex flex-col h-full">
-							<div className="relative p-10 bg-gray-50 rounded-5xl border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
+							<div className="relative p-10 bg-gray-50 rounded-3xl border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
 								<div className="mb-12 flex justify-between items-center">
 									<div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-ocobo-mint shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
 										<Users size={28} />
