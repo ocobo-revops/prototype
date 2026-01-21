@@ -152,3 +152,14 @@ Created: 2026-01-21T10:30:00Z
 - Build passes
 
 ---
+
+## Feature 12: HeroSection extracted for reuse
+- Created components/layout/HeroSection.tsx
+- Props: layout ('centered'|'split'), badge, title, subtitle, cta, illustration, showScrollIndicator
+- Supports two layout variants: centered (single column) and split (two column)
+- Badge config: text + variant
+- CTA config: text + to + variant + className
+- Note: Existing pages have highly customised heros with animations/quotes - component provides standard pattern for new pages
+- Build passes
+
+---
