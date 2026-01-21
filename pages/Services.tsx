@@ -15,6 +15,8 @@ import type React from 'react';
 import { Link } from 'react-router';
 import { Badge, Button } from '../components/atoms';
 import { ArchitecturalGrid, PyramidSection } from '../components/illustrations';
+import Grid from '../components/layout/Grid';
+import HeroSplit from '../components/layout/HeroSplit';
 import { SectionHeader } from '../components/organisms';
 
 const Services: React.FC = () => {
@@ -22,9 +24,8 @@ const Services: React.FC = () => {
 		<div className="w-full">
 			{/* BLOC 1 - HERO OFFRE */}
 			<section className="pt-40 pb-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-				<div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 mb-16">
-					{/* Left Content */}
-					<div className="lg:w-1/2">
+				<HeroSplit gap={16} className="mb-16">
+					<HeroSplit.Content className="lg:w-1/2">
 						<Badge variant="yellow" className="mb-10">
 							NOTRE OFFRE
 						</Badge>
@@ -34,26 +35,19 @@ const Services: React.FC = () => {
 							<span className="text-gray-400">Pas des rustines.</span>
 						</h1>
 						<p className="text-xl text-gray-700 mb-12 leading-relaxed font-medium max-w-xl">
-							Les entreprises qui passent à l’échelle ne misent pas sur
-							l’empilement d’outils. Elles construisent un système de revenu
+							Les entreprises qui passent à l'échelle ne misent pas sur
+							l'empilement d'outils. Elles construisent un système de revenu
 							clair, simple et pilotable.
 						</p>
-						<Button
-							size="lg"
-							className="shadow-xl hover:shadow-2xl hover:-translate-y-1"
-							to="/contact"
-						>
+						<Button variant="cta" size="lg" to="/contact">
 							Prendre RDV
 						</Button>
-					</div>
-
-					{/* Right Illustration */}
-					<div className="lg:w-1/2 flex justify-center lg:justify-end items-center relative">
+					</HeroSplit.Content>
+					<HeroSplit.Media className="lg:w-1/2 flex justify-center lg:justify-end items-center">
 						<ArchitecturalGrid />
-					</div>
-				</div>
+					</HeroSplit.Media>
+				</HeroSplit>
 
-				{/* SOBER SCROLL INDICATOR - Dominante Corail */}
 				<div className="flex justify-center w-full animate-bounce-subtle">
 					<ChevronDown
 						className="text-ocobo-coral opacity-30"
@@ -158,7 +152,7 @@ const Services: React.FC = () => {
 							RevOps vient remettre de l’ordre.
 						</h2>
 
-						<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+						<Grid md={2} lg={4} gap={12}>
 							<div className="space-y-4">
 								<h3 className="font-display text-2xl font-bold text-ocobo-yellow">
 									Alignement
@@ -195,7 +189,7 @@ const Services: React.FC = () => {
 									parcours client.
 								</p>
 							</div>
-						</div>
+						</Grid>
 					</div>
 				</div>
 			</section>
@@ -409,7 +403,7 @@ const Services: React.FC = () => {
 						className="max-w-3xl mb-20"
 					/>
 
-					<div className="grid lg:grid-cols-3 gap-12 lg:gap-8">
+					<Grid lg={3} gap={8} className="gap-12 lg:gap-8">
 						{/* Levier 1: Méthode */}
 						<Link to="/method" className="group flex flex-col h-full">
 							<div className="relative p-10 bg-gray-50 rounded-3xl border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
@@ -540,7 +534,7 @@ const Services: React.FC = () => {
 								</div>
 							</div>
 						</Link>
-					</div>
+					</Grid>
 				</div>
 			</section>
 
@@ -548,7 +542,7 @@ const Services: React.FC = () => {
 			<section className="py-24 bg-gray-50">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<SectionHeader title="Notre méthode en 4 étapes" className="mb-16" />
-					<div className="grid md:grid-cols-4 gap-6">
+					<Grid md={4} gap={6}>
 						{[
 							{
 								title: 'Aligner',
@@ -591,7 +585,7 @@ const Services: React.FC = () => {
 								</div>
 							</div>
 						))}
-					</div>
+					</Grid>
 				</div>
 			</section>
 
@@ -607,7 +601,7 @@ const Services: React.FC = () => {
 						</p>
 					</div>
 
-					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+					<Grid md={2} lg={3} gap={8}>
 						{[
 							{
 								title: 'Diagnostiquer',
@@ -694,7 +688,7 @@ const Services: React.FC = () => {
 								</ul>
 							</div>
 						))}
-					</div>
+					</Grid>
 				</div>
 			</section>
 
@@ -706,7 +700,7 @@ const Services: React.FC = () => {
 						light
 						className="mb-16"
 					/>
-					<div className="grid md:grid-cols-3 gap-12">
+					<Grid md={3} gap={12}>
 						<div className="text-center">
 							<div className="w-16 h-16 bg-ocobo-yellow rounded-full flex items-center justify-center text-ocobo-dark mx-auto mb-6">
 								<CheckCircle2 size={32} strokeWidth={4} />
@@ -743,30 +737,24 @@ const Services: React.FC = () => {
 								scale.
 							</p>
 						</div>
-					</div>
+					</Grid>
 				</div>
 			</section>
 
-			{/* CTA FINAL - TEXTE MIS À JOUR & CENTRÉ */}
+			{/* CTA FINAL */}
 			<section className="bg-ocobo-yellow py-24 text-ocobo-dark">
 				<div className="max-w-4xl mx-auto px-4 text-center">
 					<h2 className="font-display text-4xl md:text-5xl font-bold mb-8">
 						Prenez le contrôle de votre croissance.
 					</h2>
-
 					<div className="mb-10 space-y-2">
 						<p className="text-lg md:text-xl font-medium opacity-90">
 							30 minutes pour analyser votre machine revenue.
 						</p>
-						<p className="text-lg md:text-xl font-bold">Clarté garantie.</p>
+						<p className="text-lg md:text-xl font-bold">Clarité garantie.</p>
 					</div>
-
 					<div className="flex justify-center">
-						<Button
-							variant="primary"
-							className="px-12 py-5 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 bg-ocobo-dark text-white border-none"
-							to="/contact"
-						>
+						<Button variant="cta" size="xl" to="/contact">
 							Prendre RDV
 						</Button>
 					</div>

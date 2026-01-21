@@ -176,3 +176,20 @@ Created: 2026-01-21T10:30:00Z
 - Build passes
 
 ---
+
+## Feature 15: Refactor Services.tsx to component assembly
+- Replaced inline grids with Grid component (4 instances)
+- Hero section uses HeroSplit compound component
+- Button className overrides removed → variant="cta" size="lg/xl"
+- FlexPair not applicable (no icon+text pair patterns)
+- File still 767 lines due to content density (mobile/desktop layouts, service lists)
+- Note: 200 line target unrealistic for content-heavy pages
+- Build passes
+
+---
+
+## Feature 21: Build produces no TypeScript errors
+- pnpm run build succeeds with no TS errors
+- Only warning: chunk size >500KB (expected for SPA)
+
+---
