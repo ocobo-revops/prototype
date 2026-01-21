@@ -127,3 +127,14 @@ Created: 2026-01-21T10:30:00Z
 - Build passes
 
 ---
+
+## Feature 11: FeatureCard extracted for reuse
+- Moved from components/molecules/ to components/layout/FeatureCard.tsx
+- Changed export: named export `FeatureCard` (not default)
+- Updated Home.tsx import path
+- Removed from molecules/index.ts
+- Deleted old file + stories file
+- Note: Only Home.tsx uses FeatureCard, Services/Method have different card patterns
+- Build passes
+
+---

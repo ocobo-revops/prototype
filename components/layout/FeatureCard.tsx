@@ -19,7 +19,7 @@ const colourStyles: Record<ThemeColor, { bg: string; text: string }> = {
 	dark: { bg: 'bg-gray-100', text: 'text-ocobo-dark' },
 };
 
-const FeatureCard: React.FC<FeatureCardProps> = ({
+export const FeatureCard: React.FC<FeatureCardProps> = ({
 	icon,
 	title,
 	description,
@@ -65,5 +65,3 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 		</div>
 	);
 };
-
-export default FeatureCard;

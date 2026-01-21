@@ -2,11 +2,12 @@ import { BarChart3, Check, Layout, Target, X, Zap } from 'lucide-react';
 import type React from 'react';
 import { Button } from '../components/atoms';
 import { ClientMarquee } from '../components/layout/ClientMarquee';
+import { FeatureCard } from '../components/layout/FeatureCard';
 import {
 	DEFAULT_STACK_ITEMS,
 	ModularStackGrid,
 } from '../components/layout/ModularStackGrid';
-import { FeatureCard, TestimonialCard } from '../components/molecules';
+import { TestimonialCard } from '../components/molecules';
 import { Container, Section } from '../components/organisms';
 import { ThemeColor } from '../types';
 
