@@ -7,7 +7,6 @@ import {
 	Layers,
 	Link as LinkIcon,
 	Lock,
-	Plus,
 	Send,
 	ShieldCheck,
 	Sparkles,
@@ -16,112 +15,10 @@ import {
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Badge, Button } from '../components/atoms';
-
-const ModularStackGrid = () => {
-	const items = [
-		{
-			type: 'logo',
-			label: 'HubSpot',
-			logo: 'https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg',
-		},
-		{ type: 'logo', label: 'Clay', logo: 'https://www.clay.com/favicon.ico' },
-		{
-			type: 'logo',
-			label: 'Salesforce',
-			logo: 'https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg',
-		},
-		{
-			type: 'logo',
-			label: 'Notion',
-			logo: 'https://www.vectorlogo.zone/logos/notionso/notionso-icon.svg',
-		},
-		{ type: 'logo', label: 'Vasco', logo: 'https://vasco.app/favicon.ico' },
-		{
-			type: 'logo',
-			label: 'Aircall',
-			logo: 'https://www.vectorlogo.zone/logos/aircallio/aircallio-icon.svg',
-		},
-		{ type: 'empty' },
-		{ type: 'logo', label: 'Qobra', logo: 'https://qobra.co/favicon.ico' },
-		{
-			type: 'logo',
-			label: 'Modjo',
-			logo: 'https://framerusercontent.com/images/8r0i7N1W9Tz6zY3Y3V1W1N8U.svg',
-		},
-		{ type: 'empty' },
-		{
-			type: 'logo',
-			label: 'Planhat',
-			logo: 'https://www.planhat.com/static/logo-icon-bc8b2f9f8c0b5f1f9b9a6c9a9d0a9b3a.svg',
-		},
-		{
-			type: 'logo',
-			label: 'Dust',
-			logo: 'https://dust.tt/static/logo_icon.png',
-		},
-		{ type: 'empty' },
-		{
-			type: 'logo',
-			label: 'Hyperline',
-			logo: 'https://www.hyperline.co/favicon.ico',
-		},
-		{
-			type: 'logo',
-			label: 'Lemlist',
-			logo: 'https://www.lemlist.com/hubfs/lemlist-logo-2023.svg',
-		},
-		{ type: 'empty' },
-	];
-
-	return (
-		<div className="relative w-full max-w-xl aspect-square p-4">
-			<div
-				className="absolute inset-0 opacity-[0.03] pointer-events-none"
-				style={{
-					backgroundImage: 'radial-gradient(#212323 1px, transparent 1px)',
-					backgroundSize: '25% 25%',
-				}}
-			></div>
-
-			<div className="grid grid-cols-4 gap-4 relative z-10 h-full">
-				{items.map((item, i) => (
-					<div
-						key={item.label || `empty-${i}`}
-						className={`
-              aspect-square rounded-2xl border transition-all duration-500 flex items-center justify-center
-              ${
-								item.type === 'logo'
-									? 'group bg-white border-gray-100 shadow-soft hover:shadow-xl hover:-translate-y-1 hover:border-ocobo-sky/30'
-									: 'bg-gray-50/50 border-dashed border-gray-200 group/empty hover:bg-white hover:border-solid hover:border-ocobo-yellow/40'
-							}
-              animate-fade-in-up
-            `}
-						style={{
-							animationDelay: `${i * 0.05}s`,
-							opacity: 0,
-							animationFillMode: 'forwards',
-						}}
-					>
-						{item.type === 'logo' ? (
-							<div className="flex flex-col items-center gap-2">
-								<img
-									src={item.logo}
-									alt={item.label}
-									className="w-8 h-8 md:w-10 md:h-10 object-contain grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
-								/>
-							</div>
-						) : (
-							<Plus
-								size={20}
-								className="text-gray-200 group-hover/empty:text-ocobo-yellow transition-colors"
-							/>
-						)}
-					</div>
-				))}
-			</div>
-		</div>
-	);
-};
+import {
+	DEFAULT_STACK_ITEMS,
+	ModularStackGrid,
+} from '../components/layout/ModularStackGrid';
 
 const Partners: React.FC = () => {
 	const [filter, setFilter] = useState('TOUS');
@@ -461,7 +358,11 @@ const Partners: React.FC = () => {
 				</div>
 
 				<div className="flex justify-center mb-16 px-4">
-					<ModularStackGrid />
+					<ModularStackGrid
+						items={DEFAULT_STACK_ITEMS}
+						maxWidth="xl"
+						animated
+					/>
 				</div>
 
 				<div className="flex flex-col items-center gap-12">

@@ -116,3 +116,14 @@ Created: 2026-01-21T10:30:00Z
 - Build passes
 
 ---
+
+## Feature 10: ModularStackGrid deduplicated
+- Created components/layout/ModularStackGrid.tsx
+- Props: items[], maxWidth ('lg'|'xl'), showLabels, animated
+- Exported DEFAULT_STACK_ITEMS constant for reuse
+- Updated Home.tsx: import + showLabels prop
+- Updated Partners.tsx: import + maxWidth='xl' animated props
+- Deleted inline definitions from both pages
+- Build passes
+
+---
