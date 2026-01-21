@@ -9,20 +9,16 @@ export default {
 				display: ['Bermia', 'Inter', 'sans-serif'],
 			},
 			fontSize: {
-				'2xs': ['0.625rem', { lineHeight: '1' }], // 10px - badges, labels
-				xs: ['0.6875rem', { lineHeight: '1.2' }], // 11px - small text
-				sm: ['0.8125rem', { lineHeight: '1.4' }], // 13px
-				base: ['0.875rem', { lineHeight: '1.5' }], // 14px
-				lg: ['1rem', { lineHeight: '1.5' }], // 16px
-				xl: ['1.25rem', { lineHeight: '1.4' }], // 20px
-				'2xl': ['1.375rem', { lineHeight: '1.3' }], // 22px
-				'3xl': ['1.875rem', { lineHeight: '1.2' }], // 30px
-				'4xl': ['2.25rem', { lineHeight: '1.1' }], // 36px
-				'5xl': ['3rem', { lineHeight: '1' }], // 48px
-				'6xl': ['3.75rem', { lineHeight: '1' }], // 60px
-				'7xl': ['4.5rem', { lineHeight: '1' }], // 72px
-				'8xl': ['6rem', { lineHeight: '1' }], // 96px
-				'9xl': ['8rem', { lineHeight: '1' }], // 128px - decorative
+				xs: ['0.75rem', { lineHeight: '1.2' }], // 12px
+				sm: ['0.875rem', { lineHeight: '1.4' }], // 14px
+				base: ['1rem', { lineHeight: '1.5' }], // 16px
+				lg: ['1.125rem', { lineHeight: '1.4' }], // 18px
+				xl: ['1.25rem', { lineHeight: '1.3' }], // 20px
+				'2xl': ['1.5rem', { lineHeight: '1.25' }], // 24px
+				'3xl': ['2rem', { lineHeight: '1.2' }], // 32px
+				'4xl': ['2.5rem', { lineHeight: '1.1' }], // 40px
+				'5xl': ['3.5rem', { lineHeight: '1' }], // 56px
+				'6xl': ['4rem', { lineHeight: '1' }], // 64px
 			},
 			borderRadius: {
 				'2xl': '1rem', // 16px
