@@ -12,10 +12,10 @@ interface FeatureCardProps {
 }
 
 const colourStyles: Record<ThemeColor, { bg: string; text: string }> = {
-	yellow: { bg: 'bg-ocobo-yellowLight', text: 'text-ocobo-yellow' },
-	mint: { bg: 'bg-ocobo-mintLight', text: 'text-ocobo-mint' },
-	sky: { bg: 'bg-ocobo-skyLight', text: 'text-ocobo-sky' },
-	coral: { bg: 'bg-ocobo-coralLight', text: 'text-ocobo-coral' },
+	yellow: { bg: 'bg-ocobo-yellow-light', text: 'text-ocobo-yellow' },
+	mint: { bg: 'bg-ocobo-mint-light', text: 'text-ocobo-mint' },
+	sky: { bg: 'bg-ocobo-sky-light', text: 'text-ocobo-sky' },
+	coral: { bg: 'bg-ocobo-coral-light', text: 'text-ocobo-coral' },
 	dark: { bg: 'bg-gray-100', text: 'text-ocobo-dark' },
 };
 

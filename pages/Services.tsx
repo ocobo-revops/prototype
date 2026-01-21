@@ -35,7 +35,7 @@ const ArchitecturalGrid = () => {
 				<div className="relative z-10 bg-white border-2 border-ocobo-dark p-8 shadow-offset flex-grow">
 					<div className="grid grid-cols-2 gap-4 mb-4">
 						<div
-							className="opacity-0 animate-box-pop h-24 bg-ocobo-yellowLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
+							className="opacity-0 animate-box-pop h-24 bg-ocobo-yellow-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
 							style={{ animationDelay: '0.4s' }}
 						>
 							<span className="font-display font-bold group-hover:text-ocobo-yellow transition-colors text-xs md:text-sm">
@@ -43,7 +43,7 @@ const ArchitecturalGrid = () => {
 							</span>
 						</div>
 						<div
-							className="opacity-0 animate-box-pop h-24 bg-ocobo-skyLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
+							className="opacity-0 animate-box-pop h-24 bg-ocobo-sky-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
 							style={{ animationDelay: '0.5s' }}
 						>
 							<span className="font-display font-bold group-hover:text-ocobo-sky transition-colors text-xs md:text-sm">
@@ -51,7 +51,7 @@ const ArchitecturalGrid = () => {
 							</span>
 						</div>
 						<div
-							className="opacity-0 animate-box-pop h-24 bg-ocobo-mintLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
+							className="opacity-0 animate-box-pop h-24 bg-ocobo-mint-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
 							style={{ animationDelay: '0.6s' }}
 						>
 							<span className="font-display font-bold group-hover:text-ocobo-mint transition-colors text-xs md:text-sm">
@@ -59,7 +59,7 @@ const ArchitecturalGrid = () => {
 							</span>
 						</div>
 						<div
-							className="opacity-0 animate-box-pop h-24 bg-ocobo-coralLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
+							className="opacity-0 animate-box-pop h-24 bg-ocobo-coral-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
 							style={{ animationDelay: '0.7s' }}
 						>
 							<span className="font-display font-bold group-hover:text-ocobo-coral transition-colors text-xs md:text-sm">
@@ -532,7 +532,7 @@ const Services: React.FC = () => {
 								<div className="bg-white border border-gray-100 p-8 md:p-10 hover:shadow-2xl hover:border-ocobo-yellow transition-all duration-300 group rounded-xl">
 									<ul className="space-y-8">
 										<li className="flex gap-5 items-start">
-											<div className="mt-1 bg-ocobo-yellowLight p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
+											<div className="mt-1 bg-ocobo-yellow-light p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
 												<CheckCircle2 size={18} />
 											</div>
 											<div>
@@ -546,7 +546,7 @@ const Services: React.FC = () => {
 											</div>
 										</li>
 										<li className="flex gap-5 items-start">
-											<div className="mt-1 bg-ocobo-yellowLight p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
+											<div className="mt-1 bg-ocobo-yellow-light p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
 												<CheckCircle2 size={18} />
 											</div>
 											<div>
@@ -560,7 +560,7 @@ const Services: React.FC = () => {
 											</div>
 										</li>
 										<li className="flex gap-5 items-start">
-											<div className="mt-1 bg-ocobo-yellowLight p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
+											<div className="mt-1 bg-ocobo-yellow-light p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
 												<CheckCircle2 size={18} />
 											</div>
 											<div>
@@ -640,7 +640,7 @@ const Services: React.FC = () => {
 								<div className="bg-white border border-gray-100 p-8 md:p-10 hover:shadow-2xl hover:border-ocobo-mint transition-all duration-300 group rounded-xl">
 									<ul className="space-y-8">
 										<li className="flex gap-5 items-start">
-											<div className="mt-1 bg-ocobo-mintLight p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+											<div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
 												<CheckCircle2 size={18} />
 											</div>
 											<div>
@@ -654,7 +654,7 @@ const Services: React.FC = () => {
 											</div>
 										</li>
 										<li className="flex gap-5 items-start">
-											<div className="mt-1 bg-ocobo-mintLight p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+											<div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
 												<CheckCircle2 size={18} />
 											</div>
 											<div>
@@ -668,7 +668,7 @@ const Services: React.FC = () => {
 											</div>
 										</li>
 										<li className="flex gap-5 items-start">
-											<div className="mt-1 bg-ocobo-mintLight p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+											<div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
 												<CheckCircle2 size={18} />
 											</div>
 											<div>
@@ -682,7 +682,7 @@ const Services: React.FC = () => {
 											</div>
 										</li>
 										<li className="flex gap-5 items-start">
-											<div className="mt-1 bg-ocobo-mintLight p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+											<div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
 												<CheckCircle2 size={18} />
 											</div>
 											<div>
@@ -980,7 +980,7 @@ const Services: React.FC = () => {
 								className={`bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl group`}
 							>
 								<div
-									className={`w-12 h-12 mb-6 rounded-lg flex items-center justify-center ${block.color === 'dark' ? 'bg-gray-100 text-ocobo-dark' : block.color === 'purple-500' ? 'bg-purple-50 text-purple-500' : `bg-ocobo-${block.color}Light text-ocobo-${block.color}`}`}
+									className={`w-12 h-12 mb-6 rounded-lg flex items-center justify-center ${block.color === 'dark' ? 'bg-gray-100 text-ocobo-dark' : block.color === 'purple-500' ? 'bg-purple-50 text-purple-500' : `bg-ocobo-${block.color}-light text-ocobo-${block.color}`}`}
 								>
 									{block.icon}
 								</div>

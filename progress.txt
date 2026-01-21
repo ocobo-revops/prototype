@@ -58,3 +58,21 @@ Created: 2026-01-21T12:00:00Z
 - `pnpm build` passes (exit 0)
 
 ---
+
+## Feature 3: Colors use nested naming (ocobo-yellow-light)
+**Status:** ✅ Passed
+**Completed:** 2026-01-21T13:15:00Z
+
+### Changes
+- Updated `tailwind.config.ts` colors: flat→nested structure
+- Changed: `yellowLight`→`yellow.light`, `mintLight`→`mint.light`, etc
+- Migrated usages in 15 files:
+  - Badge.tsx, FeatureCard.tsx, Section.tsx, ServiceCard.tsx, Navbar.tsx
+  - About.tsx, Method.tsx, Jobs.tsx, Resources.tsx, Home.tsx
+  - Services.tsx, Contact.tsx, Partners.tsx, JobDetail.tsx, StoryDetail.tsx
+- Fixed dynamic class construction in Services.tsx
+
+### Verification
+- `pnpm build` passes (exit 0)
+
+---

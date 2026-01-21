@@ -707,7 +707,7 @@ const Home: React.FC = () => {
 				</Container>
 
 				<div className="text-center mt-32 max-w-4xl mx-auto px-4">
-					<div className="inline-block px-5 py-2 bg-ocobo-mintLight text-ocobo-mint font-display font-black uppercase tracking-[0.3em] text-2xs mb-8 rounded-full border border-ocobo-mint/20">
+					<div className="inline-block px-5 py-2 bg-ocobo-mint-light text-ocobo-mint font-display font-black uppercase tracking-[0.3em] text-2xs mb-8 rounded-full border border-ocobo-mint/20">
 						Notre Mission
 					</div>
 					<h3 className="font-display text-4xl md:text-5xl font-black mb-6 tracking-tight">
@@ -782,25 +782,25 @@ const Home: React.FC = () => {
 								C’est une méthode.
 							</h3>
 							<div className="space-y-4">
-								<div className="p-4 bg-ocobo-yellowLight border-l-4 border-ocobo-yellow">
+								<div className="p-4 bg-ocobo-yellow-light border-l-4 border-ocobo-yellow">
 									<span className="font-bold text-ocobo-dark">Alignment</span>
 									<p className="text-xs text-gray-600">
 										Aligner les équipes qui font le revenu.
 									</p>
 								</div>
-								<div className="p-4 bg-ocobo-skyLight border-l-4 border-ocobo-sky">
+								<div className="p-4 bg-ocobo-sky-light border-l-4 border-ocobo-sky">
 									<span className="font-bold text-ocobo-dark">Technology</span>
 									<p className="text-xs text-gray-600">
 										Une stack claire, connectée, utile.
 									</p>
 								</div>
-								<div className="p-4 bg-ocobo-mintLight border-l-4 border-ocobo-mint">
+								<div className="p-4 bg-ocobo-mint-light border-l-4 border-ocobo-mint">
 									<span className="font-bold text-ocobo-dark">Performance</span>
 									<p className="text-xs text-gray-600">
 										Indicateurs fiables, pilotage, cockpit.
 									</p>
 								</div>
-								<div className="p-4 bg-ocobo-coralLight border-l-4 border-ocobo-coral">
+								<div className="p-4 bg-ocobo-coral-light border-l-4 border-ocobo-coral">
 									<span className="font-bold text-ocobo-dark">Enablement</span>
 									<p className="text-xs text-gray-600">
 										Equipes formées et autonomes.

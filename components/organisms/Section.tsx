@@ -22,9 +22,9 @@ const bgClasses: Record<SectionBg, string> = {
 	gray: 'bg-gray-50',
 	dark: 'bg-ocobo-dark text-white',
 	yellow: 'bg-ocobo-yellow text-ocobo-dark',
-	sky: 'bg-ocobo-skyLight',
-	mint: 'bg-ocobo-mintLight',
-	coral: 'bg-ocobo-coralLight',
+	sky: 'bg-ocobo-sky-light',
+	mint: 'bg-ocobo-mint-light',
+	coral: 'bg-ocobo-coral-light',
 };
 
 const paddingClasses = {

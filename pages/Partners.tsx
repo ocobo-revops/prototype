@@ -740,7 +740,7 @@ const Partners: React.FC = () => {
 
 								{formSubmitted ? (
 									<div className="py-12 text-center animate-fade-in-up">
-										<div className="w-20 h-20 bg-ocobo-mintLight text-ocobo-mint rounded-full flex items-center justify-center mx-auto mb-6">
+										<div className="w-20 h-20 bg-ocobo-mint-light text-ocobo-mint rounded-full flex items-center justify-center mx-auto mb-6">
 											<CheckCircle2 size={40} />
 										</div>
 										<h3 className="font-display text-2xl font-black text-ocobo-dark mb-4">

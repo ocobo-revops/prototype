@@ -426,7 +426,7 @@ const JobDetail: React.FC = () => {
 										className="group p-8 border border-gray-100 bg-white hover:border-ocobo-yellow hover:shadow-xl transition-all rounded-2xl"
 									>
 										<div className="flex items-center gap-3 mb-4">
-											<span className="text-2xs font-black uppercase tracking-widest text-ocobo-coral bg-ocobo-coralLight px-2 py-0.5 border border-ocobo-coral/10">
+											<span className="text-2xs font-black uppercase tracking-widest text-ocobo-coral bg-ocobo-coral-light px-2 py-0.5 border border-ocobo-coral/10">
 												{other.exp}
 											</span>
 											<span className="text-2xs font-black uppercase tracking-widest text-gray-300">
