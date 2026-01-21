@@ -50,3 +50,14 @@ Created: 2026-01-21T10:30:00Z
 - Build passes
 
 ---
+
+## Feature 3: HeroSplit compound component
+- Created components/layout/HeroSplit.tsx
+- HeroSplitRoot: gap prop (6|8|10|12|16) → responsive gap classes
+- HeroSplit.Content: flex-1 wrapper for text content
+- HeroSplit.Media: flex-1 wrapper for illustrations/images
+- Responsive: flex-col → lg:flex-row lg:items-center
+- Exported as compound component
+- Build passes
+
+---
