@@ -39,3 +39,14 @@ Created: 2026-01-21T10:30:00Z
 - Build passes
 
 ---
+
+## Feature 2: FlexPair compound component
+- Created components/layout/FlexPair.tsx
+- FlexPairRoot: gap prop (2|3|4|5|6|8), align prop (start|center|end)
+- FlexPair.Icon: shrink-0 wrapper for icons
+- FlexPair.Content: flex-1 min-w-0 wrapper for content
+- Removed Title/Description (hollow wrappers, no value)
+- Exported as compound component
+- Build passes
+
+---
