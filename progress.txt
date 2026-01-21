@@ -246,3 +246,12 @@ Created: 2026-01-21T10:30:00Z
 - Build passes
 
 ---
+
+## Feature 19: Zero Button className overrides across codebase
+- Found 2 remaining overrides in Resources.tsx (missed in Feature 18)
+- Removed `className="border-none"` from white variant Button (redundant - white variant already has border-transparent)
+- Removed `className="whitespace-nowrap"` from S'inscrire Button (unnecessary - short text)
+- Grep `<Button[^>]*className` returns zero matches in pages/
+- Build passes
+
+---

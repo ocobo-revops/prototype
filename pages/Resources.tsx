@@ -157,9 +157,7 @@ const Resources: React.FC = () => {
 									Découvrez notre méthodologie propriétaire pour aligner vos
 									équipes et scaler vos revenus. Un guide complet de 40 pages.
 								</p>
-								<Button variant="white" className="border-none">
-									Télécharger le guide
-								</Button>
+								<Button variant="white">Télécharger le guide</Button>
 							</div>
 						</div>
 					</div>
@@ -250,7 +248,7 @@ const Resources: React.FC = () => {
 									placeholder="votre@email.com"
 									className="flex-grow px-6 py-4 bg-gray-50 border border-gray-200 focus:border-ocobo-dark focus:bg-white focus:ring-0 outline-none transition-all placeholder-gray-400"
 								/>
-								<Button className="whitespace-nowrap">S'inscrire</Button>
+								<Button>S'inscrire</Button>
 							</div>
 						</div>
 						<div className="bg-ocobo-yellow-light p-10 border border-ocobo-yellow/20 relative">
