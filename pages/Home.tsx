@@ -4,6 +4,9 @@ import { Button } from '../components/atoms';
 import { DashboardIllustration } from '../components/illustrations';
 import { ClientMarquee } from '../components/layout/ClientMarquee';
 import { FeatureCard } from '../components/layout/FeatureCard';
+import FlexPair from '../components/layout/FlexPair';
+import Grid from '../components/layout/Grid';
+import HeroSplit from '../components/layout/HeroSplit';
 import {
 	DEFAULT_STACK_ITEMS,
 	ModularStackGrid,
@@ -31,10 +34,10 @@ const HOME_CLIENTS = [
 const Home: React.FC = () => {
 	return (
 		<div className="w-full">
-			{/* HERO SECTION - REFINED LOADING SEQUENCE */}
+			{/* HERO SECTION */}
 			<Container className="pt-40 pb-24 relative overflow-hidden">
-				<div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 relative z-10">
-					<div className="lg:w-1/2">
+				<HeroSplit gap={16} className="relative z-10">
+					<HeroSplit.Content>
 						<h1
 							className="font-display text-4xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight opacity-0 animate-hero-reveal"
 							style={{ animationDelay: '0.1s' }}
@@ -61,7 +64,7 @@ const Home: React.FC = () => {
 							style={{ animationDelay: '0.3s' }}
 						>
 							<p className="font-display text-lg md:text-xl font-normal text-ocobo-dark leading-tight tracking-tight">
-								Le RevOps n’est pas un outil : c’est{' '}
+								Le RevOps n'est pas un outil : c'est{' '}
 								<span className="font-bold">
 									la science qui organise votre revenu.
 								</span>
@@ -76,12 +79,12 @@ const Home: React.FC = () => {
 								Rencontrer un architecte
 							</Button>
 						</div>
-					</div>
+					</HeroSplit.Content>
 
-					<div className="lg:w-1/2 flex justify-center lg:justify-end items-center">
+					<HeroSplit.Media className="flex justify-center lg:justify-end items-center">
 						<DashboardIllustration />
-					</div>
-				</div>
+					</HeroSplit.Media>
+				</HeroSplit>
 			</Container>
 
 			{/* BLOC 2 - LOGOS DÉFILANTS ET TÉMOIGNAGES - STYLE À PROPOS AFFINÉ */}
@@ -150,7 +153,7 @@ const Home: React.FC = () => {
 				</Container>
 
 				<Container className="mt-28 relative z-10">
-					<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+					<Grid md={2} lg={4} gap={6}>
 						<FeatureCard
 							icon={<Layout size={28} />}
 							title="Aligner"
@@ -179,7 +182,7 @@ const Home: React.FC = () => {
 							colour={ThemeColor.MINT}
 							label="Organiser ="
 						/>
-					</div>
+					</Grid>
 				</Container>
 
 				<div className="text-center mt-32 max-w-4xl mx-auto px-4">
@@ -210,43 +213,57 @@ const Home: React.FC = () => {
 								qui tient la charge.
 							</p>
 							<ul className="space-y-6">
-								<li className="flex gap-4">
-									<div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-ocobo-dark shadow-sm shrink-0 font-bold border border-gray-100">
-										1
-									</div>
-									<div>
-										<h4 className="font-bold text-lg">Clarté radicale</h4>
-										<p className="text-sm text-gray-600">
-											Une vérité partagée entre équipes. Des décisions
-											éclairées. La fin du pilotage à l’intuition.
-										</p>
-									</div>
+								<li>
+									<FlexPair gap={4}>
+										<FlexPair.Icon>
+											<div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-ocobo-dark shadow-sm font-bold border border-gray-100">
+												1
+											</div>
+										</FlexPair.Icon>
+										<FlexPair.Content>
+											<h4 className="font-bold text-lg">Clarté radicale</h4>
+											<p className="text-sm text-gray-600">
+												Une vérité partagée entre équipes. Des décisions
+												éclairées. La fin du pilotage à l'intuition.
+											</p>
+										</FlexPair.Content>
+									</FlexPair>
 								</li>
-								<li className="flex gap-4">
-									<div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-ocobo-dark shadow-sm shrink-0 font-bold border border-gray-100">
-										2
-									</div>
-									<div>
-										<h4 className="font-bold text-lg">
-											Simplicité opérationnelle
-										</h4>
-										<p className="text-sm text-gray-600">
-											Moins de friction, moins de complexité, moins d’outils.
-											Des équipes concentrées sur le closing.
-										</p>
-									</div>
+								<li>
+									<FlexPair gap={4}>
+										<FlexPair.Icon>
+											<div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-ocobo-dark shadow-sm font-bold border border-gray-100">
+												2
+											</div>
+										</FlexPair.Icon>
+										<FlexPair.Content>
+											<h4 className="font-bold text-lg">
+												Simplicité opérationnelle
+											</h4>
+											<p className="text-sm text-gray-600">
+												Moins de friction, moins de complexité, moins d'outils.
+												Des équipes concentrées sur le closing.
+											</p>
+										</FlexPair.Content>
+									</FlexPair>
 								</li>
-								<li className="flex gap-4">
-									<div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-ocobo-dark shadow-sm shrink-0 font-bold border border-gray-100">
-										3
-									</div>
-									<div>
-										<h4 className="font-bold text-lg">Performance mesurable</h4>
-										<p className="text-sm text-gray-600">
-											Des conversions qui augmentent. Des cycles qui
-											raccourcissent. Un revenu enfin prévisible.
-										</p>
-									</div>
+								<li>
+									<FlexPair gap={4}>
+										<FlexPair.Icon>
+											<div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-ocobo-dark shadow-sm font-bold border border-gray-100">
+												3
+											</div>
+										</FlexPair.Icon>
+										<FlexPair.Content>
+											<h4 className="font-bold text-lg">
+												Performance mesurable
+											</h4>
+											<p className="text-sm text-gray-600">
+												Des conversions qui augmentent. Des cycles qui
+												raccourcissent. Un revenu enfin prévisible.
+											</p>
+										</FlexPair.Content>
+									</FlexPair>
 								</li>
 							</ul>
 						</div>
@@ -287,7 +304,7 @@ const Home: React.FC = () => {
 								<p className="font-display font-bold text-sm uppercase tracking-wider mb-4">
 									The Revenue Experience System™
 								</p>
-								<Button to="/method" className="w-full">
+								<Button to="/method" fullWidth>
 									Découvrir notre méthode
 								</Button>
 							</div>
@@ -307,13 +324,13 @@ const Home: React.FC = () => {
 						votre croissance.
 					</p>
 
-					<div className="grid md:grid-cols-3 gap-8">
+					<Grid md={3} gap={8}>
 						<div className="bg-white border border-gray-200 p-8 hover:border-ocobo-dark transition-colors group">
 							<div className="w-12 h-12 bg-ocobo-dark text-white flex items-center justify-center mb-6">
 								1
 							</div>
 							<h3 className="font-display text-xl font-bold mb-4">
-								Immersion, diagnostic et plan d’action RevOps
+								Immersion, diagnostic et plan d'action RevOps
 							</h3>
 							<p className="text-gray-600 text-sm">
 								Pour voir clair et savoir quoi faire. Dans cet ordre là.
@@ -342,7 +359,7 @@ const Home: React.FC = () => {
 								Pour rendre vos équipes autonomes et pérennes.
 							</p>
 						</div>
-					</div>
+					</Grid>
 
 					<div className="flex justify-center mt-12">
 						<Button variant="outline" to="/offer">
@@ -367,7 +384,7 @@ const Home: React.FC = () => {
 						</p>
 					</div>
 
-					<div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+					<Grid md={2} gap={8} className="max-w-5xl mx-auto">
 						<div className="bg-white text-ocobo-dark p-10 relative">
 							<div className="absolute top-0 left-0 bg-ocobo-yellow text-ocobo-dark px-4 py-1 font-bold text-xs uppercase tracking-widest">
 								Ocobo
@@ -413,14 +430,10 @@ const Home: React.FC = () => {
 								))}
 							</ul>
 						</div>
-					</div>
+					</Grid>
 
 					<div className="flex justify-center mt-16">
-						<Button
-							variant="white"
-							to="/studio"
-							className="px-10 py-4 font-bold border-none shadow-xl hover:shadow-2xl"
-						>
+						<Button variant="white" to="/studio" size="lg">
 							Découvrez le RevOps Studio
 						</Button>
 					</div>
@@ -444,11 +457,7 @@ const Home: React.FC = () => {
 					</div>
 
 					<div className="mt-8 flex flex-col items-center">
-						<Button
-							variant="outline"
-							to="/technology"
-							className="px-10 py-4 font-bold border-2"
-						>
+						<Button variant="outline" to="/technology" size="lg">
 							Nos solutions partenaires
 						</Button>
 						<p className="mt-6 text-gray-400 text-xs font-bold uppercase tracking-[0.2em]">

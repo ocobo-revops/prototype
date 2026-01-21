@@ -204,3 +204,16 @@ Created: 2026-01-21T10:30:00Z
 - Build passes
 
 ---
+
+## Feature 17: Refactor Home.tsx to component assembly
+- Hero section uses HeroSplit compound component
+- 3 inline grids replaced with Grid component:
+  - FeatureCards: Grid md={2} lg={4} gap={6}
+  - Interventions: Grid md={3} gap={8}
+  - Comparatif: Grid md={2} gap={8}
+- Numbered list items use FlexPair compound component
+- Button className overrides removed → fullWidth prop, size="lg"
+- File still 491 lines (content-heavy page)
+- Build passes
+
+---
