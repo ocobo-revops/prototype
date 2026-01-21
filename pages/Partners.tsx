@@ -470,12 +470,16 @@ const Partners: React.FC = () => {
 						</div>
 					</div>
 
-					<Grid md={2} lg={3} gap={8} className="transition-all duration-500">
-						{filtered.map((partner, idx) => (
+					<Grid
+						md={2}
+						lg={3}
+						gap={8}
+						className="transition-all duration-500 stagger-fade"
+					>
+						{filtered.map((partner) => (
 							<div
 								key={`${partner.name}-${filter}`}
 								className={`group bg-white border border-gray-100 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden rounded-xl flex flex-col h-full ${animate ? 'opacity-0 animate-fade-in-up-small' : 'opacity-0'}`}
-								style={{ animationDelay: `${idx * 0.05}s` }}
 							>
 								<div className="flex justify-between items-start mb-8">
 									<div className="w-16 h-16 flex items-center justify-center p-3 bg-gray-50 rounded-xl group-hover:bg-white transition-all duration-500 border border-transparent group-hover:border-gray-100 shadow-inner group-hover:shadow-none">

@@ -43,10 +43,7 @@ const StoriesIllustration = () => {
 				</g>
 
 				{/* RADAR SWEEP ANIMATION - DARKENED */}
-				<g
-					className="animate-radar-sweep"
-					style={{ transformOrigin: '300px 300px' }}
-				>
+				<g className="animate-radar-sweep origin-radar">
 					<path
 						d="M300,300 L300,0 A300,300 0 0,1 512,87 Z"
 						fill="url(#radarGradient)"
@@ -135,8 +132,7 @@ const StoriesIllustration = () => {
 					y="320"
 					width="160"
 					height="100"
-					className="animate-float-gentle"
-					style={{ animationDelay: '1.2s' }}
+					className="animate-float-gentle [animation-delay:1.2s]"
 				>
 					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset">
 						<div className="flex items-center gap-2 mb-2">
@@ -160,8 +156,7 @@ const StoriesIllustration = () => {
 					y="440"
 					width="160"
 					height="100"
-					className="animate-float-gentle"
-					style={{ animationDelay: '2.5s' }}
+					className="animate-float-gentle [animation-delay:2.5s]"
 				>
 					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset">
 						<div className="flex items-center gap-2 mb-2">
@@ -185,8 +180,7 @@ const StoriesIllustration = () => {
 					y="60"
 					width="160"
 					height="100"
-					className="animate-float-gentle"
-					style={{ animationDelay: '0.6s' }}
+					className="animate-float-gentle [animation-delay:0.6s]"
 				>
 					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset">
 						<div className="flex items-center gap-2 mb-2">
@@ -243,8 +237,7 @@ const StoriesIllustration = () => {
 						cy="500"
 						r="4"
 						fill="#FE9C87"
-						className="animate-pulse"
-						style={{ animationDelay: '1.5s' }}
+						className="animate-pulse [animation-delay:1.5s]"
 					/>
 					<path
 						d="M50,50 l10,0 m-5,-5 l0,10"
@@ -611,13 +604,12 @@ const Stories: React.FC = () => {
 
 			{/* Bento Grid Stories */}
 			<section className="max-w-7xl mx-auto px-4 pb-40">
-				<Grid md={2} lg={3} gap={8}>
-					{filteredCases.map((item, idx) => (
+				<Grid md={2} lg={3} gap={8} className="stagger-fade">
+					{filteredCases.map((item) => (
 						<Link
 							key={item.id}
 							to={`/stories/${item.id}`}
 							className={`group relative flex flex-col bg-white border border-gray-100 rounded-3xl p-6 transition-all duration-500 hover:shadow-soft-lg hover:-translate-y-2 overflow-hidden h-full ${animate ? 'opacity-0 animate-fade-in-up' : ''}`}
-							style={{ animationDelay: `${idx * 0.05}s` }}
 						>
 							<div
 								className={`absolute top-0 right-0 w-32 h-32 bg-ocobo-${item.color.split('-')[1]} opacity-0 group-hover:opacity-5 blur-3xl transition-opacity`}

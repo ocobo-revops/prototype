@@ -53,13 +53,7 @@ const WebinarDetail: React.FC = () => {
 	return (
 		<div className="w-full pt-40 pb-24 bg-white font-sans">
 			{/* Background Subtle Pattern */}
-			<div
-				className="fixed inset-0 opacity-[0.02] pointer-events-none -z-10"
-				style={{
-					backgroundImage: 'radial-gradient(#212323 1px, transparent 1px)',
-					backgroundSize: '40px 40px',
-				}}
-			></div>
+			<div className="fixed inset-0 opacity-[0.02] pointer-events-none -z-10 bg-dots-dark"></div>
 
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				{/* Back Button */}

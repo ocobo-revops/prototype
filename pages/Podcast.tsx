@@ -103,10 +103,7 @@ const Podcast: React.FC = () => {
 							<h1 className="font-display text-6xl md:text-6xl font-black text-white mb-8 leading-[0.9] tracking-tighter">
 								Revenue
 								<br />
-								<span
-									className="text-transparent"
-									style={{ WebkitTextStroke: '1px white' }}
-								>
+								<span className="text-transparent text-stroke-white">
 									Echoes.
 								</span>
 							</h1>

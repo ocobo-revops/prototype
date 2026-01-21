@@ -38,10 +38,7 @@ const Home: React.FC = () => {
 			<Container className="pt-40 pb-24 relative overflow-hidden">
 				<HeroSplit gap={16} className="relative z-10">
 					<HeroSplit.Content>
-						<h1
-							className="font-display text-4xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight opacity-0 animate-hero-reveal"
-							style={{ animationDelay: '0.1s' }}
-						>
+						<h1 className="font-display text-4xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight opacity-0 animate-hero-reveal [animation-delay:0.1s]">
 							L'architecture
 							<br />
 							qui fait tenir
@@ -49,20 +46,14 @@ const Home: React.FC = () => {
 							<span className="text-gray-400">votre croissance.</span>
 						</h1>
 
-						<p
-							className="text-xl md:text-2xl text-gray-700 mb-10 leading-relaxed font-medium max-w-xl opacity-0 animate-hero-reveal"
-							style={{ animationDelay: '0.2s' }}
-						>
+						<p className="text-xl md:text-2xl text-gray-700 mb-10 leading-relaxed font-medium max-w-xl opacity-0 animate-hero-reveal [animation-delay:0.2s]">
 							Voici comment nous transformons la croissance en{' '}
 							<span className="underline decoration-ocobo-yellow decoration-[3px] underline-offset-[6px]">
 								expérience simple, fluide et pilotable.
 							</span>
 						</p>
 
-						<div
-							className="mb-14 py-1.5 opacity-0 animate-hero-reveal"
-							style={{ animationDelay: '0.3s' }}
-						>
+						<div className="mb-14 py-1.5 opacity-0 animate-hero-reveal [animation-delay:0.3s]">
 							<p className="font-display text-lg md:text-xl font-normal text-ocobo-dark leading-tight tracking-tight">
 								Le RevOps n'est pas un outil : c'est{' '}
 								<span className="font-bold">
@@ -71,10 +62,7 @@ const Home: React.FC = () => {
 							</p>
 						</div>
 
-						<div
-							className="flex flex-col sm:flex-row gap-6 items-start opacity-0 animate-hero-reveal"
-							style={{ animationDelay: '0.4s' }}
-						>
+						<div className="flex flex-col sm:flex-row gap-6 items-start opacity-0 animate-hero-reveal [animation-delay:0.4s]">
 							<Button variant="primary" to="/contact">
 								Rencontrer un architecte
 							</Button>
@@ -89,13 +77,7 @@ const Home: React.FC = () => {
 
 			{/* BLOC 2 - LOGOS DÉFILANTS ET TÉMOIGNAGES - STYLE À PROPOS AFFINÉ */}
 			<Section bg="dark" className="py-20 md:py-32 relative overflow-hidden">
-				<div
-					className="absolute inset-0 opacity-[0.02]"
-					style={{
-						backgroundImage: 'radial-gradient(white 1px, transparent 1px)',
-						backgroundSize: '40px 40px',
-					}}
-				></div>
+				<div className="absolute inset-0 opacity-[0.02] bg-dots-light"></div>
 
 				<div className="absolute top-1/2 left-0 w-64 h-64 bg-ocobo-yellow/5 rounded-full -translate-x-1/2 blur-3xl opacity-30"></div>
 
@@ -126,13 +108,7 @@ const Home: React.FC = () => {
 
 			{/* BLOC 3 - PAIN POINT ET POSITIONNEMENT */}
 			<Section bg="white" className="py-32 relative overflow-hidden">
-				<div
-					className="absolute inset-0 opacity-[0.03] pointer-events-none"
-					style={{
-						backgroundImage: 'radial-gradient(#212323 1px, transparent 1px)',
-						backgroundSize: '30px 30px',
-					}}
-				></div>
+				<div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-dots-dark-sm"></div>
 
 				<Container narrow className="text-center relative z-10">
 					<h2 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-10 leading-[0.95] tracking-tight">

@@ -16,22 +16,10 @@ const TeamPhotoIllustration = () => {
 		<div className="relative w-full max-w-4xl mx-auto py-12 px-4 group">
 			{/* BACKGROUND DECORATIVE SPHERES - FAVORING THE SQUAD ASPECT */}
 			<div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
-				<div
-					className="absolute top-0 left-1/4 w-64 h-64 bg-ocobo-yellow/30 rounded-full blur-3xl animate-float-blob"
-					style={{ animationDelay: '0s' }}
-				></div>
-				<div
-					className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-ocobo-mint/30 rounded-full blur-3xl animate-float-blob"
-					style={{ animationDelay: '-4s' }}
-				></div>
-				<div
-					className="absolute top-1/2 left-10 w-48 h-48 bg-ocobo-coral/20 rounded-full blur-3xl animate-float-blob"
-					style={{ animationDelay: '-8s' }}
-				></div>
-				<div
-					className="absolute top-1/4 right-0 w-56 h-56 bg-ocobo-sky/30 rounded-full blur-3xl animate-float-blob"
-					style={{ animationDelay: '-2s' }}
-				></div>
+				<div className="absolute top-0 left-1/4 w-64 h-64 bg-ocobo-yellow/30 rounded-full blur-3xl animate-float-blob [animation-delay:0s]"></div>
+				<div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-ocobo-mint/30 rounded-full blur-3xl animate-float-blob [animation-delay:-4s]"></div>
+				<div className="absolute top-1/2 left-10 w-48 h-48 bg-ocobo-coral/20 rounded-full blur-3xl animate-float-blob [animation-delay:-8s]"></div>
+				<div className="absolute top-1/4 right-0 w-56 h-56 bg-ocobo-sky/30 rounded-full blur-3xl animate-float-blob [animation-delay:-2s]"></div>
 			</div>
 
 			{/* PHOTO CONTAINER */}
@@ -65,10 +53,7 @@ const TeamPhotoIllustration = () => {
 				<div className="absolute -top-12 right-12 p-5 bg-white rounded-2xl shadow-xl transform rotate-12 animate-bounce-slow hidden md:flex border border-gray-50">
 					<Sparkles className="text-ocobo-yellow" size={28} />
 				</div>
-				<div
-					className="absolute -bottom-10 left-24 p-5 bg-ocobo-dark text-white rounded-2xl shadow-xl transform -rotate-6 animate-bounce-slow hidden md:flex"
-					style={{ animationDelay: '1s' }}
-				>
+				<div className="absolute -bottom-10 left-24 p-5 bg-ocobo-dark text-white rounded-2xl shadow-xl transform -rotate-6 animate-bounce-slow hidden md:flex [animation-delay:1s]">
 					<Users size={24} />
 				</div>
 			</div>
@@ -324,12 +309,16 @@ const Studio: React.FC = () => {
 						</div>
 					</div>
 
-					<Grid md={2} lg={3} gap={8} className="transition-all duration-500">
-						{filteredTeam.map((member, idx) => (
+					<Grid
+						md={2}
+						lg={3}
+						gap={8}
+						className="transition-all duration-500 stagger-fade"
+					>
+						{filteredTeam.map((member) => (
 							<div
 								key={`${member.name}-${activeFilter}`}
 								className={`group bg-white border border-gray-100 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden rounded-xl ${animate ? 'opacity-0 animate-fade-in-up-small' : 'opacity-0'}`}
-								style={{ animationDelay: `${idx * 0.05}s` }}
 							>
 								{/* Left trait that lights up on hover */}
 								<div

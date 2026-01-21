@@ -69,13 +69,7 @@ const Method: React.FC = () => {
 			{/* THE REVENUE EXPERIENCE SYSTEM™ */}
 			<section className="bg-gray-50 py-32 border-y border-gray-100 relative overflow-hidden">
 				{/* Subtle Background Pattern */}
-				<div
-					className="absolute inset-0 opacity-[0.03] pointer-events-none"
-					style={{
-						backgroundImage: 'radial-gradient(#212323 1px, transparent 1px)',
-						backgroundSize: '40px 40px',
-					}}
-				></div>
+				<div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-dots-dark"></div>
 
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 					<div className="mb-24 text-center">

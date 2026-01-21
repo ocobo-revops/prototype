@@ -363,13 +363,7 @@ const StoryDetail: React.FC = () => {
 
 	return (
 		<div className="w-full bg-white pt-32 pb-40">
-			<div
-				className="fixed inset-0 opacity-[0.02] pointer-events-none -z-10"
-				style={{
-					backgroundImage: 'radial-gradient(#212323 1px, transparent 1px)',
-					backgroundSize: '40px 40px',
-				}}
-			></div>
+			<div className="fixed inset-0 opacity-[0.02] pointer-events-none -z-10 bg-dots-dark"></div>
 
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="mb-12">
@@ -658,13 +652,7 @@ const StoryDetail: React.FC = () => {
 				</div>
 
 				<div className="bg-ocobo-yellow p-12 md:p-24 rounded-3xl text-center text-ocobo-dark relative overflow-hidden">
-					<div
-						className="absolute inset-0 opacity-[0.1]"
-						style={{
-							backgroundImage: 'radial-gradient(#212323 1px, transparent 1px)',
-							backgroundSize: '30px 30px',
-						}}
-					></div>
+					<div className="absolute inset-0 opacity-[0.1] bg-dots-dark-sm"></div>
 					<div className="relative z-10 max-w-3xl mx-auto">
 						<span className="font-display font-black text-xs uppercase tracking-[0.4em] mb-8 inline-block opacity-40">
 							Votre futur système

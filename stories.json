@@ -350,10 +350,10 @@
 				"Remove any inline styles found",
 				"Verify: grep returns zero matches"
 			],
-			"passes": false,
+			"passes": true,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": null
+			"completed_at": "2026-01-21T23:00:00Z"
 		},
 		{
 			"id": 21,

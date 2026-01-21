@@ -255,3 +255,21 @@ Created: 2026-01-21T10:30:00Z
 - Build passes
 
 ---
+
+## Feature 20: No inline style declarations in pages
+- Added CSS utilities to globals.css:
+  - .bg-dots-dark, .bg-dots-dark-sm, .bg-dots-light (radial gradient bg patterns)
+  - .text-stroke-white (WebkitTextStroke)
+  - .origin-radar (transform-origin for SVG)
+  - .stagger-fade (nth-child animation delays 0-20 items at 0.05s increments)
+- Replaced all `style={{` patterns:
+  - backgroundImage radial-gradient → bg-dots-* classes
+  - WebkitTextStroke → text-stroke-white class
+  - transformOrigin → origin-radar class
+  - static animationDelay → [animation-delay:Xs] arbitrary property
+  - dynamic animationDelay (idx*0.05) → stagger-fade on parent Grid
+- Files updated: Home, Stories, Studio, Partners, Method, Podcast, JobDetail, WebinarDetail, StoryDetail
+- Grep `style={{` in pages/ returns zero matches
+- Build passes
+
+---
