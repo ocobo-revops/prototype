@@ -3,7 +3,7 @@ import type React from 'react';
 import { Link } from 'react-router';
 
 interface BaseButtonProps {
-	variant?: 'primary' | 'outline' | 'white' | 'cta';
+	variant?: 'primary' | 'outline' | 'white' | 'cta' | 'nav';
 	size?: 'sm' | 'md' | 'lg' | 'xl';
 	showArrow?: boolean;
 	children: React.ReactNode;
@@ -58,6 +58,7 @@ const Button: React.FC<ButtonProps> = ({
 		white:
 			'bg-white text-ocobo-dark hover:bg-gray-100 focus-visible:outline-ocobo-dark border border-transparent',
 		cta: 'bg-ocobo-dark text-white shadow-xl hover:-translate-y-1 hover:shadow-2xl focus-visible:outline-white border border-transparent',
+		nav: 'bg-transparent text-current hover:bg-black/5 focus-visible:outline-current border border-transparent',
 	};
 
 	const sizes = {
