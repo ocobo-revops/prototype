@@ -105,3 +105,14 @@ Created: 2026-01-21T10:30:00Z
 - Build passes
 
 ---
+
+## Feature 9: ClientMarquee extraction
+- Created components/layout/ClientMarquee.tsx
+- Props: clients[], padding ('sm'|'md'), textSize ('sm'|'md'), bordered
+- Updated Home.tsx: import + HOME_CLIENTS constant
+- Updated Stories.tsx: import + STORIES_CLIENTS constant
+- Partners.tsx had no ClientMarquee (PRD incorrect)
+- Deleted inline definitions from both pages
+- Build passes
+
+---

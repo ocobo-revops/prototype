@@ -1,6 +1,7 @@
 import { BarChart3, Check, Layout, Plus, Target, X, Zap } from 'lucide-react';
 import type React from 'react';
 import { Button } from '../components/atoms';
+import { ClientMarquee } from '../components/layout/ClientMarquee';
 import { FeatureCard, TestimonialCard } from '../components/molecules';
 import { Container, Section } from '../components/organisms';
 import { ThemeColor } from '../types';
@@ -511,45 +512,20 @@ const ModularStackGrid = () => {
 	);
 };
 
-const ClientMarquee = () => {
-	const clients = [
-		'TheFork',
-		'ePack Hygiène',
-		'Qonto',
-		'PayFit',
-		'Spendesk',
-		'Qobra',
-		'Tomorro',
-		'Jus Mundi',
-		'Vizzia',
-		'Combo',
-		'Sortlist',
-		'Zenchef',
-	];
-
-	const extendedClients = [...clients, ...clients, ...clients];
-
-	return (
-		<div className="relative w-full overflow-hidden py-3 border-y border-white/5">
-			<div className="absolute left-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-r from-ocobo-dark to-transparent z-10 pointer-events-none"></div>
-			<div className="absolute right-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-l from-ocobo-dark to-transparent z-10 pointer-events-none"></div>
-
-			<div className="flex w-max animate-marquee-ultra-slow whitespace-nowrap">
-				{extendedClients.map((client, idx) => (
-					<div
-						// biome-ignore lint/suspicious/noArrayIndexKey: marquee animation requires duplicate elements
-						key={`${client}-${idx}`}
-						className="flex items-center justify-center px-10 md:px-14"
-					>
-						<span className="font-display font-black text-white/20 text-base md:text-lg tracking-[0.25em] uppercase hover:text-ocobo-yellow transition-colors cursor-default select-none">
-							{client}
-						</span>
-					</div>
-				))}
-			</div>
-		</div>
-	);
-};
+const HOME_CLIENTS = [
+	'TheFork',
+	'ePack Hygiène',
+	'Qonto',
+	'PayFit',
+	'Spendesk',
+	'Qobra',
+	'Tomorro',
+	'Jus Mundi',
+	'Vizzia',
+	'Combo',
+	'Sortlist',
+	'Zenchef',
+];
 
 // Main Home component
 const Home: React.FC = () => {
@@ -631,7 +607,7 @@ const Home: React.FC = () => {
 					</div>
 
 					<div className="mb-24">
-						<ClientMarquee />
+						<ClientMarquee clients={HOME_CLIENTS} bordered />
 					</div>
 
 					<TestimonialCard

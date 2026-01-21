@@ -12,6 +12,7 @@ import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { Badge, Button } from '../components/atoms';
+import { ClientMarquee } from '../components/layout/ClientMarquee';
 
 const StoriesIllustration = () => {
 	return (
@@ -267,47 +268,22 @@ const StoriesIllustration = () => {
 	);
 };
 
-const ClientMarquee = () => {
-	const clients = [
-		'YOUSIGN',
-		'QONTO',
-		'TOMORRO',
-		'QARE',
-		'COMBO',
-		'STEEPLE',
-		'CYBELANGEL',
-		'CITRON',
-		'CHR GROUPE',
-		'VIBE',
-		'JUS MUNDI',
-		'VIZZIA',
-		'RESILIENCE',
-		'QOBRA',
-	];
-
-	const extendedClients = [...clients, ...clients, ...clients];
-
-	return (
-		<div className="relative w-full overflow-hidden py-8">
-			<div className="absolute left-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-r from-ocobo-dark to-transparent z-10 pointer-events-none"></div>
-			<div className="absolute right-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-l from-ocobo-dark to-transparent z-10 pointer-events-none"></div>
-
-			<div className="flex animate-marquee-ultra-slow whitespace-nowrap">
-				{extendedClients.map((client, idx) => (
-					<div
-						// biome-ignore lint/suspicious/noArrayIndexKey: marquee animation requires duplicate elements
-						key={`${client}-${idx}`}
-						className="flex items-center justify-center px-10 md:px-14"
-					>
-						<span className="font-display font-black text-white/30 text-base md:text-xl tracking-[0.25em] uppercase hover:text-ocobo-yellow transition-colors cursor-default select-none">
-							{client}
-						</span>
-					</div>
-				))}
-			</div>
-		</div>
-	);
-};
+const STORIES_CLIENTS = [
+	'YOUSIGN',
+	'QONTO',
+	'TOMORRO',
+	'QARE',
+	'COMBO',
+	'STEEPLE',
+	'CYBELANGEL',
+	'CITRON',
+	'CHR GROUPE',
+	'VIBE',
+	'JUS MUNDI',
+	'VIZZIA',
+	'RESILIENCE',
+	'QOBRA',
+];
 
 const Stories: React.FC = () => {
 	const [activeFilter, setActiveFilter] = useState('Tout');
@@ -608,7 +584,7 @@ const Stories: React.FC = () => {
 
 			{/* Black Marquee Banner */}
 			<section className="bg-ocobo-dark overflow-hidden border-y border-white/5">
-				<ClientMarquee />
+				<ClientMarquee clients={STORIES_CLIENTS} padding="md" textSize="md" />
 			</section>
 
 			{/* Filter Section */}
