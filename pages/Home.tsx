@@ -492,7 +492,7 @@ const ModularStackGrid = () => {
 									alt={item.label}
 									className="w-6 h-6 md:w-8 md:h-8 object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all"
 								/>
-								<span className="text-2xs md:text-2xs font-black uppercase tracking-widest text-ocobo-dark opacity-30">
+								<span className="text-xs md:text-xs font-black uppercase tracking-widest text-ocobo-dark opacity-30">
 									{item.label}
 								</span>
 							</div>
@@ -622,7 +622,7 @@ const Home: React.FC = () => {
 
 				<Container className="relative z-10">
 					<div className="mb-16 text-center">
-						<span className="font-display font-black text-white/40 text-2xs uppercase tracking-[0.4em] mb-4 inline-block">
+						<span className="font-display font-black text-white/40 text-xs uppercase tracking-[0.4em] mb-4 inline-block">
 							Ils nous font confiance
 						</span>
 						<h3 className="text-white text-3xl md:text-5xl font-bold mb-8 tracking-tight">
@@ -707,7 +707,7 @@ const Home: React.FC = () => {
 				</Container>
 
 				<div className="text-center mt-32 max-w-4xl mx-auto px-4">
-					<div className="inline-block px-5 py-2 bg-ocobo-mint-light text-ocobo-mint font-display font-black uppercase tracking-[0.3em] text-2xs mb-8 rounded-full border border-ocobo-mint/20">
+					<div className="inline-block px-5 py-2 bg-ocobo-mint-light text-ocobo-mint font-display font-black uppercase tracking-[0.3em] text-xs mb-8 rounded-full border border-ocobo-mint/20">
 						Notre Mission
 					</div>
 					<h3 className="font-display text-4xl md:text-5xl font-black mb-6 tracking-tight">

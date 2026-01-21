@@ -139,7 +139,7 @@ const JobDetail: React.FC = () => {
 				<div className="mb-12 flex items-center justify-between">
 					<Link
 						to="/jobs"
-						className="inline-flex items-center text-gray-400 hover:text-ocobo-dark font-black uppercase tracking-widest text-2xs transition-colors"
+						className="inline-flex items-center text-gray-400 hover:text-ocobo-dark font-black uppercase tracking-widest text-xs transition-colors"
 					>
 						<ArrowLeft size={14} className="mr-2" /> Retour aux offres
 					</Link>
@@ -150,7 +150,7 @@ const JobDetail: React.FC = () => {
 					<Badge variant="yellow" className="mb-8">
 						{job.category}
 					</Badge>
-					<h1 className="font-display text-4xl md:text-7xl font-black text-ocobo-dark mb-10 leading-[1.05] tracking-tight">
+					<h1 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-10 leading-[1.05] tracking-tight">
 						{job.title}
 					</h1>
 					<div className="flex flex-wrap items-center justify-center gap-6 text-xs font-black text-gray-400 uppercase tracking-widest">
@@ -171,7 +171,7 @@ const JobDetail: React.FC = () => {
 					{/* SIDEBAR : SOMMAIRE (Style Blog) */}
 					<aside className="lg:w-1/4">
 						<div className="sticky top-32">
-							<h4 className="font-display font-black text-2xs uppercase tracking-[0.4em] text-ocobo-dark mb-8">
+							<h4 className="font-display font-black text-xs uppercase tracking-[0.4em] text-ocobo-dark mb-8">
 								Navigation
 							</h4>
 							<nav className="space-y-4">
@@ -221,7 +221,7 @@ const JobDetail: React.FC = () => {
 									].map((benefit) => (
 										<li
 											key={benefit}
-											className="flex items-start gap-3 text-2xs font-bold uppercase tracking-widest text-gray-400"
+											className="flex items-start gap-3 text-xs font-bold uppercase tracking-widest text-gray-400"
 										>
 											<Plus
 												size={12}
@@ -234,7 +234,7 @@ const JobDetail: React.FC = () => {
 								<a href="#apply">
 									<button
 										type="button"
-										className="w-full py-3 bg-ocobo-yellow text-ocobo-dark font-black text-2xs uppercase tracking-widest rounded-lg hover:bg-white transition-colors"
+										className="w-full py-3 bg-ocobo-yellow text-ocobo-dark font-black text-xs uppercase tracking-widest rounded-lg hover:bg-white transition-colors"
 									>
 										Postuler maintenant
 									</button>
@@ -344,7 +344,7 @@ const JobDetail: React.FC = () => {
 									<div className="grid md:grid-cols-2 gap-6">
 										<div className="space-y-2">
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-											<label className="text-2xs font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">
+											<label className="text-xs font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">
 												Prénom Nom*
 											</label>
 											<input
@@ -355,7 +355,7 @@ const JobDetail: React.FC = () => {
 										</div>
 										<div className="space-y-2">
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-											<label className="text-2xs font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">
+											<label className="text-xs font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">
 												Email Pro*
 											</label>
 											<input
@@ -366,7 +366,7 @@ const JobDetail: React.FC = () => {
 										</div>
 										<div className="space-y-2 md:col-span-2">
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-											<label className="text-2xs font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">
+											<label className="text-xs font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">
 												Lien LinkedIn*
 											</label>
 											<input
@@ -379,7 +379,7 @@ const JobDetail: React.FC = () => {
 
 									<div className="space-y-2">
 										{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-										<label className="text-2xs font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">
+										<label className="text-xs font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">
 											Ton CV (PDF)*
 										</label>
 										<div className="border-2 border-dashed border-ocobo-dark/10 p-10 text-center bg-white/40 rounded-2xl hover:bg-white transition-all cursor-pointer group">
@@ -387,7 +387,7 @@ const JobDetail: React.FC = () => {
 												className="mx-auto mb-3 text-ocobo-dark/20 group-hover:text-ocobo-dark transition-colors"
 												size={32}
 											/>
-											<p className="text-2xs font-black uppercase tracking-widest text-ocobo-dark/40 group-hover:text-ocobo-dark transition-colors">
+											<p className="text-xs font-black uppercase tracking-widest text-ocobo-dark/40 group-hover:text-ocobo-dark transition-colors">
 												Dépose ton fichier ou clique ici
 											</p>
 										</div>
@@ -426,17 +426,17 @@ const JobDetail: React.FC = () => {
 										className="group p-8 border border-gray-100 bg-white hover:border-ocobo-yellow hover:shadow-xl transition-all rounded-2xl"
 									>
 										<div className="flex items-center gap-3 mb-4">
-											<span className="text-2xs font-black uppercase tracking-widest text-ocobo-coral bg-ocobo-coral-light px-2 py-0.5 border border-ocobo-coral/10">
+											<span className="text-xs font-black uppercase tracking-widest text-ocobo-coral bg-ocobo-coral-light px-2 py-0.5 border border-ocobo-coral/10">
 												{other.exp}
 											</span>
-											<span className="text-2xs font-black uppercase tracking-widest text-gray-300">
+											<span className="text-xs font-black uppercase tracking-widest text-gray-300">
 												{other.type}
 											</span>
 										</div>
 										<h4 className="font-display text-2xl font-black text-ocobo-dark mb-6 group-hover:text-ocobo-yellow transition-colors leading-tight">
 											{other.title}
 										</h4>
-										<div className="flex items-center text-2xs font-black uppercase tracking-widest text-gray-400 gap-2">
+										<div className="flex items-center text-xs font-black uppercase tracking-widest text-gray-400 gap-2">
 											<div className="flex items-center gap-1 group-hover:text-ocobo-dark transition-colors">
 												Voir l'offre <ArrowRight size={12} />
 											</div>

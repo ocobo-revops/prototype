@@ -308,7 +308,7 @@ const About: React.FC = () => {
 			{/* BLOC 1 - HERO & MISSION */}
 			<section className="pt-40 pb-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="text-center max-w-4xl mx-auto mb-20">
-					<h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-8 leading-[0.9] tracking-tight">
+					<h1 className="font-display text-5xl md:text-6xl font-bold text-ocobo-dark mb-8 leading-[0.9] tracking-tight">
 						Notre mission : <br />
 						démocratiser la{' '}
 						<span className="text-ocobo-yellow">science du revenu.</span>

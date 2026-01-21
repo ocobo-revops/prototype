@@ -22,7 +22,7 @@ const ArchitecturalGrid = () => {
 			<div className="flex items-stretch gap-4 relative">
 				{/* Axe Ordonnée : ALIGNEMENT */}
 				<div className="flex flex-col items-center justify-center py-4 shrink-0">
-					<div className="[writing-mode:vertical-lr] rotate-180 font-display font-bold text-ocobo-dark/40 text-2xs uppercase tracking-[0.6em] mb-4">
+					<div className="[writing-mode:vertical-lr] rotate-180 font-display font-bold text-ocobo-dark/40 text-xs uppercase tracking-[0.6em] mb-4">
 						Alignement
 					</div>
 					<div
@@ -72,7 +72,7 @@ const ArchitecturalGrid = () => {
 					<div className="h-2 bg-ocobo-dark w-full mb-4 origin-left animate-blueprint-in"></div>
 
 					{/* Axe Abscisse labels */}
-					<div className="flex justify-between text-2xs md:text-2xs font-bold uppercase tracking-widest text-ocobo-dark/60">
+					<div className="flex justify-between text-xs md:text-xs font-bold uppercase tracking-widest text-ocobo-dark/60">
 						<span
 							className="opacity-0 animate-box-pop"
 							style={{ animationDelay: '0.9s' }}
@@ -333,7 +333,7 @@ const Services: React.FC = () => {
 						<Badge variant="yellow" className="mb-10">
 							NOTRE OFFRE
 						</Badge>
-						<h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
+						<h1 className="font-display text-5xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
 							Un système.
 							<br />
 							<span className="text-gray-400">Pas des rustines.</span>
@@ -730,7 +730,7 @@ const Services: React.FC = () => {
 								<h3 className="font-display text-2xl font-bold mb-6 group-hover:text-ocobo-yellow transition-colors">
 									Notre méthode
 								</h3>
-								<p className="text-gray-400 font-display font-black text-2xs uppercase tracking-widest mb-4">
+								<p className="text-gray-400 font-display font-black text-xs uppercase tracking-widest mb-4">
 									The Revenue Experience System™
 								</p>
 								<p className="text-gray-600 text-sm leading-relaxed mb-10 font-medium flex-grow">
@@ -747,7 +747,7 @@ const Services: React.FC = () => {
 										(tag) => (
 											<span
 												key={tag}
-												className="px-3 py-1 bg-white border border-gray-100 rounded-full text-2xs font-black uppercase tracking-wider text-gray-400"
+												className="px-3 py-1 bg-white border border-gray-100 rounded-full text-xs font-black uppercase tracking-wider text-gray-400"
 											>
 												{tag}
 											</span>
@@ -772,7 +772,7 @@ const Services: React.FC = () => {
 								<h3 className="font-display text-2xl font-bold mb-6 group-hover:text-ocobo-sky transition-colors">
 									Notre technologie
 								</h3>
-								<p className="text-gray-400 font-display font-black text-2xs uppercase tracking-widest mb-4">
+								<p className="text-gray-400 font-display font-black text-xs uppercase tracking-widest mb-4">
 									Infrastructure Unifiée
 								</p>
 								<p className="text-gray-600 text-sm leading-relaxed mb-10 font-medium flex-grow">
@@ -823,7 +823,7 @@ const Services: React.FC = () => {
 								<h3 className="font-display text-2xl font-bold mb-6 group-hover:text-ocobo-mint transition-colors">
 									Notre équipe
 								</h3>
-								<p className="text-gray-400 font-display font-black text-2xs uppercase tracking-widest mb-4">
+								<p className="text-gray-400 font-display font-black text-xs uppercase tracking-widest mb-4">
 									Le RevOps Studio
 								</p>
 								<p className="text-gray-600 text-sm leading-relaxed mb-10 font-medium flex-grow">
@@ -836,10 +836,10 @@ const Services: React.FC = () => {
 								<div className="w-full h-1 bg-ocobo-mint opacity-20 mb-8 rounded-full group-hover:opacity-100 transition-opacity"></div>
 
 								<div className="h-[48px] flex flex-col justify-start">
-									<div className="text-2xs font-black text-gray-400 uppercase tracking-widest leading-relaxed">
+									<div className="text-xs font-black text-gray-400 uppercase tracking-widest leading-relaxed">
 										TheFork • Qonto • Payfit
 									</div>
-									<div className="text-2xs font-black text-gray-400 uppercase tracking-widest leading-relaxed">
+									<div className="text-xs font-black text-gray-400 uppercase tracking-widest leading-relaxed">
 										Spendesk • Zenchef
 									</div>
 								</div>
@@ -887,7 +887,7 @@ const Services: React.FC = () => {
 									{step.title}
 								</h3>
 								<div className="pt-4 border-t border-gray-50">
-									<span className="text-2xs font-black uppercase text-gray-400">
+									<span className="text-xs font-black uppercase text-gray-400">
 										Livrables :
 									</span>
 									<p className="text-xs font-bold text-ocobo-dark mt-1">

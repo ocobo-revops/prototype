@@ -44,7 +44,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 			</div>
 
 			{label && (
-				<span className="font-display font-black text-ocobo-dark/30 text-2xs uppercase tracking-[0.5em] mb-4">
+				<span className="font-display font-black text-ocobo-dark/30 text-xs uppercase tracking-[0.5em] mb-4">
 					{label}
 				</span>
 			)}
@@ -55,7 +55,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 				{title}
 			</h3>
 
-			<p className="text-gray-400 font-bold text-2xs uppercase tracking-[0.2em]">
+			<p className="text-gray-400 font-bold text-xs uppercase tracking-[0.2em]">
 				{description}
 			</p>
 

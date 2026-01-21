@@ -514,7 +514,7 @@ const Method: React.FC = () => {
 						NOTRE MÉTHODE
 					</Badge>
 
-					<h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
+					<h1 className="font-display text-5xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
 						4 piliers pour <br />
 						une architecture{' '}
 						<span className="text-ocobo-yellow italic">solide.</span>
@@ -580,7 +580,7 @@ const Method: React.FC = () => {
 								<div className="bg-ocobo-yellow-light p-4 rounded-full text-ocobo-yellow">
 									<Layout size={32} />
 								</div>
-								<span className="text-7xl font-display font-bold text-gray-100/60 leading-none select-none">
+								<span className="text-6xl font-display font-bold text-gray-100/60 leading-none select-none">
 									01
 								</span>
 							</div>
@@ -594,7 +594,7 @@ const Method: React.FC = () => {
 							</p>
 
 							<div className="bg-gray-50/50 p-8 rounded-2xl border border-gray-100">
-								<span className="font-display font-bold text-2xs uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">
+								<span className="font-display font-bold text-xs uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">
 									LIVRABLES CLÉS
 								</span>
 								<div className="space-y-6">
@@ -644,7 +644,7 @@ const Method: React.FC = () => {
 								<div className="bg-ocobo-sky-light p-4 rounded-full text-ocobo-sky">
 									<Sliders size={32} />
 								</div>
-								<span className="text-7xl font-display font-bold text-gray-100/60 leading-none select-none">
+								<span className="text-6xl font-display font-bold text-gray-100/60 leading-none select-none">
 									02
 								</span>
 							</div>
@@ -658,7 +658,7 @@ const Method: React.FC = () => {
 							</p>
 
 							<div className="bg-gray-50/50 p-8 rounded-2xl border border-gray-100">
-								<span className="font-display font-bold text-2xs uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">
+								<span className="font-display font-bold text-xs uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">
 									LIVRABLES CLÉS
 								</span>
 								<div className="space-y-6">
@@ -708,7 +708,7 @@ const Method: React.FC = () => {
 								<div className="bg-ocobo-mint-light p-4 rounded-full text-ocobo-mint">
 									<LineChart size={32} />
 								</div>
-								<span className="text-7xl font-display font-bold text-gray-100/60 leading-none select-none">
+								<span className="text-6xl font-display font-bold text-gray-100/60 leading-none select-none">
 									03
 								</span>
 							</div>
@@ -722,7 +722,7 @@ const Method: React.FC = () => {
 							</p>
 
 							<div className="bg-gray-50/50 p-8 rounded-2xl border border-gray-100">
-								<span className="font-display font-bold text-2xs uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">
+								<span className="font-display font-bold text-xs uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">
 									LIVRABLES CLÉS
 								</span>
 								<div className="space-y-6">
@@ -772,7 +772,7 @@ const Method: React.FC = () => {
 								<div className="bg-ocobo-coral-light p-4 rounded-full text-ocobo-coral">
 									<GraduationCap size={32} />
 								</div>
-								<span className="text-7xl font-display font-bold text-gray-100/60 leading-none select-none">
+								<span className="text-6xl font-display font-bold text-gray-100/60 leading-none select-none">
 									04
 								</span>
 							</div>
@@ -786,7 +786,7 @@ const Method: React.FC = () => {
 							</p>
 
 							<div className="bg-gray-50/50 p-8 rounded-2xl border border-gray-100">
-								<span className="font-display font-bold text-2xs uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">
+								<span className="font-display font-bold text-xs uppercase tracking-[0.2em] text-ocobo-dark/40 block mb-6">
 									LIVRABLES CLÉS
 								</span>
 								<div className="space-y-6">

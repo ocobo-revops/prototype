@@ -33,7 +33,7 @@ const Badge: React.FC<BadgeProps> = ({
 	};
 
 	const sizes = {
-		sm: 'px-4 py-1.5 text-2xs tracking-[0.3em]',
+		sm: 'px-4 py-1.5 text-xs tracking-[0.3em]',
 		md: 'px-6 py-2 text-xs tracking-[0.3em]',
 	};
 

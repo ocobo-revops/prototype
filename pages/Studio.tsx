@@ -200,7 +200,7 @@ const Studio: React.FC = () => {
 						RevOps Studio
 					</Badge>
 
-					<h1 className="font-display text-5xl md:text-7xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
+					<h1 className="font-display text-5xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
 						Une direction Revenue Ops <br />
 						<span className="text-ocobo-mint italic">embarquée.</span>
 					</h1>
@@ -321,7 +321,7 @@ const Studio: React.FC = () => {
 									type="button"
 									key={cat}
 									onClick={() => setActiveFilter(cat)}
-									className={`px-6 py-2.5 rounded-full text-2xs font-black uppercase tracking-widest transition-all border ${
+									className={`px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all border ${
 										activeFilter === cat
 											? 'bg-ocobo-dark text-white border-ocobo-dark shadow-lg'
 											: 'bg-gray-50 text-gray-500 border-gray-100 hover:border-ocobo-dark hover:text-ocobo-dark'
@@ -347,7 +347,7 @@ const Studio: React.FC = () => {
 
 								{/* Dynamic Badge with hover effect */}
 								<div
-									className={`absolute top-0 right-0 px-4 py-1.5 rounded-bl-xl font-display font-black text-2xs uppercase tracking-widest shadow-sm bg-gray-100 text-gray-400 transition-all duration-300 ${member.hoverClass}`}
+									className={`absolute top-0 right-0 px-4 py-1.5 rounded-bl-xl font-display font-black text-xs uppercase tracking-widest shadow-sm bg-gray-100 text-gray-400 transition-all duration-300 ${member.hoverClass}`}
 								>
 									{member.category}
 								</div>
@@ -364,7 +364,7 @@ const Studio: React.FC = () => {
 									<h3 className="font-display text-xl font-black text-ocobo-dark mb-1">
 										{member.name}
 									</h3>
-									<p className="text-2xs font-black text-gray-400 uppercase tracking-[0.2em] mb-4 h-6 flex items-center justify-center">
+									<p className="text-xs font-black text-gray-400 uppercase tracking-[0.2em] mb-4 h-6 flex items-center justify-center">
 										{member.role}
 									</p>
 
