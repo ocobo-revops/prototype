@@ -9,6 +9,7 @@ import {
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Badge, Button } from '../components/atoms';
+import Grid from '../components/layout/Grid';
 
 const TeamPhotoIllustration = () => {
 	return (
@@ -220,11 +221,7 @@ const Studio: React.FC = () => {
 						système à vos côtés."
 					</div>
 
-					<Button
-						variant="primary"
-						className="px-16 py-5 text-xs font-bold uppercase tracking-[0.25em] shadow-xl bg-ocobo-dark hover:bg-black transition-all hover:-translate-y-1"
-						to="/contact"
-					>
+					<Button variant="cta" size="xl" to="/contact">
 						Discuter avec le Studio
 					</Button>
 				</div>
@@ -240,13 +237,7 @@ const Studio: React.FC = () => {
 
 			{/* SECTION MODÈLE STUDIO (APPLAT NOIR) */}
 			<section className="bg-ocobo-dark py-32 text-white relative overflow-hidden">
-				<div
-					className="absolute inset-0 opacity-[0.03]"
-					style={{
-						backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
-						backgroundSize: '40px 40px',
-					}}
-				></div>
+				<div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[length:40px_40px]" />
 
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 					<div className="max-w-3xl mb-20">
@@ -260,7 +251,7 @@ const Studio: React.FC = () => {
 						</p>
 					</div>
 
-					<div className="grid md:grid-cols-3 gap-10">
+					<Grid md={3} gap={10}>
 						<div className="bg-white p-10 rounded-xl shadow-xl group hover:-translate-y-1 transition-transform duration-300">
 							<div className="w-16 h-16 bg-ocobo-dark text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-ocobo-mint transition-colors">
 								<Users size={28} />
@@ -297,7 +288,7 @@ const Studio: React.FC = () => {
 								scalé des entreprises leaders.
 							</p>
 						</div>
-					</div>
+					</Grid>
 				</div>
 			</section>
 
@@ -333,7 +324,7 @@ const Studio: React.FC = () => {
 						</div>
 					</div>
 
-					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500">
+					<Grid md={2} lg={3} gap={8} className="transition-all duration-500">
 						{filteredTeam.map((member, idx) => (
 							<div
 								key={`${member.name}-${activeFilter}`}
@@ -385,7 +376,7 @@ const Studio: React.FC = () => {
 								</div>
 							</div>
 						))}
-					</div>
+					</Grid>
 				</div>
 			</section>
 
@@ -400,11 +391,7 @@ const Studio: React.FC = () => {
 						niveau supérieur.
 					</p>
 					<div className="flex justify-center">
-						<Button
-							variant="primary"
-							className="px-14 py-6 text-lg shadow-2xl bg-ocobo-dark border-none text-white"
-							to="/contact"
-						>
+						<Button variant="cta" size="xl" to="/contact">
 							Discuter avec le Studio
 						</Button>
 					</div>

@@ -13,19 +13,13 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { Badge, Button } from '../components/atoms';
 import { ClientMarquee } from '../components/layout/ClientMarquee';
+import Grid from '../components/layout/Grid';
 
 const StoriesIllustration = () => {
 	return (
 		<div className="relative w-full max-w-[540px] aspect-square flex items-center justify-center overflow-visible">
 			{/* BACKGROUND ARCHITECTURAL GRID */}
-			<div
-				className="absolute inset-0 opacity-[0.05] pointer-events-none"
-				style={{
-					backgroundImage:
-						'radial-gradient(#212323 1px, transparent 1px), linear-gradient(rgba(33,35,35,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(33,35,35,0.1) 1px, transparent 1px)',
-					backgroundSize: '40px 40px, 80px 80px, 80px 80px',
-				}}
-			></div>
+			<div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(#212323_1px,transparent_1px),linear-gradient(rgba(33,35,35,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(33,35,35,0.1)_1px,transparent_1px)] bg-[length:40px_40px,80px_80px,80px_80px]" />
 
 			<svg
 				viewBox="0 0 600 600"
@@ -617,7 +611,7 @@ const Stories: React.FC = () => {
 
 			{/* Bento Grid Stories */}
 			<section className="max-w-7xl mx-auto px-4 pb-40">
-				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+				<Grid md={2} lg={3} gap={8}>
 					{filteredCases.map((item, idx) => (
 						<Link
 							key={item.id}
@@ -703,7 +697,7 @@ const Stories: React.FC = () => {
 							</div>
 						</Link>
 					))}
-				</div>
+				</Grid>
 			</section>
 
 			{/* CTA Section */}
@@ -722,11 +716,7 @@ const Stories: React.FC = () => {
 						success story ?
 					</h2>
 					<div className="flex justify-center">
-						<Button
-							variant="primary"
-							className="px-14 py-6 text-lg shadow-soft-md bg-ocobo-dark text-white border-none hover:bg-black"
-							to="/contact"
-						>
+						<Button variant="cta" size="xl" to="/contact">
 							Discutons de votre architecture
 						</Button>
 					</div>

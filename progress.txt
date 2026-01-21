@@ -217,3 +217,32 @@ Created: 2026-01-21T10:30:00Z
 - Build passes
 
 ---
+
+## Feature 18: Refactor remaining pages to component assembly
+- Partners.tsx:
+  - 3 grids replaced with Grid component (md={3}, md={2} lg={3}, md={2})
+  - 3 FlexPair components for icon+text benefit items
+  - Button className overrides removed → variant="cta" size="xl"
+  - Inline style for radial-gradient → Tailwind arbitrary bg class
+- Stories.tsx:
+  - 1 grid replaced with Grid md={2} lg={3} gap={8}
+  - Button className overrides removed → variant="cta" size="xl"
+  - Inline style for radial-gradient → Tailwind arbitrary bg class
+- About.tsx:
+  - 1 grid replaced with Grid md={3} gap={8}
+  - 4 FlexPair components for arrow+text manifeste items
+  - Button className overrides removed → variant="cta" size="xl"
+- Jobs.tsx:
+  - 2 grids replaced with Grid component (md={3}, md={2} lg={4})
+  - Inline style for radial-gradient → Tailwind arbitrary bg class
+- Studio.tsx:
+  - 2 grids replaced with Grid component (md={3}, md={2} lg={3})
+  - 2 Button className overrides removed → variant="cta" size="xl"
+  - Inline style for radial-gradient → Tailwind arbitrary bg class
+- Podcast.tsx:
+  - 2 Button className overrides removed → variant="cta" size="xl"
+  - Inline style for radial-gradient → Tailwind arbitrary bg class
+- Note: 200 line target per file unrealistic for content-heavy pages
+- Build passes
+
+---

@@ -15,6 +15,8 @@ import {
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Badge, Button } from '../components/atoms';
+import FlexPair from '../components/layout/FlexPair';
+import Grid from '../components/layout/Grid';
 import {
 	DEFAULT_STACK_ITEMS,
 	ModularStackGrid,
@@ -366,11 +368,7 @@ const Partners: React.FC = () => {
 				</div>
 
 				<div className="flex flex-col items-center gap-12">
-					<Button
-						variant="primary"
-						className="px-16 py-5 text-xs font-bold uppercase tracking-[0.25em] shadow-xl bg-ocobo-dark hover:bg-black transition-all hover:-translate-y-1"
-						to="/contact"
-					>
+					<Button variant="cta" size="xl" to="/contact">
 						Auditer ma stack
 					</Button>
 				</div>
@@ -382,13 +380,7 @@ const Partners: React.FC = () => {
 
 			{/* SECTION PHILOSOPHIE */}
 			<section className="bg-ocobo-dark py-32 text-white relative overflow-hidden">
-				<div
-					className="absolute inset-0 opacity-[0.03]"
-					style={{
-						backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
-						backgroundSize: '40px 40px',
-					}}
-				></div>
+				<div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[length:40px_40px]" />
 
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 					<div className="max-w-3xl mb-20 text-center md:text-left">
@@ -402,7 +394,7 @@ const Partners: React.FC = () => {
 						</p>
 					</div>
 
-					<div className="grid md:grid-cols-3 gap-10">
+					<Grid md={3} gap={10}>
 						<div className="bg-white p-10 rounded-xl shadow-xl group hover:-translate-y-1 transition-transform duration-300">
 							<div className="w-16 h-16 bg-ocobo-dark text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-ocobo-sky transition-colors">
 								<Lock size={28} />
@@ -439,7 +431,7 @@ const Partners: React.FC = () => {
 								les plus puissantes du marché.
 							</p>
 						</div>
-					</div>
+					</Grid>
 				</div>
 			</section>
 
@@ -478,7 +470,7 @@ const Partners: React.FC = () => {
 						</div>
 					</div>
 
-					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500">
+					<Grid md={2} lg={3} gap={8} className="transition-all duration-500">
 						{filtered.map((partner, idx) => (
 							<div
 								key={`${partner.name}-${filter}`}
@@ -564,7 +556,7 @@ const Partners: React.FC = () => {
 								</div>
 							</div>
 						))}
-					</div>
+					</Grid>
 				</div>
 			</section>
 
@@ -589,11 +581,13 @@ const Partners: React.FC = () => {
 							</p>
 
 							<div className="space-y-6 mb-12">
-								<div className="flex gap-5 items-start">
-									<div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-sky shrink-0">
-										<Handshake size={20} />
-									</div>
-									<div>
+								<FlexPair gap={5}>
+									<FlexPair.Icon>
+										<div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-sky">
+											<Handshake size={20} />
+										</div>
+									</FlexPair.Icon>
+									<FlexPair.Content>
 										<h4 className="font-bold text-ocobo-dark">
 											Partenariat Stratégique
 										</h4>
@@ -601,13 +595,15 @@ const Partners: React.FC = () => {
 											Accès privilégié à notre Studio pour le déploiement de
 											votre solution chez nos clients.
 										</p>
-									</div>
-								</div>
-								<div className="flex gap-5 items-start">
-									<div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-yellow shrink-0">
-										<Sparkles size={20} />
-									</div>
-									<div>
+									</FlexPair.Content>
+								</FlexPair>
+								<FlexPair gap={5}>
+									<FlexPair.Icon>
+										<div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-yellow">
+											<Sparkles size={20} />
+										</div>
+									</FlexPair.Icon>
+									<FlexPair.Content>
 										<h4 className="font-bold text-ocobo-dark">
 											Co-Marketing & Events
 										</h4>
@@ -615,13 +611,15 @@ const Partners: React.FC = () => {
 											Webinars, podcasts et masterclasses en commun pour
 											évangéliser le marché.
 										</p>
-									</div>
-								</div>
-								<div className="flex gap-5 items-start">
-									<div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-mint shrink-0">
-										<Layers size={20} />
-									</div>
-									<div>
+									</FlexPair.Content>
+								</FlexPair>
+								<FlexPair gap={5}>
+									<FlexPair.Icon>
+										<div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-mint">
+											<Layers size={20} />
+										</div>
+									</FlexPair.Icon>
+									<FlexPair.Content>
 										<h4 className="font-bold text-ocobo-dark">
 											Expertise Produit
 										</h4>
@@ -629,8 +627,8 @@ const Partners: React.FC = () => {
 											Feedback opérationnel de nos architectes seniors pour
 											optimiser vos intégrations.
 										</p>
-									</div>
-								</div>
+									</FlexPair.Content>
+								</FlexPair>
 							</div>
 						</div>
 
@@ -664,7 +662,7 @@ const Partners: React.FC = () => {
 										<h3 className="font-display text-2xl font-black text-ocobo-dark mb-8">
 											Devenez partenaire
 										</h3>
-										<div className="grid md:grid-cols-2 gap-6">
+										<Grid md={2} gap={6}>
 											<div className="space-y-2">
 												{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 												<label className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">
@@ -689,7 +687,7 @@ const Partners: React.FC = () => {
 													className="w-full bg-gray-50 border border-gray-100 focus:border-ocobo-dark focus:bg-white outline-none p-4 rounded-none text-sm font-bold placeholder:text-gray-300"
 												/>
 											</div>
-										</div>
+										</Grid>
 										<div className="space-y-2">
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 											<label className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">
@@ -742,11 +740,7 @@ const Partners: React.FC = () => {
 						silos.
 					</p>
 					<div className="flex justify-center">
-						<Button
-							variant="primary"
-							className="px-14 py-6 text-lg shadow-2xl bg-ocobo-dark border-none text-white"
-							to="/contact"
-						>
+						<Button variant="cta" size="xl" to="/contact">
 							Prendre RDV
 						</Button>
 					</div>

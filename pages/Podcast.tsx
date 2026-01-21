@@ -89,13 +89,7 @@ const Podcast: React.FC = () => {
 			{/* HERO SECTION - REVENUE ECHOES BRANDING */}
 			<section className="pt-48 pb-24 md:pt-64 md:pb-32 bg-ocobo-dark relative overflow-hidden">
 				{/* Decorative Grid Background */}
-				<div
-					className="absolute inset-0 opacity-[0.05] pointer-events-none"
-					style={{
-						backgroundImage: 'radial-gradient(white 1px, transparent 1px)',
-						backgroundSize: '40px 40px',
-					}}
-				></div>
+				<div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:40px_40px]" />
 
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 					<div className="flex flex-col lg:flex-row items-center gap-16">
@@ -380,16 +374,10 @@ const Podcast: React.FC = () => {
 						écho stratégique.
 					</h2>
 					<div className="flex flex-col sm:flex-row justify-center gap-6">
-						<Button
-							variant="primary"
-							className="px-14 py-6 text-lg bg-ocobo-dark text-white border-none shadow-2xl"
-						>
+						<Button variant="cta" size="xl">
 							S'abonner à la newsletter
 						</Button>
-						<Button
-							variant="outline"
-							className="px-10 py-6 text-lg border-ocobo-dark text-ocobo-dark border-2 bg-transparent"
-						>
+						<Button variant="outline" size="xl">
 							Nous suggérer un invité
 						</Button>
 					</div>
