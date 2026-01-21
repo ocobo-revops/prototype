@@ -41,3 +41,20 @@ Created: 2026-01-21T12:00:00Z
 - `pnpm build` passes (exit 0)
 
 ---
+
+## Feature 2: Shadows reduced to 7 tokens
+**Status:** ✅ Passed
+**Completed:** 2026-01-21T12:30:00Z
+
+### Changes
+- Updated `tailwind.config.ts` boxShadow: 20→7 tokens
+- Kept: `soft`, `soft-md`, `soft-lg`, `dark`, `card`, `ring`, `offset`
+- Removed: `soft-xl/2xl/3xl`, `soft-dark`, `button`, `form`, `glow-yellow`, `offset-sm/md/lg`, `offset-{color}`
+- Migrated usages in 9 files:
+  - About.tsx, WebinarDetail.tsx, Podcast.tsx, Jobs.tsx, Stories.tsx, Studio.tsx
+  - NewsletterWidget.tsx, Services.tsx, Contact.tsx, StoryDetail.tsx
+
+### Verification
+- `pnpm build` passes (exit 0)
+
+---

@@ -100,7 +100,7 @@ const Contact: React.FC = () => {
 
 					{/* Right Side: Form */}
 					<div className="lg:w-1/2">
-						<div className="bg-white p-8 md:p-12 shadow-form border border-gray-100 relative">
+						<div className="bg-white p-8 md:p-12 shadow-card border border-gray-100 relative">
 							<div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-ocobo-yellow via-ocobo-coral to-ocobo-sky"></div>
 
 							<h3 className="font-display text-2xl font-bold mb-8 text-ocobo-dark">

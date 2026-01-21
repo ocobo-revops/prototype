@@ -49,10 +49,10 @@
 				"Remove shadow-glow-yellow and shadow-offset-{color} usages",
 				"Run pnpm build to verify no errors"
 			],
-			"passes": false,
+			"passes": true,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": null
+			"completed_at": "2026-01-21T12:30:00Z"
 		},
 		{
 			"id": 3,

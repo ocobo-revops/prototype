@@ -118,7 +118,7 @@ const StoriesIllustration = () => {
 					height="100"
 					className="animate-float-gentle"
 				>
-					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset-coral">
+					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset">
 						<div className="flex items-center gap-2 mb-2">
 							<TrendingUp size={14} className="text-ocobo-coral" />
 							<span className="text-2xs font-black uppercase tracking-widest text-ocobo-dark opacity-40">
@@ -143,7 +143,7 @@ const StoriesIllustration = () => {
 					className="animate-float-gentle"
 					style={{ animationDelay: '1.2s' }}
 				>
-					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset-sky">
+					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset">
 						<div className="flex items-center gap-2 mb-2">
 							<Zap size={14} className="text-ocobo-sky" />
 							<span className="text-2xs font-black uppercase tracking-widest text-ocobo-dark opacity-40">
@@ -168,7 +168,7 @@ const StoriesIllustration = () => {
 					className="animate-float-gentle"
 					style={{ animationDelay: '2.5s' }}
 				>
-					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset-yellow">
+					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset">
 						<div className="flex items-center gap-2 mb-2">
 							<BarChart3 size={14} className="text-ocobo-yellow" />
 							<span className="text-2xs font-black uppercase tracking-widest text-ocobo-dark opacity-40">
@@ -193,7 +193,7 @@ const StoriesIllustration = () => {
 					className="animate-float-gentle"
 					style={{ animationDelay: '0.6s' }}
 				>
-					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset-mint">
+					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset">
 						<div className="flex items-center gap-2 mb-2">
 							<Smile size={14} className="text-ocobo-mint" />
 							<span className="text-2xs font-black uppercase tracking-widest text-ocobo-dark opacity-40">
@@ -646,7 +646,7 @@ const Stories: React.FC = () => {
 						<Link
 							key={item.id}
 							to={`/stories/${item.id}`}
-							className={`group relative flex flex-col bg-white border border-gray-100 rounded-5xl p-6 transition-all duration-500 hover:shadow-soft-xl hover:-translate-y-2 overflow-hidden h-full ${animate ? 'opacity-0 animate-fade-in-up' : ''}`}
+							className={`group relative flex flex-col bg-white border border-gray-100 rounded-5xl p-6 transition-all duration-500 hover:shadow-soft-lg hover:-translate-y-2 overflow-hidden h-full ${animate ? 'opacity-0 animate-fade-in-up' : ''}`}
 							style={{ animationDelay: `${idx * 0.05}s` }}
 						>
 							<div
@@ -748,7 +748,7 @@ const Stories: React.FC = () => {
 					<div className="flex justify-center">
 						<Button
 							variant="primary"
-							className="px-14 py-6 text-lg shadow-button bg-ocobo-dark text-white border-none hover:bg-black"
+							className="px-14 py-6 text-lg shadow-soft-md bg-ocobo-dark text-white border-none hover:bg-black"
 							to="/contact"
 						>
 							Discutons de votre architecture

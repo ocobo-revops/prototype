@@ -390,7 +390,7 @@ const Jobs: React.FC = () => {
 					{jobs.map((job) => (
 						<Link key={job.id} to={`/jobs/${job.id}`} className="group">
 							<div
-								className={`flex flex-col md:flex-row justify-between items-center p-8 md:p-12 rounded-5xl border border-gray-100 bg-white hover:bg-white hover:shadow-soft-xl transition-all duration-500 relative overflow-hidden`}
+								className={`flex flex-col md:flex-row justify-between items-center p-8 md:p-12 rounded-5xl border border-gray-100 bg-white hover:bg-white hover:shadow-soft-lg transition-all duration-500 relative overflow-hidden`}
 							>
 								{/* Hover Highlight Bar */}
 								<div

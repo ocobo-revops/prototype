@@ -32,7 +32,7 @@ const ArchitecturalGrid = () => {
 				</div>
 
 				{/* Grid Container */}
-				<div className="relative z-10 bg-white border-2 border-ocobo-dark p-8 shadow-offset-lg flex-grow">
+				<div className="relative z-10 bg-white border-2 border-ocobo-dark p-8 shadow-offset flex-grow">
 					<div className="grid grid-cols-2 gap-4 mb-4">
 						<div
 							className="opacity-0 animate-box-pop h-24 bg-ocobo-yellowLight border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
@@ -518,7 +518,7 @@ const Services: React.FC = () => {
 						{/* Service 1: Audit & Cadrage */}
 						<div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
 							<div className="w-full md:w-5/12 sticky top-32">
-								<div className="w-16 h-16 bg-ocobo-yellow text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-offset-sm mb-8">
+								<div className="w-16 h-16 bg-ocobo-yellow text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-offset mb-8">
 									1
 								</div>
 								<h3 className="font-display text-3xl md:text-4xl font-bold text-ocobo-dark mb-4 leading-tight">
@@ -583,7 +583,7 @@ const Services: React.FC = () => {
 						{/* Service 2: Déploiement */}
 						<div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
 							<div className="w-full md:w-5/12 sticky top-32">
-								<div className="w-16 h-16 bg-ocobo-coral text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-offset-sm mb-8">
+								<div className="w-16 h-16 bg-ocobo-coral text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-offset mb-8">
 									2
 								</div>
 								<h3 className="font-display text-3xl md:text-4xl font-bold text-ocobo-dark mb-4 leading-tight">
@@ -625,7 +625,7 @@ const Services: React.FC = () => {
 						{/* Service 3: Coaching */}
 						<div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
 							<div className="w-full md:w-5/12 sticky top-32">
-								<div className="w-16 h-16 bg-ocobo-mint text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-offset-sm mb-8">
+								<div className="w-16 h-16 bg-ocobo-mint text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-offset mb-8">
 									3
 								</div>
 								<h3 className="font-display text-3xl md:text-4xl font-bold text-ocobo-dark mb-4 leading-tight">

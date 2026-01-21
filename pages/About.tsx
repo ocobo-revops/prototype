@@ -7,7 +7,7 @@ const DataIllustration = () => {
 		<div className="w-full overflow-hidden">
 			<div className="relative w-full max-w-3xl h-[280px] md:h-[420px] mx-auto p-4 flex flex-col items-center">
 				{/* Illustration Container */}
-				<div className="relative w-full h-full bg-[#FCFAF5] rounded-4xl p-6 md:p-8 shadow-soft-xl border border-gray-100 group/svg overflow-hidden">
+				<div className="relative w-full h-full bg-[#FCFAF5] rounded-4xl p-6 md:p-8 shadow-soft-lg border border-gray-100 group/svg overflow-hidden">
 					<svg
 						viewBox="0 0 800 500"
 						className="w-full h-full text-ocobo-dark"

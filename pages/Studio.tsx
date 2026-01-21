@@ -40,7 +40,7 @@ const TeamPhotoIllustration = () => {
 				<div className="absolute -bottom-6 -right-6 w-16 h-16 border-b-2 border-r-2 border-ocobo-dark/10 group-hover:border-ocobo-mint transition-colors duration-700"></div>
 
 				{/* Main Photo Card */}
-				<div className="relative bg-white p-2.5 rounded-6xl shadow-soft-3xl border border-gray-100 overflow-hidden transform group-hover:scale-[1.01] transition-transform duration-700">
+				<div className="relative bg-white p-2.5 rounded-6xl shadow-soft-lg border border-gray-100 overflow-hidden transform group-hover:scale-[1.01] transition-transform duration-700">
 					{/* NOTE: Remplacer l'URL ci-dessous par le lien de votre photo une fois hébergée */}
 					<img
 						src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
