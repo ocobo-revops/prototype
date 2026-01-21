@@ -1,0 +1,160 @@
+{
+	"project": {
+		"name": "Ocobo Prototype",
+		"branch": "design-system-rationalization"
+	},
+	"source_prd": "specs/design-system-rationalization.md",
+	"created_at": "2026-01-21T12:00:00Z",
+	"rules": [
+		"Work on ONE feature at a time",
+		"Read ## Codebase Patterns section FIRST each iteration",
+		"Only modify 'passes', 'blocked', 'blocked_reason', 'completed_at' fields",
+		"Never edit or remove feature definitions",
+		"Test end-to-end before marking passes: true",
+		"Commit after each completed feature",
+		"Add reusable patterns to TOP of progress.txt",
+		"Append feature log to BOTTOM of progress.txt",
+		"Update AGENTS.md if you learn module-specific patterns"
+	],
+	"features": [
+		{
+			"id": 1,
+			"category": "functional",
+			"priority": "high",
+			"description": "Font sizes reduced to 10 tokens with 16px base",
+			"steps": [
+				"Update tailwind.config.ts fontSize section with new scale",
+				"Replace text-2xs with text-xs in all components",
+				"Replace text-7xl/8xl/9xl with text-6xl in all components",
+				"Run pnpm build to verify no errors",
+				"Check Home page renders with correct font sizes"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 2,
+			"category": "functional",
+			"priority": "high",
+			"description": "Shadows reduced to 7 tokens",
+			"steps": [
+				"Update tailwind.config.ts boxShadow section with new tokens",
+				"Replace shadow-soft-xl/2xl/3xl with shadow-soft-lg",
+				"Replace shadow-soft-dark with shadow-dark",
+				"Replace shadow-offset-sm/md/lg with shadow-offset",
+				"Replace shadow-button with shadow-soft-md",
+				"Replace shadow-form with shadow-card",
+				"Remove shadow-glow-yellow and shadow-offset-{color} usages",
+				"Run pnpm build to verify no errors"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 3,
+			"category": "functional",
+			"priority": "high",
+			"description": "Colors use nested naming (ocobo-yellow-light)",
+			"steps": [
+				"Update tailwind.config.ts colors section with nested structure",
+				"Replace ocobo-yellowLight with ocobo-yellow-light in all files",
+				"Replace ocobo-mintLight with ocobo-mint-light in all files",
+				"Replace ocobo-skyLight with ocobo-sky-light in all files",
+				"Replace ocobo-coralLight with ocobo-coral-light in all files",
+				"Run pnpm build to verify no errors",
+				"Verify Badge component renders correctly with all theme colors"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 4,
+			"category": "functional",
+			"priority": "high",
+			"description": "Border-radius reduced to xl, 2xl, 3xl + full",
+			"steps": [
+				"Remove rounded-4xl/5xl/6xl/7xl from tailwind.config.ts",
+				"Replace rounded-4xl with rounded-3xl in all files",
+				"Replace rounded-5xl with rounded-3xl in all files",
+				"Replace rounded-6xl with rounded-3xl in all files",
+				"Replace rounded-7xl with rounded-3xl in all files",
+				"Replace rounded-[2rem], rounded-[2.5rem], rounded-[3rem] with rounded-3xl",
+				"Run pnpm build to verify no errors"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 5,
+			"category": "validation",
+			"priority": "high",
+			"description": "Build passes with no errors",
+			"steps": [
+				"Run pnpm build",
+				"Verify exit code 0",
+				"No Tailwind purge warnings for removed tokens"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 6,
+			"category": "validation",
+			"priority": "medium",
+			"description": "Tests pass",
+			"steps": [
+				"Run pnpm test",
+				"Verify all tests pass",
+				"No snapshot mismatches"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 7,
+			"category": "ui",
+			"priority": "medium",
+			"description": "Visual appearance preserved on key pages",
+			"steps": [
+				"Run pnpm dev",
+				"Check Home page layout and typography",
+				"Check About page layout and typography",
+				"Check Services page layout and typography",
+				"Check Method page layout and typography",
+				"Verify no broken layouts or missing styles"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 8,
+			"category": "ui",
+			"priority": "medium",
+			"description": "Responsive breakpoints work correctly",
+			"steps": [
+				"Check mobile viewport (375px) on Home page",
+				"Check tablet viewport (768px) on Home page",
+				"Check desktop viewport (1280px) on Home page",
+				"Verify font sizes scale correctly at each breakpoint"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		}
+	]
+}

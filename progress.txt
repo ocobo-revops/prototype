@@ -1,0 +1,29 @@
+## Codebase Patterns
+<!--
+Reusable patterns discovered during implementation.
+Add new patterns here as you learn them.
+Read this section FIRST on each iteration.
+-->
+- Use pnpm, not npm
+- Tailwind config is TypeScript (tailwind.config.ts)
+- Color tokens use ocobo- prefix
+- ThemeColor enum in types.ts (YELLOW, MINT, SKY, CORAL, DARK)
+- SVG illustrations are out of scope (decorative)
+
+---
+
+# Progress Log
+
+Project: Ocobo Prototype
+Source: specs/design-system-rationalization.md
+Branch: design-system-rationalization
+Created: 2026-01-21T12:00:00Z
+
+## Initial Setup
+- Created stories.json with 8 features
+- High priority: 5 features (font sizes, shadows, colors, border-radius, build)
+- Medium priority: 3 features (tests, visual check, responsive)
+- Low priority: 0 features
+- Ready for implementation
+
+---
