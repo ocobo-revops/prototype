@@ -1,0 +1,32 @@
+## Codebase Patterns
+<!--
+Reusable patterns discovered during implementation.
+Add new patterns here as you learn them.
+Read this section FIRST on each iteration.
+-->
+
+- Use pnpm, not npm
+- Compound components: Grid.Cols, FlexPair.Icon, HeroSplit.Content pattern
+- Layout components in components/layout/
+- Illustrations in components/illustrations/
+- CSS inheritance: font-size, text-color on parent section, not children
+- Single tracking value: tracking-[0.3em] for all badges
+- Tailwind @layer components in index.css
+
+---
+
+# Progress Log
+
+Project: Ocobo Prototype - Design System Cleanup
+Source: specs/design-system-cleanup.md
+Branch: design-system-cleanup
+Created: 2026-01-21T10:30:00Z
+
+## Initial Setup
+- Created stories.json with 21 features
+- High priority: 13 features
+- Medium priority: 7 features
+- Low priority: 1 feature
+- Ready for implementation
+
+---
