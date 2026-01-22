@@ -13,7 +13,9 @@ Read this section FIRST on each iteration.
 - Existing atoms: Button, Badge, Input, NumberCircle
 - Existing molecules: Card, TestimonialCard, AccentCard, ServiceCard, TeamMemberCard, ValueCard, PillarCard, ScopeCard
 - Existing layout: Grid, FlexPair, HeroSplit, FeatureCard, ModularStackGrid
+- Existing sections: CtaSection (in components/sections/shared/)
 - Export new components from index.ts barrel files
+- CtaSection: variant (yellow/sky/dark), title, subtitle?, ctaText, ctaLink
 
 ---
 
@@ -96,4 +98,12 @@ Created: 2026-01-22T12:30:00Z
 - Scope card with icon, title, coloured bullet list
 - Hover effect: shadow-lg + coloured border
 - Exported from components/molecules/index.ts
+- Build passes, lint passes
+
+## Feature 8: CtaSection shared component - COMPLETED
+- Created components/sections/shared/CtaSection.tsx
+- Props: variant (yellow/sky/dark), title, subtitle?, ctaText, ctaLink
+- Uses Section and Container (narrow) components
+- Variant styles: yellow/sky use cta button, dark uses primary
+- Exported from components/sections/shared/index.ts and components/sections/index.ts
 - Build passes, lint passes
