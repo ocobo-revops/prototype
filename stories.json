@@ -214,10 +214,10 @@
 				"Verify About.tsx < 100 lines",
 				"Run pnpm build - no errors"
 			],
-			"passes": false,
+			"passes": true,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": null
+			"completed_at": "2026-01-22T14:30:00Z"
 		},
 		{
 			"id": 12,

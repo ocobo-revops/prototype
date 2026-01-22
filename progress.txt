@@ -11,9 +11,9 @@ Read this section FIRST on each iteration.
 - Section bg prop accepts: white, gray, dark, yellow, sky, mint, coral
 - SectionHeader exists in components/organisms/ - use for headers
 - Existing atoms: Button, Badge, Input, NumberCircle
-- Existing molecules: Card, TestimonialCard, AccentCard, ServiceCard, TeamMemberCard, ValueCard, PillarCard, ScopeCard
+- Existing molecules: Card, TestimonialCard, AccentCard, ServiceCard, TeamMemberCard, ValueCard (with detail prop + dark variant), PillarCard, ScopeCard
 - Existing layout: Grid, FlexPair, HeroSplit, FeatureCard, ModularStackGrid
-- Existing sections: CtaSection (shared/), method/ sections, home/ sections (Hero, SocialProof, PainPoint, Transformation, Interventions, Comparatif, Stack)
+- Existing sections: CtaSection (shared/), method/ sections, home/ sections, about/ sections (Hero, Manifesto, Team, Values)
 - Export new components from index.ts barrel files
 - CtaSection: variant (yellow/sky/dark), title, subtitle?, ctaText, ctaLink
 
@@ -131,4 +131,16 @@ Created: 2026-01-22T12:30:00Z
 - Created index.ts barrel export
 - Refactored Home.tsx to 34 lines (imports + section composition + CtaSection)
 - Used CtaSection shared component for final CTA (yellow variant)
+- Build passes, lint passes
+
+## Feature 11: Extract About.tsx sections - COMPLETED
+- Created components/sections/about/ directory
+- Extracted HeroSection.tsx (DataIllustration inline, mission text, Container)
+- Extracted ManifestoSection.tsx (dark bg, manifeste stanzas, FlexPair invitation list)
+- Extracted TeamSection.tsx (IconSeparator inline, TeamMemberCard grid with data array)
+- Extracted ValuesSection.tsx (ValueCard grid with dark variant support)
+- Enhanced ValueCard with detail prop and variant (light/dark) for dark bg support
+- Created index.ts barrel export
+- Refactored About.tsx to 28 lines (imports + section composition + CtaSection sky variant)
+- Used CtaSection shared component for final CTA (sky variant)
 - Build passes, lint passes
