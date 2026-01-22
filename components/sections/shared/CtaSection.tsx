@@ -23,7 +23,7 @@ const variantStyles: Record<
 	{ subtitleClass: string; buttonVariant: 'cta' | 'primary' }
 > = {
 	yellow: {
-		subtitleClass: 'text-ocobo-dark/80',
+		subtitleClass: 'text-ocobo-dark/70',
 		buttonVariant: 'cta',
 	},
 	sky: {
@@ -46,14 +46,14 @@ const CtaSection: React.FC<CtaSectionProps> = ({
 	const styles = variantStyles[variant];
 
 	return (
-		<Section bg={variantToSectionBg[variant]}>
+		<Section bg={variantToSectionBg[variant]} className="py-32">
 			<Container narrow className="text-center">
-				<h2 className="font-display text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+				<h2 className="font-display text-4xl md:text-5xl font-black mb-8 tracking-tight">
 					{title}
 				</h2>
 				{subtitle && (
 					<p
-						className={`text-lg md:text-xl font-medium mb-10 ${styles.subtitleClass}`}
+						className={`text-lg md:text-xl font-bold mb-12 ${styles.subtitleClass}`}
 					>
 						{subtitle}
 					</p>
