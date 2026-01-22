@@ -11,16 +11,11 @@ pnpm run build
 pnpm test
 ```
 
-## Environment
+### Code conventions
 
-Set `GEMINI_API_KEY` in `.env.local`
-
-## Rules
-
-- Use `pnpm` only
-- Use `mgrep` for code search
-- Do not `git push`; ask before `git add` (unless running ralph loop)
-- Prefer existing files over creating new ones
+- **No barrel files** — avoid `index.ts` files that re-export from other files
+- **Named exports only** — use `export function Foo` or `export const Foo`, never `export default`
+- **Kebab-case filenames** — use `my-component.tsx` not `MyComponent.tsx`
 
 ## Skills
 
