@@ -11,7 +11,7 @@ Read this section FIRST on each iteration.
 - Section bg prop accepts: white, gray, dark, yellow, sky, mint, coral
 - SectionHeader exists in components/organisms/ - use for headers
 - Existing atoms: Button, Badge, Input, NumberCircle
-- Existing molecules: Card, TestimonialCard, AccentCard, ServiceCard, TeamMemberCard, ValueCard, PillarCard
+- Existing molecules: Card, TestimonialCard, AccentCard, ServiceCard, TeamMemberCard, ValueCard, PillarCard, ScopeCard
 - Existing layout: Grid, FlexPair, HeroSplit, FeatureCard, ModularStackGrid
 - Export new components from index.ts barrel files
 
@@ -87,5 +87,13 @@ Created: 2026-01-22T12:30:00Z
 - Props: number (string for "01" format), title, description, deliverables (array), color, icon (LucideIcon)
 - Method card with border-t-8, icon, large number display, deliverables list with coloured bullets
 - Deliverable interface: { title, description }
+- Exported from components/molecules/index.ts
+- Build passes, lint passes
+
+## Feature 7: ScopeCard molecule - COMPLETED
+- Created components/molecules/ScopeCard.tsx
+- Props: title, items (string array), color (ThemeColor), icon (LucideIcon)
+- Scope card with icon, title, coloured bullet list
+- Hover effect: shadow-lg + coloured border
 - Exported from components/molecules/index.ts
 - Build passes, lint passes
