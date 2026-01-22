@@ -165,3 +165,9 @@ Created: 2026-01-22T12:30:00Z
 - pnpm test: 1 test passed
 - pnpm run lint: 103 files checked, no issues
 - All validation steps pass
+- Commit: c8fa834
+
+## Feature 14: Visual verification - BLOCKED
+- Requires manual user verification
+- Run `pnpm dev` and check: Home, Services, About, Method pages
+- Verify no visual regressions from refactor

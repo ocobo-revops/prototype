@@ -272,8 +272,8 @@
 				"Navigate to Method - verify identical rendering"
 			],
 			"passes": false,
-			"blocked": false,
-			"blocked_reason": null,
+			"blocked": true,
+			"blocked_reason": "Requires manual visual verification by user - run pnpm dev and check all pages",
 			"completed_at": null
 		}
 	]
