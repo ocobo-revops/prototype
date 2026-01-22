@@ -52,8 +52,8 @@ const ScopeCard: React.FC<ScopeCardProps> = ({
 			</div>
 			<h3 className="font-display text-xl font-bold mb-4">{title}</h3>
 			<ul className="space-y-3 text-sm text-gray-600">
-				{items.map((item) => (
-					<li key={item} className="flex items-center gap-3">
+				{items.map((item, index) => (
+					<li key={`${item}-${index}`} className="flex items-center gap-3">
 						<div
 							className={`w-1.5 h-1.5 rounded-full shrink-0 ${bulletStyles[color]}`}
 						/>

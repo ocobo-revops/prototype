@@ -51,8 +51,9 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
 					className="inline-block text-gray-400 hover:text-ocobo-dark"
 					target="_blank"
 					rel="noopener noreferrer"
+					aria-label={`${name} LinkedIn profile`}
 				>
-					<Linkedin size={20} />
+					<Linkedin size={20} aria-hidden="true" />
 				</a>
 			)}
 		</div>

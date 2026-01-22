@@ -74,9 +74,9 @@ const PillarCard: React.FC<PillarCardProps> = ({
 					LIVRABLES CLÉS
 				</span>
 				<div className="space-y-6">
-					{deliverables.map((deliverable) => (
+					{deliverables.map((deliverable, index) => (
 						<div
-							key={deliverable.title}
+							key={`${deliverable.title}-${index}`}
 							className="flex gap-4 items-start group/item"
 						>
 							<div
