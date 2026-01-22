@@ -7,7 +7,6 @@ import {
 	Layers,
 	Link as LinkIcon,
 	Lock,
-	Plus,
 	Send,
 	ShieldCheck,
 	Sparkles,
@@ -16,112 +15,12 @@ import {
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Badge, Button } from '../components/atoms';
-
-const ModularStackGrid = () => {
-	const items = [
-		{
-			type: 'logo',
-			label: 'HubSpot',
-			logo: 'https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg',
-		},
-		{ type: 'logo', label: 'Clay', logo: 'https://www.clay.com/favicon.ico' },
-		{
-			type: 'logo',
-			label: 'Salesforce',
-			logo: 'https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg',
-		},
-		{
-			type: 'logo',
-			label: 'Notion',
-			logo: 'https://www.vectorlogo.zone/logos/notionso/notionso-icon.svg',
-		},
-		{ type: 'logo', label: 'Vasco', logo: 'https://vasco.app/favicon.ico' },
-		{
-			type: 'logo',
-			label: 'Aircall',
-			logo: 'https://www.vectorlogo.zone/logos/aircallio/aircallio-icon.svg',
-		},
-		{ type: 'empty' },
-		{ type: 'logo', label: 'Qobra', logo: 'https://qobra.co/favicon.ico' },
-		{
-			type: 'logo',
-			label: 'Modjo',
-			logo: 'https://framerusercontent.com/images/8r0i7N1W9Tz6zY3Y3V1W1N8U.svg',
-		},
-		{ type: 'empty' },
-		{
-			type: 'logo',
-			label: 'Planhat',
-			logo: 'https://www.planhat.com/static/logo-icon-bc8b2f9f8c0b5f1f9b9a6c9a9d0a9b3a.svg',
-		},
-		{
-			type: 'logo',
-			label: 'Dust',
-			logo: 'https://dust.tt/static/logo_icon.png',
-		},
-		{ type: 'empty' },
-		{
-			type: 'logo',
-			label: 'Hyperline',
-			logo: 'https://www.hyperline.co/favicon.ico',
-		},
-		{
-			type: 'logo',
-			label: 'Lemlist',
-			logo: 'https://www.lemlist.com/hubfs/lemlist-logo-2023.svg',
-		},
-		{ type: 'empty' },
-	];
-
-	return (
-		<div className="relative w-full max-w-xl aspect-square p-4">
-			<div
-				className="absolute inset-0 opacity-[0.03] pointer-events-none"
-				style={{
-					backgroundImage: 'radial-gradient(#212323 1px, transparent 1px)',
-					backgroundSize: '25% 25%',
-				}}
-			></div>
-
-			<div className="grid grid-cols-4 gap-4 relative z-10 h-full">
-				{items.map((item, i) => (
-					<div
-						key={item.label || `empty-${i}`}
-						className={`
-              aspect-square rounded-2xl border transition-all duration-500 flex items-center justify-center
-              ${
-								item.type === 'logo'
-									? 'group bg-white border-gray-100 shadow-soft hover:shadow-xl hover:-translate-y-1 hover:border-ocobo-sky/30'
-									: 'bg-gray-50/50 border-dashed border-gray-200 group/empty hover:bg-white hover:border-solid hover:border-ocobo-yellow/40'
-							}
-              animate-fade-in-up
-            `}
-						style={{
-							animationDelay: `${i * 0.05}s`,
-							opacity: 0,
-							animationFillMode: 'forwards',
-						}}
-					>
-						{item.type === 'logo' ? (
-							<div className="flex flex-col items-center gap-2">
-								<img
-									src={item.logo}
-									alt={item.label}
-									className="w-8 h-8 md:w-10 md:h-10 object-contain grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
-								/>
-							</div>
-						) : (
-							<Plus
-								size={20}
-								className="text-gray-200 group-hover/empty:text-ocobo-yellow transition-colors"
-							/>
-						)}
-					</div>
-				))}
-			</div>
-		</div>
-	);
-};
+import FlexPair from '../components/layout/FlexPair';
+import Grid from '../components/layout/Grid';
+import {
+	DEFAULT_STACK_ITEMS,
+	ModularStackGrid,
+} from '../components/layout/ModularStackGrid';
 
 const Partners: React.FC = () => {
 	const [filter, setFilter] = useState('TOUS');
@@ -461,15 +360,15 @@ const Partners: React.FC = () => {
 				</div>
 
 				<div className="flex justify-center mb-16 px-4">
-					<ModularStackGrid />
+					<ModularStackGrid
+						items={DEFAULT_STACK_ITEMS}
+						maxWidth="xl"
+						animated
+					/>
 				</div>
 
 				<div className="flex flex-col items-center gap-12">
-					<Button
-						variant="primary"
-						className="px-16 py-5 text-xs font-bold uppercase tracking-[0.25em] shadow-xl bg-ocobo-dark hover:bg-black transition-all hover:-translate-y-1"
-						to="/contact"
-					>
+					<Button variant="cta" size="xl" to="/contact">
 						Auditer ma stack
 					</Button>
 				</div>
@@ -481,13 +380,7 @@ const Partners: React.FC = () => {
 
 			{/* SECTION PHILOSOPHIE */}
 			<section className="bg-ocobo-dark py-32 text-white relative overflow-hidden">
-				<div
-					className="absolute inset-0 opacity-[0.03]"
-					style={{
-						backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
-						backgroundSize: '40px 40px',
-					}}
-				></div>
+				<div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[length:40px_40px]" />
 
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 					<div className="max-w-3xl mb-20 text-center md:text-left">
@@ -501,7 +394,7 @@ const Partners: React.FC = () => {
 						</p>
 					</div>
 
-					<div className="grid md:grid-cols-3 gap-10">
+					<Grid md={3} gap={10}>
 						<div className="bg-white p-10 rounded-xl shadow-xl group hover:-translate-y-1 transition-transform duration-300">
 							<div className="w-16 h-16 bg-ocobo-dark text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-ocobo-sky transition-colors">
 								<Lock size={28} />
@@ -538,7 +431,7 @@ const Partners: React.FC = () => {
 								les plus puissantes du marché.
 							</p>
 						</div>
-					</div>
+					</Grid>
 				</div>
 			</section>
 
@@ -577,12 +470,16 @@ const Partners: React.FC = () => {
 						</div>
 					</div>
 
-					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500">
-						{filtered.map((partner, idx) => (
+					<Grid
+						md={2}
+						lg={3}
+						gap={8}
+						className="transition-all duration-500 stagger-fade"
+					>
+						{filtered.map((partner) => (
 							<div
 								key={`${partner.name}-${filter}`}
 								className={`group bg-white border border-gray-100 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden rounded-xl flex flex-col h-full ${animate ? 'opacity-0 animate-fade-in-up-small' : 'opacity-0'}`}
-								style={{ animationDelay: `${idx * 0.05}s` }}
 							>
 								<div className="flex justify-between items-start mb-8">
 									<div className="w-16 h-16 flex items-center justify-center p-3 bg-gray-50 rounded-xl group-hover:bg-white transition-all duration-500 border border-transparent group-hover:border-gray-100 shadow-inner group-hover:shadow-none">
@@ -663,7 +560,7 @@ const Partners: React.FC = () => {
 								</div>
 							</div>
 						))}
-					</div>
+					</Grid>
 				</div>
 			</section>
 
@@ -688,11 +585,13 @@ const Partners: React.FC = () => {
 							</p>
 
 							<div className="space-y-6 mb-12">
-								<div className="flex gap-5 items-start">
-									<div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-sky shrink-0">
-										<Handshake size={20} />
-									</div>
-									<div>
+								<FlexPair gap={5}>
+									<FlexPair.Icon>
+										<div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-sky">
+											<Handshake size={20} />
+										</div>
+									</FlexPair.Icon>
+									<FlexPair.Content>
 										<h4 className="font-bold text-ocobo-dark">
 											Partenariat Stratégique
 										</h4>
@@ -700,13 +599,15 @@ const Partners: React.FC = () => {
 											Accès privilégié à notre Studio pour le déploiement de
 											votre solution chez nos clients.
 										</p>
-									</div>
-								</div>
-								<div className="flex gap-5 items-start">
-									<div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-yellow shrink-0">
-										<Sparkles size={20} />
-									</div>
-									<div>
+									</FlexPair.Content>
+								</FlexPair>
+								<FlexPair gap={5}>
+									<FlexPair.Icon>
+										<div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-yellow">
+											<Sparkles size={20} />
+										</div>
+									</FlexPair.Icon>
+									<FlexPair.Content>
 										<h4 className="font-bold text-ocobo-dark">
 											Co-Marketing & Events
 										</h4>
@@ -714,13 +615,15 @@ const Partners: React.FC = () => {
 											Webinars, podcasts et masterclasses en commun pour
 											évangéliser le marché.
 										</p>
-									</div>
-								</div>
-								<div className="flex gap-5 items-start">
-									<div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-mint shrink-0">
-										<Layers size={20} />
-									</div>
-									<div>
+									</FlexPair.Content>
+								</FlexPair>
+								<FlexPair gap={5}>
+									<FlexPair.Icon>
+										<div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-mint">
+											<Layers size={20} />
+										</div>
+									</FlexPair.Icon>
+									<FlexPair.Content>
 										<h4 className="font-bold text-ocobo-dark">
 											Expertise Produit
 										</h4>
@@ -728,8 +631,8 @@ const Partners: React.FC = () => {
 											Feedback opérationnel de nos architectes seniors pour
 											optimiser vos intégrations.
 										</p>
-									</div>
-								</div>
+									</FlexPair.Content>
+								</FlexPair>
 							</div>
 						</div>
 
@@ -763,7 +666,7 @@ const Partners: React.FC = () => {
 										<h3 className="font-display text-2xl font-black text-ocobo-dark mb-8">
 											Devenez partenaire
 										</h3>
-										<div className="grid md:grid-cols-2 gap-6">
+										<Grid md={2} gap={6}>
 											<div className="space-y-2">
 												{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 												<label className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">
@@ -788,7 +691,7 @@ const Partners: React.FC = () => {
 													className="w-full bg-gray-50 border border-gray-100 focus:border-ocobo-dark focus:bg-white outline-none p-4 rounded-none text-sm font-bold placeholder:text-gray-300"
 												/>
 											</div>
-										</div>
+										</Grid>
 										<div className="space-y-2">
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 											<label className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">
@@ -841,11 +744,7 @@ const Partners: React.FC = () => {
 						silos.
 					</p>
 					<div className="flex justify-center">
-						<Button
-							variant="primary"
-							className="px-14 py-6 text-lg shadow-2xl bg-ocobo-dark border-none text-white"
-							to="/contact"
-						>
+						<Button variant="cta" size="xl" to="/contact">
 							Prendre RDV
 						</Button>
 					</div>

@@ -9,28 +9,17 @@ import {
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Badge, Button } from '../components/atoms';
+import Grid from '../components/layout/Grid';
 
 const TeamPhotoIllustration = () => {
 	return (
 		<div className="relative w-full max-w-4xl mx-auto py-12 px-4 group">
 			{/* BACKGROUND DECORATIVE SPHERES - FAVORING THE SQUAD ASPECT */}
 			<div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
-				<div
-					className="absolute top-0 left-1/4 w-64 h-64 bg-ocobo-yellow/30 rounded-full blur-3xl animate-float-blob"
-					style={{ animationDelay: '0s' }}
-				></div>
-				<div
-					className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-ocobo-mint/30 rounded-full blur-3xl animate-float-blob"
-					style={{ animationDelay: '-4s' }}
-				></div>
-				<div
-					className="absolute top-1/2 left-10 w-48 h-48 bg-ocobo-coral/20 rounded-full blur-3xl animate-float-blob"
-					style={{ animationDelay: '-8s' }}
-				></div>
-				<div
-					className="absolute top-1/4 right-0 w-56 h-56 bg-ocobo-sky/30 rounded-full blur-3xl animate-float-blob"
-					style={{ animationDelay: '-2s' }}
-				></div>
+				<div className="absolute top-0 left-1/4 w-64 h-64 bg-ocobo-yellow/30 rounded-full blur-3xl animate-float-blob [animation-delay:0s]"></div>
+				<div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-ocobo-mint/30 rounded-full blur-3xl animate-float-blob [animation-delay:-4s]"></div>
+				<div className="absolute top-1/2 left-10 w-48 h-48 bg-ocobo-coral/20 rounded-full blur-3xl animate-float-blob [animation-delay:-8s]"></div>
+				<div className="absolute top-1/4 right-0 w-56 h-56 bg-ocobo-sky/30 rounded-full blur-3xl animate-float-blob [animation-delay:-2s]"></div>
 			</div>
 
 			{/* PHOTO CONTAINER */}
@@ -64,10 +53,7 @@ const TeamPhotoIllustration = () => {
 				<div className="absolute -top-12 right-12 p-5 bg-white rounded-2xl shadow-xl transform rotate-12 animate-bounce-slow hidden md:flex border border-gray-50">
 					<Sparkles className="text-ocobo-yellow" size={28} />
 				</div>
-				<div
-					className="absolute -bottom-10 left-24 p-5 bg-ocobo-dark text-white rounded-2xl shadow-xl transform -rotate-6 animate-bounce-slow hidden md:flex"
-					style={{ animationDelay: '1s' }}
-				>
+				<div className="absolute -bottom-10 left-24 p-5 bg-ocobo-dark text-white rounded-2xl shadow-xl transform -rotate-6 animate-bounce-slow hidden md:flex [animation-delay:1s]">
 					<Users size={24} />
 				</div>
 			</div>
@@ -220,11 +206,7 @@ const Studio: React.FC = () => {
 						système à vos côtés."
 					</div>
 
-					<Button
-						variant="primary"
-						className="px-16 py-5 text-xs font-bold uppercase tracking-[0.25em] shadow-xl bg-ocobo-dark hover:bg-black transition-all hover:-translate-y-1"
-						to="/contact"
-					>
+					<Button variant="cta" size="xl" to="/contact">
 						Discuter avec le Studio
 					</Button>
 				</div>
@@ -240,13 +222,7 @@ const Studio: React.FC = () => {
 
 			{/* SECTION MODÈLE STUDIO (APPLAT NOIR) */}
 			<section className="bg-ocobo-dark py-32 text-white relative overflow-hidden">
-				<div
-					className="absolute inset-0 opacity-[0.03]"
-					style={{
-						backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
-						backgroundSize: '40px 40px',
-					}}
-				></div>
+				<div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[length:40px_40px]" />
 
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 					<div className="max-w-3xl mb-20">
@@ -260,7 +236,7 @@ const Studio: React.FC = () => {
 						</p>
 					</div>
 
-					<div className="grid md:grid-cols-3 gap-10">
+					<Grid md={3} gap={10}>
 						<div className="bg-white p-10 rounded-xl shadow-xl group hover:-translate-y-1 transition-transform duration-300">
 							<div className="w-16 h-16 bg-ocobo-dark text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-ocobo-mint transition-colors">
 								<Users size={28} />
@@ -297,7 +273,7 @@ const Studio: React.FC = () => {
 								scalé des entreprises leaders.
 							</p>
 						</div>
-					</div>
+					</Grid>
 				</div>
 			</section>
 
@@ -333,12 +309,16 @@ const Studio: React.FC = () => {
 						</div>
 					</div>
 
-					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-500">
-						{filteredTeam.map((member, idx) => (
+					<Grid
+						md={2}
+						lg={3}
+						gap={8}
+						className="transition-all duration-500 stagger-fade"
+					>
+						{filteredTeam.map((member) => (
 							<div
 								key={`${member.name}-${activeFilter}`}
 								className={`group bg-white border border-gray-100 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden rounded-xl ${animate ? 'opacity-0 animate-fade-in-up-small' : 'opacity-0'}`}
-								style={{ animationDelay: `${idx * 0.05}s` }}
 							>
 								{/* Left trait that lights up on hover */}
 								<div
@@ -385,7 +365,7 @@ const Studio: React.FC = () => {
 								</div>
 							</div>
 						))}
-					</div>
+					</Grid>
 				</div>
 			</section>
 
@@ -400,11 +380,7 @@ const Studio: React.FC = () => {
 						niveau supérieur.
 					</p>
 					<div className="flex justify-center">
-						<Button
-							variant="primary"
-							className="px-14 py-6 text-lg shadow-2xl bg-ocobo-dark border-none text-white"
-							to="/contact"
-						>
+						<Button variant="cta" size="xl" to="/contact">
 							Discuter avec le Studio
 						</Button>
 					</div>

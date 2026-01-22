@@ -1,6 +1,8 @@
 import { ArrowRight, Linkedin } from 'lucide-react';
 import type React from 'react';
 import { Button } from '../components/atoms';
+import FlexPair from '../components/layout/FlexPair';
+import Grid from '../components/layout/Grid';
 
 const DataIllustration = () => {
 	return (
@@ -420,41 +422,57 @@ const About: React.FC = () => {
 							</p>
 
 							<div className="space-y-8">
-								<div className="flex items-start gap-5">
-									<div className="bg-ocobo-yellow rounded-full p-1 mt-1.5 shrink-0">
-										<ArrowRight size={16} className="text-ocobo-dark" />
-									</div>
-									<p className="text-xl md:text-3xl font-medium text-gray-300 leading-tight">
-										à regarder votre machine revenue en face,
-									</p>
-								</div>
-								<div className="flex items-start gap-5">
-									<div className="bg-ocobo-yellow rounded-full p-1 mt-1.5 shrink-0">
-										<ArrowRight size={16} className="text-ocobo-dark" />
-									</div>
-									<p className="text-xl md:text-3xl font-medium text-gray-300 leading-tight">
-										à préférer la vérité opérationnelle aux illusions de
-										performance,
-									</p>
-								</div>
-								<div className="flex items-start gap-5">
-									<div className="bg-ocobo-yellow rounded-full p-1 mt-1.5 shrink-0">
-										<ArrowRight size={16} className="text-ocobo-dark" />
-									</div>
-									<p className="text-xl md:text-3xl font-medium text-gray-300 leading-tight">
-										à faire primer la stratégie sur l’urgence,
-									</p>
-								</div>
-								<div className="flex items-start gap-5">
-									<div className="bg-ocobo-yellow rounded-full p-1 mt-1.5 shrink-0">
-										<ArrowRight size={16} className="text-ocobo-dark" />
-									</div>
-									<p className="text-xl md:text-3xl font-medium text-gray-300 leading-tight">
-										à construire votre revenu non comme un empilement,{' '}
-										<br className="hidden md:block" />
-										mais comme un système pensé, durable et vivant.
-									</p>
-								</div>
+								<FlexPair gap={5}>
+									<FlexPair.Icon className="mt-1.5">
+										<div className="bg-ocobo-yellow rounded-full p-1">
+											<ArrowRight size={16} className="text-ocobo-dark" />
+										</div>
+									</FlexPair.Icon>
+									<FlexPair.Content>
+										<p className="text-xl md:text-3xl font-medium text-gray-300 leading-tight">
+											à regarder votre machine revenue en face,
+										</p>
+									</FlexPair.Content>
+								</FlexPair>
+								<FlexPair gap={5}>
+									<FlexPair.Icon className="mt-1.5">
+										<div className="bg-ocobo-yellow rounded-full p-1">
+											<ArrowRight size={16} className="text-ocobo-dark" />
+										</div>
+									</FlexPair.Icon>
+									<FlexPair.Content>
+										<p className="text-xl md:text-3xl font-medium text-gray-300 leading-tight">
+											à préférer la vérité opérationnelle aux illusions de
+											performance,
+										</p>
+									</FlexPair.Content>
+								</FlexPair>
+								<FlexPair gap={5}>
+									<FlexPair.Icon className="mt-1.5">
+										<div className="bg-ocobo-yellow rounded-full p-1">
+											<ArrowRight size={16} className="text-ocobo-dark" />
+										</div>
+									</FlexPair.Icon>
+									<FlexPair.Content>
+										<p className="text-xl md:text-3xl font-medium text-gray-300 leading-tight">
+											à faire primer la stratégie sur l'urgence,
+										</p>
+									</FlexPair.Content>
+								</FlexPair>
+								<FlexPair gap={5}>
+									<FlexPair.Icon className="mt-1.5">
+										<div className="bg-ocobo-yellow rounded-full p-1">
+											<ArrowRight size={16} className="text-ocobo-dark" />
+										</div>
+									</FlexPair.Icon>
+									<FlexPair.Content>
+										<p className="text-xl md:text-3xl font-medium text-gray-300 leading-tight">
+											à construire votre revenu non comme un empilement,{' '}
+											<br className="hidden md:block" />
+											mais comme un système pensé, durable et vivant.
+										</p>
+									</FlexPair.Content>
+								</FlexPair>
 							</div>
 						</div>
 
@@ -507,7 +525,7 @@ const About: React.FC = () => {
 						</p>
 					</div>
 
-					<div className="grid md:grid-cols-3 gap-8">
+					<Grid md={3} gap={8}>
 						{/* Benjamin */}
 						<div className="bg-white p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all text-center">
 							<div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-ocobo-yellow">
@@ -591,7 +609,7 @@ const About: React.FC = () => {
 								<Linkedin size={20} />
 							</a>
 						</div>
-					</div>
+					</Grid>
 
 					<div className="text-center mt-12 flex flex-col items-center gap-8">
 						<p className="font-bold text-xl">
@@ -701,11 +719,7 @@ const About: React.FC = () => {
 						Zéro détour. Zéro jargon. Rien que la vérité sur votre croissance et
 						vos options.
 					</p>
-					<Button
-						variant="primary"
-						className="px-12 py-5 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1"
-						to="/contact"
-					>
+					<Button variant="cta" size="xl" to="/contact">
 						Rencontrer un architecte RevOps
 					</Button>
 				</div>

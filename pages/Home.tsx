@@ -1,568 +1,44 @@
-import { BarChart3, Check, Layout, Plus, Target, X, Zap } from 'lucide-react';
+import { BarChart3, Check, Layout, Target, X, Zap } from 'lucide-react';
 import type React from 'react';
 import { Button } from '../components/atoms';
-import { FeatureCard, TestimonialCard } from '../components/molecules';
+import { DashboardIllustration } from '../components/illustrations';
+import { ClientMarquee } from '../components/layout/ClientMarquee';
+import { FeatureCard } from '../components/layout/FeatureCard';
+import FlexPair from '../components/layout/FlexPair';
+import Grid from '../components/layout/Grid';
+import HeroSplit from '../components/layout/HeroSplit';
+import {
+	DEFAULT_STACK_ITEMS,
+	ModularStackGrid,
+} from '../components/layout/ModularStackGrid';
+import { TestimonialCard } from '../components/molecules';
 import { Container, Section } from '../components/organisms';
 import { ThemeColor } from '../types';
 
-const DashboardIllustration = () => {
-	return (
-		<div
-			className="relative w-full max-w-[580px] aspect-square flex items-center justify-center opacity-0 animate-hero-reveal"
-			style={{ animationDelay: '0.4s' }}
-		>
-			{/* SHARP ARCHITECTURAL BACKGROUND SHAPES - More refined */}
-
-			{/* Top Center: Mint Circle with Burst */}
-			<div className="absolute top-[8%] left-[38%] w-[110px] h-[110px] rounded-full bg-ocobo-mint/80 flex items-center justify-center transform rotate-12 transition-transform hover:rotate-45 duration-1000">
-				<svg
-					width="40"
-					height="40"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="white"
-					strokeWidth="1.5"
-					strokeLinecap="round"
-					strokeLinejoin="round"
-				>
-					<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707" />
-				</svg>
-			</div>
-
-			{/* Top Right: Coral Square */}
-			<div className="absolute top-[12%] right-[12%] w-[90px] h-[90px] bg-ocobo-coral/80 transform -rotate-6 rounded-sm"></div>
-
-			{/* Mid Left: Yellow Square */}
-			<div className="absolute top-[42%] left-[5%] w-[85px] h-[100px] bg-ocobo-yellow/80 transform rotate-3 rounded-sm"></div>
-
-			{/* Bottom Center: Sky Circle */}
-			<div className="absolute bottom-[8%] left-[48%] w-[100px] h-[100px] rounded-full bg-ocobo-sky/80"></div>
-
-			<svg
-				viewBox="0 0 600 600"
-				className="relative z-10 w-full h-full overflow-visible text-ocobo-dark"
-				fill="none"
-			>
-				{/* WINDOW 1: HORIZONTAL BARS (TOP LEFT) - Higher rx and thinner stroke */}
-				<g className="animate-float-very-slow">
-					<rect
-						x="50"
-						y="100"
-						width="280"
-						height="180"
-						rx="16"
-						fill="white"
-						stroke="currentColor"
-						strokeWidth="1.5"
-						className="shadow-2xl"
-					/>
-					<line
-						x1="50"
-						y1="145"
-						x2="330"
-						y2="145"
-						stroke="currentColor"
-						strokeWidth="1.5"
-					/>
-					<circle cx="80" cy="122" r="3.5" fill="currentColor" />
-					<circle cx="100" cy="122" r="3.5" fill="currentColor" />
-					<circle cx="120" cy="122" r="3.5" fill="currentColor" />
-
-					<g transform="translate(85, 175)">
-						<rect
-							x="0"
-							y="0"
-							width="200"
-							height="6"
-							rx="3"
-							fill="currentColor"
-						/>
-						<rect
-							x="0"
-							y="20"
-							width="170"
-							height="6"
-							rx="3"
-							fill="currentColor"
-						/>
-						<rect
-							x="0"
-							y="40"
-							width="185"
-							height="6"
-							rx="3"
-							fill="currentColor"
-						/>
-						<rect
-							x="0"
-							y="60"
-							width="130"
-							height="6"
-							rx="3"
-							fill="currentColor"
-						/>
-						<rect
-							x="0"
-							y="80"
-							width="160"
-							height="6"
-							rx="3"
-							fill="currentColor"
-						/>
-						<line
-							x1="-15"
-							y1="-10"
-							x2="-15"
-							y2="95"
-							stroke="currentColor"
-							strokeWidth="1"
-							strokeOpacity="0.3"
-						/>
-					</g>
-				</g>
-
-				{/* WINDOW 2: PIE CHART (TOP RIGHT) */}
-				<g
-					className="animate-float-very-slow"
-					style={{ animationDelay: '-4s' }}
-				>
-					<rect
-						x="350"
-						y="100"
-						width="180"
-						height="230"
-						rx="16"
-						fill="white"
-						stroke="currentColor"
-						strokeWidth="1.5"
-						className="shadow-2xl"
-					/>
-					<line
-						x1="350"
-						y1="145"
-						x2="530"
-						y2="145"
-						stroke="currentColor"
-						strokeWidth="1.5"
-					/>
-					<circle cx="380" cy="122" r="3.5" fill="currentColor" />
-					<circle cx="400" cy="122" r="3.5" fill="currentColor" />
-
-					<g transform="translate(440, 240)">
-						<circle
-							cx="0"
-							cy="0"
-							r="60"
-							stroke="currentColor"
-							strokeWidth="1.5"
-						/>
-						<path
-							d="M0,0 L0,-60 A60,60 0 0,1 52,-30 Z"
-							fill="currentColor"
-							transform="rotate(30)"
-						/>
-						<path
-							d="M0,0 L-60,0 A60,60 0 0,1 -30,-52 Z"
-							fill="currentColor"
-							opacity="0.8"
-						/>
-						<line
-							x1="0"
-							y1="0"
-							x2="60"
-							y2="0"
-							stroke="currentColor"
-							strokeWidth="1"
-						/>
-						<line
-							x1="0"
-							y1="0"
-							x2="-30"
-							y2="52"
-							stroke="currentColor"
-							strokeWidth="1"
-						/>
-					</g>
-				</g>
-
-				{/* WINDOW 3: WAVE CHART (BOTTOM RIGHT) */}
-				<g
-					className="animate-float-very-slow"
-					style={{ animationDelay: '-8s' }}
-				>
-					<rect
-						x="350"
-						y="350"
-						width="180"
-						height="150"
-						rx="16"
-						fill="white"
-						stroke="currentColor"
-						strokeWidth="1.5"
-						className="shadow-2xl"
-					/>
-					<line
-						x1="350"
-						y1="395"
-						x2="530"
-						y2="395"
-						stroke="currentColor"
-						strokeWidth="1.5"
-					/>
-					<circle cx="380" cy="372" r="3.5" fill="currentColor" />
-
-					<path
-						d="M 375,460 Q 405,400 435,460 T 495,460"
-						stroke="currentColor"
-						strokeWidth="1.5"
-						fill="none"
-					/>
-					<path
-						d="M 375,445 Q 415,485 455,435 T 515,445"
-						stroke="currentColor"
-						strokeWidth="1"
-						strokeDasharray="4 4"
-						fill="none"
-					/>
-					<line
-						x1="375"
-						y1="480"
-						x2="510"
-						y2="480"
-						stroke="currentColor"
-						strokeWidth="1"
-						strokeOpacity="0.2"
-					/>
-				</g>
-
-				{/* WINDOW 4: COLUMN CHART (CENTER BOTTOM) */}
-				<g
-					className="animate-float-very-slow"
-					style={{ animationDelay: '-2s' }}
-				>
-					<rect
-						x="200"
-						y="305"
-						width="130"
-						height="210"
-						rx="16"
-						fill="white"
-						stroke="currentColor"
-						strokeWidth="1.5"
-						className="shadow-2xl"
-					/>
-					<line
-						x1="200"
-						y1="350"
-						x2="330"
-						y2="350"
-						stroke="currentColor"
-						strokeWidth="1.5"
-					/>
-
-					<g transform="translate(225, 490)">
-						<rect
-							x="0"
-							y="-40"
-							width="12"
-							rx="2"
-							height="40"
-							fill="currentColor"
-						/>
-						<rect
-							x="18"
-							y="-70"
-							width="12"
-							rx="2"
-							height="70"
-							fill="currentColor"
-						/>
-						<rect
-							x="36"
-							y="-55"
-							width="12"
-							rx="2"
-							height="55"
-							fill="currentColor"
-						/>
-						<rect
-							x="54"
-							y="-30"
-							width="12"
-							rx="2"
-							height="30"
-							fill="currentColor"
-						/>
-						<rect
-							x="72"
-							y="-85"
-							width="12"
-							rx="2"
-							height="85"
-							fill="currentColor"
-						/>
-					</g>
-				</g>
-
-				{/* WINDOW 5: CANDLE CHART (BOTTOM LEFT) */}
-				<g
-					className="animate-float-very-slow"
-					style={{ animationDelay: '-6s' }}
-				>
-					<rect
-						x="50"
-						y="305"
-						width="130"
-						height="210"
-						rx="16"
-						fill="white"
-						stroke="currentColor"
-						strokeWidth="1.5"
-						className="shadow-2xl"
-					/>
-					<line
-						x1="50"
-						y1="350"
-						x2="180"
-						y2="350"
-						stroke="currentColor"
-						strokeWidth="1.5"
-					/>
-
-					<g transform="translate(75, 430)">
-						<line
-							x1="0"
-							y1="-30"
-							x2="0"
-							y2="30"
-							stroke="currentColor"
-							strokeWidth="1"
-						/>
-						<rect
-							x="-4"
-							y="-12"
-							width="8"
-							rx="1"
-							height="24"
-							stroke="currentColor"
-							strokeWidth="1"
-							fill="white"
-						/>
-						<line
-							x1="22"
-							y1="-45"
-							x2="22"
-							y2="25"
-							stroke="currentColor"
-							strokeWidth="1"
-						/>
-						<rect
-							x="18"
-							y="-22"
-							width="8"
-							rx="1"
-							height="35"
-							fill="currentColor"
-						/>
-						<line
-							x1="44"
-							y1="-25"
-							x2="44"
-							y2="55"
-							stroke="currentColor"
-							strokeWidth="1"
-						/>
-						<rect
-							x="40"
-							y="5"
-							width="8"
-							rx="1"
-							height="40"
-							fill="currentColor"
-						/>
-						<line
-							x1="66"
-							y1="-55"
-							x2="66"
-							y2="15"
-							stroke="currentColor"
-							strokeWidth="1"
-						/>
-						<rect
-							x="62"
-							y="-45"
-							width="8"
-							rx="1"
-							height="30"
-							stroke="currentColor"
-							strokeWidth="1"
-							fill="white"
-						/>
-					</g>
-				</g>
-			</svg>
-		</div>
-	);
-};
-
-const ModularStackGrid = () => {
-	const items = [
-		{
-			type: 'logo',
-			label: 'HubSpot',
-			logo: 'https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg',
-		},
-		{ type: 'logo', label: 'Clay', logo: 'https://www.clay.com/favicon.ico' },
-		{
-			type: 'logo',
-			label: 'Salesforce',
-			logo: 'https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg',
-		},
-		{
-			type: 'logo',
-			label: 'Notion',
-			logo: 'https://www.vectorlogo.zone/logos/notionso/notionso-icon.svg',
-		},
-		{ type: 'logo', label: 'Vasco', logo: 'https://vasco.app/favicon.ico' },
-		{
-			type: 'logo',
-			label: 'Aircall',
-			logo: 'https://www.vectorlogo.zone/logos/aircallio/aircallio-icon.svg',
-		},
-		{ type: 'empty' },
-		{ type: 'logo', label: 'Qobra', logo: 'https://qobra.co/favicon.ico' },
-		{
-			type: 'logo',
-			label: 'Modjo',
-			logo: 'https://framerusercontent.com/images/8r0i7N1W9Tz6zY3Y3V1W1N8U.svg',
-		},
-		{ type: 'empty' },
-		{
-			type: 'logo',
-			label: 'Planhat',
-			logo: 'https://www.planhat.com/static/logo-icon-bc8b2f9f8c0b5f1f9b9a6c9a9d0a9b3a.svg',
-		},
-		{
-			type: 'logo',
-			label: 'Dust',
-			logo: 'https://dust.tt/static/logo_icon.png',
-		},
-		{ type: 'empty' },
-		{
-			type: 'logo',
-			label: 'Hyperline',
-			logo: 'https://www.hyperline.co/favicon.ico',
-		},
-		{
-			type: 'logo',
-			label: 'Lemlist',
-			logo: 'https://www.lemlist.com/hubfs/lemlist-logo-2023.svg',
-		},
-		{ type: 'empty' },
-	];
-
-	return (
-		<div className="relative w-full max-w-lg mx-auto aspect-square p-4 mb-16">
-			<div
-				className="absolute inset-0 opacity-[0.05] pointer-events-none"
-				style={{
-					backgroundImage:
-						'linear-gradient(#212323 1px, transparent 1px), linear-gradient(90deg, #212323 1px, transparent 1px)',
-					backgroundSize: '25% 25%',
-				}}
-			></div>
-
-			<div className="grid grid-cols-4 gap-3 md:gap-4 relative z-10 h-full">
-				{items.map((item, i) => (
-					<div
-						key={item.label ?? `empty-${i}`}
-						className={`
-              aspect-square rounded-xl md:rounded-2xl border transition-all duration-500 flex items-center justify-center
-              ${
-								item.type === 'logo'
-									? 'group bg-white border-gray-100 shadow-soft hover:shadow-xl hover:-translate-y-1 hover:border-ocobo-sky/30'
-									: 'bg-gray-50/50 border-dashed border-gray-200 group/empty hover:bg-white hover:border-solid hover:border-ocobo-yellow/40'
-							}
-            `}
-					>
-						{item.type === 'logo' ? (
-							<div className="flex flex-col items-center gap-1.5">
-								<img
-									src={item.logo}
-									alt={item.label}
-									className="w-6 h-6 md:w-8 md:h-8 object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all"
-								/>
-								<span className="text-xs md:text-xs font-black uppercase tracking-widest text-ocobo-dark opacity-30">
-									{item.label}
-								</span>
-							</div>
-						) : (
-							<Plus
-								size={16}
-								className="text-gray-200 group-hover/empty:text-ocobo-yellow transition-colors"
-							/>
-						)}
-					</div>
-				))}
-			</div>
-
-			<div className="absolute -bottom-6 -right-6 w-24 h-24 bg-ocobo-yellow/5 rounded-full blur-2xl -z-10"></div>
-		</div>
-	);
-};
-
-const ClientMarquee = () => {
-	const clients = [
-		'TheFork',
-		'ePack Hygiène',
-		'Qonto',
-		'PayFit',
-		'Spendesk',
-		'Qobra',
-		'Tomorro',
-		'Jus Mundi',
-		'Vizzia',
-		'Combo',
-		'Sortlist',
-		'Zenchef',
-	];
-
-	const extendedClients = [...clients, ...clients, ...clients];
-
-	return (
-		<div className="relative w-full overflow-hidden py-3 border-y border-white/5">
-			<div className="absolute left-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-r from-ocobo-dark to-transparent z-10 pointer-events-none"></div>
-			<div className="absolute right-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-l from-ocobo-dark to-transparent z-10 pointer-events-none"></div>
-
-			<div className="flex w-max animate-marquee-ultra-slow whitespace-nowrap">
-				{extendedClients.map((client, idx) => (
-					<div
-						// biome-ignore lint/suspicious/noArrayIndexKey: marquee animation requires duplicate elements
-						key={`${client}-${idx}`}
-						className="flex items-center justify-center px-10 md:px-14"
-					>
-						<span className="font-display font-black text-white/20 text-base md:text-lg tracking-[0.25em] uppercase hover:text-ocobo-yellow transition-colors cursor-default select-none">
-							{client}
-						</span>
-					</div>
-				))}
-			</div>
-		</div>
-	);
-};
+const HOME_CLIENTS = [
+	'TheFork',
+	'ePack Hygiène',
+	'Qonto',
+	'PayFit',
+	'Spendesk',
+	'Qobra',
+	'Tomorro',
+	'Jus Mundi',
+	'Vizzia',
+	'Combo',
+	'Sortlist',
+	'Zenchef',
+];
 
 // Main Home component
 const Home: React.FC = () => {
 	return (
 		<div className="w-full">
-			{/* HERO SECTION - REFINED LOADING SEQUENCE */}
+			{/* HERO SECTION */}
 			<Container className="pt-40 pb-24 relative overflow-hidden">
-				<div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 relative z-10">
-					<div className="lg:w-1/2">
-						<h1
-							className="font-display text-4xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight opacity-0 animate-hero-reveal"
-							style={{ animationDelay: '0.1s' }}
-						>
+				<HeroSplit gap={16} className="relative z-10">
+					<HeroSplit.Content>
+						<h1 className="font-display text-4xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight opacity-0 animate-hero-reveal [animation-delay:0.1s]">
 							L'architecture
 							<br />
 							qui fait tenir
@@ -570,53 +46,38 @@ const Home: React.FC = () => {
 							<span className="text-gray-400">votre croissance.</span>
 						</h1>
 
-						<p
-							className="text-xl md:text-2xl text-gray-700 mb-10 leading-relaxed font-medium max-w-xl opacity-0 animate-hero-reveal"
-							style={{ animationDelay: '0.2s' }}
-						>
+						<p className="text-xl md:text-2xl text-gray-700 mb-10 leading-relaxed font-medium max-w-xl opacity-0 animate-hero-reveal [animation-delay:0.2s]">
 							Voici comment nous transformons la croissance en{' '}
 							<span className="underline decoration-ocobo-yellow decoration-[3px] underline-offset-[6px]">
 								expérience simple, fluide et pilotable.
 							</span>
 						</p>
 
-						<div
-							className="mb-14 py-1.5 opacity-0 animate-hero-reveal"
-							style={{ animationDelay: '0.3s' }}
-						>
+						<div className="mb-14 py-1.5 opacity-0 animate-hero-reveal [animation-delay:0.3s]">
 							<p className="font-display text-lg md:text-xl font-normal text-ocobo-dark leading-tight tracking-tight">
-								Le RevOps n’est pas un outil : c’est{' '}
+								Le RevOps n'est pas un outil : c'est{' '}
 								<span className="font-bold">
 									la science qui organise votre revenu.
 								</span>
 							</p>
 						</div>
 
-						<div
-							className="flex flex-col sm:flex-row gap-6 items-start opacity-0 animate-hero-reveal"
-							style={{ animationDelay: '0.4s' }}
-						>
+						<div className="flex flex-col sm:flex-row gap-6 items-start opacity-0 animate-hero-reveal [animation-delay:0.4s]">
 							<Button variant="primary" to="/contact">
 								Rencontrer un architecte
 							</Button>
 						</div>
-					</div>
+					</HeroSplit.Content>
 
-					<div className="lg:w-1/2 flex justify-center lg:justify-end items-center">
+					<HeroSplit.Media className="flex justify-center lg:justify-end items-center">
 						<DashboardIllustration />
-					</div>
-				</div>
+					</HeroSplit.Media>
+				</HeroSplit>
 			</Container>
 
 			{/* BLOC 2 - LOGOS DÉFILANTS ET TÉMOIGNAGES - STYLE À PROPOS AFFINÉ */}
 			<Section bg="dark" className="py-20 md:py-32 relative overflow-hidden">
-				<div
-					className="absolute inset-0 opacity-[0.02]"
-					style={{
-						backgroundImage: 'radial-gradient(white 1px, transparent 1px)',
-						backgroundSize: '40px 40px',
-					}}
-				></div>
+				<div className="absolute inset-0 opacity-[0.02] bg-dots-light"></div>
 
 				<div className="absolute top-1/2 left-0 w-64 h-64 bg-ocobo-yellow/5 rounded-full -translate-x-1/2 blur-3xl opacity-30"></div>
 
@@ -631,7 +92,7 @@ const Home: React.FC = () => {
 					</div>
 
 					<div className="mb-24">
-						<ClientMarquee />
+						<ClientMarquee clients={HOME_CLIENTS} bordered />
 					</div>
 
 					<TestimonialCard
@@ -647,13 +108,7 @@ const Home: React.FC = () => {
 
 			{/* BLOC 3 - PAIN POINT ET POSITIONNEMENT */}
 			<Section bg="white" className="py-32 relative overflow-hidden">
-				<div
-					className="absolute inset-0 opacity-[0.03] pointer-events-none"
-					style={{
-						backgroundImage: 'radial-gradient(#212323 1px, transparent 1px)',
-						backgroundSize: '30px 30px',
-					}}
-				></div>
+				<div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-dots-dark-sm"></div>
 
 				<Container narrow className="text-center relative z-10">
 					<h2 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
@@ -674,7 +129,7 @@ const Home: React.FC = () => {
 				</Container>
 
 				<Container className="mt-28 relative z-10">
-					<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+					<Grid md={2} lg={4} gap={6}>
 						<FeatureCard
 							icon={<Layout size={28} />}
 							title="Aligner"
@@ -703,7 +158,7 @@ const Home: React.FC = () => {
 							colour={ThemeColor.MINT}
 							label="Organiser ="
 						/>
-					</div>
+					</Grid>
 				</Container>
 
 				<div className="text-center mt-32 max-w-4xl mx-auto px-4">
@@ -734,43 +189,57 @@ const Home: React.FC = () => {
 								qui tient la charge.
 							</p>
 							<ul className="space-y-6">
-								<li className="flex gap-4">
-									<div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-ocobo-dark shadow-sm shrink-0 font-bold border border-gray-100">
-										1
-									</div>
-									<div>
-										<h4 className="font-bold text-lg">Clarté radicale</h4>
-										<p className="text-sm text-gray-600">
-											Une vérité partagée entre équipes. Des décisions
-											éclairées. La fin du pilotage à l’intuition.
-										</p>
-									</div>
+								<li>
+									<FlexPair gap={4}>
+										<FlexPair.Icon>
+											<div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-ocobo-dark shadow-sm font-bold border border-gray-100">
+												1
+											</div>
+										</FlexPair.Icon>
+										<FlexPair.Content>
+											<h4 className="font-bold text-lg">Clarté radicale</h4>
+											<p className="text-sm text-gray-600">
+												Une vérité partagée entre équipes. Des décisions
+												éclairées. La fin du pilotage à l'intuition.
+											</p>
+										</FlexPair.Content>
+									</FlexPair>
 								</li>
-								<li className="flex gap-4">
-									<div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-ocobo-dark shadow-sm shrink-0 font-bold border border-gray-100">
-										2
-									</div>
-									<div>
-										<h4 className="font-bold text-lg">
-											Simplicité opérationnelle
-										</h4>
-										<p className="text-sm text-gray-600">
-											Moins de friction, moins de complexité, moins d’outils.
-											Des équipes concentrées sur le closing.
-										</p>
-									</div>
+								<li>
+									<FlexPair gap={4}>
+										<FlexPair.Icon>
+											<div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-ocobo-dark shadow-sm font-bold border border-gray-100">
+												2
+											</div>
+										</FlexPair.Icon>
+										<FlexPair.Content>
+											<h4 className="font-bold text-lg">
+												Simplicité opérationnelle
+											</h4>
+											<p className="text-sm text-gray-600">
+												Moins de friction, moins de complexité, moins d'outils.
+												Des équipes concentrées sur le closing.
+											</p>
+										</FlexPair.Content>
+									</FlexPair>
 								</li>
-								<li className="flex gap-4">
-									<div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-ocobo-dark shadow-sm shrink-0 font-bold border border-gray-100">
-										3
-									</div>
-									<div>
-										<h4 className="font-bold text-lg">Performance mesurable</h4>
-										<p className="text-sm text-gray-600">
-											Des conversions qui augmentent. Des cycles qui
-											raccourcissent. Un revenu enfin prévisible.
-										</p>
-									</div>
+								<li>
+									<FlexPair gap={4}>
+										<FlexPair.Icon>
+											<div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-ocobo-dark shadow-sm font-bold border border-gray-100">
+												3
+											</div>
+										</FlexPair.Icon>
+										<FlexPair.Content>
+											<h4 className="font-bold text-lg">
+												Performance mesurable
+											</h4>
+											<p className="text-sm text-gray-600">
+												Des conversions qui augmentent. Des cycles qui
+												raccourcissent. Un revenu enfin prévisible.
+											</p>
+										</FlexPair.Content>
+									</FlexPair>
 								</li>
 							</ul>
 						</div>
@@ -811,7 +280,7 @@ const Home: React.FC = () => {
 								<p className="font-display font-bold text-sm uppercase tracking-wider mb-4">
 									The Revenue Experience System™
 								</p>
-								<Button to="/method" className="w-full">
+								<Button to="/method" fullWidth>
 									Découvrir notre méthode
 								</Button>
 							</div>
@@ -831,13 +300,13 @@ const Home: React.FC = () => {
 						votre croissance.
 					</p>
 
-					<div className="grid md:grid-cols-3 gap-8">
+					<Grid md={3} gap={8}>
 						<div className="bg-white border border-gray-200 p-8 hover:border-ocobo-dark transition-colors group">
 							<div className="w-12 h-12 bg-ocobo-dark text-white flex items-center justify-center mb-6">
 								1
 							</div>
 							<h3 className="font-display text-xl font-bold mb-4">
-								Immersion, diagnostic et plan d’action RevOps
+								Immersion, diagnostic et plan d'action RevOps
 							</h3>
 							<p className="text-gray-600 text-sm">
 								Pour voir clair et savoir quoi faire. Dans cet ordre là.
@@ -866,7 +335,7 @@ const Home: React.FC = () => {
 								Pour rendre vos équipes autonomes et pérennes.
 							</p>
 						</div>
-					</div>
+					</Grid>
 
 					<div className="flex justify-center mt-12">
 						<Button variant="outline" to="/offer">
@@ -891,7 +360,7 @@ const Home: React.FC = () => {
 						</p>
 					</div>
 
-					<div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+					<Grid md={2} gap={8} className="max-w-5xl mx-auto">
 						<div className="bg-white text-ocobo-dark p-10 relative">
 							<div className="absolute top-0 left-0 bg-ocobo-yellow text-ocobo-dark px-4 py-1 font-bold text-xs uppercase tracking-widest">
 								Ocobo
@@ -937,14 +406,10 @@ const Home: React.FC = () => {
 								))}
 							</ul>
 						</div>
-					</div>
+					</Grid>
 
 					<div className="flex justify-center mt-16">
-						<Button
-							variant="white"
-							to="/studio"
-							className="px-10 py-4 font-bold border-none shadow-xl hover:shadow-2xl"
-						>
+						<Button variant="white" to="/studio" size="lg">
 							Découvrez le RevOps Studio
 						</Button>
 					</div>
@@ -963,14 +428,12 @@ const Home: React.FC = () => {
 						solutions leaders du marché.
 					</p>
 
-					<ModularStackGrid />
+					<div className="mb-16">
+						<ModularStackGrid items={DEFAULT_STACK_ITEMS} showLabels />
+					</div>
 
 					<div className="mt-8 flex flex-col items-center">
-						<Button
-							variant="outline"
-							to="/technology"
-							className="px-10 py-4 font-bold border-2"
-						>
+						<Button variant="outline" to="/technology" size="lg">
 							Nos solutions partenaires
 						</Button>
 						<p className="mt-6 text-gray-400 text-xs font-bold uppercase tracking-[0.2em]">

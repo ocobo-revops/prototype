@@ -22,6 +22,10 @@ Set `GEMINI_API_KEY` in `.env.local`
 - Do not `git push`; ask before `git add` (unless running ralph loop)
 - Prefer existing files over creating new ones
 
+## Skills
+
+- Apply `vercel-react-best-practices` during React refactoring
+
 ## Ralph loop
 
 When running via `ralph-once.sh` or `afk-ralph.sh`:

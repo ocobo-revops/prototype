@@ -12,19 +12,14 @@ import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { Badge, Button } from '../components/atoms';
+import { ClientMarquee } from '../components/layout/ClientMarquee';
+import Grid from '../components/layout/Grid';
 
 const StoriesIllustration = () => {
 	return (
 		<div className="relative w-full max-w-[540px] aspect-square flex items-center justify-center overflow-visible">
 			{/* BACKGROUND ARCHITECTURAL GRID */}
-			<div
-				className="absolute inset-0 opacity-[0.05] pointer-events-none"
-				style={{
-					backgroundImage:
-						'radial-gradient(#212323 1px, transparent 1px), linear-gradient(rgba(33,35,35,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(33,35,35,0.1) 1px, transparent 1px)',
-					backgroundSize: '40px 40px, 80px 80px, 80px 80px',
-				}}
-			></div>
+			<div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(#212323_1px,transparent_1px),linear-gradient(rgba(33,35,35,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(33,35,35,0.1)_1px,transparent_1px)] bg-[length:40px_40px,80px_80px,80px_80px]" />
 
 			<svg
 				viewBox="0 0 600 600"
@@ -48,10 +43,7 @@ const StoriesIllustration = () => {
 				</g>
 
 				{/* RADAR SWEEP ANIMATION - DARKENED */}
-				<g
-					className="animate-radar-sweep"
-					style={{ transformOrigin: '300px 300px' }}
-				>
+				<g className="animate-radar-sweep origin-radar">
 					<path
 						d="M300,300 L300,0 A300,300 0 0,1 512,87 Z"
 						fill="url(#radarGradient)"
@@ -140,8 +132,7 @@ const StoriesIllustration = () => {
 					y="320"
 					width="160"
 					height="100"
-					className="animate-float-gentle"
-					style={{ animationDelay: '1.2s' }}
+					className="animate-float-gentle [animation-delay:1.2s]"
 				>
 					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset">
 						<div className="flex items-center gap-2 mb-2">
@@ -165,8 +156,7 @@ const StoriesIllustration = () => {
 					y="440"
 					width="160"
 					height="100"
-					className="animate-float-gentle"
-					style={{ animationDelay: '2.5s' }}
+					className="animate-float-gentle [animation-delay:2.5s]"
 				>
 					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset">
 						<div className="flex items-center gap-2 mb-2">
@@ -190,8 +180,7 @@ const StoriesIllustration = () => {
 					y="60"
 					width="160"
 					height="100"
-					className="animate-float-gentle"
-					style={{ animationDelay: '0.6s' }}
+					className="animate-float-gentle [animation-delay:0.6s]"
 				>
 					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset">
 						<div className="flex items-center gap-2 mb-2">
@@ -248,8 +237,7 @@ const StoriesIllustration = () => {
 						cy="500"
 						r="4"
 						fill="#FE9C87"
-						className="animate-pulse"
-						style={{ animationDelay: '1.5s' }}
+						className="animate-pulse [animation-delay:1.5s]"
 					/>
 					<path
 						d="M50,50 l10,0 m-5,-5 l0,10"
@@ -267,47 +255,22 @@ const StoriesIllustration = () => {
 	);
 };
 
-const ClientMarquee = () => {
-	const clients = [
-		'YOUSIGN',
-		'QONTO',
-		'TOMORRO',
-		'QARE',
-		'COMBO',
-		'STEEPLE',
-		'CYBELANGEL',
-		'CITRON',
-		'CHR GROUPE',
-		'VIBE',
-		'JUS MUNDI',
-		'VIZZIA',
-		'RESILIENCE',
-		'QOBRA',
-	];
-
-	const extendedClients = [...clients, ...clients, ...clients];
-
-	return (
-		<div className="relative w-full overflow-hidden py-8">
-			<div className="absolute left-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-r from-ocobo-dark to-transparent z-10 pointer-events-none"></div>
-			<div className="absolute right-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-l from-ocobo-dark to-transparent z-10 pointer-events-none"></div>
-
-			<div className="flex animate-marquee-ultra-slow whitespace-nowrap">
-				{extendedClients.map((client, idx) => (
-					<div
-						// biome-ignore lint/suspicious/noArrayIndexKey: marquee animation requires duplicate elements
-						key={`${client}-${idx}`}
-						className="flex items-center justify-center px-10 md:px-14"
-					>
-						<span className="font-display font-black text-white/30 text-base md:text-xl tracking-[0.25em] uppercase hover:text-ocobo-yellow transition-colors cursor-default select-none">
-							{client}
-						</span>
-					</div>
-				))}
-			</div>
-		</div>
-	);
-};
+const STORIES_CLIENTS = [
+	'YOUSIGN',
+	'QONTO',
+	'TOMORRO',
+	'QARE',
+	'COMBO',
+	'STEEPLE',
+	'CYBELANGEL',
+	'CITRON',
+	'CHR GROUPE',
+	'VIBE',
+	'JUS MUNDI',
+	'VIZZIA',
+	'RESILIENCE',
+	'QOBRA',
+];
 
 const Stories: React.FC = () => {
 	const [activeFilter, setActiveFilter] = useState('Tout');
@@ -608,7 +571,7 @@ const Stories: React.FC = () => {
 
 			{/* Black Marquee Banner */}
 			<section className="bg-ocobo-dark overflow-hidden border-y border-white/5">
-				<ClientMarquee />
+				<ClientMarquee clients={STORIES_CLIENTS} padding="md" textSize="md" />
 			</section>
 
 			{/* Filter Section */}
@@ -641,13 +604,12 @@ const Stories: React.FC = () => {
 
 			{/* Bento Grid Stories */}
 			<section className="max-w-7xl mx-auto px-4 pb-40">
-				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-					{filteredCases.map((item, idx) => (
+				<Grid md={2} lg={3} gap={8} className="stagger-fade">
+					{filteredCases.map((item) => (
 						<Link
 							key={item.id}
 							to={`/stories/${item.id}`}
 							className={`group relative flex flex-col bg-white border border-gray-100 rounded-3xl p-6 transition-all duration-500 hover:shadow-soft-lg hover:-translate-y-2 overflow-hidden h-full ${animate ? 'opacity-0 animate-fade-in-up' : ''}`}
-							style={{ animationDelay: `${idx * 0.05}s` }}
 						>
 							<div
 								className={`absolute top-0 right-0 w-32 h-32 bg-ocobo-${item.color.split('-')[1]} opacity-0 group-hover:opacity-5 blur-3xl transition-opacity`}
@@ -727,7 +689,7 @@ const Stories: React.FC = () => {
 							</div>
 						</Link>
 					))}
-				</div>
+				</Grid>
 			</section>
 
 			{/* CTA Section */}
@@ -746,11 +708,7 @@ const Stories: React.FC = () => {
 						success story ?
 					</h2>
 					<div className="flex justify-center">
-						<Button
-							variant="primary"
-							className="px-14 py-6 text-lg shadow-soft-md bg-ocobo-dark text-white border-none hover:bg-black"
-							to="/contact"
-						>
+						<Button variant="cta" size="xl" to="/contact">
 							Discutons de votre architecture
 						</Button>
 					</div>

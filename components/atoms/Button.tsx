@@ -3,9 +3,10 @@ import type React from 'react';
 import { Link } from 'react-router';
 
 interface BaseButtonProps {
-	variant?: 'primary' | 'outline' | 'white';
-	size?: 'sm' | 'md' | 'lg';
+	variant?: 'primary' | 'outline' | 'white' | 'cta' | 'nav';
+	size?: 'sm' | 'md' | 'lg' | 'xl';
 	showArrow?: boolean;
+	fullWidth?: boolean;
 	children: React.ReactNode;
 	className?: string;
 }
@@ -43,12 +44,13 @@ const Button: React.FC<ButtonProps> = ({
 	variant = 'primary',
 	size = 'md',
 	showArrow = true,
+	fullWidth = false,
 	children,
 	className = '',
 	...props
 }: ButtonProps) => {
 	const baseStyles =
-		'rounded-full font-semibold tracking-wide transition-colors duration-300 flex items-center justify-center gap-2 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 hover:[&>svg]:translate-x-1';
+		'rounded-full font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 hover:[&>svg]:translate-x-1';
 
 	const variants = {
 		primary:
@@ -57,21 +59,28 @@ const Button: React.FC<ButtonProps> = ({
 			'bg-transparent text-ocobo-dark border border-ocobo-dark hover:bg-ocobo-dark hover:text-white focus-visible:outline-ocobo-dark',
 		white:
 			'bg-white text-ocobo-dark hover:bg-gray-100 focus-visible:outline-ocobo-dark border border-transparent',
+		cta: 'bg-ocobo-dark text-white shadow-xl hover:-translate-y-1 hover:shadow-2xl focus-visible:outline-white border border-transparent',
+		nav: 'bg-transparent text-current hover:bg-current/10 focus-visible:outline-current border border-transparent',
 	};
 
 	const sizes = {
 		sm: 'px-4 py-2 text-xs',
 		md: 'px-6 py-3 text-sm',
 		lg: 'px-8 py-4 text-base',
+		xl: 'px-12 py-5 text-lg',
 	};
 
 	const iconSizes = {
 		sm: 'w-3 h-3',
 		md: 'w-4 h-4',
 		lg: 'w-5 h-5',
+		xl: 'w-6 h-6',
 	};
 
-	const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
+	const widthClass = fullWidth ? 'w-full' : '';
+
+	const classes =
+		`${baseStyles} ${variants[variant]} ${sizes[size]} ${widthClass} ${className}`.trim();
 
 	const arrowIcon = showArrow && (
 		<ArrowRight

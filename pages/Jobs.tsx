@@ -17,6 +17,7 @@ import {
 import type React from 'react';
 import { Link } from 'react-router';
 import { Badge } from '../components/atoms';
+import Grid from '../components/layout/Grid';
 
 interface VideoStoryCardProps {
 	episode: string;
@@ -298,13 +299,7 @@ const Jobs: React.FC = () => {
 			{/* 2. OCOBO STORIES (DARK MODE) */}
 			<section className="bg-ocobo-dark py-32 mb-24 relative overflow-hidden">
 				{/* Subtle Background Pattern */}
-				<div
-					className="absolute inset-0 opacity-[0.03] pointer-events-none"
-					style={{
-						backgroundImage: 'radial-gradient(white 1px, transparent 1px)',
-						backgroundSize: '40px 40px',
-					}}
-				></div>
+				<div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:40px_40px]" />
 
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 					<div className="max-w-3xl mb-20">
@@ -320,7 +315,7 @@ const Jobs: React.FC = () => {
 						</p>
 					</div>
 
-					<div className="grid md:grid-cols-3 gap-12 lg:gap-16">
+					<Grid md={3} gap={12} className="lg:gap-16">
 						{stories.map((story) => (
 							<_VideoStoryCard
 								key={story.episode}
@@ -333,7 +328,7 @@ const Jobs: React.FC = () => {
 								videoThumb={story.videoThumb}
 							/>
 						))}
-					</div>
+					</Grid>
 				</div>
 			</section>
 
@@ -348,7 +343,7 @@ const Jobs: React.FC = () => {
 					</h2>
 				</div>
 
-				<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+				<Grid md={2} lg={4} gap={8}>
 					{values.map((val) => (
 						<div
 							key={val.title}
@@ -365,7 +360,7 @@ const Jobs: React.FC = () => {
 							</p>
 						</div>
 					))}
-				</div>
+				</Grid>
 			</section>
 
 			{/* 4. Nos offres à pourvoir */}

@@ -14,322 +14,18 @@ import {
 import type React from 'react';
 import { Link } from 'react-router';
 import { Badge, Button } from '../components/atoms';
+import { ArchitecturalGrid, PyramidSection } from '../components/illustrations';
+import Grid from '../components/layout/Grid';
+import HeroSplit from '../components/layout/HeroSplit';
 import { SectionHeader } from '../components/organisms';
-
-const ArchitecturalGrid = () => {
-	return (
-		<div className="relative w-full max-w-[500px] animate-float-grid">
-			<div className="flex items-stretch gap-4 relative">
-				{/* Axe Ordonnée : ALIGNEMENT */}
-				<div className="flex flex-col items-center justify-center py-4 shrink-0">
-					<div className="[writing-mode:vertical-lr] rotate-180 font-display font-bold text-ocobo-dark/40 text-xs uppercase tracking-[0.6em] mb-4">
-						Alignement
-					</div>
-					<div
-						className="w-px bg-ocobo-dark/20 flex-grow origin-left animate-blueprint-in origin-top"
-						style={{ animationDelay: '0.2s' }}
-					></div>
-				</div>
-
-				{/* Grid Container */}
-				<div className="relative z-10 bg-white border-2 border-ocobo-dark p-8 shadow-offset flex-grow">
-					<div className="grid grid-cols-2 gap-4 mb-4">
-						<div
-							className="opacity-0 animate-box-pop h-24 bg-ocobo-yellow-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
-							style={{ animationDelay: '0.4s' }}
-						>
-							<span className="font-display font-bold group-hover:text-ocobo-yellow transition-colors text-xs md:text-sm">
-								MARKETING
-							</span>
-						</div>
-						<div
-							className="opacity-0 animate-box-pop h-24 bg-ocobo-sky-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
-							style={{ animationDelay: '0.5s' }}
-						>
-							<span className="font-display font-bold group-hover:text-ocobo-sky transition-colors text-xs md:text-sm">
-								SALES
-							</span>
-						</div>
-						<div
-							className="opacity-0 animate-box-pop h-24 bg-ocobo-mint-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
-							style={{ animationDelay: '0.6s' }}
-						>
-							<span className="font-display font-bold group-hover:text-ocobo-mint transition-colors text-xs md:text-sm">
-								CLIENT
-							</span>
-						</div>
-						<div
-							className="opacity-0 animate-box-pop h-24 bg-ocobo-coral-light border border-ocobo-dark flex items-center justify-center hover:-translate-y-1 transition-transform cursor-pointer group"
-							style={{ animationDelay: '0.7s' }}
-						>
-							<span className="font-display font-bold group-hover:text-ocobo-coral transition-colors text-xs md:text-sm">
-								FINANCE
-							</span>
-						</div>
-					</div>
-
-					{/* Foundation Line (X-Axis) */}
-					<div className="h-2 bg-ocobo-dark w-full mb-4 origin-left animate-blueprint-in"></div>
-
-					{/* Axe Abscisse labels */}
-					<div className="flex justify-between text-xs md:text-xs font-bold uppercase tracking-widest text-ocobo-dark/60">
-						<span
-							className="opacity-0 animate-box-pop"
-							style={{ animationDelay: '0.9s' }}
-						>
-							Technology
-						</span>
-						<span
-							className="opacity-0 animate-box-pop"
-							style={{ animationDelay: '1s' }}
-						>
-							Performance
-						</span>
-						<span
-							className="opacity-0 animate-box-pop"
-							style={{ animationDelay: '1.1s' }}
-						>
-							Enablement
-						</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
-};
-
-const PyramidSection = () => {
-	return (
-		<div className="relative w-full max-w-6xl mx-auto h-[620px]">
-			<svg
-				viewBox="0 0 1000 620"
-				fill="none"
-				xmlns="http://www.w3.org/2000/svg"
-				className="w-full h-full overflow-visible text-ocobo-dark"
-			>
-				{/* Background decorative blobs - Colors synchronized with sections */}
-				<circle cx="580" cy="180" r="50" fill="#FE9C87" fillOpacity="0.25" />{' '}
-				{/* 1. CEO -> Coral */}
-				<circle cx="420" cy="250" r="45" fill="#F1CF25" fillOpacity="0.25" />{' '}
-				{/* 2. Managers -> Yellow */}
-				<circle cx="630" cy="400" r="48" fill="#99D1DF" fillOpacity="0.25" />{' '}
-				{/* 3. Teams -> Blue */}
-				<circle cx="370" cy="480" r="50" fill="#9ADBBA" fillOpacity="0.25" />{' '}
-				{/* 4. Clients -> Mint */}
-				{/* Decorative Sparkles (crosses) - Adjusted positions */}
-				<g transform="translate(450, 200) rotate(15)">
-					<path
-						d="M-8 0 L8 0 M0 -8 L0 8"
-						stroke="currentColor"
-						strokeWidth="2.5"
-					/>
-				</g>
-				<g transform="translate(680, 420)">
-					<path
-						d="M-6 0 L6 0 M0 -6 L0 6"
-						stroke="currentColor"
-						strokeWidth="2"
-					/>
-				</g>
-				<g transform="translate(340, 540) rotate(-15)">
-					<path
-						d="M-5 0 L5 0 M0 -5 L0 5"
-						stroke="currentColor"
-						strokeWidth="2"
-					/>
-				</g>
-				<g transform="translate(620, 310) rotate(45)">
-					<path
-						d="M-10 0 L10 0 M0 -10 L0 10"
-						stroke="currentColor"
-						strokeWidth="1.5"
-					/>
-				</g>
-				{/* --- Pyramid Levels --- */}
-				{/* Level 1: CEO (Triangle) */}
-				<path
-					d="M500 150 L460 220 L540 220 Z"
-					fill="white"
-					stroke="currentColor"
-					strokeWidth="2.5"
-				/>
-				<path d="M540 220 L550 210 L510 140 L500 150" fill="currentColor" />
-				{/* Level 2: Managers */}
-				<path
-					d="M455 235 L545 235 L570 305 L430 305 Z"
-					fill="white"
-					stroke="currentColor"
-					strokeWidth="2.5"
-				/>
-				<path d="M570 305 L580 295 L555 225 L545 235" fill="currentColor" />
-				{/* Level 3: Équipes terrain */}
-				<path
-					d="M425 320 L575 320 L605 390 L395 390 Z"
-					fill="white"
-					stroke="currentColor"
-					strokeWidth="2.5"
-				/>
-				<path d="M605 390 L615 380 L585 310 L575 320" fill="currentColor" />
-				{/* --- Dashed Line moved up (between Teams and Clients) --- */}
-				<path
-					d="M380 397.5 L630 397.5"
-					stroke="currentColor"
-					strokeWidth="1.5"
-					strokeDasharray="4 4"
-					opacity="0.4"
-				/>
-				{/* Level 4: Clients */}
-				<path
-					d="M385 405 L615 405 L650 490 L350 490 Z"
-					fill="white"
-					stroke="currentColor"
-					strokeWidth="2.5"
-				/>
-				<path d="M650 490 L660 480 L625 395 L615 405" fill="currentColor" />
-				{/* --- Connectors & Text Boxes --- */}
-				{/* Label 1 (CEO) - Top Right */}
-				<path
-					d="M525 180 C 560 180, 575 100, 605 100"
-					stroke="currentColor"
-					strokeWidth="1.5"
-					fill="none"
-				/>
-				<circle cx="605" cy="100" r="3.5" fill="currentColor" />
-				<foreignObject x="625" y="40" width="350" height="200">
-					<div className="flex flex-col items-start text-left">
-						<div className="flex items-center gap-4 mb-3">
-							<div className="w-10 h-10 bg-white border-2 border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">
-								1
-							</div>
-							<h3 className="font-display font-bold text-2xl text-ocobo-dark">
-								CEO
-							</h3>
-						</div>
-						<ul className="text-sm text-gray-500 font-medium space-y-1">
-							<li className="flex items-start gap-2">
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-coral shrink-0 mt-1.5"></span>
-								Manque de visibilité sur le business
-							</li>
-							<li className="flex items-start gap-2">
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-coral shrink-0 mt-1.5"></span>
-								Vision difficile à traduire en actions
-							</li>
-						</ul>
-					</div>
-				</foreignObject>
-				{/* Label 2 (Managers) - Mid Left */}
-				<path
-					d="M445 265 C 410 265, 410 210, 370 210"
-					stroke="currentColor"
-					strokeWidth="1.5"
-					fill="none"
-				/>
-				<circle cx="370" cy="210" r="3.5" fill="currentColor" />
-				<foreignObject x="30" y="140" width="320" height="200">
-					<div className="flex flex-col items-end text-right pr-4">
-						<div className="flex items-center gap-4 mb-3">
-							<h3 className="font-display font-bold text-2xl text-ocobo-dark">
-								Managers
-							</h3>
-							<div className="w-10 h-10 bg-white border-2 border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">
-								2
-							</div>
-						</div>
-						<ul className="text-sm text-gray-500 font-medium space-y-1">
-							<li className="flex items-start gap-2 justify-end">
-								Prévisions instables
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-yellow shrink-0 mt-1.5"></span>
-							</li>
-							<li className="flex items-start gap-2 justify-end">
-								Peu d’insights pour faire progresser les équipes
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-yellow shrink-0 mt-1.5"></span>
-							</li>
-							<li className="flex items-start gap-2 justify-end">
-								Ressources mal allouées
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-yellow shrink-0 mt-1.5"></span>
-							</li>
-						</ul>
-					</div>
-				</foreignObject>
-				{/* Label 3 (Équipes terrain) - Mid Right */}
-				<path
-					d="M590 355 C 640 355, 650 300, 695 300"
-					stroke="currentColor"
-					strokeWidth="1.5"
-					fill="none"
-				/>
-				<circle cx="695" cy="300" r="3.5" fill="currentColor" />
-				<foreignObject x="715" y="235" width="280" height="200">
-					<div className="flex flex-col items-start text-left">
-						<div className="flex items-center gap-4 mb-3">
-							<div className="w-10 h-10 bg-white border-2 border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">
-								3
-							</div>
-							<h3 className="font-display font-bold text-2xl text-ocobo-dark">
-								Équipes terrain
-							</h3>
-						</div>
-						<ul className="text-sm text-gray-500 font-medium space-y-1">
-							<li className="flex items-start gap-2">
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-sky shrink-0 mt-1.5"></span>
-								Trop d’outils, pas assez de clarté
-							</li>
-							<li className="flex items-start gap-2">
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-sky shrink-0 mt-1.5"></span>
-								Productivité en baisse
-							</li>
-							<li className="flex items-start gap-2">
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-sky shrink-0 mt-1.5"></span>
-								Difficulté à comprendre la stratégie
-							</li>
-						</ul>
-					</div>
-				</foreignObject>
-				{/* Label 4 (Clients) - Bottom Left */}
-				<path
-					d="M370 445 C 330 445, 330 520, 280 520"
-					stroke="currentColor"
-					strokeWidth="1.5"
-					fill="none"
-				/>
-				<circle cx="280" cy="520" r="3.5" fill="currentColor" />
-				<foreignObject x="10" y="450" width="250" height="200">
-					<div className="flex flex-col items-end text-right pr-4">
-						<div className="flex items-center gap-4 mb-3">
-							<h3 className="font-display text-2xl text-ocobo-dark">Clients</h3>
-							<div className="w-10 h-10 bg-white border-2 border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">
-								4
-							</div>
-						</div>
-						<ul className="text-sm text-gray-500 font-medium space-y-1">
-							<li className="flex items-start gap-2 justify-end">
-								Expérience inégale
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-mint shrink-0 mt-1.5"></span>
-							</li>
-							<li className="flex items-start gap-2 justify-end">
-								Informations dispersées
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-mint shrink-0 mt-1.5"></span>
-							</li>
-							<li className="flex items-start gap-2 justify-end">
-								Frictions dans le parcours
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-mint shrink-0 mt-1.5"></span>
-							</li>
-						</ul>
-					</div>
-				</foreignObject>
-			</svg>
-		</div>
-	);
-};
 
 const Services: React.FC = () => {
 	return (
 		<div className="w-full">
 			{/* BLOC 1 - HERO OFFRE */}
 			<section className="pt-40 pb-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-				<div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24 mb-16">
-					{/* Left Content */}
-					<div className="lg:w-1/2">
+				<HeroSplit gap={16} className="mb-16">
+					<HeroSplit.Content className="lg:w-1/2">
 						<Badge variant="yellow" className="mb-10">
 							NOTRE OFFRE
 						</Badge>
@@ -339,26 +35,19 @@ const Services: React.FC = () => {
 							<span className="text-gray-400">Pas des rustines.</span>
 						</h1>
 						<p className="text-xl text-gray-700 mb-12 leading-relaxed font-medium max-w-xl">
-							Les entreprises qui passent à l’échelle ne misent pas sur
-							l’empilement d’outils. Elles construisent un système de revenu
+							Les entreprises qui passent à l'échelle ne misent pas sur
+							l'empilement d'outils. Elles construisent un système de revenu
 							clair, simple et pilotable.
 						</p>
-						<Button
-							size="lg"
-							className="shadow-xl hover:shadow-2xl hover:-translate-y-1"
-							to="/contact"
-						>
+						<Button variant="cta" size="lg" to="/contact">
 							Prendre RDV
 						</Button>
-					</div>
-
-					{/* Right Illustration */}
-					<div className="lg:w-1/2 flex justify-center lg:justify-end items-center relative">
+					</HeroSplit.Content>
+					<HeroSplit.Media className="lg:w-1/2 flex justify-center lg:justify-end items-center">
 						<ArchitecturalGrid />
-					</div>
-				</div>
+					</HeroSplit.Media>
+				</HeroSplit>
 
-				{/* SOBER SCROLL INDICATOR - Dominante Corail */}
 				<div className="flex justify-center w-full animate-bounce-subtle">
 					<ChevronDown
 						className="text-ocobo-coral opacity-30"
@@ -463,7 +152,7 @@ const Services: React.FC = () => {
 							RevOps vient remettre de l’ordre.
 						</h2>
 
-						<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+						<Grid md={2} lg={4} gap={12}>
 							<div className="space-y-4">
 								<h3 className="font-display text-2xl font-bold text-ocobo-yellow">
 									Alignement
@@ -500,7 +189,7 @@ const Services: React.FC = () => {
 									parcours client.
 								</p>
 							</div>
-						</div>
+						</Grid>
 					</div>
 				</div>
 			</section>
@@ -714,7 +403,7 @@ const Services: React.FC = () => {
 						className="max-w-3xl mb-20"
 					/>
 
-					<div className="grid lg:grid-cols-3 gap-12 lg:gap-8">
+					<Grid lg={3} gap={8} className="gap-12 lg:gap-8">
 						{/* Levier 1: Méthode */}
 						<Link to="/method" className="group flex flex-col h-full">
 							<div className="relative p-10 bg-gray-50 rounded-3xl border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
@@ -845,7 +534,7 @@ const Services: React.FC = () => {
 								</div>
 							</div>
 						</Link>
-					</div>
+					</Grid>
 				</div>
 			</section>
 
@@ -853,7 +542,7 @@ const Services: React.FC = () => {
 			<section className="py-24 bg-gray-50">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<SectionHeader title="Notre méthode en 4 étapes" className="mb-16" />
-					<div className="grid md:grid-cols-4 gap-6">
+					<Grid md={4} gap={6}>
 						{[
 							{
 								title: 'Aligner',
@@ -896,7 +585,7 @@ const Services: React.FC = () => {
 								</div>
 							</div>
 						))}
-					</div>
+					</Grid>
 				</div>
 			</section>
 
@@ -912,7 +601,7 @@ const Services: React.FC = () => {
 						</p>
 					</div>
 
-					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+					<Grid md={2} lg={3} gap={8}>
 						{[
 							{
 								title: 'Diagnostiquer',
@@ -999,7 +688,7 @@ const Services: React.FC = () => {
 								</ul>
 							</div>
 						))}
-					</div>
+					</Grid>
 				</div>
 			</section>
 
@@ -1011,7 +700,7 @@ const Services: React.FC = () => {
 						light
 						className="mb-16"
 					/>
-					<div className="grid md:grid-cols-3 gap-12">
+					<Grid md={3} gap={12}>
 						<div className="text-center">
 							<div className="w-16 h-16 bg-ocobo-yellow rounded-full flex items-center justify-center text-ocobo-dark mx-auto mb-6">
 								<CheckCircle2 size={32} strokeWidth={4} />
@@ -1048,30 +737,24 @@ const Services: React.FC = () => {
 								scale.
 							</p>
 						</div>
-					</div>
+					</Grid>
 				</div>
 			</section>
 
-			{/* CTA FINAL - TEXTE MIS À JOUR & CENTRÉ */}
+			{/* CTA FINAL */}
 			<section className="bg-ocobo-yellow py-24 text-ocobo-dark">
 				<div className="max-w-4xl mx-auto px-4 text-center">
 					<h2 className="font-display text-4xl md:text-5xl font-bold mb-8">
 						Prenez le contrôle de votre croissance.
 					</h2>
-
 					<div className="mb-10 space-y-2">
 						<p className="text-lg md:text-xl font-medium opacity-90">
 							30 minutes pour analyser votre machine revenue.
 						</p>
-						<p className="text-lg md:text-xl font-bold">Clarté garantie.</p>
+						<p className="text-lg md:text-xl font-bold">Clarité garantie.</p>
 					</div>
-
 					<div className="flex justify-center">
-						<Button
-							variant="primary"
-							className="px-12 py-5 text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 bg-ocobo-dark text-white border-none"
-							to="/contact"
-						>
+						<Button variant="cta" size="xl" to="/contact">
 							Prendre RDV
 						</Button>
 					</div>

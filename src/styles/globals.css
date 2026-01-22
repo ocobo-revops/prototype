@@ -40,10 +40,7 @@
 
 /* --- Base Styles --- */
 body {
-	font-family: "Bornia", "Inter", sans-serif;
-	background-color: #ffffff;
-	color: #212323;
-	-webkit-font-smoothing: antialiased;
+	@apply font-sans bg-white text-ocobo-dark antialiased;
 }
 
 h1,
@@ -52,9 +49,7 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Bermia", "Inter", sans-serif;
-	font-weight: 900;
-	letter-spacing: -0.02em;
+	@apply font-display font-black tracking-tight;
 }
 
 .scroll-smooth {
@@ -62,6 +57,130 @@ h6 {
 }
 
 ::selection {
-	background-color: #f1cf25;
-	color: #212323;
+	@apply bg-ocobo-yellow text-ocobo-dark;
+}
+
+/* --- Component Utilities --- */
+
+/* Badge label: font-display, bold, uppercase, tracked */
+.badge-label {
+	@apply font-display text-xs font-black uppercase tracking-[0.3em];
+}
+
+/* Card base: white bg, border, rounded, padding */
+.card-base {
+	@apply bg-white border border-gray-100 rounded-2xl p-8;
+}
+
+/* Card interactive: card-base + hover shadow */
+.card-interactive {
+	@apply bg-white border border-gray-100 rounded-2xl p-8 transition-shadow duration-200 ease-in-out hover:shadow-soft-lg;
+}
+
+/* Flex center: shorthand for flex items-center justify-center */
+.flex-center {
+	@apply flex items-center justify-center;
+}
+
+/* Logo muted: grayscale + reduced opacity for client logos */
+.logo-muted {
+	@apply grayscale opacity-40 transition-all duration-300 ease-in-out hover:grayscale-0 hover:opacity-100;
+}
+
+/* Section default: standard padding, white bg */
+.section-default {
+	@apply py-24 bg-white;
+}
+
+/* Section dark: dark bg with white text */
+.section-dark {
+	@apply py-24 bg-ocobo-dark text-white;
+}
+
+/* Background dot pattern (radial gradient dots) */
+.bg-dots-dark {
+	background-image: radial-gradient(#212323 1px, transparent 1px);
+	background-size: 40px 40px;
+}
+
+.bg-dots-dark-sm {
+	background-image: radial-gradient(#212323 1px, transparent 1px);
+	background-size: 30px 30px;
+}
+
+.bg-dots-light {
+	background-image: radial-gradient(white 1px, transparent 1px);
+	background-size: 40px 40px;
+}
+
+/* Text stroke effect for outlined text */
+.text-stroke-white {
+	-webkit-text-stroke: 1px white;
+}
+
+/* Transform origin for radar/SVG animations */
+.origin-radar {
+	transform-origin: 300px 300px;
+}
+
+/* Staggered animation delays for grid items (0.05s increments) */
+.stagger-fade > *:nth-child(1) {
+	animation-delay: 0s;
+}
+.stagger-fade > *:nth-child(2) {
+	animation-delay: 0.05s;
+}
+.stagger-fade > *:nth-child(3) {
+	animation-delay: 0.1s;
+}
+.stagger-fade > *:nth-child(4) {
+	animation-delay: 0.15s;
+}
+.stagger-fade > *:nth-child(5) {
+	animation-delay: 0.2s;
+}
+.stagger-fade > *:nth-child(6) {
+	animation-delay: 0.25s;
+}
+.stagger-fade > *:nth-child(7) {
+	animation-delay: 0.3s;
+}
+.stagger-fade > *:nth-child(8) {
+	animation-delay: 0.35s;
+}
+.stagger-fade > *:nth-child(9) {
+	animation-delay: 0.4s;
+}
+.stagger-fade > *:nth-child(10) {
+	animation-delay: 0.45s;
+}
+.stagger-fade > *:nth-child(11) {
+	animation-delay: 0.5s;
+}
+.stagger-fade > *:nth-child(12) {
+	animation-delay: 0.55s;
+}
+.stagger-fade > *:nth-child(13) {
+	animation-delay: 0.6s;
+}
+.stagger-fade > *:nth-child(14) {
+	animation-delay: 0.65s;
+}
+.stagger-fade > *:nth-child(15) {
+	animation-delay: 0.7s;
+}
+.stagger-fade > *:nth-child(16) {
+	animation-delay: 0.75s;
+}
+.stagger-fade > *:nth-child(17) {
+	animation-delay: 0.8s;
+}
+.stagger-fade > *:nth-child(18) {
+	animation-delay: 0.85s;
+}
+.stagger-fade > *:nth-child(19) {
+	animation-delay: 0.9s;
+}
+.stagger-fade > *:nth-child(20) {
+	animation-delay: 0.95s;
 }

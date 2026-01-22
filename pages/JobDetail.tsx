@@ -126,13 +126,7 @@ const JobDetail: React.FC = () => {
 	return (
 		<div className="w-full bg-white pt-32 pb-24 font-sans">
 			{/* Blueprint background pattern ultra-léger */}
-			<div
-				className="fixed inset-0 opacity-[0.02] pointer-events-none -z-10"
-				style={{
-					backgroundImage: 'radial-gradient(#212323 1px, transparent 1px)',
-					backgroundSize: '40px 40px',
-				}}
-			></div>
+			<div className="fixed inset-0 opacity-[0.02] pointer-events-none -z-10 bg-dots-dark"></div>
 
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				{/* BREADCRUMBS & TOP NAV (Style Blog) */}
