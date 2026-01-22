@@ -10,8 +10,8 @@ Read this section FIRST on each iteration.
 - Container narrow prop for max-w-5xl, default is max-w-7xl
 - Section bg prop accepts: white, gray, dark, yellow, sky, mint, coral
 - SectionHeader exists in components/organisms/ - use for headers
-- Existing atoms: Button, Badge, Input
-- Existing molecules: Card, TestimonialCard
+- Existing atoms: Button, Badge, Input, NumberCircle
+- Existing molecules: Card, TestimonialCard, AccentCard
 - Existing layout: Grid, FlexPair, HeroSplit, FeatureCard, ModularStackGrid
 - Export new components from index.ts barrel files
 
@@ -43,3 +43,27 @@ Created: 2026-01-22T12:30:00Z
 9. Feature 14: Visual verification
 
 ---
+
+## Feature 1: NumberCircle atom - COMPLETED
+- Created components/atoms/NumberCircle.tsx
+- Props: number, variant (dark/light/ThemeColor), size (sm/md/lg)
+- Circular badge with centred number using flex + rounded-full
+- Exported from components/atoms/index.ts
+- Build passes, lint passes, tests pass
+- Commit: 4baf257
+
+## Feature 2: AccentCard molecule - COMPLETED
+- Created components/molecules/AccentCard.tsx
+- Props: title, description, color (ThemeColor)
+- Card with border-l-4 and bg-{color}-light
+- Exported from components/molecules/index.ts
+- Build passes, lint passes, tests pass
+- Commit: 44be321
+
+## Feature 3: ServiceCard molecule - COMPLETED
+- Created components/molecules/ServiceCard.tsx
+- Props: number, title, description, color (optional ThemeColor)
+- Uses NumberCircle atom for number display
+- Hover state: border-ocobo-dark transition
+- Exported from components/molecules/index.ts
+- Build passes, lint passes, tests pass

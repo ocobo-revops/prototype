@@ -29,10 +29,10 @@
 				"Export from components/atoms/index.ts",
 				"Verify TypeScript compiles without errors"
 			],
-			"passes": false,
+			"passes": true,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": null
+			"completed_at": "2026-01-22T12:32:00Z"
 		},
 		{
 			"id": 2,
@@ -46,10 +46,10 @@
 				"Export from components/molecules/index.ts",
 				"Verify TypeScript compiles without errors"
 			],
-			"passes": false,
+			"passes": true,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": null
+			"completed_at": "2026-01-22T12:33:00Z"
 		},
 		{
 			"id": 3,
@@ -64,10 +64,10 @@
 				"Export from components/molecules/index.ts",
 				"Verify TypeScript compiles without errors"
 			],
-			"passes": false,
+			"passes": true,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": null
+			"completed_at": "2026-01-22T12:37:00Z"
 		},
 		{
 			"id": 4,
