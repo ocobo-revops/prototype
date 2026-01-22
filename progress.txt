@@ -11,7 +11,7 @@ Read this section FIRST on each iteration.
 - Section bg prop accepts: white, gray, dark, yellow, sky, mint, coral
 - SectionHeader exists in components/organisms/ - use for headers
 - Existing atoms: Button, Badge, Input, NumberCircle
-- Existing molecules: Card, TestimonialCard, AccentCard, ServiceCard, TeamMemberCard
+- Existing molecules: Card, TestimonialCard, AccentCard, ServiceCard, TeamMemberCard, ValueCard
 - Existing layout: Grid, FlexPair, HeroSplit, FeatureCard, ModularStackGrid
 - Export new components from index.ts barrel files
 
@@ -72,5 +72,12 @@ Created: 2026-01-22T12:30:00Z
 - Created components/molecules/TeamMemberCard.tsx
 - Props: name, role, bio, imageSrc (optional), linkedInUrl (optional), color (ThemeColor)
 - Photo with coloured border, centred text layout, LinkedIn icon
+- Exported from components/molecules/index.ts
+- Build passes, lint passes, tests pass
+
+## Feature 5: ValueCard molecule - COMPLETED
+- Created components/molecules/ValueCard.tsx
+- Props: title, description, color (ThemeColor)
+- Coloured title text with description below
 - Exported from components/molecules/index.ts
 - Build passes, lint passes, tests pass
