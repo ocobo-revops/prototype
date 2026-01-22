@@ -13,7 +13,7 @@ Read this section FIRST on each iteration.
 - Existing atoms: Button, Badge, Input, NumberCircle
 - Existing molecules: Card, TestimonialCard, AccentCard, ServiceCard, TeamMemberCard, ValueCard (with detail prop + dark variant), PillarCard, ScopeCard
 - Existing layout: Grid, FlexPair, HeroSplit, FeatureCard, ModularStackGrid
-- Existing sections: CtaSection (shared/), method/ sections, home/ sections, about/ sections (Hero, Manifesto, Team, Values)
+- Existing sections: CtaSection (shared/), method/ sections, home/ sections, about/ sections, services/ sections
 - Export new components from index.ts barrel files
 - CtaSection: variant (yellow/sky/dark), title, subtitle?, ctaText, ctaLink
 
@@ -143,4 +143,19 @@ Created: 2026-01-22T12:30:00Z
 - Created index.ts barrel export
 - Refactored About.tsx to 28 lines (imports + section composition + CtaSection sky variant)
 - Used CtaSection shared component for final CTA (sky variant)
+- Build passes, lint passes
+
+## Feature 12: Extract Services.tsx sections - COMPLETED
+- Created components/sections/services/ directory
+- Extracted HeroSection.tsx (Badge, HeroSplit, ArchitecturalGrid, scroll indicator)
+- Extracted SymptomsSection.tsx (mobile list + desktop PyramidSection)
+- Extracted TransitionSection.tsx (dark bg, RevOps 4-pillar Grid)
+- Extracted OffersDetailSection.tsx (3 service offerings with sticky headers, CheckCircle2 lists)
+- Extracted LeviersSection.tsx (3 levier Link cards with icons, tags, logo images)
+- Extracted MethodeSection.tsx (4-step method Grid with deliverables)
+- Extracted ImplicationsSection.tsx (6 implication cards with dynamic colour classes)
+- Extracted WhyOcoboSection.tsx (dark bg, 3 reasons with CheckCircle2 icons)
+- Created index.ts barrel export
+- Refactored Services.tsx to 37 lines (imports + section composition + CtaSection)
+- Used CtaSection shared component for final CTA (yellow variant)
 - Build passes, lint passes
