@@ -1,0 +1,45 @@
+## Codebase Patterns
+<!--
+Reusable patterns discovered during implementation.
+Add new patterns here as you learn them.
+Read this section FIRST on each iteration.
+-->
+
+- Use pnpm, not npm
+- Use ThemeColor type from types.ts for colour variants
+- Container narrow prop for max-w-5xl, default is max-w-7xl
+- Section bg prop accepts: white, gray, dark, yellow, sky, mint, coral
+- SectionHeader exists in components/organisms/ - use for headers
+- Existing atoms: Button, Badge, Input
+- Existing molecules: Card, TestimonialCard
+- Existing layout: Grid, FlexPair, HeroSplit, FeatureCard, ModularStackGrid
+- Export new components from index.ts barrel files
+
+---
+
+# Progress Log
+
+Project: Ocobo Design System Refactor
+Source: specs/pages-refactor.md
+Branch: pages-refactor
+Created: 2026-01-22T12:30:00Z
+
+## Initial Setup
+- Created stories.json with 14 features
+- High priority: 9 features (atoms, molecules, sections, validation)
+- Medium priority: 4 features (TeamMemberCard, ValueCard, PillarCard, ScopeCard)
+- Low priority: 0 features
+- Ready for implementation
+
+## Execution Order
+1. Feature 1: NumberCircle (atom - no deps)
+2. Features 2-7: Molecules (depend on NumberCircle)
+3. Feature 8: CtaSection (shared section)
+4. Feature 9: Method sections (simplest page, 3 sections)
+5. Feature 10: Home sections (7 sections)
+6. Feature 11: About sections (4 sections)
+7. Feature 12: Services sections (8 sections - most complex)
+8. Feature 13: Build/lint validation
+9. Feature 14: Visual verification
+
+---
