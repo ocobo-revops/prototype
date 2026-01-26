@@ -12,7 +12,7 @@ Read this section FIRST on each iteration.
 - Named exports only, no default exports
 - Kebab-case filenames
 - Storybook 10 with a11y addon available
-- Panda CSS config exports named `config` (not default)
+- Panda CSS config MUST use default export (not named export)
 - Run `pnpm panda codegen` after config changes
 - styled-system/ alias configured in vite.config.ts
 
@@ -76,6 +76,33 @@ Steps completed:
 
 Verification:
 - Build passes (vite build)
+- Tests pass (1/1)
+
+---
+
+## Feature 2: Design tokens migrated from Tailwind config
+**Status:** PASS
+**Completed:** 2026-01-26T16:38:00Z
+
+Steps completed:
+- Read tailwind.config.ts for all token definitions
+- Added ocobo colors: dark, gray, yellow, yellow.light, mint, mint.light, sky, sky.light, coral, coral.light
+- Added fonts: sans (Bornia), display (Bermia)
+- Added shadows: soft, soft-md, soft-lg, dark, card, ring, offset
+- Added radii: 2xl (1rem), 3xl (1.5rem)
+- Added fontSizes with custom values
+- Added lineHeights with custom values
+- Fixed config to use default export (required by Panda CSS)
+- Ran panda codegen successfully
+- Verified tokens in styled-system/tokens/tokens.d.ts
+
+Token verification:
+- ColorToken includes: ocobo.dark, ocobo.yellow, ocobo.mint, ocobo.sky, ocobo.coral
+- ShadowToken includes: soft, soft-md, soft-lg, dark, card, ring, offset
+- FontToken includes: display (Bermia)
+
+Build/test:
+- Build passes
 - Tests pass (1/1)
 
 ---
