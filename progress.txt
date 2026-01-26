@@ -188,3 +188,28 @@ Build/test:
 - Tests pass (1/1)
 
 ---
+
+## Feature 6: Input component uses Panda recipe
+**Status:** PASS
+**Completed:** 2026-01-26T16:49:00Z
+
+Steps completed:
+- Created input recipe in panda.config.ts using defineRecipe
+- Added error variant: true/false for border colour states
+- Base styles: full width, padding, bg-gray.50, border, focus transitions
+- Updated Input.tsx to use recipe with `input({ error })` function
+- Changed to named export (per codebase conventions)
+- Updated atoms/index.ts re-export
+- Updated Input.stories.tsx import
+- Used css() function for label and error message styles
+
+Recipe details:
+- Base: width full, px/py 4, bg gray.50, border, outline none, focus bg white
+- Error false: gray.100 border, focus ocobo.dark border
+- Error true: red.500 border on both normal and focus states
+
+Build/test:
+- Build passes
+- Tests pass (1/1)
+
+---

@@ -1,5 +1,42 @@
 import { defineConfig, defineRecipe } from '@pandacss/dev';
 
+const inputRecipe = defineRecipe({
+	className: 'input',
+	description: 'Input component styles',
+	base: {
+		width: 'full',
+		px: '4',
+		py: '4',
+		bg: 'gray.50',
+		borderWidth: '1px',
+		borderStyle: 'solid',
+		transition: 'all',
+		outline: 'none',
+		_focus: {
+			bg: 'white',
+		},
+	},
+	variants: {
+		error: {
+			true: {
+				borderColor: 'red.500',
+				_focus: {
+					borderColor: 'red.500',
+				},
+			},
+			false: {
+				borderColor: 'gray.100',
+				_focus: {
+					borderColor: 'ocobo.dark',
+				},
+			},
+		},
+	},
+	defaultVariants: {
+		error: false,
+	},
+});
+
 const badgeRecipe = defineRecipe({
 	className: 'badge',
 	description: 'Badge component styles',
@@ -210,6 +247,7 @@ export default defineConfig({
 		recipes: {
 			badge: badgeRecipe,
 			button: buttonRecipe,
+			input: inputRecipe,
 		},
 		extend: {
 			tokens: {
