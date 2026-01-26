@@ -191,8 +191,8 @@
 				"Verify focus trap works"
 			],
 			"passes": false,
-			"blocked": false,
-			"blocked_reason": null,
+			"blocked": true,
+			"blocked_reason": "Collapsible is wrong pattern for fullscreen overlay. Dialog tried but had state issues. Using simple ARIA-enhanced div instead.",
 			"completed_at": null
 		},
 		{

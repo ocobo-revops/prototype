@@ -408,18 +408,24 @@ export function Navbar() {
 		setActiveDropdown(null);
 	}, []);
 
+	// Body scroll lock for mobile menu
 	useEffect(() => {
 		if (isOpen) {
 			document.body.style.overflow = 'hidden';
 		} else {
 			document.body.style.overflow = 'unset';
 		}
+		return () => {
+			document.body.style.overflow = 'unset';
+		};
 	}, [isOpen]);
 
+	// Escape key handler for dropdowns and mobile menu
 	useEffect(() => {
 		const handleEscape = (e: KeyboardEvent) => {
 			if (e.key === 'Escape') {
 				setActiveDropdown(null);
+				setIsOpen(false);
 			}
 		};
 		document.addEventListener('keydown', handleEscape);
@@ -502,6 +508,8 @@ export function Navbar() {
 							<button
 								type="button"
 								onClick={() => setIsOpen(true)}
+								aria-label="Open menu"
+								aria-expanded={isOpen}
 								className={`md:hidden relative z-50 p-2.5 rounded-full transition-colors ${useWhiteText ? 'bg-white/10 text-white' : 'bg-black/5 text-ocobo-dark'}`}
 							>
 								<MenuIcon size={20} />
@@ -513,10 +521,13 @@ export function Navbar() {
 
 			{/* Mobile Fullscreen Menu */}
 			<div
+				role="dialog"
+				aria-modal="true"
+				aria-label="Navigation menu"
 				className={`
-        fixed inset-0 bg-white z-[1000] md:hidden transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-auto
-        ${isOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-8 pointer-events-none'}
-      `}
+					fixed inset-0 bg-white z-[1000] md:hidden transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]
+					${isOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-8 pointer-events-none'}
+				`}
 			>
 				<div className="flex flex-col h-full pt-8 px-8 pb-10">
 					<div className="flex justify-between items-center mb-10">
@@ -528,6 +539,7 @@ export function Navbar() {
 						<button
 							type="button"
 							onClick={() => setIsOpen(false)}
+							aria-label="Close menu"
 							className="p-2 text-ocobo-dark bg-gray-50 rounded-full active:scale-90 transition-transform"
 						>
 							<X size={24} />
