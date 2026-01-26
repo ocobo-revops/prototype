@@ -12,6 +12,9 @@ Read this section FIRST on each iteration.
 - Named exports only, no default exports
 - Kebab-case filenames
 - Storybook 10 with a11y addon available
+- Panda CSS config exports named `config` (not default)
+- Run `pnpm panda codegen` after config changes
+- styled-system/ alias configured in vite.config.ts
 
 ---
 
@@ -56,5 +59,23 @@ Created: 2026-01-26T10:00:00Z
 **Phase 6 - Validation (features 16-22)**
 - Build, typecheck, lint, tests
 - Visual parity, focus states, animations
+
+---
+
+## Feature 1: Panda CSS setup generates styled-system/
+**Status:** PASS
+**Completed:** 2026-01-26T15:32:00Z
+
+Steps completed:
+- Installed @pandacss/dev 1.8.1 and @ark-ui/react 5.30.0
+- Created panda.config.ts with include paths for App.tsx, pages/, components/
+- Updated postcss.config.js to add @pandacss/dev/postcss plugin
+- Added styled-system alias to vite.config.ts
+- Ran panda codegen successfully
+- Verified styled-system/ folder exists with css/, patterns/, tokens/
+
+Verification:
+- Build passes (vite build)
+- Tests pass (1/1)
 
 ---
