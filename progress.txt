@@ -14,7 +14,9 @@ Read this section FIRST on each iteration.
 - Storybook 10 with a11y addon available
 - Panda CSS config MUST use default export (not named export)
 - Run `pnpm panda codegen` after config changes
-- styled-system/ alias configured in vite.config.ts
+- styled-system/ alias configured in vite.config.ts and tsconfig.json
+- Import Panda recipes with: `import { recipeName } from 'styled-system/recipes'`
+- Use `defineRecipe` from @pandacss/dev to create recipes in panda.config.ts
 
 ---
 
@@ -131,6 +133,33 @@ Note: `pulse` animation is built-in to Panda CSS, no migration needed.
 
 Build/test:
 - Build passes
+- Tests pass (1/1)
+
+---
+
+## Feature 4: Button component uses Panda recipe
+**Status:** PASS
+**Completed:** 2026-01-26T16:44:00Z
+
+Steps completed:
+- Created button recipe in panda.config.ts using defineRecipe
+- Added variants: primary, outline, white, cta, nav
+- Added sizes: sm, md, lg, xl
+- Added fullWidth boolean variant
+- Updated Button.tsx to use recipe with `button()` function
+- Changed to named export (per codebase conventions)
+- Updated atoms/index.ts re-export
+- Updated Button.stories.tsx import
+- Added styled-system/* path to tsconfig.json for type resolution
+
+Recipe details:
+- Base styles: flex, rounded-full, border, transitions, focus-visible outline
+- Hover SVG translation for arrow icon
+- All variant-specific hover/focus states preserved
+
+Build/test:
+- Build passes
+- Typecheck passes
 - Tests pass (1/1)
 
 ---

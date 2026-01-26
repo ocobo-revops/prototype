@@ -1,19 +1,18 @@
 import { ArrowRight } from 'lucide-react';
 import type React from 'react';
 import { Link } from 'react-router';
+import type { ButtonVariantProps } from 'styled-system/recipes';
+import { button } from 'styled-system/recipes';
 
-interface BaseButtonProps {
-	variant?: 'primary' | 'outline' | 'white' | 'cta' | 'nav';
-	size?: 'sm' | 'md' | 'lg' | 'xl';
+interface BaseButtonProps extends ButtonVariantProps {
 	showArrow?: boolean;
-	fullWidth?: boolean;
 	children: React.ReactNode;
 	className?: string;
 }
 
 interface ButtonAsButtonProps
 	extends BaseButtonProps,
-		React.ButtonHTMLAttributes<HTMLButtonElement> {
+		Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'color'> {
 	as?: 'button' | undefined;
 	href?: undefined;
 	to?: undefined;
@@ -21,7 +20,7 @@ interface ButtonAsButtonProps
 
 interface ButtonAsAnchorProps
 	extends BaseButtonProps,
-		React.AnchorHTMLAttributes<HTMLAnchorElement> {
+		Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'color'> {
 	as?: 'a';
 	href: string;
 	to?: undefined;
@@ -29,7 +28,7 @@ interface ButtonAsAnchorProps
 
 interface ButtonAsLinkProps
 	extends BaseButtonProps,
-		Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> {
+		Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'color'> {
 	as?: 'link';
 	to: string;
 	href?: undefined;
@@ -40,7 +39,16 @@ type ButtonProps =
 	| ButtonAsAnchorProps
 	| ButtonAsLinkProps;
 
-const Button: React.FC<ButtonProps> = ({
+type SizeKey = 'sm' | 'md' | 'lg' | 'xl';
+
+const iconSizes: Record<SizeKey, string> = {
+	sm: 'w-3 h-3',
+	md: 'w-4 h-4',
+	lg: 'w-5 h-5',
+	xl: 'w-6 h-6',
+};
+
+export const Button: React.FC<ButtonProps> = ({
 	variant = 'primary',
 	size = 'md',
 	showArrow = true,
@@ -49,42 +57,15 @@ const Button: React.FC<ButtonProps> = ({
 	className = '',
 	...props
 }: ButtonProps) => {
-	const baseStyles =
-		'rounded-full font-semibold tracking-wide transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 hover:[&>svg]:translate-x-1';
+	const recipeClasses = button({ variant, size, fullWidth });
+	const classes = className ? `${recipeClasses} ${className}` : recipeClasses;
 
-	const variants = {
-		primary:
-			'bg-ocobo-dark text-white hover:bg-gray focus-visible:outline-white border border-transparent',
-		outline:
-			'bg-transparent text-ocobo-dark border border-ocobo-dark hover:bg-ocobo-dark hover:text-white focus-visible:outline-ocobo-dark',
-		white:
-			'bg-white text-ocobo-dark hover:bg-gray-100 focus-visible:outline-ocobo-dark border border-transparent',
-		cta: 'bg-ocobo-dark text-white shadow-xl hover:-translate-y-1 hover:shadow-2xl focus-visible:outline-white border border-transparent',
-		nav: 'bg-transparent text-current hover:bg-current/10 focus-visible:outline-current border border-transparent',
-	};
-
-	const sizes = {
-		sm: 'px-4 py-2 text-xs',
-		md: 'px-6 py-3 text-sm',
-		lg: 'px-8 py-4 text-base',
-		xl: 'px-12 py-5 text-lg',
-	};
-
-	const iconSizes = {
-		sm: 'w-3 h-3',
-		md: 'w-4 h-4',
-		lg: 'w-5 h-5',
-		xl: 'w-6 h-6',
-	};
-
-	const widthClass = fullWidth ? 'w-full' : '';
-
-	const classes =
-		`${baseStyles} ${variants[variant]} ${sizes[size]} ${widthClass} ${className}`.trim();
-
+	// Ensure size is a valid key for icon lookup
+	const iconSize =
+		typeof size === 'string' && size in iconSizes ? (size as SizeKey) : 'md';
 	const arrowIcon = showArrow && (
 		<ArrowRight
-			className={`${iconSizes[size]} transition-transform duration-300`}
+			className={`${iconSizes[iconSize]} transition-transform duration-300`}
 		/>
 	);
 
@@ -117,5 +98,3 @@ const Button: React.FC<ButtonProps> = ({
 		</button>
 	);
 };
-
-export default Button;

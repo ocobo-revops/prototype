@@ -85,10 +85,10 @@
 				"Verify all Button usages render correctly",
 				"Run pnpm run build"
 			],
-			"passes": false,
+			"passes": true,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": null
+			"completed_at": "2026-01-26T16:44:00Z"
 		},
 		{
 			"id": 5,
