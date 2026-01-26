@@ -1,5 +1,55 @@
 import { defineConfig, defineRecipe } from '@pandacss/dev';
 
+const sectionRecipe = defineRecipe({
+	className: 'section',
+	description: 'Section component styles',
+	base: {},
+	variants: {
+		bg: {
+			white: {
+				bg: 'white',
+			},
+			gray: {
+				bg: 'gray.50',
+			},
+			dark: {
+				bg: 'ocobo.dark',
+				color: 'white',
+			},
+			yellow: {
+				bg: 'ocobo.yellow',
+				color: 'ocobo.dark',
+			},
+			sky: {
+				bg: 'ocobo.sky.light',
+			},
+			mint: {
+				bg: 'ocobo.mint.light',
+			},
+			coral: {
+				bg: 'ocobo.coral.light',
+			},
+		},
+		padding: {
+			sm: {
+				py: '12',
+				md: { py: '16' },
+			},
+			md: {
+				py: '16',
+				md: { py: '24' },
+			},
+			lg: {
+				py: '24',
+			},
+		},
+	},
+	defaultVariants: {
+		bg: 'white',
+		padding: 'lg',
+	},
+});
+
 const inputRecipe = defineRecipe({
 	className: 'input',
 	description: 'Input component styles',
@@ -248,6 +298,7 @@ export default defineConfig({
 			badge: badgeRecipe,
 			button: buttonRecipe,
 			input: inputRecipe,
+			section: sectionRecipe,
 		},
 		extend: {
 			tokens: {

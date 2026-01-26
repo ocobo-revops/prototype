@@ -1,51 +1,23 @@
 import type React from 'react';
+import { type SectionVariantProps, section } from 'styled-system/recipes';
 
-type SectionBg =
-	| 'white'
-	| 'gray'
-	| 'dark'
-	| 'yellow'
-	| 'sky'
-	| 'mint'
-	| 'coral';
-
-interface SectionProps {
+type SectionProps = SectionVariantProps & {
 	children: React.ReactNode;
-	bg?: SectionBg;
 	className?: string;
-	/** Vertical padding - default py-24 */
-	padding?: 'sm' | 'md' | 'lg';
-}
-
-const bgClasses: Record<SectionBg, string> = {
-	white: 'bg-white',
-	gray: 'bg-gray-50',
-	dark: 'bg-ocobo-dark text-white',
-	yellow: 'bg-ocobo-yellow text-ocobo-dark',
-	sky: 'bg-ocobo-sky-light',
-	mint: 'bg-ocobo-mint-light',
-	coral: 'bg-ocobo-coral-light',
 };
 
-const paddingClasses = {
-	sm: 'py-12 md:py-16',
-	md: 'py-16 md:py-24',
-	lg: 'py-24',
-};
-
-const Section: React.FC<SectionProps> = ({
+export function Section({
 	children,
 	bg = 'white',
-	className = '',
 	padding = 'lg',
-}) => {
+	className = '',
+}: SectionProps) {
+	const sectionClass = section({ bg, padding });
 	return (
 		<section
-			className={`${bgClasses[bg]} ${paddingClasses[padding]} ${className}`}
+			className={className ? `${sectionClass} ${className}` : sectionClass}
 		>
 			{children}
 		</section>
 	);
-};
-
-export default Section;
+}
