@@ -1,5 +1,4 @@
 import { Menu } from '@ark-ui/react/menu';
-import { Portal } from '@ark-ui/react/portal';
 import {
 	ArrowRight,
 	BookOpen,
@@ -341,38 +340,48 @@ function NavItemWithDropdown({
 						/>
 					</Link>
 				</Menu.Trigger>
-				<Portal>
-					<Menu.Positioner>
-						<Menu.Content
-							className={css({
-								w: '380px',
-								bg: 'white',
-								rounded: '3xl',
-								p: '2',
-								shadow: 'soft-lg',
-								borderWidth: '1px',
-								borderColor: 'gray.50',
-								overflow: 'hidden',
-								outline: 'none',
-								animation: 'fade-in-up-small',
-								'&[data-state="closed"]': {
-									opacity: 0,
-									transform: 'translateY(-8px)',
-								},
-							})}
-							onMouseEnter={() => setActiveDropdown(item.label)}
-							onMouseLeave={() => setActiveDropdown(null)}
-						>
-							{item.dropdown.map((subItem) => (
-								<NavDropdownItem
-									key={subItem.path}
-									item={subItem}
-									onClose={() => setActiveDropdown(null)}
-								/>
-							))}
-						</Menu.Content>
-					</Menu.Positioner>
-				</Portal>
+				<Menu.Positioner
+					className={css({
+						position: 'absolute',
+						top: '100%',
+						left: '50%',
+						transform: 'translateX(-50%)',
+						pt: '4',
+						zIndex: 200,
+					})}
+				>
+					<Menu.Content
+						className={css({
+							w: '380px',
+							bg: 'white',
+							rounded: '3xl',
+							p: '2',
+							shadow: 'soft-lg',
+							borderWidth: '1px',
+							borderColor: 'gray.50',
+							overflow: 'hidden',
+							outline: 'none',
+							transition: 'all 0.3s',
+							'&[data-state="open"]': {
+								opacity: 1,
+								transform: 'translateY(0)',
+							},
+							'&[data-state="closed"]': {
+								opacity: 0,
+								transform: 'translateY(-8px)',
+								pointerEvents: 'none',
+							},
+						})}
+					>
+						{item.dropdown.map((subItem) => (
+							<NavDropdownItem
+								key={subItem.path}
+								item={subItem}
+								onClose={() => setActiveDropdown(null)}
+							/>
+						))}
+					</Menu.Content>
+				</Menu.Positioner>
 			</div>
 		</Menu.Root>
 	);
