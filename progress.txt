@@ -106,3 +106,31 @@ Build/test:
 - Tests pass (1/1)
 
 ---
+
+## Feature 3: Audit animations and migrate used ones
+**Status:** PASS
+**Completed:** 2026-01-26T16:42:00Z
+
+Steps completed:
+- Grepped codebase for animate- classes
+- Found 17 unique animations in use across pages and components
+- Added keyframes to panda.config.ts
+- Added animation tokens to panda.config.ts
+- Ran panda codegen successfully
+- Verified AnimationToken in styled-system/tokens/tokens.d.ts
+
+Animations migrated:
+- Float: float-cursor, float-very-slow, float-gentle, float-grid, float-blob
+- Fade: slow-fade, fade-in-up, fade-in-up-small, hero-reveal, gentle-reveal
+- Bounce: bounce-slow, bounce-subtle
+- Rotation: spin-slow, radar-sweep
+- Marquee: marquee-ultra-slow
+- Entry: blueprint-in, box-pop
+
+Note: `pulse` animation is built-in to Panda CSS, no migration needed.
+
+Build/test:
+- Build passes
+- Tests pass (1/1)
+
+---

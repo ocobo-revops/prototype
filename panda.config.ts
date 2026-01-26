@@ -69,6 +69,125 @@ export default defineConfig({
 					ring: { value: '0 0 0 10px #fcfcfc' },
 					offset: { value: '8px 8px 0px 0px rgba(33,35,35,1)' },
 				},
+				animations: {
+					// Float animations
+					'float-cursor': { value: 'float-cursor 5s infinite ease-in-out' },
+					'float-very-slow': {
+						value: 'float-very-slow 12s ease-in-out infinite',
+					},
+					'float-gentle': { value: 'float-gentle 8s ease-in-out infinite' },
+					'float-grid': { value: 'float-grid 6s ease-in-out infinite' },
+					'float-blob': { value: 'float-blob 12s infinite ease-in-out' },
+					// Fade animations
+					'slow-fade': { value: 'slow-fade 6s infinite ease-in-out' },
+					'fade-in-up': {
+						value: 'fade-in-up 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+					},
+					'fade-in-up-small': {
+						value:
+							'fade-in-up-small 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+					},
+					'hero-reveal': {
+						value: 'hero-reveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+					},
+					'gentle-reveal': {
+						value: 'gentle-reveal 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+					},
+					// Bounce animations
+					'bounce-slow': { value: 'bounce-slow 3s ease-in-out infinite' },
+					'bounce-subtle': { value: 'bounce-subtle 3s ease-in-out infinite' },
+					// Rotation animations
+					'spin-slow': { value: 'spin-slow 20s linear infinite' },
+					'radar-sweep': { value: 'radar-sweep 10s linear infinite' },
+					// Marquee animations
+					'marquee-ultra-slow': {
+						value: 'marquee-ultra-slow 90s linear infinite',
+					},
+					// Entry animations
+					'blueprint-in': {
+						value: 'blueprint-in 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+					},
+					'box-pop': {
+						value: 'box-pop 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
+					},
+				},
+			},
+			keyframes: {
+				// Float animations
+				'float-cursor': {
+					'0%, 100%': { transform: 'translate(430px, 430px) rotate(-10deg)' },
+					'50%': { transform: 'translate(440px, 420px) rotate(-5deg)' },
+				},
+				'float-very-slow': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-12px)' },
+				},
+				'float-gentle': {
+					'0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+					'50%': { transform: 'translateY(-15px) rotate(2deg)' },
+				},
+				'float-grid': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-8px)' },
+				},
+				'float-blob': {
+					'0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+					'33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+					'66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+				},
+				// Fade animations
+				'slow-fade': {
+					'0%, 100%': { opacity: '0.1' },
+					'50%': { opacity: '0.85' },
+				},
+				'fade-in-up': {
+					from: { opacity: '0', transform: 'translateY(20px)' },
+					to: { opacity: '1', transform: 'translateY(0)' },
+				},
+				'fade-in-up-small': {
+					from: { opacity: '0', transform: 'translateY(15px)' },
+					to: { opacity: '1', transform: 'translateY(0)' },
+				},
+				'hero-reveal': {
+					from: { opacity: '0', transform: 'translateY(15px)' },
+					to: { opacity: '1', transform: 'translateY(0)' },
+				},
+				'gentle-reveal': {
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' },
+				},
+				// Bounce animations
+				'bounce-slow': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(6px)' },
+				},
+				'bounce-subtle': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(8px)' },
+				},
+				// Rotation animations
+				'spin-slow': {
+					from: { transform: 'rotate(0deg)' },
+					to: { transform: 'rotate(360deg)' },
+				},
+				'radar-sweep': {
+					from: { transform: 'rotate(0deg)' },
+					to: { transform: 'rotate(360deg)' },
+				},
+				// Marquee animations
+				'marquee-ultra-slow': {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(-33.33%)' },
+				},
+				// Entry animations
+				'blueprint-in': {
+					from: { opacity: '0', transform: 'scaleX(0)' },
+					to: { opacity: '1', transform: 'scaleX(1)' },
+				},
+				'box-pop': {
+					'0%': { opacity: '0', transform: 'translateY(20px) scale(0.9)' },
+					'100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+				},
 			},
 		},
 	},
