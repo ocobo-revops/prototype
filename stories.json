@@ -1,10 +1,10 @@
 {
 	"project": {
-		"name": "Ocobo Pages Refactor",
-		"branch": "pages-refactor"
+		"name": "Panda CSS + Ark UI Migration",
+		"branch": "panda-ark-migration"
 	},
-	"source_prd": "specs/pages-refactor.md",
-	"created_at": "2026-01-22T12:30:00Z",
+	"source_prd": "specs/panda-css-ark-ui-migration.md",
+	"created_at": "2026-01-26T10:00:00Z",
 	"rules": [
 		"Work on ONE feature at a time",
 		"Read ## Codebase Patterns section FIRST each iteration",
@@ -21,259 +21,371 @@
 			"id": 1,
 			"category": "functional",
 			"priority": "high",
-			"description": "Create NumberCircle atom component",
+			"description": "Panda CSS setup generates styled-system/",
 			"steps": [
-				"Create components/atoms/NumberCircle.tsx",
-				"Props: number, variant (dark/light/ThemeColor), size (sm/md/lg)",
-				"Implement circular badge with centred number",
-				"Export from components/atoms/index.ts",
-				"Verify TypeScript compiles without errors"
+				"Install @pandacss/dev and @ark-ui/react",
+				"Create panda.config.ts with include paths",
+				"Update postcss.config.js for Panda",
+				"Add styled-system alias to vite.config.ts",
+				"Run panda codegen",
+				"Verify styled-system/ folder exists with css.ts, patterns/, recipes/"
 			],
-			"passes": true,
+			"passes": false,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": "2026-01-22T12:32:00Z"
+			"completed_at": null
 		},
 		{
 			"id": 2,
 			"category": "functional",
 			"priority": "high",
-			"description": "Create AccentCard molecule component",
+			"description": "Design tokens migrated from Tailwind config",
 			"steps": [
-				"Create components/molecules/AccentCard.tsx",
-				"Props: title, description, color (ThemeColor)",
-				"Implement card with border-l-4 and bg-{color}-light",
-				"Export from components/molecules/index.ts",
-				"Verify TypeScript compiles without errors"
+				"Read tailwind.config.ts for all tokens",
+				"Add colors to panda.config.ts (ocobo.dark, yellow, mint, sky, coral, grays)",
+				"Add fonts (display: Bermia, sans: Bornia)",
+				"Add shadows (soft, soft-md, soft-lg, dark, card, offset)",
+				"Add radii tokens",
+				"Run panda codegen",
+				"Verify tokens available in styled-system/tokens/"
 			],
-			"passes": true,
+			"passes": false,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": "2026-01-22T12:33:00Z"
+			"completed_at": null
 		},
 		{
 			"id": 3,
 			"category": "functional",
 			"priority": "high",
-			"description": "Create ServiceCard molecule component",
+			"description": "Audit animations and migrate used ones",
 			"steps": [
-				"Create components/molecules/ServiceCard.tsx",
-				"Props: number, title, description, color (optional)",
-				"Use NumberCircle for the number display",
-				"Implement hover state (border-ocobo-dark)",
-				"Export from components/molecules/index.ts",
-				"Verify TypeScript compiles without errors"
+				"Grep codebase for animate- classes",
+				"List actually used animations",
+				"Add keyframes to panda.config.ts for used animations only",
+				"Run panda codegen",
+				"Verify keyframes in styled-system/"
 			],
-			"passes": true,
+			"passes": false,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": "2026-01-22T12:37:00Z"
+			"completed_at": null
 		},
 		{
 			"id": 4,
 			"category": "functional",
-			"priority": "medium",
-			"description": "Create TeamMemberCard molecule component",
+			"priority": "high",
+			"description": "Button component uses Panda recipe",
 			"steps": [
-				"Create components/molecules/TeamMemberCard.tsx",
-				"Props: name, role, bio, imageSrc (optional)",
-				"Implement photo + bio layout",
-				"Export from components/molecules/index.ts",
-				"Verify TypeScript compiles without errors"
+				"Create button recipe in panda.config.ts",
+				"Add variants: primary, outline, white, cta, nav",
+				"Add sizes: sm, md, lg, xl",
+				"Add fullWidth variant",
+				"Update Button.tsx to use recipe",
+				"Verify all Button usages render correctly",
+				"Run pnpm run build"
 			],
-			"passes": true,
+			"passes": false,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": "2026-01-22T12:39:00Z"
+			"completed_at": null
 		},
 		{
 			"id": 5,
 			"category": "functional",
 			"priority": "medium",
-			"description": "Create ValueCard molecule component",
+			"description": "Badge component uses Panda recipe",
 			"steps": [
-				"Create components/molecules/ValueCard.tsx",
-				"Props: title, description, color (ThemeColor)",
-				"Implement coloured title with description",
-				"Export from components/molecules/index.ts",
-				"Verify TypeScript compiles without errors"
+				"Create badge recipe in panda.config.ts",
+				"Add color variants: yellow, mint, sky, coral, dark, gray",
+				"Add size variants: sm, md",
+				"Add rounded variants: sm, full",
+				"Update Badge.tsx to use recipe",
+				"Verify Badge renders correctly in all usages"
 			],
-			"passes": true,
+			"passes": false,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": "2026-01-22T12:40:00Z"
+			"completed_at": null
 		},
 		{
 			"id": 6,
 			"category": "functional",
 			"priority": "medium",
-			"description": "Create PillarCard molecule component",
+			"description": "Input component uses Panda recipe",
 			"steps": [
-				"Create components/molecules/PillarCard.tsx",
-				"Props: title, description, deliverables (array), color",
-				"Implement method card with deliverables list",
-				"Export from components/molecules/index.ts",
-				"Verify TypeScript compiles without errors"
+				"Create input recipe in panda.config.ts",
+				"Add error variant: true/false",
+				"Update Input.tsx to use recipe",
+				"Verify Input renders correctly with/without error state"
 			],
-			"passes": true,
+			"passes": false,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": "2026-01-22T12:45:00Z"
+			"completed_at": null
 		},
 		{
 			"id": 7,
 			"category": "functional",
 			"priority": "medium",
-			"description": "Create ScopeCard molecule component",
+			"description": "Grid component uses Panda pattern",
 			"steps": [
-				"Create components/molecules/ScopeCard.tsx",
-				"Props: title, items (array of strings), color",
-				"Implement scope card with bullet list",
-				"Export from components/molecules/index.ts",
-				"Verify TypeScript compiles without errors"
+				"Define grid pattern in panda.config.ts",
+				"Support cols, md, lg responsive props",
+				"Support gap prop",
+				"Update Grid.tsx to use pattern",
+				"Verify Grid renders correctly on all pages"
 			],
-			"passes": true,
+			"passes": false,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": "2026-01-22T12:47:00Z"
+			"completed_at": null
 		},
 		{
 			"id": 8,
 			"category": "functional",
-			"priority": "high",
-			"description": "Create CtaSection shared component",
+			"priority": "medium",
+			"description": "Section component uses Panda recipe",
 			"steps": [
-				"Create components/sections/shared/CtaSection.tsx",
-				"Props: variant (yellow/sky/dark), title, subtitle, ctaText, ctaLink",
-				"Use Section and Container components",
-				"Export from components/sections/shared/index.ts",
-				"Verify TypeScript compiles without errors"
+				"Create section recipe in panda.config.ts",
+				"Add bg variants: white, gray, dark, yellow, sky, mint, coral",
+				"Add padding variants: sm, md, lg",
+				"Update Section.tsx or create if needed",
+				"Verify Section renders correctly"
 			],
-			"passes": true,
+			"passes": false,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": "2026-01-22T13:05:00Z"
+			"completed_at": null
 		},
 		{
 			"id": 9,
 			"category": "functional",
 			"priority": "high",
-			"description": "Extract Method.tsx sections",
+			"description": "Navbar dropdowns use Ark UI Menu",
 			"steps": [
-				"Create components/sections/method/ directory",
-				"Extract HeroSection (lines 25-67)",
-				"Extract PillarsSection (lines 70-343)",
-				"Extract ScopeSection (lines 346-504)",
-				"Replace CTA with CtaSection",
-				"Refactor Method.tsx to import sections",
-				"Verify Method.tsx < 100 lines",
-				"Run pnpm build - no errors"
+				"Import Menu from @ark-ui/react/menu",
+				"Replace custom dropdown with Menu.Root, Menu.Trigger, Menu.Content, Menu.Item",
+				"Apply Panda styles directly on Menu parts",
+				"Verify dropdown opens on hover/click",
+				"Verify dropdown closes on escape",
+				"Verify arrow key navigation works",
+				"Verify ARIA attributes present"
 			],
-			"passes": true,
+			"passes": false,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": "2026-01-22T13:30:00Z"
+			"completed_at": null
 		},
 		{
 			"id": 10,
 			"category": "functional",
 			"priority": "high",
-			"description": "Extract Home.tsx sections",
+			"description": "Mobile menu uses Ark UI Collapsible",
 			"steps": [
-				"Create components/sections/home/ directory",
-				"Extract HeroSection (lines 38-76)",
-				"Extract SocialProofSection (lines 79-107)",
-				"Extract PainPointSection (lines 110-176)",
-				"Extract TransformationSection (lines 179-290)",
-				"Extract InterventionsSection (lines 293-346)",
-				"Extract ComparatifSection (lines 349-416)",
-				"Extract StackSection (lines 419-445)",
-				"Replace CTA with CtaSection",
-				"Refactor Home.tsx to import sections",
-				"Verify Home.tsx < 100 lines",
-				"Run pnpm build - no errors"
+				"Import Collapsible from @ark-ui/react/collapsible",
+				"Replace custom mobile menu with Collapsible.Root, Trigger, Content",
+				"Apply Panda styles",
+				"Verify menu opens/closes on hamburger click",
+				"Verify escape closes menu",
+				"Verify focus trap works"
 			],
-			"passes": true,
+			"passes": false,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": "2026-01-22T14:00:00Z"
+			"completed_at": null
 		},
 		{
 			"id": 11,
 			"category": "functional",
-			"priority": "high",
-			"description": "Extract About.tsx sections",
+			"priority": "medium",
+			"description": "NewsletterWidget uses Ark UI Popover",
 			"steps": [
-				"Create components/sections/about/ directory",
-				"Extract HeroSection (lines 311-331)",
-				"Extract ManifestoSection (lines 334-505) - keep DataIllustration inline",
-				"Extract TeamSection (lines 511-625) - use TeamMemberCard",
-				"Extract ValuesSection (lines 628-707) - use ValueCard",
-				"Replace CTA with CtaSection",
-				"Refactor About.tsx to import sections",
-				"Verify About.tsx < 100 lines",
-				"Run pnpm build - no errors"
+				"Import Popover from @ark-ui/react/popover",
+				"Replace expand/collapse logic with Popover.Root, Trigger, Content",
+				"Apply Panda styles",
+				"Verify popover opens on click",
+				"Verify popover closes on escape or outside click",
+				"Verify proper ARIA dialog semantics"
 			],
-			"passes": true,
+			"passes": false,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": "2026-01-22T14:30:00Z"
+			"completed_at": null
 		},
 		{
 			"id": 12,
 			"category": "functional",
-			"priority": "high",
-			"description": "Extract Services.tsx sections",
+			"priority": "medium",
+			"description": "Contact form select uses Ark UI Select",
 			"steps": [
-				"Create components/sections/services/ directory",
-				"Extract HeroSection (lines 26-58)",
-				"Extract SymptomsSection (lines 61-145)",
-				"Extract TransitionSection (lines 148-195)",
-				"Extract OffersDetailSection (lines 198-393)",
-				"Extract LeviersSection (lines 396-539)",
-				"Extract MethodeSection (lines 542-590)",
-				"Extract ImplicationsSection (lines 593-693)",
-				"Extract WhyOcoboSection (lines 696-742)",
-				"Replace CTA with CtaSection",
-				"Refactor Services.tsx to import sections",
-				"Verify Services.tsx < 100 lines",
-				"Run pnpm build - no errors"
+				"Import Select from @ark-ui/react/select",
+				"Replace native select with Select.Root, Trigger, Content, Item",
+				"Apply Panda styles",
+				"Verify select opens on click",
+				"Verify arrow key navigation",
+				"Verify enter selects item",
+				"Verify proper ARIA attributes"
 			],
-			"passes": true,
+			"passes": false,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": "2026-01-22T15:00:00Z"
+			"completed_at": null
 		},
 		{
 			"id": 13,
-			"category": "validation",
-			"priority": "high",
-			"description": "Build and lint validation",
+			"category": "functional",
+			"priority": "medium",
+			"description": "Migrate remaining Tailwind classes in pages",
 			"steps": [
-				"Run pnpm run build - no TypeScript errors",
-				"Run pnpm test - all tests pass",
-				"Run pnpm run lint - no Biome errors"
+				"Grep for className with Tailwind patterns",
+				"Convert each page to use Panda css() or recipes",
+				"Start with simple pages: Home, Method, Services, About",
+				"Then Contact, Resources, Podcast, Studio",
+				"Then complex: Jobs, JobDetail, Stories, StoryDetail, Partners",
+				"Verify each page renders correctly after conversion"
 			],
-			"passes": true,
+			"passes": false,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": "2026-01-22T22:27:00Z"
+			"completed_at": null
 		},
 		{
 			"id": 14,
-			"category": "ui",
-			"priority": "high",
-			"description": "Visual verification - no regressions",
+			"category": "functional",
+			"priority": "medium",
+			"description": "Migrate section components to Panda",
 			"steps": [
-				"Run pnpm dev",
-				"Navigate to Home - verify identical rendering",
-				"Navigate to Services - verify identical rendering",
-				"Navigate to About - verify identical rendering",
-				"Navigate to Method - verify identical rendering"
+				"List all components in components/sections/",
+				"Convert each section to use Panda css() or recipes",
+				"Verify visual parity for each section",
+				"Run dev server, check all pages"
 			],
 			"passes": false,
-			"blocked": true,
-			"blocked_reason": "Requires manual visual verification by user - run pnpm dev and check all pages",
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 15,
+			"category": "functional",
+			"priority": "high",
+			"description": "Remove Tailwind CSS completely",
+			"steps": [
+				"Run pnpm remove tailwindcss @tailwindcss/postcss autoprefixer",
+				"Delete tailwind.config.ts",
+				"Update globals.css to import styled-system/styles.css",
+				"Remove any remaining Tailwind @apply or @import",
+				"Run pnpm run build",
+				"Verify no Tailwind references remain"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 16,
+			"category": "validation",
+			"priority": "high",
+			"description": "Build succeeds without errors",
+			"steps": [
+				"Run pnpm run build",
+				"Verify exit code 0",
+				"Check no TypeScript errors",
+				"Check no CSS errors"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 17,
+			"category": "validation",
+			"priority": "high",
+			"description": "TypeScript compiles without errors",
+			"steps": [
+				"Run pnpm run typecheck",
+				"Verify exit code 0",
+				"No type errors in styled-system imports"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 18,
+			"category": "validation",
+			"priority": "high",
+			"description": "Linter passes",
+			"steps": ["Run pnpm run lint", "Verify exit code 0 or only warnings"],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 19,
+			"category": "validation",
+			"priority": "high",
+			"description": "Tests pass",
+			"steps": [
+				"Run pnpm test",
+				"Verify all tests pass",
+				"No component rendering errors"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 20,
+			"category": "ui",
+			"priority": "medium",
+			"description": "Visual parity with current design",
+			"steps": [
+				"Run dev server",
+				"Check each page visually",
+				"Compare colors, fonts, spacing, shadows",
+				"No obvious regressions"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 21,
+			"category": "ui",
+			"priority": "medium",
+			"description": "All interactive elements have visible focus states",
+			"steps": [
+				"Tab through Navbar",
+				"Tab through forms",
+				"Verify focus ring visible on all interactive elements"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 22,
+			"category": "ui",
+			"priority": "low",
+			"description": "Animations work correctly",
+			"steps": [
+				"Check hero animations on homepage",
+				"Check float animations",
+				"Check fade-in animations on scroll",
+				"Check marquee animations"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
 			"completed_at": null
 		}
 	]
