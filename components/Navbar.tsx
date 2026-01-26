@@ -32,6 +32,9 @@ type NavItem = {
 	dropdown?: DropdownItem[];
 };
 
+/** Pixels scrolled before navbar background appears */
+const SCROLL_THRESHOLD = 40;
+
 const navigation: NavItem[] = [
 	{
 		label: 'Notre Offre',
@@ -164,7 +167,7 @@ const hoverTextStyles: Record<string, string> = {
 };
 
 type NavDropdownItemProps = {
-	key?: React.Key;
+	key?: React.Key; // Required for TypeScript when using in .map()
 	item: DropdownItem;
 	onClose: () => void;
 };
@@ -262,7 +265,7 @@ function NavDropdownItem({ item, onClose }: NavDropdownItemProps) {
 }
 
 type NavItemWithDropdownProps = {
-	key?: React.Key;
+	key?: React.Key; // Required for TypeScript when using in .map()
 	item: NavItem;
 	isCurrentPath: boolean;
 	useWhiteText: boolean;
@@ -375,7 +378,7 @@ function NavItemWithDropdown({
 					>
 						{item.dropdown.map((subItem) => (
 							<NavDropdownItem
-								key={subItem.path}
+								key={`${item.label}-${subItem.label}`}
 								item={subItem}
 								onClose={() => setActiveDropdown(null)}
 							/>
@@ -397,16 +400,18 @@ export function Navbar() {
 
 	useEffect(() => {
 		const handleScroll = () => {
-			setScrolled(window.scrollY > 40);
+			setScrolled(window.scrollY > SCROLL_THRESHOLD);
 		};
 		window.addEventListener('scroll', handleScroll, { passive: true });
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
 
+	// Close menus on route change
+	// biome-ignore lint/correctness/useExhaustiveDependencies: intentionally trigger on route change
 	useEffect(() => {
 		setIsOpen(false);
 		setActiveDropdown(null);
-	}, []);
+	}, [location.pathname]);
 
 	// Body scroll lock for mobile menu
 	useEffect(() => {
@@ -589,7 +594,7 @@ export function Navbar() {
 												if (isExternal) {
 													return (
 														<a
-															key={sub.path}
+															key={`mobile-${item.label}-${sub.label}`}
 															href={sub.path}
 															target="_blank"
 															rel="noopener noreferrer"
@@ -603,7 +608,7 @@ export function Navbar() {
 
 												return (
 													<Link
-														key={sub.path}
+														key={`mobile-${item.label}-${sub.label}`}
 														to={sub.path}
 														onClick={() => setIsOpen(false)}
 														className="flex items-center gap-4 group active:translate-x-1 transition-transform"
@@ -642,5 +647,3 @@ export function Navbar() {
 		</>
 	);
 }
-
-export default Navbar;
