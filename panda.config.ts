@@ -1,5 +1,79 @@
 import { defineConfig, defineRecipe } from '@pandacss/dev';
 
+const badgeRecipe = defineRecipe({
+	className: 'badge',
+	description: 'Badge component styles',
+	base: {
+		display: 'inline-block',
+		fontFamily: 'display',
+		fontWeight: 'black',
+		textTransform: 'uppercase',
+		borderWidth: '1px',
+		borderStyle: 'solid',
+	},
+	variants: {
+		variant: {
+			yellow: {
+				color: 'ocobo.dark',
+				bg: 'ocobo.yellow.light',
+				borderColor: 'ocobo.yellow/20',
+			},
+			mint: {
+				color: 'ocobo.dark',
+				bg: 'ocobo.mint.light',
+				borderColor: 'ocobo.mint/20',
+			},
+			sky: {
+				color: 'ocobo.sky',
+				bg: 'ocobo.sky.light',
+				borderColor: 'ocobo.sky/20',
+			},
+			coral: {
+				color: 'ocobo.coral',
+				bg: 'ocobo.coral.light',
+				borderColor: 'ocobo.coral/20',
+			},
+			dark: {
+				color: 'white',
+				bg: 'ocobo.dark',
+				borderColor: 'ocobo.dark/20',
+			},
+			gray: {
+				color: 'gray.400',
+				bg: 'gray.100',
+				borderColor: 'gray.200',
+			},
+		},
+		size: {
+			sm: {
+				px: '4',
+				py: '1.5',
+				fontSize: 'xs',
+				letterSpacing: '0.3em',
+			},
+			md: {
+				px: '6',
+				py: '2',
+				fontSize: 'xs',
+				letterSpacing: '0.3em',
+			},
+		},
+		rounded: {
+			sm: {
+				borderRadius: 'sm',
+			},
+			full: {
+				borderRadius: 'full',
+			},
+		},
+	},
+	defaultVariants: {
+		variant: 'yellow',
+		size: 'sm',
+		rounded: 'sm',
+	},
+});
+
 const buttonRecipe = defineRecipe({
 	className: 'button',
 	description: 'Button component styles',
@@ -134,6 +208,7 @@ export default defineConfig({
 	jsxFramework: 'react',
 	theme: {
 		recipes: {
+			badge: badgeRecipe,
 			button: buttonRecipe,
 		},
 		extend: {

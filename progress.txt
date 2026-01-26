@@ -163,3 +163,28 @@ Build/test:
 - Tests pass (1/1)
 
 ---
+
+## Feature 5: Badge component uses Panda recipe
+**Status:** PASS
+**Completed:** 2026-01-26T16:47:00Z
+
+Steps completed:
+- Created badge recipe in panda.config.ts using defineRecipe
+- Added color variants: yellow, mint, sky, coral, dark, gray
+- Added size variants: sm, md with letter-spacing 0.3em
+- Added rounded variants: sm, full
+- Updated Badge.tsx to use recipe with `badge()` function
+- Changed to named export (per codebase conventions)
+- Updated atoms/index.ts re-export
+- Updated Badge.stories.tsx import
+
+Recipe details:
+- Base styles: inline-block, font-display, font-black, uppercase, border
+- Color variants map to ocobo token colours with light backgrounds
+- Sizes include padding and fontSize matching original Tailwind classes
+
+Build/test:
+- Build passes
+- Tests pass (1/1)
+
+---
