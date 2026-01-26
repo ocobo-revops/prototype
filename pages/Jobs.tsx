@@ -17,7 +17,7 @@ import {
 import type React from 'react';
 import { Link } from 'react-router';
 import { Badge } from '../components/atoms';
-import Grid from '../components/layout/Grid';
+import { Grid } from '../components/layout/Grid';
 
 interface VideoStoryCardProps {
 	episode: string;

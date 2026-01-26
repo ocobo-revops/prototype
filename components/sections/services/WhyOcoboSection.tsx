@@ -1,6 +1,6 @@
 import { CheckCircle2 } from 'lucide-react';
 import type React from 'react';
-import Grid from '../../layout/Grid';
+import { Grid } from '../../layout/Grid';
 import { SectionHeader } from '../../organisms';
 
 const REASONS = [

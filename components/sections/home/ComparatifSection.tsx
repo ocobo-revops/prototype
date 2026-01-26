@@ -1,7 +1,7 @@
 import { Check, X } from 'lucide-react';
 import type React from 'react';
 import { Button } from '../../atoms';
-import Grid from '../../layout/Grid';
+import { Grid } from '../../layout/Grid';
 import { Container, Section } from '../../organisms';
 
 const OCOBO_BENEFITS = [

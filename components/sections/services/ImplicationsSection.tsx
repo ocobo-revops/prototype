@@ -7,7 +7,7 @@ import {
 	Search,
 } from 'lucide-react';
 import type React from 'react';
-import Grid from '../../layout/Grid';
+import { Grid } from '../../layout/Grid';
 
 const BLOCKS = [
 	{

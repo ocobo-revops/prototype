@@ -13,7 +13,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { Badge, Button } from '../components/atoms';
 import { ClientMarquee } from '../components/layout/ClientMarquee';
-import Grid from '../components/layout/Grid';
+import { Grid } from '../components/layout/Grid';
 
 const StoriesIllustration = () => {
 	return (

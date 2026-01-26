@@ -1,7 +1,7 @@
 import type React from 'react';
 import { ThemeColor } from '../../../types';
 import { Button } from '../../atoms';
-import Grid from '../../layout/Grid';
+import { Grid } from '../../layout/Grid';
 import TeamMemberCard from '../../molecules/TeamMemberCard';
 import { Container, Section } from '../../organisms';
 

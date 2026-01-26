@@ -1,5 +1,5 @@
 import type React from 'react';
-import Grid from '../../layout/Grid';
+import { Grid } from '../../layout/Grid';
 
 const TransitionSection: React.FC = () => {
 	return (

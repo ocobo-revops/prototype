@@ -16,7 +16,7 @@ import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Badge, Button } from '../components/atoms';
 import FlexPair from '../components/layout/FlexPair';
-import Grid from '../components/layout/Grid';
+import { Grid } from '../components/layout/Grid';
 import {
 	DEFAULT_STACK_ITEMS,
 	ModularStackGrid,

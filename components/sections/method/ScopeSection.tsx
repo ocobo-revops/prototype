@@ -9,7 +9,7 @@ import {
 import type React from 'react';
 import { ThemeColor } from '../../../types';
 import { UnifiedBowtie } from '../../illustrations';
-import Grid from '../../layout/Grid';
+import { Grid } from '../../layout/Grid';
 import { ScopeCard } from '../../molecules';
 import { Container, Section } from '../../organisms';
 

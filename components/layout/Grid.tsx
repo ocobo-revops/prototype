@@ -47,14 +47,14 @@ const lgColClasses: Record<ColCount, string> = {
 	6: 'lg:grid-cols-6',
 };
 
-const Grid: React.FC<GridProps> = ({
+export function Grid({
 	children,
 	cols = 1,
 	md,
 	lg,
 	gap = 6,
 	className = '',
-}) => {
+}: GridProps) {
 	const classes = [
 		'grid',
 		colClasses[cols],
@@ -67,6 +67,4 @@ const Grid: React.FC<GridProps> = ({
 		.join(' ');
 
 	return <div className={classes}>{children}</div>;
-};
-
-export default Grid;
+}

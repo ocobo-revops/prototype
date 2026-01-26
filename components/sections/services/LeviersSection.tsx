@@ -1,7 +1,7 @@
 import { ArrowRight, Cpu, Layers, Users } from 'lucide-react';
 import type React from 'react';
 import { Link } from 'react-router';
-import Grid from '../../layout/Grid';
+import { Grid } from '../../layout/Grid';
 import { SectionHeader } from '../../organisms';
 
 const LeviersSection: React.FC = () => {

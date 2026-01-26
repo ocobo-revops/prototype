@@ -1,7 +1,7 @@
 import { GraduationCap, Layout, LineChart, Sliders } from 'lucide-react';
 import type React from 'react';
 import { ThemeColor } from '../../../types';
-import Grid from '../../layout/Grid';
+import { Grid } from '../../layout/Grid';
 import { PillarCard } from '../../molecules';
 import { Container, Section } from '../../organisms';
 

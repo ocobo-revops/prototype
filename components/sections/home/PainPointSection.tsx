@@ -2,7 +2,7 @@ import { BarChart3, Layout, Target, Zap } from 'lucide-react';
 import type React from 'react';
 import { ThemeColor } from '../../../types';
 import { FeatureCard } from '../../layout/FeatureCard';
-import Grid from '../../layout/Grid';
+import { Grid } from '../../layout/Grid';
 import { Container, Section } from '../../organisms';
 
 const PainPointSection: React.FC = () => {
