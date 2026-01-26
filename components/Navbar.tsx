@@ -1,3 +1,5 @@
+import { Menu } from '@ark-ui/react/menu';
+import { Portal } from '@ark-ui/react/portal';
 import {
 	ArrowRight,
 	BookOpen,
@@ -6,7 +8,7 @@ import {
 	Cpu,
 	Heart,
 	Layers,
-	Menu,
+	Menu as MenuIcon,
 	Mic,
 	Users,
 	X,
@@ -14,15 +16,374 @@ import {
 } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router';
+import { css } from 'styled-system/css';
 import { Button } from './atoms';
 
-const Navbar: React.FC = () => {
+type DropdownItem = {
+	label: string;
+	description: string;
+	path: string;
+	icon: React.ReactNode;
+	color: 'yellow' | 'coral' | 'mint' | 'sky';
+};
+
+type NavItem = {
+	label: string;
+	path: string;
+	dropdown?: DropdownItem[];
+};
+
+const navigation: NavItem[] = [
+	{
+		label: 'Notre Offre',
+		path: '/offer',
+	},
+	{
+		label: 'Méthode',
+		path: '/method',
+		dropdown: [
+			{
+				label: 'The Revenue Experience System',
+				description: 'Notre framework propriétaire en 4 piliers.',
+				path: '/method',
+				icon: <Layers size={16} />,
+				color: 'yellow',
+			},
+			{
+				label: 'Technologie',
+				description: "L'architecture d'outils connectés.",
+				path: '/technology',
+				icon: <Cpu size={16} />,
+				color: 'sky',
+			},
+			{
+				label: 'Le RevOps Studio',
+				description: 'Votre équipe de seniors embarquée.',
+				path: '/studio',
+				icon: <Briefcase size={16} />,
+				color: 'mint',
+			},
+		],
+	},
+	{
+		label: 'Success Stories',
+		path: '/stories',
+	},
+	{
+		label: 'À propos',
+		path: '/about',
+		dropdown: [
+			{
+				label: 'Qui sommes-nous',
+				description: 'Notre vision de la science du revenu.',
+				path: '/about',
+				icon: <Users size={16} />,
+				color: 'yellow',
+			},
+			{
+				label: 'Nous rejoindre',
+				description: 'Bâtissez le futur du RevOps avec nous.',
+				path: '/jobs',
+				icon: <Heart size={16} />,
+				color: 'coral',
+			},
+		],
+	},
+	{
+		label: 'Ressources',
+		path: '/resources',
+		dropdown: [
+			{
+				label: 'Podcast Revenue Echoes',
+				description: 'Interviews de leaders du revenu.',
+				path: '/podcast',
+				icon: <Mic size={16} />,
+				color: 'yellow',
+			},
+			{
+				label: 'Chaîne Youtube',
+				description: 'Masterclasses et replays techniques.',
+				path: 'https://www.youtube.com/@Ocobo-Revenue',
+				icon: <Youtube size={16} />,
+				color: 'coral',
+			},
+			{
+				label: 'Librairie RevOps',
+				description: 'Articles, playbooks et templates.',
+				path: '/resources',
+				icon: <BookOpen size={16} />,
+				color: 'coral',
+			},
+			{
+				label: 'Modern Revenue Club',
+				description: 'La communauté privée des leaders RevOps.',
+				path: 'https://modernrevenue.club',
+				icon: (
+					<img
+						src="https://27107933.fs1.hubspotusercontent-eu1.net/hubfs/27107933/Logos-ModernRevenueClub-web_Monogramme-couleurs.png"
+						alt="Modern Revenue Club"
+						className={css({ w: '6', h: '6', objectFit: 'contain' })}
+					/>
+				),
+				color: 'sky',
+			},
+		],
+	},
+];
+
+const iconStyles: Record<string, string> = {
+	yellow: css({
+		bg: 'ocobo.yellow/10',
+		color: 'ocobo.yellow',
+	}),
+	coral: css({
+		bg: 'ocobo.coral/10',
+		color: 'ocobo.coral',
+	}),
+	mint: css({
+		bg: 'ocobo.mint/10',
+		color: 'ocobo.mint',
+	}),
+	sky: css({
+		bg: 'ocobo.sky/10',
+		color: 'ocobo.sky',
+	}),
+};
+
+const hoverStyles: Record<string, string> = {
+	yellow: css({ _hover: { bg: 'ocobo.yellow.light' } }),
+	coral: css({ _hover: { bg: 'ocobo.coral.light' } }),
+	mint: css({ _hover: { bg: 'ocobo.mint.light' } }),
+	sky: css({ _hover: { bg: 'ocobo.sky.light' } }),
+};
+
+const hoverTextStyles: Record<string, string> = {
+	yellow: css({ _groupHover: { color: 'ocobo.yellow' } }),
+	coral: css({ _groupHover: { color: 'ocobo.coral' } }),
+	mint: css({ _groupHover: { color: 'ocobo.mint' } }),
+	sky: css({ _groupHover: { color: 'ocobo.sky' } }),
+};
+
+type NavDropdownItemProps = {
+	key?: React.Key;
+	item: DropdownItem;
+	onClose: () => void;
+};
+
+function NavDropdownItem({ item, onClose }: NavDropdownItemProps) {
+	const isExternal = item.path.startsWith('http');
+
+	const content = (
+		<>
+			<div
+				className={`${css({
+					w: '10',
+					h: '10',
+					rounded: 'xl',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+					flexShrink: 0,
+					transition: 'all',
+					_groupHover: { transform: 'scale(1.05)' },
+				})} ${iconStyles[item.color]}`}
+			>
+				{item.icon}
+			</div>
+			<div
+				className={css({
+					transition: 'transform',
+					_groupHover: { transform: 'translateX(4px)' },
+				})}
+			>
+				<h4
+					className={`${css({
+						fontWeight: 'bold',
+						color: 'ocobo.dark',
+						fontSize: 'base',
+						mb: '0.5',
+						transition: 'colors',
+					})} ${hoverTextStyles[item.color]}`}
+				>
+					{item.label}
+				</h4>
+				<p
+					className={css({
+						fontSize: 'xs',
+						color: 'gray.400',
+						fontWeight: 'medium',
+						lineHeight: 'tight',
+					})}
+				>
+					{item.description}
+				</p>
+			</div>
+		</>
+	);
+
+	const itemClass = `${css({
+		display: 'flex',
+		alignItems: 'flex-start',
+		gap: '4',
+		p: '4',
+		rounded: '2xl',
+		transition: 'all',
+		cursor: 'pointer',
+		outline: 'none',
+		_focus: {
+			outline: '2px solid',
+			outlineColor: 'ocobo.dark',
+			outlineOffset: '2px',
+		},
+	})} ${hoverStyles[item.color]} group`;
+
+	if (isExternal) {
+		return (
+			<Menu.Item value={item.path} asChild>
+				<a
+					href={item.path}
+					target="_blank"
+					rel="noopener noreferrer"
+					className={itemClass}
+					onClick={onClose}
+				>
+					{content}
+				</a>
+			</Menu.Item>
+		);
+	}
+
+	return (
+		<Menu.Item value={item.path} asChild>
+			<Link to={item.path} className={itemClass} onClick={onClose}>
+				{content}
+			</Link>
+		</Menu.Item>
+	);
+}
+
+type NavItemWithDropdownProps = {
+	key?: React.Key;
+	item: NavItem;
+	isCurrentPath: boolean;
+	useWhiteText: boolean;
+	activeDropdown: string | null;
+	setActiveDropdown: (label: string | null) => void;
+};
+
+function NavItemWithDropdown({
+	item,
+	isCurrentPath,
+	useWhiteText,
+	activeDropdown,
+	setActiveDropdown,
+}: NavItemWithDropdownProps) {
+	const isOpen = activeDropdown === item.label;
+
+	const getThemeClasses = (isDropdownActive: boolean, isCurrent: boolean) => {
+		if (useWhiteText) {
+			if (isDropdownActive || isCurrent) return 'text-white bg-white/10';
+			return 'text-gray-300 hover:text-white hover:bg-white/5';
+		}
+		if (isDropdownActive || isCurrent) {
+			return 'text-ocobo-dark font-black';
+		}
+		return 'text-gray-500 hover:text-ocobo-dark';
+	};
+
+	if (!item.dropdown) {
+		return (
+			<Link
+				to={item.path}
+				className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 ${getThemeClasses(false, isCurrentPath)}`}
+			>
+				{item.label}
+			</Link>
+		);
+	}
+
+	return (
+		<Menu.Root
+			open={isOpen}
+			onOpenChange={(details) => {
+				if (details.open) {
+					setActiveDropdown(item.label);
+				} else {
+					setActiveDropdown(null);
+				}
+			}}
+			positioning={{ placement: 'bottom', gutter: 16 }}
+			closeOnSelect
+		>
+			{/* biome-ignore lint/a11y/noStaticElementInteractions: hover behaviour for dropdown */}
+			<div
+				className={css({ position: 'relative' })}
+				onMouseEnter={() => setActiveDropdown(item.label)}
+				onMouseLeave={() => setActiveDropdown(null)}
+			>
+				<Menu.Trigger asChild>
+					<Link
+						to={item.path}
+						className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 flex items-center gap-1 ${getThemeClasses(isOpen, isCurrentPath)}`}
+						onClick={() => {
+							// Allow navigation on click, menu opens on hover
+							setActiveDropdown(null);
+						}}
+					>
+						{item.label}
+						<ChevronDown
+							size={14}
+							className={css({
+								transition: 'transform 0.5s',
+								opacity: isOpen ? 0.6 : 0.3,
+								transform: isOpen ? 'rotate(180deg)' : 'rotate(0)',
+							})}
+						/>
+					</Link>
+				</Menu.Trigger>
+				<Portal>
+					<Menu.Positioner>
+						<Menu.Content
+							className={css({
+								w: '380px',
+								bg: 'white',
+								rounded: '3xl',
+								p: '2',
+								shadow: 'soft-lg',
+								borderWidth: '1px',
+								borderColor: 'gray.50',
+								overflow: 'hidden',
+								outline: 'none',
+								animation: 'fade-in-up-small',
+								'&[data-state="closed"]': {
+									opacity: 0,
+									transform: 'translateY(-8px)',
+								},
+							})}
+							onMouseEnter={() => setActiveDropdown(item.label)}
+							onMouseLeave={() => setActiveDropdown(null)}
+						>
+							{item.dropdown.map((subItem) => (
+								<NavDropdownItem
+									key={subItem.path}
+									item={subItem}
+									onClose={() => setActiveDropdown(null)}
+								/>
+							))}
+						</Menu.Content>
+					</Menu.Positioner>
+				</Portal>
+			</div>
+		</Menu.Root>
+	);
+}
+
+export function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
 	const [scrolled, setScrolled] = useState(false);
 	const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 	const location = useLocation();
 
-	// Détection des pages sombres pour adapter le contraste
 	const isDarkPage = location.pathname === '/podcast';
 
 	useEffect(() => {
@@ -46,145 +407,22 @@ const Navbar: React.FC = () => {
 		}
 	}, [isOpen]);
 
-	const navigation = [
-		{
-			label: 'Notre Offre',
-			path: '/offer',
-		},
-		{
-			label: 'Méthode',
-			path: '/method',
-			dropdown: [
-				{
-					label: 'The Revenue Experience System',
-					description: 'Notre framework propriétaire en 4 piliers.',
-					path: '/method',
-					icon: <Layers size={16} />,
-					color: 'yellow', // Demandé : Jaune
-				},
-				{
-					label: 'Technologie',
-					description: 'L’architecture d’outils connectés.',
-					path: '/technology',
-					icon: <Cpu size={16} />,
-					color: 'sky', // Demandé : Bleue
-				},
-				{
-					label: 'Le RevOps Studio',
-					description: 'Votre équipe de seniors embarquée.',
-					path: '/studio',
-					icon: <Briefcase size={16} />,
-					color: 'mint', // Demandé : Vert
-				},
-			],
-		},
-		{
-			label: 'Success Stories',
-			path: '/stories',
-		},
-		{
-			label: 'À propos',
-			path: '/about',
-			dropdown: [
-				{
-					label: 'Qui sommes-nous',
-					description: 'Notre vision de la science du revenu.',
-					path: '/about',
-					icon: <Users size={16} />,
-					color: 'yellow', // Demandé : Jaune
-				},
-				{
-					label: 'Nous rejoindre',
-					description: 'Bâtissez le futur du RevOps avec nous.',
-					path: '/jobs',
-					icon: <Heart size={16} />,
-					color: 'coral', // Demandé : Corail
-				},
-			],
-		},
-		{
-			label: 'Ressources',
-			path: '/resources',
-			dropdown: [
-				{
-					label: 'Podcast Revenue Echoes',
-					description: 'Interviews de leaders du revenu.',
-					path: '/podcast',
-					icon: <Mic size={16} />,
-					color: 'yellow',
-				},
-				{
-					label: 'Chaîne Youtube',
-					description: 'Masterclasses et replays techniques.',
-					path: 'https://www.youtube.com/@Ocobo-Revenue',
-					icon: <Youtube size={16} />,
-					color: 'coral',
-				},
-				{
-					label: 'Librairie RevOps',
-					description: 'Articles, playbooks et templates.',
-					path: '/resources',
-					icon: <BookOpen size={16} />,
-					color: 'coral',
-				},
-				{
-					label: 'Modern Revenue Club',
-					description: 'La communauté privée des leaders RevOps.',
-					path: 'https://modernrevenue.club',
-					icon: (
-						<img
-							src="https://27107933.fs1.hubspotusercontent-eu1.net/hubfs/27107933/Logos-ModernRevenueClub-web_Monogramme-couleurs.png"
-							alt="Modern Revenue Club"
-							className="w-6 h-6 object-contain"
-						/>
-					),
-					color: 'sky',
-				},
-			],
-		},
-	];
+	useEffect(() => {
+		const handleEscape = (e: KeyboardEvent) => {
+			if (e.key === 'Escape') {
+				setActiveDropdown(null);
+			}
+		};
+		document.addEventListener('keydown', handleEscape);
+		return () => document.removeEventListener('keydown', handleEscape);
+	}, []);
 
 	const useWhiteText = isDarkPage && !scrolled;
 	const logoUrl = useWhiteText
 		? 'https://27107933.fs1.hubspotusercontent-eu1.net/hubfs/27107933/logo-ocobo_full-white.svg'
 		: 'https://27107933.fs1.hubspotusercontent-eu1.net/hubfs/27107933/logo-ocobo-web_full-main%20color.png';
 
-	const getThemeClasses = (
-		isDropdownActive: boolean,
-		isCurrentPath: boolean,
-	) => {
-		if (useWhiteText) {
-			if (isDropdownActive || isCurrentPath) return 'text-white bg-white/10';
-			return 'text-gray-300 hover:text-white hover:bg-white/5';
-		}
-
-		// Menu principal uniquement noir/gris foncé, pas de couleur
-		if (isDropdownActive || isCurrentPath) {
-			return 'text-ocobo-dark font-black';
-		}
-
-		return 'text-gray-500 hover:text-ocobo-dark';
-	};
-
-	const getSubMenuHoverClasses = (color: string) => {
-		const subThemeMap: Record<string, string> = {
-			yellow: 'hover:bg-ocobo-yellow-light',
-			coral: 'hover:bg-ocobo-coral-light',
-			mint: 'hover:bg-ocobo-mint-light',
-			sky: 'hover:bg-ocobo-sky-light',
-		};
-		return subThemeMap[color] || 'hover:bg-gray-50';
-	};
-
-	const getIconThemeClasses = (color: string) => {
-		const iconThemeMap: Record<string, string> = {
-			yellow: 'bg-ocobo-yellow/10 text-ocobo-yellow',
-			coral: 'bg-ocobo-coral/10 text-ocobo-coral',
-			mint: 'bg-ocobo-mint/10 text-ocobo-mint',
-			sky: 'bg-ocobo-sky/10 text-ocobo-sky',
-		};
-		return iconThemeMap[color] || 'bg-gray-50 text-ocobo-dark';
-	};
+	const getIconThemeClasses = (color: string) => iconStyles[color] || '';
 
 	const getHoverTextColor = (color: string) => {
 		const textThemeMap: Record<string, string> = {
@@ -194,58 +432,6 @@ const Navbar: React.FC = () => {
 			sky: 'group-hover/item:text-ocobo-sky',
 		};
 		return textThemeMap[color] || 'group-hover/item:text-ocobo-dark';
-	};
-
-	// biome-ignore lint/suspicious/noExplicitAny: dropdown item type from navigation config
-	const renderDropdownItem = (subItem: any, idx: number) => {
-		const isExternal = subItem.path.startsWith('http');
-		const content = (
-			<>
-				<div
-					className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-all group-hover/item:scale-105 ${getIconThemeClasses(subItem.color)}`}
-				>
-					{subItem.icon}
-				</div>
-				<div className="transition-transform group-hover/item:translate-x-1">
-					<h4
-						className={`font-bold text-ocobo-dark text-base mb-0.5 transition-colors ${getHoverTextColor(subItem.color)}`}
-					>
-						{subItem.label}
-					</h4>
-					<p className="text-xs text-gray-400 font-medium leading-tight">
-						{subItem.description}
-					</p>
-				</div>
-			</>
-		);
-
-		const className = `flex items-start gap-4 p-4 rounded-2xl transition-all group/item ${getSubMenuHoverClasses(subItem.color)}`;
-
-		if (isExternal) {
-			return (
-				<a
-					key={idx}
-					href={subItem.path}
-					target="_blank"
-					rel="noopener noreferrer"
-					className={className}
-					onClick={() => setActiveDropdown(null)}
-				>
-					{content}
-				</a>
-			);
-		}
-
-		return (
-			<Link
-				key={idx}
-				to={subItem.path}
-				className={className}
-				onClick={() => setActiveDropdown(null)}
-			>
-				{content}
-			</Link>
-		);
 	};
 
 	return (
@@ -261,7 +447,6 @@ const Navbar: React.FC = () => {
 						}
             ${isOpen ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}
           `}
-					onMouseLeave={() => setActiveDropdown(null)}
 				>
 					<div className="flex justify-between items-center relative h-12">
 						<Link
@@ -277,59 +462,22 @@ const Navbar: React.FC = () => {
 
 						{/* Desktop Navigation */}
 						<div className="hidden md:flex items-center gap-1 px-2">
-							{navigation.map((item) => {
-								const isDropdownActive = activeDropdown === item.label;
-								const isCurrentPath = location.pathname === item.path;
-
-								return (
-									// biome-ignore lint/a11y/noStaticElementInteractions: dropdown hover behaviour
-									<div
-										key={item.label}
-										className="relative"
-										onMouseEnter={() =>
-											item.dropdown && setActiveDropdown(item.label)
-										}
-									>
-										<Link
-											to={item.path}
-											className={`
-                        px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 flex items-center gap-1
-                        ${getThemeClasses(isDropdownActive, isCurrentPath)}
-                      `}
-										>
-											{item.label}
-											{item.dropdown && (
-												<ChevronDown
-													size={14}
-													className={`transition-transform duration-500 opacity-30 ${isDropdownActive ? 'rotate-180 opacity-60' : ''}`}
-												/>
-											)}
-										</Link>
-
-										{item.dropdown && (
-											<div
-												className={`
-                            absolute top-full left-1/2 -translate-x-1/2 pt-4 w-[380px]
-                            transition-all duration-500 transform origin-top
-                            ${isDropdownActive ? 'opacity-100 scale-100 translate-y-0 visible' : 'opacity-0 scale-95 -translate-y-4 invisible pointer-events-none'}
-                        `}
-											>
-												<div className="bg-white rounded-3xl p-2 shadow-soft-lg border border-gray-50 overflow-hidden">
-													{item.dropdown.map((subItem, idx) =>
-														renderDropdownItem(subItem, idx),
-													)}
-												</div>
-											</div>
-										)}
-									</div>
-								);
-							})}
+							{navigation.map((item) => (
+								<NavItemWithDropdown
+									key={item.label}
+									item={item}
+									isCurrentPath={location.pathname === item.path}
+									useWhiteText={useWhiteText}
+									activeDropdown={activeDropdown}
+									setActiveDropdown={setActiveDropdown}
+								/>
+							))}
 						</div>
 
 						<div className="flex items-center gap-3">
 							<Link to="/contact" className="hidden md:block">
 								<Button
-									className={`!py-2 !px-5 text-xs font-black uppercase tracking-widest border-none transition-all duration-700 
+									className={`!py-2 !px-5 text-xs font-black uppercase tracking-widest border-none transition-all duration-700
                   ${
 										scrolled
 											? 'bg-ocobo-dark text-white shadow-none scale-95'
@@ -347,7 +495,7 @@ const Navbar: React.FC = () => {
 								onClick={() => setIsOpen(true)}
 								className={`md:hidden relative z-50 p-2.5 rounded-full transition-colors ${useWhiteText ? 'bg-white/10 text-white' : 'bg-black/5 text-ocobo-dark'}`}
 							>
-								<Menu size={20} />
+								<MenuIcon size={20} />
 							</button>
 						</div>
 					</div>
@@ -390,17 +538,19 @@ const Navbar: React.FC = () => {
 											{item.label}
 										</Link>
 										<div className="space-y-5 pl-2">
-											{item.dropdown.map((sub, _subIdx) => {
+											{item.dropdown.map((sub) => {
 												const isExternal = sub.path.startsWith('http');
 												const mobileLinkContent = (
 													<>
 														<div
 															className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border border-gray-50 ${getIconThemeClasses(sub.color)}`}
 														>
-															{/* biome-ignore lint/suspicious/noExplicitAny: cloneElement requires any */}
-															{React.cloneElement(sub.icon as any, {
-																size: 18,
-															})}
+															{React.cloneElement(
+																sub.icon as React.ReactElement<{
+																	size?: number;
+																}>,
+																{ size: 18 },
+															)}
 														</div>
 														<div>
 															<span
@@ -470,6 +620,6 @@ const Navbar: React.FC = () => {
 			</div>
 		</>
 	);
-};
+}
 
 export default Navbar;

@@ -266,3 +266,35 @@ Build/test:
 - Tests pass (1/1)
 
 ---
+
+## Feature 9: Navbar dropdowns use Ark UI Menu
+**Status:** PASS
+**Completed:** 2026-01-26T22:03:00Z
+
+Steps completed:
+- Imported Menu from @ark-ui/react/menu and Portal from @ark-ui/react/portal
+- Replaced custom dropdown with Menu.Root, Menu.Trigger, Menu.Positioner, Menu.Content, Menu.Item
+- Applied Panda CSS styles using css() function on Menu parts
+- Implemented controlled mode with open/onOpenChange for hover support
+- Added escape key handler for closing dropdowns
+- Arrow key navigation built-in via Ark UI
+- ARIA attributes automatically managed by Ark UI
+
+Component refactoring:
+- Extracted NavDropdownItem component for menu items
+- Extracted NavItemWithDropdown component for nav items with menus
+- Added proper TypeScript types: DropdownItem, NavItem
+- Changed to named export (added `export function Navbar`)
+- Used Portal to render dropdown content outside nav hierarchy
+
+Accessibility improvements:
+- Menu.Item provides proper role="menuitem"
+- Menu.Content provides role="menu"
+- Focus management handled by Ark UI
+- Keyboard navigation: ArrowUp/Down, Enter, Escape
+
+Build/test:
+- Build passes
+- Tests pass (1/1)
+
+---

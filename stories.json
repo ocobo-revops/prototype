@@ -172,10 +172,10 @@
 				"Verify arrow key navigation works",
 				"Verify ARIA attributes present"
 			],
-			"passes": false,
+			"passes": true,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": null
+			"completed_at": "2026-01-26T22:03:00Z"
 		},
 		{
 			"id": 10,
