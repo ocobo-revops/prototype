@@ -1,24 +1,39 @@
-import { Calendar, Check, MessageSquare } from 'lucide-react';
-import type React from 'react';
+import { createListCollection, Select } from '@ark-ui/react/select';
+import { Calendar, Check, ChevronDown, MessageSquare } from 'lucide-react';
 import { useState } from 'react';
+import { css } from 'styled-system/css';
 import { Button, Input } from '../components/atoms';
 
-const Contact: React.FC = () => {
+const teamSizeOptions = createListCollection({
+	items: [
+		{ value: '1-5', label: '1-5 personnes' },
+		{ value: '6-20', label: '6-20 personnes' },
+		{ value: '21-50', label: '21-50 personnes' },
+		{ value: '50+', label: '+50 personnes' },
+	],
+});
+
+export function Contact() {
 	const [formState, setFormState] = useState({
 		email: '',
 		firstName: '',
 		lastName: '',
 		role: '',
-		teamSize: '',
+		teamSize: [] as string[],
 		source: '',
 	});
 
-	const handleChange = (
-		e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-	) => {
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setFormState({
 			...formState,
 			[e.target.name]: e.target.value,
+		});
+	};
+
+	const handleTeamSizeChange = (details: { value: string[] }) => {
+		setFormState({
+			...formState,
+			teamSize: details.value,
 		});
 	};
 
@@ -147,29 +162,98 @@ const Contact: React.FC = () => {
 									onChange={handleChange}
 								/>
 
-								<div>
-									<label
-										htmlFor="teamSize"
-										className="block text-xs font-bold uppercase text-gray-500 mb-2"
+								<Select.Root
+									collection={teamSizeOptions}
+									value={formState.teamSize}
+									onValueChange={handleTeamSizeChange}
+									required
+								>
+									<Select.Label
+										className={css({
+											display: 'block',
+											fontSize: 'xs',
+											fontWeight: 'bold',
+											textTransform: 'uppercase',
+											color: 'gray.500',
+											mb: '2',
+										})}
 									>
 										Taille de l'équipe Revenue*
-									</label>
-									<select
-										name="teamSize"
-										required
-										className="w-full px-4 py-4 bg-gray-50 border border-gray-100 focus:border-ocobo-dark focus:bg-white focus:ring-0 outline-none transition-all appearance-none cursor-pointer"
-										value={formState.teamSize}
-										onChange={handleChange}
-									>
-										<option value="" disabled>
-											Sélectionnez...
-										</option>
-										<option value="1-5">1-5 personnes</option>
-										<option value="6-20">6-20 personnes</option>
-										<option value="21-50">21-50 personnes</option>
-										<option value="50+">+50 personnes</option>
-									</select>
-								</div>
+									</Select.Label>
+									<Select.Control>
+										<Select.Trigger
+											className={css({
+												width: 'full',
+												px: '4',
+												py: '4',
+												bg: 'gray.50',
+												border: '1px solid',
+												borderColor: 'gray.100',
+												outline: 'none',
+												transition: 'all 0.2s',
+												cursor: 'pointer',
+												display: 'flex',
+												alignItems: 'center',
+												justifyContent: 'space-between',
+												_focus: {
+													borderColor: 'ocobo.dark',
+													bg: 'white',
+												},
+											})}
+										>
+											<Select.ValueText
+												placeholder="Sélectionnez..."
+												className={css({
+													color: formState.teamSize.length
+														? 'ocobo.dark'
+														: 'gray.400',
+												})}
+											/>
+											<Select.Indicator>
+												<ChevronDown
+													size={16}
+													className={css({ color: 'gray.400' })}
+												/>
+											</Select.Indicator>
+										</Select.Trigger>
+									</Select.Control>
+									<Select.Positioner>
+										<Select.Content
+											className={css({
+												bg: 'white',
+												border: '1px solid',
+												borderColor: 'gray.100',
+												shadow: 'lg',
+												py: '1',
+												zIndex: 50,
+												_open: {
+													animation: 'fade-in-up 0.15s ease-out',
+												},
+											})}
+										>
+											{teamSizeOptions.items.map((item) => (
+												<Select.Item
+													key={item.value}
+													item={item}
+													className={css({
+														px: '4',
+														py: '3',
+														cursor: 'pointer',
+														outline: 'none',
+														transition: 'background 0.1s',
+														_highlighted: { bg: 'gray.50' },
+														_selected: {
+															bg: 'ocobo.yellow/10',
+															fontWeight: 'medium',
+														},
+													})}
+												>
+													<Select.ItemText>{item.label}</Select.ItemText>
+												</Select.Item>
+											))}
+										</Select.Content>
+									</Select.Positioner>
+								</Select.Root>
 
 								<Input
 									type="text"
@@ -198,6 +282,6 @@ const Contact: React.FC = () => {
 			</div>
 		</div>
 	);
-};
+}
 
 export default Contact;

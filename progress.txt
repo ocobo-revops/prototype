@@ -331,3 +331,36 @@ Build/test:
 - Tests pass (1/1)
 
 ---
+
+## Feature 12: Contact form select uses Ark UI Select
+**Status:** PASS
+**Completed:** 2026-01-27T09:08:00Z
+
+Steps completed:
+- Imported Select and createListCollection from @ark-ui/react/select
+- Created teamSizeOptions collection with label/value pairs
+- Replaced native select with Select.Root, Control, Trigger, ValueText, Indicator, Positioner, Content, Item
+- Applied Panda CSS styles using css() function
+- Added ChevronDown icon as Select.Indicator
+- Changed teamSize state to array (Ark UI Select uses arrays)
+- Added named export (per codebase conventions)
+
+Component structure:
+- Select.Root with collection, value, onValueChange props
+- Select.Label for accessible label
+- Select.Control wraps Select.Trigger
+- Select.Trigger with ValueText placeholder and Indicator
+- Select.Positioner + Select.Content for dropdown
+- Select.Item with _highlighted and _selected states
+
+Accessibility:
+- Arrow key navigation built-in
+- Enter selects item
+- Escape closes dropdown
+- Proper ARIA attributes (listbox, option roles)
+
+Build/test:
+- Build passes
+- Tests pass (1/1)
+
+---
