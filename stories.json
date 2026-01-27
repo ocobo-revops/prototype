@@ -245,10 +245,10 @@
 				"Then complex: Jobs, JobDetail, Stories, StoryDetail, Partners",
 				"Verify each page renders correctly after conversion"
 			],
-			"passes": false,
+			"passes": true,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": null
+			"completed_at": "2026-01-27T09:36:00Z"
 		},
 		{
 			"id": 14,

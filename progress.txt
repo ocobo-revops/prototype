@@ -364,3 +364,41 @@ Build/test:
 - Tests pass (1/1)
 
 ---
+
+## Feature 13: Migrate remaining Tailwind classes in pages
+**Status:** PASS
+**Completed:** 2026-01-27T09:36:00Z
+
+Steps completed:
+- Converted all page files from Tailwind CSS classes to Panda css() function
+- Changed all pages to named exports (per codebase conventions)
+- Updated App.tsx imports to use named exports
+
+Pages migrated:
+- Home.tsx, Method.tsx, About.tsx - Simple wrappers, minimal changes
+- Services.tsx - Wrapper for section components
+- Contact.tsx - Already using Panda CSS
+- Resources.tsx - Full conversion with responsive styles
+- Podcast.tsx - Full conversion with animations
+- Studio.tsx - Full conversion with grid patterns
+- WebinarDetail.tsx - Full conversion with article layout
+- ArticleDetail.tsx - Full conversion with table of contents
+- Jobs.tsx - Full conversion with job listing cards
+- JobDetail.tsx - Full conversion with section TOC and apply form
+- Stories.tsx - Full conversion with story cards grid
+- StoryDetail.tsx - Full conversion with testimonial layout
+- Partners.tsx - Full conversion with partner grid
+
+Migration patterns:
+- Tailwind `className="..."` → `className={css({ ... })}`
+- Responsive: `md:px-8` → `px: { base: 4, md: 8 }`
+- Pseudo: `hover:bg-gray-100` → `_hover: { bg: 'gray.100' }`
+- Group hover: `group-hover:...` → `_groupHover: { ... }`
+- Nested selectors: `& .prose` → CSS-in-JS nested styles
+- Animation tokens: 'fade-in-up', 'float-gentle', etc.
+
+Build/test:
+- Build passes (135.33 kB CSS, 715.83 kB JS)
+- Tests pass (1/1)
+
+---
