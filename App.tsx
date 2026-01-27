@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, HashRouter as Router, Routes, useLocation } from 'react-router';
 import Footer from './components/Footer';
 import { Navbar } from './components/Navbar';
-import NewsletterWidget from './components/NewsletterWidget';
+import { NewsletterWidget } from './components/NewsletterWidget';
 import About from './pages/About';
 import ArticleDetail from './pages/ArticleDetail';
 import Contact from './pages/Contact';

@@ -298,3 +298,36 @@ Build/test:
 - Tests pass (1/1)
 
 ---
+
+## Feature 11: NewsletterWidget uses Ark UI Popover
+**Status:** PASS
+**Completed:** 2026-01-27T09:05:00Z
+
+Steps completed:
+- Imported Popover from @ark-ui/react/popover
+- Replaced expand/collapse logic with Popover.Root, Trigger, Positioner, Content
+- Applied Panda CSS styles using css() function
+- Implemented controlled mode with open/onOpenChange
+- Used Popover.CloseTrigger for X button
+- Configured positioning with placement: 'top-end'
+- Changed to named export (per codebase conventions)
+- Updated App.tsx import
+
+Component structure:
+- Popover.Root wraps the entire widget with controlled state
+- Popover.Trigger wraps the collapsed mail button (using asChild)
+- Popover.Positioner + Popover.Content for expanded form
+- Popover.CloseTrigger for close button
+- Escape key and outside click handled automatically by Ark UI
+
+Panda CSS migration:
+- All Tailwind classes converted to css() function calls
+- Used Panda tokens: ocobo.dark, ocobo.yellow, ocobo.coral, gray.*
+- Animation 'fade-in-up' applied on open state
+- Responsive transitions preserved
+
+Build/test:
+- Build passes
+- Tests pass (1/1)
+
+---
