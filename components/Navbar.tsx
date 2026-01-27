@@ -1,6 +1,5 @@
 import { Menu } from '@ark-ui/react/menu';
 import {
-	ArrowRight,
 	BookOpen,
 	Briefcase,
 	ChevronDown,
@@ -519,38 +518,19 @@ export function Navbar() {
 						</div>
 
 						<div className={hstack({ gap: '3' })}>
-							<Link
+							<Button
+								as="link"
 								to="/contact"
-								className={css({ display: { base: 'none', md: 'block' } })}
+								size="sm"
+								variant={useWhiteText ? 'cta' : 'primary'}
+								className={css({
+									display: { base: 'none', md: 'flex' },
+									bg: useWhiteText ? 'ocobo.yellow' : undefined,
+									color: useWhiteText ? 'ocobo.dark' : undefined,
+								})}
 							>
-								<Button
-									className={css({
-										py: '2!',
-										px: '5!',
-										fontSize: 'xs',
-										fontWeight: '900',
-										textTransform: 'uppercase',
-										letterSpacing: 'widest',
-										border: 'none',
-										transition: 'all',
-										transitionDuration: '700ms',
-										bg: scrolled
-											? 'ocobo.dark'
-											: useWhiteText
-												? 'ocobo.yellow'
-												: 'ocobo.dark',
-										color: scrolled
-											? 'white'
-											: useWhiteText
-												? 'ocobo.dark'
-												: 'white',
-										shadow: scrolled ? 'none' : 'xl',
-										transform: scrolled ? 'scale(0.95)' : 'scale(1)',
-									})}
-								>
-									Prendre RDV
-								</Button>
-							</Link>
+								Prendre RDV
+							</Button>
 
 							<button
 								type="button"
@@ -597,6 +577,7 @@ export function Navbar() {
 			>
 				<div
 					className={`${vstack()} ${css({
+						w: 'full',
 						h: 'full',
 						pt: '8',
 						px: '8',
@@ -606,6 +587,7 @@ export function Navbar() {
 					<div
 						className={`${flex({ justify: 'space-between', align: 'center' })} ${css(
 							{
+								w: 'full',
 								mb: '10',
 							},
 						)}`}
@@ -634,6 +616,7 @@ export function Navbar() {
 
 					<div
 						className={css({
+							w: 'full',
 							flexGrow: 1,
 							spaceY: '8',
 							overflowY: 'auto',
@@ -758,28 +741,23 @@ export function Navbar() {
 						))}
 					</div>
 
-					<div className={css({ mt: '10' })}>
-						<Link to="/contact" onClick={() => setIsOpen(false)}>
-							<button
-								type="button"
-								className={`${center({ gap: '3' })} ${css({
-									w: 'full',
-									py: '5',
-									rounded: 'full',
-									bg: 'ocobo.dark',
-									color: 'white',
-									fontSize: 'sm',
-									fontWeight: '900',
-									textTransform: 'uppercase',
-									letterSpacing: '0.15em',
-									shadow: '2xl',
-									transition: 'all',
-									_active: { transform: 'scale(0.98)' },
-								})}`}
-							>
-								Prendre rendez-vous <ArrowRight size={16} />
-							</button>
-						</Link>
+					<div className={css({ w: 'full', mt: '10' })}>
+						<Button
+							as="link"
+							to="/contact"
+							onClick={() => setIsOpen(false)}
+							className={css({
+								w: 'full',
+								py: '5!',
+								fontSize: 'sm',
+								fontWeight: '900',
+								textTransform: 'uppercase',
+								letterSpacing: '0.15em',
+								shadow: '2xl',
+							})}
+						>
+							Prendre rendez-vous
+						</Button>
 					</div>
 				</div>
 			</div>
