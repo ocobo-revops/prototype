@@ -402,3 +402,29 @@ Build/test:
 - Tests pass (1/1)
 
 ---
+
+## Feature 14: Migrate section components to Panda
+**Status:** PASS
+**Completed:** 2026-01-27T09:49:00Z
+
+Steps completed:
+- Converted 23 section components from Tailwind to Panda CSS
+- Updated all barrel files to use named exports
+
+Components migrated:
+- shared/: CtaSection
+- about/: HeroSection, ManifestoSection, TeamSection, ValuesSection
+- home/: HeroSection, SocialProofSection, StackSection, TransformationSection, ComparatifSection, InterventionsSection, PainPointSection
+- method/: HeroSection, PillarsSection, ScopeSection
+- services/: HeroSection, SymptomsSection, TransitionSection, MethodeSection, WhyOcoboSection, ImplicationsSection, OffersDetailSection, LeviersSection
+
+Migration patterns:
+- Same patterns as Feature 13: css() function, responsive breakpoints, pseudo-selectors
+- Color mapping objects for dynamic styles (colorMap, iconBgStyles, bulletStyles)
+- Fixed `duration` → `transitionDuration` property for Panda CSS compatibility
+
+Build/test:
+- Build passes (135.39 kB CSS, 727.72 kB JS)
+- Tests pass (1/1)
+
+---
