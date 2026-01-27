@@ -1,4 +1,3 @@
-// Added missing Linkedin icon to imports from 'lucide-react'
 import {
 	Clock,
 	Headphones,
@@ -11,11 +10,11 @@ import {
 	SkipForward,
 	Star,
 } from 'lucide-react';
-import type React from 'react';
 import { useState } from 'react';
+import { css } from 'styled-system/css';
 import { Button } from '../components/atoms';
 
-const Podcast: React.FC = () => {
+export function Podcast() {
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [searchTerm, setSearchTerm] = useState('');
 
@@ -85,116 +84,369 @@ const Podcast: React.FC = () => {
 	);
 
 	return (
-		<div className="w-full bg-white">
-			{/* HERO SECTION - REVENUE ECHOES BRANDING */}
-			<section className="pt-48 pb-24 md:pt-64 md:pb-32 bg-ocobo-dark relative overflow-hidden">
-				{/* Decorative Grid Background */}
-				<div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:40px_40px]" />
+		<div className={css({ width: 'full', bg: 'white' })}>
+			{/* Hero Section */}
+			<section
+				className={css({
+					pt: { base: '48', md: '64' },
+					pb: { base: '24', md: '32' },
+					bg: 'ocobo.dark',
+					position: 'relative',
+					overflow: 'hidden',
+				})}
+			>
+				<div
+					className={css({
+						position: 'absolute',
+						inset: 0,
+						opacity: 0.05,
+						pointerEvents: 'none',
+						backgroundImage: 'radial-gradient(white 1px, transparent 1px)',
+						backgroundSize: '40px 40px',
+					})}
+				/>
 
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-					<div className="flex flex-col lg:flex-row items-center gap-16">
-						<div className="lg:w-1/2">
-							<div className="flex items-center gap-3 mb-8">
-								<span className="w-12 h-px bg-ocobo-yellow"></span>
-								<span className="font-display font-black text-ocobo-yellow text-xs uppercase tracking-[0.4em]">
+				<div
+					className={css({
+						maxW: '7xl',
+						mx: 'auto',
+						px: { base: '4', sm: '6', lg: '8' },
+						position: 'relative',
+						zIndex: 10,
+					})}
+				>
+					<div
+						className={css({
+							display: 'flex',
+							flexDirection: { base: 'column', lg: 'row' },
+							alignItems: 'center',
+							gap: '16',
+						})}
+					>
+						<div className={css({ lg: { width: '50%' } })}>
+							<div
+								className={css({
+									display: 'flex',
+									alignItems: 'center',
+									gap: '3',
+									mb: '8',
+								})}
+							>
+								<span
+									className={css({
+										width: '12',
+										height: 'px',
+										bg: 'ocobo.yellow',
+									})}
+								/>
+								<span
+									className={css({
+										fontFamily: 'display',
+										fontWeight: 'black',
+										color: 'ocobo.yellow',
+										fontSize: 'xs',
+										textTransform: 'uppercase',
+										letterSpacing: '0.4em',
+									})}
+								>
 									Ocobo Originals
 								</span>
 							</div>
-							<h1 className="font-display text-6xl md:text-6xl font-black text-white mb-8 leading-[0.9] tracking-tighter">
+							<h1
+								className={css({
+									fontFamily: 'display',
+									fontSize: '6xl',
+									fontWeight: 'black',
+									color: 'white',
+									mb: '8',
+									lineHeight: '0.9',
+									letterSpacing: 'tighter',
+								})}
+							>
 								Revenue
 								<br />
-								<span className="text-transparent text-stroke-white">
+								<span
+									className={css({
+										color: 'transparent',
+										WebkitTextStroke: '1px white',
+									})}
+								>
 									Echoes.
 								</span>
 							</h1>
-							<p className="text-xl text-gray-400 mb-12 max-w-lg leading-relaxed font-medium">
+							<p
+								className={css({
+									fontSize: 'xl',
+									color: 'gray.400',
+									mb: '12',
+									maxW: 'lg',
+									lineHeight: 'relaxed',
+									fontWeight: 'medium',
+								})}
+							>
 								Le podcast qui déconstruit la science du revenu avec ceux qui la
 								bâtissent au quotidien.
 							</p>
 
-							<div className="flex flex-wrap gap-4">
+							<div
+								className={css({ display: 'flex', flexWrap: 'wrap', gap: '4' })}
+							>
 								<button
 									type="button"
-									className="flex items-center gap-3 px-6 py-3 bg-white text-ocobo-dark rounded-full font-bold text-xs uppercase tracking-widest hover:bg-ocobo-yellow transition-colors group"
+									className={css({
+										display: 'flex',
+										alignItems: 'center',
+										gap: '3',
+										px: '6',
+										py: '3',
+										bg: 'white',
+										color: 'ocobo.dark',
+										rounded: 'full',
+										fontWeight: 'bold',
+										fontSize: 'xs',
+										textTransform: 'uppercase',
+										letterSpacing: 'widest',
+										transition: 'background 200ms',
+										cursor: 'pointer',
+										_hover: { bg: 'ocobo.yellow' },
+									})}
 								>
 									<Headphones size={18} /> S'abonner
 								</button>
-								<div className="flex items-center gap-4 px-6 py-3 bg-white/5 border border-white/10 rounded-full grayscale opacity-50">
+								<div
+									className={css({
+										display: 'flex',
+										alignItems: 'center',
+										gap: '4',
+										px: '6',
+										py: '3',
+										bg: 'white/5',
+										border: '1px solid',
+										borderColor: 'white/10',
+										rounded: 'full',
+										filter: 'grayscale(1)',
+										opacity: 0.5,
+									})}
+								>
 									<img
 										src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
-										className="h-5 w-auto"
+										className={css({ height: '5', width: 'auto' })}
 										alt="Spotify"
 									/>
 									<img
 										src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
-										className="h-5 w-auto invert"
+										className={css({
+											height: '5',
+											width: 'auto',
+											filter: 'invert(1)',
+										})}
 										alt="Apple"
 									/>
 									<img
 										src="https://upload.wikimedia.org/wikipedia/commons/d/df/Deezer_logo.svg"
-										className="h-4 w-auto invert"
+										className={css({
+											height: '4',
+											width: 'auto',
+											filter: 'invert(1)',
+										})}
 										alt="Deezer"
 									/>
 								</div>
 							</div>
 						</div>
 
-						{/* SPOTLIGHT PLAYER CARD */}
-						<div className="lg:w-1/2">
-							<div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-3xl shadow-2xl relative">
-								<div className="absolute top-0 right-0 w-32 h-32 bg-ocobo-yellow/10 rounded-full blur-3xl"></div>
+						{/* Spotlight Player Card */}
+						<div className={css({ lg: { width: '50%' } })}>
+							<div
+								className={css({
+									bg: 'white/5',
+									backdropFilter: 'blur(16px)',
+									border: '1px solid',
+									borderColor: 'white/10',
+									p: { base: '8', md: '12' },
+									rounded: '3xl',
+									shadow: '2xl',
+									position: 'relative',
+								})}
+							>
+								<div
+									className={css({
+										position: 'absolute',
+										top: 0,
+										right: 0,
+										width: '32',
+										height: '32',
+										bg: 'ocobo.yellow/10',
+										rounded: 'full',
+										filter: 'blur(48px)',
+									})}
+								/>
 
-								<div className="flex items-center gap-6 mb-10">
-									<div className="w-24 h-24 rounded-2xl overflow-hidden shadow-2xl shrink-0 border-2 border-white/10">
+								<div
+									className={css({
+										display: 'flex',
+										alignItems: 'center',
+										gap: '6',
+										mb: '10',
+									})}
+								>
+									<div
+										className={css({
+											width: '24',
+											height: '24',
+											rounded: '2xl',
+											overflow: 'hidden',
+											shadow: '2xl',
+											flexShrink: 0,
+											border: '2px solid',
+											borderColor: 'white/10',
+										})}
+									>
 										<img
 											src={episodes[0].image}
-											className="w-full h-full object-cover"
+											className={css({
+												width: 'full',
+												height: 'full',
+												objectFit: 'cover',
+											})}
 											alt="Current Episode"
 										/>
 									</div>
 									<div>
-										<span className="text-xs font-black text-ocobo-yellow uppercase tracking-[0.3em] block mb-2">
+										<span
+											className={css({
+												fontSize: 'xs',
+												fontWeight: 'black',
+												color: 'ocobo.yellow',
+												textTransform: 'uppercase',
+												letterSpacing: '0.3em',
+												display: 'block',
+												mb: '2',
+											})}
+										>
 											Dernier Épisode — #{episodes[0].number}
 										</span>
-										<h3 className="font-display text-2xl font-bold text-white leading-tight">
+										<h3
+											className={css({
+												fontFamily: 'display',
+												fontSize: '2xl',
+												fontWeight: 'bold',
+												color: 'white',
+												lineHeight: 'tight',
+											})}
+										>
 											{episodes[0].title}
 										</h3>
 									</div>
 								</div>
 
-								{/* Player Controls Mockup */}
-								<div className="space-y-8">
-									<div className="space-y-2">
-										<div className="h-1.5 w-full bg-white/10 rounded-full relative overflow-hidden">
-											<div className="absolute left-0 top-0 bottom-0 w-1/3 bg-ocobo-yellow"></div>
+								{/* Player Controls */}
+								<div
+									className={css({
+										display: 'flex',
+										flexDirection: 'column',
+										gap: '8',
+									})}
+								>
+									<div
+										className={css({
+											display: 'flex',
+											flexDirection: 'column',
+											gap: '2',
+										})}
+									>
+										<div
+											className={css({
+												height: '1.5',
+												width: 'full',
+												bg: 'white/10',
+												rounded: 'full',
+												position: 'relative',
+												overflow: 'hidden',
+											})}
+										>
+											<div
+												className={css({
+													position: 'absolute',
+													left: 0,
+													top: 0,
+													bottom: 0,
+													width: '33%',
+													bg: 'ocobo.yellow',
+												})}
+											/>
 										</div>
-										<div className="flex justify-between text-xs font-bold text-gray-500 uppercase tracking-widest">
+										<div
+											className={css({
+												display: 'flex',
+												justifyContent: 'space-between',
+												fontSize: 'xs',
+												fontWeight: 'bold',
+												color: 'gray.500',
+												textTransform: 'uppercase',
+												letterSpacing: 'widest',
+											})}
+										>
 											<span>12:45</span>
 											<span>{episodes[0].duration}</span>
 										</div>
 									</div>
 
-									<div className="flex items-center justify-center gap-10">
+									<div
+										className={css({
+											display: 'flex',
+											alignItems: 'center',
+											justifyContent: 'center',
+											gap: '10',
+										})}
+									>
 										<button
 											type="button"
-											className="text-white/40 hover:text-white transition-colors"
+											className={css({
+												color: 'white/40',
+												transition: 'color 200ms',
+												cursor: 'pointer',
+												_hover: { color: 'white' },
+											})}
 										>
 											<SkipBack size={24} />
 										</button>
 										<button
 											type="button"
 											onClick={() => setIsPlaying(!isPlaying)}
-											className="w-20 h-20 bg-ocobo-yellow text-ocobo-dark rounded-full flex items-center justify-center shadow-xl hover:scale-105 transition-all"
+											className={css({
+												width: '20',
+												height: '20',
+												bg: 'ocobo.yellow',
+												color: 'ocobo.dark',
+												rounded: 'full',
+												display: 'flex',
+												alignItems: 'center',
+												justifyContent: 'center',
+												shadow: 'xl',
+												transition: 'transform 200ms',
+												cursor: 'pointer',
+												_hover: { transform: 'scale(1.05)' },
+											})}
 										>
 											{isPlaying ? (
 												<Pause size={32} fill="currentColor" />
 											) : (
-												<Play size={32} fill="currentColor" className="ml-1" />
+												<Play
+													size={32}
+													fill="currentColor"
+													className={css({ ml: '1' })}
+												/>
 											)}
 										</button>
 										<button
 											type="button"
-											className="text-white/40 hover:text-white transition-colors"
+											className={css({
+												color: 'white/40',
+												transition: 'color 200ms',
+												cursor: 'pointer',
+												_hover: { color: 'white' },
+											})}
 										>
 											<SkipForward size={24} />
 										</button>
@@ -206,92 +458,348 @@ const Podcast: React.FC = () => {
 				</div>
 			</section>
 
-			{/* FILTER BAR - SEARCH ONLY */}
-			<section className="sticky top-[80px] z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 py-6">
-				<div className="max-w-3xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-6">
-					<div className="relative w-full group">
+			{/* Filter Bar */}
+			<section
+				className={css({
+					position: 'sticky',
+					top: '80px',
+					zIndex: 50,
+					bg: 'white/90',
+					backdropFilter: 'blur(12px)',
+					borderBottom: '1px solid',
+					borderColor: 'gray.100',
+					py: '6',
+				})}
+			>
+				<div
+					className={css({
+						maxW: '3xl',
+						mx: 'auto',
+						px: '4',
+						display: 'flex',
+						flexDirection: { base: 'column', md: 'row' },
+						alignItems: 'center',
+						justifyContent: 'center',
+						gap: '6',
+					})}
+				>
+					<div className={css({ position: 'relative', width: 'full' })}>
 						<input
 							type="text"
 							placeholder="Rechercher un épisode, un invité, un sujet..."
-							className="w-full pl-12 pr-6 py-4 bg-gray-50 border border-gray-100 rounded-full text-base focus:outline-none focus:border-ocobo-dark focus:bg-white transition-all shadow-sm"
+							className={css({
+								width: 'full',
+								pl: '12',
+								pr: '6',
+								py: '4',
+								bg: 'gray.50',
+								border: '1px solid',
+								borderColor: 'gray.100',
+								rounded: 'full',
+								fontSize: 'base',
+								outline: 'none',
+								transition: 'all 200ms',
+								shadow: 'sm',
+								_focus: { borderColor: 'ocobo.dark', bg: 'white' },
+							})}
 							value={searchTerm}
 							onChange={(e) => setSearchTerm(e.target.value)}
 						/>
 						<Search
 							size={20}
-							className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-ocobo-dark transition-colors"
+							className={css({
+								position: 'absolute',
+								left: '4',
+								top: '50%',
+								transform: 'translateY(-50%)',
+								color: 'gray.400',
+							})}
 						/>
 					</div>
 				</div>
 			</section>
 
-			{/* EPISODES LIST - ONE BY ONE */}
-			<section className="max-w-5xl mx-auto px-4 py-24">
-				<div className="flex flex-col gap-10">
+			{/* Episodes List */}
+			<section className={css({ maxW: '5xl', mx: 'auto', px: '4', py: '24' })}>
+				<div
+					className={css({
+						display: 'flex',
+						flexDirection: 'column',
+						gap: '10',
+					})}
+				>
 					{filteredEpisodes.length > 0 ? (
 						filteredEpisodes.map((ep) => (
 							<div
 								key={ep.id}
-								className="group relative flex flex-col md:flex-row gap-10 p-8 bg-white border border-gray-100 rounded-3xl hover:shadow-soft-lg hover:-translate-y-2 transition-all duration-500"
+								className={css({
+									position: 'relative',
+									display: 'flex',
+									flexDirection: { base: 'column', md: 'row' },
+									gap: '10',
+									p: '8',
+									bg: 'white',
+									border: '1px solid',
+									borderColor: 'gray.100',
+									rounded: '3xl',
+									transition: 'all 500ms',
+									_hover: { shadow: 'soft-lg', transform: 'translateY(-8px)' },
+								})}
 							>
-								{/* Architectural Number Overlay */}
-								<div className="absolute -top-4 -left-4 w-12 h-12 bg-white border border-gray-100 rounded-xl shadow-lg flex items-center justify-center font-display font-black text-ocobo-dark/20 text-xl z-20">
+								{/* Episode Number */}
+								<div
+									className={css({
+										position: 'absolute',
+										top: '-4',
+										left: '-4',
+										width: '12',
+										height: '12',
+										bg: 'white',
+										border: '1px solid',
+										borderColor: 'gray.100',
+										rounded: 'xl',
+										shadow: 'lg',
+										display: 'flex',
+										alignItems: 'center',
+										justifyContent: 'center',
+										fontFamily: 'display',
+										fontWeight: 'black',
+										color: 'ocobo.dark/20',
+										fontSize: 'xl',
+										zIndex: 20,
+									})}
+								>
 									{ep.number}
 								</div>
 
-								<div className="md:w-1/3 aspect-[4/3] relative overflow-hidden rounded-3xl shrink-0">
+								<div
+									className={css({
+										md: { width: '33%' },
+										aspectRatio: '4/3',
+										position: 'relative',
+										overflow: 'hidden',
+										rounded: '3xl',
+										flexShrink: 0,
+									})}
+								>
 									<img
 										src={ep.image}
 										alt={ep.guest}
-										className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+										className={css({
+											width: 'full',
+											height: 'full',
+											objectFit: 'cover',
+											filter: 'grayscale(1)',
+											opacity: 0.8,
+											transition: 'all 700ms',
+											_groupHover: {
+												filter: 'grayscale(0)',
+												opacity: 1,
+												transform: 'scale(1.05)',
+											},
+										})}
 									/>
-									<div className="absolute inset-0 bg-ocobo-dark/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-										<div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-ocobo-dark shadow-xl scale-90 group-hover:scale-100 transition-transform duration-500">
-											<Play size={24} fill="currentColor" className="ml-1" />
+									<div
+										className={css({
+											position: 'absolute',
+											inset: 0,
+											bg: 'ocobo.dark/20',
+											opacity: 0,
+											transition: 'opacity 200ms',
+											display: 'flex',
+											alignItems: 'center',
+											justifyContent: 'center',
+											_groupHover: { opacity: 1 },
+										})}
+									>
+										<div
+											className={css({
+												width: '16',
+												height: '16',
+												bg: 'white',
+												rounded: 'full',
+												display: 'flex',
+												alignItems: 'center',
+												justifyContent: 'center',
+												color: 'ocobo.dark',
+												shadow: 'xl',
+												transform: 'scale(0.9)',
+												transition: 'transform 500ms',
+												_groupHover: { transform: 'scale(1)' },
+											})}
+										>
+											<Play
+												size={24}
+												fill="currentColor"
+												className={css({ ml: '1' })}
+											/>
 										</div>
 									</div>
 								</div>
 
-								<div className="flex flex-col justify-between py-2 flex-grow">
+								<div
+									className={css({
+										display: 'flex',
+										flexDirection: 'column',
+										justifyContent: 'space-between',
+										py: '2',
+										flexGrow: 1,
+									})}
+								>
 									<div>
-										<div className="flex items-center gap-3 mb-4">
-											<span className="text-xs font-black uppercase tracking-[0.2em] text-ocobo-yellow">
+										<div
+											className={css({
+												display: 'flex',
+												alignItems: 'center',
+												gap: '3',
+												mb: '4',
+											})}
+										>
+											<span
+												className={css({
+													fontSize: 'xs',
+													fontWeight: 'black',
+													textTransform: 'uppercase',
+													letterSpacing: '0.2em',
+													color: 'ocobo.yellow',
+												})}
+											>
 												{ep.category}
 											</span>
-											<span className="w-1 h-1 bg-gray-200 rounded-full"></span>
-											<span className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">
+											<span
+												className={css({
+													width: '1',
+													height: '1',
+													bg: 'gray.200',
+													rounded: 'full',
+												})}
+											/>
+											<span
+												className={css({
+													fontSize: 'xs',
+													fontWeight: 'black',
+													textTransform: 'uppercase',
+													letterSpacing: '0.2em',
+													color: 'gray.400',
+												})}
+											>
 												{ep.date}
 											</span>
 										</div>
-										<h3 className="font-display text-3xl font-bold text-ocobo-dark mb-4 leading-tight group-hover:text-black transition-colors">
+										<h3
+											className={css({
+												fontFamily: 'display',
+												fontSize: '3xl',
+												fontWeight: 'bold',
+												color: 'ocobo.dark',
+												mb: '4',
+												lineHeight: 'tight',
+												transition: 'color 200ms',
+												_groupHover: { color: 'black' },
+											})}
+										>
 											{ep.title}
 										</h3>
-										<p className="text-base text-gray-500 mb-8 font-medium leading-relaxed max-w-2xl">
+										<p
+											className={css({
+												fontSize: 'base',
+												color: 'gray.500',
+												mb: '8',
+												fontWeight: 'medium',
+												lineHeight: 'relaxed',
+												maxW: '2xl',
+											})}
+										>
 											{ep.description}
 										</p>
 									</div>
 
-									<div className="flex items-center justify-between border-t border-gray-50 pt-6 mt-auto">
-										<div className="flex items-center gap-4">
-											<div className="w-10 h-10 rounded-full overflow-hidden grayscale opacity-80 group-hover:opacity-100 group-hover:grayscale-0 transition-all border border-gray-100">
+									<div
+										className={css({
+											display: 'flex',
+											alignItems: 'center',
+											justifyContent: 'space-between',
+											borderTop: '1px solid',
+											borderColor: 'gray.50',
+											pt: '6',
+											mt: 'auto',
+										})}
+									>
+										<div
+											className={css({
+												display: 'flex',
+												alignItems: 'center',
+												gap: '4',
+											})}
+										>
+											<div
+												className={css({
+													width: '10',
+													height: '10',
+													rounded: 'full',
+													overflow: 'hidden',
+													filter: 'grayscale(1)',
+													opacity: 0.8,
+													transition: 'all 200ms',
+													border: '1px solid',
+													borderColor: 'gray.100',
+													_groupHover: { opacity: 1, filter: 'grayscale(0)' },
+												})}
+											>
 												<img
 													src={ep.image}
 													alt={ep.guest}
-													className="w-full h-full object-cover"
+													className={css({
+														width: 'full',
+														height: 'full',
+														objectFit: 'cover',
+													})}
 												/>
 											</div>
 											<div>
-												<p className="text-xs font-black text-ocobo-dark uppercase tracking-widest leading-none mb-1">
+												<p
+													className={css({
+														fontSize: 'xs',
+														fontWeight: 'black',
+														color: 'ocobo.dark',
+														textTransform: 'uppercase',
+														letterSpacing: 'widest',
+														lineHeight: 'none',
+														mb: '1',
+													})}
+												>
 													{ep.guest}
 												</p>
-												<p className="text-xs font-medium text-gray-400 uppercase tracking-widest">
+												<p
+													className={css({
+														fontSize: 'xs',
+														fontWeight: 'medium',
+														color: 'gray.400',
+														textTransform: 'uppercase',
+														letterSpacing: 'widest',
+													})}
+												>
 													{ep.role}
 												</p>
 											</div>
 										</div>
-										<div className="flex items-center gap-2 text-gray-300">
+										<div
+											className={css({
+												display: 'flex',
+												alignItems: 'center',
+												gap: '2',
+												color: 'gray.300',
+											})}
+										>
 											<Clock size={14} />
-											<span className="text-xs font-black uppercase tracking-widest">
+											<span
+												className={css({
+													fontSize: 'xs',
+													fontWeight: 'black',
+													textTransform: 'uppercase',
+													letterSpacing: 'widest',
+												})}
+											>
 												{ep.duration}
 											</span>
 										</div>
@@ -300,14 +808,39 @@ const Podcast: React.FC = () => {
 							</div>
 						))
 					) : (
-						<div className="text-center py-20 bg-gray-50 rounded-3xl border border-dashed border-gray-200">
-							<p className="text-gray-400 font-display font-bold text-xl">
+						<div
+							className={css({
+								textAlign: 'center',
+								py: '20',
+								bg: 'gray.50',
+								rounded: '3xl',
+								border: '1px dashed',
+								borderColor: 'gray.200',
+							})}
+						>
+							<p
+								className={css({
+									color: 'gray.400',
+									fontFamily: 'display',
+									fontWeight: 'bold',
+									fontSize: 'xl',
+								})}
+							>
 								Aucun épisode trouvé pour cette recherche.
 							</p>
 							<button
 								type="button"
 								onClick={() => setSearchTerm('')}
-								className="mt-4 text-ocobo-dark font-black uppercase tracking-widest text-xs underline"
+								className={css({
+									mt: '4',
+									color: 'ocobo.dark',
+									fontWeight: 'black',
+									textTransform: 'uppercase',
+									letterSpacing: 'widest',
+									fontSize: 'xs',
+									textDecoration: 'underline',
+									cursor: 'pointer',
+								})}
 							>
 								Réinitialiser la recherche
 							</button>
@@ -315,43 +848,116 @@ const Podcast: React.FC = () => {
 					)}
 				</div>
 
-				<div className="mt-20 flex justify-center">
+				<div
+					className={css({
+						mt: '20',
+						display: 'flex',
+						justifyContent: 'center',
+					})}
+				>
 					<Button
 						variant="outline"
-						className="px-12 py-4 text-xs font-black uppercase tracking-widest border-2"
+						className={css({
+							px: '12',
+							py: '4',
+							fontSize: 'xs',
+							fontWeight: 'black',
+							textTransform: 'uppercase',
+							letterSpacing: 'widest',
+							border: '2px solid',
+						})}
 					>
 						Voir tous les épisodes
 					</Button>
 				</div>
 			</section>
 
-			{/* HOST SECTION */}
-			<section className="py-24 bg-gray-50 border-y border-gray-100">
-				<div className="max-w-4xl mx-auto px-4 text-center">
-					<div className="w-24 h-24 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white shadow-xl grayscale">
+			{/* Host Section */}
+			<section
+				className={css({
+					py: '24',
+					bg: 'gray.50',
+					borderTop: '1px solid',
+					borderBottom: '1px solid',
+					borderColor: 'gray.100',
+				})}
+			>
+				<div
+					className={css({
+						maxW: '4xl',
+						mx: 'auto',
+						px: '4',
+						textAlign: 'center',
+					})}
+				>
+					<div
+						className={css({
+							width: '24',
+							height: '24',
+							mx: 'auto',
+							mb: '8',
+							rounded: 'full',
+							overflow: 'hidden',
+							border: '4px solid',
+							borderColor: 'white',
+							shadow: 'xl',
+							filter: 'grayscale(1)',
+						})}
+					>
 						<img
 							src="https://placehold.co/200x200/F3F4F6/212323?text=AC"
 							alt="Host"
 						/>
 					</div>
-					<h2 className="font-display text-3xl font-bold text-ocobo-dark mb-4">
+					<h2
+						className={css({
+							fontFamily: 'display',
+							fontSize: '3xl',
+							fontWeight: 'bold',
+							color: 'ocobo.dark',
+							mb: '4',
+						})}
+					>
 						Animé par Aude Cadiot
 					</h2>
-					<p className="text-xl text-gray-600 font-medium leading-relaxed mb-8 italic">
+					<p
+						className={css({
+							fontSize: 'xl',
+							color: 'gray.600',
+							fontWeight: 'medium',
+							lineHeight: 'relaxed',
+							mb: '8',
+							fontStyle: 'italic',
+						})}
+					>
 						"Ma mission avec Revenue Echoes est de mettre en lumière les
 						architectures de revenus qui fonctionnent, loin des buzzwords et des
 						recettes miracles."
 					</p>
-					<div className="flex justify-center gap-4">
+					<div
+						className={css({
+							display: 'flex',
+							justifyContent: 'center',
+							gap: '4',
+						})}
+					>
 						<a
 							href="#"
-							className="text-gray-400 hover:text-ocobo-dark transition-colors"
+							className={css({
+								color: 'gray.400',
+								transition: 'color 200ms',
+								_hover: { color: 'ocobo.dark' },
+							})}
 						>
 							<Linkedin size={20} />
 						</a>
 						<a
 							href="#"
-							className="text-gray-400 hover:text-ocobo-dark transition-colors"
+							className={css({
+								color: 'gray.400',
+								transition: 'color 200ms',
+								_hover: { color: 'ocobo.dark' },
+							})}
 						>
 							<Share2 size={20} />
 						</a>
@@ -359,18 +965,63 @@ const Podcast: React.FC = () => {
 				</div>
 			</section>
 
-			{/* CALL TO ACTION */}
-			<section className="bg-ocobo-yellow py-32 relative overflow-hidden">
-				<div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-					<span className="font-display font-black text-ocobo-dark opacity-30 text-xs uppercase tracking-[0.4em] mb-8 inline-block">
+			{/* CTA */}
+			<section
+				className={css({
+					bg: 'ocobo.yellow',
+					py: '32',
+					position: 'relative',
+					overflow: 'hidden',
+				})}
+			>
+				<div
+					className={css({
+						maxW: '4xl',
+						mx: 'auto',
+						px: '4',
+						textAlign: 'center',
+						position: 'relative',
+						zIndex: 10,
+					})}
+				>
+					<span
+						className={css({
+							fontFamily: 'display',
+							fontWeight: 'black',
+							color: 'ocobo.dark',
+							opacity: 0.3,
+							fontSize: 'xs',
+							textTransform: 'uppercase',
+							letterSpacing: '0.4em',
+							mb: '8',
+							display: 'inline-block',
+						})}
+					>
 						Prochainement
 					</span>
-					<h2 className="font-display text-5xl md:text-6xl font-black text-ocobo-dark mb-10 leading-[0.9] tracking-tighter">
+					<h2
+						className={css({
+							fontFamily: 'display',
+							fontSize: { base: '5xl', md: '6xl' },
+							fontWeight: 'black',
+							color: 'ocobo.dark',
+							mb: '10',
+							lineHeight: '0.9',
+							letterSpacing: 'tighter',
+						})}
+					>
 						Ne manquez plus aucun
 						<br />
 						écho stratégique.
 					</h2>
-					<div className="flex flex-col sm:flex-row justify-center gap-6">
+					<div
+						className={css({
+							display: 'flex',
+							flexDirection: { base: 'column', sm: 'row' },
+							justifyContent: 'center',
+							gap: '6',
+						})}
+					>
 						<Button variant="cta" size="xl">
 							S'abonner à la newsletter
 						</Button>
@@ -380,13 +1031,21 @@ const Podcast: React.FC = () => {
 					</div>
 				</div>
 
-				{/* Decorative architectural shapes */}
-				<div className="absolute top-1/2 left-10 -translate-y-1/2 opacity-10">
+				{/* Decorative */}
+				<div
+					className={css({
+						position: 'absolute',
+						top: '50%',
+						left: '10',
+						transform: 'translateY(-50%)',
+						opacity: 0.1,
+					})}
+				>
 					<Star size={180} strokeWidth={1} />
 				</div>
 			</section>
 		</div>
 	);
-};
+}
 
 export default Podcast;

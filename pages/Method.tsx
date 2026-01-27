@@ -1,4 +1,4 @@
-import type React from 'react';
+import { css } from 'styled-system/css';
 import {
 	HeroSection,
 	PillarsSection,
@@ -6,9 +6,9 @@ import {
 } from '../components/sections/method';
 import { CtaSection } from '../components/sections/shared';
 
-const Method: React.FC = () => {
+export function Method() {
 	return (
-		<div className="w-full bg-white">
+		<div className={css({ width: 'full', bg: 'white' })}>
 			<HeroSection />
 			<PillarsSection />
 			<ScopeSection />
@@ -21,6 +21,6 @@ const Method: React.FC = () => {
 			/>
 		</div>
 	);
-};
+}
 
 export default Method;

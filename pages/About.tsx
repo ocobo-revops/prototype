@@ -1,4 +1,4 @@
-import type React from 'react';
+import { css } from 'styled-system/css';
 import {
 	HeroSection,
 	ManifestoSection,
@@ -7,9 +7,9 @@ import {
 } from '../components/sections/about';
 import { CtaSection } from '../components/sections/shared';
 
-const About: React.FC = () => {
+export function About() {
 	return (
-		<div className="w-full">
+		<div className={css({ width: 'full' })}>
 			<HeroSection />
 			<ManifestoSection />
 			<TeamSection />
@@ -23,6 +23,6 @@ const About: React.FC = () => {
 			/>
 		</div>
 	);
-};
+}
 
 export default About;
