@@ -1,6 +1,5 @@
 import { Popover } from '@ark-ui/react/popover';
 import { ArrowRight, Mail, Sparkles, X } from 'lucide-react';
-import type React from 'react';
 import { useEffect, useState } from 'react';
 import { css } from 'styled-system/css';
 
