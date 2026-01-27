@@ -1,5 +1,6 @@
 import { Plus } from 'lucide-react';
 import { css } from 'styled-system/css';
+import { center, flex, grid } from 'styled-system/patterns';
 
 interface StackItem {
 	type: 'logo' | 'empty';
@@ -54,27 +55,21 @@ export const ModularStackGrid = ({
 			/>
 
 			<div
-				className={css({
-					display: 'grid',
-					gridTemplateColumns: 'repeat(4, 1fr)',
-					gap: { base: '3', md: '4' },
+				className={`${grid({ columns: 4, gap: { base: '3', md: '4' } })} ${css({
 					position: 'relative',
 					zIndex: '10',
 					h: 'full',
-				})}
+				})}`}
 			>
 				{items.map((item, i) => (
 					<div
 						key={item.label ?? `empty-${i}`}
-						className={`${css({
+						className={`${center()} ${css({
 							aspectRatio: 'square',
 							rounded: { base: 'xl', md: '2xl' },
 							borderWidth: '1px',
 							transition: 'all',
 							transitionDuration: '500ms',
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'center',
 							...(item.type === 'logo'
 								? {
 										bg: 'white',
@@ -110,10 +105,9 @@ export const ModularStackGrid = ({
 					>
 						{item.type === 'logo' ? (
 							<div
-								className={css({
-									display: 'flex',
-									flexDir: 'column',
-									alignItems: 'center',
+								className={flex({
+									direction: 'column',
+									align: 'center',
 									gap: '1.5',
 								})}
 							>

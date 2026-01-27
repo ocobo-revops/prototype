@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { Link, useParams } from 'react-router';
 import { css } from 'styled-system/css';
+import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
 import { Badge, Button } from '../components/atoms';
 
 export function WebinarDetail() {
@@ -84,17 +85,17 @@ export function WebinarDetail() {
 				<div className={css({ mb: '12' })}>
 					<Link
 						to="/resources"
-						className={css({
-							display: 'inline-flex',
-							alignItems: 'center',
-							color: 'gray.400',
-							fontWeight: 'black',
-							textTransform: 'uppercase',
-							letterSpacing: '0.2em',
-							fontSize: 'xs',
-							transition: 'color 200ms',
-							_hover: { color: 'ocobo.dark' },
-						})}
+						className={`${flex({ gap: '2', display: 'inline-flex', align: 'center' })} ${css(
+							{
+								color: 'gray.400',
+								fontWeight: 'black',
+								textTransform: 'uppercase',
+								letterSpacing: '0.2em',
+								fontSize: 'xs',
+								transition: 'color 200ms',
+								_hover: { color: 'ocobo.dark' },
+							},
+						)}`}
 					>
 						<ArrowLeft size={14} className={css({ mr: '2' })} /> Retour à la
 						librairie
@@ -120,33 +121,19 @@ export function WebinarDetail() {
 						{webinar.title}
 					</h1>
 					<div
-						className={css({
-							display: 'flex',
-							gap: '8',
+						className={`${hstack({ gap: '8' })} ${css({
 							fontSize: 'xs',
 							fontWeight: 'black',
 							color: 'gray.400',
 							textTransform: 'uppercase',
 							letterSpacing: 'widest',
-						})}
+						})}`}
 					>
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '2',
-							})}
-						>
+						<div className={hstack({ gap: '2' })}>
 							<Calendar size={14} className={css({ color: 'ocobo.yellow' })} />{' '}
 							{webinar.date}
 						</div>
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '2',
-							})}
-						>
+						<div className={hstack({ gap: '2' })}>
 							<Clock size={14} className={css({ color: 'ocobo.sky' })} />{' '}
 							{webinar.duration}
 						</div>
@@ -184,20 +171,16 @@ export function WebinarDetail() {
 
 				{/* Main Content */}
 				<div
-					className={css({
-						display: 'grid',
-						gridTemplateColumns: { lg: 'repeat(12, 1fr)' },
+					className={grid({
+						columns: { lg: 12 },
 						gap: { base: '16', md: '24' },
 					})}
 				>
 					{/* Content Body */}
 					<div
-						className={css({
+						className={`${vstack({ gap: '16', alignItems: 'stretch' })} ${css({
 							lg: { gridColumn: 'span 8' },
-							display: 'flex',
-							flexDirection: 'column',
-							gap: '16',
-						})}
+						})}`}
 					>
 						<div>
 							<h2
@@ -245,28 +228,24 @@ export function WebinarDetail() {
 							>
 								Au programme :
 							</h3>
-							<ul
-								className={css({
-									display: 'flex',
-									flexDirection: 'column',
-									gap: '6',
-								})}
-							>
+							<ul className={vstack({ gap: '6', alignItems: 'stretch' })}>
 								{webinar.topics.map((topic: string) => (
 									<li
 										key={topic}
-										className={css({
-											display: 'flex',
-											alignItems: 'flex-start',
-											gap: '5',
-											_hover: {
-												'& .icon-wrapper': { bg: 'ocobo.sky', color: 'white' },
-												'& .topic-text': { color: 'black' },
+										className={`${flex({ gap: '5', align: 'flex-start' })} ${css(
+											{
+												_hover: {
+													'& .icon-wrapper': {
+														bg: 'ocobo.sky',
+														color: 'white',
+													},
+													'& .topic-text': { color: 'black' },
+												},
 											},
-										})}
+										)}`}
 									>
 										<div
-											className={`icon-wrapper ${css({
+											className={`icon-wrapper ${center()} ${css({
 												mt: '1',
 												width: '6',
 												height: '6',
@@ -274,9 +253,6 @@ export function WebinarDetail() {
 												bg: 'white',
 												border: '1px solid',
 												borderColor: 'gray.200',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												color: 'ocobo.sky',
 												flexShrink: 0,
 												shadow: 'sm',
@@ -373,17 +349,14 @@ export function WebinarDetail() {
 								</Button>
 
 								<div
-									className={css({
+									className={`${hstack({ gap: '4' })} ${css({
 										mt: '10',
 										pt: '8',
 										borderTop: '1px solid',
 										borderColor: 'white/10',
-										display: 'flex',
-										alignItems: 'center',
-										gap: '4',
-									})}
+									})}`}
 								>
-									<div className={css({ display: 'flex' })}>
+									<div className={hstack()}>
 										{[1, 2, 3].map((i) => (
 											<div
 												key={i}
@@ -466,10 +439,8 @@ export function WebinarDetail() {
 									réparer)
 								</h5>
 								<div
-									className={`link ${css({
+									className={`link ${hstack()} ${css({
 										mt: '4',
-										display: 'flex',
-										alignItems: 'center',
 										fontSize: 'xs',
 										fontWeight: 'black',
 										color: 'gray.300',
@@ -496,12 +467,9 @@ export function WebinarDetail() {
 					})}
 				>
 					<div
-						className={css({
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'space-between',
+						className={`${hstack({ justify: 'space-between' })} ${css({
 							mb: '12',
-						})}
+						})}`}
 					>
 						<h3
 							className={css({
@@ -515,33 +483,21 @@ export function WebinarDetail() {
 						</h3>
 						<Link
 							to="/resources"
-							className={css({
+							className={`${hstack({ gap: '2' })} ${css({
 								fontSize: 'xs',
 								fontWeight: 'black',
 								textTransform: 'uppercase',
 								letterSpacing: '0.3em',
 								color: 'gray.400',
 								transition: 'color 200ms',
-								display: 'flex',
-								alignItems: 'center',
-								gap: '2',
 								_hover: { color: 'ocobo.dark' },
-							})}
+							})}`}
 						>
 							Tout voir <ArrowRight size={14} />
 						</Link>
 					</div>
 
-					<div
-						className={css({
-							display: 'grid',
-							gridTemplateColumns: {
-								md: 'repeat(2, 1fr)',
-								lg: 'repeat(3, 1fr)',
-							},
-							gap: '10',
-						})}
-					>
+					<div className={grid({ columns: { md: 2, lg: 3 }, gap: '10' })}>
 						{[1, 2].map((i) => (
 							<div
 								key={i}
@@ -581,23 +537,17 @@ export function WebinarDetail() {
 										alt="Related"
 									/>
 									<div
-										className={css({
+										className={`${center()} ${css({
 											position: 'absolute',
 											inset: 0,
-											display: 'flex',
-											alignItems: 'center',
-											justifyContent: 'center',
-										})}
+										})}`}
 									>
 										<div
-											className={`play-btn ${css({
+											className={`play-btn ${center()} ${css({
 												width: '12',
 												height: '12',
 												bg: 'white/90',
 												rounded: 'full',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												color: 'ocobo.dark',
 												opacity: 0,
 												transform: 'translateY(1rem)',
@@ -636,17 +586,16 @@ export function WebinarDetail() {
 									Scaling des flux Data : les secrets des leaders SaaS
 								</h4>
 								<div
-									className={`link ${css({
-										display: 'flex',
-										alignItems: 'center',
-										fontSize: 'xs',
-										fontWeight: 'black',
-										textTransform: 'uppercase',
-										letterSpacing: 'widest',
-										color: 'gray.400',
-										gap: '2',
-										transition: 'color 200ms',
-									})}`}
+									className={`link ${flex({ align: 'center', gap: '2' })} ${css(
+										{
+											fontSize: 'xs',
+											fontWeight: 'black',
+											textTransform: 'uppercase',
+											letterSpacing: 'widest',
+											color: 'gray.400',
+											transition: 'color 200ms',
+										},
+									)}`}
 								>
 									Voir le replay <ArrowRight size={12} />
 								</div>

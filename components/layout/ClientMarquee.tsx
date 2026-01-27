@@ -1,4 +1,5 @@
 import { css } from 'styled-system/css';
+import { center, flex } from 'styled-system/patterns';
 
 interface ClientMarqueeProps {
 	clients: string[];
@@ -74,23 +75,17 @@ export const ClientMarquee = ({
 			/>
 
 			<div
-				className={css({
-					display: 'flex',
+				className={`${flex()} ${css({
 					w: 'max',
 					animation: 'marquee-ultra-slow',
 					whiteSpace: 'nowrap',
-				})}
+				})}`}
 			>
 				{extendedClients.map((client, idx) => (
 					<div
 						// biome-ignore lint/suspicious/noArrayIndexKey: marquee animation requires duplicate elements
 						key={`${client}-${idx}`}
-						className={css({
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'center',
-							px: { base: '10', md: '14' },
-						})}
+						className={`${center()} ${css({ px: { base: '10', md: '14' } })}`}
 					>
 						<span
 							className={css({

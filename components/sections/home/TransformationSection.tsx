@@ -1,5 +1,6 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { center, flex } from 'styled-system/patterns';
 import { Button } from '../../atoms';
 import FlexPair from '../../layout/FlexPair';
 import { Container, Section } from '../../organisms';
@@ -9,10 +10,9 @@ export const TransformationSection: React.FC = () => {
 		<Section bg="gray">
 			<Container>
 				<div
-					className={css({
-						display: 'flex',
-						flexDir: { base: 'column', md: 'row' },
-						alignItems: 'center',
+					className={flex({
+						direction: { base: 'column', md: 'row' },
+						align: 'center',
 						gap: '16',
 					})}
 				>
@@ -45,20 +45,17 @@ export const TransformationSection: React.FC = () => {
 								<FlexPair gap={4}>
 									<FlexPair.Icon>
 										<div
-											className={css({
+											className={`${center()} ${css({
 												w: '12',
 												h: '12',
 												bg: 'white',
 												rounded: 'full',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												color: 'ocobo.dark',
 												shadow: 'sm',
 												fontWeight: 'bold',
 												borderWidth: '1px',
 												borderColor: 'gray.100',
-											})}
+											})}`}
 										>
 											1
 										</div>
@@ -78,20 +75,17 @@ export const TransformationSection: React.FC = () => {
 								<FlexPair gap={4}>
 									<FlexPair.Icon>
 										<div
-											className={css({
+											className={`${center()} ${css({
 												w: '12',
 												h: '12',
 												bg: 'white',
 												rounded: 'full',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												color: 'ocobo.dark',
 												shadow: 'sm',
 												fontWeight: 'bold',
 												borderWidth: '1px',
 												borderColor: 'gray.100',
-											})}
+											})}`}
 										>
 											2
 										</div>
@@ -111,20 +105,17 @@ export const TransformationSection: React.FC = () => {
 								<FlexPair gap={4}>
 									<FlexPair.Icon>
 										<div
-											className={css({
+											className={`${center()} ${css({
 												w: '12',
 												h: '12',
 												bg: 'white',
 												rounded: 'full',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												color: 'ocobo.dark',
 												shadow: 'sm',
 												fontWeight: 'bold',
 												borderWidth: '1px',
 												borderColor: 'gray.100',
-											})}
+											})}`}
 										>
 											3
 										</div>

@@ -1,19 +1,17 @@
 import { GraduationCap, Layout, LineChart, Sliders } from 'lucide-react';
 import { css } from 'styled-system/css';
+import { center } from 'styled-system/patterns';
 
 export const AttioPillarsIllustration = () => {
 	return (
 		<div
-			className={css({
+			className={`${center()} ${css({
 				position: 'relative',
 				w: 'full',
 				maxW: '520px',
 				aspectRatio: 'square',
-				display: 'flex',
-				alignItems: 'center',
-				justifyContent: 'center',
 				overflow: 'visible',
-			})}
+			})}`}
 		>
 			{/* ATTIO-STYLE FINE DOTS BACKGROUND - RESTRAINED AREA */}
 			<div
@@ -30,15 +28,12 @@ export const AttioPillarsIllustration = () => {
 
 			{/* CENTRAL ARCHITECTURAL GRID */}
 			<div
-				className={css({
+				className={`${center()} ${css({
 					position: 'relative',
 					zIndex: '10',
 					w: 'full',
 					h: 'full',
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
-				})}
+				})}`}
 			>
 				<svg
 					viewBox="0 0 500 500"

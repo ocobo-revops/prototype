@@ -1,4 +1,5 @@
 import { css } from 'styled-system/css';
+import { center, flex, hstack } from 'styled-system/patterns';
 
 export const PyramidSection = () => {
 	return (
@@ -112,37 +113,22 @@ export const PyramidSection = () => {
 				<circle cx="605" cy="100" r="3.5" fill="currentColor" />
 				<foreignObject x="625" y="40" width="350" height="200">
 					<div
-						className={css({
-							display: 'flex',
-							flexDir: 'column',
-							alignItems: 'flex-start',
-							textAlign: 'left',
-						})}
+						className={`${flex({ direction: 'column', align: 'flex-start' })} ${css({ textAlign: 'left' })}`}
 					>
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '4',
-								mb: '3',
-							})}
-						>
+						<div className={hstack({ gap: '4', mb: '3' })}>
 							<div
-								className={css({
+								className={`${center()} ${css({
 									w: '10',
 									h: '10',
 									bg: 'white',
 									borderWidth: '2px',
 									borderColor: 'ocobo.dark',
 									rounded: 'full',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									fontFamily: 'display',
 									fontWeight: 'bold',
 									fontSize: 'lg',
 									shadow: 'sm',
-								})}
+								})}`}
 							>
 								1
 							</div>
@@ -165,13 +151,7 @@ export const PyramidSection = () => {
 								spaceY: '1',
 							})}
 						>
-							<li
-								className={css({
-									display: 'flex',
-									alignItems: 'flex-start',
-									gap: '2',
-								})}
-							>
+							<li className={flex({ gap: '2', align: 'flex-start' })}>
 								<span
 									className={css({
 										w: '1.5',
@@ -184,13 +164,7 @@ export const PyramidSection = () => {
 								/>
 								Manque de visibilité sur le business
 							</li>
-							<li
-								className={css({
-									display: 'flex',
-									alignItems: 'flex-start',
-									gap: '2',
-								})}
-							>
+							<li className={flex({ gap: '2', align: 'flex-start' })}>
 								<span
 									className={css({
 										w: '1.5',
@@ -216,22 +190,9 @@ export const PyramidSection = () => {
 				<circle cx="370" cy="210" r="3.5" fill="currentColor" />
 				<foreignObject x="30" y="140" width="320" height="200">
 					<div
-						className={css({
-							display: 'flex',
-							flexDir: 'column',
-							alignItems: 'flex-end',
-							textAlign: 'right',
-							pr: '4',
-						})}
+						className={`${flex({ direction: 'column', align: 'flex-end' })} ${css({ textAlign: 'right', pr: '4' })}`}
 					>
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '4',
-								mb: '3',
-							})}
-						>
+						<div className={hstack({ gap: '4', mb: '3' })}>
 							<h3
 								className={css({
 									fontFamily: 'display',
@@ -243,21 +204,18 @@ export const PyramidSection = () => {
 								Managers
 							</h3>
 							<div
-								className={css({
+								className={`${center()} ${css({
 									w: '10',
 									h: '10',
 									bg: 'white',
 									borderWidth: '2px',
 									borderColor: 'ocobo.dark',
 									rounded: 'full',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									fontFamily: 'display',
 									fontWeight: 'bold',
 									fontSize: 'lg',
 									shadow: 'sm',
-								})}
+								})}`}
 							>
 								2
 							</div>
@@ -271,11 +229,10 @@ export const PyramidSection = () => {
 							})}
 						>
 							<li
-								className={css({
-									display: 'flex',
-									alignItems: 'flex-start',
+								className={flex({
 									gap: '2',
-									justifyContent: 'flex-end',
+									align: 'flex-start',
+									justify: 'flex-end',
 								})}
 							>
 								Prévisions instables
@@ -291,11 +248,10 @@ export const PyramidSection = () => {
 								/>
 							</li>
 							<li
-								className={css({
-									display: 'flex',
-									alignItems: 'flex-start',
+								className={flex({
 									gap: '2',
-									justifyContent: 'flex-end',
+									align: 'flex-start',
+									justify: 'flex-end',
 								})}
 							>
 								Peu d'insights pour faire progresser les équipes
@@ -311,11 +267,10 @@ export const PyramidSection = () => {
 								/>
 							</li>
 							<li
-								className={css({
-									display: 'flex',
-									alignItems: 'flex-start',
+								className={flex({
 									gap: '2',
-									justifyContent: 'flex-end',
+									align: 'flex-start',
+									justify: 'flex-end',
 								})}
 							>
 								Ressources mal allouées
@@ -343,37 +298,22 @@ export const PyramidSection = () => {
 				<circle cx="695" cy="300" r="3.5" fill="currentColor" />
 				<foreignObject x="715" y="235" width="280" height="200">
 					<div
-						className={css({
-							display: 'flex',
-							flexDir: 'column',
-							alignItems: 'flex-start',
-							textAlign: 'left',
-						})}
+						className={`${flex({ direction: 'column', align: 'flex-start' })} ${css({ textAlign: 'left' })}`}
 					>
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '4',
-								mb: '3',
-							})}
-						>
+						<div className={hstack({ gap: '4', mb: '3' })}>
 							<div
-								className={css({
+								className={`${center()} ${css({
 									w: '10',
 									h: '10',
 									bg: 'white',
 									borderWidth: '2px',
 									borderColor: 'ocobo.dark',
 									rounded: 'full',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									fontFamily: 'display',
 									fontWeight: 'bold',
 									fontSize: 'lg',
 									shadow: 'sm',
-								})}
+								})}`}
 							>
 								3
 							</div>
@@ -396,13 +336,7 @@ export const PyramidSection = () => {
 								spaceY: '1',
 							})}
 						>
-							<li
-								className={css({
-									display: 'flex',
-									alignItems: 'flex-start',
-									gap: '2',
-								})}
-							>
+							<li className={flex({ gap: '2', align: 'flex-start' })}>
 								<span
 									className={css({
 										w: '1.5',
@@ -415,13 +349,7 @@ export const PyramidSection = () => {
 								/>
 								Trop d'outils, pas assez de clarté
 							</li>
-							<li
-								className={css({
-									display: 'flex',
-									alignItems: 'flex-start',
-									gap: '2',
-								})}
-							>
+							<li className={flex({ gap: '2', align: 'flex-start' })}>
 								<span
 									className={css({
 										w: '1.5',
@@ -434,13 +362,7 @@ export const PyramidSection = () => {
 								/>
 								Productivité en baisse
 							</li>
-							<li
-								className={css({
-									display: 'flex',
-									alignItems: 'flex-start',
-									gap: '2',
-								})}
-							>
+							<li className={flex({ gap: '2', align: 'flex-start' })}>
 								<span
 									className={css({
 										w: '1.5',
@@ -466,22 +388,9 @@ export const PyramidSection = () => {
 				<circle cx="280" cy="520" r="3.5" fill="currentColor" />
 				<foreignObject x="10" y="450" width="250" height="200">
 					<div
-						className={css({
-							display: 'flex',
-							flexDir: 'column',
-							alignItems: 'flex-end',
-							textAlign: 'right',
-							pr: '4',
-						})}
+						className={`${flex({ direction: 'column', align: 'flex-end' })} ${css({ textAlign: 'right', pr: '4' })}`}
 					>
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '4',
-								mb: '3',
-							})}
-						>
+						<div className={hstack({ gap: '4', mb: '3' })}>
 							<h3
 								className={css({
 									fontFamily: 'display',
@@ -492,21 +401,18 @@ export const PyramidSection = () => {
 								Clients
 							</h3>
 							<div
-								className={css({
+								className={`${center()} ${css({
 									w: '10',
 									h: '10',
 									bg: 'white',
 									borderWidth: '2px',
 									borderColor: 'ocobo.dark',
 									rounded: 'full',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									fontFamily: 'display',
 									fontWeight: 'bold',
 									fontSize: 'lg',
 									shadow: 'sm',
-								})}
+								})}`}
 							>
 								4
 							</div>
@@ -520,11 +426,10 @@ export const PyramidSection = () => {
 							})}
 						>
 							<li
-								className={css({
-									display: 'flex',
-									alignItems: 'flex-start',
+								className={flex({
 									gap: '2',
-									justifyContent: 'flex-end',
+									align: 'flex-start',
+									justify: 'flex-end',
 								})}
 							>
 								Expérience inégale
@@ -540,11 +445,10 @@ export const PyramidSection = () => {
 								/>
 							</li>
 							<li
-								className={css({
-									display: 'flex',
-									alignItems: 'flex-start',
+								className={flex({
 									gap: '2',
-									justifyContent: 'flex-end',
+									align: 'flex-start',
+									justify: 'flex-end',
 								})}
 							>
 								Informations dispersées
@@ -560,11 +464,10 @@ export const PyramidSection = () => {
 								/>
 							</li>
 							<li
-								className={css({
-									display: 'flex',
-									alignItems: 'flex-start',
+								className={flex({
 									gap: '2',
-									justifyContent: 'flex-end',
+									align: 'flex-start',
+									justify: 'flex-end',
 								})}
 							>
 								Frictions dans le parcours

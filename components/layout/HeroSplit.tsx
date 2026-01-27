@@ -1,5 +1,6 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { flex } from 'styled-system/patterns';
 
 type GapSize = 6 | 8 | 10 | 12 | 16;
 
@@ -21,10 +22,9 @@ const HeroSplitRoot: React.FC<HeroSplitProps> = ({
 }) => {
 	return (
 		<div
-			className={`${css({
-				display: 'flex',
-				flexDir: { base: 'column', lg: 'row' },
-				alignItems: { lg: 'center' },
+			className={`${flex({
+				direction: { base: 'column', lg: 'row' },
+				align: { lg: 'center' },
 				gap: { base: String(gap), lg: String(gap) },
 			})} ${className}`}
 		>

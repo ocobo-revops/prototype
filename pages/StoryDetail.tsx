@@ -13,6 +13,7 @@ import {
 import type React from 'react';
 import { Link, useParams } from 'react-router';
 import { css } from 'styled-system/css';
+import { center, flex, grid, vstack } from 'styled-system/patterns';
 import { Button } from '../components/atoms';
 
 // biome-ignore lint/suspicious/noExplicitAny: complex story data structure
@@ -389,9 +390,8 @@ export const StoryDetail: React.FC = () => {
 				<div className={css({ mb: '12' })}>
 					<Link
 						to="/stories"
-						className={css({
+						className={`${flex({ gap: '2', align: 'center' })} ${css({
 							display: 'inline-flex',
-							alignItems: 'center',
 							color: 'gray.400',
 							fontWeight: 'black',
 							textTransform: 'uppercase',
@@ -399,7 +399,7 @@ export const StoryDetail: React.FC = () => {
 							fontSize: 'xs',
 							transition: 'colors',
 							_hover: { color: 'ocobo.dark' },
-						})}
+						})}`}
 					>
 						<ArrowLeft size={14} className={css({ mr: '2' })} /> Retour aux
 						Success Stories
@@ -407,22 +407,11 @@ export const StoryDetail: React.FC = () => {
 				</div>
 
 				<div
-					className={css({
-						display: 'flex',
-						flexDir: { base: 'column', lg: 'row' },
-						gap: '16',
-						alignItems: 'start',
-						mb: '24',
-					})}
+					className={`${flex({ direction: { base: 'column', lg: 'row' }, gap: '16', align: 'start' })} ${css({ mb: '24' })}`}
 				>
 					<div className={css({ lg: { w: '2/3' } })}>
 						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '4',
-								mb: '8',
-							})}
+							className={`${flex({ gap: '4', align: 'center' })} ${css({ mb: '8' })}`}
 						>
 							<span
 								className={css({
@@ -478,10 +467,7 @@ export const StoryDetail: React.FC = () => {
 						</h1>
 					</div>
 					<div
-						className={css({
-							display: 'flex',
-							lg: { w: '1/3', justifyContent: 'end', pt: '20' },
-						})}
+						className={`${flex()} ${css({ lg: { w: '1/3', justifyContent: 'end', pt: '20' } })}`}
 					>
 						<div
 							className={css({
@@ -505,33 +491,29 @@ export const StoryDetail: React.FC = () => {
 				</div>
 
 				<div
-					className={css({
-						display: 'grid',
-						gridTemplateColumns: { base: '1fr', md: 'repeat(3, 1fr)' },
-						gap: '0',
+					className={`${grid({ columns: { base: 1, md: 3 }, gap: '0' })} ${css({
 						mb: '32',
 						borderWidth: '1px',
 						borderColor: 'gray.100',
 						bg: 'gray.50/30',
 						rounded: '3xl',
 						overflow: 'hidden',
-					})}
+					})}`}
 				>
 					{/* biome-ignore lint/suspicious/noExplicitAny: story data */}
 					{story.results.map((res: any, idx: number) => (
 						<div
 							key={res.label}
-							className={css({
-								display: 'flex',
-								flexDir: 'column',
-								alignItems: 'center',
-								textAlign: 'center',
-								p: '12',
-								borderBottomWidth: idx !== 2 ? '1px' : '0',
-								md: { borderBottomWidth: '0' },
-								borderRightWidth: idx !== 2 ? { base: '0', md: '1px' } : '0',
-								borderColor: 'gray.100',
-							})}
+							className={`${flex({ direction: 'column', align: 'center' })} ${css(
+								{
+									textAlign: 'center',
+									p: '12',
+									borderBottomWidth: idx !== 2 ? '1px' : '0',
+									md: { borderBottomWidth: '0' },
+									borderRightWidth: idx !== 2 ? { base: '0', md: '1px' } : '0',
+									borderColor: 'gray.100',
+								},
+							)}`}
 						>
 							<div
 								className={css({
@@ -573,43 +555,29 @@ export const StoryDetail: React.FC = () => {
 				</div>
 
 				<div
-					className={css({
-						display: 'grid',
-						gridTemplateColumns: { base: '1fr', lg: 'repeat(12, 1fr)' },
-						gap: { base: '16', md: '24' },
-						mb: '40',
-					})}
+					className={`${grid({ columns: { base: 1, lg: 12 }, gap: { base: '16', md: '24' } })} ${css(
+						{
+							mb: '40',
+						},
+					)}`}
 				>
 					<div
-						className={css({
-							lg: { gridColumn: 'span 8' },
-							display: 'flex',
-							flexDir: 'column',
-							gap: '24',
-						})}
+						className={`${vstack({ gap: '24' })} ${css({ lg: { gridColumn: 'span 8' } })}`}
 					>
 						<section>
 							<div
-								className={css({
-									display: 'flex',
-									alignItems: 'center',
-									gap: '4',
-									mb: '10',
-								})}
+								className={`${flex({ gap: '4', align: 'center' })} ${css({ mb: '10' })}`}
 							>
 								<div
-									className={css({
+									className={`${center()} ${css({
 										w: '10',
 										h: '10',
 										bg: 'ocobo.dark',
 										color: 'white',
 										rounded: 'lg',
-										display: 'flex',
-										alignItems: 'center',
-										justifyContent: 'center',
 										fontFamily: 'display',
 										fontWeight: 'bold',
-									})}
+									})}`}
 								>
 									1
 								</div>
@@ -640,26 +608,17 @@ export const StoryDetail: React.FC = () => {
 							>
 								{story.mission.intro}
 							</div>
-							<div
-								className={css({
-									display: 'grid',
-									gridTemplateColumns: { base: '1fr', sm: 'repeat(2, 1fr)' },
-									gap: '6',
-								})}
-							>
+							<div className={grid({ columns: { base: 1, sm: 2 }, gap: '6' })}>
 								{story.mission.objectives.map((obj: string) => (
 									<div
 										key={obj}
-										className={css({
+										className={`${flex({ gap: '4', align: 'start' })} ${css({
 											p: '6',
 											bg: 'white',
 											borderWidth: '1px',
 											borderColor: 'gray.100',
 											rounded: '2xl',
-											display: 'flex',
-											alignItems: 'start',
-											gap: '4',
-										})}
+										})}`}
 									>
 										<Check
 											size={18}
@@ -685,26 +644,18 @@ export const StoryDetail: React.FC = () => {
 
 						<section>
 							<div
-								className={css({
-									display: 'flex',
-									alignItems: 'center',
-									gap: '4',
-									mb: '10',
-								})}
+								className={`${flex({ gap: '4', align: 'center' })} ${css({ mb: '10' })}`}
 							>
 								<div
-									className={css({
+									className={`${center()} ${css({
 										w: '10',
 										h: '10',
 										bg: 'ocobo.dark',
 										color: 'white',
 										rounded: 'lg',
-										display: 'flex',
-										alignItems: 'center',
-										justifyContent: 'center',
 										fontFamily: 'display',
 										fontWeight: 'bold',
-									})}
+									})}`}
 								>
 									2
 								</div>
@@ -723,12 +674,7 @@ export const StoryDetail: React.FC = () => {
 							</div>
 
 							<div
-								className={css({
-									display: 'flex',
-									flexDir: 'column',
-									gap: '10',
-									position: 'relative',
-								})}
+								className={`${vstack({ gap: '10' })} ${css({ position: 'relative' })}`}
 							>
 								<div
 									className={css({
@@ -769,7 +715,7 @@ export const StoryDetail: React.FC = () => {
 										})}
 									>
 										<div
-											className={`phase-box ${css({
+											className={`phase-box ${center()} ${css({
 												position: 'absolute',
 												left: '0',
 												top: '0',
@@ -779,9 +725,6 @@ export const StoryDetail: React.FC = () => {
 												borderWidth: '2px',
 												borderColor: 'ocobo.dark',
 												rounded: '3xl',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												fontFamily: 'display',
 												fontSize: '3xl',
 												fontWeight: 'black',
@@ -822,21 +765,11 @@ export const StoryDetail: React.FC = () => {
 											>
 												{phase.desc}
 											</p>
-											<ul
-												className={css({
-													display: 'flex',
-													flexDir: 'column',
-													gap: '4',
-												})}
-											>
+											<ul className={vstack({ gap: '4' })}>
 												{phase.items.map((item: string) => (
 													<li
 														key={item}
-														className={css({
-															display: 'flex',
-															alignItems: 'start',
-															gap: '3',
-														})}
+														className={flex({ gap: '3', align: 'start' })}
 													>
 														<div
 															className={css({
@@ -875,26 +808,18 @@ export const StoryDetail: React.FC = () => {
 							})}
 						>
 							<div
-								className={css({
-									display: 'flex',
-									alignItems: 'center',
-									gap: '4',
-									mb: '16',
-								})}
+								className={`${flex({ gap: '4', align: 'center' })} ${css({ mb: '16' })}`}
 							>
 								<div
-									className={css({
+									className={`${center()} ${css({
 										w: '10',
 										h: '10',
 										bg: 'ocobo.dark',
 										color: 'white',
 										rounded: 'lg',
-										display: 'flex',
-										alignItems: 'center',
-										justifyContent: 'center',
 										fontFamily: 'display',
 										fontWeight: 'bold',
-									})}
+									})}`}
 								>
 									3
 								</div>
@@ -912,23 +837,12 @@ export const StoryDetail: React.FC = () => {
 								</h2>
 							</div>
 
-							<div
-								className={css({
-									display: 'flex',
-									flexDir: 'column',
-									gap: '20',
-								})}
-							>
+							<div className={vstack({ gap: '20' })}>
 								{/* biome-ignore lint/suspicious/noExplicitAny: story data */}
 								{story.interview.map((item: any) => (
 									<div key={item.q} className={css({ position: 'relative' })}>
 										<div
-											className={css({
-												mb: '6',
-												display: 'flex',
-												alignItems: 'center',
-												gap: '3',
-											})}
+											className={`${flex({ gap: '3', align: 'center' })} ${css({ mb: '6' })}`}
 										>
 											<div
 												className={css({ w: '8', h: 'px', bg: 'ocobo.yellow' })}
@@ -974,18 +888,16 @@ export const StoryDetail: React.FC = () => {
 							</div>
 
 							<div
-								className={css({
-									mt: '24',
-									p: '10',
-									bg: 'gray.50',
-									rounded: '3xl',
-									borderWidth: '1px',
-									borderColor: 'gray.100',
-									display: 'flex',
-									flexDir: { base: 'column', md: 'row' },
-									alignItems: 'center',
-									gap: '10',
-								})}
+								className={`${flex({ direction: { base: 'column', md: 'row' }, align: 'center', gap: '10' })} ${css(
+									{
+										mt: '24',
+										p: '10',
+										bg: 'gray.50',
+										rounded: '3xl',
+										borderWidth: '1px',
+										borderColor: 'gray.100',
+									},
+								)}`}
 							>
 								<div
 									className={css({
@@ -1054,13 +966,7 @@ export const StoryDetail: React.FC = () => {
 
 					<div className={css({ lg: { gridColumn: 'span 4' } })}>
 						<div
-							className={css({
-								position: 'sticky',
-								top: '32',
-								display: 'flex',
-								flexDir: 'column',
-								gap: '10',
-							})}
+							className={`${vstack({ gap: '10' })} ${css({ position: 'sticky', top: '32' })}`}
 						>
 							<div
 								className={css({
@@ -1086,31 +992,16 @@ export const StoryDetail: React.FC = () => {
 									Process & Outils
 								</h4>
 
-								<div
-									className={css({
-										display: 'flex',
-										flexDir: 'column',
-										gap: '8',
-									})}
-								>
-									<div
-										className={css({
-											display: 'flex',
-											alignItems: 'center',
-											gap: '5',
-										})}
-									>
+								<div className={vstack({ gap: '8' })}>
+									<div className={flex({ gap: '5', align: 'center' })}>
 										<div
-											className={css({
+											className={`${center()} ${css({
 												w: '10',
 												h: '10',
 												bg: 'gray.50',
 												rounded: 'xl',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												color: 'ocobo.dark',
-											})}
+											})}`}
 										>
 											<Clock size={18} />
 										</div>
@@ -1137,24 +1028,15 @@ export const StoryDetail: React.FC = () => {
 											</p>
 										</div>
 									</div>
-									<div
-										className={css({
-											display: 'flex',
-											alignItems: 'center',
-											gap: '5',
-										})}
-									>
+									<div className={flex({ gap: '5', align: 'center' })}>
 										<div
-											className={css({
+											className={`${center()} ${css({
 												w: '10',
 												h: '10',
 												bg: 'gray.50',
 												rounded: 'xl',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												color: 'ocobo.dark',
-											})}
+											})}`}
 										>
 											<Users size={18} />
 										</div>
@@ -1181,24 +1063,15 @@ export const StoryDetail: React.FC = () => {
 											</p>
 										</div>
 									</div>
-									<div
-										className={css({
-											display: 'flex',
-											alignItems: 'center',
-											gap: '5',
-										})}
-									>
+									<div className={flex({ gap: '5', align: 'center' })}>
 										<div
-											className={css({
+											className={`${center()} ${css({
 												w: '10',
 												h: '10',
 												bg: 'gray.50',
 												rounded: 'xl',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												color: 'ocobo.dark',
-											})}
+											})}`}
 										>
 											<Cpu size={18} />
 										</div>
@@ -1215,12 +1088,7 @@ export const StoryDetail: React.FC = () => {
 												TECH STACK
 											</p>
 											<div
-												className={css({
-													display: 'flex',
-													flexWrap: 'wrap',
-													gap: '2',
-													mt: '1',
-												})}
+												className={`${flex({ wrap: 'wrap', gap: '2' })} ${css({ mt: '1' })}`}
 											>
 												{story.tools.map((tool: string) => (
 													<span
@@ -1283,20 +1151,11 @@ export const StoryDetail: React.FC = () => {
 									Livrables de la mission
 								</h4>
 
-								<ul
-									className={css({
-										display: 'flex',
-										flexDir: 'column',
-										gap: '5',
-									})}
-								>
+								<ul className={vstack({ gap: '5' })}>
 									{story.livrables.map((item: string) => (
 										<li
 											key={item}
-											className={css({
-												display: 'flex',
-												alignItems: 'start',
-												gap: '4',
+											className={`${flex({ gap: '4', align: 'start' })} ${css({
 												'& .check-bg': {
 													transition: 'colors',
 												},
@@ -1315,7 +1174,7 @@ export const StoryDetail: React.FC = () => {
 												'&:hover span': {
 													color: 'white',
 												},
-											})}
+											})}`}
 										>
 											<div
 												className={`check-bg ${css({
@@ -1367,7 +1226,7 @@ export const StoryDetail: React.FC = () => {
 									<Link to="/contact">
 										<button
 											type="button"
-											className={css({
+											className={`${center({ inline: true })} ${css({
 												w: 'full',
 												py: '4',
 												bg: 'white',
@@ -1379,9 +1238,6 @@ export const StoryDetail: React.FC = () => {
 												rounded: 'xl',
 												transition: 'all',
 												shadow: 'xl',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												gap: '2',
 												'& .arrow': {
 													transition: 'transform',
@@ -1392,7 +1248,7 @@ export const StoryDetail: React.FC = () => {
 												'&:hover .arrow': {
 													transform: 'translateX(4px)',
 												},
-											})}
+											})}`}
 										>
 											Prendre RDV <ArrowRight size={14} className={`arrow`} />
 										</button>
@@ -1456,7 +1312,7 @@ export const StoryDetail: React.FC = () => {
 						>
 							Votre machine revenue mérite une architecture d'élite.
 						</h2>
-						<div className={css({ display: 'flex', justifyContent: 'center' })}>
+						<div className={flex({ justify: 'center' })}>
 							<Button
 								variant="primary"
 								className={css({

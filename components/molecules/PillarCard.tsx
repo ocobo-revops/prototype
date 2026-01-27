@@ -1,6 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { flex } from 'styled-system/patterns';
 import { ThemeColor } from '../../types';
 
 interface Deliverable {
@@ -69,12 +70,11 @@ export const PillarCard: React.FC<PillarCardProps> = ({
 			})} ${className}`}
 		>
 			<div
-				className={css({
-					display: 'flex',
-					justifyContent: 'space-between',
-					alignItems: 'flex-start',
-					mb: '10',
-				})}
+				className={`${flex({ justify: 'space-between', align: 'flex-start' })} ${css(
+					{
+						mb: '10',
+					},
+				)}`}
 			>
 				<div
 					className={css({
@@ -149,11 +149,7 @@ export const PillarCard: React.FC<PillarCardProps> = ({
 					{deliverables.map((deliverable, index) => (
 						<div
 							key={`${deliverable.title}-${index}`}
-							className={css({
-								display: 'flex',
-								gap: '4',
-								alignItems: 'flex-start',
-							})}
+							className={flex({ gap: '4', align: 'flex-start' })}
 						>
 							<div
 								className={css({

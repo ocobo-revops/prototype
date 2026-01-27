@@ -1,7 +1,7 @@
 import { CheckCircle2 } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
-import { grid } from 'styled-system/patterns';
+import { center, flex, grid } from 'styled-system/patterns';
 import { SectionHeader } from '../../organisms';
 
 export const OffersDetailSection: React.FC = () => {
@@ -23,11 +23,10 @@ export const OffersDetailSection: React.FC = () => {
 				<div className={css({ spaceY: '24' })}>
 					{/* Service 1: Audit & Cadrage */}
 					<div
-						className={css({
-							display: 'flex',
-							flexDir: { base: 'column', md: 'row' },
+						className={flex({
+							direction: { base: 'column', md: 'row' },
 							gap: { base: '12', md: '24' },
-							alignItems: 'flex-start',
+							align: 'flex-start',
 						})}
 					>
 						<div
@@ -38,14 +37,11 @@ export const OffersDetailSection: React.FC = () => {
 							})}
 						>
 							<div
-								className={css({
+								className={`${center()} ${css({
 									w: '16',
 									h: '16',
 									bg: 'ocobo.yellow',
 									color: 'ocobo.dark',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									fontFamily: 'display',
 									fontWeight: 'bold',
 									fontSize: '2xl',
@@ -53,7 +49,7 @@ export const OffersDetailSection: React.FC = () => {
 									borderColor: 'ocobo.dark',
 									shadow: 'offset',
 									mb: '8',
-								})}
+								})}`}
 							>
 								1
 							</div>
@@ -93,13 +89,7 @@ export const OffersDetailSection: React.FC = () => {
 								})}
 							>
 								<ul className={css({ spaceY: '8' })}>
-									<li
-										className={css({
-											display: 'flex',
-											gap: '5',
-											alignItems: 'flex-start',
-										})}
-									>
+									<li className={flex({ gap: '5', align: 'flex-start' })}>
 										<div
 											className={css({
 												mt: '1',
@@ -136,13 +126,7 @@ export const OffersDetailSection: React.FC = () => {
 											</p>
 										</div>
 									</li>
-									<li
-										className={css({
-											display: 'flex',
-											gap: '5',
-											alignItems: 'flex-start',
-										})}
-									>
+									<li className={flex({ gap: '5', align: 'flex-start' })}>
 										<div
 											className={css({
 												mt: '1',
@@ -179,13 +163,7 @@ export const OffersDetailSection: React.FC = () => {
 											</p>
 										</div>
 									</li>
-									<li
-										className={css({
-											display: 'flex',
-											gap: '5',
-											alignItems: 'flex-start',
-										})}
-									>
+									<li className={flex({ gap: '5', align: 'flex-start' })}>
 										<div
 											className={css({
 												mt: '1',
@@ -231,11 +209,10 @@ export const OffersDetailSection: React.FC = () => {
 
 					{/* Service 2: Déploiement */}
 					<div
-						className={css({
-							display: 'flex',
-							flexDir: { base: 'column', md: 'row' },
+						className={flex({
+							direction: { base: 'column', md: 'row' },
 							gap: { base: '12', md: '24' },
-							alignItems: 'flex-start',
+							align: 'flex-start',
 						})}
 					>
 						<div
@@ -246,14 +223,11 @@ export const OffersDetailSection: React.FC = () => {
 							})}
 						>
 							<div
-								className={css({
+								className={`${center()} ${css({
 									w: '16',
 									h: '16',
 									bg: 'ocobo.coral',
 									color: 'ocobo.dark',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									fontFamily: 'display',
 									fontWeight: 'bold',
 									fontSize: '2xl',
@@ -261,7 +235,7 @@ export const OffersDetailSection: React.FC = () => {
 									borderColor: 'ocobo.dark',
 									shadow: 'offset',
 									mb: '8',
-								})}
+								})}`}
 							>
 								2
 							</div>
@@ -320,11 +294,7 @@ export const OffersDetailSection: React.FC = () => {
 									].map((item) => (
 										<li
 											key={item}
-											className={css({
-												display: 'flex',
-												alignItems: 'flex-start',
-												gap: '4',
-											})}
+											className={flex({ align: 'flex-start', gap: '4' })}
 										>
 											<div className={css({ mt: '0.5', color: 'ocobo.coral' })}>
 												<CheckCircle2 size={18} />
@@ -350,11 +320,10 @@ export const OffersDetailSection: React.FC = () => {
 
 					{/* Service 3: Coaching */}
 					<div
-						className={css({
-							display: 'flex',
-							flexDir: { base: 'column', md: 'row' },
+						className={flex({
+							direction: { base: 'column', md: 'row' },
 							gap: { base: '12', md: '24' },
-							alignItems: 'flex-start',
+							align: 'flex-start',
 						})}
 					>
 						<div
@@ -365,14 +334,11 @@ export const OffersDetailSection: React.FC = () => {
 							})}
 						>
 							<div
-								className={css({
+								className={`${center()} ${css({
 									w: '16',
 									h: '16',
 									bg: 'ocobo.mint',
 									color: 'ocobo.dark',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									fontFamily: 'display',
 									fontWeight: 'bold',
 									fontSize: '2xl',
@@ -380,7 +346,7 @@ export const OffersDetailSection: React.FC = () => {
 									borderColor: 'ocobo.dark',
 									shadow: 'offset',
 									mb: '8',
-								})}
+								})}`}
 							>
 								3
 							</div>
@@ -421,13 +387,7 @@ export const OffersDetailSection: React.FC = () => {
 								})}
 							>
 								<ul className={css({ spaceY: '8' })}>
-									<li
-										className={css({
-											display: 'flex',
-											gap: '5',
-											alignItems: 'flex-start',
-										})}
-									>
+									<li className={flex({ gap: '5', align: 'flex-start' })}>
 										<div
 											className={css({
 												mt: '1',
@@ -464,13 +424,7 @@ export const OffersDetailSection: React.FC = () => {
 											</p>
 										</div>
 									</li>
-									<li
-										className={css({
-											display: 'flex',
-											gap: '5',
-											alignItems: 'flex-start',
-										})}
-									>
+									<li className={flex({ gap: '5', align: 'flex-start' })}>
 										<div
 											className={css({
 												mt: '1',
@@ -507,13 +461,7 @@ export const OffersDetailSection: React.FC = () => {
 											</p>
 										</div>
 									</li>
-									<li
-										className={css({
-											display: 'flex',
-											gap: '5',
-											alignItems: 'flex-start',
-										})}
-									>
+									<li className={flex({ gap: '5', align: 'flex-start' })}>
 										<div
 											className={css({
 												mt: '1',
@@ -550,13 +498,7 @@ export const OffersDetailSection: React.FC = () => {
 											</p>
 										</div>
 									</li>
-									<li
-										className={css({
-											display: 'flex',
-											gap: '5',
-											alignItems: 'flex-start',
-										})}
-									>
+									<li className={flex({ gap: '5', align: 'flex-start' })}>
 										<div
 											className={css({
 												mt: '1',

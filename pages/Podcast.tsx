@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { useState } from 'react';
 import { css } from 'styled-system/css';
+import { center, flex, hstack, vstack } from 'styled-system/patterns';
 import { Button } from '../components/atoms';
 
 export function Podcast() {
@@ -116,21 +117,15 @@ export function Podcast() {
 					})}
 				>
 					<div
-						className={css({
-							display: 'flex',
-							flexDirection: { base: 'column', lg: 'row' },
-							alignItems: 'center',
+						className={flex({
+							direction: { base: 'column', lg: 'row' },
+							align: 'center',
 							gap: '16',
 						})}
 					>
 						<div className={css({ lg: { width: '50%' } })}>
 							<div
-								className={css({
-									display: 'flex',
-									alignItems: 'center',
-									gap: '3',
-									mb: '8',
-								})}
+								className={`${flex({ gap: '3', align: 'center' })} ${css({ mb: '8' })}`}
 							>
 								<span
 									className={css({
@@ -189,14 +184,11 @@ export function Podcast() {
 							</p>
 
 							<div
-								className={css({ display: 'flex', flexWrap: 'wrap', gap: '4' })}
+								className={`${hstack({ gap: '4' })} ${css({ flexWrap: 'wrap' })}`}
 							>
 								<button
 									type="button"
-									className={css({
-										display: 'flex',
-										alignItems: 'center',
-										gap: '3',
+									className={`${flex({ gap: '3', align: 'center' })} ${css({
 										px: '6',
 										py: '3',
 										bg: 'white',
@@ -209,15 +201,12 @@ export function Podcast() {
 										transition: 'background 200ms',
 										cursor: 'pointer',
 										_hover: { bg: 'ocobo.yellow' },
-									})}
+									})}`}
 								>
 									<Headphones size={18} /> S'abonner
 								</button>
 								<div
-									className={css({
-										display: 'flex',
-										alignItems: 'center',
-										gap: '4',
+									className={`${flex({ gap: '4', align: 'center' })} ${css({
 										px: '6',
 										py: '3',
 										bg: 'white/5',
@@ -226,7 +215,7 @@ export function Podcast() {
 										rounded: 'full',
 										filter: 'grayscale(1)',
 										opacity: 0.5,
-									})}
+									})}`}
 								>
 									<img
 										src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
@@ -283,12 +272,7 @@ export function Podcast() {
 								/>
 
 								<div
-									className={css({
-										display: 'flex',
-										alignItems: 'center',
-										gap: '6',
-										mb: '10',
-									})}
+									className={`${flex({ gap: '6', align: 'center' })} ${css({ mb: '10' })}`}
 								>
 									<div
 										className={css({
@@ -341,20 +325,8 @@ export function Podcast() {
 								</div>
 
 								{/* Player Controls */}
-								<div
-									className={css({
-										display: 'flex',
-										flexDirection: 'column',
-										gap: '8',
-									})}
-								>
-									<div
-										className={css({
-											display: 'flex',
-											flexDirection: 'column',
-											gap: '2',
-										})}
-									>
+								<div className={vstack({ gap: '8' })}>
+									<div className={vstack({ gap: '2' })}>
 										<div
 											className={css({
 												height: '1.5',
@@ -377,15 +349,15 @@ export function Podcast() {
 											/>
 										</div>
 										<div
-											className={css({
-												display: 'flex',
-												justifyContent: 'space-between',
-												fontSize: 'xs',
-												fontWeight: 'bold',
-												color: 'gray.500',
-												textTransform: 'uppercase',
-												letterSpacing: 'widest',
-											})}
+											className={`${hstack({ justify: 'space-between' })} ${css(
+												{
+													fontSize: 'xs',
+													fontWeight: 'bold',
+													color: 'gray.500',
+													textTransform: 'uppercase',
+													letterSpacing: 'widest',
+												},
+											)}`}
 										>
 											<span>12:45</span>
 											<span>{episodes[0].duration}</span>
@@ -393,11 +365,10 @@ export function Podcast() {
 									</div>
 
 									<div
-										className={css({
-											display: 'flex',
-											alignItems: 'center',
-											justifyContent: 'center',
+										className={flex({
 											gap: '10',
+											align: 'center',
+											justify: 'center',
 										})}
 									>
 										<button
@@ -414,20 +385,17 @@ export function Podcast() {
 										<button
 											type="button"
 											onClick={() => setIsPlaying(!isPlaying)}
-											className={css({
+											className={`${center()} ${css({
 												width: '20',
 												height: '20',
 												bg: 'ocobo.yellow',
 												color: 'ocobo.dark',
 												rounded: 'full',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												shadow: 'xl',
 												transition: 'transform 200ms',
 												cursor: 'pointer',
 												_hover: { transform: 'scale(1.05)' },
-											})}
+											})}`}
 										>
 											{isPlaying ? (
 												<Pause size={32} fill="currentColor" />
@@ -472,16 +440,16 @@ export function Podcast() {
 				})}
 			>
 				<div
-					className={css({
+					className={`${flex({
+						direction: { base: 'column', md: 'row' },
+						align: 'center',
+						justify: 'center',
+						gap: '6',
+					})} ${css({
 						maxW: '3xl',
 						mx: 'auto',
 						px: '4',
-						display: 'flex',
-						flexDirection: { base: 'column', md: 'row' },
-						alignItems: 'center',
-						justifyContent: 'center',
-						gap: '6',
-					})}
+					})}`}
 				>
 					<div className={css({ position: 'relative', width: 'full' })}>
 						<input
@@ -521,22 +489,16 @@ export function Podcast() {
 
 			{/* Episodes List */}
 			<section className={css({ maxW: '5xl', mx: 'auto', px: '4', py: '24' })}>
-				<div
-					className={css({
-						display: 'flex',
-						flexDirection: 'column',
-						gap: '10',
-					})}
-				>
+				<div className={vstack({ gap: '10' })}>
 					{filteredEpisodes.length > 0 ? (
 						filteredEpisodes.map((ep) => (
 							<div
 								key={ep.id}
-								className={css({
-									position: 'relative',
-									display: 'flex',
-									flexDirection: { base: 'column', md: 'row' },
+								className={`${flex({
+									direction: { base: 'column', md: 'row' },
 									gap: '10',
+								})} ${css({
+									position: 'relative',
 									p: '8',
 									bg: 'white',
 									border: '1px solid',
@@ -544,11 +506,11 @@ export function Podcast() {
 									rounded: '3xl',
 									transition: 'all 500ms',
 									_hover: { shadow: 'soft-lg', transform: 'translateY(-8px)' },
-								})}
+								})}`}
 							>
 								{/* Episode Number */}
 								<div
-									className={css({
+									className={`${center()} ${css({
 										position: 'absolute',
 										top: '-4',
 										left: '-4',
@@ -559,15 +521,12 @@ export function Podcast() {
 										borderColor: 'gray.100',
 										rounded: 'xl',
 										shadow: 'lg',
-										display: 'flex',
-										alignItems: 'center',
-										justifyContent: 'center',
 										fontFamily: 'display',
 										fontWeight: 'black',
 										color: 'ocobo.dark/20',
 										fontSize: 'xl',
 										zIndex: 20,
-									})}
+									})}`}
 								>
 									{ep.number}
 								</div>
@@ -600,33 +559,27 @@ export function Podcast() {
 										})}
 									/>
 									<div
-										className={css({
+										className={`${center()} ${css({
 											position: 'absolute',
 											inset: 0,
 											bg: 'ocobo.dark/20',
 											opacity: 0,
 											transition: 'opacity 200ms',
-											display: 'flex',
-											alignItems: 'center',
-											justifyContent: 'center',
 											_groupHover: { opacity: 1 },
-										})}
+										})}`}
 									>
 										<div
-											className={css({
+											className={`${center()} ${css({
 												width: '16',
 												height: '16',
 												bg: 'white',
 												rounded: 'full',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												color: 'ocobo.dark',
 												shadow: 'xl',
 												transform: 'scale(0.9)',
 												transition: 'transform 500ms',
 												_groupHover: { transform: 'scale(1)' },
-											})}
+											})}`}
 										>
 											<Play
 												size={24}
@@ -638,22 +591,14 @@ export function Podcast() {
 								</div>
 
 								<div
-									className={css({
-										display: 'flex',
-										flexDirection: 'column',
-										justifyContent: 'space-between',
+									className={`${vstack({ justify: 'space-between' })} ${css({
 										py: '2',
 										flexGrow: 1,
-									})}
+									})}`}
 								>
 									<div>
 										<div
-											className={css({
-												display: 'flex',
-												alignItems: 'center',
-												gap: '3',
-												mb: '4',
-											})}
+											className={`${hstack({ gap: '3' })} ${css({ mb: '4' })}`}
 										>
 											<span
 												className={css({
@@ -715,23 +660,16 @@ export function Podcast() {
 									</div>
 
 									<div
-										className={css({
-											display: 'flex',
-											alignItems: 'center',
-											justifyContent: 'space-between',
-											borderTop: '1px solid',
-											borderColor: 'gray.50',
-											pt: '6',
-											mt: 'auto',
-										})}
+										className={`${flex({ align: 'center', justify: 'space-between' })} ${css(
+											{
+												borderTop: '1px solid',
+												borderColor: 'gray.50',
+												pt: '6',
+												mt: 'auto',
+											},
+										)}`}
 									>
-										<div
-											className={css({
-												display: 'flex',
-												alignItems: 'center',
-												gap: '4',
-											})}
-										>
+										<div className={hstack({ gap: '4' })}>
 											<div
 												className={css({
 													width: '10',
@@ -784,12 +722,7 @@ export function Podcast() {
 											</div>
 										</div>
 										<div
-											className={css({
-												display: 'flex',
-												alignItems: 'center',
-												gap: '2',
-												color: 'gray.300',
-											})}
+											className={`${hstack({ gap: '2' })} ${css({ color: 'gray.300' })}`}
 										>
 											<Clock size={14} />
 											<span
@@ -848,13 +781,7 @@ export function Podcast() {
 					)}
 				</div>
 
-				<div
-					className={css({
-						mt: '20',
-						display: 'flex',
-						justifyContent: 'center',
-					})}
-				>
+				<div className={`${flex({ justify: 'center' })} ${css({ mt: '20' })}`}>
 					<Button
 						variant="outline"
 						className={css({
@@ -934,13 +861,7 @@ export function Podcast() {
 						architectures de revenus qui fonctionnent, loin des buzzwords et des
 						recettes miracles."
 					</p>
-					<div
-						className={css({
-							display: 'flex',
-							justifyContent: 'center',
-							gap: '4',
-						})}
-					>
+					<div className={flex({ justify: 'center', gap: '4' })}>
 						<a
 							href="#"
 							className={css({
@@ -1015,10 +936,9 @@ export function Podcast() {
 						écho stratégique.
 					</h2>
 					<div
-						className={css({
-							display: 'flex',
-							flexDirection: { base: 'column', sm: 'row' },
-							justifyContent: 'center',
+						className={flex({
+							direction: { base: 'column', sm: 'row' },
+							justify: 'center',
 							gap: '6',
 						})}
 					>

@@ -1,4 +1,5 @@
 import { css } from 'styled-system/css';
+import { center, flex, grid } from 'styled-system/patterns';
 
 export const ArchitecturalGrid = () => {
 	return (
@@ -11,22 +12,20 @@ export const ArchitecturalGrid = () => {
 			})}
 		>
 			<div
-				className={css({
-					display: 'flex',
-					alignItems: 'stretch',
+				className={flex({
+					align: 'stretch',
 					gap: '4',
 					position: 'relative',
 				})}
 			>
 				{/* Axe Ordonnée : ALIGNEMENT */}
 				<div
-					className={css({
-						display: 'flex',
-						flexDir: 'column',
-						alignItems: 'center',
-						justifyContent: 'center',
+					className={flex({
+						direction: 'column',
+						align: 'center',
+						justify: 'center',
 						py: '4',
-						flexShrink: 0,
+						shrink: '0',
 					})}
 				>
 					<div
@@ -70,24 +69,18 @@ export const ArchitecturalGrid = () => {
 					})}
 				>
 					<div
-						className={css({
-							display: 'grid',
-							gridTemplateColumns: 'repeat(2, 1fr)',
-							gap: '4',
+						className={`${grid({ columns: 2, gap: '4' })} ${css({
 							mb: '4',
-						})}
+						})}`}
 					>
 						<div
-							className={`${css({
+							className={`${center({
 								opacity: '0',
 								animation: 'box-pop',
 								h: '24',
 								bg: 'ocobo.yellow.light',
 								borderWidth: '1px',
 								borderColor: 'ocobo.dark',
-								display: 'flex',
-								alignItems: 'center',
-								justifyContent: 'center',
 								transition: 'transform',
 								transitionDuration: '300ms',
 								cursor: 'pointer',
@@ -109,16 +102,13 @@ export const ArchitecturalGrid = () => {
 							</span>
 						</div>
 						<div
-							className={`${css({
+							className={`${center({
 								opacity: '0',
 								animation: 'box-pop',
 								h: '24',
 								bg: 'ocobo.sky.light',
 								borderWidth: '1px',
 								borderColor: 'ocobo.dark',
-								display: 'flex',
-								alignItems: 'center',
-								justifyContent: 'center',
 								transition: 'transform',
 								transitionDuration: '300ms',
 								cursor: 'pointer',
@@ -140,16 +130,13 @@ export const ArchitecturalGrid = () => {
 							</span>
 						</div>
 						<div
-							className={`${css({
+							className={`${center({
 								opacity: '0',
 								animation: 'box-pop',
 								h: '24',
 								bg: 'ocobo.mint.light',
 								borderWidth: '1px',
 								borderColor: 'ocobo.dark',
-								display: 'flex',
-								alignItems: 'center',
-								justifyContent: 'center',
 								transition: 'transform',
 								transitionDuration: '300ms',
 								cursor: 'pointer',
@@ -171,16 +158,13 @@ export const ArchitecturalGrid = () => {
 							</span>
 						</div>
 						<div
-							className={`${css({
+							className={`${center({
 								opacity: '0',
 								animation: 'box-pop',
 								h: '24',
 								bg: 'ocobo.coral.light',
 								borderWidth: '1px',
 								borderColor: 'ocobo.dark',
-								display: 'flex',
-								alignItems: 'center',
-								justifyContent: 'center',
 								transition: 'transform',
 								transitionDuration: '300ms',
 								cursor: 'pointer',
@@ -217,9 +201,8 @@ export const ArchitecturalGrid = () => {
 
 					{/* Axe Abscisse labels */}
 					<div
-						className={css({
-							display: 'flex',
-							justifyContent: 'space-between',
+						className={flex({
+							justify: 'space-between',
 							fontSize: 'xs',
 							fontWeight: 'bold',
 							textTransform: 'uppercase',

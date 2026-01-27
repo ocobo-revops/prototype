@@ -2,6 +2,7 @@ import { Popover } from '@ark-ui/react/popover';
 import { ArrowRight, Mail, Sparkles, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { css } from 'styled-system/css';
+import { center, hstack, vstack } from 'styled-system/patterns';
 
 export function NewsletterWidget() {
 	const [isVisible, setIsVisible] = useState(false);
@@ -54,7 +55,7 @@ export function NewsletterWidget() {
 							e.stopPropagation();
 							setIsDismissed(true);
 						}}
-						className={`dismiss-btn ${css({
+						className={`dismiss-btn ${center()} ${css({
 							position: 'absolute',
 							top: '-2',
 							right: '-2',
@@ -63,9 +64,6 @@ export function NewsletterWidget() {
 							bg: 'white',
 							color: 'ocobo.dark',
 							rounded: 'full',
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'center',
 							shadow: 'lg',
 							border: '1px solid',
 							borderColor: 'gray.100',
@@ -83,7 +81,7 @@ export function NewsletterWidget() {
 					<Popover.Trigger asChild>
 						<button
 							type="button"
-							className={css({
+							className={`${hstack({ gap: '3' })} ${css({
 								bg: 'ocobo.dark',
 								color: 'white',
 								p: '4',
@@ -91,13 +89,10 @@ export function NewsletterWidget() {
 								shadow: '2xl',
 								border: '1px solid',
 								borderColor: 'white/10',
-								display: 'flex',
-								alignItems: 'center',
-								gap: '3',
 								transition: 'all 0.2s',
 								cursor: 'pointer',
 								_hover: { borderColor: 'ocobo.yellow/50' },
-							})}
+							})}`}
 						>
 							<div className={css({ position: 'relative' })}>
 								<Mail size={20} className={css({ color: 'ocobo.yellow' })} />
@@ -177,12 +172,9 @@ export function NewsletterWidget() {
 
 						<div className={css({ mb: '6', mt: '2' })}>
 							<div
-								className={css({
-									display: 'flex',
-									alignItems: 'center',
-									gap: '2',
+								className={`${hstack({ gap: '2' })} ${css({
 									mb: '3',
-								})}
+								})}`}
 							>
 								<Sparkles
 									size={14}
@@ -225,11 +217,7 @@ export function NewsletterWidget() {
 						</div>
 
 						<form
-							className={css({
-								display: 'flex',
-								flexDirection: 'column',
-								gap: '3',
-							})}
+							className={vstack({ gap: '3', alignItems: 'stretch' })}
 							onSubmit={(e) => {
 								e.preventDefault();
 								setIsDismissed(true);
@@ -256,7 +244,7 @@ export function NewsletterWidget() {
 							/>
 							<button
 								type="submit"
-								className={css({
+								className={`${hstack({ gap: '2', justify: 'center' })} ${css({
 									width: 'full',
 									bg: 'ocobo.yellow',
 									color: 'ocobo.dark',
@@ -266,17 +254,13 @@ export function NewsletterWidget() {
 									fontWeight: 'black',
 									textTransform: 'uppercase',
 									letterSpacing: '0.2em',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
-									gap: '2',
 									transition: 'all 0.2s',
 									cursor: 'pointer',
 									_hover: {
 										bg: 'white',
 										'& svg': { transform: 'translateX(4px)' },
 									},
-								})}
+								})}`}
 							>
 								S'inscrire{' '}
 								<ArrowRight

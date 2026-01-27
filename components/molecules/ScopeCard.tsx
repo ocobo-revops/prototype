@@ -1,6 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { center, hstack } from 'styled-system/patterns';
 import { ThemeColor } from '../../types';
 
 interface ScopeCardProps {
@@ -58,17 +59,14 @@ export const ScopeCard: React.FC<ScopeCardProps> = ({
 			})} ${className}`}
 		>
 			<div
-				className={css({
+				className={`${center()} ${css({
 					w: '12',
 					h: '12',
 					rounded: 'lg',
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
 					mb: '6',
 					bg: iconStyle.bg,
 					color: iconStyle.color,
-				})}
+				})}`}
 			>
 				<Icon size={24} />
 			</div>
@@ -84,10 +82,7 @@ export const ScopeCard: React.FC<ScopeCardProps> = ({
 			</h3>
 			<ul className={css({ spaceY: '3', fontSize: 'sm', color: 'gray.600' })}>
 				{items.map((item) => (
-					<li
-						key={item}
-						className={css({ display: 'flex', alignItems: 'center', gap: '3' })}
-					>
+					<li key={item} className={hstack({ gap: '3' })}>
 						<div
 							className={css({
 								w: '1.5',

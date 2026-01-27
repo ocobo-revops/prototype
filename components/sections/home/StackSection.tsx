@@ -1,5 +1,6 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { flex } from 'styled-system/patterns';
 import { Button } from '../../atoms';
 import {
 	DEFAULT_STACK_ITEMS,
@@ -41,12 +42,7 @@ export const StackSection: React.FC = () => {
 				</div>
 
 				<div
-					className={css({
-						mt: '8',
-						display: 'flex',
-						flexDir: 'column',
-						alignItems: 'center',
-					})}
+					className={`${flex({ direction: 'column', align: 'center' })} ${css({ mt: '8' })}`}
 				>
 					<Button variant="outline" to="/technology" size="lg">
 						Nos solutions partenaires

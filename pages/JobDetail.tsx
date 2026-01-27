@@ -17,6 +17,7 @@ import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
 import { css } from 'styled-system/css';
+import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
 import { Badge } from '../components/atoms';
 
 export const JobDetail: React.FC = () => {
@@ -158,18 +159,14 @@ export const JobDetail: React.FC = () => {
 			>
 				{/* BREADCRUMBS & TOP NAV (Style Blog) */}
 				<div
-					className={css({
+					className={hstack({
+						justify: 'space-between',
 						mb: '12',
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'space-between',
 					})}
 				>
 					<Link
 						to="/jobs"
-						className={css({
-							display: 'inline-flex',
-							alignItems: 'center',
+						className={`${hstack({ gap: '0', display: 'inline-flex' })} ${css({
 							color: 'gray.400',
 							fontWeight: 'black',
 							textTransform: 'uppercase',
@@ -177,7 +174,7 @@ export const JobDetail: React.FC = () => {
 							fontSize: 'xs',
 							transition: 'colors',
 							_hover: { color: 'ocobo.dark' },
-						})}
+						})}`}
 					>
 						<ArrowLeft size={14} className={css({ mr: '2' })} /> Retour aux
 						offres
@@ -210,33 +207,27 @@ export const JobDetail: React.FC = () => {
 						{job.title}
 					</h1>
 					<div
-						className={css({
-							display: 'flex',
-							flexWrap: 'wrap',
-							alignItems: 'center',
-							justifyContent: 'center',
-							gap: '6',
-							fontSize: 'xs',
-							fontWeight: 'black',
-							color: 'gray.400',
-							textTransform: 'uppercase',
-							letterSpacing: 'widest',
-						})}
+						className={`${flex({ gap: '6', justify: 'center', wrap: 'wrap' })} ${css(
+							{
+								fontSize: 'xs',
+								fontWeight: 'black',
+								color: 'gray.400',
+								textTransform: 'uppercase',
+								letterSpacing: 'widest',
+							},
+						)}`}
 					>
 						{job.meta.map((m) => (
 							<div
 								key={m.label}
-								className={css({
-									display: 'flex',
-									alignItems: 'center',
-									gap: '2.5',
+								className={`${hstack({ gap: '2.5' })} ${css({
 									px: '4',
 									py: '2',
 									bg: 'gray.50/50',
 									borderWidth: '1px',
 									borderColor: 'gray.100',
 									rounded: 'full',
-								})}
+								})}`}
 							>
 								{m.icon}
 								<span className={css({ color: 'ocobo.dark' })}>{m.value}</span>
@@ -247,12 +238,11 @@ export const JobDetail: React.FC = () => {
 
 				{/* MAIN LAYOUT (Style Blog) */}
 				<div
-					className={css({
-						display: 'flex',
-						flexDir: { base: 'column', lg: 'row' },
-						gap: '16',
-						position: 'relative',
-					})}
+					className={`${flex({ direction: { base: 'column', lg: 'row' }, gap: '16' })} ${css(
+						{
+							position: 'relative',
+						},
+					)}`}
 				>
 					{/* SIDEBAR : SOMMAIRE (Style Blog) */}
 					<aside className={css({ lg: { w: '1/4' } })}>
@@ -270,21 +260,12 @@ export const JobDetail: React.FC = () => {
 							>
 								Navigation
 							</h4>
-							<nav
-								className={css({
-									display: 'flex',
-									flexDir: 'column',
-									gap: '4',
-								})}
-							>
+							<nav className={vstack({ gap: '4', alignItems: 'stretch' })}>
 								{job.sections.map((section) => (
 									<a
 										key={section.id}
 										href={`#${section.id}`}
-										className={css({
-											display: 'flex',
-											alignItems: 'center',
-											justifyContent: 'space-between',
+										className={`${hstack({ justify: 'space-between' })} ${css({
 											py: '2',
 											fontSize: 'xs',
 											fontWeight: 'black',
@@ -306,7 +287,7 @@ export const JobDetail: React.FC = () => {
 													? 'translateX(8px)'
 													: 'none',
 											_hover: { color: 'ocobo.dark' },
-										})}
+										})}`}
 									>
 										{section.title}
 										{activeSection === section.id && (
@@ -319,10 +300,7 @@ export const JobDetail: React.FC = () => {
 								))}
 								<a
 									href="#apply"
-									className={css({
-										display: 'flex',
-										alignItems: 'center',
-										justifyContent: 'space-between',
+									className={`${hstack({ justify: 'space-between' })} ${css({
 										py: '2',
 										fontSize: 'xs',
 										fontWeight: 'black',
@@ -338,7 +316,7 @@ export const JobDetail: React.FC = () => {
 										transform:
 											activeSection === 'apply' ? 'translateX(8px)' : 'none',
 										_hover: { color: 'ocobo.dark' },
-									})}
+									})}`}
 								>
 									Postuler
 									{activeSection === 'apply' && (
@@ -386,10 +364,9 @@ export const JobDetail: React.FC = () => {
 									Pourquoi nous rejoindre ?
 								</h5>
 								<ul
-									className={css({
-										display: 'flex',
-										flexDir: 'column',
+									className={vstack({
 										gap: '4',
+										alignItems: 'stretch',
 										mb: '8',
 									})}
 								>
@@ -401,16 +378,13 @@ export const JobDetail: React.FC = () => {
 									].map((benefit) => (
 										<li
 											key={benefit}
-											className={css({
-												display: 'flex',
-												alignItems: 'start',
-												gap: '3',
+											className={`${flex({ gap: '3', align: 'start' })} ${css({
 												fontSize: 'xs',
 												fontWeight: 'bold',
 												textTransform: 'uppercase',
 												letterSpacing: 'widest',
 												color: 'gray.400',
-											})}
+											})}`}
 										>
 											<Plus
 												size={12}
@@ -468,13 +442,7 @@ export const JobDetail: React.FC = () => {
 						</div>
 
 						{/* Content blocks (Style Blog) */}
-						<div
-							className={css({
-								display: 'flex',
-								flexDir: 'column',
-								gap: '24',
-							})}
-						>
+						<div className={vstack({ gap: '24', alignItems: 'stretch' })}>
 							{job.sections.map((section) => (
 								<section
 									key={section.id}
@@ -504,37 +472,35 @@ export const JobDetail: React.FC = () => {
 										<p className={css({ mb: '10' })}>{section.content}</p>
 										{section.list && (
 											<ul
-												className={css({
-													display: 'flex',
-													flexDir: 'column',
+												className={vstack({
 													gap: '4',
+													alignItems: 'stretch',
 													mt: '8',
 												})}
 											>
 												{section.list.map((item) => (
 													<li
 														key={item}
-														className={css({
-															display: 'flex',
-															alignItems: 'start',
-															gap: '5',
-															p: '6',
-															bg: 'gray.50/50',
-															rounded: 'xl',
-															borderWidth: '1px',
-															borderColor: 'transparent',
-															transition: 'all',
-															'& .check-icon': {
-																transition: 'colors',
+														className={`${flex({ gap: '5', align: 'start' })} ${css(
+															{
+																p: '6',
+																bg: 'gray.50/50',
+																rounded: 'xl',
+																borderWidth: '1px',
+																borderColor: 'transparent',
+																transition: 'all',
+																'& .check-icon': {
+																	transition: 'colors',
+																},
+																_hover: {
+																	borderColor: 'ocobo.yellow/20',
+																	bg: 'white',
+																},
+																'&:hover .check-icon': {
+																	color: 'ocobo.yellow',
+																},
 															},
-															_hover: {
-																borderColor: 'ocobo.yellow/20',
-																bg: 'white',
-															},
-															'&:hover .check-icon': {
-																color: 'ocobo.yellow',
-															},
-														})}
+														)}`}
 													>
 														<div
 															className={`check-icon ${css({
@@ -564,19 +530,17 @@ export const JobDetail: React.FC = () => {
 
 						{/* BIOGRAPHIE CONTACT (Style Blog Author Bio) */}
 						<div
-							className={css({
-								mt: '24',
-								pt: '12',
-								borderTopWidth: '1px',
-								borderColor: 'gray.100',
-								display: 'flex',
-								flexDir: { base: 'column', md: 'row' },
-								alignItems: 'center',
-								gap: '8',
-								bg: 'gray.50/50',
-								p: '10',
-								rounded: '3xl',
-							})}
+							className={`${flex({ direction: { base: 'column', md: 'row' }, align: 'center', gap: '8' })} ${css(
+								{
+									mt: '24',
+									pt: '12',
+									borderTopWidth: '1px',
+									borderColor: 'gray.100',
+									bg: 'gray.50/50',
+									p: '10',
+									rounded: '3xl',
+								},
+							)}`}
 						>
 							<div
 								className={css({
@@ -640,11 +604,10 @@ export const JobDetail: React.FC = () => {
 									{job.contact.bio}
 								</p>
 								<div
-									className={css({
-										mt: '6',
-										display: 'flex',
-										justifyContent: { base: 'center', md: 'flex-start' },
+									className={hstack({
 										gap: '4',
+										justify: { base: 'center', md: 'flex-start' },
+										mt: '6',
 									})}
 								>
 									<a
@@ -725,30 +688,14 @@ export const JobDetail: React.FC = () => {
 								</p>
 
 								<form
-									className={css({
-										display: 'flex',
-										flexDir: 'column',
-										gap: '8',
+									className={`${flex({ direction: 'column', gap: '8' })} ${css({
 										maxW: '2xl',
-									})}
+									})}`}
 								>
 									<div
-										className={css({
-											display: 'grid',
-											gridTemplateColumns: {
-												base: '1fr',
-												md: 'repeat(2, 1fr)',
-											},
-											gap: '6',
-										})}
+										className={grid({ columns: { base: 1, md: 2 }, gap: '6' })}
 									>
-										<div
-											className={css({
-												display: 'flex',
-												flexDir: 'column',
-												gap: '2',
-											})}
-										>
+										<div className={flex({ direction: 'column', gap: '2' })}>
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 											<label
 												className={css({
@@ -779,13 +726,7 @@ export const JobDetail: React.FC = () => {
 												placeholder="John Doe"
 											/>
 										</div>
-										<div
-											className={css({
-												display: 'flex',
-												flexDir: 'column',
-												gap: '2',
-											})}
-										>
+										<div className={flex({ direction: 'column', gap: '2' })}>
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 											<label
 												className={css({
@@ -817,12 +758,11 @@ export const JobDetail: React.FC = () => {
 											/>
 										</div>
 										<div
-											className={css({
-												display: 'flex',
-												flexDir: 'column',
-												gap: '2',
-												md: { gridColumn: 'span 2' },
-											})}
+											className={`${flex({ direction: 'column', gap: '2' })} ${css(
+												{
+													md: { gridColumn: 'span 2' },
+												},
+											)}`}
 										>
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 											<label
@@ -856,13 +796,7 @@ export const JobDetail: React.FC = () => {
 										</div>
 									</div>
 
-									<div
-										className={css({
-											display: 'flex',
-											flexDir: 'column',
-											gap: '2',
-										})}
-									>
+									<div className={flex({ direction: 'column', gap: '2' })}>
 										{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 										<label
 											className={css({
@@ -928,7 +862,7 @@ export const JobDetail: React.FC = () => {
 
 									<button
 										type="button"
-										className={css({
+										className={`${center({ gap: '3' })} ${css({
 											w: 'full',
 											py: '5',
 											bg: 'ocobo.dark',
@@ -940,10 +874,6 @@ export const JobDetail: React.FC = () => {
 											rounded: 'xl',
 											transition: 'all',
 											shadow: 'xl',
-											display: 'flex',
-											alignItems: 'center',
-											justifyContent: 'center',
-											gap: '3',
 											'& .send-icon': {
 												transition: 'transform',
 											},
@@ -953,7 +883,7 @@ export const JobDetail: React.FC = () => {
 											'&:hover .send-icon': {
 												transform: 'translateX(4px) translateY(-4px)',
 											},
-										})}
+										})}`}
 									>
 										<Send size={14} className={`send-icon`} />
 										Envoyer ma candidature
@@ -982,13 +912,7 @@ export const JobDetail: React.FC = () => {
 							>
 								Autres opportunités
 							</h3>
-							<div
-								className={css({
-									display: 'grid',
-									gridTemplateColumns: { base: '1fr', md: 'repeat(2, 1fr)' },
-									gap: '8',
-								})}
-							>
+							<div className={grid({ columns: { base: 1, md: 2 }, gap: '8' })}>
 								{[
 									{
 										title: 'Consultant RevOps Senior',
@@ -1019,12 +943,9 @@ export const JobDetail: React.FC = () => {
 										})}
 									>
 										<div
-											className={css({
-												display: 'flex',
-												alignItems: 'center',
-												gap: '3',
+											className={`${hstack({ gap: '3' })} ${css({
 												mb: '4',
-											})}
+											})}`}
 										>
 											<span
 												className={css({
@@ -1068,22 +989,16 @@ export const JobDetail: React.FC = () => {
 											{other.title}
 										</h4>
 										<div
-											className={css({
-												display: 'flex',
-												alignItems: 'center',
+											className={`${hstack({ gap: '2' })} ${css({
 												fontSize: 'xs',
 												fontWeight: 'black',
 												textTransform: 'uppercase',
 												letterSpacing: 'widest',
 												color: 'gray.400',
-												gap: '2',
-											})}
+											})}`}
 										>
 											<div
-												className={`view-link ${css({
-													display: 'flex',
-													alignItems: 'center',
-													gap: '1',
+												className={`view-link ${hstack({ gap: '1' })} ${css({
 													transition: 'colors',
 												})}`}
 											>

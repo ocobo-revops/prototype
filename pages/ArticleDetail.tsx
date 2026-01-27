@@ -14,6 +14,7 @@ import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
 import { css } from 'styled-system/css';
+import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
 import { Badge } from '../components/atoms';
 
 export const ArticleDetail: React.FC = () => {
@@ -100,18 +101,14 @@ export const ArticleDetail: React.FC = () => {
 			>
 				{/* BREADCRUMBS & TOP NAV */}
 				<div
-					className={css({
+					className={hstack({
+						justify: 'space-between',
 						mb: '12',
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'space-between',
 					})}
 				>
 					<Link
 						to="/resources"
-						className={css({
-							display: 'inline-flex',
-							alignItems: 'center',
+						className={`${hstack({ display: 'inline-flex', gap: '0' })} ${css({
 							color: 'gray.400',
 							fontWeight: 'black',
 							textTransform: 'uppercase',
@@ -119,14 +116,12 @@ export const ArticleDetail: React.FC = () => {
 							fontSize: 'xs',
 							transition: 'colors',
 							_hover: { color: 'ocobo.dark' },
-						})}
+						})}`}
 					>
 						<ArrowLeft size={14} className={css({ mr: '2' })} /> Retour au blog
 					</Link>
 					<div
-						className={css({
-							display: 'flex',
-							alignItems: 'center',
+						className={hstack({
 							gap: '4',
 							color: 'gray.300',
 						})}
@@ -180,36 +175,21 @@ export const ArticleDetail: React.FC = () => {
 						{article.title}
 					</h1>
 					<div
-						className={css({
-							display: 'flex',
-							flexWrap: 'wrap',
-							alignItems: 'center',
-							justifyContent: 'center',
-							gap: '8',
-							fontSize: 'sm',
-							fontWeight: 'bold',
-							color: 'gray.400',
-							textTransform: 'uppercase',
-							letterSpacing: 'widest',
-						})}
+						className={`${flex({ gap: '8', justify: 'center', wrap: 'wrap' })} ${css(
+							{
+								fontSize: 'sm',
+								fontWeight: 'bold',
+								color: 'gray.400',
+								textTransform: 'uppercase',
+								letterSpacing: 'widest',
+							},
+						)}`}
 					>
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '2',
-							})}
-						>
+						<div className={hstack({ gap: '2' })}>
 							<Calendar size={14} className={css({ color: 'ocobo.yellow' })} />
 							<span>{article.date}</span>
 						</div>
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '2',
-							})}
-						>
+						<div className={hstack({ gap: '2' })}>
 							<Clock size={14} className={css({ color: 'ocobo.sky' })} />
 							<span>{article.readTime} de lecture</span>
 						</div>
@@ -218,9 +198,8 @@ export const ArticleDetail: React.FC = () => {
 
 				{/* MAIN LAYOUT */}
 				<div
-					className={css({
-						display: 'flex',
-						flexDir: { base: 'column', lg: 'row' },
+					className={flex({
+						direction: { base: 'column', lg: 'row' },
 						gap: '16',
 					})}
 				>
@@ -241,10 +220,10 @@ export const ArticleDetail: React.FC = () => {
 								Sommaire
 							</h4>
 							<nav
-								className={css({
-									display: 'flex',
-									flexDir: 'column',
+								className={flex({
+									direction: 'column',
 									gap: '4',
+									align: 'stretch',
 								})}
 							>
 								{article.sections.map((section) => (
@@ -377,10 +356,10 @@ export const ArticleDetail: React.FC = () => {
 
 						{/* Content blocks */}
 						<div
-							className={css({
-								display: 'flex',
-								flexDir: 'column',
+							className={flex({
+								direction: 'column',
 								gap: '16',
+								align: 'stretch',
 							})}
 						>
 							{article.sections.map((section) => (
@@ -412,28 +391,27 @@ export const ArticleDetail: React.FC = () => {
 										<p className={css({ mb: '6' })}>{section.content}</p>
 										{section.list && (
 											<ul
-												className={css({
-													display: 'flex',
-													flexDir: 'column',
+												className={flex({
+													direction: 'column',
 													gap: '4',
+													align: 'stretch',
 													mt: '8',
 												})}
 											>
 												{section.list.map((item) => (
 													<li
 														key={item}
-														className={css({
-															display: 'flex',
-															alignItems: 'start',
-															gap: '4',
-															p: '5',
-															bg: 'gray.50',
-															rounded: 'xl',
-															borderWidth: '1px',
-															borderColor: 'transparent',
-															transition: 'all',
-															_hover: { borderColor: 'ocobo.yellow/20' },
-														})}
+														className={`${flex({ gap: '4', align: 'start' })} ${css(
+															{
+																p: '5',
+																bg: 'gray.50',
+																rounded: 'xl',
+																borderWidth: '1px',
+																borderColor: 'transparent',
+																transition: 'all',
+																_hover: { borderColor: 'ocobo.yellow/20' },
+															},
+														)}`}
 													>
 														<div
 															className={css({
@@ -462,19 +440,19 @@ export const ArticleDetail: React.FC = () => {
 
 						{/* AUTHOR BIO */}
 						<div
-							className={css({
+							className={`${flex({
+								direction: { base: 'column', md: 'row' },
+								align: 'center',
+								gap: '8',
+							})} ${css({
 								mt: '24',
 								pt: '12',
 								borderTopWidth: '1px',
 								borderColor: 'gray.100',
-								display: 'flex',
-								flexDir: { base: 'column', md: 'row' },
-								alignItems: 'center',
-								gap: '8',
 								bg: 'gray.50/50',
 								p: '10',
 								rounded: '3xl',
-							})}
+							})}`}
 						>
 							<div
 								className={css({
@@ -540,12 +518,12 @@ export const ArticleDetail: React.FC = () => {
 									leur vision en système pilotable.
 								</p>
 								<div
-									className={css({
-										mt: '6',
-										display: 'flex',
-										justifyContent: { base: 'center', md: 'flex-start' },
+									className={`${flex({
+										justify: { base: 'center', md: 'flex-start' },
 										gap: '4',
-									})}
+									})} ${css({
+										mt: '6',
+									})}`}
 								>
 									<a
 										href="#"
@@ -624,9 +602,8 @@ export const ArticleDetail: React.FC = () => {
 									méthodologies une fois par mois.
 								</p>
 								<form
-									className={css({
-										display: 'flex',
-										flexDir: { base: 'column', sm: 'row' },
+									className={flex({
+										direction: { base: 'column', sm: 'row' },
 										gap: '4',
 									})}
 								>
@@ -692,15 +669,7 @@ export const ArticleDetail: React.FC = () => {
 						À lire ensuite
 					</h3>
 					<div
-						className={css({
-							display: 'grid',
-							gridTemplateColumns: {
-								base: '1fr',
-								md: 'repeat(2, 1fr)',
-								lg: 'repeat(3, 1fr)',
-							},
-							gap: '8',
-						})}
+						className={grid({ columns: { base: 1, md: 2, lg: 3 }, gap: '8' })}
 					>
 						{[1, 2, 3].map((i) => (
 							<div
@@ -772,16 +741,13 @@ export const ArticleDetail: React.FC = () => {
 									Comment réduire votre CAC via l'automatisation RevOps
 								</h4>
 								<div
-									className={css({
-										display: 'flex',
-										alignItems: 'center',
+									className={`${hstack({ gap: '2' })} ${css({
 										fontSize: 'xs',
 										fontWeight: 'black',
 										textTransform: 'uppercase',
 										letterSpacing: 'widest',
 										color: 'gray.400',
-										gap: '2',
-									})}
+									})}`}
 								>
 									<span>8 MIN</span>
 									<span
@@ -793,10 +759,7 @@ export const ArticleDetail: React.FC = () => {
 										})}
 									/>
 									<div
-										className={`read-more ${css({
-											display: 'flex',
-											alignItems: 'center',
-											gap: '1',
+										className={`read-more ${hstack({ gap: '1' })} ${css({
 											transition: 'colors',
 										})}`}
 									>

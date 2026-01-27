@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
-import { grid } from 'styled-system/patterns';
+import { center, flex, grid, hstack } from 'styled-system/patterns';
 
 const BLOCKS = [
 	{
@@ -128,14 +128,11 @@ export const ImplicationsSection: React.FC = () => {
 							})}
 						>
 							<div
-								className={`${css({
+								className={`${center()} ${css({
 									w: '12',
 									h: '12',
 									mb: '6',
 									rounded: 'lg',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 								})} ${iconBgStyles[block.color]}`}
 							>
 								{block.icon}
@@ -158,14 +155,7 @@ export const ImplicationsSection: React.FC = () => {
 								})}
 							>
 								{block.items.map((item) => (
-									<li
-										key={item}
-										className={css({
-											display: 'flex',
-											alignItems: 'center',
-											gap: '3',
-										})}
-									>
+									<li key={item} className={hstack({ gap: '3' })}>
 										<div
 											className={`${css({
 												w: '1.5',

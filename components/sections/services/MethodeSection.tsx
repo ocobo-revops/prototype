@@ -1,7 +1,7 @@
 import { BarChart3, Cog, GraduationCap, Layout } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
-import { grid } from 'styled-system/patterns';
+import { center, grid } from 'styled-system/patterns';
 import { SectionHeader } from '../../organisms';
 
 const STEPS = [
@@ -55,20 +55,17 @@ export const MethodeSection: React.FC = () => {
 							})}
 						>
 							<div
-								className={css({
+								className={`${center()} ${css({
 									w: '10',
 									h: '10',
 									bg: 'ocobo.dark',
 									color: 'white',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									fontSize: 'sm',
 									fontWeight: 'bold',
 									mb: '6',
 									_groupHover: { bg: 'ocobo.yellow', color: 'ocobo.dark' },
 									transition: 'colors',
-								})}
+								})}`}
 							>
 								{i + 1}
 							</div>

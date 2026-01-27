@@ -1,5 +1,6 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { flex } from 'styled-system/patterns';
 
 type GapSize = 2 | 3 | 4 | 5 | 6 | 8;
 type AlignItems = 'start' | 'center' | 'end';
@@ -30,10 +31,9 @@ const FlexPairRoot: React.FC<FlexPairProps> = ({
 }) => {
 	return (
 		<div
-			className={`${css({
-				display: 'flex',
+			className={`${flex({
 				gap: String(gap),
-				alignItems: alignMap[align],
+				align: alignMap[align],
 			})} ${className}`}
 		>
 			{children}

@@ -1,6 +1,6 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
-import { grid } from 'styled-system/patterns';
+import { center, flex, grid } from 'styled-system/patterns';
 import { Button } from '../../atoms';
 import { Container, Section } from '../../organisms';
 
@@ -66,16 +66,13 @@ export const InterventionsSection: React.FC = () => {
 							})}
 						>
 							<div
-								className={css({
+								className={`${center()} ${css({
 									w: '12',
 									h: '12',
 									bg: 'ocobo.dark',
 									color: 'white',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									mb: '6',
-								})}
+								})}`}
 							>
 								{intervention.number}
 							</div>
@@ -96,13 +93,7 @@ export const InterventionsSection: React.FC = () => {
 					))}
 				</div>
 
-				<div
-					className={css({
-						display: 'flex',
-						justifyContent: 'center',
-						mt: '12',
-					})}
-				>
+				<div className={`${flex({ justify: 'center' })} ${css({ mt: '12' })}`}>
 					<Button variant="outline" to="/offer">
 						Voir nos offres
 					</Button>

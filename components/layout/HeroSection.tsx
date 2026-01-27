@@ -1,6 +1,7 @@
 import { ChevronDown } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { center, flex } from 'styled-system/patterns';
 import type { ThemeColor } from '../../types';
 import { Badge, Button } from '../atoms';
 
@@ -56,16 +57,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 			})} ${className}`}
 		>
 			<div
-				className={css(
-					isCentered
-						? { maxW: '4xl', mx: 'auto' }
-						: {
-								display: 'flex',
-								flexDir: { base: 'column', lg: 'row' },
-								alignItems: 'center',
-								gap: { base: '16', lg: '24' },
-							},
-				)}
+				className={`${isCentered ? css({ maxW: '4xl', mx: 'auto' }) : flex({ direction: { base: 'column', lg: 'row' }, align: 'center', gap: { base: '16', lg: '24' } })}`}
 			>
 				{/* Text content */}
 				<div className={css(isCentered ? {} : { w: { lg: '1/2' } })}>
@@ -122,12 +114,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 				{/* Illustration (for split layout, positioned in flex) */}
 				{!isCentered && illustration && (
 					<div
-						className={css({
-							w: { lg: '1/2' },
-							display: 'flex',
-							justifyContent: { base: 'center', lg: 'flex-end' },
-							alignItems: 'center',
-						})}
+						className={`${flex({ justify: { base: 'center', lg: 'flex-end' }, align: 'center' })} ${css({ w: { lg: '1/2' } })}`}
 					>
 						{illustration}
 					</div>
@@ -136,27 +123,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
 			{/* Illustration (for centered layout, below content) */}
 			{isCentered && illustration && (
-				<div
-					className={css({
-						display: 'flex',
-						justifyContent: 'center',
-						mt: '10',
-					})}
-				>
-					{illustration}
-				</div>
+				<div className={`${center()} ${css({ mt: '10' })}`}>{illustration}</div>
 			)}
 
 			{/* Scroll indicator */}
 			{showScrollIndicator && (
 				<div
-					className={css({
-						mt: '16',
-						display: 'flex',
-						justifyContent: 'center',
-						w: 'full',
-						animation: 'bounce-slow',
-					})}
+					className={`${center()} ${css({ mt: '16', w: 'full', animation: 'bounce-slow' })}`}
 				>
 					<ChevronDown
 						className={css({ color: scrollIndicatorColor })}

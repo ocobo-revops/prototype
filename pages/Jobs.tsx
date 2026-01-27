@@ -17,7 +17,7 @@ import {
 import type React from 'react';
 import { Link } from 'react-router';
 import { css, cx } from 'styled-system/css';
-import { grid } from 'styled-system/patterns';
+import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
 import { Badge } from '../components/atoms';
 
 interface VideoStoryCardProps {
@@ -41,10 +41,7 @@ const VideoStoryCard: React.FC<VideoStoryCardProps> = ({
 }) => {
 	return (
 		<div
-			className={css({
-				display: 'flex',
-				flexDir: 'column',
-				gap: '4',
+			className={`${vstack({ gap: '4', alignItems: 'stretch' })} ${css({
 				'& .play-btn': {
 					transition: 'all',
 					transitionDuration: '500ms',
@@ -62,17 +59,10 @@ const VideoStoryCard: React.FC<VideoStoryCardProps> = ({
 					filter: 'grayscale(0)',
 					opacity: 1,
 				},
-			})}
+			})}`}
 		>
 			{/* Title Header */}
-			<div
-				className={css({
-					display: 'flex',
-					alignItems: 'center',
-					gap: '2',
-					px: '1',
-				})}
-			>
+			<div className={`${hstack({ gap: '2' })} ${css({ px: '1' })}`}>
 				<span className={css({ color: 'white', fontSize: 'base' })}>🎬</span>
 				<h4
 					className={css({
@@ -89,17 +79,14 @@ const VideoStoryCard: React.FC<VideoStoryCardProps> = ({
 
 			{/* Pitch Box */}
 			<div
-				className={css({
+				className={`${flex({ gap: '4', align: 'start' })} ${css({
 					bg: '#2D2F2F',
 					p: '5',
 					rounded: '2xl',
 					borderWidth: '1px',
 					borderColor: 'white/5',
 					minH: '90px',
-					display: 'flex',
-					alignItems: 'start',
-					gap: '4',
-				})}
+				})}`}
 			>
 				<span className={css({ fontSize: 'xl', flexShrink: 0 })}>{icon}</span>
 				<p
@@ -144,24 +131,18 @@ const VideoStoryCard: React.FC<VideoStoryCardProps> = ({
 				/>
 				{/* Play Button Overlay */}
 				<div
-					className={css({
+					className={`${center()} ${css({
 						position: 'absolute',
 						inset: '0',
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'center',
-					})}
+					})}`}
 				>
 					<div
-						className={`play-btn ${css({
+						className={`play-btn ${center()} ${css({
 							w: '16',
 							h: '16',
 							bg: 'white/10',
 							backdropFilter: 'blur(12px)',
 							rounded: 'full',
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'center',
 							color: 'white',
 							borderWidth: '1px',
 							borderColor: 'white/20',
@@ -174,7 +155,7 @@ const VideoStoryCard: React.FC<VideoStoryCardProps> = ({
 
 				{/* Logo Overlay top left (as seen in screenshot) */}
 				<div
-					className={css({
+					className={`${center()} ${css({
 						position: 'absolute',
 						top: '6',
 						left: '6',
@@ -183,11 +164,8 @@ const VideoStoryCard: React.FC<VideoStoryCardProps> = ({
 						borderWidth: '2px',
 						borderColor: 'white',
 						rounded: 'full',
-						display: 'flex',
-						alignItems: 'center',
-						justifyContent: 'center',
 						opacity: 0.8,
-					})}
+					})}`}
 				>
 					<div
 						className={css({
@@ -401,10 +379,9 @@ export const Jobs: React.FC = () => {
 				})}
 			>
 				<div
-					className={css({
-						display: 'flex',
-						flexDir: { base: 'column', lg: 'row' },
-						alignItems: 'start',
+					className={flex({
+						direction: { base: 'column', lg: 'row' },
+						align: 'start',
 						gap: '20',
 					})}
 				>
@@ -440,17 +417,14 @@ export const Jobs: React.FC = () => {
 							plus belles scale-ups (TheFork, PayFit, Qonto).
 						</p>
 						<div
-							className={css({
+							className={`${vstack({ gap: '4', alignItems: 'stretch' })} ${css({
 								color: 'gray.600',
-								display: 'flex',
-								flexDir: 'column',
-								gap: '4',
 								lineHeight: 'relaxed',
 								borderLeftWidth: '4px',
 								borderColor: 'ocobo.yellow',
 								pl: '8',
 								py: '2',
-							})}
+							})}`}
 						>
 							<p className={css({ fontWeight: 'medium' })}>
 								Ici, pas de "juniors vendus comme des seniors". Nous cherchons
@@ -471,33 +445,21 @@ export const Jobs: React.FC = () => {
 							mt: { base: '12', lg: '0' },
 						})}
 					>
-						<div
-							className={css({
-								display: 'grid',
-								gridTemplateColumns: 'repeat(2, 1fr)',
-								gap: '6',
-							})}
-						>
+						<div className={grid({ columns: 2, gap: '6' })}>
 							<div
-								className={css({
-									display: 'flex',
-									flexDir: 'column',
-									gap: '6',
-									mt: '12',
-								})}
+								className={`${vstack({ gap: '6', alignItems: 'stretch' })} ${css({ mt: '12' })}`}
 							>
 								<div
-									className={css({
-										bg: 'ocobo.dark',
-										color: 'white',
-										p: '8',
-										aspectRatio: '1',
-										display: 'flex',
-										flexDir: 'column',
-										justifyContent: 'space-between',
-										rounded: '3xl',
-										shadow: 'xl',
-									})}
+									className={`${vstack({ justify: 'space-between', alignItems: 'stretch' })} ${css(
+										{
+											bg: 'ocobo.dark',
+											color: 'white',
+											p: '8',
+											aspectRatio: '1',
+											rounded: '3xl',
+											shadow: 'xl',
+										},
+									)}`}
 								>
 									<Lightbulb
 										size={32}
@@ -525,13 +487,7 @@ export const Jobs: React.FC = () => {
 									})}
 								/>
 							</div>
-							<div
-								className={css({
-									display: 'flex',
-									flexDir: 'column',
-									gap: '6',
-								})}
-							>
+							<div className={vstack({ gap: '6', alignItems: 'stretch' })}>
 								<img
 									src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=400&q=80"
 									alt="Team meeting"
@@ -544,16 +500,15 @@ export const Jobs: React.FC = () => {
 									})}
 								/>
 								<div
-									className={css({
-										bg: 'ocobo.yellow',
-										p: '8',
-										aspectRatio: '1',
-										display: 'flex',
-										flexDir: 'column',
-										justifyContent: 'space-between',
-										rounded: '3xl',
-										shadow: 'xl',
-									})}
+									className={`${vstack({ justify: 'space-between', alignItems: 'stretch' })} ${css(
+										{
+											bg: 'ocobo.yellow',
+											p: '8',
+											aspectRatio: '1',
+											rounded: '3xl',
+											shadow: 'xl',
+										},
+									)}`}
 								>
 									<span
 										className={css({
@@ -721,15 +676,12 @@ export const Jobs: React.FC = () => {
 					{values.map((val) => (
 						<div
 							key={val.title}
-							className={css({
+							className={`${vstack({ gap: '6', alignItems: 'stretch' })} ${css({
 								p: '10',
 								rounded: '3xl',
 								borderWidth: '1px',
 								borderColor: val.border,
 								bg: val.bg,
-								display: 'flex',
-								flexDir: 'column',
-								gap: '6',
 								transition: 'all',
 								transitionDuration: '500ms',
 								_hover: { shadow: 'xl' },
@@ -740,17 +692,14 @@ export const Jobs: React.FC = () => {
 								'&:hover .icon-box': {
 									transform: 'scale(1.1)',
 								},
-							})}
+							})}`}
 						>
 							<div
-								className={`icon-box ${css({
+								className={`icon-box ${center()} ${css({
 									w: '14',
 									h: '14',
 									bg: 'white',
 									rounded: '2xl',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									shadow: 'sm',
 									borderWidth: '1px',
 									borderColor: 'black/5',
@@ -794,12 +743,7 @@ export const Jobs: React.FC = () => {
 				})}
 			>
 				<div
-					className={css({
-						display: 'flex',
-						justifyContent: 'space-between',
-						alignItems: 'end',
-						mb: '16',
-					})}
+					className={`${flex({ justify: 'space-between', align: 'end' })} ${css({ mb: '16' })}`}
 				>
 					<div>
 						<h2
@@ -838,7 +782,7 @@ export const Jobs: React.FC = () => {
 						</span>
 					</div>
 				</div>
-				<div className={css({ display: 'flex', flexDir: 'column', gap: '6' })}>
+				<div className={vstack({ gap: '6', alignItems: 'stretch' })}>
 					{jobs.map((job) => (
 						<Link
 							key={job.id}
@@ -863,11 +807,11 @@ export const Jobs: React.FC = () => {
 							})}
 						>
 							<div
-								className={css({
-									display: 'flex',
-									flexDir: { base: 'column', md: 'row' },
-									justifyContent: 'space-between',
-									alignItems: 'center',
+								className={`${flex({
+									direction: { base: 'column', md: 'row' },
+									justify: 'space-between',
+									align: 'center',
+								})} ${css({
 									p: { base: '8', md: '12' },
 									rounded: '3xl',
 									borderWidth: '1px',
@@ -878,7 +822,7 @@ export const Jobs: React.FC = () => {
 									position: 'relative',
 									overflow: 'hidden',
 									_hover: { bg: 'white', shadow: 'soft-lg' },
-								})}
+								})}`}
 							>
 								{/* Hover Highlight Bar */}
 								<div
@@ -896,13 +840,13 @@ export const Jobs: React.FC = () => {
 								/>
 
 								<div
-									className={css({
-										display: 'flex',
-										flexDir: { base: 'column', md: 'row' },
-										md: { alignItems: 'center' },
+									className={`${flex({
+										direction: { base: 'column', md: 'row' },
 										gap: { base: '8', md: '16' },
+									})} ${css({
+										md: { alignItems: 'center' },
 										w: 'full',
-									})}
+									})}`}
 								>
 									<div className={css({ md: { w: '5/12' } })}>
 										<h3
@@ -919,25 +863,16 @@ export const Jobs: React.FC = () => {
 									</div>
 
 									<div
-										className={css({
-											display: 'flex',
-											flexWrap: 'wrap',
-											gap: '6',
+										className={`${flex({ wrap: 'wrap', gap: '6' })} ${css({
 											fontSize: 'sm',
 											fontWeight: 'bold',
 											color: 'gray.500',
 											textTransform: 'uppercase',
 											letterSpacing: 'widest',
 											md: { w: '4/12' },
-										})}
+										})}`}
 									>
-										<span
-											className={css({
-												display: 'flex',
-												alignItems: 'center',
-												gap: '2',
-											})}
-										>
+										<span className={hstack({ gap: '2' })}>
 											<MapPin
 												size={16}
 												className={css({ color: 'ocobo.coral' })}
@@ -945,28 +880,23 @@ export const Jobs: React.FC = () => {
 											{job.location}
 										</span>
 										<span
-											className={css({
-												display: 'flex',
-												alignItems: 'center',
-												gap: '2',
+											className={`${hstack({ gap: '2' })} ${css({
 												px: '3',
 												py: '1',
 												bg: 'gray.50',
 												rounded: 'lg',
-											})}
+											})}`}
 										>
 											{job.type}
 										</span>
 									</div>
 
 									<div
-										className={css({
-											md: { w: '3/12' },
-											display: 'flex',
-											justifyContent: 'end',
-											alignItems: 'center',
-											gap: '6',
-										})}
+										className={`${flex({ justify: 'end', align: 'center', gap: '6' })} ${css(
+											{
+												md: { w: '3/12' },
+											},
+										)}`}
 									>
 										<span
 											className={css({
@@ -980,14 +910,11 @@ export const Jobs: React.FC = () => {
 											Exp : {job.exp}
 										</span>
 										<div
-											className={`arrow-box ${css({
+											className={`arrow-box ${center()} ${css({
 												w: '14',
 												h: '14',
 												bg: 'gray.50',
 												rounded: '2xl',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												color: 'gray.300',
 												shadow: 'sm',
 											})}`}
@@ -1103,13 +1030,10 @@ export const Jobs: React.FC = () => {
 						/>
 
 						<div
-							className={css({
-								display: 'flex',
-								flexDir: 'column',
-								gap: '24',
+							className={`${vstack({ gap: '24' })} ${css({
 								position: 'relative',
 								zIndex: 10,
-							})}
+							})}`}
 						>
 							{processSteps.map((step, idx) => {
 								const isEven = idx % 2 === 0;
@@ -1117,14 +1041,14 @@ export const Jobs: React.FC = () => {
 								return (
 									<div
 										key={step.title}
-										className={css({
+										className={`${flex({
+											direction: { base: 'column', md: 'row' },
+											align: 'center',
+										})} ${css({
 											position: 'relative',
-											display: 'flex',
-											flexDir: { base: 'column', md: 'row' },
-											alignItems: 'center',
 											w: 'full',
 											md: { flexDir: isEven ? 'row-reverse' : 'row' },
-										})}
+										})}`}
 									>
 										{/* Center Circle */}
 										<div
@@ -1157,11 +1081,10 @@ export const Jobs: React.FC = () => {
 										>
 											<div
 												className={cx(
-													css({
-														display: 'flex',
-														alignItems: 'start',
+													flex({
+														align: 'start',
 														gap: '8',
-														flexDir: 'row',
+														direction: 'row',
 													}),
 													isEven
 														? css({
@@ -1181,14 +1104,12 @@ export const Jobs: React.FC = () => {
 												{/* Icon Box */}
 												<div
 													className={cx(
+														center(),
 														css({
 															w: '16',
 															h: '16',
 															bg: 'white',
 															rounded: '2xl',
-															display: 'flex',
-															alignItems: 'center',
-															justifyContent: 'center',
 															color: 'ocobo.dark',
 															flexShrink: 0,
 															shadow: 'lg',
@@ -1285,14 +1206,12 @@ export const Jobs: React.FC = () => {
 					})}
 				>
 					<div
-						className={css({
-							display: 'flex',
-							flexDir: { base: 'column', md: 'row' },
-							justifyContent: 'space-between',
-							alignItems: { base: 'start', md: 'end' },
-							mb: '16',
+						className={`${flex({
+							direction: { base: 'column', md: 'row' },
+							justify: 'space-between',
+							align: { base: 'start', md: 'end' },
 							gap: '8',
-						})}
+						})} ${css({ mb: '16' })}`}
 					>
 						<div>
 							<h2
@@ -1320,10 +1239,8 @@ export const Jobs: React.FC = () => {
 						<a
 							href="https://maps.google.com"
 							target="_blank"
-							className={css({
+							className={`${hstack({ gap: '3' })} ${css({
 								display: 'inline-flex',
-								alignItems: 'center',
-								gap: '3',
 								fontSize: 'sm',
 								fontWeight: 'black',
 								textTransform: 'uppercase',
@@ -1334,7 +1251,7 @@ export const Jobs: React.FC = () => {
 								pb: '1',
 								transition: 'all',
 								_hover: { color: 'ocobo.coral', borderColor: 'ocobo.coral' },
-							})}
+							})}`}
 							rel="noopener"
 						>
 							Voir sur Maps <ArrowRight size={14} />
@@ -1342,15 +1259,11 @@ export const Jobs: React.FC = () => {
 					</div>
 
 					<div
-						className={css({
-							display: 'grid',
-							gridTemplateColumns: {
-								base: 'repeat(2, 1fr)',
-								md: 'repeat(4, 1fr)',
+						className={`${grid({ columns: { base: 2, md: 4 }, gap: '6' })} ${css(
+							{
+								h: '500px',
 							},
-							gap: '6',
-							h: '500px',
-						})}
+						)}`}
 					>
 						<div
 							className={css({
@@ -1441,17 +1354,15 @@ export const Jobs: React.FC = () => {
 							/>
 						</div>
 						<div
-							className={css({
-								gridColumn: 'span 2',
-								bg: 'ocobo.yellow',
-								p: '12',
-								display: 'flex',
-								flexDir: 'column',
-								justifyContent: 'center',
-								alignItems: 'start',
-								rounded: '3xl',
-								shadow: 'xl',
-							})}
+							className={`${flex({ direction: 'column', justify: 'center', align: 'start' })} ${css(
+								{
+									gridColumn: 'span 2',
+									bg: 'ocobo.yellow',
+									p: '12',
+									rounded: '3xl',
+									shadow: 'xl',
+								},
+							)}`}
 						>
 							<span
 								className={css({

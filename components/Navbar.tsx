@@ -16,6 +16,7 @@ import {
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router';
 import { css } from 'styled-system/css';
+import { center, flex, hstack } from 'styled-system/patterns';
 import { Button } from './atoms';
 
 type DropdownItem = {
@@ -178,13 +179,10 @@ function NavDropdownItem({ item, onClose }: NavDropdownItemProps) {
 	const content = (
 		<>
 			<div
-				className={`${css({
+				className={`${center()} ${css({
 					w: '10',
 					h: '10',
 					rounded: 'xl',
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
 					flexShrink: 0,
 					transition: 'all',
 					_groupHover: { transform: 'scale(1.05)' },
@@ -223,10 +221,7 @@ function NavDropdownItem({ item, onClose }: NavDropdownItemProps) {
 		</>
 	);
 
-	const itemClass = `${css({
-		display: 'flex',
-		alignItems: 'flex-start',
-		gap: '4',
+	const itemClass = `${flex({ gap: '4', align: 'flex-start' })} ${css({
 		p: '4',
 		rounded: '2xl',
 		transition: 'all',
@@ -284,7 +279,7 @@ function NavItemWithDropdown({
 
 	const getLinkStyles = (isDropdownActive: boolean, isCurrent: boolean) => {
 		if (useWhiteText) {
-			return css({
+			return `${flex({ gap: '1', align: 'center' })} ${css({
 				px: '4',
 				py: '2',
 				rounded: 'full',
@@ -292,15 +287,12 @@ function NavItemWithDropdown({
 				fontWeight: 'bold',
 				transition: 'all',
 				transitionDuration: '300ms',
-				display: 'flex',
-				alignItems: 'center',
-				gap: '1',
 				color: isDropdownActive || isCurrent ? 'white' : 'gray.300',
 				bg: isDropdownActive || isCurrent ? 'white/10' : 'transparent',
 				_hover: { color: 'white', bg: 'white/5' },
-			});
+			})}`;
 		}
-		return css({
+		return `${flex({ gap: '1', align: 'center' })} ${css({
 			px: '4',
 			py: '2',
 			rounded: 'full',
@@ -308,12 +300,9 @@ function NavItemWithDropdown({
 			fontWeight: isDropdownActive || isCurrent ? '900' : 'bold',
 			transition: 'all',
 			transitionDuration: '300ms',
-			display: 'flex',
-			alignItems: 'center',
-			gap: '1',
 			color: isDropdownActive || isCurrent ? 'ocobo.dark' : 'gray.500',
 			_hover: { color: 'ocobo.dark' },
-		});
+		})}`;
 	};
 
 	if (!item.dropdown) {
@@ -463,19 +452,16 @@ export function Navbar() {
 	return (
 		<>
 			<div
-				className={css({
+				className={`${flex({ justify: 'center', align: 'flex-start' })} ${css({
 					position: 'fixed',
 					top: '0',
 					left: '0',
 					right: '0',
 					zIndex: 100,
-					display: 'flex',
-					justifyContent: 'center',
 					pointerEvents: 'none',
 					p: { base: '4', md: '6' },
 					h: '32',
-					alignItems: 'flex-start',
-				})}
+				})}`}
 			>
 				<nav
 					className={css({
@@ -499,24 +485,20 @@ export function Navbar() {
 					})}
 				>
 					<div
-						className={css({
-							display: 'flex',
-							justifyContent: 'space-between',
-							alignItems: 'center',
-							position: 'relative',
-							h: '12',
-						})}
+						className={`${flex({ justify: 'space-between', align: 'center' })} ${css(
+							{
+								position: 'relative',
+								h: '12',
+							},
+						)}`}
 					>
 						<Link
 							to="/"
-							className={css({
+							className={`${hstack({ gap: '2' })} ${css({
 								position: 'relative',
 								zIndex: 50,
-								display: 'flex',
-								alignItems: 'center',
-								gap: '2',
 								pl: '2',
-							})}
+							})}`}
 						>
 							<img
 								src={logoUrl}
@@ -534,12 +516,10 @@ export function Navbar() {
 
 						{/* Desktop Navigation */}
 						<div
-							className={css({
+							className={`${hstack({ gap: '1' })} ${css({
 								display: { base: 'none', md: 'flex' },
-								alignItems: 'center',
-								gap: '1',
 								px: '2',
-							})}
+							})}`}
 						>
 							{navigation.map((item) => (
 								<NavItemWithDropdown
@@ -553,13 +533,7 @@ export function Navbar() {
 							))}
 						</div>
 
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '3',
-							})}
-						>
+						<div className={hstack({ gap: '3' })}>
 							<Link
 								to="/contact"
 								className={css({ display: { base: 'none', md: 'block' } })}
@@ -637,22 +611,19 @@ export function Navbar() {
 				})}
 			>
 				<div
-					className={css({
-						display: 'flex',
-						flexDir: 'column',
+					className={`${flex({ direction: 'column' })} ${css({
 						h: 'full',
 						pt: '8',
 						px: '8',
 						pb: '10',
-					})}
+					})}`}
 				>
 					<div
-						className={css({
-							display: 'flex',
-							justifyContent: 'space-between',
-							alignItems: 'center',
-							mb: '10',
-						})}
+						className={`${flex({ justify: 'space-between', align: 'center' })} ${css(
+							{
+								mb: '10',
+							},
+						)}`}
 					>
 						<img
 							src="https://27107933.fs1.hubspotusercontent-eu1.net/hubfs/27107933/logo-ocobo-web_full-main%20color.png"
@@ -707,13 +678,10 @@ export function Navbar() {
 												const mobileLinkContent = (
 													<>
 														<div
-															className={`${css({
+															className={`${center()} ${css({
 																w: '10',
 																h: '10',
 																rounded: 'xl',
-																display: 'flex',
-																alignItems: 'center',
-																justifyContent: 'center',
 																flexShrink: 0,
 																borderWidth: '1px',
 																borderColor: 'gray.50',
@@ -759,13 +727,10 @@ export function Navbar() {
 															target="_blank"
 															rel="noopener noreferrer"
 															onClick={() => setIsOpen(false)}
-															className={css({
-																display: 'flex',
-																alignItems: 'center',
-																gap: '4',
+															className={`${hstack({ gap: '4' })} ${css({
 																transition: 'transform',
 																_active: { transform: 'translateX(4px)' },
-															})}
+															})}`}
 														>
 															{mobileLinkContent}
 														</a>
@@ -777,13 +742,10 @@ export function Navbar() {
 														key={`mobile-${item.label}-${sub.label}`}
 														to={sub.path}
 														onClick={() => setIsOpen(false)}
-														className={css({
-															display: 'flex',
-															alignItems: 'center',
-															gap: '4',
+														className={`${hstack({ gap: '4' })} ${css({
 															transition: 'transform',
 															_active: { transform: 'translateX(4px)' },
-														})}
+														})}`}
 													>
 														{mobileLinkContent}
 													</Link>
@@ -815,12 +777,8 @@ export function Navbar() {
 						<Link to="/contact" onClick={() => setIsOpen(false)}>
 							<button
 								type="button"
-								className={css({
+								className={`${center({ gap: '3' })} ${css({
 									w: 'full',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
-									gap: '3',
 									py: '5',
 									rounded: 'full',
 									bg: 'ocobo.dark',
@@ -832,7 +790,7 @@ export function Navbar() {
 									shadow: '2xl',
 									transition: 'all',
 									_active: { transform: 'scale(0.98)' },
-								})}
+								})}`}
 							>
 								Prendre rendez-vous <ArrowRight size={16} />
 							</button>

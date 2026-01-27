@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import type React from 'react';
 import { Link } from 'react-router';
 import { css } from 'styled-system/css';
+import { center, flex } from 'styled-system/patterns';
 
 interface TestimonialCardProps {
 	quote: string;
@@ -95,26 +96,20 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
 				/>
 
 				<div
-					className={css({
-						display: 'flex',
-						flexDir: { base: 'column', md: 'row' },
-						alignItems: { md: 'center' },
-						justifyContent: 'space-between',
+					className={flex({
+						direction: { base: 'column', md: 'row' },
+						align: { md: 'center' },
+						justify: 'space-between',
 						gap: '8',
 					})}
 				>
-					<div
-						className={css({ display: 'flex', alignItems: 'center', gap: '6' })}
-					>
+					<div className={flex({ align: 'center', gap: '6' })}>
 						<div
-							className={css({
+							className={`${center({
 								w: '14',
 								h: '14',
 								bg: 'ocobo.yellow',
 								rounded: '2xl',
-								display: 'flex',
-								alignItems: 'center',
-								justifyContent: 'center',
 								color: 'ocobo.dark',
 								fontFamily: 'display',
 								fontWeight: 'black',
@@ -124,11 +119,11 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
 								transition: 'transform',
 								transitionDuration: '500ms',
 								_groupHover: { transform: 'rotate(0deg)' },
-							})}
+							})}`}
 						>
 							{initials}
 						</div>
-						<div className={css({ display: 'flex', flexDir: 'column' })}>
+						<div className={flex({ direction: 'column' })}>
 							<p
 								className={css({
 									color: 'white',
@@ -157,9 +152,8 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
 					{ctaText && ctaLink && (
 						<Link
 							to={ctaLink}
-							className={`${css({
-								display: 'flex',
-								alignItems: 'center',
+							className={`${flex({
+								align: 'center',
 								gap: '4',
 								color: 'white/40',
 								fontFamily: 'display',

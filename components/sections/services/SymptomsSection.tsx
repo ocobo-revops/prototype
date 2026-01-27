@@ -1,5 +1,6 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { center, flex, hstack } from 'styled-system/patterns';
 import { PyramidSection } from '../../illustrations';
 
 export const SymptomsSection: React.FC = () => {
@@ -82,30 +83,20 @@ export const SymptomsSection: React.FC = () => {
 								roundedBottomLeft: 'full',
 							})}
 						/>
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '4',
-								mb: '4',
-							})}
-						>
+						<div className={`${hstack({ gap: '4' })} ${css({ mb: '4' })}`}>
 							<div
-								className={css({
+								className={`${center()} ${css({
 									w: '10',
 									h: '10',
 									bg: 'white',
 									borderWidth: '1px',
 									borderColor: 'ocobo.dark',
 									rounded: 'full',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									fontFamily: 'display',
 									fontWeight: 'bold',
 									fontSize: 'lg',
 									shadow: 'sm',
-								})}
+								})}`}
 							>
 								1
 							</div>
@@ -127,13 +118,7 @@ export const SymptomsSection: React.FC = () => {
 								color: 'gray.600',
 							})}
 						>
-							<li
-								className={css({
-									display: 'flex',
-									alignItems: 'flex-start',
-									gap: '2',
-								})}
-							>
+							<li className={flex({ align: 'flex-start', gap: '2' })}>
 								• Manque de visibilité sur le business
 							</li>
 						</ul>
@@ -161,30 +146,20 @@ export const SymptomsSection: React.FC = () => {
 								roundedBottomLeft: 'full',
 							})}
 						/>
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '4',
-								mb: '4',
-							})}
-						>
+						<div className={`${hstack({ gap: '4' })} ${css({ mb: '4' })}`}>
 							<div
-								className={css({
+								className={`${center()} ${css({
 									w: '10',
 									h: '10',
 									bg: 'white',
 									borderWidth: '1px',
 									borderColor: 'ocobo.dark',
 									rounded: 'full',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									fontFamily: 'display',
 									fontWeight: 'bold',
 									fontSize: 'lg',
 									shadow: 'sm',
-								})}
+								})}`}
 							>
 								2
 							</div>
@@ -206,13 +181,7 @@ export const SymptomsSection: React.FC = () => {
 								color: 'gray.600',
 							})}
 						>
-							<li
-								className={css({
-									display: 'flex',
-									alignItems: 'flex-start',
-									gap: '2',
-								})}
-							>
+							<li className={flex({ align: 'flex-start', gap: '2' })}>
 								• Prévisions instables
 							</li>
 						</ul>
@@ -240,30 +209,20 @@ export const SymptomsSection: React.FC = () => {
 								roundedBottomLeft: 'full',
 							})}
 						/>
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '4',
-								mb: '4',
-							})}
-						>
+						<div className={`${hstack({ gap: '4' })} ${css({ mb: '4' })}`}>
 							<div
-								className={css({
+								className={`${center()} ${css({
 									w: '10',
 									h: '10',
 									bg: 'white',
 									borderWidth: '1px',
 									borderColor: 'ocobo.dark',
 									rounded: 'full',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									fontFamily: 'display',
 									fontWeight: 'bold',
 									fontSize: 'lg',
 									shadow: 'sm',
-								})}
+								})}`}
 							>
 								3
 							</div>
@@ -285,13 +244,7 @@ export const SymptomsSection: React.FC = () => {
 								color: 'gray.600',
 							})}
 						>
-							<li
-								className={css({
-									display: 'flex',
-									alignItems: 'flex-start',
-									gap: '2',
-								})}
-							>
+							<li className={flex({ align: 'flex-start', gap: '2' })}>
 								• Trop d'outils, pas assez de clarté
 							</li>
 						</ul>
@@ -319,30 +272,20 @@ export const SymptomsSection: React.FC = () => {
 								roundedBottomLeft: 'full',
 							})}
 						/>
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '4',
-								mb: '4',
-							})}
-						>
+						<div className={`${hstack({ gap: '4' })} ${css({ mb: '4' })}`}>
 							<div
-								className={css({
+								className={`${center()} ${css({
 									w: '10',
 									h: '10',
 									bg: 'white',
 									borderWidth: '1px',
 									borderColor: 'ocobo.dark',
 									rounded: 'full',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									fontFamily: 'display',
 									fontWeight: 'bold',
 									fontSize: 'lg',
 									shadow: 'sm',
-								})}
+								})}`}
 							>
 								4
 							</div>
@@ -364,13 +307,7 @@ export const SymptomsSection: React.FC = () => {
 								color: 'gray.600',
 							})}
 						>
-							<li
-								className={css({
-									display: 'flex',
-									alignItems: 'flex-start',
-									gap: '2',
-								})}
-							>
+							<li className={flex({ align: 'flex-start', gap: '2' })}>
 								• Expérience inégale
 							</li>
 						</ul>

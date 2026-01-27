@@ -1,26 +1,24 @@
 import { css } from 'styled-system/css';
+import { center } from 'styled-system/patterns';
 
 export const DashboardIllustration = () => {
 	return (
 		<div
-			className={css({
+			className={`${center()} ${css({
 				position: 'relative',
 				w: 'full',
 				maxW: '580px',
 				aspectRatio: 'square',
-				display: 'flex',
-				alignItems: 'center',
-				justifyContent: 'center',
 				opacity: '0',
 				animation: 'hero-reveal',
-			})}
+			})}`}
 			style={{ animationDelay: '0.4s' }}
 		>
 			{/* SHARP ARCHITECTURAL BACKGROUND SHAPES - More refined */}
 
 			{/* Top Center: Mint Circle with Burst */}
 			<div
-				className={css({
+				className={`${center()} ${css({
 					position: 'absolute',
 					top: '8%',
 					left: '38%',
@@ -28,14 +26,11 @@ export const DashboardIllustration = () => {
 					h: '110px',
 					rounded: 'full',
 					bg: 'ocobo.mint/80',
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
 					transform: 'rotate(12deg)',
 					transition: 'transform',
 					transitionDuration: '1000ms',
 					_hover: { transform: 'rotate(45deg)' },
-				})}
+				})}`}
 			>
 				<svg
 					width="40"

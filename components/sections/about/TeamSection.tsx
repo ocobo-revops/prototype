@@ -1,6 +1,6 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
-import { grid } from 'styled-system/patterns';
+import { center, flex, grid } from 'styled-system/patterns';
 import { ThemeColor } from '../../../types';
 import { Button } from '../../atoms';
 import { TeamMemberCard } from '../../molecules/TeamMemberCard';
@@ -9,15 +9,11 @@ import { Container, Section } from '../../organisms';
 const IconSeparator = () => {
 	return (
 		<div
-			className={css({
-				display: 'flex',
-				justifyContent: 'center',
-				alignItems: 'center',
-				gap: { base: '10', md: '20' },
+			className={`${center({ gap: { base: '10', md: '20' } })} ${css({
 				pt: '16',
 				pb: '0',
 				bg: 'white',
-			})}
+			})}`}
 		>
 			{/* Left Star/Sparkle - Exactly like provided image */}
 			<svg
@@ -233,14 +229,12 @@ export const TeamSection: React.FC = () => {
 					</div>
 
 					<div
-						className={css({
-							textAlign: 'center',
-							mt: '12',
-							display: 'flex',
-							flexDir: 'column',
-							alignItems: 'center',
-							gap: '8',
-						})}
+						className={`${flex({ direction: 'column', align: 'center', gap: '8' })} ${css(
+							{
+								textAlign: 'center',
+								mt: '12',
+							},
+						)}`}
 					>
 						<p className={css({ fontWeight: 'bold', fontSize: 'xl' })}>
 							Trois parcours, une même conviction :{' '}

@@ -1,22 +1,20 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { flex } from 'styled-system/patterns';
 import { Container } from '../../organisms';
 
 const DataIllustration = () => {
 	return (
 		<div className={css({ w: 'full', overflow: 'hidden' })}>
 			<div
-				className={css({
+				className={`${flex({ direction: 'column', align: 'center' })} ${css({
 					position: 'relative',
 					w: 'full',
 					maxW: '3xl',
 					h: { base: '280px', md: '420px' },
 					mx: 'auto',
 					p: '4',
-					display: 'flex',
-					flexDir: 'column',
-					alignItems: 'center',
-				})}
+				})}`}
 			>
 				{/* Illustration Container */}
 				<div

@@ -1,7 +1,7 @@
 import { Check, X } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
-import { grid } from 'styled-system/patterns';
+import { center, flex, grid } from 'styled-system/patterns';
 import { Button } from '../../atoms';
 import { Container, Section } from '../../organisms';
 
@@ -87,9 +87,8 @@ export const ComparatifSection: React.FC = () => {
 							{OCOBO_BENEFITS.map((item) => (
 								<li
 									key={item}
-									className={css({
-										display: 'flex',
-										alignItems: 'flex-start',
+									className={flex({
+										align: 'flex-start',
 										gap: '3',
 									})}
 								>
@@ -132,9 +131,8 @@ export const ComparatifSection: React.FC = () => {
 							{OTHERS_ISSUES.map((item) => (
 								<li
 									key={item}
-									className={css({
-										display: 'flex',
-										alignItems: 'flex-start',
+									className={flex({
+										align: 'flex-start',
 										gap: '3',
 									})}
 								>
@@ -153,13 +151,7 @@ export const ComparatifSection: React.FC = () => {
 					</div>
 				</div>
 
-				<div
-					className={css({
-						display: 'flex',
-						justifyContent: 'center',
-						mt: '16',
-					})}
-				>
+				<div className={`${center()} ${css({ mt: '16' })}`}>
 					<Button variant="white" to="/studio" size="lg">
 						Découvrez le RevOps Studio
 					</Button>

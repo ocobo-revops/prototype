@@ -2,6 +2,7 @@ import { createListCollection, Select } from '@ark-ui/react/select';
 import { Calendar, Check, ChevronDown, MessageSquare } from 'lucide-react';
 import { useState } from 'react';
 import { css } from 'styled-system/css';
+import { center, flex, grid, hstack } from 'styled-system/patterns';
 import { Button, Input } from '../components/atoms';
 
 const teamSizeOptions = createListCollection({
@@ -87,9 +88,8 @@ export function Contact() {
 				})}
 			>
 				<div
-					className={css({
-						display: 'flex',
-						flexDir: { base: 'column', lg: 'row' },
+					className={flex({
+						direction: { base: 'column', lg: 'row' },
 						gap: '20',
 					})}
 				>
@@ -141,28 +141,19 @@ export function Contact() {
 							</p>
 
 							<div className={css({ spaceY: '8' })}>
-								<div
-									className={css({
-										display: 'flex',
-										gap: '6',
-										alignItems: 'flex-start',
-									})}
-								>
+								<div className={flex({ gap: '6', align: 'flex-start' })}>
 									<div
-										className={css({
+										className={`${center()} ${css({
 											w: '12',
 											h: '12',
 											bg: 'ocobo.mint.light',
 											color: 'ocobo.mint',
 											rounded: 'xl',
-											display: 'flex',
-											alignItems: 'center',
-											justifyContent: 'center',
 											flexShrink: 0,
 											transition: 'all',
 											transitionDuration: '300ms',
 											_groupHover: { bg: 'ocobo.mint', color: 'white' },
-										})}
+										})}`}
 									>
 										<Check strokeWidth={3} size={20} />
 									</div>
@@ -183,28 +174,19 @@ export function Contact() {
 										</p>
 									</div>
 								</div>
-								<div
-									className={css({
-										display: 'flex',
-										gap: '6',
-										alignItems: 'flex-start',
-									})}
-								>
+								<div className={flex({ gap: '6', align: 'flex-start' })}>
 									<div
-										className={css({
+										className={`${center()} ${css({
 											w: '12',
 											h: '12',
 											bg: 'ocobo.sky.light',
 											color: 'ocobo.sky',
 											rounded: 'xl',
-											display: 'flex',
-											alignItems: 'center',
-											justifyContent: 'center',
 											flexShrink: 0,
 											transition: 'all',
 											transitionDuration: '300ms',
 											_groupHover: { bg: 'ocobo.sky', color: 'white' },
-										})}
+										})}`}
 									>
 										<MessageSquare strokeWidth={3} size={20} />
 									</div>
@@ -224,28 +206,19 @@ export function Contact() {
 										</p>
 									</div>
 								</div>
-								<div
-									className={css({
-										display: 'flex',
-										gap: '6',
-										alignItems: 'flex-start',
-									})}
-								>
+								<div className={flex({ gap: '6', align: 'flex-start' })}>
 									<div
-										className={css({
+										className={`${center()} ${css({
 											w: '12',
 											h: '12',
 											bg: 'ocobo.yellow.light',
 											color: 'ocobo.yellow',
 											rounded: 'xl',
-											display: 'flex',
-											alignItems: 'center',
-											justifyContent: 'center',
 											flexShrink: 0,
 											transition: 'all',
 											transitionDuration: '300ms',
 											_groupHover: { bg: 'ocobo.yellow', color: 'white' },
-										})}
+										})}`}
 									>
 										<Calendar strokeWidth={3} size={20} />
 									</div>
@@ -320,13 +293,7 @@ export function Contact() {
 									onChange={handleChange}
 								/>
 
-								<div
-									className={css({
-										display: 'grid',
-										gridTemplateColumns: 'repeat(2, 1fr)',
-										gap: '4',
-									})}
-								>
+								<div className={grid({ columns: 2, gap: '4' })}>
 									<Input
 										type="text"
 										name="firstName"
@@ -374,24 +341,23 @@ export function Contact() {
 									</Select.Label>
 									<Select.Control>
 										<Select.Trigger
-											className={css({
-												width: 'full',
-												px: '4',
-												py: '4',
-												bg: 'gray.50',
-												border: '1px solid',
-												borderColor: 'gray.100',
-												outline: 'none',
-												transition: 'all 0.2s',
-												cursor: 'pointer',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'space-between',
-												_focus: {
-													borderColor: 'ocobo.dark',
-													bg: 'white',
+											className={`${hstack({ justify: 'space-between' })} ${css(
+												{
+													width: 'full',
+													px: '4',
+													py: '4',
+													bg: 'gray.50',
+													border: '1px solid',
+													borderColor: 'gray.100',
+													outline: 'none',
+													transition: 'all 0.2s',
+													cursor: 'pointer',
+													_focus: {
+														borderColor: 'ocobo.dark',
+														bg: 'white',
+													},
 												},
-											})}
+											)}`}
 										>
 											<Select.ValueText
 												placeholder="Sélectionnez..."

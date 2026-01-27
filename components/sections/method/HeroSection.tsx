@@ -1,6 +1,7 @@
 import { ChevronDown } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { center, flex } from 'styled-system/patterns';
 import { Badge, Button } from '../../atoms';
 import { AttioPillarsIllustration } from '../../illustrations';
 
@@ -69,27 +70,23 @@ export const HeroSection: React.FC = () => {
 			</div>
 
 			<div
-				className={css({
-					display: 'flex',
-					justifyContent: 'center',
+				className={`${center()} ${css({
 					mb: '10',
 					position: 'relative',
 					zIndex: '10',
 					px: '4',
-				})}
+				})}`}
 			>
 				<AttioPillarsIllustration />
 			</div>
 
 			<div
-				className={css({
-					display: 'flex',
-					flexDir: 'column',
-					alignItems: 'center',
-					gap: '12',
-					position: 'relative',
-					zIndex: '10',
-				})}
+				className={`${flex({ direction: 'column', align: 'center', gap: '12' })} ${css(
+					{
+						position: 'relative',
+						zIndex: '10',
+					},
+				)}`}
 			>
 				<div
 					className={css({
@@ -120,13 +117,11 @@ export const HeroSection: React.FC = () => {
 			</div>
 
 			<div
-				className={css({
+				className={`${center()} ${css({
 					mt: '16',
-					display: 'flex',
-					justifyContent: 'center',
 					w: 'full',
 					animation: 'bounce-slow',
-				})}
+				})}`}
 			>
 				<ChevronDown
 					className={css({ color: 'gray.200' })}

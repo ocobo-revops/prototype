@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { flex } from 'styled-system/patterns';
 import FlexPair from '../../layout/FlexPair';
 
 export const ManifestoSection: React.FC = () => {
@@ -80,11 +81,11 @@ export const ManifestoSection: React.FC = () => {
 				})}
 			>
 				<div
-					className={css({
-						display: 'flex',
-						justifyContent: { base: 'center', md: 'flex-start' },
-						mb: '24',
-					})}
+					className={`${flex({ justify: { base: 'center', md: 'flex-start' } })} ${css(
+						{
+							mb: '24',
+						},
+					)}`}
 				>
 					<span
 						className={css({
@@ -481,12 +482,11 @@ export const ManifestoSection: React.FC = () => {
 					{/* Conclusion Signature - White Logo */}
 					<div className={css({ pt: '24' })}>
 						<div
-							className={css({
-								display: 'flex',
-								flexDir: 'column',
-								alignItems: 'flex-start',
-								textAlign: 'left',
-							})}
+							className={`${flex({ direction: 'column', align: 'flex-start' })} ${css(
+								{
+									textAlign: 'left',
+								},
+							)}`}
 						>
 							<img
 								src="https://27107933.fs1.hubspotusercontent-eu1.net/hubfs/27107933/logo-ocobo_full-white.svg"

@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from 'styled-system/css';
+import { flex } from 'styled-system/patterns';
 
 type GapSize = 6 | 8 | 10 | 12 | 16;
 type AsideWidth = '1/3' | '5/12';
@@ -59,9 +60,8 @@ const StickyAsideRoot: React.FC<StickyAsideProps> = ({
 
 	return (
 		<div
-			className={`${css({
-				display: 'flex',
-				flexDir: { base: 'column', lg: 'row' },
+			className={`${flex({
+				direction: { base: 'column', lg: 'row' },
 				gap: String(gap),
 			})} ${className}`}
 		>

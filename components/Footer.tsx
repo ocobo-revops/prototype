@@ -2,6 +2,7 @@ import { ArrowRight, Linkedin, Youtube } from 'lucide-react';
 import type React from 'react';
 import { Link } from 'react-router';
 import { css } from 'styled-system/css';
+import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
 
 export const Footer: React.FC = () => {
 	return (
@@ -22,28 +23,18 @@ export const Footer: React.FC = () => {
 			>
 				{/* Top Section */}
 				<div
-					className={css({
-						display: 'grid',
-						gridTemplateColumns: {
-							base: '1fr',
-							md: 'repeat(2, 1fr)',
-							lg: 'repeat(4, 1fr)',
+					className={`${grid({ columns: { base: 1, md: 2, lg: 4 }, gap: '12' })} ${css(
+						{
+							mb: '20',
+							borderBottomWidth: '1px',
+							borderColor: 'gray.800',
+							pb: '12',
 						},
-						gap: '12',
-						mb: '20',
-						borderBottomWidth: '1px',
-						borderColor: 'gray.800',
-						pb: '12',
-					})}
+					)}`}
 				>
 					{/* Brand & Social - Aligned Left */}
 					<div
-						className={css({
-							display: 'flex',
-							flexDir: 'column',
-							alignItems: 'flex-start',
-							gap: '6',
-						})}
+						className={`${flex({ direction: 'column', gap: '6' })} ${css({ alignItems: 'flex-start' })}`}
 					>
 						<img
 							src="https://27107933.fs1.hubspotusercontent-eu1.net/hubfs/27107933/logo-ocobo_full-white.svg"
@@ -51,23 +42,20 @@ export const Footer: React.FC = () => {
 							className={css({ h: '10', w: 'auto', objectFit: 'contain' })}
 						/>
 
-						<div className={css({ display: 'flex', gap: '4' })}>
+						<div className={hstack({ gap: '4' })}>
 							<a
 								href="https://www.linkedin.com/company/ocobofr/"
 								target="_blank"
 								rel="noopener noreferrer"
-								className={css({
+								className={`${center()} ${css({
 									w: '8',
 									h: '8',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									rounded: 'full',
 									bg: 'gray.800',
 									transition: 'all',
 									transitionDuration: '300ms',
 									_hover: { bg: 'white', color: 'ocobo.dark' },
-								})}
+								})}`}
 							>
 								<Linkedin size={16} />
 							</a>
@@ -75,27 +63,23 @@ export const Footer: React.FC = () => {
 								href="https://www.youtube.com/@Ocobo-Revenue"
 								target="_blank"
 								rel="noopener noreferrer"
-								className={css({
+								className={`${center()} ${css({
 									w: '8',
 									h: '8',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									rounded: 'full',
 									bg: 'gray.800',
 									transition: 'all',
 									transitionDuration: '300ms',
 									_hover: { bg: 'white', color: 'ocobo.dark' },
-								})}
+								})}`}
 							>
 								<Youtube size={16} />
 							</a>
 						</div>
 						<Link
 							to="/contact"
-							className={css({
+							className={`${hstack({ gap: '0' })} ${css({
 								display: 'inline-flex',
-								alignItems: 'center',
 								fontSize: 'xs',
 								fontWeight: 'bold',
 								textTransform: 'uppercase',
@@ -107,7 +91,7 @@ export const Footer: React.FC = () => {
 								py: '3',
 								transition: 'all',
 								_hover: { bg: 'white', color: 'ocobo.dark' },
-							})}
+							})}`}
 						>
 							Prendre RDV{' '}
 							<ArrowRight className={css({ ml: '2', w: '3', h: '3' })} />
@@ -234,9 +218,7 @@ export const Footer: React.FC = () => {
 						>
 							Ne manquez pas nos actualités
 						</h4>
-						<form
-							className={css({ display: 'flex', flexDir: 'column', gap: '3' })}
-						>
+						<form className={vstack({ gap: '3' })}>
 							<div className={css({ position: 'relative' })}>
 								<input
 									type="email"
@@ -274,13 +256,11 @@ export const Footer: React.FC = () => {
 							</div>
 						</form>
 						<div
-							className={css({
+							className={`${flex({ gap: '0', align: 'center' })} ${css({
 								mt: '6',
-								display: 'flex',
-								alignItems: 'center',
 								fontSize: 'sm',
 								color: 'gray.400',
-							})}
+							})}`}
 						>
 							<span className={css({ mr: '2' })}>🇫🇷</span> Français
 						</div>
@@ -289,22 +269,18 @@ export const Footer: React.FC = () => {
 
 				{/* Bottom Section */}
 				<div
-					className={css({
-						display: 'flex',
-						flexDir: { base: 'column', md: 'row' },
-						justifyContent: 'space-between',
-						alignItems: 'center',
+					className={`${flex({
+						direction: { base: 'column', md: 'row' },
+						justify: 'space-between',
+						align: 'center',
+					})} ${css({
 						fontSize: 'xs',
 						color: 'gray.500',
-					})}
+					})}`}
 				>
 					<p>2025 © Ocobo - Tous droits réservés</p>
 					<div
-						className={css({
-							display: 'flex',
-							gap: '6',
-							mt: { base: '4', md: '0' },
-						})}
+						className={`${flex({ gap: '6' })} ${css({ mt: { base: '4', md: '0' } })}`}
 					>
 						<a
 							href="#"

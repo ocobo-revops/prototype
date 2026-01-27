@@ -2,6 +2,7 @@ import { ArrowRight, BookOpen, Mic, Play, Video } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router';
 import { css } from 'styled-system/css';
+import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
 import { Button } from '../components/atoms';
 
 export function Resources() {
@@ -91,17 +92,14 @@ export function Resources() {
 			>
 				{/* Header */}
 				<div
-					className={css({
-						mb: '20',
-						borderBottom: '1px solid',
-						borderColor: 'gray.200',
-						pb: '12',
-						display: 'flex',
-						flexDirection: { base: 'column', md: 'row' },
-						justifyContent: 'space-between',
-						alignItems: { md: 'flex-end' },
-						gap: '8',
-					})}
+					className={`${flex({ direction: { base: 'column', md: 'row' }, gap: '8', justify: 'space-between', align: { md: 'flex-end' } })} ${css(
+						{
+							mb: '20',
+							borderBottom: '1px solid',
+							borderColor: 'gray.200',
+							pb: '12',
+						},
+					)}`}
 				>
 					<div className={css({ maxW: '2xl' })}>
 						<span
@@ -142,7 +140,7 @@ export function Resources() {
 					</div>
 
 					{/* Tabs */}
-					<div className={css({ display: 'flex', flexWrap: 'wrap', gap: '2' })}>
+					<div className={flex({ wrap: 'wrap', gap: '2' })}>
 						{[
 							{ id: 'all', label: 'Tout voir' },
 							{
@@ -165,16 +163,13 @@ export function Resources() {
 								type="button"
 								key={tab.id}
 								onClick={() => setActiveTab(tab.id)}
-								className={css({
+								className={`${hstack({ gap: '2' })} ${css({
 									px: '5',
 									py: '2.5',
 									rounded: 'full',
 									fontSize: 'sm',
 									fontWeight: 'bold',
 									transition: 'all 200ms',
-									display: 'flex',
-									alignItems: 'center',
-									gap: '2',
 									border: '1px solid',
 									cursor: 'pointer',
 									bg: activeTab === tab.id ? 'ocobo.dark' : 'white',
@@ -185,7 +180,7 @@ export function Resources() {
 											activeTab === tab.id ? 'ocobo.dark' : 'gray.300',
 										bg: activeTab === tab.id ? 'ocobo.dark' : 'gray.50',
 									},
-								})}
+								})}`}
 							>
 								{tab.icon} {tab.label}
 							</button>
@@ -197,16 +192,14 @@ export function Resources() {
 				{activeTab === 'all' && (
 					<div className={css({ mb: '16' })}>
 						<div
-							className={css({
+							className={`${grid({ columns: { md: 2 } })} ${css({
 								position: 'relative',
 								rounded: '3xl',
 								overflow: 'hidden',
 								bg: 'ocobo.dark',
 								color: 'white',
-								display: 'grid',
-								gridTemplateColumns: { md: 'repeat(2, 1fr)' },
 								shadow: '2xl',
-							})}
+							})}`}
 						>
 							<div
 								className={css({
@@ -240,13 +233,11 @@ export function Resources() {
 								/>
 							</div>
 							<div
-								className={css({
-									p: { base: '10', md: '16' },
-									display: 'flex',
-									flexDirection: 'column',
-									justifyContent: 'center',
-									alignItems: 'flex-start',
-								})}
+								className={`${flex({ direction: 'column', gap: '0', justify: 'center', align: 'flex-start' })} ${css(
+									{
+										p: { base: '10', md: '16' },
+									},
+								)}`}
 							>
 								<span
 									className={css({
@@ -294,12 +285,9 @@ export function Resources() {
 
 				{/* Grid */}
 				<div
-					className={css({
-						display: 'grid',
-						gridTemplateColumns: { md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' },
-						gap: '8',
+					className={`${grid({ columns: { md: 2, lg: 3 }, gap: '8' })} ${css({
 						rowGap: '12',
-					})}
+					})}`}
 				>
 					{filteredResources.map((item) => (
 						<Link
@@ -311,13 +299,11 @@ export function Resources() {
 										? `/webinar/${item.slug}`
 										: '/resources'
 							}
-							className={css({
-								display: 'flex',
-								flexDirection: 'column',
+							className={`${vstack({ gap: '0' })} ${css({
 								height: 'full',
 								cursor: 'pointer',
 								_hover: { '& .title': { color: 'ocobo.coral' } },
-							})}
+							})}`}
 						>
 							<div
 								className={css({
@@ -343,7 +329,7 @@ export function Resources() {
 
 								{/* Type Badge */}
 								<div
-									className={css({
+									className={`${hstack({ gap: '2' })} ${css({
 										position: 'absolute',
 										top: '4',
 										left: '4',
@@ -356,11 +342,8 @@ export function Resources() {
 										textTransform: 'uppercase',
 										letterSpacing: 'wider',
 										color: 'ocobo.dark',
-										display: 'flex',
-										alignItems: 'center',
-										gap: '2',
 										shadow: 'sm',
-									})}
+									})}`}
 								>
 									{item.type === 'podcast' && <Mic size={12} />}
 									{item.type === 'webinar' && <Video size={12} />}
@@ -371,33 +354,27 @@ export function Resources() {
 								{/* Play Button Overlay */}
 								{(item.type === 'podcast' || item.type === 'webinar') && (
 									<div
-										className={css({
+										className={`${center()} ${css({
 											position: 'absolute',
 											inset: 0,
-											display: 'flex',
-											alignItems: 'center',
-											justifyContent: 'center',
 											bg: 'ocobo.dark/20',
 											opacity: 0,
 											transition: 'opacity 300ms',
 											_groupHover: { opacity: 1 },
-										})}
+										})}`}
 									>
 										<div
-											className={css({
+											className={`${center()} ${css({
 												width: '16',
 												height: '16',
 												bg: 'white',
 												rounded: 'full',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												color: 'ocobo.dark',
 												shadow: 'xl',
 												transform: 'translateY(1rem)',
 												transition: 'transform 300ms',
 												_groupHover: { transform: 'translateY(0)' },
-											})}
+											})}`}
 										>
 											<Play
 												fill="currentColor"
@@ -410,24 +387,21 @@ export function Resources() {
 							</div>
 
 							<div
-								className={css({
+								className={`${flex({ direction: 'column' })} ${css({
 									flexGrow: 1,
-									display: 'flex',
-									flexDirection: 'column',
-								})}
+								})}`}
 							>
 								<div
-									className={css({
-										display: 'flex',
-										alignItems: 'center',
-										justifyContent: 'space-between',
-										fontSize: 'xs',
-										fontWeight: 'bold',
-										color: 'gray.400',
-										mb: '3',
-										textTransform: 'uppercase',
-										letterSpacing: 'wider',
-									})}
+									className={`${flex({ align: 'center', justify: 'space-between' })} ${css(
+										{
+											fontSize: 'xs',
+											fontWeight: 'bold',
+											color: 'gray.400',
+											mb: '3',
+											textTransform: 'uppercase',
+											letterSpacing: 'wider',
+										},
+									)}`}
 								>
 									<span>{item.tag}</span>
 									<span>{item.date}</span>
@@ -447,17 +421,15 @@ export function Resources() {
 								</h3>
 
 								<div
-									className={css({
+									className={`${flex({ align: 'center' })} ${css({
 										mt: 'auto',
 										pt: '4',
-										display: 'flex',
-										alignItems: 'center',
 										fontSize: 'sm',
 										fontWeight: 'medium',
 										color: 'gray.500',
 										borderTop: '1px solid',
 										borderColor: 'gray.100',
-									})}
+									})}`}
 								>
 									{item.guest ? (
 										<span>
@@ -496,12 +468,9 @@ export function Resources() {
 					})}
 				>
 					<div
-						className={css({
-							display: 'grid',
-							gridTemplateColumns: { md: 'repeat(2, 1fr)' },
-							gap: '16',
+						className={`${grid({ columns: { md: 2 }, gap: '16' })} ${css({
 							alignItems: 'center',
-						})}
+						})}`}
 					>
 						<div>
 							<h2
@@ -521,9 +490,8 @@ export function Resources() {
 								d'expérience concrets. Une fois par mois.
 							</p>
 							<div
-								className={css({
-									display: 'flex',
-									flexDirection: { base: 'column', sm: 'row' },
+								className={flex({
+									direction: { base: 'column', sm: 'row' },
 									gap: '4',
 								})}
 							>
@@ -586,29 +554,23 @@ export function Resources() {
 								Dernier playbook envoyé :
 							</h3>
 							<div
-								className={css({
+								className={`${flex({ align: 'flex-start', gap: '4' })} ${css({
 									bg: 'white',
 									p: '6',
 									shadow: 'sm',
 									border: '1px solid',
 									borderColor: 'gray.100',
-									display: 'flex',
-									alignItems: 'flex-start',
-									gap: '4',
-								})}
+								})}`}
 							>
 								<div
-									className={css({
+									className={`${center()} ${css({
 										width: '12',
 										height: '12',
 										bg: 'ocobo.mint/20',
 										color: 'ocobo.mint',
-										display: 'flex',
-										alignItems: 'center',
-										justifyContent: 'center',
 										fontWeight: 'bold',
 										fontSize: 'xl',
-									})}
+									})}`}
 								>
 									<span className={css({ fontFamily: 'display' })}>%</span>
 								</div>

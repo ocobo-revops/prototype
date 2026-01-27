@@ -12,23 +12,20 @@ import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { css } from 'styled-system/css';
-import { grid } from 'styled-system/patterns';
+import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
 import { Badge, Button } from '../components/atoms';
 import { ClientMarquee } from '../components/layout/ClientMarquee';
 
 const StoriesIllustration = () => {
 	return (
 		<div
-			className={css({
+			className={`${center()} ${css({
 				position: 'relative',
 				w: 'full',
 				maxW: '540px',
 				aspectRatio: '1',
-				display: 'flex',
-				alignItems: 'center',
-				justifyContent: 'center',
 				overflow: 'visible',
-			})}
+			})}`}
 		>
 			{/* BACKGROUND ARCHITECTURAL GRID */}
 			<div
@@ -147,14 +144,7 @@ const StoriesIllustration = () => {
 							shadow: 'offset',
 						})}
 					>
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '2',
-								mb: '2',
-							})}
-						>
+						<div className={`${hstack({ gap: '2' })} ${css({ mb: '2' })}`}>
 							<TrendingUp size={14} className={css({ color: 'ocobo.coral' })} />
 							<span
 								className={css({
@@ -212,14 +202,7 @@ const StoriesIllustration = () => {
 							shadow: 'offset',
 						})}
 					>
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '2',
-								mb: '2',
-							})}
-						>
+						<div className={`${hstack({ gap: '2' })} ${css({ mb: '2' })}`}>
 							<Zap size={14} className={css({ color: 'ocobo.sky' })} />
 							<span
 								className={css({
@@ -277,14 +260,7 @@ const StoriesIllustration = () => {
 							shadow: 'offset',
 						})}
 					>
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '2',
-								mb: '2',
-							})}
-						>
+						<div className={`${hstack({ gap: '2' })} ${css({ mb: '2' })}`}>
 							<BarChart3 size={14} className={css({ color: 'ocobo.yellow' })} />
 							<span
 								className={css({
@@ -342,14 +318,7 @@ const StoriesIllustration = () => {
 							shadow: 'offset',
 						})}
 					>
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '2',
-								mb: '2',
-							})}
-						>
+						<div className={`${hstack({ gap: '2' })} ${css({ mb: '2' })}`}>
 							<Smile size={14} className={css({ color: 'ocobo.mint' })} />
 							<span
 								className={css({
@@ -364,13 +333,7 @@ const StoriesIllustration = () => {
 								User Experience
 							</span>
 						</div>
-						<div
-							className={css({
-								display: 'flex',
-								alignItems: 'center',
-								gap: '3',
-							})}
-						>
+						<div className={hstack({ gap: '3' })}>
 							<div
 								className={css({
 									fontSize: '2xl',
@@ -754,11 +717,10 @@ export const Stories: React.FC = () => {
 				})}
 			>
 				<div
-					className={css({
-						display: 'flex',
-						flexDir: { base: 'column', lg: 'row' },
-						alignItems: 'center',
-						justifyContent: 'space-between',
+					className={flex({
+						direction: { base: 'column', lg: 'row' },
+						align: 'center',
+						justify: 'space-between',
 						gap: { base: '16', lg: '20' },
 					})}
 				>
@@ -795,13 +757,13 @@ export const Stories: React.FC = () => {
 						</p>
 					</div>
 					<div
-						className={css({
+						className={`${flex({
+							justify: { base: 'center', lg: 'end' },
+							align: 'center',
+						})} ${css({
 							lg: { w: '1/2' },
-							display: 'flex',
-							justifyContent: { base: 'center', lg: 'end' },
-							alignItems: 'center',
 							position: 'relative',
-						})}
+						})}`}
 					>
 						<StoriesIllustration />
 					</div>
@@ -824,21 +786,19 @@ export const Stories: React.FC = () => {
 			{/* Filter Section */}
 			<section className={css({ maxW: '7xl', mx: 'auto', px: '4', py: '12' })}>
 				<div
-					className={css({
-						display: 'flex',
-						flexDir: { base: 'column', md: 'row' },
-						justifyContent: 'space-between',
-						alignItems: 'center',
+					className={`${flex({
+						direction: { base: 'column', md: 'row' },
+						justify: 'space-between',
+						align: 'center',
+						gap: '6',
+					})} ${css({
 						borderTopWidth: '1px',
 						borderBottomWidth: '1px',
 						borderColor: 'gray.100',
 						py: '8',
-						gap: '6',
-					})}
+					})}`}
 				>
-					<div
-						className={css({ display: 'flex', alignItems: 'center', gap: '3' })}
-					>
+					<div className={hstack({ gap: '3' })}>
 						<Filter size={14} className={css({ color: 'gray.400' })} />
 						<span
 							className={css({
@@ -852,14 +812,7 @@ export const Stories: React.FC = () => {
 							Filtrer par segment
 						</span>
 					</div>
-					<div
-						className={css({
-							display: 'flex',
-							flexWrap: 'wrap',
-							justifyContent: 'center',
-							gap: '3',
-						})}
-					>
+					<div className={flex({ wrap: 'wrap', justify: 'center', gap: '3' })}>
 						{categories.map((cat) => (
 							<button
 								type="button"
@@ -901,10 +854,8 @@ export const Stories: React.FC = () => {
 						<Link
 							key={item.id}
 							to={`/stories/${item.id}`}
-							className={css({
+							className={`${vstack()} ${css({
 								position: 'relative',
-								display: 'flex',
-								flexDir: 'column',
 								bg: 'white',
 								borderWidth: '1px',
 								borderColor: 'gray.100',
@@ -959,7 +910,7 @@ export const Stories: React.FC = () => {
 								'&:hover .tools': {
 									opacity: 1,
 								},
-							})}
+							})}`}
 						>
 							<div
 								className={`color-blur ${css({
@@ -1024,20 +975,9 @@ export const Stories: React.FC = () => {
 							</div>
 
 							<div
-								className={css({
-									display: 'flex',
-									flexDir: 'column',
-									flexGrow: 1,
-								})}
+								className={`${flex({ direction: 'column' })} ${css({ flexGrow: 1 })}`}
 							>
-								<div
-									className={css({
-										display: 'flex',
-										alignItems: 'center',
-										gap: '2',
-										mb: '4',
-									})}
-								>
+								<div className={`${hstack({ gap: '2' })} ${css({ mb: '4' })}`}>
 									<span
 										className={css({
 											fontSize: 'xs',
@@ -1110,12 +1050,7 @@ export const Stories: React.FC = () => {
 								</div>
 
 								<div
-									className={css({
-										mt: 'auto',
-										display: 'flex',
-										flexDir: 'column',
-										gap: '4',
-									})}
+									className={`${vstack({ gap: '4' })} ${css({ mt: 'auto' })}`}
 								>
 									{/* ROI Section */}
 									<div
@@ -1143,15 +1078,12 @@ export const Stories: React.FC = () => {
 											Impact mesuré
 										</span>
 										<div
-											className={css({
+											className={`${hstack({ gap: '3' })} ${css({
 												fontFamily: 'display',
 												fontSize: 'xl',
 												fontWeight: 'black',
 												color: 'ocobo.dark',
-												display: 'flex',
-												alignItems: 'center',
-												gap: '3',
-											})}
+											})}`}
 										>
 											{item.roi}
 											<ArrowRight
@@ -1163,15 +1095,14 @@ export const Stories: React.FC = () => {
 
 									{/* Tools Section */}
 									<div
-										className={css({
-											px: '5',
-											py: '3',
-											borderTopWidth: '1px',
-											borderColor: 'gray.100',
-											display: 'flex',
-											alignItems: 'center',
-											justifyContent: 'space-between',
-										})}
+										className={`${flex({ align: 'center', justify: 'space-between' })} ${css(
+											{
+												px: '5',
+												py: '3',
+												borderTopWidth: '1px',
+												borderColor: 'gray.100',
+											},
+										)}`}
 									>
 										<span
 											className={css({
@@ -1185,10 +1116,7 @@ export const Stories: React.FC = () => {
 											Stack Opérée
 										</span>
 										<div
-											className={`tools ${css({
-												display: 'flex',
-												alignItems: 'center',
-												gap: '3',
+											className={`tools ${hstack({ gap: '3' })} ${css({
 												filter: 'grayscale(100%)',
 												opacity: 0.4,
 											})}`}
@@ -1271,7 +1199,7 @@ export const Stories: React.FC = () => {
 						<br />
 						success story ?
 					</h2>
-					<div className={css({ display: 'flex', justifyContent: 'center' })}>
+					<div className={center()}>
 						<Button variant="cta" size="xl" to="/contact">
 							Discutons de votre architecture
 						</Button>

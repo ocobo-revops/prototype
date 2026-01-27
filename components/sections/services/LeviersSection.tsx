@@ -2,7 +2,7 @@ import { ArrowRight, Cpu, Layers, Users } from 'lucide-react';
 import type React from 'react';
 import { Link } from 'react-router';
 import { css } from 'styled-system/css';
-import { grid } from 'styled-system/patterns';
+import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
 import { SectionHeader } from '../../organisms';
 
 export const LeviersSection: React.FC = () => {
@@ -40,10 +40,10 @@ export const LeviersSection: React.FC = () => {
 					{/* Levier 1: Méthode */}
 					<Link
 						to="/method"
-						className={css({ display: 'flex', flexDir: 'column', h: 'full' })}
+						className={vstack({ h: 'full', alignItems: 'stretch' })}
 					>
 						<div
-							className={css({
+							className={`${vstack({ alignItems: 'stretch' })} ${css({
 								position: 'relative',
 								p: '10',
 								bg: 'gray.50',
@@ -54,39 +54,29 @@ export const LeviersSection: React.FC = () => {
 								transition: 'all',
 								transitionDuration: '500',
 								overflow: 'hidden',
-								display: 'flex',
-								flexDir: 'column',
 								_hover: {
 									shadow: '2xl',
 									bg: 'white',
 									transform: 'translateY(-8px)',
 								},
-							})}
+							})}`}
 						>
 							<div
-								className={css({
-									mb: '12',
-									display: 'flex',
-									justifyContent: 'space-between',
-									alignItems: 'center',
-								})}
+								className={`${hstack({ justify: 'space-between' })} ${css({ mb: '12' })}`}
 							>
 								<div
-									className={css({
+									className={`${center()} ${css({
 										w: '14',
 										h: '14',
 										bg: 'white',
 										rounded: '2xl',
-										display: 'flex',
-										alignItems: 'center',
-										justifyContent: 'center',
 										color: 'ocobo.yellow',
 										shadow: 'sm',
 										borderWidth: '1px',
 										borderColor: 'gray.100',
 										_groupHover: { transform: 'scale(1.1)' },
 										transition: 'transform',
-									})}
+									})}`}
 								>
 									<Layers size={28} />
 								</div>
@@ -153,9 +143,8 @@ export const LeviersSection: React.FC = () => {
 							/>
 
 							<div
-								className={css({
-									display: 'flex',
-									flexWrap: 'wrap',
+								className={flex({
+									wrap: 'wrap',
 									gap: '2',
 									h: '48px',
 									alignContent: 'flex-start',
@@ -190,10 +179,10 @@ export const LeviersSection: React.FC = () => {
 					{/* Levier 2: Technologie */}
 					<Link
 						to="/technology"
-						className={css({ display: 'flex', flexDir: 'column', h: 'full' })}
+						className={vstack({ h: 'full', alignItems: 'stretch' })}
 					>
 						<div
-							className={css({
+							className={`${vstack({ alignItems: 'stretch' })} ${css({
 								position: 'relative',
 								p: '10',
 								bg: 'gray.50',
@@ -204,39 +193,29 @@ export const LeviersSection: React.FC = () => {
 								transition: 'all',
 								transitionDuration: '500',
 								overflow: 'hidden',
-								display: 'flex',
-								flexDir: 'column',
 								_hover: {
 									shadow: '2xl',
 									bg: 'white',
 									transform: 'translateY(-8px)',
 								},
-							})}
+							})}`}
 						>
 							<div
-								className={css({
-									mb: '12',
-									display: 'flex',
-									justifyContent: 'space-between',
-									alignItems: 'center',
-								})}
+								className={`${hstack({ justify: 'space-between' })} ${css({ mb: '12' })}`}
 							>
 								<div
-									className={css({
+									className={`${center()} ${css({
 										w: '14',
 										h: '14',
 										bg: 'white',
 										rounded: '2xl',
-										display: 'flex',
-										alignItems: 'center',
-										justifyContent: 'center',
 										color: 'ocobo.sky',
 										shadow: 'sm',
 										borderWidth: '1px',
 										borderColor: 'gray.100',
 										_groupHover: { transform: 'scale(1.1)' },
 										transition: 'transform',
-									})}
+									})}`}
 								>
 									<Cpu size={28} />
 								</div>
@@ -303,24 +282,20 @@ export const LeviersSection: React.FC = () => {
 							/>
 
 							<div
-								className={css({
+								className={vstack({
 									h: '48px',
-									display: 'flex',
-									flexDir: 'column',
-									justifyContent: 'flex-start',
+									justify: 'flex-start',
 									gap: '3',
+									alignItems: 'flex-start',
 								})}
 							>
 								<div
-									className={css({
-										display: 'flex',
-										alignItems: 'center',
-										gap: '4',
+									className={`${hstack({ gap: '4' })} ${css({
 										filter: 'grayscale(1)',
 										opacity: '0.4',
 										_groupHover: { opacity: '1', filter: 'grayscale(0)' },
 										transition: 'all',
-									})}
+									})}`}
 								>
 									<img
 										src="https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg"
@@ -334,14 +309,12 @@ export const LeviersSection: React.FC = () => {
 									/>
 								</div>
 								<div
-									className={css({
-										display: 'flex',
-										alignItems: 'center',
+									className={`${hstack()} ${css({
 										filter: 'grayscale(1)',
 										opacity: '0.4',
 										_groupHover: { opacity: '1', filter: 'grayscale(0)' },
 										transition: 'all',
-									})}
+									})}`}
 								>
 									<img
 										src="https://dust.tt/static/logo_icon.png"
@@ -356,10 +329,10 @@ export const LeviersSection: React.FC = () => {
 					{/* Levier 3: Équipe */}
 					<Link
 						to="/studio"
-						className={css({ display: 'flex', flexDir: 'column', h: 'full' })}
+						className={vstack({ h: 'full', alignItems: 'stretch' })}
 					>
 						<div
-							className={css({
+							className={`${vstack({ alignItems: 'stretch' })} ${css({
 								position: 'relative',
 								p: '10',
 								bg: 'gray.50',
@@ -370,39 +343,29 @@ export const LeviersSection: React.FC = () => {
 								transition: 'all',
 								transitionDuration: '500',
 								overflow: 'hidden',
-								display: 'flex',
-								flexDir: 'column',
 								_hover: {
 									shadow: '2xl',
 									bg: 'white',
 									transform: 'translateY(-8px)',
 								},
-							})}
+							})}`}
 						>
 							<div
-								className={css({
-									mb: '12',
-									display: 'flex',
-									justifyContent: 'space-between',
-									alignItems: 'center',
-								})}
+								className={`${hstack({ justify: 'space-between' })} ${css({ mb: '12' })}`}
 							>
 								<div
-									className={css({
+									className={`${center()} ${css({
 										w: '14',
 										h: '14',
 										bg: 'white',
 										rounded: '2xl',
-										display: 'flex',
-										alignItems: 'center',
-										justifyContent: 'center',
 										color: 'ocobo.mint',
 										shadow: 'sm',
 										borderWidth: '1px',
 										borderColor: 'gray.100',
 										_groupHover: { transform: 'scale(1.1)' },
 										transition: 'transform',
-									})}
+									})}`}
 								>
 									<Users size={28} />
 								</div>
@@ -469,11 +432,10 @@ export const LeviersSection: React.FC = () => {
 							/>
 
 							<div
-								className={css({
+								className={vstack({
 									h: '48px',
-									display: 'flex',
-									flexDir: 'column',
-									justifyContent: 'flex-start',
+									justify: 'flex-start',
+									alignItems: 'flex-start',
 								})}
 							>
 								<div

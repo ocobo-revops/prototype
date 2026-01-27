@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { css } from 'styled-system/css';
+import { flex } from 'styled-system/patterns';
 import { Input } from './Input';
 
 const meta: Meta<typeof Input> = {
@@ -66,9 +66,8 @@ export const WithValue: Story = {
 export const AllStates: Story = {
 	render: () => (
 		<div
-			className={css({
-				display: 'flex',
-				flexDir: 'column',
+			className={flex({
+				direction: 'column',
 				gap: '6',
 				maxW: 'md',
 			})}

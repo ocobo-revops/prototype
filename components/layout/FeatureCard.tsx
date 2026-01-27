@@ -1,6 +1,7 @@
 import { Plus } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { flex } from 'styled-system/patterns';
 import type { ThemeColor } from '../../types';
 
 interface FeatureCardProps {
@@ -32,23 +33,21 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
 
 	return (
 		<div
-			className={`${css({
-				position: 'relative',
-				bg: 'white',
-				borderWidth: '1px',
-				borderColor: 'gray.100',
-				p: '12',
-				aspectRatio: 'square',
-				rounded: '2xl',
-				transition: 'all',
-				transitionDuration: '500ms',
-				display: 'flex',
-				flexDir: 'column',
-				alignItems: 'center',
-				justifyContent: 'center',
-				textAlign: 'center',
-				_hover: { shadow: 'soft-lg', transform: 'translateY(-8px)' },
-			})} group ${className}`}
+			className={`${flex({ direction: 'column', align: 'center', justify: 'center' })} ${css(
+				{
+					position: 'relative',
+					bg: 'white',
+					borderWidth: '1px',
+					borderColor: 'gray.100',
+					p: '12',
+					aspectRatio: 'square',
+					rounded: '2xl',
+					transition: 'all',
+					transitionDuration: '500ms',
+					textAlign: 'center',
+					_hover: { shadow: 'soft-lg', transform: 'translateY(-8px)' },
+				},
+			)} group ${className}`}
 		>
 			<div
 				className={css({

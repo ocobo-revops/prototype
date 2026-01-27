@@ -1,5 +1,6 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { center } from 'styled-system/patterns';
 import { Button } from '../../atoms';
 import { Container, Section } from '../../organisms';
 
@@ -72,7 +73,7 @@ export const CtaSection: React.FC<CtaSectionProps> = ({
 						{subtitle}
 					</p>
 				)}
-				<div className={css({ display: 'flex', justifyContent: 'center' })}>
+				<div className={center()}>
 					<Button variant={styles.buttonVariant} size="xl" to={ctaLink}>
 						{ctaText}
 					</Button>

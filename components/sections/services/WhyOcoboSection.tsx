@@ -1,7 +1,7 @@
 import { CheckCircle2 } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
-import { grid } from 'styled-system/patterns';
+import { center, grid } from 'styled-system/patterns';
 import { SectionHeader } from '../../organisms';
 
 const REASONS = [
@@ -50,18 +50,15 @@ export const WhyOcoboSection: React.FC = () => {
 					{REASONS.map((reason) => (
 						<div key={reason.title} className={css({ textAlign: 'center' })}>
 							<div
-								className={css({
+								className={`${center()} ${css({
 									w: '16',
 									h: '16',
 									bg: colorMap[reason.color],
 									rounded: 'full',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									color: 'ocobo.dark',
 									mx: 'auto',
 									mb: '6',
-								})}
+								})}`}
 							>
 								<CheckCircle2 size={32} strokeWidth={4} />
 							</div>

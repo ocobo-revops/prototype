@@ -1,6 +1,7 @@
 import { ChevronDown } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { center, flex } from 'styled-system/patterns';
 import { Badge, Button } from '../../atoms';
 import { ArchitecturalGrid } from '../../illustrations';
 import HeroSplit from '../../layout/HeroSplit';
@@ -58,24 +59,14 @@ export const HeroSection: React.FC = () => {
 					</Button>
 				</HeroSplit.Content>
 				<HeroSplit.Media
-					className={css({
-						w: { lg: '1/2' },
-						display: 'flex',
-						justifyContent: { base: 'center', lg: 'flex-end' },
-						alignItems: 'center',
-					})}
+					className={`${flex({ justify: { base: 'center', lg: 'flex-end' }, align: 'center' })} ${css({ w: { lg: '1/2' } })}`}
 				>
 					<ArchitecturalGrid />
 				</HeroSplit.Media>
 			</HeroSplit>
 
 			<div
-				className={css({
-					display: 'flex',
-					justifyContent: 'center',
-					w: 'full',
-					animation: 'bounce-subtle',
-				})}
+				className={`${center()} ${css({ w: 'full', animation: 'bounce-subtle' })}`}
 			>
 				<ChevronDown
 					className={css({ color: 'ocobo.coral', opacity: '0.3' })}

@@ -1,5 +1,6 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { flex } from 'styled-system/patterns';
 import { Button } from '../../atoms';
 import { DashboardIllustration } from '../../illustrations';
 import HeroSplit from '../../layout/HeroSplit';
@@ -99,16 +100,7 @@ export const HeroSection: React.FC = () => {
 					</div>
 
 					<div
-						className={css({
-							display: 'flex',
-							flexDir: { base: 'column', sm: 'row' },
-							gap: '6',
-							alignItems: 'flex-start',
-							opacity: '0',
-							animation: 'hero-reveal',
-							animationDelay: '0.4s',
-							animationFillMode: 'forwards',
-						})}
+						className={`${flex({ direction: { base: 'column', sm: 'row' }, gap: '6', align: 'flex-start' })} ${css({ opacity: '0', animation: 'hero-reveal', animationDelay: '0.4s', animationFillMode: 'forwards' })}`}
 					>
 						<Button variant="primary" to="/contact">
 							Rencontrer un architecte
@@ -117,10 +109,9 @@ export const HeroSection: React.FC = () => {
 				</HeroSplit.Content>
 
 				<HeroSplit.Media
-					className={css({
-						display: 'flex',
-						justifyContent: { base: 'center', lg: 'flex-end' },
-						alignItems: 'center',
+					className={flex({
+						justify: { base: 'center', lg: 'flex-end' },
+						align: 'center',
 					})}
 				>
 					<DashboardIllustration />

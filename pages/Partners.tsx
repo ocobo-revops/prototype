@@ -15,7 +15,7 @@ import {
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { css } from 'styled-system/css';
-import { grid } from 'styled-system/patterns';
+import { center, flex, grid, vstack } from 'styled-system/patterns';
 import { Badge, Button } from '../components/atoms';
 import FlexPair from '../components/layout/FlexPair';
 import {
@@ -403,12 +403,10 @@ export const Partners: React.FC = () => {
 				</div>
 
 				<div
-					className={css({
-						display: 'flex',
-						justifyContent: 'center',
+					className={`${flex({ justify: 'center' })} ${css({
 						mb: '16',
 						px: '4',
-					})}
+					})}`}
 				>
 					<ModularStackGrid
 						items={DEFAULT_STACK_ITEMS}
@@ -418,12 +416,7 @@ export const Partners: React.FC = () => {
 				</div>
 
 				<div
-					className={css({
-						display: 'flex',
-						flexDir: 'column',
-						alignItems: 'center',
-						gap: '12',
-					})}
+					className={flex({ direction: 'column', gap: '12', align: 'center' })}
 				>
 					<Button variant="cta" size="xl" to="/contact">
 						Auditer ma stack
@@ -431,13 +424,11 @@ export const Partners: React.FC = () => {
 				</div>
 
 				<div
-					className={css({
+					className={`${flex({ justify: 'center' })} ${css({
 						mt: '16',
-						display: 'flex',
-						justifyContent: 'center',
 						w: 'full',
 						animation: 'bounce-slow',
-					})}
+					})}`}
 				>
 					<ChevronDown
 						className={css({ color: 'ocobo.sky' })}
@@ -527,14 +518,11 @@ export const Partners: React.FC = () => {
 							})}
 						>
 							<div
-								className={`icon-box ${css({
+								className={`icon-box ${center()} ${css({
 									w: '16',
 									h: '16',
 									bg: 'ocobo.dark',
 									color: 'white',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									rounded: 'lg',
 									mb: '8',
 								})}`}
@@ -581,14 +569,11 @@ export const Partners: React.FC = () => {
 							})}
 						>
 							<div
-								className={`icon-box ${css({
+								className={`icon-box ${center()} ${css({
 									w: '16',
 									h: '16',
 									bg: 'ocobo.dark',
 									color: 'white',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									rounded: 'lg',
 									mb: '8',
 								})}`}
@@ -635,14 +620,11 @@ export const Partners: React.FC = () => {
 							})}
 						>
 							<div
-								className={`icon-box ${css({
+								className={`icon-box ${center()} ${css({
 									w: '16',
 									h: '16',
 									bg: 'ocobo.dark',
 									color: 'white',
-									display: 'flex',
-									alignItems: 'center',
-									justifyContent: 'center',
 									rounded: 'lg',
 									mb: '8',
 								})}`}
@@ -685,14 +667,11 @@ export const Partners: React.FC = () => {
 					})}
 				>
 					<div
-						className={css({
-							display: 'flex',
-							flexDir: { base: 'column', md: 'row' },
-							justifyContent: 'space-between',
-							alignItems: 'end',
-							mb: '20',
-							gap: '8',
-						})}
+						className={`${flex({ direction: { base: 'column', md: 'row' }, justify: 'space-between', align: 'end', gap: '8' })} ${css(
+							{
+								mb: '20',
+							},
+						)}`}
 					>
 						<div>
 							<h2
@@ -712,9 +691,7 @@ export const Partners: React.FC = () => {
 								aux maîtrises techniques d'experts.
 							</p>
 						</div>
-						<div
-							className={css({ display: 'flex', flexWrap: 'wrap', gap: '2' })}
-						>
+						<div className={flex({ wrap: 'wrap', gap: '2' })}>
 							{categories.map((cat) => (
 								<button
 									type="button"
@@ -753,93 +730,89 @@ export const Partners: React.FC = () => {
 						{filtered.map((partner) => (
 							<div
 								key={`${partner.name}-${filter}`}
-								className={css({
-									bg: 'white',
-									borderWidth: '1px',
-									borderColor: 'gray.100',
-									p: '8',
-									transition: 'all',
-									transitionDuration: '300ms',
-									position: 'relative',
-									overflow: 'hidden',
-									rounded: 'xl',
-									display: 'flex',
-									flexDir: 'column',
-									h: 'full',
-									animation: animate ? 'fade-in-up-small' : 'none',
-									opacity: animate ? 0 : 1,
-									_hover: { shadow: 'xl', transform: 'translateY(-4px)' },
-									'& .logo-img': {
-										transition: 'all',
-										transitionDuration: '500ms',
-									},
-									'&:hover .logo-img': {
-										filter: 'grayscale(0)',
-										opacity: 1,
-									},
-									'& .cat-badge': {
-										transition: 'all',
-									},
-									'&:hover .cat-badge': {
-										bg: 'ocobo.dark',
-										color: 'white',
-									},
-									'& .tag': {
-										transition: 'all',
-									},
-									'&:hover .tag': {
-										borderColor: 'ocobo.dark/10',
-										color: 'ocobo.dark',
-									},
-									'& .separator': {
-										transition: 'opacity',
-									},
-									'&:hover .separator': {
-										opacity: 1,
-									},
-									'& .cert-img': {
-										transition: 'all',
-										transitionDuration: '500ms',
-									},
-									'&:hover .cert-img': {
-										filter: 'grayscale(0)',
-									},
-									'& .tech-label': {
-										transition: 'colors',
-									},
-									'&:hover .tech-label': {
-										color: 'ocobo.mint',
-									},
-									'& .tech-icon': {
-										transition: 'opacity',
-									},
-									'&:hover .tech-icon': {
-										opacity: 1,
-									},
-									'& .external-link': {
+								className={`${flex({ direction: 'column', align: 'stretch' })} ${css(
+									{
+										bg: 'white',
+										borderWidth: '1px',
+										borderColor: 'gray.100',
+										p: '8',
 										transition: 'all',
 										transitionDuration: '300ms',
+										position: 'relative',
+										overflow: 'hidden',
+										rounded: 'xl',
+										h: 'full',
+										animation: animate ? 'fade-in-up-small' : 'none',
+										opacity: animate ? 0 : 1,
+										_hover: { shadow: 'xl', transform: 'translateY(-4px)' },
+										'& .logo-img': {
+											transition: 'all',
+											transitionDuration: '500ms',
+										},
+										'&:hover .logo-img': {
+											filter: 'grayscale(0)',
+											opacity: 1,
+										},
+										'& .cat-badge': {
+											transition: 'all',
+										},
+										'&:hover .cat-badge': {
+											bg: 'ocobo.dark',
+											color: 'white',
+										},
+										'& .tag': {
+											transition: 'all',
+										},
+										'&:hover .tag': {
+											borderColor: 'ocobo.dark/10',
+											color: 'ocobo.dark',
+										},
+										'& .separator': {
+											transition: 'opacity',
+										},
+										'&:hover .separator': {
+											opacity: 1,
+										},
+										'& .cert-img': {
+											transition: 'all',
+											transitionDuration: '500ms',
+										},
+										'&:hover .cert-img': {
+											filter: 'grayscale(0)',
+										},
+										'& .tech-label': {
+											transition: 'colors',
+										},
+										'&:hover .tech-label': {
+											color: 'ocobo.mint',
+										},
+										'& .tech-icon': {
+											transition: 'opacity',
+										},
+										'&:hover .tech-icon': {
+											opacity: 1,
+										},
+										'& .external-link': {
+											transition: 'all',
+											transitionDuration: '300ms',
+										},
+										'&:hover .external-link': {
+											transform: 'translateX(4px)',
+										},
 									},
-									'&:hover .external-link': {
-										transform: 'translateX(4px)',
-									},
-								})}
+								)}`}
 							>
 								<div
-									className={css({
-										display: 'flex',
-										justifyContent: 'space-between',
-										alignItems: 'start',
-										mb: '8',
-									})}
+									className={`${flex({ justify: 'space-between', align: 'start' })} ${css(
+										{
+											mb: '8',
+										},
+									)}`}
 								>
 									<div
-										className={css({
+										className={`${center()} ${css({
 											w: '16',
 											h: '16',
-											display: 'flex',
-											alignItems: 'center',
-											justifyContent: 'center',
 											p: '3',
 											bg: 'gray.50',
 											rounded: 'xl',
@@ -851,7 +824,7 @@ export const Partners: React.FC = () => {
 												borderColor: 'gray.100',
 												shadow: 'none',
 											},
-										})}
+										})}`}
 									>
 										<img
 											src={partner.logo}
@@ -866,10 +839,9 @@ export const Partners: React.FC = () => {
 										/>
 									</div>
 									<div
-										className={css({
-											display: 'flex',
-											flexDir: 'column',
-											alignItems: 'end',
+										className={flex({
+											direction: 'column',
+											align: 'end',
 											gap: '1',
 										})}
 									>
@@ -895,12 +867,10 @@ export const Partners: React.FC = () => {
 								</div>
 
 								<div
-									className={css({
+									className={`${flex({ direction: 'column' })} ${css({
 										mb: '6',
 										flexGrow: 1,
-										display: 'flex',
-										flexDir: 'column',
-									})}
+									})}`}
 								>
 									<h3
 										className={css({
@@ -915,15 +885,12 @@ export const Partners: React.FC = () => {
 										{partner.name}
 									</h3>
 									<div
-										className={css({
+										className={`${flex({ wrap: 'wrap', gap: '1.5' })} ${css({
 											h: '48px',
-											display: 'flex',
-											flexWrap: 'wrap',
-											gap: '1.5',
 											mb: '4',
 											alignContent: 'start',
 											overflow: 'hidden',
-										})}
+										})}`}
 									>
 										{partner.tags.map((tag) => (
 											<span
@@ -971,23 +938,16 @@ export const Partners: React.FC = () => {
 								/>
 
 								<div
-									className={css({
-										display: 'flex',
-										alignItems: 'center',
-										justifyContent: 'space-between',
-										mt: 'auto',
-										h: '12',
-									})}
+									className={`${flex({ align: 'center', justify: 'space-between' })} ${css(
+										{
+											mt: 'auto',
+											h: '12',
+										},
+									)}`}
 								>
 									<div className={css({ flex: 1 })}>
 										{partner.certificationLogo ? (
-											<div
-												className={css({
-													display: 'flex',
-													alignItems: 'center',
-													gap: '2',
-												})}
-											>
+											<div className={flex({ align: 'center', gap: '2' })}>
 												<img
 													src={partner.certificationLogo}
 													alt={`${partner.name} Platinum`}
@@ -1001,16 +961,15 @@ export const Partners: React.FC = () => {
 											</div>
 										) : partner.status === 'OFFICIAL' ? (
 											<div
-												className={css({
-													display: 'flex',
-													alignItems: 'center',
-													gap: '1.5',
-													fontSize: 'xs',
-													fontWeight: 'black',
-													textTransform: 'uppercase',
-													letterSpacing: 'widest',
-													color: 'ocobo.dark',
-												})}
+												className={`${flex({ align: 'center', gap: '1.5' })} ${css(
+													{
+														fontSize: 'xs',
+														fontWeight: 'black',
+														textTransform: 'uppercase',
+														letterSpacing: 'widest',
+														color: 'ocobo.dark',
+													},
+												)}`}
 											>
 												<Award
 													size={12}
@@ -1020,16 +979,15 @@ export const Partners: React.FC = () => {
 											</div>
 										) : (
 											<div
-												className={`tech-label ${css({
-													display: 'flex',
-													alignItems: 'center',
-													gap: '1.5',
-													fontSize: 'xs',
-													fontWeight: 'black',
-													textTransform: 'uppercase',
-													letterSpacing: 'widest',
-													color: 'gray.400',
-												})}`}
+												className={`tech-label ${flex({ align: 'center', gap: '1.5' })} ${css(
+													{
+														fontSize: 'xs',
+														fontWeight: 'black',
+														textTransform: 'uppercase',
+														letterSpacing: 'widest',
+														color: 'gray.400',
+													},
+												)}`}
 											>
 												<Zap
 													size={12}
@@ -1089,11 +1047,10 @@ export const Partners: React.FC = () => {
 					})}
 				>
 					<div
-						className={css({
-							display: 'flex',
-							flexDir: { base: 'column', lg: 'row' },
+						className={flex({
+							direction: { base: 'column', lg: 'row' },
 							gap: '20',
-							alignItems: 'center',
+							align: 'center',
 						})}
 					>
 						<div className={css({ lg: { w: '1/2' } })}>
@@ -1130,17 +1087,14 @@ export const Partners: React.FC = () => {
 							</p>
 
 							<div
-								className={css({
-									display: 'flex',
-									flexDir: 'column',
-									gap: '6',
+								className={`${vstack({ gap: '6' })} ${css({
 									mb: '12',
-								})}
+								})}`}
 							>
 								<FlexPair gap={5}>
 									<FlexPair.Icon>
 										<div
-											className={css({
+											className={`${center()} ${css({
 												w: '10',
 												h: '10',
 												bg: 'white',
@@ -1148,11 +1102,8 @@ export const Partners: React.FC = () => {
 												borderWidth: '1px',
 												borderColor: 'gray.100',
 												rounded: 'xl',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												color: 'ocobo.sky',
-											})}
+											})}`}
 										>
 											<Handshake size={20} />
 										</div>
@@ -1175,7 +1126,7 @@ export const Partners: React.FC = () => {
 								<FlexPair gap={5}>
 									<FlexPair.Icon>
 										<div
-											className={css({
+											className={`${center()} ${css({
 												w: '10',
 												h: '10',
 												bg: 'white',
@@ -1183,11 +1134,8 @@ export const Partners: React.FC = () => {
 												borderWidth: '1px',
 												borderColor: 'gray.100',
 												rounded: 'xl',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												color: 'ocobo.yellow',
-											})}
+											})}`}
 										>
 											<Sparkles size={20} />
 										</div>
@@ -1210,7 +1158,7 @@ export const Partners: React.FC = () => {
 								<FlexPair gap={5}>
 									<FlexPair.Icon>
 										<div
-											className={css({
+											className={`${center()} ${css({
 												w: '10',
 												h: '10',
 												bg: 'white',
@@ -1218,11 +1166,8 @@ export const Partners: React.FC = () => {
 												borderWidth: '1px',
 												borderColor: 'gray.100',
 												rounded: 'xl',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												color: 'ocobo.mint',
-											})}
+											})}`}
 										>
 											<Layers size={20} />
 										</div>
@@ -1280,18 +1225,15 @@ export const Partners: React.FC = () => {
 										})}
 									>
 										<div
-											className={css({
+											className={`${center()} ${css({
 												w: '20',
 												h: '20',
 												bg: 'ocobo.mintLight',
 												color: 'ocobo.mint',
 												rounded: 'full',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												mx: 'auto',
 												mb: '6',
-											})}
+											})}`}
 										>
 											<CheckCircle2 size={40} />
 										</div>
@@ -1329,11 +1271,7 @@ export const Partners: React.FC = () => {
 								) : (
 									<form
 										onSubmit={handlePartnerSubmit}
-										className={css({
-											display: 'flex',
-											flexDir: 'column',
-											gap: '6',
-										})}
+										className={vstack({ gap: '6', alignItems: 'stretch' })}
 									>
 										<h3
 											className={css({
@@ -1353,11 +1291,7 @@ export const Partners: React.FC = () => {
 											})}
 										>
 											<div
-												className={css({
-													display: 'flex',
-													flexDir: 'column',
-													gap: '2',
-												})}
+												className={vstack({ gap: '2', alignItems: 'stretch' })}
 											>
 												{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 												<label
@@ -1394,11 +1328,7 @@ export const Partners: React.FC = () => {
 												/>
 											</div>
 											<div
-												className={css({
-													display: 'flex',
-													flexDir: 'column',
-													gap: '2',
-												})}
+												className={vstack({ gap: '2', alignItems: 'stretch' })}
 											>
 												{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 												<label
@@ -1436,11 +1366,7 @@ export const Partners: React.FC = () => {
 											</div>
 										</div>
 										<div
-											className={css({
-												display: 'flex',
-												flexDir: 'column',
-												gap: '2',
-											})}
+											className={vstack({ gap: '2', alignItems: 'stretch' })}
 										>
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 											<label
@@ -1477,11 +1403,7 @@ export const Partners: React.FC = () => {
 											/>
 										</div>
 										<div
-											className={css({
-												display: 'flex',
-												flexDir: 'column',
-												gap: '2',
-											})}
+											className={vstack({ gap: '2', alignItems: 'stretch' })}
 										>
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 											<label
@@ -1519,7 +1441,7 @@ export const Partners: React.FC = () => {
 										</div>
 										<button
 											type="submit"
-											className={css({
+											className={`${center()} ${css({
 												w: 'full',
 												py: '5',
 												bg: 'ocobo.dark',
@@ -1531,9 +1453,6 @@ export const Partners: React.FC = () => {
 												rounded: 'none',
 												transition: 'all',
 												shadow: 'xl',
-												display: 'flex',
-												alignItems: 'center',
-												justifyContent: 'center',
 												gap: '3',
 												_hover: { bg: 'black' },
 												'& svg': {
@@ -1542,7 +1461,7 @@ export const Partners: React.FC = () => {
 												'&:hover svg': {
 													transform: 'translateX(4px) translateY(-4px)',
 												},
-											})}
+											})}`}
 										>
 											Soumettre ma solution <Send size={16} />
 										</button>
@@ -1598,7 +1517,7 @@ export const Partners: React.FC = () => {
 						Évaluons ensemble l'interconnexion de vos outils pour supprimer les
 						silos.
 					</p>
-					<div className={css({ display: 'flex', justifyContent: 'center' })}>
+					<div className={flex({ justify: 'center' })}>
 						<Button variant="cta" size="xl" to="/contact">
 							Prendre RDV
 						</Button>

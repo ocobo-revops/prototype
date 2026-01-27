@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { css, cx } from 'styled-system/css';
-import { grid } from 'styled-system/patterns';
+import { center, flex, grid, hstack } from 'styled-system/patterns';
 import { Badge, Button } from '../components/atoms';
 
 function TeamPhotoIllustration() {
@@ -169,7 +169,7 @@ function TeamPhotoIllustration() {
 
 					{/* Caption Badge */}
 					<div
-						className={css({
+						className={`${hstack({ gap: '3' })} ${css({
 							position: 'absolute',
 							bottom: '2.5rem',
 							left: '2.5rem',
@@ -179,15 +179,12 @@ function TeamPhotoIllustration() {
 							py: '3.5',
 							rounded: '2xl',
 							shadow: '2xl',
-							display: 'flex',
-							alignItems: 'center',
-							gap: '3',
 							transform: 'translateY(1rem)',
 							opacity: 0,
 							transition: 'all 500ms',
 							transitionDelay: '100ms',
 							_groupHover: { transform: 'translateY(0)', opacity: 1 },
-						})}
+						})}`}
 					>
 						<div
 							className={css({
@@ -441,13 +438,7 @@ export function Studio() {
 				<TeamPhotoIllustration />
 
 				<div
-					className={css({
-						display: 'flex',
-						flexDirection: 'column',
-						alignItems: 'center',
-						gap: '12',
-						mt: '16',
-					})}
+					className={`${flex({ direction: 'column', gap: '12', align: 'center' })} ${css({ mt: '16' })}`}
 				>
 					<div
 						className={css({
@@ -469,13 +460,11 @@ export function Studio() {
 				</div>
 
 				<div
-					className={css({
+					className={`${center()} ${css({
 						mt: '16',
-						display: 'flex',
-						justifyContent: 'center',
 						width: 'full',
 						animation: 'bounce-slow',
-					})}
+					})}`}
 				>
 					<ChevronDown
 						className={css({ color: 'ocobo.mint' })}
@@ -573,19 +562,16 @@ export function Studio() {
 								})}
 							>
 								<div
-									className={css({
+									className={`${center()} ${css({
 										width: '16',
 										height: '16',
 										bg: 'ocobo.dark',
 										color: 'white',
-										display: 'flex',
-										alignItems: 'center',
-										justifyContent: 'center',
 										rounded: 'lg',
 										mb: '8',
 										transition: 'background 200ms',
 										_groupHover: { bg: item.hoverColor },
-									})}
+									})}`}
 								>
 									<item.icon size={28} />
 								</div>
@@ -625,14 +611,7 @@ export function Studio() {
 					})}
 				>
 					<div
-						className={css({
-							display: 'flex',
-							flexDirection: { base: 'column', md: 'row' },
-							justifyContent: 'space-between',
-							alignItems: { md: 'flex-end' },
-							mb: '16',
-							gap: '8',
-						})}
+						className={`${flex({ direction: { base: 'column', md: 'row' }, justify: 'space-between', gap: '8' })} ${css({ alignItems: { md: 'flex-end' }, mb: '16' })}`}
 					>
 						<div>
 							<h2
@@ -653,9 +632,7 @@ export function Studio() {
 							</p>
 						</div>
 
-						<div
-							className={css({ display: 'flex', flexWrap: 'wrap', gap: '2' })}
-						>
+						<div className={flex({ gap: '2', wrap: 'wrap' })}>
 							{categories.map((cat) => (
 								<button
 									type="button"
@@ -795,7 +772,7 @@ export function Studio() {
 										{member.name}
 									</h3>
 									<p
-										className={css({
+										className={`${center()} ${css({
 											fontSize: 'xs',
 											fontWeight: 'black',
 											color: 'gray.400',
@@ -803,10 +780,7 @@ export function Studio() {
 											letterSpacing: '0.2em',
 											mb: '4',
 											height: '6',
-											display: 'flex',
-											alignItems: 'center',
-											justifyContent: 'center',
-										})}
+										})}`}
 									>
 										{member.role}
 									</p>
@@ -825,14 +799,11 @@ export function Studio() {
 									</p>
 
 									<div
-										className={css({
+										className={`${center()} ${css({
 											pt: '4',
 											borderTop: '1px solid',
 											borderColor: 'gray.50',
-											display: 'flex',
-											alignItems: 'center',
-											justifyContent: 'center',
-										})}
+										})}`}
 									>
 										<a
 											href="#"
@@ -898,7 +869,7 @@ export function Studio() {
 						Évaluons ensemble la squad dont vous avez besoin pour passer au
 						niveau supérieur.
 					</p>
-					<div className={css({ display: 'flex', justifyContent: 'center' })}>
+					<div className={flex({ justify: 'center' })}>
 						<Button variant="cta" size="xl" to="/contact">
 							Discuter avec le Studio
 						</Button>
