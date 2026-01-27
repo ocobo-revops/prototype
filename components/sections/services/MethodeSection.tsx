@@ -1,5 +1,6 @@
 import { BarChart3, Cog, GraduationCap, Layout } from 'lucide-react';
 import type React from 'react';
+import { css } from 'styled-system/css';
 import { Grid } from '../../layout/Grid';
 import { SectionHeader } from '../../organisms';
 
@@ -26,28 +27,87 @@ const STEPS = [
 	},
 ];
 
-const MethodeSection: React.FC = () => {
+export const MethodeSection: React.FC = () => {
 	return (
-		<section className="py-24 bg-gray-50">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<SectionHeader title="Notre méthode en 4 étapes" className="mb-16" />
+		<section className={css({ py: '24', bg: 'gray.50' })}>
+			<div
+				className={css({
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+				})}
+			>
+				<SectionHeader
+					title="Notre méthode en 4 étapes"
+					className={css({ mb: '16' })}
+				/>
 				<Grid md={4} gap={6}>
 					{STEPS.map((step, i) => (
 						<div
 							key={step.title}
-							className="bg-white p-8 border border-gray-100 hover:shadow-lg transition-all group"
+							className={css({
+								bg: 'white',
+								p: '8',
+								borderWidth: '1px',
+								borderColor: 'gray.100',
+								transition: 'all',
+								_hover: { shadow: 'lg' },
+							})}
 						>
-							<div className="w-10 h-10 bg-ocobo-dark text-white flex items-center justify-center text-sm font-bold mb-6 group-hover:bg-ocobo-yellow group-hover:text-ocobo-dark transition-colors">
+							<div
+								className={css({
+									w: '10',
+									h: '10',
+									bg: 'ocobo.dark',
+									color: 'white',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									fontSize: 'sm',
+									fontWeight: 'bold',
+									mb: '6',
+									_groupHover: { bg: 'ocobo.yellow', color: 'ocobo.dark' },
+									transition: 'colors',
+								})}
+							>
 								{i + 1}
 							</div>
-							<h3 className="font-display text-xl font-bold text-ocobo-dark mb-3">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: 'xl',
+									fontWeight: 'bold',
+									color: 'ocobo.dark',
+									mb: '3',
+								})}
+							>
 								{step.title}
 							</h3>
-							<div className="pt-4 border-t border-gray-50">
-								<span className="text-xs font-black uppercase text-gray-400">
+							<div
+								className={css({
+									pt: '4',
+									borderTopWidth: '1px',
+									borderColor: 'gray.50',
+								})}
+							>
+								<span
+									className={css({
+										fontSize: 'xs',
+										fontWeight: 'black',
+										textTransform: 'uppercase',
+										color: 'gray.400',
+									})}
+								>
 									Livrables :
 								</span>
-								<p className="text-xs font-bold text-ocobo-dark mt-1">
+								<p
+									className={css({
+										fontSize: 'xs',
+										fontWeight: 'bold',
+										color: 'ocobo.dark',
+										mt: '1',
+									})}
+								>
 									{step.deliverable}
 								</p>
 							</div>
@@ -58,5 +118,3 @@ const MethodeSection: React.FC = () => {
 		</section>
 	);
 };
-
-export default MethodeSection;

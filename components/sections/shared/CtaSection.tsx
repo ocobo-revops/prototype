@@ -1,4 +1,5 @@
 import type React from 'react';
+import { css } from 'styled-system/css';
 import { Button } from '../../atoms';
 import { Container, Section } from '../../organisms';
 
@@ -20,23 +21,23 @@ const variantToSectionBg: Record<CtaVariant, 'yellow' | 'sky' | 'dark'> = {
 
 const variantStyles: Record<
 	CtaVariant,
-	{ subtitleClass: string; buttonVariant: 'cta' | 'primary' }
+	{ subtitleColor: string; buttonVariant: 'cta' | 'primary' }
 > = {
 	yellow: {
-		subtitleClass: 'text-ocobo-dark/70',
+		subtitleColor: 'ocobo.dark/70',
 		buttonVariant: 'cta',
 	},
 	sky: {
-		subtitleClass: 'text-gray-600',
+		subtitleColor: 'gray.600',
 		buttonVariant: 'cta',
 	},
 	dark: {
-		subtitleClass: 'text-white/80',
+		subtitleColor: 'white/80',
 		buttonVariant: 'primary',
 	},
 };
 
-const CtaSection: React.FC<CtaSectionProps> = ({
+export const CtaSection: React.FC<CtaSectionProps> = ({
 	variant = 'yellow',
 	title,
 	subtitle,
@@ -46,19 +47,32 @@ const CtaSection: React.FC<CtaSectionProps> = ({
 	const styles = variantStyles[variant];
 
 	return (
-		<Section bg={variantToSectionBg[variant]} className="py-32">
-			<Container narrow className="text-center">
-				<h2 className="font-display text-4xl md:text-5xl font-black mb-8 tracking-tight">
+		<Section bg={variantToSectionBg[variant]} className={css({ py: '32' })}>
+			<Container narrow className={css({ textAlign: 'center' })}>
+				<h2
+					className={css({
+						fontFamily: 'display',
+						fontSize: { base: '4xl', md: '5xl' },
+						fontWeight: 'black',
+						mb: '8',
+						letterSpacing: 'tight',
+					})}
+				>
 					{title}
 				</h2>
 				{subtitle && (
 					<p
-						className={`text-lg md:text-xl font-bold mb-12 ${styles.subtitleClass}`}
+						className={css({
+							fontSize: { base: 'lg', md: 'xl' },
+							fontWeight: 'bold',
+							mb: '12',
+							color: styles.subtitleColor,
+						})}
 					>
 						{subtitle}
 					</p>
 				)}
-				<div className="flex justify-center">
+				<div className={css({ display: 'flex', justifyContent: 'center' })}>
 					<Button variant={styles.buttonVariant} size="xl" to={ctaLink}>
 						{ctaText}
 					</Button>
@@ -67,5 +81,3 @@ const CtaSection: React.FC<CtaSectionProps> = ({
 		</Section>
 	);
 };
-
-export default CtaSection;

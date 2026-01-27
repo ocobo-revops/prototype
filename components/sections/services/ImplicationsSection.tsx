@@ -7,12 +7,13 @@ import {
 	Search,
 } from 'lucide-react';
 import type React from 'react';
+import { css } from 'styled-system/css';
 import { Grid } from '../../layout/Grid';
 
 const BLOCKS = [
 	{
 		title: 'Diagnostiquer',
-		color: 'coral',
+		color: 'coral' as const,
 		icon: <Search size={24} />,
 		items: [
 			'Analyse interactions Mkt/Sales/CS',
@@ -22,7 +23,7 @@ const BLOCKS = [
 	},
 	{
 		title: 'Aligner',
-		color: 'yellow',
+		color: 'yellow' as const,
 		icon: <Layout size={24} />,
 		items: [
 			'ICP & buyer journey',
@@ -32,7 +33,7 @@ const BLOCKS = [
 	},
 	{
 		title: 'Outiller',
-		color: 'sky',
+		color: 'sky' as const,
 		icon: <Cog size={24} />,
 		items: [
 			'Repenser / implémenter CRM',
@@ -42,13 +43,13 @@ const BLOCKS = [
 	},
 	{
 		title: 'Activer la performance',
-		color: 'mint',
+		color: 'mint' as const,
 		icon: <BarChart3 size={24} />,
 		items: ['Plans de variable', 'Objectifs et KPIs', 'Cockpit de pilotage'],
 	},
 	{
 		title: "Intégrer l'IA",
-		color: 'purple-500',
+		color: 'purple' as const,
 		icon: <Cpu size={24} />,
 		items: [
 			'Agents IA prospection',
@@ -58,7 +59,7 @@ const BLOCKS = [
 	},
 	{
 		title: 'Former & Itérer',
-		color: 'dark',
+		color: 'dark' as const,
 		icon: <GraduationCap size={24} />,
 		items: [
 			'Pipeline review, roleplay',
@@ -68,27 +69,46 @@ const BLOCKS = [
 	},
 ];
 
-const getIconBgClass = (color: string) => {
-	if (color === 'dark') return 'bg-gray-100 text-ocobo-dark';
-	if (color === 'purple-500') return 'bg-purple-50 text-purple-500';
-	return `bg-ocobo-${color}-light text-ocobo-${color}`;
+const iconBgStyles = {
+	coral: css({ bg: 'ocobo.coral.light', color: 'ocobo.coral' }),
+	yellow: css({ bg: 'ocobo.yellow.light', color: 'ocobo.yellow' }),
+	sky: css({ bg: 'ocobo.sky.light', color: 'ocobo.sky' }),
+	mint: css({ bg: 'ocobo.mint.light', color: 'ocobo.mint' }),
+	purple: css({ bg: 'purple.50', color: 'purple.500' }),
+	dark: css({ bg: 'gray.100', color: 'ocobo.dark' }),
 };
 
-const getBulletClass = (color: string) => {
-	if (color === 'dark') return 'bg-ocobo-dark';
-	if (color === 'purple-500') return 'bg-purple-500';
-	return `bg-ocobo-${color}`;
+const bulletStyles = {
+	coral: css({ bg: 'ocobo.coral' }),
+	yellow: css({ bg: 'ocobo.yellow' }),
+	sky: css({ bg: 'ocobo.sky' }),
+	mint: css({ bg: 'ocobo.mint' }),
+	purple: css({ bg: 'purple.500' }),
+	dark: css({ bg: 'ocobo.dark' }),
 };
 
-const ImplicationsSection: React.FC = () => {
+export const ImplicationsSection: React.FC = () => {
 	return (
-		<section className="py-24 bg-white">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="mb-16">
-					<h2 className="font-display text-4xl font-bold mb-6">
+		<section className={css({ py: '24', bg: 'white' })}>
+			<div
+				className={css({
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+				})}
+			>
+				<div className={css({ mb: '16' })}>
+					<h2
+						className={css({
+							fontFamily: 'display',
+							fontSize: '4xl',
+							fontWeight: 'bold',
+							mb: '6',
+						})}
+					>
 						Ce que cela implique concrètement
 					</h2>
-					<p className="text-xl text-gray-600">
+					<p className={css({ fontSize: 'xl', color: 'gray.600' })}>
 						Concrètement, voici ce que nous opérons avec vous :
 					</p>
 				</div>
@@ -97,22 +117,63 @@ const ImplicationsSection: React.FC = () => {
 					{BLOCKS.map((block) => (
 						<div
 							key={block.title}
-							className="bg-white border border-gray-100 p-8 hover:shadow-lg transition-all rounded-xl group"
+							className={css({
+								bg: 'white',
+								borderWidth: '1px',
+								borderColor: 'gray.100',
+								p: '8',
+								transition: 'all',
+								rounded: 'xl',
+								_hover: { shadow: 'lg' },
+							})}
 						>
 							<div
-								className={`w-12 h-12 mb-6 rounded-lg flex items-center justify-center ${getIconBgClass(block.color)}`}
+								className={`${css({
+									w: '12',
+									h: '12',
+									mb: '6',
+									rounded: 'lg',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+								})} ${iconBgStyles[block.color]}`}
 							>
 								{block.icon}
 							</div>
-							<h3 className="font-display font-bold text-xl mb-4">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontWeight: 'bold',
+									fontSize: 'xl',
+									mb: '4',
+								})}
+							>
 								{block.title}
 							</h3>
-							<ul className="space-y-3 text-sm text-gray-600">
+							<ul
+								className={css({
+									spaceY: '3',
+									fontSize: 'sm',
+									color: 'gray.600',
+								})}
+							>
 								{block.items.map((item) => (
-									<li key={item} className="flex items-center gap-3">
+									<li
+										key={item}
+										className={css({
+											display: 'flex',
+											alignItems: 'center',
+											gap: '3',
+										})}
+									>
 										<div
-											className={`w-1.5 h-1.5 rounded-full shrink-0 ${getBulletClass(block.color)}`}
-										></div>
+											className={`${css({
+												w: '1.5',
+												h: '1.5',
+												rounded: 'full',
+												flexShrink: '0',
+											})} ${bulletStyles[block.color]}`}
+										/>
 										{item}
 									</li>
 								))}
@@ -124,5 +185,3 @@ const ImplicationsSection: React.FC = () => {
 		</section>
 	);
 };
-
-export default ImplicationsSection;

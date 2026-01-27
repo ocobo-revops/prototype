@@ -1,4 +1,5 @@
 import type React from 'react';
+import { css } from 'styled-system/css';
 import { Button } from '../../atoms';
 import { Grid } from '../../layout/Grid';
 import { Container, Section } from '../../organisms';
@@ -22,14 +23,31 @@ const INTERVENTIONS = [
 	},
 ];
 
-const InterventionsSection: React.FC = () => {
+export const InterventionsSection: React.FC = () => {
 	return (
 		<Section bg="white">
 			<Container>
-				<h2 className="font-display text-4xl font-bold text-ocobo-dark mb-4 text-center">
+				<h2
+					className={css({
+						fontFamily: 'display',
+						fontSize: '4xl',
+						fontWeight: 'bold',
+						color: 'ocobo.dark',
+						mb: '4',
+						textAlign: 'center',
+					})}
+				>
 					Nos interventions
 				</h2>
-				<p className="text-center text-gray-600 max-w-2xl mx-auto mb-16">
+				<p
+					className={css({
+						textAlign: 'center',
+						color: 'gray.600',
+						maxW: '2xl',
+						mx: 'auto',
+						mb: '16',
+					})}
+				>
 					Nous vous aidons à construire les fondations RevOps dont dépend votre
 					croissance.
 				</p>
@@ -38,22 +56,53 @@ const InterventionsSection: React.FC = () => {
 					{INTERVENTIONS.map((intervention) => (
 						<div
 							key={intervention.number}
-							className="bg-white border border-gray-200 p-8 hover:border-ocobo-dark transition-colors group"
+							className={css({
+								bg: 'white',
+								borderWidth: '1px',
+								borderColor: 'gray.200',
+								p: '8',
+								transition: 'colors',
+								_hover: { borderColor: 'ocobo.dark' },
+							})}
 						>
-							<div className="w-12 h-12 bg-ocobo-dark text-white flex items-center justify-center mb-6">
+							<div
+								className={css({
+									w: '12',
+									h: '12',
+									bg: 'ocobo.dark',
+									color: 'white',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									mb: '6',
+								})}
+							>
 								{intervention.number}
 							</div>
-							<h3 className="font-display text-xl font-bold mb-4">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: 'xl',
+									fontWeight: 'bold',
+									mb: '4',
+								})}
+							>
 								{intervention.title}
 							</h3>
-							<p className="text-gray-600 text-sm">
+							<p className={css({ color: 'gray.600', fontSize: 'sm' })}>
 								{intervention.description}
 							</p>
 						</div>
 					))}
 				</Grid>
 
-				<div className="flex justify-center mt-12">
+				<div
+					className={css({
+						display: 'flex',
+						justifyContent: 'center',
+						mt: '12',
+					})}
+				>
 					<Button variant="outline" to="/offer">
 						Voir nos offres
 					</Button>
@@ -62,5 +111,3 @@ const InterventionsSection: React.FC = () => {
 		</Section>
 	);
 };
-
-export default InterventionsSection;

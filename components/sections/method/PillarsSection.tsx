@@ -1,5 +1,6 @@
 import { GraduationCap, Layout, LineChart, Sliders } from 'lucide-react';
 import type React from 'react';
+import { css } from 'styled-system/css';
 import { ThemeColor } from '../../../types';
 import { Grid } from '../../layout/Grid';
 import { PillarCard } from '../../molecules';
@@ -108,20 +109,50 @@ const pillarsData = [
 	},
 ];
 
-const PillarsSection: React.FC = () => {
+export const PillarsSection: React.FC = () => {
 	return (
 		<Section
 			bg="gray"
-			className="border-y border-gray-100 relative overflow-hidden"
+			className={css({
+				borderTopWidth: '1px',
+				borderBottomWidth: '1px',
+				borderColor: 'gray.100',
+				position: 'relative',
+				overflow: 'hidden',
+			})}
 		>
-			<div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-dots-dark" />
+			<div
+				className={css({
+					position: 'absolute',
+					inset: '0',
+					opacity: '0.03',
+					pointerEvents: 'none',
+					bg: 'dots-dark',
+				})}
+			/>
 
-			<Container className="relative z-10">
-				<div className="mb-24 text-center">
-					<h2 className="font-display text-4xl md:text-6xl font-black mb-8 tracking-tight">
+			<Container className={css({ position: 'relative', zIndex: '10' })}>
+				<div className={css({ mb: '24', textAlign: 'center' })}>
+					<h2
+						className={css({
+							fontFamily: 'display',
+							fontSize: { base: '4xl', md: '6xl' },
+							fontWeight: 'black',
+							mb: '8',
+							letterSpacing: 'tight',
+						})}
+					>
 						The Revenue Experience System™
 					</h2>
-					<p className="text-gray-500 max-w-2xl mx-auto text-xl font-medium">
+					<p
+						className={css({
+							color: 'gray.500',
+							maxW: '2xl',
+							mx: 'auto',
+							fontSize: 'xl',
+							fontWeight: 'medium',
+						})}
+					>
 						Nous n'intervenons jamais au hasard. Nous suivons un ordre logique
 						pour garantir la stabilité de l'édifice.
 					</p>
@@ -144,5 +175,3 @@ const PillarsSection: React.FC = () => {
 		</Section>
 	);
 };
-
-export default PillarsSection;

@@ -1,92 +1,387 @@
 import type React from 'react';
+import { css } from 'styled-system/css';
 import { PyramidSection } from '../../illustrations';
 
-const SymptomsSection: React.FC = () => {
+export const SymptomsSection: React.FC = () => {
 	return (
-		<section className="pt-12 md:pt-24 pb-0 bg-white overflow-hidden">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="text-center mb-16 md:mb-24">
-					<h2 className="font-display text-3xl md:text-5xl font-bold text-ocobo-dark mb-6 leading-tight">
-						Quand la croissance s'accélère, <br className="hidden md:block" />{' '}
+		<section
+			className={css({
+				pt: { base: '12', md: '24' },
+				pb: '0',
+				bg: 'white',
+				overflow: 'hidden',
+			})}
+		>
+			<div
+				className={css({
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+				})}
+			>
+				<div
+					className={css({
+						textAlign: 'center',
+						mb: { base: '16', md: '24' },
+					})}
+				>
+					<h2
+						className={css({
+							fontFamily: 'display',
+							fontSize: { base: '3xl', md: '5xl' },
+							fontWeight: 'bold',
+							color: 'ocobo.dark',
+							mb: '6',
+							lineHeight: 'tight',
+						})}
+					>
+						Quand la croissance s'accélère,{' '}
+						<br className={css({ display: { base: 'none', md: 'block' } })} />{' '}
 						la complexité arrive.
 					</h2>
-					<p className="text-lg md:text-xl text-gray-600 font-medium">
+					<p
+						className={css({
+							fontSize: { base: 'lg', md: 'xl' },
+							color: 'gray.600',
+							fontWeight: 'medium',
+						})}
+					>
 						Dans toutes les entreprises en mouvement, les mêmes symptômes sont
 						légion :
 					</p>
 				</div>
 
 				{/* MOBILE LAYOUT (List) */}
-				<div className="md:hidden space-y-8 pb-12">
-					<div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 relative overflow-hidden">
-						<div className="absolute top-0 right-0 w-20 h-20 bg-ocobo-coral opacity-10 rounded-bl-full"></div>
-						<div className="flex items-center gap-4 mb-4">
-							<div className="w-10 h-10 bg-white border border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">
+				<div
+					className={css({
+						display: { md: 'none' },
+						spaceY: '8',
+						pb: '12',
+					})}
+				>
+					<div
+						className={css({
+							bg: 'gray.50',
+							p: '6',
+							rounded: '2xl',
+							borderWidth: '1px',
+							borderColor: 'gray.100',
+							position: 'relative',
+							overflow: 'hidden',
+						})}
+					>
+						<div
+							className={css({
+								position: 'absolute',
+								top: '0',
+								right: '0',
+								w: '20',
+								h: '20',
+								bg: 'ocobo.coral',
+								opacity: '0.1',
+								roundedBottomLeft: 'full',
+							})}
+						/>
+						<div
+							className={css({
+								display: 'flex',
+								alignItems: 'center',
+								gap: '4',
+								mb: '4',
+							})}
+						>
+							<div
+								className={css({
+									w: '10',
+									h: '10',
+									bg: 'white',
+									borderWidth: '1px',
+									borderColor: 'ocobo.dark',
+									rounded: 'full',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									fontFamily: 'display',
+									fontWeight: 'bold',
+									fontSize: 'lg',
+									shadow: 'sm',
+								})}
+							>
 								1
 							</div>
-							<h3 className="font-display text-xl font-bold text-ocobo-dark">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: 'xl',
+									fontWeight: 'bold',
+									color: 'ocobo.dark',
+								})}
+							>
 								CEO
 							</h3>
 						</div>
-						<ul className="space-y-2 text-sm text-gray-600">
-							<li className="flex items-start gap-2">
+						<ul
+							className={css({
+								spaceY: '2',
+								fontSize: 'sm',
+								color: 'gray.600',
+							})}
+						>
+							<li
+								className={css({
+									display: 'flex',
+									alignItems: 'flex-start',
+									gap: '2',
+								})}
+							>
 								• Manque de visibilité sur le business
 							</li>
 						</ul>
 					</div>
-					<div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 relative overflow-hidden">
-						<div className="absolute top-0 right-0 w-20 h-20 bg-ocobo-yellow opacity-10 rounded-bl-full"></div>
-						<div className="flex items-center gap-4 mb-4">
-							<div className="w-10 h-10 bg-white border border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">
+					<div
+						className={css({
+							bg: 'gray.50',
+							p: '6',
+							rounded: '2xl',
+							borderWidth: '1px',
+							borderColor: 'gray.100',
+							position: 'relative',
+							overflow: 'hidden',
+						})}
+					>
+						<div
+							className={css({
+								position: 'absolute',
+								top: '0',
+								right: '0',
+								w: '20',
+								h: '20',
+								bg: 'ocobo.yellow',
+								opacity: '0.1',
+								roundedBottomLeft: 'full',
+							})}
+						/>
+						<div
+							className={css({
+								display: 'flex',
+								alignItems: 'center',
+								gap: '4',
+								mb: '4',
+							})}
+						>
+							<div
+								className={css({
+									w: '10',
+									h: '10',
+									bg: 'white',
+									borderWidth: '1px',
+									borderColor: 'ocobo.dark',
+									rounded: 'full',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									fontFamily: 'display',
+									fontWeight: 'bold',
+									fontSize: 'lg',
+									shadow: 'sm',
+								})}
+							>
 								2
 							</div>
-							<h3 className="font-display text-xl font-bold text-ocobo-dark">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: 'xl',
+									fontWeight: 'bold',
+									color: 'ocobo.dark',
+								})}
+							>
 								Managers
 							</h3>
 						</div>
-						<ul className="space-y-2 text-sm text-gray-600">
-							<li className="flex items-start gap-2">• Prévisions instables</li>
+						<ul
+							className={css({
+								spaceY: '2',
+								fontSize: 'sm',
+								color: 'gray.600',
+							})}
+						>
+							<li
+								className={css({
+									display: 'flex',
+									alignItems: 'flex-start',
+									gap: '2',
+								})}
+							>
+								• Prévisions instables
+							</li>
 						</ul>
 					</div>
-					<div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 relative overflow-hidden">
-						<div className="absolute top-0 right-0 w-20 h-20 bg-ocobo-sky opacity-10 rounded-bl-full"></div>
-						<div className="flex items-center gap-4 mb-4">
-							<div className="w-10 h-10 bg-white border border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">
+					<div
+						className={css({
+							bg: 'gray.50',
+							p: '6',
+							rounded: '2xl',
+							borderWidth: '1px',
+							borderColor: 'gray.100',
+							position: 'relative',
+							overflow: 'hidden',
+						})}
+					>
+						<div
+							className={css({
+								position: 'absolute',
+								top: '0',
+								right: '0',
+								w: '20',
+								h: '20',
+								bg: 'ocobo.sky',
+								opacity: '0.1',
+								roundedBottomLeft: 'full',
+							})}
+						/>
+						<div
+							className={css({
+								display: 'flex',
+								alignItems: 'center',
+								gap: '4',
+								mb: '4',
+							})}
+						>
+							<div
+								className={css({
+									w: '10',
+									h: '10',
+									bg: 'white',
+									borderWidth: '1px',
+									borderColor: 'ocobo.dark',
+									rounded: 'full',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									fontFamily: 'display',
+									fontWeight: 'bold',
+									fontSize: 'lg',
+									shadow: 'sm',
+								})}
+							>
 								3
 							</div>
-							<h3 className="font-display text-xl font-bold text-ocobo-dark">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: 'xl',
+									fontWeight: 'bold',
+									color: 'ocobo.dark',
+								})}
+							>
 								Équipes terrain
 							</h3>
 						</div>
-						<ul className="space-y-2 text-sm text-gray-600">
-							<li className="flex items-start gap-2">
+						<ul
+							className={css({
+								spaceY: '2',
+								fontSize: 'sm',
+								color: 'gray.600',
+							})}
+						>
+							<li
+								className={css({
+									display: 'flex',
+									alignItems: 'flex-start',
+									gap: '2',
+								})}
+							>
 								• Trop d'outils, pas assez de clarté
 							</li>
 						</ul>
 					</div>
-					<div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 relative overflow-hidden">
-						<div className="absolute top-0 right-0 w-20 h-20 bg-ocobo-mint opacity-10 rounded-bl-full"></div>
-						<div className="flex items-center gap-4 mb-4">
-							<div className="w-10 h-10 bg-white border border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">
+					<div
+						className={css({
+							bg: 'gray.50',
+							p: '6',
+							rounded: '2xl',
+							borderWidth: '1px',
+							borderColor: 'gray.100',
+							position: 'relative',
+							overflow: 'hidden',
+						})}
+					>
+						<div
+							className={css({
+								position: 'absolute',
+								top: '0',
+								right: '0',
+								w: '20',
+								h: '20',
+								bg: 'ocobo.mint',
+								opacity: '0.1',
+								roundedBottomLeft: 'full',
+							})}
+						/>
+						<div
+							className={css({
+								display: 'flex',
+								alignItems: 'center',
+								gap: '4',
+								mb: '4',
+							})}
+						>
+							<div
+								className={css({
+									w: '10',
+									h: '10',
+									bg: 'white',
+									borderWidth: '1px',
+									borderColor: 'ocobo.dark',
+									rounded: 'full',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									fontFamily: 'display',
+									fontWeight: 'bold',
+									fontSize: 'lg',
+									shadow: 'sm',
+								})}
+							>
 								4
 							</div>
-							<h3 className="font-display text-xl font-bold text-ocobo-dark">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: 'xl',
+									fontWeight: 'bold',
+									color: 'ocobo.dark',
+								})}
+							>
 								Clients
 							</h3>
 						</div>
-						<ul className="space-y-2 text-sm text-gray-600">
-							<li className="flex items-start gap-2">• Expérience inégale</li>
+						<ul
+							className={css({
+								spaceY: '2',
+								fontSize: 'sm',
+								color: 'gray.600',
+							})}
+						>
+							<li
+								className={css({
+									display: 'flex',
+									alignItems: 'flex-start',
+									gap: '2',
+								})}
+							>
+								• Expérience inégale
+							</li>
 						</ul>
 					</div>
 				</div>
 
 				{/* DESKTOP LAYOUT (Pyramid Redesign) */}
-				<div className="hidden md:block">
+				<div className={css({ display: { base: 'none', md: 'block' } })}>
 					<PyramidSection />
 				</div>
 			</div>
 		</section>
 	);
 };
-
-export default SymptomsSection;

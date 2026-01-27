@@ -1,4 +1,6 @@
 import type React from 'react';
+import { css } from 'styled-system/css';
+import { grid } from 'styled-system/patterns';
 import { ThemeColor } from '../../../types';
 import ValueCard from '../../molecules/ValueCard';
 import { Container, Section } from '../../organisms';
@@ -44,15 +46,23 @@ const VALUES = [
 	},
 ];
 
-const ValuesSection: React.FC = () => {
+export const ValuesSection: React.FC = () => {
 	return (
 		<Section bg="dark">
 			<Container>
-				<h2 className="font-display text-4xl font-bold mb-16 text-center">
+				<h2
+					className={css({
+						fontFamily: 'display',
+						fontSize: '4xl',
+						fontWeight: 'bold',
+						mb: '16',
+						textAlign: 'center',
+					})}
+				>
 					Ce qui nous lie
 				</h2>
 
-				<div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
+				<div className={grid({ columns: { base: 1, md: 2 }, gap: 12 })}>
 					{VALUES.map((value) => (
 						<ValueCard
 							key={value.title}
@@ -68,5 +78,3 @@ const ValuesSection: React.FC = () => {
 		</Section>
 	);
 };
-
-export default ValuesSection;
