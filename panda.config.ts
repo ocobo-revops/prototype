@@ -197,7 +197,7 @@ const buttonRecipe = defineRecipe({
 				bg: 'ocobo.dark',
 				color: 'white',
 				_hover: {
-					bg: 'ocobo.gray',
+					bg: 'ocobo.dark/80',
 				},
 				_focusVisible: {
 					outlineColor: 'white',

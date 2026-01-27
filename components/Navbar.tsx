@@ -499,11 +499,9 @@ export function Navbar() {
 							as="link"
 							to="/contact"
 							size="sm"
-							variant={useWhiteText ? 'cta' : 'primary'}
+							variant="primary"
 							className={css({
 								display: { base: 'none', md: 'flex' },
-								bg: useWhiteText ? 'ocobo.yellow' : undefined,
-								color: useWhiteText ? 'ocobo.dark' : undefined,
 							})}
 						>
 							Prendre RDV
@@ -722,15 +720,11 @@ export function Navbar() {
 											<Button
 												as="link"
 												to="/contact"
+												variant="primary"
+												size="lg"
 												onClick={() => setIsOpen(false)}
 												className={css({
 													w: 'full',
-													py: '5!',
-													fontSize: 'sm',
-													fontWeight: '900',
-													textTransform: 'uppercase',
-													letterSpacing: '0.15em',
-													shadow: '2xl',
 												})}
 											>
 												Prendre rendez-vous
