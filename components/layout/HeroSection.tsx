@@ -3,7 +3,8 @@ import type React from 'react';
 import { css } from 'styled-system/css';
 import { center, flex } from 'styled-system/patterns';
 import type { ThemeColor } from '../../types';
-import { Badge, Button } from '../atoms';
+import { Badge } from '../atoms/Badge';
+import { Button } from '../atoms/Button';
 
 type LayoutVariant = 'centered' | 'split';
 

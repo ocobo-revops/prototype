@@ -3,7 +3,8 @@ import { css } from 'styled-system/css';
 import { grid } from 'styled-system/patterns';
 import { ThemeColor } from '../../../types';
 import { ValueCard } from '../../molecules/ValueCard';
-import { Container, Section } from '../../organisms';
+import { Container } from '../../organisms/Container';
+import { Section } from '../../organisms/Section';
 
 const VALUES = [
 	{

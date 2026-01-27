@@ -1,8 +1,9 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
 import { center, flex, grid } from 'styled-system/patterns';
-import { Button } from '../../atoms';
-import { Container, Section } from '../../organisms';
+import { Button } from '../../atoms/Button';
+import { Container } from '../../organisms/Container';
+import { Section } from '../../organisms/Section';
 
 const INTERVENTIONS = [
 	{

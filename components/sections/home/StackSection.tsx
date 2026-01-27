@@ -1,12 +1,13 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
 import { flex } from 'styled-system/patterns';
-import { Button } from '../../atoms';
+import { Button } from '../../atoms/Button';
 import {
 	DEFAULT_STACK_ITEMS,
 	ModularStackGrid,
 } from '../../layout/ModularStackGrid';
-import { Container, Section } from '../../organisms';
+import { Container } from '../../organisms/Container';
+import { Section } from '../../organisms/Section';
 
 export const StackSection: React.FC = () => {
 	return (

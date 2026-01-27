@@ -1,8 +1,9 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
 import { ClientMarquee } from '../../layout/ClientMarquee';
-import { TestimonialCard } from '../../molecules';
-import { Container, Section } from '../../organisms';
+import { TestimonialCard } from '../../molecules/TestimonialCard';
+import { Container } from '../../organisms/Container';
+import { Section } from '../../organisms/Section';
 
 const HOME_CLIENTS = [
 	'TheFork',

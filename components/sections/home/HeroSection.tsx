@@ -1,10 +1,10 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
 import { flex } from 'styled-system/patterns';
-import { Button } from '../../atoms';
+import { Button } from '../../atoms/Button';
 import { DashboardIllustration } from '../../illustrations';
 import HeroSplit from '../../layout/HeroSplit';
-import { Container } from '../../organisms';
+import { Container } from '../../organisms/Container';
 
 export const HeroSection: React.FC = () => {
 	return (

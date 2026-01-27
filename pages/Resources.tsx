@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 import { css } from 'styled-system/css';
 import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
-import { Button } from '../components/atoms';
+import { Button } from '../components/atoms/Button';
 
 export function Resources() {
 	const [activeTab, setActiveTab] = useState<

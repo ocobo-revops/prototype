@@ -18,7 +18,7 @@ import type React from 'react';
 import { Link } from 'react-router';
 import { css, cx } from 'styled-system/css';
 import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
-import { Badge } from '../components/atoms';
+import { Badge } from '../components/atoms/Badge';
 
 interface VideoStoryCardProps {
 	episode: string;
