@@ -1,0 +1,51 @@
+## Codebase Patterns
+<!--
+Reusable patterns discovered during implementation.
+Add new patterns here as you learn them.
+Read this section FIRST on each iteration.
+-->
+
+- Use pnpm, not npm
+- Panda CSS recipes defined in panda.config.ts under theme.extend.recipes
+- Run `pnpm run codegen` after modifying panda.config.ts to regenerate styled-system
+- Recipes exported from styled-system/recipes
+- Compound components use Object.assign pattern (see FlexPair, HeroSplit)
+- Named exports only, no default exports
+- Kebab-case filenames (text.tsx, icon-box.tsx)
+- Existing organisms: Section, Container, SectionHeader in components/organisms/
+
+---
+
+# Progress Log
+
+Project: Partners Style Components & Composition
+Source: specs/partners-style-components.md
+Branch: refactor/partners-style-components
+Created: 2026-01-27T10:00:00Z
+
+## Initial Setup
+- Created stories.json with 14 features
+- High priority: 8 features (recipes, core components, validation)
+- Medium priority: 6 features (section updates)
+- Low priority: 0 features
+- Ready for implementation
+
+### Feature Breakdown
+| ID | Priority | Description |
+|----|----------|-------------|
+| 1  | high     | Add text recipe |
+| 2  | high     | Create Text component |
+| 3  | high     | Add iconBox recipe |
+| 4  | high     | Create IconBox component |
+| 5  | high     | Add partnerCard recipe |
+| 6  | high     | Refactor PartnerCard compound |
+| 7  | medium   | Create FormField component |
+| 8  | medium   | Update hero-section |
+| 9  | medium   | Update philosophy-section |
+| 10 | medium   | Update partner-form |
+| 11 | medium   | Update cta-section |
+| 12 | high     | TypeScript validation |
+| 13 | high     | Build validation |
+| 14 | high     | Visual regression test |
+
+---

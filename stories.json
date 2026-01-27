@@ -1,0 +1,306 @@
+{
+	"project": {
+		"name": "Partners Style Components & Composition",
+		"branch": "refactor/partners-style-components"
+	},
+	"source_prd": "specs/partners-style-components.md",
+	"created_at": "2026-01-27T10:00:00Z",
+	"rules": [
+		"Work on ONE feature at a time",
+		"Read ## Codebase Patterns section FIRST each iteration",
+		"Only modify 'passes', 'blocked', 'blocked_reason', 'completed_at' fields",
+		"Never edit or remove feature definitions",
+		"Test end-to-end before marking passes: true",
+		"Commit after each completed feature",
+		"Add reusable patterns to TOP of progress.txt",
+		"Append feature log to BOTTOM of progress.txt",
+		"Update AGENTS.md if you learn module-specific patterns"
+	],
+	"features": [
+		{
+			"id": 1,
+			"category": "functional",
+			"priority": "high",
+			"description": "Add text recipe to panda.config.ts with typography variants",
+			"steps": [
+				"Open panda.config.ts",
+				"Add text recipe with variants: display-xl, display-lg, display-md, subtitle, body, label",
+				"Add color variants: dark, muted, white, sky, mint, yellow, coral",
+				"Run pnpm run codegen to generate styled-system/recipes",
+				"Verify text recipe is exported from styled-system/recipes"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 2,
+			"category": "functional",
+			"priority": "high",
+			"description": "Create Text atom component with polymorphic as prop",
+			"steps": [
+				"Create components/atoms/text.tsx",
+				"Import text recipe from styled-system/recipes",
+				"Implement TextProps with as, variant, color, children, className",
+				"Support tags: h1, h2, h3, h4, p, span, label",
+				"Export named function Text",
+				"Verify TypeScript compiles without errors"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 3,
+			"category": "functional",
+			"priority": "high",
+			"description": "Add iconBox recipe to panda.config.ts",
+			"steps": [
+				"Open panda.config.ts",
+				"Add iconBox recipe with base: flex, center, rounded",
+				"Add size variants: sm (8x8), md (10x10), lg (16x16)",
+				"Add variant options: solid, outline, ghost",
+				"Add color variants: default, sky, mint, yellow, coral",
+				"Run pnpm run codegen",
+				"Verify iconBox recipe is exported"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 4,
+			"category": "functional",
+			"priority": "high",
+			"description": "Create IconBox atom component",
+			"steps": [
+				"Create components/atoms/icon-box.tsx",
+				"Import iconBox recipe from styled-system/recipes",
+				"Implement IconBoxProps with size, variant, color, children, className",
+				"Export named function IconBox",
+				"Verify TypeScript compiles without errors"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 5,
+			"category": "functional",
+			"priority": "high",
+			"description": "Add partnerCard recipe with hover states",
+			"steps": [
+				"Open panda.config.ts",
+				"Add partnerCard recipe with base card styles",
+				"Add hover states for: card-logo, card-badge, card-tag, card-separator, card-link",
+				"Add animate variant (true/false) for fade-in animation",
+				"Run pnpm run codegen",
+				"Verify partnerCard recipe is exported"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 6,
+			"category": "functional",
+			"priority": "high",
+			"description": "Refactor PartnerCard as compound component",
+			"steps": [
+				"Open components/sections/partners/partner-card.tsx",
+				"Create CardContext for shared state",
+				"Extract CardRoot using partnerCard recipe",
+				"Extract CardHeader, CardLogo, CardBody, CardFooter subcomponents",
+				"Export compound component via Object.assign pattern",
+				"Update ecosystem-section.tsx to use new compound API",
+				"Verify /partners page renders correctly",
+				"Verify hover states work: logo, badges, tags, links"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 7,
+			"category": "functional",
+			"priority": "medium",
+			"description": "Create FormField atom component",
+			"steps": [
+				"Create components/atoms/form-field.tsx",
+				"Import Text component for label",
+				"Implement FormFieldProps with label, required, children",
+				"Use vstack pattern for layout",
+				"Export named function FormField",
+				"Verify TypeScript compiles"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 8,
+			"category": "functional",
+			"priority": "medium",
+			"description": "Update hero-section.tsx to use Text and Container",
+			"steps": [
+				"Open components/sections/partners/hero-section.tsx",
+				"Replace inline h1 styles with <Text as='h1' variant='display-xl'>",
+				"Replace inline p styles with <Text variant='subtitle'>",
+				"Wrap content with Section and Container organisms",
+				"Remove duplicated css({}) calls",
+				"Verify /partners page renders identically"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 9,
+			"category": "functional",
+			"priority": "medium",
+			"description": "Update philosophy-section.tsx with local style wrappers pattern",
+			"steps": [
+				"Open components/sections/partners/philosophy-section.tsx",
+				"Extract SectionContainer, DotPattern, CardContainer, CardIconBox as local style wrappers at top of file",
+				"Keep PhilosophyCard and PhilosophySection as content components below",
+				"Use <Text variant='display-lg/md'> for headings",
+				"Main components should contain only structure/content, no inline css({}) for style concerns",
+				"Verify /partners page renders identically"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 10,
+			"category": "functional",
+			"priority": "medium",
+			"description": "Update partner-form.tsx with local style wrappers and FormField",
+			"steps": [
+				"Open components/sections/partners/partner-form.tsx",
+				"Extract FormContainer, GradientBar, SubmitButton as local style wrappers at top of file",
+				"Use <FormField label='...'> atom for label + input pairs",
+				"Use <Text variant='display-md'> for headings",
+				"Use <IconBox> atom for benefit icons",
+				"Main components should contain only structure/content",
+				"Verify /partners form renders identically"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 11,
+			"category": "functional",
+			"priority": "medium",
+			"description": "Update cta-section.tsx to use Text and Section",
+			"steps": [
+				"Open components/sections/partners/cta-section.tsx",
+				"Replace inline h2 styles with <Text as='h2' variant='display-xl'>",
+				"Replace inline p styles with <Text variant='subtitle'>",
+				"Wrap with Section organism",
+				"Remove duplicated css({}) calls",
+				"Verify /partners CTA section renders identically"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 12,
+			"category": "functional",
+			"priority": "medium",
+			"description": "Update ecosystem-section.tsx to use Container",
+			"steps": [
+				"Open components/sections/partners/ecosystem-section.tsx",
+				"Wrap content with Container organism for consistent max-width and padding",
+				"Remove duplicated maxW/mx/px css({}) calls",
+				"Verify /partners ecosystem section renders identically"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 13,
+			"category": "functional",
+			"priority": "medium",
+			"description": "Extend SectionHeader to support children JSX",
+			"steps": [
+				"Open components/organisms/SectionHeader.tsx",
+				"Add children prop as alternative to title string",
+				"Support JSX content like <Text as='span' color='sky'>",
+				"Keep backward compatibility with title prop",
+				"Verify TypeScript compiles"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 14,
+			"category": "validation",
+			"priority": "high",
+			"description": "TypeScript validates all new component props",
+			"steps": [
+				"Run pnpm exec tsc --noEmit",
+				"Verify no type errors in new components",
+				"Verify recipe types are correctly inferred",
+				"Verify compound component types work"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 15,
+			"category": "validation",
+			"priority": "high",
+			"description": "Build passes with all changes",
+			"steps": [
+				"Run pnpm run build",
+				"Verify no build errors",
+				"Verify styled-system generates correctly",
+				"Verify bundle size is reasonable"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		},
+		{
+			"id": 16,
+			"category": "ui",
+			"priority": "high",
+			"description": "Visual regression test - Partners page identical",
+			"steps": [
+				"Run pnpm run dev",
+				"Navigate to /partners",
+				"Verify hero section renders correctly",
+				"Verify philosophy section 3 cards render correctly",
+				"Verify ecosystem section grid and filters work",
+				"Verify partner cards hover states work",
+				"Verify partner form section renders correctly",
+				"Verify CTA section renders correctly"
+			],
+			"passes": false,
+			"blocked": false,
+			"blocked_reason": null,
+			"completed_at": null
+		}
+	]
+}
