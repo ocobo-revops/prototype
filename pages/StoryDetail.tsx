@@ -14,7 +14,7 @@ import type React from 'react';
 import { Link, useParams } from 'react-router';
 import { css } from 'styled-system/css';
 import { center, flex, grid, vstack } from 'styled-system/patterns';
-import { Button } from '../components/atoms';
+import { Button } from '../components/atoms/Button';
 
 // biome-ignore lint/suspicious/noExplicitAny: complex story data structure
 const STORY_DATA: Record<string, any> = {

@@ -3,7 +3,8 @@ import { Calendar, Check, ChevronDown, MessageSquare } from 'lucide-react';
 import { useState } from 'react';
 import { css } from 'styled-system/css';
 import { center, flex, grid, hstack } from 'styled-system/patterns';
-import { Button, Input } from '../components/atoms';
+import { Button } from '../components/atoms/Button';
+import { Input } from '../components/atoms/Input';
 
 const teamSizeOptions = createListCollection({
 	items: [

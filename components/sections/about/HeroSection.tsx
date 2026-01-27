@@ -1,7 +1,7 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
 import { flex } from 'styled-system/patterns';
-import { Container } from '../../organisms';
+import { Container } from '../../organisms/Container';
 
 const DataIllustration = () => {
 	return (

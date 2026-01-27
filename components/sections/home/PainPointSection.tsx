@@ -4,7 +4,8 @@ import { css } from 'styled-system/css';
 import { grid } from 'styled-system/patterns';
 import { ThemeColor } from '../../../types';
 import { FeatureCard } from '../../layout/FeatureCard';
-import { Container, Section } from '../../organisms';
+import { Container } from '../../organisms/Container';
+import { Section } from '../../organisms/Section';
 
 export const PainPointSection: React.FC = () => {
 	return (

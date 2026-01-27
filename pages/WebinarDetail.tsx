@@ -9,7 +9,8 @@ import {
 import { Link, useParams } from 'react-router';
 import { css } from 'styled-system/css';
 import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
-import { Badge, Button } from '../components/atoms';
+import { Badge } from '../components/atoms/Badge';
+import { Button } from '../components/atoms/Button';
 
 export function WebinarDetail() {
 	const { slug } = useParams();

@@ -18,7 +18,7 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
 import { css } from 'styled-system/css';
 import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
-import { Badge } from '../components/atoms';
+import { Badge } from '../components/atoms/Badge';
 
 export const JobDetail: React.FC = () => {
 	const { id: _ } = useParams();

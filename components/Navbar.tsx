@@ -18,7 +18,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router';
 import { css } from 'styled-system/css';
 import { center, flex, hstack, vstack } from 'styled-system/patterns';
-import { Button } from './atoms';
+import { Button } from './atoms/Button';
 
 type DropdownItem = {
 	label: string;

@@ -1,9 +1,10 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
 import { center, flex } from 'styled-system/patterns';
-import { Button } from '../../atoms';
+import { Button } from '../../atoms/Button';
 import FlexPair from '../../layout/FlexPair';
-import { Container, Section } from '../../organisms';
+import { Container } from '../../organisms/Container';
+import { Section } from '../../organisms/Section';
 
 export const TransformationSection: React.FC = () => {
 	return (

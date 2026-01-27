@@ -3,7 +3,7 @@ import type React from 'react';
 import { Link } from 'react-router';
 import { css } from 'styled-system/css';
 import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
-import { SectionHeader } from '../../organisms';
+import { SectionHeader } from '../../organisms/SectionHeader';
 
 export const LeviersSection: React.FC = () => {
 	return (

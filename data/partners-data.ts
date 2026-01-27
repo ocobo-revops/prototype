@@ -1,0 +1,312 @@
+export type PartnerStatus = 'OFFICIAL' | 'EXPERTISE';
+
+export type PartnerCategory =
+	| 'CRM'
+	| 'AI'
+	| 'NO-CODE'
+	| 'ENABLEMENT'
+	| 'COMP'
+	| 'CS'
+	| 'SALES'
+	| 'FINANCE'
+	| 'CONTRAT';
+
+export interface Partner {
+	name: string;
+	category: PartnerCategory[];
+	color: string;
+	tags: string[];
+	logo: string;
+	desc: string;
+	status: PartnerStatus;
+	certificationLogo?: string;
+}
+
+export const categories: readonly ('TOUS' | PartnerCategory)[] = [
+	'TOUS',
+	'CRM',
+	'AI',
+	'NO-CODE',
+	'ENABLEMENT',
+	'COMP',
+	'CS',
+	'SALES',
+	'FINANCE',
+	'CONTRAT',
+] as const;
+
+export const partners: Partner[] = [
+	{
+		name: 'HubSpot',
+		category: ['CRM'],
+		color: 'ocobo-yellow',
+		tags: ['Intégration', 'CRM', 'Marketing Automation'],
+		logo: 'https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg',
+		desc: 'Plateforme complète de CRM & Marketing Automation.',
+		status: 'OFFICIAL',
+		certificationLogo:
+			'https://27107933.fs1.hubspotusercontent-eu1.net/hubfs/27107933/hubspot-platinum-partner-badge.png',
+	},
+	{
+		name: 'Vasco',
+		category: ['FINANCE'],
+		color: 'ocobo-sky',
+		tags: ['Vertical SaaS', 'Billing', 'SaaS Ops'],
+		logo: 'https://vasco.app/favicon.ico',
+		desc: "Le système d'exploitation pour bâtir et gérer votre Vertical SaaS.",
+		status: 'OFFICIAL',
+	},
+	{
+		name: 'Qobra',
+		category: ['COMP'],
+		color: 'ocobo-coral',
+		tags: ['Intégration', "Apporteur d'affaires", 'Commission Plan'],
+		logo: 'https://qobra.co/favicon.ico',
+		desc: 'Automatisation des commissions pour motiver vos équipes de vente.',
+		status: 'OFFICIAL',
+	},
+	{
+		name: 'Hyperline',
+		category: ['FINANCE'],
+		color: 'ocobo-mint',
+		tags: ['Intégration', "Apporteur d'affaires", 'Quote2Cash'],
+		logo: 'https://www.hyperline.co/favicon.ico',
+		desc: 'Billing moderne pour les modèles de revenus récurrents.',
+		status: 'OFFICIAL',
+	},
+	{
+		name: 'Folk',
+		category: ['CRM'],
+		color: 'ocobo-yellow',
+		tags: ['Intégration', 'CRM'],
+		logo: 'https://www.folk.app/apple-touch-icon.png',
+		desc: 'Le CRM intelligent et collaboratif pour centraliser vos relations.',
+		status: 'OFFICIAL',
+	},
+	{
+		name: 'Vitally',
+		category: ['CS'],
+		color: 'ocobo-sky',
+		tags: ['Intégration', 'CS Platform'],
+		logo: 'https://framerusercontent.com/images/kQ9rX6H7m0m2mY3V1W1N8U.svg',
+		desc: 'Customer Success Platform pour piloter la rétention.',
+		status: 'OFFICIAL',
+	},
+	{
+		name: 'Modjo',
+		category: ['SALES', 'AI'],
+		color: 'ocobo-mint',
+		tags: ['Intégration', 'Enablement', 'AI'],
+		logo: 'https://framerusercontent.com/images/8r0i7N1W9Tz6zY3Y3V1W1N8U.svg',
+		desc: 'Analyse conversationnelle pour coacher vos équipes.',
+		status: 'OFFICIAL',
+	},
+	{
+		name: 'Planhat',
+		category: ['CS'],
+		color: 'ocobo-sky',
+		tags: ['Intégration', 'CS Platform'],
+		logo: 'https://www.planhat.com/static/logo-icon-bc8b2f9f8c0b5f1f9b9a6c9a9d0a9b3a.svg',
+		desc: "Plateforme CS entreprise pour scaler l'expansion.",
+		status: 'OFFICIAL',
+	},
+	{
+		name: 'Dust',
+		category: ['AI'],
+		color: 'ocobo-dark',
+		tags: ['Intégration', 'AI'],
+		logo: 'https://dust.tt/static/logo_icon.png',
+		desc: "Moteur d'IA interne pour la productivité d'équipe.",
+		status: 'OFFICIAL',
+	},
+	{
+		name: 'Notion',
+		category: ['ENABLEMENT'],
+		color: 'ocobo-yellow',
+		tags: ['Documentation', 'Enablement'],
+		logo: 'https://www.vectorlogo.zone/logos/notionso/notionso-icon.svg',
+		desc: "L'outil central pour vos playbooks et process.",
+		status: 'OFFICIAL',
+	},
+	{
+		name: 'AGO',
+		category: ['AI'],
+		color: 'ocobo-sky',
+		tags: ['Intégration', 'AI'],
+		logo: 'https://framerusercontent.com/images/3m8i7N1W9Tz6zY3Y3V1W1N8U.svg',
+		desc: 'Intelligence Artificielle au service du Revenue.',
+		status: 'OFFICIAL',
+	},
+	{
+		name: 'Surfe',
+		category: ['SALES'],
+		color: 'ocobo-sky',
+		tags: ['Enrichment', 'Sales Automation'],
+		logo: 'https://framerusercontent.com/images/5r0i7N1W9Tz6zY3Y3V1W1N8U.svg',
+		desc: 'Connectez LinkedIn à votre CRM en un clic.',
+		status: 'OFFICIAL',
+	},
+	{
+		name: 'Full Enrich',
+		category: ['SALES'],
+		color: 'ocobo-sky',
+		tags: ['Enrichment', 'Intégration'],
+		logo: 'https://framerusercontent.com/images/2r0i7N1W9Tz6zY3Y3V1W1N8U.svg',
+		desc: 'Multi-enrichissement de données de contact.',
+		status: 'OFFICIAL',
+	},
+	{
+		name: 'Claap',
+		category: ['SALES'],
+		color: 'ocobo-coral',
+		tags: ['CRM Fillings', 'AI'],
+		logo: 'https://framerusercontent.com/images/6r0i7N1W9Tz6zY3Y3V1W1N8U.svg',
+		desc: 'Vidéo asynchrone et enregistrement de calls.',
+		status: 'OFFICIAL',
+	},
+	{
+		name: 'Chargebee',
+		category: ['FINANCE'],
+		color: 'ocobo-coral',
+		tags: ['Quote2Cash'],
+		logo: 'https://www.vectorlogo.zone/logos/chargebee/chargebee-icon.svg',
+		desc: 'Gestion des abonnements et facturation récurrente.',
+		status: 'OFFICIAL',
+	},
+	{
+		name: 'Aircall',
+		category: ['SALES'],
+		color: 'ocobo-mint',
+		tags: ['Intégration', 'Téléphonie'],
+		logo: 'https://www.vectorlogo.zone/logos/aircallio/aircallio-icon.svg',
+		desc: 'Téléphonie cloud intégrée nativement à vos outils.',
+		status: 'OFFICIAL',
+	},
+	{
+		name: 'Lemlist',
+		category: ['SALES'],
+		color: 'ocobo-sky',
+		tags: ['Sales Automation', 'Enrichment'],
+		logo: 'https://www.lemlist.com/hubfs/lemlist-logo-2023.svg',
+		desc: 'Prospection multicanale hautement personnalisée.',
+		status: 'OFFICIAL',
+	},
+	{
+		name: 'Oneflow',
+		category: ['CONTRAT'],
+		color: 'ocobo-dark',
+		tags: ['Contract Management'],
+		logo: 'https://framerusercontent.com/images/1r0i7N1W9Tz6zY3Y3V1W1N8U.svg',
+		desc: 'Gestion de contrats digitaux et signature.',
+		status: 'OFFICIAL',
+	},
+	{
+		name: 'Salesforce',
+		category: ['CRM'],
+		color: 'ocobo-sky',
+		tags: ['Intégration', 'CRM'],
+		logo: 'https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg',
+		desc: 'Le CRM entreprise de référence pour les stacks complexes.',
+		status: 'OFFICIAL',
+	},
+	// EXPERTISE TOOLS
+	{
+		name: 'Clay',
+		category: ['SALES', 'AI'],
+		color: 'ocobo-dark',
+		tags: ['Enrichment', 'Prospecting', 'AI'],
+		logo: 'https://www.clay.com/favicon.ico',
+		desc: "L'outil leader pour l'enrichissement de données et la prospection hyper-personnalisée via l'IA.",
+		status: 'EXPERTISE',
+	},
+	{
+		name: 'Attio',
+		category: ['CRM'],
+		color: 'ocobo-dark',
+		tags: ['CRM', 'Data-driven', 'Relationship'],
+		logo: 'https://attio.com/favicon.ico',
+		desc: 'Le CRM de nouvelle génération construit pour la flexibilité et la donnée.',
+		status: 'EXPERTISE',
+	},
+	{
+		name: 'Cargo',
+		category: ['SALES', 'NO-CODE'],
+		color: 'ocobo-coral',
+		tags: ['Revenue Workflow', 'Sales Automation', 'AI'],
+		logo: 'https://getcargo.ai/favicon.ico',
+		desc: "L'infrastructure de revenus pour orchestrer vos workflows Sales & Marketing via l'IA.",
+		status: 'EXPERTISE',
+	},
+	{
+		name: 'N8N',
+		category: ['NO-CODE'],
+		color: 'ocobo-coral',
+		tags: ['Automation', 'Workflow', 'Self-hosted'],
+		logo: 'https://n8n.io/favicon.ico',
+		desc: "Solution d'automatisation flexible et puissante pour les flux techniques.",
+		status: 'EXPERTISE',
+	},
+	{
+		name: 'Make',
+		category: ['NO-CODE'],
+		color: 'ocobo-sky',
+		tags: ['Automation', 'iPaaS', 'Workflow'],
+		logo: 'https://www.make.com/favicon.ico',
+		desc: 'Plateforme visuelle pour connecter vos applications et automatiser vos process.',
+		status: 'EXPERTISE',
+	},
+	{
+		name: 'Pipedrive',
+		category: ['CRM'],
+		color: 'ocobo-mint',
+		tags: ['CRM', 'Sales Management', 'SME'],
+		logo: 'https://www.pipedrive.com/favicon.ico',
+		desc: 'Le CRM pensé par des commerciaux pour la gestion simplifiée du pipeline.',
+		status: 'EXPERTISE',
+	},
+	{
+		name: 'Ringover',
+		category: ['SALES'],
+		color: 'ocobo-coral',
+		tags: ['Téléphonie', 'Call Center', 'SMS'],
+		logo: 'https://www.ringover.fr/favicon.ico',
+		desc: 'Solution de téléphonie cloud française intégrée à vos outils métiers.',
+		status: 'EXPERTISE',
+	},
+	{
+		name: 'Tomorro',
+		category: ['CONTRAT'],
+		color: 'ocobo-sky',
+		tags: ['CLM', 'Contract automation', 'LegalOps'],
+		logo: 'https://www.tomorro.com/favicon.ico',
+		desc: 'Simplifiez la gestion et le cycle de vie de vos contrats commerciaux.',
+		status: 'EXPERTISE',
+	},
+	{
+		name: 'Yousign',
+		category: ['CONTRAT'],
+		color: 'ocobo-mint',
+		tags: ['e-Signature', 'Legal Compliance', 'API'],
+		logo: 'https://yousign.com/favicon.ico',
+		desc: 'La solution française de signature électronique sécurisée et intuitive.',
+		status: 'EXPERTISE',
+	},
+	{
+		name: 'Pandadoc',
+		category: ['CONTRAT'],
+		color: 'ocobo-mint',
+		tags: ['Proposal', 'e-Signature', 'Quotes'],
+		logo: 'https://www.pandadoc.com/favicon.ico',
+		desc: 'Automatisation de la création, du suivi et de la signature de documents.',
+		status: 'EXPERTISE',
+	},
+	{
+		name: 'Docusign',
+		category: ['CONTRAT'],
+		color: 'ocobo-sky',
+		tags: ['e-Signature', 'Agreement Cloud'],
+		logo: 'https://www.docusign.com/favicon.ico',
+		desc: "Leader mondial de la signature électronique et de la gestion d'accords.",
+		status: 'EXPERTISE',
+	},
+];
