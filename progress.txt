@@ -428,3 +428,37 @@ Build/test:
 - Tests pass (1/1)
 
 ---
+
+## Feature 15: Remove Tailwind CSS completely
+**Status:** PASS
+**Completed:** 2026-01-27T09:51:00Z
+
+Steps completed:
+- Removed tailwindcss, @tailwindcss/postcss, autoprefixer packages
+- Deleted tailwind.config.ts
+- Removed @tailwindcss/postcss from postcss.config.js
+- Converted globals.css @apply directives to plain CSS
+- Removed @import "tailwindcss" and @config directives
+- Verified no Tailwind references remain in source code
+
+Bundle size:
+- CSS reduced from 135 kB to 80 kB (41% reduction)
+- JS unchanged at ~728 kB
+
+Build/test:
+- Build passes
+- Tests pass (1/1)
+
+---
+
+## Features 16-19: Validation checks
+**Status:** PASS
+**Completed:** 2026-01-27T09:52:00Z
+
+All validation features pass:
+- Feature 16: Build succeeds without errors
+- Feature 17: TypeScript compiles without errors
+- Feature 18: Linter passes (biome check: 103 files, no issues)
+- Feature 19: Tests pass (1/1)
+
+---
