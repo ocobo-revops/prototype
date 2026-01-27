@@ -387,7 +387,7 @@ export function Resources() {
 							</div>
 
 							<div
-								className={`${flex({ direction: 'column' })} ${css({
+								className={`${vstack()} ${css({
 									flexGrow: 1,
 								})}`}
 							>

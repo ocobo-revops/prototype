@@ -16,7 +16,7 @@ import {
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router';
 import { css } from 'styled-system/css';
-import { center, flex, hstack } from 'styled-system/patterns';
+import { center, flex, hstack, vstack } from 'styled-system/patterns';
 import { Button } from './atoms';
 
 type DropdownItem = {
@@ -611,7 +611,7 @@ export function Navbar() {
 				})}
 			>
 				<div
-					className={`${flex({ direction: 'column' })} ${css({
+					className={`${vstack()} ${css({
 						h: 'full',
 						pt: '8',
 						px: '8',

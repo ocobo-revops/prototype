@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { flex, hstack } from 'styled-system/patterns';
+import { hstack, vstack } from 'styled-system/patterns';
 import { Button } from './Button';
 
 const meta: Meta<typeof Button> = {
@@ -77,7 +77,7 @@ export const NoArrow: Story = {
 
 export const AllVariants: Story = {
 	render: () => (
-		<div className={flex({ direction: 'column', gap: '4' })}>
+		<div className={vstack({ gap: '4' })}>
 			<div className={hstack({ gap: '4' })}>
 				<Button variant="primary" size="sm">
 					Small

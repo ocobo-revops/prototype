@@ -867,7 +867,7 @@ export const Partners: React.FC = () => {
 								</div>
 
 								<div
-									className={`${flex({ direction: 'column' })} ${css({
+									className={`${vstack()} ${css({
 										mb: '6',
 										flexGrow: 1,
 									})}`}

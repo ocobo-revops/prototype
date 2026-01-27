@@ -78,8 +78,9 @@ export const Footer: React.FC = () => {
 						</div>
 						<Link
 							to="/contact"
-							className={`${hstack({ gap: '0' })} ${css({
+							className={css({
 								display: 'inline-flex',
+								alignItems: 'center',
 								fontSize: 'xs',
 								fontWeight: 'bold',
 								textTransform: 'uppercase',
@@ -91,7 +92,7 @@ export const Footer: React.FC = () => {
 								py: '3',
 								transition: 'all',
 								_hover: { bg: 'white', color: 'ocobo.dark' },
-							})}`}
+							})}
 						>
 							Prendre RDV{' '}
 							<ArrowRight className={css({ ml: '2', w: '3', h: '3' })} />
@@ -256,7 +257,7 @@ export const Footer: React.FC = () => {
 							</div>
 						</form>
 						<div
-							className={`${flex({ gap: '0', align: 'center' })} ${css({
+							className={`${flex({ align: 'center' })} ${css({
 								mt: '6',
 								fontSize: 'sm',
 								color: 'gray.400',

@@ -85,17 +85,18 @@ export function WebinarDetail() {
 				<div className={css({ mb: '12' })}>
 					<Link
 						to="/resources"
-						className={`${flex({ gap: '2', display: 'inline-flex', align: 'center' })} ${css(
-							{
-								color: 'gray.400',
-								fontWeight: 'black',
-								textTransform: 'uppercase',
-								letterSpacing: '0.2em',
-								fontSize: 'xs',
-								transition: 'color 200ms',
-								_hover: { color: 'ocobo.dark' },
-							},
-						)}`}
+						className={css({
+							display: 'inline-flex',
+							alignItems: 'center',
+							gap: '2',
+							color: 'gray.400',
+							fontWeight: 'black',
+							textTransform: 'uppercase',
+							letterSpacing: '0.2em',
+							fontSize: 'xs',
+							transition: 'color 200ms',
+							_hover: { color: 'ocobo.dark' },
+						})}
 					>
 						<ArrowLeft size={14} className={css({ mr: '2' })} /> Retour à la
 						librairie

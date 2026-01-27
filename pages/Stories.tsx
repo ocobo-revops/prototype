@@ -974,9 +974,7 @@ export const Stories: React.FC = () => {
 								</div>
 							</div>
 
-							<div
-								className={`${flex({ direction: 'column' })} ${css({ flexGrow: 1 })}`}
-							>
+							<div className={`${vstack()} ${css({ flexGrow: 1 })}`}>
 								<div className={`${hstack({ gap: '2' })} ${css({ mb: '4' })}`}>
 									<span
 										className={css({

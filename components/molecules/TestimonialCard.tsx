@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import type React from 'react';
 import { Link } from 'react-router';
 import { css } from 'styled-system/css';
-import { center, flex } from 'styled-system/patterns';
+import { center, flex, vstack } from 'styled-system/patterns';
 
 interface TestimonialCardProps {
 	quote: string;
@@ -123,7 +123,7 @@ export const TestimonialCard: React.FC<TestimonialCardProps> = ({
 						>
 							{initials}
 						</div>
-						<div className={flex({ direction: 'column' })}>
+						<div className={vstack()}>
 							<p
 								className={css({
 									color: 'white',

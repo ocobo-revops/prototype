@@ -166,7 +166,9 @@ export const JobDetail: React.FC = () => {
 				>
 					<Link
 						to="/jobs"
-						className={`${hstack({ gap: '0', display: 'inline-flex' })} ${css({
+						className={css({
+							display: 'inline-flex',
+							alignItems: 'center',
 							color: 'gray.400',
 							fontWeight: 'black',
 							textTransform: 'uppercase',
@@ -174,7 +176,7 @@ export const JobDetail: React.FC = () => {
 							fontSize: 'xs',
 							transition: 'colors',
 							_hover: { color: 'ocobo.dark' },
-						})}`}
+						})}
 					>
 						<ArrowLeft size={14} className={css({ mr: '2' })} /> Retour aux
 						offres
@@ -688,14 +690,14 @@ export const JobDetail: React.FC = () => {
 								</p>
 
 								<form
-									className={`${flex({ direction: 'column', gap: '8' })} ${css({
+									className={`${vstack({ gap: '8' })} ${css({
 										maxW: '2xl',
 									})}`}
 								>
 									<div
 										className={grid({ columns: { base: 1, md: 2 }, gap: '6' })}
 									>
-										<div className={flex({ direction: 'column', gap: '2' })}>
+										<div className={vstack({ gap: '2' })}>
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 											<label
 												className={css({
@@ -726,7 +728,7 @@ export const JobDetail: React.FC = () => {
 												placeholder="John Doe"
 											/>
 										</div>
-										<div className={flex({ direction: 'column', gap: '2' })}>
+										<div className={vstack({ gap: '2' })}>
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 											<label
 												className={css({
@@ -758,11 +760,9 @@ export const JobDetail: React.FC = () => {
 											/>
 										</div>
 										<div
-											className={`${flex({ direction: 'column', gap: '2' })} ${css(
-												{
-													md: { gridColumn: 'span 2' },
-												},
-											)}`}
+											className={`${vstack({ gap: '2' })} ${css({
+												md: { gridColumn: 'span 2' },
+											})}`}
 										>
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 											<label
@@ -796,7 +796,7 @@ export const JobDetail: React.FC = () => {
 										</div>
 									</div>
 
-									<div className={flex({ direction: 'column', gap: '2' })}>
+									<div className={vstack({ gap: '2' })}>
 										{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
 										<label
 											className={css({

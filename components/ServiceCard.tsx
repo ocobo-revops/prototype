@@ -1,7 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
-import { flex } from 'styled-system/patterns';
+import { vstack } from 'styled-system/patterns';
 import { ThemeColor } from '../types';
 
 interface ServiceCardProps {
@@ -52,19 +52,17 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
 
 	return (
 		<div
-			className={`${flex({ direction: 'column', justify: 'space-between' })} ${css(
-				{
-					position: 'relative',
-					p: '8',
-					h: 'full',
-					bg: currentTheme.bg,
-					borderLeftWidth: '4px',
-					borderLeftColor: currentTheme.borderColor,
-					transition: 'all',
-					transitionDuration: '300ms',
-					_hover: { shadow: 'lg' },
-				},
-			)}`}
+			className={`${vstack({ justify: 'space-between' })} ${css({
+				position: 'relative',
+				p: '8',
+				h: 'full',
+				bg: currentTheme.bg,
+				borderLeftWidth: '4px',
+				borderLeftColor: currentTheme.borderColor,
+				transition: 'all',
+				transitionDuration: '300ms',
+				_hover: { shadow: 'lg' },
+			})}`}
 		>
 			<div>
 				<div className={css({ mb: '6' })}>
@@ -109,8 +107,9 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
 
 			<div className={css({ mt: 'auto' })}>
 				<span
-					className={`${flex({ gap: '0', align: 'center' })} ${css({
+					className={css({
 						display: 'inline-flex',
+						alignItems: 'center',
 						fontSize: 'xs',
 						fontWeight: 'bold',
 						textTransform: 'uppercase',
@@ -120,7 +119,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
 						borderBottomColor: 'transparent',
 						transition: 'colors',
 						_groupHover: { color: currentTheme.hoverColor },
-					})}`}
+					})}
 				>
 					En savoir plus{' '}
 					<ArrowRight className={css({ ml: '2', w: '3', h: '3' })} />

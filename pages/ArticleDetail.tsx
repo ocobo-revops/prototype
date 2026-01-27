@@ -108,7 +108,9 @@ export const ArticleDetail: React.FC = () => {
 				>
 					<Link
 						to="/resources"
-						className={`${hstack({ display: 'inline-flex', gap: '0' })} ${css({
+						className={css({
+							display: 'inline-flex',
+							alignItems: 'center',
 							color: 'gray.400',
 							fontWeight: 'black',
 							textTransform: 'uppercase',
@@ -116,7 +118,7 @@ export const ArticleDetail: React.FC = () => {
 							fontSize: 'xs',
 							transition: 'colors',
 							_hover: { color: 'ocobo.dark' },
-						})}`}
+						})}
 					>
 						<ArrowLeft size={14} className={css({ mr: '2' })} /> Retour au blog
 					</Link>
