@@ -167,7 +167,7 @@ const hoverTextStyles: Record<string, string> = {
 };
 
 type NavDropdownItemProps = {
-	key?: React.Key; // Required for TypeScript when using in .map()
+	key?: React.Key;
 	item: DropdownItem;
 	onClose: () => void;
 };
@@ -265,7 +265,7 @@ function NavDropdownItem({ item, onClose }: NavDropdownItemProps) {
 }
 
 type NavItemWithDropdownProps = {
-	key?: React.Key; // Required for TypeScript when using in .map()
+	key?: React.Key;
 	item: NavItem;
 	isCurrentPath: boolean;
 	useWhiteText: boolean;
@@ -282,23 +282,43 @@ function NavItemWithDropdown({
 }: NavItemWithDropdownProps) {
 	const isOpen = activeDropdown === item.label;
 
-	const getThemeClasses = (isDropdownActive: boolean, isCurrent: boolean) => {
+	const getLinkStyles = (isDropdownActive: boolean, isCurrent: boolean) => {
 		if (useWhiteText) {
-			if (isDropdownActive || isCurrent) return 'text-white bg-white/10';
-			return 'text-gray-300 hover:text-white hover:bg-white/5';
+			return css({
+				px: '4',
+				py: '2',
+				rounded: 'full',
+				fontSize: 'sm',
+				fontWeight: 'bold',
+				transition: 'all',
+				transitionDuration: '300ms',
+				display: 'flex',
+				alignItems: 'center',
+				gap: '1',
+				color: isDropdownActive || isCurrent ? 'white' : 'gray.300',
+				bg: isDropdownActive || isCurrent ? 'white/10' : 'transparent',
+				_hover: { color: 'white', bg: 'white/5' },
+			});
 		}
-		if (isDropdownActive || isCurrent) {
-			return 'text-ocobo-dark font-black';
-		}
-		return 'text-gray-500 hover:text-ocobo-dark';
+		return css({
+			px: '4',
+			py: '2',
+			rounded: 'full',
+			fontSize: 'sm',
+			fontWeight: isDropdownActive || isCurrent ? '900' : 'bold',
+			transition: 'all',
+			transitionDuration: '300ms',
+			display: 'flex',
+			alignItems: 'center',
+			gap: '1',
+			color: isDropdownActive || isCurrent ? 'ocobo.dark' : 'gray.500',
+			_hover: { color: 'ocobo.dark' },
+		});
 	};
 
 	if (!item.dropdown) {
 		return (
-			<Link
-				to={item.path}
-				className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 ${getThemeClasses(false, isCurrentPath)}`}
-			>
+			<Link to={item.path} className={getLinkStyles(false, isCurrentPath)}>
 				{item.label}
 			</Link>
 		);
@@ -326,9 +346,8 @@ function NavItemWithDropdown({
 				<Menu.Trigger asChild>
 					<Link
 						to={item.path}
-						className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 flex items-center gap-1 ${getThemeClasses(isOpen, isCurrentPath)}`}
+						className={getLinkStyles(isOpen, isCurrentPath)}
 						onClick={() => {
-							// Allow navigation on click, menu opens on hover
 							setActiveDropdown(null);
 						}}
 					>
@@ -406,14 +425,12 @@ export function Navbar() {
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
 
-	// Close menus on route change
 	// biome-ignore lint/correctness/useExhaustiveDependencies: intentionally trigger on route change
 	useEffect(() => {
 		setIsOpen(false);
 		setActiveDropdown(null);
 	}, [location.pathname]);
 
-	// Body scroll lock for mobile menu
 	useEffect(() => {
 		if (isOpen) {
 			document.body.style.overflow = 'hidden';
@@ -425,7 +442,6 @@ export function Navbar() {
 		};
 	}, [isOpen]);
 
-	// Escape key handler for dropdowns and mobile menu
 	useEffect(() => {
 		const handleEscape = (e: KeyboardEvent) => {
 			if (e.key === 'Escape') {
@@ -444,44 +460,87 @@ export function Navbar() {
 
 	const getIconThemeClasses = (color: string) => iconStyles[color] || '';
 
-	const getHoverTextColor = (color: string) => {
-		const textThemeMap: Record<string, string> = {
-			yellow: 'group-hover/item:text-ocobo-yellow',
-			coral: 'group-hover/item:text-ocobo-coral',
-			mint: 'group-hover/item:text-ocobo-mint',
-			sky: 'group-hover/item:text-ocobo-sky',
-		};
-		return textThemeMap[color] || 'group-hover/item:text-ocobo-dark';
-	};
-
 	return (
 		<>
-			<div className="fixed top-0 left-0 right-0 z-[100] flex justify-center pointer-events-none p-4 md:p-6 h-32 items-start">
+			<div
+				className={css({
+					position: 'fixed',
+					top: '0',
+					left: '0',
+					right: '0',
+					zIndex: 100,
+					display: 'flex',
+					justifyContent: 'center',
+					pointerEvents: 'none',
+					p: { base: '4', md: '6' },
+					h: '32',
+					alignItems: 'flex-start',
+				})}
+			>
 				<nav
-					className={`
-            relative w-full max-w-7xl transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] pointer-events-auto
-            ${
-							scrolled
-								? 'bg-white/80 backdrop-blur-lg border border-gray-100 shadow-soft-md rounded-3xl py-2 px-3 md:px-6 lg:max-w-5xl'
-								: 'bg-white/0 border-transparent py-4 px-0'
-						}
-            ${isOpen ? 'opacity-0 scale-95 pointer-events-none' : 'opacity-100 scale-100'}
-          `}
+					className={css({
+						position: 'relative',
+						w: 'full',
+						maxW: scrolled ? '5xl' : '7xl',
+						transition: 'all',
+						transitionDuration: '700ms',
+						transitionTimingFunction: 'cubic-bezier(0.23,1,0.32,1)',
+						pointerEvents: 'auto',
+						bg: scrolled ? 'white/80' : 'transparent',
+						backdropFilter: scrolled ? 'blur(12px)' : 'none',
+						borderWidth: scrolled ? '1px' : '0',
+						borderColor: 'gray.100',
+						shadow: scrolled ? 'soft-md' : 'none',
+						rounded: scrolled ? '3xl' : 'none',
+						py: scrolled ? '2' : '4',
+						px: scrolled ? { base: '3', md: '6' } : '0',
+						opacity: isOpen ? 0 : 1,
+						transform: isOpen ? 'scale(0.95)' : 'scale(1)',
+					})}
 				>
-					<div className="flex justify-between items-center relative h-12">
+					<div
+						className={css({
+							display: 'flex',
+							justifyContent: 'space-between',
+							alignItems: 'center',
+							position: 'relative',
+							h: '12',
+						})}
+					>
 						<Link
 							to="/"
-							className="relative z-50 group flex items-center gap-2 pl-2"
+							className={css({
+								position: 'relative',
+								zIndex: 50,
+								display: 'flex',
+								alignItems: 'center',
+								gap: '2',
+								pl: '2',
+							})}
 						>
 							<img
 								src={logoUrl}
 								alt="Ocobo Logo"
-								className={`transition-all duration-700 object-contain ${scrolled ? 'h-6 md:h-7' : 'h-9 md:h-10'}`}
+								className={css({
+									transition: 'all',
+									transitionDuration: '700ms',
+									objectFit: 'contain',
+									h: scrolled
+										? { base: '6', md: '7' }
+										: { base: '9', md: '10' },
+								})}
 							/>
 						</Link>
 
 						{/* Desktop Navigation */}
-						<div className="hidden md:flex items-center gap-1 px-2">
+						<div
+							className={css({
+								display: { base: 'none', md: 'flex' },
+								alignItems: 'center',
+								gap: '1',
+								px: '2',
+							})}
+						>
 							{navigation.map((item) => (
 								<NavItemWithDropdown
 									key={item.label}
@@ -494,17 +553,41 @@ export function Navbar() {
 							))}
 						</div>
 
-						<div className="flex items-center gap-3">
-							<Link to="/contact" className="hidden md:block">
+						<div
+							className={css({
+								display: 'flex',
+								alignItems: 'center',
+								gap: '3',
+							})}
+						>
+							<Link
+								to="/contact"
+								className={css({ display: { base: 'none', md: 'block' } })}
+							>
 								<Button
-									className={`!py-2 !px-5 text-xs font-black uppercase tracking-widest border-none transition-all duration-700
-                  ${
-										scrolled
-											? 'bg-ocobo-dark text-white shadow-none scale-95'
+									className={css({
+										py: '2!',
+										px: '5!',
+										fontSize: 'xs',
+										fontWeight: '900',
+										textTransform: 'uppercase',
+										letterSpacing: 'widest',
+										border: 'none',
+										transition: 'all',
+										transitionDuration: '700ms',
+										bg: scrolled
+											? 'ocobo.dark'
 											: useWhiteText
-												? 'bg-ocobo-yellow text-ocobo-dark shadow-xl'
-												: 'bg-ocobo-dark text-white shadow-xl'
-									}`}
+												? 'ocobo.yellow'
+												: 'ocobo.dark',
+										color: scrolled
+											? 'white'
+											: useWhiteText
+												? 'ocobo.dark'
+												: 'white',
+										shadow: scrolled ? 'none' : 'xl',
+										transform: scrolled ? 'scale(0.95)' : 'scale(1)',
+									})}
 								>
 									Prendre RDV
 								</Button>
@@ -515,7 +598,16 @@ export function Navbar() {
 								onClick={() => setIsOpen(true)}
 								aria-label="Open menu"
 								aria-expanded={isOpen}
-								className={`md:hidden relative z-50 p-2.5 rounded-full transition-colors ${useWhiteText ? 'bg-white/10 text-white' : 'bg-black/5 text-ocobo-dark'}`}
+								className={css({
+									display: { base: 'block', md: 'none' },
+									position: 'relative',
+									zIndex: 50,
+									p: '2.5',
+									rounded: 'full',
+									transition: 'colors',
+									bg: useWhiteText ? 'white/10' : 'black/5',
+									color: useWhiteText ? 'white' : 'ocobo.dark',
+								})}
 							>
 								<MenuIcon size={20} />
 							</button>
@@ -529,47 +621,103 @@ export function Navbar() {
 				role="dialog"
 				aria-modal="true"
 				aria-label="Navigation menu"
-				className={`
-					fixed inset-0 bg-white z-[1000] md:hidden transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]
-					${isOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-8 pointer-events-none'}
-				`}
+				className={css({
+					position: 'fixed',
+					inset: '0',
+					bg: 'white',
+					zIndex: 1000,
+					display: { md: 'none' },
+					transition: 'all',
+					transitionDuration: '700ms',
+					transitionTimingFunction: 'cubic-bezier(0.23,1,0.32,1)',
+					opacity: isOpen ? 1 : 0,
+					visibility: isOpen ? 'visible' : 'hidden',
+					transform: isOpen ? 'translateY(0)' : 'translateY(32px)',
+					pointerEvents: isOpen ? 'auto' : 'none',
+				})}
 			>
-				<div className="flex flex-col h-full pt-8 px-8 pb-10">
-					<div className="flex justify-between items-center mb-10">
+				<div
+					className={css({
+						display: 'flex',
+						flexDir: 'column',
+						h: 'full',
+						pt: '8',
+						px: '8',
+						pb: '10',
+					})}
+				>
+					<div
+						className={css({
+							display: 'flex',
+							justifyContent: 'space-between',
+							alignItems: 'center',
+							mb: '10',
+						})}
+					>
 						<img
 							src="https://27107933.fs1.hubspotusercontent-eu1.net/hubfs/27107933/logo-ocobo-web_full-main%20color.png"
 							alt="Ocobo Logo"
-							className="h-8"
+							className={css({ h: '8' })}
 						/>
 						<button
 							type="button"
 							onClick={() => setIsOpen(false)}
 							aria-label="Close menu"
-							className="p-2 text-ocobo-dark bg-gray-50 rounded-full active:scale-90 transition-transform"
+							className={css({
+								p: '2',
+								color: 'ocobo.dark',
+								bg: 'gray.50',
+								rounded: 'full',
+								transition: 'transform',
+								_active: { transform: 'scale(0.9)' },
+							})}
 						>
 							<X size={24} />
 						</button>
 					</div>
 
-					<div className="flex-grow space-y-8 overflow-y-auto scrollbar-hide">
+					<div
+						className={css({
+							flexGrow: 1,
+							spaceY: '8',
+							overflowY: 'auto',
+						})}
+					>
 						{navigation.map((item) => (
-							<div key={item.label} className="space-y-4">
+							<div key={item.label} className={css({ spaceY: '4' })}>
 								{item.dropdown ? (
-									<div className="space-y-5">
+									<div className={css({ spaceY: '5' })}>
 										<Link
 											to={item.path}
 											onClick={() => setIsOpen(false)}
-											className="font-display text-2xl font-black block tracking-tight text-ocobo-dark"
+											className={css({
+												fontFamily: 'display',
+												fontSize: '2xl',
+												fontWeight: '900',
+												display: 'block',
+												letterSpacing: 'tight',
+												color: 'ocobo.dark',
+											})}
 										>
 											{item.label}
 										</Link>
-										<div className="space-y-5 pl-2">
+										<div className={css({ spaceY: '5', pl: '2' })}>
 											{item.dropdown.map((sub) => {
 												const isExternal = sub.path.startsWith('http');
 												const mobileLinkContent = (
 													<>
 														<div
-															className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border border-gray-50 ${getIconThemeClasses(sub.color)}`}
+															className={`${css({
+																w: '10',
+																h: '10',
+																rounded: 'xl',
+																display: 'flex',
+																alignItems: 'center',
+																justifyContent: 'center',
+																flexShrink: 0,
+																borderWidth: '1px',
+																borderColor: 'gray.50',
+															})} ${getIconThemeClasses(sub.color)}`}
 														>
 															{React.cloneElement(
 																sub.icon as React.ReactElement<{
@@ -580,11 +728,23 @@ export function Navbar() {
 														</div>
 														<div>
 															<span
-																className={`font-bold text-base block leading-tight transition-colors ${getHoverTextColor(sub.color).replace('group-hover/item:', '')}`}
+																className={css({
+																	fontWeight: 'bold',
+																	fontSize: 'base',
+																	display: 'block',
+																	lineHeight: 'tight',
+																	transition: 'colors',
+																})}
 															>
 																{sub.label}
 															</span>
-															<span className="text-xs text-gray-400 font-medium">
+															<span
+																className={css({
+																	fontSize: 'xs',
+																	color: 'gray.400',
+																	fontWeight: 'medium',
+																})}
+															>
 																{sub.description}
 															</span>
 														</div>
@@ -599,7 +759,13 @@ export function Navbar() {
 															target="_blank"
 															rel="noopener noreferrer"
 															onClick={() => setIsOpen(false)}
-															className="flex items-center gap-4 group active:translate-x-1 transition-transform"
+															className={css({
+																display: 'flex',
+																alignItems: 'center',
+																gap: '4',
+																transition: 'transform',
+																_active: { transform: 'translateX(4px)' },
+															})}
 														>
 															{mobileLinkContent}
 														</a>
@@ -611,7 +777,13 @@ export function Navbar() {
 														key={`mobile-${item.label}-${sub.label}`}
 														to={sub.path}
 														onClick={() => setIsOpen(false)}
-														className="flex items-center gap-4 group active:translate-x-1 transition-transform"
+														className={css({
+															display: 'flex',
+															alignItems: 'center',
+															gap: '4',
+															transition: 'transform',
+															_active: { transform: 'translateX(4px)' },
+														})}
 													>
 														{mobileLinkContent}
 													</Link>
@@ -623,7 +795,14 @@ export function Navbar() {
 									<Link
 										to={item.path}
 										onClick={() => setIsOpen(false)}
-										className="font-display text-2xl font-black block tracking-tight text-ocobo-dark"
+										className={css({
+											fontFamily: 'display',
+											fontSize: '2xl',
+											fontWeight: '900',
+											display: 'block',
+											letterSpacing: 'tight',
+											color: 'ocobo.dark',
+										})}
 									>
 										{item.label}
 									</Link>
@@ -632,11 +811,28 @@ export function Navbar() {
 						))}
 					</div>
 
-					<div className="mt-10">
+					<div className={css({ mt: '10' })}>
 						<Link to="/contact" onClick={() => setIsOpen(false)}>
 							<button
 								type="button"
-								className="w-full flex items-center justify-center gap-3 py-5 rounded-full bg-ocobo-dark text-white text-sm font-black uppercase tracking-[0.15em] shadow-2xl active:scale-[0.98] transition-all"
+								className={css({
+									w: 'full',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									gap: '3',
+									py: '5',
+									rounded: 'full',
+									bg: 'ocobo.dark',
+									color: 'white',
+									fontSize: 'sm',
+									fontWeight: '900',
+									textTransform: 'uppercase',
+									letterSpacing: '0.15em',
+									shadow: '2xl',
+									transition: 'all',
+									_active: { transform: 'scale(0.98)' },
+								})}
 							>
 								Prendre rendez-vous <ArrowRight size={16} />
 							</button>
