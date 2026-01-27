@@ -1,4 +1,6 @@
+import { Dialog } from '@ark-ui/react/dialog';
 import { Menu } from '@ark-ui/react/menu';
+import { Portal } from '@ark-ui/react/portal';
 import {
 	BookOpen,
 	Briefcase,
@@ -404,28 +406,6 @@ export function Navbar() {
 		setActiveDropdown(null);
 	}, [location.pathname]);
 
-	useEffect(() => {
-		if (isOpen) {
-			document.body.style.overflow = 'hidden';
-		} else {
-			document.body.style.overflow = 'unset';
-		}
-		return () => {
-			document.body.style.overflow = 'unset';
-		};
-	}, [isOpen]);
-
-	useEffect(() => {
-		const handleEscape = (e: KeyboardEvent) => {
-			if (e.key === 'Escape') {
-				setActiveDropdown(null);
-				setIsOpen(false);
-			}
-		};
-		document.addEventListener('keydown', handleEscape);
-		return () => document.removeEventListener('keydown', handleEscape);
-	}, []);
-
 	const useWhiteText = isDarkPage && !scrolled;
 	const logoUrl = useWhiteText
 		? 'https://27107933.fs1.hubspotusercontent-eu1.net/hubfs/27107933/logo-ocobo_full-white.svg'
@@ -434,333 +414,335 @@ export function Navbar() {
 	const getIconThemeClasses = (color: string) => iconStyles[color] || '';
 
 	return (
-		<>
-			<div
-				className={`${flex({ justify: 'center', align: 'flex-start' })} ${css({
-					position: 'fixed',
-					top: '0',
-					left: '0',
-					right: '0',
-					zIndex: 100,
-					pointerEvents: 'none',
-					p: { base: '4', md: '6' },
-					h: '32',
-				})}`}
-			>
-				<nav
-					className={css({
-						position: 'relative',
-						w: 'full',
-						maxW: scrolled ? '5xl' : '7xl',
-						transition: 'all',
-						transitionDuration: '700ms',
-						transitionTimingFunction: 'cubic-bezier(0.23,1,0.32,1)',
-						pointerEvents: 'auto',
-						bg: scrolled ? 'white/80' : 'transparent',
-						backdropFilter: scrolled ? 'blur(12px)' : 'none',
-						borderWidth: scrolled ? '1px' : '0',
-						borderColor: 'gray.100',
-						shadow: scrolled ? 'soft-md' : 'none',
-						rounded: scrolled ? '3xl' : 'none',
-						py: scrolled ? '2' : '4',
-						px: scrolled ? { base: '3', md: '6' } : '0',
-						opacity: isOpen ? 0 : 1,
-						transform: isOpen ? 'scale(0.95)' : 'scale(1)',
-					})}
-				>
-					<div
-						className={`${flex({ justify: 'space-between', align: 'center' })} ${css(
-							{
-								position: 'relative',
-								h: '12',
-							},
-						)}`}
-					>
-						<Link
-							to="/"
-							className={`${hstack({ gap: '2' })} ${css({
-								position: 'relative',
-								zIndex: 50,
-								pl: '2',
-							})}`}
-						>
-							<img
-								src={logoUrl}
-								alt="Ocobo Logo"
-								className={css({
-									transition: 'all',
-									transitionDuration: '700ms',
-									objectFit: 'contain',
-									h: scrolled
-										? { base: '6', md: '7' }
-										: { base: '9', md: '10' },
-								})}
-							/>
-						</Link>
-
-						{/* Desktop Navigation */}
-						<div
-							className={`${hstack({ gap: '1' })} ${css({
-								display: { base: 'none', md: 'flex' },
-								px: '2',
-							})}`}
-						>
-							{navigation.map((item) => (
-								<NavItemWithDropdown
-									key={item.label}
-									item={item}
-									isCurrentPath={location.pathname === item.path}
-									useWhiteText={useWhiteText}
-									activeDropdown={activeDropdown}
-									setActiveDropdown={setActiveDropdown}
-								/>
-							))}
-						</div>
-
-						<div className={hstack({ gap: '3' })}>
-							<Button
-								as="link"
-								to="/contact"
-								size="sm"
-								variant={useWhiteText ? 'cta' : 'primary'}
-								className={css({
-									display: { base: 'none', md: 'flex' },
-									bg: useWhiteText ? 'ocobo.yellow' : undefined,
-									color: useWhiteText ? 'ocobo.dark' : undefined,
-								})}
-							>
-								Prendre RDV
-							</Button>
-
-							<button
-								type="button"
-								onClick={() => setIsOpen(true)}
-								aria-label="Open menu"
-								aria-expanded={isOpen}
-								className={css({
-									display: { base: 'block', md: 'none' },
-									position: 'relative',
-									zIndex: 50,
-									p: '2.5',
-									rounded: 'full',
-									transition: 'colors',
-									bg: useWhiteText ? 'white/10' : 'black/5',
-									color: useWhiteText ? 'white' : 'ocobo.dark',
-								})}
-							>
-								<MenuIcon size={20} />
-							</button>
-						</div>
-					</div>
-				</nav>
-			</div>
-
-			{/* Mobile Fullscreen Menu */}
-			<div
-				role="dialog"
-				aria-modal="true"
-				aria-label="Navigation menu"
+		<div
+			className={`${flex({ justify: 'center', align: 'flex-start' })} ${css({
+				position: 'fixed',
+				top: '0',
+				left: '0',
+				right: '0',
+				zIndex: 100,
+				pointerEvents: 'none',
+				p: { base: '4', md: '6' },
+				h: '32',
+			})}`}
+		>
+			<nav
 				className={css({
-					position: 'fixed',
-					inset: '0',
-					bg: 'white',
-					zIndex: 1000,
-					display: { md: 'none' },
+					position: 'relative',
+					w: 'full',
+					maxW: scrolled ? '5xl' : '7xl',
 					transition: 'all',
 					transitionDuration: '700ms',
 					transitionTimingFunction: 'cubic-bezier(0.23,1,0.32,1)',
-					opacity: isOpen ? 1 : 0,
-					visibility: isOpen ? 'visible' : 'hidden',
-					transform: isOpen ? 'translateY(0)' : 'translateY(32px)',
-					pointerEvents: isOpen ? 'auto' : 'none',
+					pointerEvents: 'auto',
+					bg: scrolled ? 'white/80' : 'transparent',
+					backdropFilter: scrolled ? 'blur(12px)' : 'none',
+					borderWidth: scrolled ? '1px' : '0',
+					borderColor: 'gray.100',
+					shadow: scrolled ? 'soft-md' : 'none',
+					rounded: scrolled ? '3xl' : 'none',
+					py: scrolled ? '2' : '4',
+					px: scrolled ? { base: '3', md: '6' } : '0',
+					opacity: isOpen ? 0 : 1,
+					transform: isOpen ? 'scale(0.95)' : 'scale(1)',
 				})}
 			>
 				<div
-					className={`${vstack()} ${css({
-						w: 'full',
-						h: 'full',
-						pt: '8',
-						px: '8',
-						pb: '10',
-					})}`}
+					className={`${flex({ justify: 'space-between', align: 'center' })} ${css(
+						{
+							position: 'relative',
+							h: '12',
+						},
+					)}`}
 				>
-					<div
-						className={`${flex({ justify: 'space-between', align: 'center' })} ${css(
-							{
-								w: 'full',
-								mb: '10',
-							},
-						)}`}
+					<Link
+						to="/"
+						className={`${hstack({ gap: '2' })} ${css({
+							position: 'relative',
+							zIndex: 50,
+							pl: '2',
+						})}`}
 					>
 						<img
-							src="https://27107933.fs1.hubspotusercontent-eu1.net/hubfs/27107933/logo-ocobo-web_full-main%20color.png"
+							src={logoUrl}
 							alt="Ocobo Logo"
-							className={css({ h: '8' })}
-						/>
-						<button
-							type="button"
-							onClick={() => setIsOpen(false)}
-							aria-label="Close menu"
 							className={css({
-								p: '2',
-								color: 'ocobo.dark',
-								bg: 'gray.50',
-								rounded: 'full',
-								transition: 'transform',
-								_active: { transform: 'scale(0.9)' },
+								transition: 'all',
+								transitionDuration: '700ms',
+								objectFit: 'contain',
+								h: scrolled ? { base: '6', md: '7' } : { base: '9', md: '10' },
 							})}
-						>
-							<X size={24} />
-						</button>
-					</div>
+						/>
+					</Link>
 
+					{/* Desktop Navigation */}
 					<div
-						className={css({
-							w: 'full',
-							flexGrow: 1,
-							spaceY: '8',
-							overflowY: 'auto',
-						})}
+						className={`${hstack({ gap: '1' })} ${css({
+							display: { base: 'none', md: 'flex' },
+							px: '2',
+						})}`}
 					>
 						{navigation.map((item) => (
-							<div key={item.label} className={css({ spaceY: '4' })}>
-								{item.dropdown ? (
-									<div className={css({ spaceY: '5' })}>
-										<Link
-											to={item.path}
-											onClick={() => setIsOpen(false)}
-											className={css({
-												fontFamily: 'display',
-												fontSize: '2xl',
-												fontWeight: '900',
-												display: 'block',
-												letterSpacing: 'tight',
-												color: 'ocobo.dark',
-											})}
-										>
-											{item.label}
-										</Link>
-										<div className={css({ spaceY: '5', pl: '2' })}>
-											{item.dropdown.map((sub) => {
-												const isExternal = sub.path.startsWith('http');
-												const mobileLinkContent = (
-													<>
-														<div
-															className={`${center()} ${css({
-																w: '10',
-																h: '10',
-																rounded: 'xl',
-																flexShrink: 0,
-																borderWidth: '1px',
-																borderColor: 'gray.50',
-															})} ${getIconThemeClasses(sub.color)}`}
-														>
-															{React.cloneElement(
-																sub.icon as React.ReactElement<{
-																	size?: number;
-																}>,
-																{ size: 18 },
-															)}
-														</div>
-														<div>
-															<span
-																className={css({
-																	fontWeight: 'bold',
-																	fontSize: 'base',
-																	display: 'block',
-																	lineHeight: 'tight',
-																	transition: 'colors',
-																})}
-															>
-																{sub.label}
-															</span>
-															<span
-																className={css({
-																	fontSize: 'xs',
-																	color: 'gray.400',
-																	fontWeight: 'medium',
-																})}
-															>
-																{sub.description}
-															</span>
-														</div>
-													</>
-												);
-
-												if (isExternal) {
-													return (
-														<a
-															key={`mobile-${item.label}-${sub.label}`}
-															href={sub.path}
-															target="_blank"
-															rel="noopener noreferrer"
-															onClick={() => setIsOpen(false)}
-															className={`${hstack({ gap: '4' })} ${css({
-																transition: 'transform',
-																_active: { transform: 'translateX(4px)' },
-															})}`}
-														>
-															{mobileLinkContent}
-														</a>
-													);
-												}
-
-												return (
-													<Link
-														key={`mobile-${item.label}-${sub.label}`}
-														to={sub.path}
-														onClick={() => setIsOpen(false)}
-														className={`${hstack({ gap: '4' })} ${css({
-															transition: 'transform',
-															_active: { transform: 'translateX(4px)' },
-														})}`}
-													>
-														{mobileLinkContent}
-													</Link>
-												);
-											})}
-										</div>
-									</div>
-								) : (
-									<Link
-										to={item.path}
-										onClick={() => setIsOpen(false)}
-										className={css({
-											fontFamily: 'display',
-											fontSize: '2xl',
-											fontWeight: '900',
-											display: 'block',
-											letterSpacing: 'tight',
-											color: 'ocobo.dark',
-										})}
-									>
-										{item.label}
-									</Link>
-								)}
-							</div>
+							<NavItemWithDropdown
+								key={item.label}
+								item={item}
+								isCurrentPath={location.pathname === item.path}
+								useWhiteText={useWhiteText}
+								activeDropdown={activeDropdown}
+								setActiveDropdown={setActiveDropdown}
+							/>
 						))}
 					</div>
 
-					<div className={css({ w: 'full', mt: '10' })}>
+					<div className={hstack({ gap: '3' })}>
 						<Button
 							as="link"
 							to="/contact"
-							onClick={() => setIsOpen(false)}
+							size="sm"
+							variant={useWhiteText ? 'cta' : 'primary'}
 							className={css({
-								w: 'full',
-								py: '5!',
-								fontSize: 'sm',
-								fontWeight: '900',
-								textTransform: 'uppercase',
-								letterSpacing: '0.15em',
-								shadow: '2xl',
+								display: { base: 'none', md: 'flex' },
+								bg: useWhiteText ? 'ocobo.yellow' : undefined,
+								color: useWhiteText ? 'ocobo.dark' : undefined,
 							})}
 						>
-							Prendre rendez-vous
+							Prendre RDV
 						</Button>
+
+						<Dialog.Root
+							open={isOpen}
+							onOpenChange={(details) => setIsOpen(details.open)}
+						>
+							<Dialog.Trigger asChild>
+								<button
+									type="button"
+									aria-label="Open menu"
+									className={css({
+										display: { base: 'block', md: 'none' },
+										position: 'relative',
+										zIndex: 50,
+										p: '2.5',
+										rounded: 'full',
+										transition: 'colors',
+										bg: useWhiteText ? 'white/10' : 'black/5',
+										color: useWhiteText ? 'white' : 'ocobo.dark',
+									})}
+								>
+									<MenuIcon size={20} />
+								</button>
+							</Dialog.Trigger>
+							<Portal>
+								<Dialog.Positioner
+									className={css({
+										position: 'fixed',
+										inset: '0',
+										zIndex: 1000,
+										display: { md: 'none' },
+									})}
+								>
+									<Dialog.Content
+										className={`${vstack()} ${css({
+											w: 'full',
+											h: 'full',
+											bg: 'white',
+											pt: '8',
+											px: '8',
+											pb: '10',
+											outline: 'none',
+										})}`}
+									>
+										<div
+											className={`${flex({ justify: 'space-between', align: 'center' })} ${css(
+												{
+													w: 'full',
+													mb: '10',
+												},
+											)}`}
+										>
+											<img
+												src="https://27107933.fs1.hubspotusercontent-eu1.net/hubfs/27107933/logo-ocobo-web_full-main%20color.png"
+												alt="Ocobo Logo"
+												className={css({ h: '8' })}
+											/>
+											<Dialog.CloseTrigger asChild>
+												<button
+													type="button"
+													aria-label="Close menu"
+													className={css({
+														p: '2',
+														color: 'ocobo.dark',
+														bg: 'gray.50',
+														rounded: 'full',
+														transition: 'transform',
+														_active: { transform: 'scale(0.9)' },
+													})}
+												>
+													<X size={24} />
+												</button>
+											</Dialog.CloseTrigger>
+										</div>
+
+										<div
+											className={css({
+												w: 'full',
+												flexGrow: 1,
+												spaceY: '8',
+												overflowY: 'auto',
+											})}
+										>
+											{navigation.map((item) => (
+												<div key={item.label} className={css({ spaceY: '4' })}>
+													{item.dropdown ? (
+														<div className={css({ spaceY: '5' })}>
+															<Link
+																to={item.path}
+																onClick={() => setIsOpen(false)}
+																className={css({
+																	fontFamily: 'display',
+																	fontSize: '2xl',
+																	fontWeight: '900',
+																	display: 'block',
+																	letterSpacing: 'tight',
+																	color: 'ocobo.dark',
+																})}
+															>
+																{item.label}
+															</Link>
+															<div className={css({ spaceY: '5', pl: '2' })}>
+																{item.dropdown.map((sub) => {
+																	const isExternal =
+																		sub.path.startsWith('http');
+																	const mobileLinkContent = (
+																		<>
+																			<div
+																				className={`${center()} ${css({
+																					w: '10',
+																					h: '10',
+																					rounded: 'xl',
+																					flexShrink: 0,
+																					borderWidth: '1px',
+																					borderColor: 'gray.50',
+																				})} ${getIconThemeClasses(sub.color)}`}
+																			>
+																				{React.cloneElement(
+																					sub.icon as React.ReactElement<{
+																						size?: number;
+																					}>,
+																					{ size: 18 },
+																				)}
+																			</div>
+																			<div>
+																				<span
+																					className={css({
+																						fontWeight: 'bold',
+																						fontSize: 'base',
+																						display: 'block',
+																						lineHeight: 'tight',
+																						transition: 'colors',
+																					})}
+																				>
+																					{sub.label}
+																				</span>
+																				<span
+																					className={css({
+																						fontSize: 'xs',
+																						color: 'gray.400',
+																						fontWeight: 'medium',
+																					})}
+																				>
+																					{sub.description}
+																				</span>
+																			</div>
+																		</>
+																	);
+
+																	if (isExternal) {
+																		return (
+																			<a
+																				key={`mobile-${item.label}-${sub.label}`}
+																				href={sub.path}
+																				target="_blank"
+																				rel="noopener noreferrer"
+																				onClick={() => setIsOpen(false)}
+																				className={`${hstack({ gap: '4' })} ${css(
+																					{
+																						transition: 'transform',
+																						_active: {
+																							transform: 'translateX(4px)',
+																						},
+																					},
+																				)}`}
+																			>
+																				{mobileLinkContent}
+																			</a>
+																		);
+																	}
+
+																	return (
+																		<Link
+																			key={`mobile-${item.label}-${sub.label}`}
+																			to={sub.path}
+																			onClick={() => setIsOpen(false)}
+																			className={`${hstack({ gap: '4' })} ${css(
+																				{
+																					transition: 'transform',
+																					_active: {
+																						transform: 'translateX(4px)',
+																					},
+																				},
+																			)}`}
+																		>
+																			{mobileLinkContent}
+																		</Link>
+																	);
+																})}
+															</div>
+														</div>
+													) : (
+														<Link
+															to={item.path}
+															onClick={() => setIsOpen(false)}
+															className={css({
+																fontFamily: 'display',
+																fontSize: '2xl',
+																fontWeight: '900',
+																display: 'block',
+																letterSpacing: 'tight',
+																color: 'ocobo.dark',
+															})}
+														>
+															{item.label}
+														</Link>
+													)}
+												</div>
+											))}
+										</div>
+
+										<div className={css({ w: 'full', mt: '10' })}>
+											<Button
+												as="link"
+												to="/contact"
+												onClick={() => setIsOpen(false)}
+												className={css({
+													w: 'full',
+													py: '5!',
+													fontSize: 'sm',
+													fontWeight: '900',
+													textTransform: 'uppercase',
+													letterSpacing: '0.15em',
+													shadow: '2xl',
+												})}
+											>
+												Prendre rendez-vous
+											</Button>
+										</div>
+									</Dialog.Content>
+								</Dialog.Positioner>
+							</Portal>
+						</Dialog.Root>
 					</div>
 				</div>
-			</div>
-		</>
+			</nav>
+		</div>
 	);
 }
