@@ -1,71 +1,200 @@
 import { CheckCircle2 } from 'lucide-react';
 import type React from 'react';
+import { css } from 'styled-system/css';
+import { center, flex, grid } from 'styled-system/patterns';
 import { SectionHeader } from '../../organisms';
 
-const OffersDetailSection: React.FC = () => {
+export const OffersDetailSection: React.FC = () => {
 	return (
-		<section className="py-16 md:py-24 bg-white">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<section className={css({ py: { base: '16', md: '24' }, bg: 'white' })}>
+			<div
+				className={css({
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+				})}
+			>
 				<SectionHeader
 					title="Nous construisons et opérons les fondations RevOps"
 					subtitle="Nous construisons et opérons les fondations RevOps de votre organisation : process, outils, data et équipes alignés pour une croissance durable et maîtrisée."
-					className="mb-16 md:mb-24"
+					className={css({ mb: { base: '16', md: '24' } })}
 				/>
 
-				<div className="space-y-24">
+				<div className={css({ spaceY: '24' })}>
 					{/* Service 1: Audit & Cadrage */}
-					<div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
-						<div className="w-full md:w-5/12 sticky top-32">
-							<div className="w-16 h-16 bg-ocobo-yellow text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-offset mb-8">
+					<div
+						className={flex({
+							direction: { base: 'column', md: 'row' },
+							gap: { base: '12', md: '24' },
+							align: 'flex-start',
+						})}
+					>
+						<div
+							className={css({
+								w: { base: 'full', md: '5/12' },
+								position: { md: 'sticky' },
+								top: '32',
+							})}
+						>
+							<div
+								className={`${center()} ${css({
+									w: '16',
+									h: '16',
+									bg: 'ocobo.yellow',
+									color: 'ocobo.dark',
+									fontFamily: 'display',
+									fontWeight: 'bold',
+									fontSize: '2xl',
+									borderWidth: '1px',
+									borderColor: 'ocobo.dark',
+									shadow: 'offset',
+									mb: '8',
+								})}`}
+							>
 								1
 							</div>
-							<h3 className="font-display text-3xl md:text-4xl font-bold text-ocobo-dark mb-4 leading-tight">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: { base: '3xl', md: '4xl' },
+									fontWeight: 'bold',
+									color: 'ocobo.dark',
+									mb: '4',
+									lineHeight: 'tight',
+								})}
+							>
 								Immersion, cadrage et plan d'action RevOps
 							</h3>
-							<p className="text-gray-600 text-lg leading-relaxed">
+							<p
+								className={css({
+									color: 'gray.600',
+									fontSize: 'lg',
+									lineHeight: 'relaxed',
+								})}
+							>
 								La vision claire pour savoir où agir.
 							</p>
 						</div>
-						<div className="w-full md:w-7/12">
-							<div className="bg-white border border-gray-100 p-8 md:p-10 hover:shadow-2xl hover:border-ocobo-yellow transition-all duration-300 group rounded-xl">
-								<ul className="space-y-8">
-									<li className="flex gap-5 items-start">
-										<div className="mt-1 bg-ocobo-yellow-light p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
+						<div className={css({ w: { base: 'full', md: '7/12' } })}>
+							<div
+								className={css({
+									bg: 'white',
+									borderWidth: '1px',
+									borderColor: 'gray.100',
+									p: { base: '8', md: '10' },
+									transition: 'all',
+									transitionDuration: '300ms',
+									rounded: 'xl',
+									_hover: { shadow: '2xl', borderColor: 'ocobo.yellow' },
+								})}
+							>
+								<ul className={css({ spaceY: '8' })}>
+									<li className={flex({ gap: '5', align: 'flex-start' })}>
+										<div
+											className={css({
+												mt: '1',
+												bg: 'ocobo.yellow.light',
+												p: '2',
+												rounded: 'full',
+												color: 'ocobo.yellow',
+												_groupHover: { bg: 'ocobo.yellow', color: 'white' },
+												transition: 'colors',
+											})}
+										>
 											<CheckCircle2 size={18} />
 										</div>
 										<div>
-											<h4 className="font-bold text-lg text-ocobo-dark mb-2">
+											<h4
+												className={css({
+													fontWeight: 'bold',
+													fontSize: 'lg',
+													color: 'ocobo.dark',
+													mb: '2',
+												})}
+											>
 												Diagnostic transversal
 											</h4>
-											<p className="text-sm text-gray-600 leading-relaxed">
+											<p
+												className={css({
+													fontSize: 'sm',
+													color: 'gray.600',
+													lineHeight: 'relaxed',
+												})}
+											>
 												Analyse en profondeur des interactions et frictions
 												entre les départements.
 											</p>
 										</div>
 									</li>
-									<li className="flex gap-5 items-start">
-										<div className="mt-1 bg-ocobo-yellow-light p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
+									<li className={flex({ gap: '5', align: 'flex-start' })}>
+										<div
+											className={css({
+												mt: '1',
+												bg: 'ocobo.yellow.light',
+												p: '2',
+												rounded: 'full',
+												color: 'ocobo.yellow',
+												_groupHover: { bg: 'ocobo.yellow', color: 'white' },
+												transition: 'colors',
+											})}
+										>
 											<CheckCircle2 size={18} />
 										</div>
 										<div>
-											<h4 className="font-bold text-lg text-ocobo-dark mb-2">
+											<h4
+												className={css({
+													fontWeight: 'bold',
+													fontSize: 'lg',
+													color: 'ocobo.dark',
+													mb: '2',
+												})}
+											>
 												Cartographie process / outils / data
 											</h4>
-											<p className="text-sm text-gray-600 leading-relaxed">
+											<p
+												className={css({
+													fontSize: 'sm',
+													color: 'gray.600',
+													lineHeight: 'relaxed',
+												})}
+											>
 												Audit complet de l'infrastructure existante et des flux
 												de travail.
 											</p>
 										</div>
 									</li>
-									<li className="flex gap-5 items-start">
-										<div className="mt-1 bg-ocobo-yellow-light p-2 rounded-full text-ocobo-yellow group-hover:bg-ocobo-yellow group-hover:text-white transition-colors">
+									<li className={flex({ gap: '5', align: 'flex-start' })}>
+										<div
+											className={css({
+												mt: '1',
+												bg: 'ocobo.yellow.light',
+												p: '2',
+												rounded: 'full',
+												color: 'ocobo.yellow',
+												_groupHover: { bg: 'ocobo.yellow', color: 'white' },
+												transition: 'colors',
+											})}
+										>
 											<CheckCircle2 size={18} />
 										</div>
 										<div>
-											<h4 className="font-bold text-lg text-ocobo-dark mb-2">
+											<h4
+												className={css({
+													fontWeight: 'bold',
+													fontSize: 'lg',
+													color: 'ocobo.dark',
+													mb: '2',
+												})}
+											>
 												Priorisation et feuille de route
 											</h4>
-											<p className="text-sm text-gray-600 leading-relaxed">
+											<p
+												className={css({
+													fontSize: 'sm',
+													color: 'gray.600',
+													lineHeight: 'relaxed',
+												})}
+											>
 												Un plan d'attaque chiffré et priorisé pour les mois à
 												venir.
 											</p>
@@ -76,25 +205,84 @@ const OffersDetailSection: React.FC = () => {
 						</div>
 					</div>
 
-					<div className="w-full h-px bg-gray-100"></div>
+					<div className={css({ w: 'full', h: '1px', bg: 'gray.100' })} />
 
 					{/* Service 2: Déploiement */}
-					<div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
-						<div className="w-full md:w-5/12 sticky top-32">
-							<div className="w-16 h-16 bg-ocobo-coral text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-offset mb-8">
+					<div
+						className={flex({
+							direction: { base: 'column', md: 'row' },
+							gap: { base: '12', md: '24' },
+							align: 'flex-start',
+						})}
+					>
+						<div
+							className={css({
+								w: { base: 'full', md: '5/12' },
+								position: { md: 'sticky' },
+								top: '32',
+							})}
+						>
+							<div
+								className={`${center()} ${css({
+									w: '16',
+									h: '16',
+									bg: 'ocobo.coral',
+									color: 'ocobo.dark',
+									fontFamily: 'display',
+									fontWeight: 'bold',
+									fontSize: '2xl',
+									borderWidth: '1px',
+									borderColor: 'ocobo.dark',
+									shadow: 'offset',
+									mb: '8',
+								})}`}
+							>
 								2
 							</div>
-							<h3 className="font-display text-3xl md:text-4xl font-bold text-ocobo-dark mb-4 leading-tight">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: { base: '3xl', md: '4xl' },
+									fontWeight: 'bold',
+									color: 'ocobo.dark',
+									mb: '4',
+									lineHeight: 'tight',
+								})}
+							>
 								Déploiement RevOps (Agile)
 							</h3>
-							<p className="text-gray-600 text-lg leading-relaxed">
+							<p
+								className={css({
+									color: 'gray.600',
+									fontSize: 'lg',
+									lineHeight: 'relaxed',
+								})}
+							>
 								Pour opérer et structurer la machine revenue en sprints de 2
 								semaines.
 							</p>
 						</div>
-						<div className="w-full md:w-7/12">
-							<div className="bg-white border border-gray-100 p-8 md:p-10 hover:shadow-2xl hover:border-ocobo-coral transition-all duration-300 group rounded-xl">
-								<ul className="grid md:grid-cols-2 gap-y-6 gap-x-8">
+						<div className={css({ w: { base: 'full', md: '7/12' } })}>
+							<div
+								className={css({
+									bg: 'white',
+									borderWidth: '1px',
+									borderColor: 'gray.100',
+									p: { base: '8', md: '10' },
+									transition: 'all',
+									transitionDuration: '300ms',
+									rounded: 'xl',
+									_hover: { shadow: '2xl', borderColor: 'ocobo.coral' },
+								})}
+							>
+								<ul
+									className={grid({
+										columns: { md: 2 },
+										gap: 6,
+										rowGap: 6,
+										columnGap: 8,
+									})}
+								>
 									{[
 										'Funnel complet : demand gen → closing → onboarding → expansion',
 										'Process simples & adoptés',
@@ -104,11 +292,21 @@ const OffersDetailSection: React.FC = () => {
 										'Data fiable & pilotable',
 										'Rémunération variable claire, juste et motivante',
 									].map((item) => (
-										<li key={item} className="flex items-start gap-4">
-											<div className="mt-0.5 text-ocobo-coral">
+										<li
+											key={item}
+											className={flex({ align: 'flex-start', gap: '4' })}
+										>
+											<div className={css({ mt: '0.5', color: 'ocobo.coral' })}>
 												<CheckCircle2 size={18} />
 											</div>
-											<span className="font-medium text-gray-700 text-sm leading-snug">
+											<span
+												className={css({
+													fontWeight: 'medium',
+													color: 'gray.700',
+													fontSize: 'sm',
+													lineHeight: 'snug',
+												})}
+											>
 												{item}
 											</span>
 										</li>
@@ -118,76 +316,220 @@ const OffersDetailSection: React.FC = () => {
 						</div>
 					</div>
 
-					<div className="w-full h-px bg-gray-100"></div>
+					<div className={css({ w: 'full', h: '1px', bg: 'gray.100' })} />
 
 					{/* Service 3: Coaching */}
-					<div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
-						<div className="w-full md:w-5/12 sticky top-32">
-							<div className="w-16 h-16 bg-ocobo-mint text-ocobo-dark flex items-center justify-center font-display font-bold text-2xl border border-ocobo-dark shadow-offset mb-8">
+					<div
+						className={flex({
+							direction: { base: 'column', md: 'row' },
+							gap: { base: '12', md: '24' },
+							align: 'flex-start',
+						})}
+					>
+						<div
+							className={css({
+								w: { base: 'full', md: '5/12' },
+								position: { md: 'sticky' },
+								top: '32',
+							})}
+						>
+							<div
+								className={`${center()} ${css({
+									w: '16',
+									h: '16',
+									bg: 'ocobo.mint',
+									color: 'ocobo.dark',
+									fontFamily: 'display',
+									fontWeight: 'bold',
+									fontSize: '2xl',
+									borderWidth: '1px',
+									borderColor: 'ocobo.dark',
+									shadow: 'offset',
+									mb: '8',
+								})}`}
+							>
 								3
 							</div>
-							<h3 className="font-display text-3xl md:text-4xl font-bold text-ocobo-dark mb-4 leading-tight">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: { base: '3xl', md: '4xl' },
+									fontWeight: 'bold',
+									color: 'ocobo.dark',
+									mb: '4',
+									lineHeight: 'tight',
+								})}
+							>
 								Coaching & Formation
 							</h3>
-							<p className="text-gray-600 text-lg leading-relaxed">
+							<p
+								className={css({
+									color: 'gray.600',
+									fontSize: 'lg',
+									lineHeight: 'relaxed',
+								})}
+							>
 								Rendre vos équipes autonomes et capables de faire vivre le
 								système.
 							</p>
 						</div>
-						<div className="w-full md:w-7/12">
-							<div className="bg-white border border-gray-100 p-8 md:p-10 hover:shadow-2xl hover:border-ocobo-mint transition-all duration-300 group rounded-xl">
-								<ul className="space-y-8">
-									<li className="flex gap-5 items-start">
-										<div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+						<div className={css({ w: { base: 'full', md: '7/12' } })}>
+							<div
+								className={css({
+									bg: 'white',
+									borderWidth: '1px',
+									borderColor: 'gray.100',
+									p: { base: '8', md: '10' },
+									transition: 'all',
+									transitionDuration: '300ms',
+									rounded: 'xl',
+									_hover: { shadow: '2xl', borderColor: 'ocobo.mint' },
+								})}
+							>
+								<ul className={css({ spaceY: '8' })}>
+									<li className={flex({ gap: '5', align: 'flex-start' })}>
+										<div
+											className={css({
+												mt: '1',
+												bg: 'ocobo.mint.light',
+												p: '2',
+												rounded: 'full',
+												color: 'ocobo.mint',
+												_groupHover: { bg: 'ocobo.mint', color: 'white' },
+												transition: 'colors',
+											})}
+										>
 											<CheckCircle2 size={18} />
 										</div>
 										<div>
-											<h4 className="font-bold text-lg text-ocobo-dark mb-2">
+											<h4
+												className={css({
+													fontWeight: 'bold',
+													fontSize: 'lg',
+													color: 'ocobo.dark',
+													mb: '2',
+												})}
+											>
 												Acculturation RevOps pour dirigeants
 											</h4>
-											<p className="text-sm text-gray-600 leading-relaxed">
+											<p
+												className={css({
+													fontSize: 'sm',
+													color: 'gray.600',
+													lineHeight: 'relaxed',
+												})}
+											>
 												Aligner la vision stratégique et donner les clés de
 												lecture aux décideurs.
 											</p>
 										</div>
 									</li>
-									<li className="flex gap-5 items-start">
-										<div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+									<li className={flex({ gap: '5', align: 'flex-start' })}>
+										<div
+											className={css({
+												mt: '1',
+												bg: 'ocobo.mint.light',
+												p: '2',
+												rounded: 'full',
+												color: 'ocobo.mint',
+												_groupHover: { bg: 'ocobo.mint', color: 'white' },
+												transition: 'colors',
+											})}
+										>
 											<CheckCircle2 size={18} />
 										</div>
 										<div>
-											<h4 className="font-bold text-lg text-ocobo-dark mb-2">
+											<h4
+												className={css({
+													fontWeight: 'bold',
+													fontSize: 'lg',
+													color: 'ocobo.dark',
+													mb: '2',
+												})}
+											>
 												Coaching Heads (Sales / CS / RevOps)
 											</h4>
-											<p className="text-sm text-gray-600 leading-relaxed">
+											<p
+												className={css({
+													fontSize: 'sm',
+													color: 'gray.600',
+													lineHeight: 'relaxed',
+												})}
+											>
 												Accompagnement individuel des responsables pour piloter
 												l'excellence opérationnelle.
 											</p>
 										</div>
 									</li>
-									<li className="flex gap-5 items-start">
-										<div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+									<li className={flex({ gap: '5', align: 'flex-start' })}>
+										<div
+											className={css({
+												mt: '1',
+												bg: 'ocobo.mint.light',
+												p: '2',
+												rounded: 'full',
+												color: 'ocobo.mint',
+												_groupHover: { bg: 'ocobo.mint', color: 'white' },
+												transition: 'colors',
+											})}
+										>
 											<CheckCircle2 size={18} />
 										</div>
 										<div>
-											<h4 className="font-bold text-lg text-ocobo-dark mb-2">
+											<h4
+												className={css({
+													fontWeight: 'bold',
+													fontSize: 'lg',
+													color: 'ocobo.dark',
+													mb: '2',
+												})}
+											>
 												Montée en compétence des équipes
 											</h4>
-											<p className="text-sm text-gray-600 leading-relaxed">
+											<p
+												className={css({
+													fontSize: 'sm',
+													color: 'gray.600',
+													lineHeight: 'relaxed',
+												})}
+											>
 												Formation pratique aux nouveaux rituels, outils et
 												méthodes GTM.
 											</p>
 										</div>
 									</li>
-									<li className="flex gap-5 items-start">
-										<div className="mt-1 bg-ocobo-mint-light p-2 rounded-full text-ocobo-mint group-hover:bg-ocobo-mint group-hover:text-white transition-colors">
+									<li className={flex({ gap: '5', align: 'flex-start' })}>
+										<div
+											className={css({
+												mt: '1',
+												bg: 'ocobo.mint.light',
+												p: '2',
+												rounded: 'full',
+												color: 'ocobo.mint',
+												_groupHover: { bg: 'ocobo.mint', color: 'white' },
+												transition: 'colors',
+											})}
+										>
 											<CheckCircle2 size={18} />
 										</div>
 										<div>
-											<h4 className="font-bold text-lg text-ocobo-dark mb-2">
+											<h4
+												className={css({
+													fontWeight: 'bold',
+													fontSize: 'lg',
+													color: 'ocobo.dark',
+													mb: '2',
+												})}
+											>
 												Playbooks pratiques
 											</h4>
-											<p className="text-sm text-gray-600 leading-relaxed">
+											<p
+												className={css({
+													fontSize: 'sm',
+													color: 'gray.600',
+													lineHeight: 'relaxed',
+												})}
+											>
 												Création de bibles opérationnelles pour ancrer
 												durablement les process.
 											</p>
@@ -202,5 +544,3 @@ const OffersDetailSection: React.FC = () => {
 		</section>
 	);
 };
-
-export default OffersDetailSection;

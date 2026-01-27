@@ -1,11 +1,27 @@
+import { css } from 'styled-system/css';
+import { center, flex, hstack } from 'styled-system/patterns';
+
 export const PyramidSection = () => {
 	return (
-		<div className="relative w-full max-w-6xl mx-auto h-[620px]">
+		<div
+			className={css({
+				position: 'relative',
+				w: 'full',
+				maxW: '6xl',
+				mx: 'auto',
+				h: '620px',
+			})}
+		>
 			<svg
 				viewBox="0 0 1000 620"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
-				className="w-full h-full overflow-visible text-ocobo-dark"
+				className={css({
+					w: 'full',
+					h: 'full',
+					overflow: 'visible',
+					color: 'ocobo.dark',
+				})}
 			>
 				{/* Background decorative blobs - Colors synchronized with sections */}
 				<circle cx="580" cy="180" r="50" fill="#FE9C87" fillOpacity="0.25" />{' '}
@@ -96,22 +112,69 @@ export const PyramidSection = () => {
 				/>
 				<circle cx="605" cy="100" r="3.5" fill="currentColor" />
 				<foreignObject x="625" y="40" width="350" height="200">
-					<div className="flex flex-col items-start text-left">
-						<div className="flex items-center gap-4 mb-3">
-							<div className="w-10 h-10 bg-white border-2 border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">
+					<div
+						className={`${flex({ direction: 'column', align: 'flex-start' })} ${css({ textAlign: 'left' })}`}
+					>
+						<div className={hstack({ gap: '4', mb: '3' })}>
+							<div
+								className={`${center()} ${css({
+									w: '10',
+									h: '10',
+									bg: 'white',
+									borderWidth: '2px',
+									borderColor: 'ocobo.dark',
+									rounded: 'full',
+									fontFamily: 'display',
+									fontWeight: 'bold',
+									fontSize: 'lg',
+									shadow: 'sm',
+								})}`}
+							>
 								1
 							</div>
-							<h3 className="font-display font-bold text-2xl text-ocobo-dark">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontWeight: 'bold',
+									fontSize: '2xl',
+									color: 'ocobo.dark',
+								})}
+							>
 								CEO
 							</h3>
 						</div>
-						<ul className="text-sm text-gray-500 font-medium space-y-1">
-							<li className="flex items-start gap-2">
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-coral shrink-0 mt-1.5"></span>
+						<ul
+							className={css({
+								fontSize: 'sm',
+								color: 'gray.500',
+								fontWeight: 'medium',
+								spaceY: '1',
+							})}
+						>
+							<li className={flex({ gap: '2', align: 'flex-start' })}>
+								<span
+									className={css({
+										w: '1.5',
+										h: '1.5',
+										rounded: 'full',
+										bg: 'ocobo.coral',
+										flexShrink: 0,
+										mt: '1.5',
+									})}
+								/>
 								Manque de visibilité sur le business
 							</li>
-							<li className="flex items-start gap-2">
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-coral shrink-0 mt-1.5"></span>
+							<li className={flex({ gap: '2', align: 'flex-start' })}>
+								<span
+									className={css({
+										w: '1.5',
+										h: '1.5',
+										rounded: 'full',
+										bg: 'ocobo.coral',
+										flexShrink: 0,
+										mt: '1.5',
+									})}
+								/>
 								Vision difficile à traduire en actions
 							</li>
 						</ul>
@@ -126,27 +189,101 @@ export const PyramidSection = () => {
 				/>
 				<circle cx="370" cy="210" r="3.5" fill="currentColor" />
 				<foreignObject x="30" y="140" width="320" height="200">
-					<div className="flex flex-col items-end text-right pr-4">
-						<div className="flex items-center gap-4 mb-3">
-							<h3 className="font-display font-bold text-2xl text-ocobo-dark">
+					<div
+						className={`${flex({ direction: 'column', align: 'flex-end' })} ${css({ textAlign: 'right', pr: '4' })}`}
+					>
+						<div className={hstack({ gap: '4', mb: '3' })}>
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontWeight: 'bold',
+									fontSize: '2xl',
+									color: 'ocobo.dark',
+								})}
+							>
 								Managers
 							</h3>
-							<div className="w-10 h-10 bg-white border-2 border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">
+							<div
+								className={`${center()} ${css({
+									w: '10',
+									h: '10',
+									bg: 'white',
+									borderWidth: '2px',
+									borderColor: 'ocobo.dark',
+									rounded: 'full',
+									fontFamily: 'display',
+									fontWeight: 'bold',
+									fontSize: 'lg',
+									shadow: 'sm',
+								})}`}
+							>
 								2
 							</div>
 						</div>
-						<ul className="text-sm text-gray-500 font-medium space-y-1">
-							<li className="flex items-start gap-2 justify-end">
+						<ul
+							className={css({
+								fontSize: 'sm',
+								color: 'gray.500',
+								fontWeight: 'medium',
+								spaceY: '1',
+							})}
+						>
+							<li
+								className={flex({
+									gap: '2',
+									align: 'flex-start',
+									justify: 'flex-end',
+								})}
+							>
 								Prévisions instables
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-yellow shrink-0 mt-1.5"></span>
+								<span
+									className={css({
+										w: '1.5',
+										h: '1.5',
+										rounded: 'full',
+										bg: 'ocobo.yellow',
+										flexShrink: 0,
+										mt: '1.5',
+									})}
+								/>
 							</li>
-							<li className="flex items-start gap-2 justify-end">
+							<li
+								className={flex({
+									gap: '2',
+									align: 'flex-start',
+									justify: 'flex-end',
+								})}
+							>
 								Peu d'insights pour faire progresser les équipes
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-yellow shrink-0 mt-1.5"></span>
+								<span
+									className={css({
+										w: '1.5',
+										h: '1.5',
+										rounded: 'full',
+										bg: 'ocobo.yellow',
+										flexShrink: 0,
+										mt: '1.5',
+									})}
+								/>
 							</li>
-							<li className="flex items-start gap-2 justify-end">
+							<li
+								className={flex({
+									gap: '2',
+									align: 'flex-start',
+									justify: 'flex-end',
+								})}
+							>
 								Ressources mal allouées
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-yellow shrink-0 mt-1.5"></span>
+								<span
+									className={css({
+										w: '1.5',
+										h: '1.5',
+										rounded: 'full',
+										bg: 'ocobo.yellow',
+										flexShrink: 0,
+										mt: '1.5',
+									})}
+								/>
 							</li>
 						</ul>
 					</div>
@@ -160,26 +297,82 @@ export const PyramidSection = () => {
 				/>
 				<circle cx="695" cy="300" r="3.5" fill="currentColor" />
 				<foreignObject x="715" y="235" width="280" height="200">
-					<div className="flex flex-col items-start text-left">
-						<div className="flex items-center gap-4 mb-3">
-							<div className="w-10 h-10 bg-white border-2 border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">
+					<div
+						className={`${flex({ direction: 'column', align: 'flex-start' })} ${css({ textAlign: 'left' })}`}
+					>
+						<div className={hstack({ gap: '4', mb: '3' })}>
+							<div
+								className={`${center()} ${css({
+									w: '10',
+									h: '10',
+									bg: 'white',
+									borderWidth: '2px',
+									borderColor: 'ocobo.dark',
+									rounded: 'full',
+									fontFamily: 'display',
+									fontWeight: 'bold',
+									fontSize: 'lg',
+									shadow: 'sm',
+								})}`}
+							>
 								3
 							</div>
-							<h3 className="font-display font-bold text-2xl text-ocobo-dark">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontWeight: 'bold',
+									fontSize: '2xl',
+									color: 'ocobo.dark',
+								})}
+							>
 								Équipes terrain
 							</h3>
 						</div>
-						<ul className="text-sm text-gray-500 font-medium space-y-1">
-							<li className="flex items-start gap-2">
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-sky shrink-0 mt-1.5"></span>
+						<ul
+							className={css({
+								fontSize: 'sm',
+								color: 'gray.500',
+								fontWeight: 'medium',
+								spaceY: '1',
+							})}
+						>
+							<li className={flex({ gap: '2', align: 'flex-start' })}>
+								<span
+									className={css({
+										w: '1.5',
+										h: '1.5',
+										rounded: 'full',
+										bg: 'ocobo.sky',
+										flexShrink: 0,
+										mt: '1.5',
+									})}
+								/>
 								Trop d'outils, pas assez de clarté
 							</li>
-							<li className="flex items-start gap-2">
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-sky shrink-0 mt-1.5"></span>
+							<li className={flex({ gap: '2', align: 'flex-start' })}>
+								<span
+									className={css({
+										w: '1.5',
+										h: '1.5',
+										rounded: 'full',
+										bg: 'ocobo.sky',
+										flexShrink: 0,
+										mt: '1.5',
+									})}
+								/>
 								Productivité en baisse
 							</li>
-							<li className="flex items-start gap-2">
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-sky shrink-0 mt-1.5"></span>
+							<li className={flex({ gap: '2', align: 'flex-start' })}>
+								<span
+									className={css({
+										w: '1.5',
+										h: '1.5',
+										rounded: 'full',
+										bg: 'ocobo.sky',
+										flexShrink: 0,
+										mt: '1.5',
+									})}
+								/>
 								Difficulté à comprendre la stratégie
 							</li>
 						</ul>
@@ -194,25 +387,100 @@ export const PyramidSection = () => {
 				/>
 				<circle cx="280" cy="520" r="3.5" fill="currentColor" />
 				<foreignObject x="10" y="450" width="250" height="200">
-					<div className="flex flex-col items-end text-right pr-4">
-						<div className="flex items-center gap-4 mb-3">
-							<h3 className="font-display text-2xl text-ocobo-dark">Clients</h3>
-							<div className="w-10 h-10 bg-white border-2 border-ocobo-dark rounded-full flex items-center justify-center font-display font-bold text-lg shadow-sm">
+					<div
+						className={`${flex({ direction: 'column', align: 'flex-end' })} ${css({ textAlign: 'right', pr: '4' })}`}
+					>
+						<div className={hstack({ gap: '4', mb: '3' })}>
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: '2xl',
+									color: 'ocobo.dark',
+								})}
+							>
+								Clients
+							</h3>
+							<div
+								className={`${center()} ${css({
+									w: '10',
+									h: '10',
+									bg: 'white',
+									borderWidth: '2px',
+									borderColor: 'ocobo.dark',
+									rounded: 'full',
+									fontFamily: 'display',
+									fontWeight: 'bold',
+									fontSize: 'lg',
+									shadow: 'sm',
+								})}`}
+							>
 								4
 							</div>
 						</div>
-						<ul className="text-sm text-gray-500 font-medium space-y-1">
-							<li className="flex items-start gap-2 justify-end">
+						<ul
+							className={css({
+								fontSize: 'sm',
+								color: 'gray.500',
+								fontWeight: 'medium',
+								spaceY: '1',
+							})}
+						>
+							<li
+								className={flex({
+									gap: '2',
+									align: 'flex-start',
+									justify: 'flex-end',
+								})}
+							>
 								Expérience inégale
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-mint shrink-0 mt-1.5"></span>
+								<span
+									className={css({
+										w: '1.5',
+										h: '1.5',
+										rounded: 'full',
+										bg: 'ocobo.mint',
+										flexShrink: 0,
+										mt: '1.5',
+									})}
+								/>
 							</li>
-							<li className="flex items-start gap-2 justify-end">
+							<li
+								className={flex({
+									gap: '2',
+									align: 'flex-start',
+									justify: 'flex-end',
+								})}
+							>
 								Informations dispersées
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-mint shrink-0 mt-1.5"></span>
+								<span
+									className={css({
+										w: '1.5',
+										h: '1.5',
+										rounded: 'full',
+										bg: 'ocobo.mint',
+										flexShrink: 0,
+										mt: '1.5',
+									})}
+								/>
 							</li>
-							<li className="flex items-start gap-2 justify-end">
+							<li
+								className={flex({
+									gap: '2',
+									align: 'flex-start',
+									justify: 'flex-end',
+								})}
+							>
 								Frictions dans le parcours
-								<span className="w-1.5 h-1.5 rounded-full bg-ocobo-mint shrink-0 mt-1.5"></span>
+								<span
+									className={css({
+										w: '1.5',
+										h: '1.5',
+										rounded: 'full',
+										bg: 'ocobo.mint',
+										flexShrink: 0,
+										mt: '1.5',
+									})}
+								/>
 							</li>
 						</ul>
 					</div>

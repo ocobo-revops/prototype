@@ -12,6 +12,8 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 import { Link, useParams } from 'react-router';
+import { css } from 'styled-system/css';
+import { center, flex, grid, vstack } from 'styled-system/patterns';
 import { Button } from '../components/atoms';
 
 // biome-ignore lint/suspicious/noExplicitAny: complex story data structure
@@ -34,17 +36,17 @@ const STORY_DATA: Record<string, any> = {
 			{
 				label: 'Efficacité GTM',
 				value: '+50%',
-				icon: <Zap size={24} className="text-ocobo-yellow" />,
+				icon: <Zap size={24} className={css({ color: 'ocobo.yellow' })} />,
 			},
 			{
 				label: 'Fiabilité Data',
 				value: '99%',
-				icon: <BarChart3 size={24} className="text-ocobo-mint" />,
+				icon: <BarChart3 size={24} className={css({ color: 'ocobo.mint' })} />,
 			},
 			{
 				label: 'Pays couverts',
 				value: '5',
-				icon: <Compass size={24} className="text-ocobo-sky" />,
+				icon: <Compass size={24} className={css({ color: 'ocobo.sky' })} />,
 			},
 		],
 		mission: {
@@ -107,22 +109,22 @@ const STORY_DATA: Record<string, any> = {
 			{
 				label: 'Productivité CS',
 				value: '+25%',
-				icon: <Zap size={24} className="text-ocobo-mint" />,
+				icon: <Zap size={24} className={css({ color: 'ocobo.mint' })} />,
 			},
 			{
 				label: 'Adoption Outils',
 				value: '100%',
-				icon: <Users size={24} className="text-ocobo-yellow" />,
+				icon: <Users size={24} className={css({ color: 'ocobo.yellow' })} />,
 			},
 			{
 				label: 'Délai de migration',
 				value: '3 mois',
-				icon: <Clock size={24} className="text-ocobo-sky" />,
+				icon: <Clock size={24} className={css({ color: 'ocobo.sky' })} />,
 			},
 		],
 		mission: {
 			intro:
-				"Les enjeux de Combo étaient de remettre à plat l’instance Planhat actuelle pour en faire l'unique outil de référence des équipes Customer Success.",
+				"Les enjeux de Combo étaient de remettre à plat l'instance Planhat actuelle pour en faire l'unique outil de référence des équipes Customer Success.",
 			objectives: [
 				"En faire l'unique outil de référence des équipes CS",
 				'Soulage les équipes Ops et CS en termes de bande passante',
@@ -181,17 +183,19 @@ const STORY_DATA: Record<string, any> = {
 			{
 				label: 'Automatisation Report',
 				value: '100%',
-				icon: <Zap size={24} className="text-ocobo-mint" />,
+				icon: <Zap size={24} className={css({ color: 'ocobo.mint' })} />,
 			},
 			{
 				label: 'Data Accuracy',
 				value: '+40%',
-				icon: <BarChart3 size={24} className="text-ocobo-yellow" />,
+				icon: (
+					<BarChart3 size={24} className={css({ color: 'ocobo.yellow' })} />
+				),
 			},
 			{
 				label: 'Utilisateurs BI',
 				value: '500+',
-				icon: <Users size={24} className="text-ocobo-sky" />,
+				icon: <Users size={24} className={css({ color: 'ocobo.sky' })} />,
 			},
 		],
 		mission: {
@@ -243,17 +247,19 @@ const STORY_DATA: Record<string, any> = {
 			{
 				label: 'Pipeline Growth',
 				value: 'x3',
-				icon: <BarChart3 size={24} className="text-ocobo-yellow" />,
+				icon: (
+					<BarChart3 size={24} className={css({ color: 'ocobo.yellow' })} />
+				),
 			},
 			{
 				label: 'Sales Velocity',
 				value: '+30%',
-				icon: <Zap size={24} className="text-ocobo-coral" />,
+				icon: <Zap size={24} className={css({ color: 'ocobo.coral' })} />,
 			},
 			{
 				label: 'Data Integrity',
 				value: '95%',
-				icon: <Check size={24} className="text-ocobo-mint" />,
+				icon: <Check size={24} className={css({ color: 'ocobo.mint' })} />,
 			},
 		],
 		mission: {
@@ -306,17 +312,17 @@ const STORY_DATA: Record<string, any> = {
 			{
 				label: 'Saisie manuelle',
 				value: '0',
-				icon: <Zap size={24} className="text-ocobo-yellow" />,
+				icon: <Zap size={24} className={css({ color: 'ocobo.yellow' })} />,
 			},
 			{
 				label: 'Lead response time',
 				value: '-80%',
-				icon: <Clock size={24} className="text-ocobo-mint" />,
+				icon: <Clock size={24} className={css({ color: 'ocobo.mint' })} />,
 			},
 			{
 				label: 'Conversion SQL',
 				value: '+15%',
-				icon: <BarChart3 size={24} className="text-ocobo-sky" />,
+				icon: <BarChart3 size={24} className={css({ color: 'ocobo.sky' })} />,
 			},
 		],
 		mission: {
@@ -353,7 +359,7 @@ const STORY_DATA: Record<string, any> = {
 	},
 };
 
-const StoryDetail: React.FC = () => {
+export const StoryDetail: React.FC = () => {
 	const { id } = useParams();
 
 	// Fallback sur Combo si l'ID n'est pas trouvé
@@ -362,126 +368,426 @@ const StoryDetail: React.FC = () => {
 	if (!story) return null;
 
 	return (
-		<div className="w-full bg-white pt-32 pb-40">
-			<div className="fixed inset-0 opacity-[0.02] pointer-events-none -z-10 bg-dots-dark"></div>
+		<div className={css({ width: 'full', bg: 'white', pt: '32', pb: '40' })}>
+			<div
+				className={css({
+					position: 'fixed',
+					inset: '0',
+					opacity: 0.02,
+					pointerEvents: 'none',
+					zIndex: -10,
+					bg: 'dots-dark',
+				})}
+			/>
 
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="mb-12">
+			<div
+				className={css({
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+				})}
+			>
+				<div className={css({ mb: '12' })}>
 					<Link
 						to="/stories"
-						className="inline-flex items-center text-gray-400 hover:text-ocobo-dark font-black uppercase tracking-widest text-xs transition-colors"
+						className={`${flex({ gap: '2', align: 'center' })} ${css({
+							display: 'inline-flex',
+							color: 'gray.400',
+							fontWeight: 'black',
+							textTransform: 'uppercase',
+							letterSpacing: 'widest',
+							fontSize: 'xs',
+							transition: 'colors',
+							_hover: { color: 'ocobo.dark' },
+						})}`}
 					>
-						<ArrowLeft size={14} className="mr-2" /> Retour aux Success Stories
+						<ArrowLeft size={14} className={css({ mr: '2' })} /> Retour aux
+						Success Stories
 					</Link>
 				</div>
 
-				<div className="flex flex-col lg:flex-row gap-16 items-start mb-24">
-					<div className="lg:w-2/3">
-						<div className="flex items-center gap-4 mb-8">
-							<span className="font-display font-black text-xs uppercase tracking-[0.3em] text-ocobo-dark bg-ocobo-mint-light px-4 py-1.5 border border-ocobo-mint/20 rounded-full">
+				<div
+					className={`${flex({ direction: { base: 'column', lg: 'row' }, gap: '16', align: 'start' })} ${css({ mb: '24' })}`}
+				>
+					<div className={css({ lg: { w: '2/3' } })}>
+						<div
+							className={`${flex({ gap: '4', align: 'center' })} ${css({ mb: '8' })}`}
+						>
+							<span
+								className={css({
+									fontFamily: 'display',
+									fontWeight: 'black',
+									fontSize: 'xs',
+									textTransform: 'uppercase',
+									letterSpacing: '0.3em',
+									color: 'ocobo.dark',
+									bg: 'ocobo.mintLight',
+									px: '4',
+									py: '1.5',
+									borderWidth: '1px',
+									borderColor: 'ocobo.mint/20',
+									rounded: 'full',
+								})}
+							>
 								{story.segment}
 							</span>
-							<span className="w-1.5 h-1.5 rounded-full bg-ocobo-yellow"></span>
-							<span className="font-display font-black text-xs uppercase tracking-[0.3em] text-gray-400">
+							<span
+								className={css({
+									w: '1.5',
+									h: '1.5',
+									rounded: 'full',
+									bg: 'ocobo.yellow',
+								})}
+							/>
+							<span
+								className={css({
+									fontFamily: 'display',
+									fontWeight: 'black',
+									fontSize: 'xs',
+									textTransform: 'uppercase',
+									letterSpacing: '0.3em',
+									color: 'gray.400',
+								})}
+							>
 								Mission Architecture
 							</span>
 						</div>
-						<h1 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-0 leading-[0.95] tracking-tight">
+						<h1
+							className={css({
+								fontFamily: 'display',
+								fontSize: { base: '4xl', md: '6xl' },
+								fontWeight: 'black',
+								color: 'ocobo.dark',
+								mb: '0',
+								lineHeight: '0.95',
+								letterSpacing: 'tight',
+							})}
+						>
 							{story.title}
 						</h1>
 					</div>
-					<div className="lg:w-1/3 flex lg:justify-end lg:pt-20">
-						<div className="bg-ocobo-dark p-8 rounded-3xl shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+					<div
+						className={`${flex()} ${css({ lg: { w: '1/3', justifyContent: 'end', pt: '20' } })}`}
+					>
+						<div
+							className={css({
+								bg: 'ocobo.dark',
+								p: '8',
+								rounded: '3xl',
+								shadow: '2xl',
+								transform: 'rotate(2deg)',
+								transition: 'transform',
+								transitionDuration: '500ms',
+								_hover: { transform: 'rotate(0deg)' },
+							})}
+						>
 							<img
 								src={story.logo}
 								alt={story.company}
-								className="h-10 w-auto object-contain"
+								className={css({ h: '10', w: 'auto', objectFit: 'contain' })}
 							/>
 						</div>
 					</div>
 				</div>
 
-				<div className="grid md:grid-cols-3 gap-0 mb-32 border border-gray-100 bg-gray-50/30 rounded-3xl overflow-hidden">
+				<div
+					className={`${grid({ columns: { base: 1, md: 3 }, gap: '0' })} ${css({
+						mb: '32',
+						borderWidth: '1px',
+						borderColor: 'gray.100',
+						bg: 'gray.50/30',
+						rounded: '3xl',
+						overflow: 'hidden',
+					})}`}
+				>
 					{/* biome-ignore lint/suspicious/noExplicitAny: story data */}
 					{story.results.map((res: any, idx: number) => (
 						<div
 							key={res.label}
-							className={`flex flex-col items-center text-center p-12 ${idx !== 2 ? 'border-b md:border-b-0 md:border-r border-gray-100' : ''}`}
+							className={`${flex({ direction: 'column', align: 'center' })} ${css(
+								{
+									textAlign: 'center',
+									p: '12',
+									borderBottomWidth: idx !== 2 ? '1px' : '0',
+									md: { borderBottomWidth: '0' },
+									borderRightWidth: idx !== 2 ? { base: '0', md: '1px' } : '0',
+									borderColor: 'gray.100',
+								},
+							)}`}
 						>
-							<div className="mb-6 bg-white p-4 rounded-2xl shadow-sm">
+							<div
+								className={css({
+									mb: '6',
+									bg: 'white',
+									p: '4',
+									rounded: '2xl',
+									shadow: 'sm',
+								})}
+							>
 								{res.icon}
 							</div>
-							<div className="font-display text-5xl font-black text-ocobo-dark mb-2 tracking-tighter">
+							<div
+								className={css({
+									fontFamily: 'display',
+									fontSize: '5xl',
+									fontWeight: 'black',
+									color: 'ocobo.dark',
+									mb: '2',
+									letterSpacing: 'tighter',
+								})}
+							>
 								{res.value}
 							</div>
-							<div className="font-display font-black text-xs uppercase tracking-[0.3em] text-gray-400">
+							<div
+								className={css({
+									fontFamily: 'display',
+									fontWeight: 'black',
+									fontSize: 'xs',
+									textTransform: 'uppercase',
+									letterSpacing: '0.3em',
+									color: 'gray.400',
+								})}
+							>
 								{res.label}
 							</div>
 						</div>
 					))}
 				</div>
 
-				<div className="grid lg:grid-cols-12 gap-16 md:gap-24 mb-40">
-					<div className="lg:col-span-8 space-y-24">
+				<div
+					className={`${grid({ columns: { base: 1, lg: 12 }, gap: { base: '16', md: '24' } })} ${css(
+						{
+							mb: '40',
+						},
+					)}`}
+				>
+					<div
+						className={`${vstack({ gap: '24' })} ${css({ lg: { gridColumn: 'span 8' } })}`}
+					>
 						<section>
-							<div className="flex items-center gap-4 mb-10">
-								<div className="w-10 h-10 bg-ocobo-dark text-white rounded-lg flex items-center justify-center font-display font-bold">
+							<div
+								className={`${flex({ gap: '4', align: 'center' })} ${css({ mb: '10' })}`}
+							>
+								<div
+									className={`${center()} ${css({
+										w: '10',
+										h: '10',
+										bg: 'ocobo.dark',
+										color: 'white',
+										rounded: 'lg',
+										fontFamily: 'display',
+										fontWeight: 'bold',
+									})}`}
+								>
 									1
 								</div>
-								<h2 className="font-display text-3xl font-black text-ocobo-dark tracking-tight uppercase tracking-widest text-sm">
+								<h2
+									className={css({
+										fontFamily: 'display',
+										fontSize: '3xl',
+										fontWeight: 'black',
+										color: 'ocobo.dark',
+										letterSpacing: 'tight',
+										textTransform: 'uppercase',
+									})}
+								>
 									La Mission
 								</h2>
 							</div>
-							<div className="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed mb-12 border-l-4 border-ocobo-mint pl-8">
+							<div
+								className={css({
+									fontSize: { base: 'xl', md: '2xl' },
+									color: 'gray.600',
+									fontWeight: 'medium',
+									lineHeight: 'relaxed',
+									mb: '12',
+									borderLeftWidth: '4px',
+									borderColor: 'ocobo.mint',
+									pl: '8',
+								})}
+							>
 								{story.mission.intro}
 							</div>
-							<div className="grid sm:grid-cols-2 gap-6">
+							<div className={grid({ columns: { base: 1, sm: 2 }, gap: '6' })}>
 								{story.mission.objectives.map((obj: string) => (
 									<div
 										key={obj}
-										className="p-6 bg-white border border-gray-100 rounded-2xl flex items-start gap-4"
+										className={`${flex({ gap: '4', align: 'start' })} ${css({
+											p: '6',
+											bg: 'white',
+											borderWidth: '1px',
+											borderColor: 'gray.100',
+											rounded: '2xl',
+										})}`}
 									>
 										<Check
 											size={18}
-											className="text-ocobo-mint shrink-0 mt-1"
+											className={css({
+												color: 'ocobo.mint',
+												flexShrink: 0,
+												mt: '1',
+											})}
 										/>
-										<p className="text-sm font-bold text-gray-700">{obj}</p>
+										<p
+											className={css({
+												fontSize: 'sm',
+												fontWeight: 'bold',
+												color: 'gray.700',
+											})}
+										>
+											{obj}
+										</p>
 									</div>
 								))}
 							</div>
 						</section>
 
 						<section>
-							<div className="flex items-center gap-4 mb-10">
-								<div className="w-10 h-10 bg-ocobo-dark text-white rounded-lg flex items-center justify-center font-display font-bold">
+							<div
+								className={`${flex({ gap: '4', align: 'center' })} ${css({ mb: '10' })}`}
+							>
+								<div
+									className={`${center()} ${css({
+										w: '10',
+										h: '10',
+										bg: 'ocobo.dark',
+										color: 'white',
+										rounded: 'lg',
+										fontFamily: 'display',
+										fontWeight: 'bold',
+									})}`}
+								>
 									2
 								</div>
-								<h2 className="font-display text-3xl font-black text-ocobo-dark tracking-tight uppercase tracking-widest text-sm">
+								<h2
+									className={css({
+										fontFamily: 'display',
+										fontSize: '3xl',
+										fontWeight: 'black',
+										color: 'ocobo.dark',
+										letterSpacing: 'tight',
+										textTransform: 'uppercase',
+									})}
+								>
 									L'Architecture du projet
 								</h2>
 							</div>
 
-							<div className="space-y-10 relative">
-								<div className="absolute left-[2.4rem] top-10 bottom-10 w-px border-l-2 border-dashed border-gray-200"></div>
+							<div
+								className={`${vstack({ gap: '10' })} ${css({ position: 'relative' })}`}
+							>
+								<div
+									className={css({
+										position: 'absolute',
+										left: '9.6',
+										top: '10',
+										bottom: '10',
+										w: 'px',
+										borderLeftWidth: '2px',
+										borderStyle: 'dashed',
+										borderColor: 'gray.200',
+									})}
+								/>
 
 								{/* biome-ignore lint/suspicious/noExplicitAny: story data */}
 								{story.phases.map((phase: any, idx: number) => (
-									<div key={phase.title} className="relative pl-24 group">
-										<div className="absolute left-0 top-0 w-20 h-20 bg-white border-2 border-ocobo-dark rounded-3xl flex items-center justify-center font-display text-3xl font-black group-hover:bg-ocobo-dark group-hover:text-white transition-colors duration-500 shadow-xl z-10">
+									<div
+										key={phase.title}
+										className={css({
+											position: 'relative',
+											pl: '24',
+											'& .phase-box': {
+												transition: 'all',
+												transitionDuration: '500ms',
+											},
+											'& .phase-card': {
+												transition: 'all',
+												transitionDuration: '500ms',
+											},
+											'&:hover .phase-box': {
+												bg: 'ocobo.dark',
+												color: 'white',
+											},
+											'&:hover .phase-card': {
+												borderColor: 'ocobo.dark',
+												shadow: '2xl',
+											},
+										})}
+									>
+										<div
+											className={`phase-box ${center()} ${css({
+												position: 'absolute',
+												left: '0',
+												top: '0',
+												w: '20',
+												h: '20',
+												bg: 'white',
+												borderWidth: '2px',
+												borderColor: 'ocobo.dark',
+												rounded: '3xl',
+												fontFamily: 'display',
+												fontSize: '3xl',
+												fontWeight: 'black',
+												shadow: 'xl',
+												zIndex: 10,
+											})}`}
+										>
 											0{idx + 1}
 										</div>
-										<div className="p-10 bg-white border border-gray-100 rounded-3xl group-hover:border-ocobo-dark transition-all duration-500 hover:shadow-2xl">
-											<h3 className="font-display text-2xl font-bold mb-4">
+										<div
+											className={`phase-card ${css({
+												p: '10',
+												bg: 'white',
+												borderWidth: '1px',
+												borderColor: 'gray.100',
+												rounded: '3xl',
+											})}`}
+										>
+											<h3
+												className={css({
+													fontFamily: 'display',
+													fontSize: '2xl',
+													fontWeight: 'bold',
+													mb: '4',
+												})}
+											>
 												{phase.title}
 											</h3>
-											<p className="text-gray-400 font-bold text-xs uppercase tracking-widest mb-8">
+											<p
+												className={css({
+													color: 'gray.400',
+													fontWeight: 'bold',
+													fontSize: 'xs',
+													textTransform: 'uppercase',
+													letterSpacing: 'widest',
+													mb: '8',
+												})}
+											>
 												{phase.desc}
 											</p>
-											<ul className="space-y-4">
+											<ul className={vstack({ gap: '4' })}>
 												{phase.items.map((item: string) => (
-													<li key={item} className="flex items-start gap-3">
-														<div className="w-1.5 h-1.5 rounded-full bg-ocobo-mint mt-1.5 shrink-0"></div>
-														<span className="text-gray-600 text-sm font-medium">
+													<li
+														key={item}
+														className={flex({ gap: '3', align: 'start' })}
+													>
+														<div
+															className={css({
+																w: '1.5',
+																h: '1.5',
+																rounded: 'full',
+																bg: 'ocobo.mint',
+																mt: '1.5',
+																flexShrink: 0,
+															})}
+														/>
+														<span
+															className={css({
+																color: 'gray.600',
+																fontSize: 'sm',
+																fontWeight: 'medium',
+															})}
+														>
 															{item}
 														</span>
 													</li>
@@ -493,32 +799,87 @@ const StoryDetail: React.FC = () => {
 							</div>
 						</section>
 
-						<section id="feedback" className="pt-20 border-t border-gray-100">
-							<div className="flex items-center gap-4 mb-16">
-								<div className="w-10 h-10 bg-ocobo-dark text-white rounded-lg flex items-center justify-center font-display font-bold">
+						<section
+							id="feedback"
+							className={css({
+								pt: '20',
+								borderTopWidth: '1px',
+								borderColor: 'gray.100',
+							})}
+						>
+							<div
+								className={`${flex({ gap: '4', align: 'center' })} ${css({ mb: '16' })}`}
+							>
+								<div
+									className={`${center()} ${css({
+										w: '10',
+										h: '10',
+										bg: 'ocobo.dark',
+										color: 'white',
+										rounded: 'lg',
+										fontFamily: 'display',
+										fontWeight: 'bold',
+									})}`}
+								>
 									3
 								</div>
-								<h2 className="font-display text-3xl font-black text-ocobo-dark tracking-tight uppercase tracking-widest text-sm">
+								<h2
+									className={css({
+										fontFamily: 'display',
+										fontSize: '3xl',
+										fontWeight: 'black',
+										color: 'ocobo.dark',
+										letterSpacing: 'tight',
+										textTransform: 'uppercase',
+									})}
+								>
 									Le Retour d'Expérience
 								</h2>
 							</div>
 
-							<div className="space-y-20">
+							<div className={vstack({ gap: '20' })}>
 								{/* biome-ignore lint/suspicious/noExplicitAny: story data */}
 								{story.interview.map((item: any) => (
-									<div key={item.q} className="relative">
-										<div className="mb-6 flex items-center gap-3">
-											<div className="w-8 h-px bg-ocobo-yellow"></div>
-											<h4 className="font-display text-xl font-bold text-ocobo-dark leading-tight max-w-xl">
+									<div key={item.q} className={css({ position: 'relative' })}>
+										<div
+											className={`${flex({ gap: '3', align: 'center' })} ${css({ mb: '6' })}`}
+										>
+											<div
+												className={css({ w: '8', h: 'px', bg: 'ocobo.yellow' })}
+											/>
+											<h4
+												className={css({
+													fontFamily: 'display',
+													fontSize: 'xl',
+													fontWeight: 'bold',
+													color: 'ocobo.dark',
+													lineHeight: 'tight',
+													maxW: 'xl',
+												})}
+											>
 												{item.q}
 											</h4>
 										</div>
-										<div className="relative pl-12">
+										<div className={css({ position: 'relative', pl: '12' })}>
 											<Quote
 												size={24}
-												className="absolute left-0 top-0 text-ocobo-yellow opacity-40"
+												className={css({
+													position: 'absolute',
+													left: '0',
+													top: '0',
+													color: 'ocobo.yellow',
+													opacity: 0.4,
+												})}
 											/>
-											<p className="text-lg text-gray-500 leading-relaxed font-medium italic">
+											<p
+												className={css({
+													fontSize: 'lg',
+													color: 'gray.500',
+													lineHeight: 'relaxed',
+													fontWeight: 'medium',
+													fontStyle: 'italic',
+												})}
+											>
 												{item.a}
 											</p>
 										</div>
@@ -526,22 +887,75 @@ const StoryDetail: React.FC = () => {
 								))}
 							</div>
 
-							<div className="mt-24 p-10 bg-gray-50 rounded-3xl border border-gray-100 flex flex-col md:flex-row items-center gap-10">
-								<div className="w-32 h-32 rounded-3xl overflow-hidden grayscale border-4 border-white shadow-xl rotate-3">
+							<div
+								className={`${flex({ direction: { base: 'column', md: 'row' }, align: 'center', gap: '10' })} ${css(
+									{
+										mt: '24',
+										p: '10',
+										bg: 'gray.50',
+										rounded: '3xl',
+										borderWidth: '1px',
+										borderColor: 'gray.100',
+									},
+								)}`}
+							>
+								<div
+									className={css({
+										w: '32',
+										h: '32',
+										rounded: '3xl',
+										overflow: 'hidden',
+										filter: 'grayscale(100%)',
+										borderWidth: '4px',
+										borderColor: 'white',
+										shadow: 'xl',
+										transform: 'rotate(3deg)',
+									})}
+								>
 									<img
 										src={story.image}
 										alt={story.name}
-										className="w-full h-full object-cover"
+										className={css({
+											w: 'full',
+											h: 'full',
+											objectFit: 'cover',
+										})}
 									/>
 								</div>
-								<div className="text-center md:text-left">
-									<p className="font-display text-2xl font-black text-ocobo-dark mb-1">
+								<div
+									className={css({ textAlign: { base: 'center', md: 'left' } })}
+								>
+									<p
+										className={css({
+											fontFamily: 'display',
+											fontSize: '2xl',
+											fontWeight: 'black',
+											color: 'ocobo.dark',
+											mb: '1',
+										})}
+									>
 										{story.name}
 									</p>
-									<p className="text-xs font-black text-ocobo-mint uppercase tracking-[0.3em] mb-4">
+									<p
+										className={css({
+											fontSize: 'xs',
+											fontWeight: 'black',
+											color: 'ocobo.mint',
+											textTransform: 'uppercase',
+											letterSpacing: '0.3em',
+											mb: '4',
+										})}
+									>
 										{story.role}
 									</p>
-									<p className="text-gray-500 text-sm leading-relaxed max-w-md">
+									<p
+										className={css({
+											color: 'gray.500',
+											fontSize: 'sm',
+											lineHeight: 'relaxed',
+											maxW: 'md',
+										})}
+									>
 										"La collaboration avec Ocobo nous a permis de franchir un
 										cap critique dans notre architecture revenue."
 									</p>
@@ -550,53 +964,146 @@ const StoryDetail: React.FC = () => {
 						</section>
 					</div>
 
-					<div className="lg:col-span-4">
-						<div className="sticky top-32 space-y-10">
-							<div className="bg-white border border-gray-100 p-10 rounded-3xl shadow-sm">
-								<h4 className="font-display font-black text-xs uppercase tracking-[0.4em] text-ocobo-dark mb-8">
+					<div className={css({ lg: { gridColumn: 'span 4' } })}>
+						<div
+							className={`${vstack({ gap: '10' })} ${css({ position: 'sticky', top: '32' })}`}
+						>
+							<div
+								className={css({
+									bg: 'white',
+									borderWidth: '1px',
+									borderColor: 'gray.100',
+									p: '10',
+									rounded: '3xl',
+									shadow: 'sm',
+								})}
+							>
+								<h4
+									className={css({
+										fontFamily: 'display',
+										fontWeight: 'black',
+										fontSize: 'xs',
+										textTransform: 'uppercase',
+										letterSpacing: '0.4em',
+										color: 'ocobo.dark',
+										mb: '8',
+									})}
+								>
 									Process & Outils
 								</h4>
 
-								<div className="space-y-8">
-									<div className="flex items-center gap-5">
-										<div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center text-ocobo-dark">
+								<div className={vstack({ gap: '8' })}>
+									<div className={flex({ gap: '5', align: 'center' })}>
+										<div
+											className={`${center()} ${css({
+												w: '10',
+												h: '10',
+												bg: 'gray.50',
+												rounded: 'xl',
+												color: 'ocobo.dark',
+											})}`}
+										>
 											<Clock size={18} />
 										</div>
 										<div>
-											<p className="text-xs font-black text-gray-400 uppercase tracking-widest">
+											<p
+												className={css({
+													fontSize: 'xs',
+													fontWeight: 'black',
+													color: 'gray.400',
+													textTransform: 'uppercase',
+													letterSpacing: 'widest',
+												})}
+											>
 												DURÉE
 											</p>
-											<p className="text-sm font-bold text-ocobo-dark">
+											<p
+												className={css({
+													fontSize: 'sm',
+													fontWeight: 'bold',
+													color: 'ocobo.dark',
+												})}
+											>
 												{story.duration}
 											</p>
 										</div>
 									</div>
-									<div className="flex items-center gap-5">
-										<div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center text-ocobo-dark">
+									<div className={flex({ gap: '5', align: 'center' })}>
+										<div
+											className={`${center()} ${css({
+												w: '10',
+												h: '10',
+												bg: 'gray.50',
+												rounded: 'xl',
+												color: 'ocobo.dark',
+											})}`}
+										>
 											<Users size={18} />
 										</div>
 										<div>
-											<p className="text-xs font-black text-gray-400 uppercase tracking-widest">
+											<p
+												className={css({
+													fontSize: 'xs',
+													fontWeight: 'black',
+													color: 'gray.400',
+													textTransform: 'uppercase',
+													letterSpacing: 'widest',
+												})}
+											>
 												ÉQUIPE
 											</p>
-											<p className="text-sm font-bold text-ocobo-dark">
+											<p
+												className={css({
+													fontSize: 'sm',
+													fontWeight: 'bold',
+													color: 'ocobo.dark',
+												})}
+											>
 												{story.team}
 											</p>
 										</div>
 									</div>
-									<div className="flex items-center gap-5">
-										<div className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center text-ocobo-dark">
+									<div className={flex({ gap: '5', align: 'center' })}>
+										<div
+											className={`${center()} ${css({
+												w: '10',
+												h: '10',
+												bg: 'gray.50',
+												rounded: 'xl',
+												color: 'ocobo.dark',
+											})}`}
+										>
 											<Cpu size={18} />
 										</div>
 										<div>
-											<p className="text-xs font-black text-gray-400 uppercase tracking-widest">
+											<p
+												className={css({
+													fontSize: 'xs',
+													fontWeight: 'black',
+													color: 'gray.400',
+													textTransform: 'uppercase',
+													letterSpacing: 'widest',
+												})}
+											>
 												TECH STACK
 											</p>
-											<div className="flex flex-wrap gap-2 mt-1">
+											<div
+												className={`${flex({ wrap: 'wrap', gap: '2' })} ${css({ mt: '1' })}`}
+											>
 												{story.tools.map((tool: string) => (
 													<span
 														key={tool}
-														className="text-xs font-bold bg-white border border-gray-100 px-2 py-0.5 rounded text-gray-500"
+														className={css({
+															fontSize: 'xs',
+															fontWeight: 'bold',
+															bg: 'white',
+															borderWidth: '1px',
+															borderColor: 'gray.100',
+															px: '2',
+															py: '0.5',
+															rounded: 'sm',
+															color: 'gray.500',
+														})}
 													>
 														{tool}
 													</span>
@@ -607,42 +1114,143 @@ const StoryDetail: React.FC = () => {
 								</div>
 							</div>
 
-							<div className="bg-ocobo-dark p-10 rounded-3xl text-white relative overflow-hidden shadow-2xl">
-								<div className="absolute top-0 right-0 w-32 h-32 bg-ocobo-mint/10 rounded-full blur-3xl"></div>
-								<h4 className="font-display font-black text-xs uppercase tracking-[0.4em] text-white/40 mb-8">
+							<div
+								className={css({
+									bg: 'ocobo.dark',
+									p: '10',
+									rounded: '3xl',
+									color: 'white',
+									position: 'relative',
+									overflow: 'hidden',
+									shadow: '2xl',
+								})}
+							>
+								<div
+									className={css({
+										position: 'absolute',
+										top: '0',
+										right: '0',
+										w: '32',
+										h: '32',
+										bg: 'ocobo.mint/10',
+										rounded: 'full',
+										filter: 'blur(48px)',
+									})}
+								/>
+								<h4
+									className={css({
+										fontFamily: 'display',
+										fontWeight: 'black',
+										fontSize: 'xs',
+										textTransform: 'uppercase',
+										letterSpacing: '0.4em',
+										color: 'white/40',
+										mb: '8',
+									})}
+								>
 									Livrables de la mission
 								</h4>
 
-								<ul className="space-y-5">
+								<ul className={vstack({ gap: '5' })}>
 									{story.livrables.map((item: string) => (
-										<li key={item} className="flex items-start gap-4 group">
-											<div className="mt-1 bg-white/10 p-1 rounded group-hover:bg-ocobo-mint transition-colors">
+										<li
+											key={item}
+											className={`${flex({ gap: '4', align: 'start' })} ${css({
+												'& .check-bg': {
+													transition: 'colors',
+												},
+												'& .check-icon': {
+													transition: 'colors',
+												},
+												'& span': {
+													transition: 'colors',
+												},
+												'&:hover .check-bg': {
+													bg: 'ocobo.mint',
+												},
+												'&:hover .check-icon': {
+													color: 'ocobo.dark',
+												},
+												'&:hover span': {
+													color: 'white',
+												},
+											})}`}
+										>
+											<div
+												className={`check-bg ${css({
+													mt: '1',
+													bg: 'white/10',
+													p: '1',
+													rounded: 'sm',
+												})}`}
+											>
 												<Check
 													size={12}
-													className="text-ocobo-mint group-hover:text-ocobo-dark"
+													className={`check-icon ${css({ color: 'ocobo.mint' })}`}
 												/>
 											</div>
-											<span className="text-xs font-bold text-gray-300 leading-snug group-hover:text-white transition-colors">
+											<span
+												className={css({
+													fontSize: 'xs',
+													fontWeight: 'bold',
+													color: 'gray.300',
+													lineHeight: 'snug',
+												})}
+											>
 												{item}
 											</span>
 										</li>
 									))}
 								</ul>
 
-								<div className="mt-10 pt-8 border-t border-white/10">
-									<p className="text-xs font-black text-gray-400 uppercase tracking-widest mb-4">
+								<div
+									className={css({
+										mt: '10',
+										pt: '8',
+										borderTopWidth: '1px',
+										borderColor: 'white/10',
+									})}
+								>
+									<p
+										className={css({
+											fontSize: 'xs',
+											fontWeight: 'black',
+											color: 'gray.400',
+											textTransform: 'uppercase',
+											letterSpacing: 'widest',
+											mb: '4',
+										})}
+									>
 										Parlons de vos projets
 									</p>
 									<Link to="/contact">
 										<button
 											type="button"
-											className="w-full py-4 bg-white text-ocobo-dark font-black text-xs uppercase tracking-[0.2em] rounded-xl hover:bg-ocobo-mint transition-all shadow-xl flex items-center justify-center gap-2 group"
+											className={`${center({ inline: true })} ${css({
+												w: 'full',
+												py: '4',
+												bg: 'white',
+												color: 'ocobo.dark',
+												fontWeight: 'black',
+												fontSize: 'xs',
+												textTransform: 'uppercase',
+												letterSpacing: '0.2em',
+												rounded: 'xl',
+												transition: 'all',
+												shadow: 'xl',
+												gap: '2',
+												'& .arrow': {
+													transition: 'transform',
+												},
+												_hover: {
+													bg: 'ocobo.mint',
+												},
+												'&:hover .arrow': {
+													transform: 'translateX(4px)',
+												},
+											})}`}
 										>
-											Prendre RDV{' '}
-											<ArrowRight
-												size={14}
-												className="group-hover:translate-x-1 transition-transform"
-											/>
+											Prendre RDV <ArrowRight size={14} className={`arrow`} />
 										</button>
 									</Link>
 								</div>
@@ -651,19 +1259,73 @@ const StoryDetail: React.FC = () => {
 					</div>
 				</div>
 
-				<div className="bg-ocobo-yellow p-12 md:p-24 rounded-3xl text-center text-ocobo-dark relative overflow-hidden">
-					<div className="absolute inset-0 opacity-[0.1] bg-dots-dark-sm"></div>
-					<div className="relative z-10 max-w-3xl mx-auto">
-						<span className="font-display font-black text-xs uppercase tracking-[0.4em] mb-8 inline-block opacity-40">
+				<div
+					className={css({
+						bg: 'ocobo.yellow',
+						p: { base: '12', md: '24' },
+						rounded: '3xl',
+						textAlign: 'center',
+						color: 'ocobo.dark',
+						position: 'relative',
+						overflow: 'hidden',
+					})}
+				>
+					<div
+						className={css({
+							position: 'absolute',
+							inset: '0',
+							opacity: 0.1,
+							bg: 'dots-dark-sm',
+						})}
+					/>
+					<div
+						className={css({
+							position: 'relative',
+							zIndex: 10,
+							maxW: '3xl',
+							mx: 'auto',
+						})}
+					>
+						<span
+							className={css({
+								fontFamily: 'display',
+								fontWeight: 'black',
+								fontSize: 'xs',
+								textTransform: 'uppercase',
+								letterSpacing: '0.4em',
+								mb: '8',
+								display: 'inline-block',
+								opacity: 0.4,
+							})}
+						>
 							Votre futur système
 						</span>
-						<h2 className="font-display text-4xl md:text-6xl font-black mb-10 leading-tight tracking-tight">
+						<h2
+							className={css({
+								fontFamily: 'display',
+								fontSize: { base: '4xl', md: '6xl' },
+								fontWeight: 'black',
+								mb: '10',
+								lineHeight: 'tight',
+								letterSpacing: 'tight',
+							})}
+						>
 							Votre machine revenue mérite une architecture d'élite.
 						</h2>
-						<div className="flex justify-center">
+						<div className={flex({ justify: 'center' })}>
 							<Button
 								variant="primary"
-								className="px-14 py-6 text-lg bg-ocobo-dark text-white border-none shadow-2xl hover:scale-105 transition-transform"
+								className={css({
+									px: '14',
+									py: '6',
+									fontSize: 'lg',
+									bg: 'ocobo.dark',
+									color: 'white',
+									border: 'none',
+									shadow: '2xl',
+									transition: 'transform',
+									_hover: { transform: 'scale(1.05)' },
+								})}
 								to="/contact"
 							>
 								Démarrer mon audit RevOps
@@ -675,5 +1337,3 @@ const StoryDetail: React.FC = () => {
 		</div>
 	);
 };
-
-export default StoryDetail;

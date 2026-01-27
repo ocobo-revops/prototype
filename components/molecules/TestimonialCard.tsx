@@ -1,6 +1,8 @@
 import { ArrowRight } from 'lucide-react';
 import type React from 'react';
 import { Link } from 'react-router';
+import { css } from 'styled-system/css';
+import { center, flex, vstack } from 'styled-system/patterns';
 
 interface TestimonialCardProps {
 	quote: string;
@@ -12,7 +14,7 @@ interface TestimonialCardProps {
 	className?: string;
 }
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({
+export const TestimonialCard: React.FC<TestimonialCardProps> = ({
 	quote,
 	authorName,
 	authorRole,
@@ -31,31 +33,117 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
 	return (
 		<div
-			className={`relative py-16 px-8 md:px-16 bg-white/5 rounded-3xl border border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm group/card ${className}`}
+			className={`${css({
+				position: 'relative',
+				py: '16',
+				px: { base: '8', md: '16' },
+				bg: 'white/5',
+				rounded: '3xl',
+				borderWidth: '1px',
+				borderColor: 'white/10',
+				shadow: '2xl',
+				overflow: 'hidden',
+				backdropFilter: 'blur(4px)',
+			})} group ${className}`}
 		>
 			{/* Yellow quote mark */}
-			<div className="absolute top-12 left-10 text-ocobo-yellow/40 font-display font-black text-6xl leading-none select-none pointer-events-none transform -translate-y-1/4">
+			<div
+				className={css({
+					position: 'absolute',
+					top: '12',
+					left: '10',
+					color: 'ocobo.yellow/40',
+					fontFamily: 'display',
+					fontWeight: 'black',
+					fontSize: '6xl',
+					lineHeight: 'none',
+					userSelect: 'none',
+					pointerEvents: 'none',
+					transform: 'translateY(-25%)',
+				})}
+			>
 				"
 			</div>
 
-			<div className="relative z-10">
-				<p className="text-white font-display text-lg md:text-2xl font-medium mb-12 leading-relaxed max-w-2xl mx-auto md:mx-0">
+			<div className={css({ position: 'relative', zIndex: '10' })}>
+				<p
+					className={css({
+						color: 'white',
+						fontFamily: 'display',
+						fontSize: { base: 'lg', md: '2xl' },
+						fontWeight: 'medium',
+						mb: '12',
+						lineHeight: 'relaxed',
+						maxW: '2xl',
+						mx: { base: 'auto', md: '0' },
+					})}
+				>
 					{quote}
 				</p>
 
 				{/* Multi-colour separator */}
-				<div className="w-full h-1 bg-gradient-to-r from-ocobo-yellow via-ocobo-coral to-ocobo-sky opacity-40 mb-10" />
+				<div
+					className={css({
+						w: 'full',
+						h: '1',
+						bgGradient: 'to-r',
+						gradientFrom: 'ocobo.yellow',
+						gradientVia: 'ocobo.coral',
+						gradientTo: 'ocobo.sky',
+						opacity: '0.4',
+						mb: '10',
+					})}
+				/>
 
-				<div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-					<div className="flex items-center gap-6">
-						<div className="w-14 h-14 bg-ocobo-yellow rounded-2xl flex items-center justify-center text-ocobo-dark font-display font-black text-xl shadow-xl transform rotate-3 group-hover/card:rotate-0 transition-transform duration-500">
+				<div
+					className={flex({
+						direction: { base: 'column', md: 'row' },
+						align: { md: 'center' },
+						justify: 'space-between',
+						gap: '8',
+					})}
+				>
+					<div className={flex({ align: 'center', gap: '6' })}>
+						<div
+							className={`${center({
+								w: '14',
+								h: '14',
+								bg: 'ocobo.yellow',
+								rounded: '2xl',
+								color: 'ocobo.dark',
+								fontFamily: 'display',
+								fontWeight: 'black',
+								fontSize: 'xl',
+								shadow: 'xl',
+								transform: 'rotate(3deg)',
+								transition: 'transform',
+								transitionDuration: '500ms',
+								_groupHover: { transform: 'rotate(0deg)' },
+							})}`}
+						>
 							{initials}
 						</div>
-						<div className="flex flex-col">
-							<p className="text-white font-black text-lg tracking-tight">
+						<div className={vstack()}>
+							<p
+								className={css({
+									color: 'white',
+									fontWeight: 'black',
+									fontSize: 'lg',
+									letterSpacing: 'tight',
+								})}
+							>
 								{authorName}
 							</p>
-							<p className="text-xs font-black text-ocobo-yellow uppercase tracking-[0.25em] opacity-70">
+							<p
+								className={css({
+									fontSize: 'xs',
+									fontWeight: 'black',
+									color: 'ocobo.yellow',
+									textTransform: 'uppercase',
+									letterSpacing: '0.25em',
+									opacity: '0.7',
+								})}
+							>
 								{authorRole}
 							</p>
 						</div>
@@ -64,12 +152,28 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 					{ctaText && ctaLink && (
 						<Link
 							to={ctaLink}
-							className="group/btn flex items-center gap-4 text-white/40 hover:text-ocobo-yellow transition-colors font-display font-black text-xs uppercase tracking-[0.3em]"
+							className={`${flex({
+								align: 'center',
+								gap: '4',
+								color: 'white/40',
+								fontFamily: 'display',
+								fontWeight: 'black',
+								fontSize: 'xs',
+								textTransform: 'uppercase',
+								letterSpacing: '0.3em',
+								transition: 'colors',
+								transitionDuration: '300ms',
+								_hover: { color: 'ocobo.yellow' },
+							})} group/btn`}
 						>
 							{ctaText}
 							<ArrowRight
 								size={14}
-								className="group-hover/btn:translate-x-2 transition-transform"
+								className={css({
+									transition: 'transform',
+									transitionDuration: '300ms',
+									_groupHover: { transform: 'translateX(8px)' },
+								})}
 							/>
 						</Link>
 					)}
@@ -78,5 +182,3 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 		</div>
 	);
 };
-
-export default TestimonialCard;

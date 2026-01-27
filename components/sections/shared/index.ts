@@ -1,1 +1,1 @@
-export { default as CtaSection } from './CtaSection';
+export { CtaSection } from './CtaSection';

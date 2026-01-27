@@ -1,4 +1,4 @@
-export { default as Badge } from './Badge';
-export { default as Button } from './Button';
-export { default as Input } from './Input';
+export { Badge } from './Badge';
+export { Button } from './Button';
+export { Input } from './Input';
 export { default as NumberCircle } from './NumberCircle';

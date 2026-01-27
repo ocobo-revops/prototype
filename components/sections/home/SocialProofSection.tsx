@@ -1,4 +1,5 @@
 import type React from 'react';
+import { css } from 'styled-system/css';
 import { ClientMarquee } from '../../layout/ClientMarquee';
 import { TestimonialCard } from '../../molecules';
 import { Container, Section } from '../../organisms';
@@ -18,24 +19,70 @@ const HOME_CLIENTS = [
 	'Zenchef',
 ];
 
-const SocialProofSection: React.FC = () => {
+export const SocialProofSection: React.FC = () => {
 	return (
-		<Section bg="dark" className="py-20 md:py-32 relative overflow-hidden">
-			<div className="absolute inset-0 opacity-[0.02] bg-dots-light"></div>
+		<Section
+			bg="dark"
+			className={css({
+				py: { base: '20', md: '32' },
+				position: 'relative',
+				overflow: 'hidden',
+			})}
+		>
+			<div
+				className={css({
+					position: 'absolute',
+					inset: '0',
+					opacity: '0.02',
+					bg: 'dots-light',
+				})}
+			/>
 
-			<div className="absolute top-1/2 left-0 w-64 h-64 bg-ocobo-yellow/5 rounded-full -translate-x-1/2 blur-3xl opacity-30"></div>
+			<div
+				className={css({
+					position: 'absolute',
+					top: '50%',
+					left: '0',
+					w: '64',
+					h: '64',
+					bg: 'ocobo.yellow/5',
+					rounded: 'full',
+					transform: 'translateX(-50%)',
+					filter: 'blur(48px)',
+					opacity: '0.3',
+				})}
+			/>
 
-			<Container className="relative z-10">
-				<div className="mb-16 text-center">
-					<span className="font-display font-black text-white/40 text-xs uppercase tracking-[0.4em] mb-4 inline-block">
+			<Container className={css({ position: 'relative', zIndex: '10' })}>
+				<div className={css({ mb: '16', textAlign: 'center' })}>
+					<span
+						className={css({
+							fontFamily: 'display',
+							fontWeight: 'black',
+							color: 'white/40',
+							fontSize: 'xs',
+							textTransform: 'uppercase',
+							letterSpacing: '0.4em',
+							mb: '4',
+							display: 'inline-block',
+						})}
+					>
 						Ils nous font confiance
 					</span>
-					<h3 className="text-white text-3xl md:text-5xl font-bold mb-8 tracking-tight">
+					<h3
+						className={css({
+							color: 'white',
+							fontSize: { base: '3xl', md: '5xl' },
+							fontWeight: 'bold',
+							mb: '8',
+							letterSpacing: 'tight',
+						})}
+					>
 						La preuve par l'expérience
 					</h3>
 				</div>
 
-				<div className="mb-24">
+				<div className={css({ mb: '24' })}>
 					<ClientMarquee clients={HOME_CLIENTS} bordered />
 				</div>
 
@@ -45,11 +92,9 @@ const SocialProofSection: React.FC = () => {
 					authorRole="CSO @ ePack Hygiène"
 					ctaText="Découvrir nos stories"
 					ctaLink="/stories"
-					className="max-w-4xl mx-auto"
+					className={css({ maxW: '4xl', mx: 'auto' })}
 				/>
 			</Container>
 		</Section>
 	);
 };
-
-export default SocialProofSection;

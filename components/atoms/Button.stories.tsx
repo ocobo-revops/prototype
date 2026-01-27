@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Button from './Button';
+import { hstack, vstack } from 'styled-system/patterns';
+import { Button } from './Button';
 
 const meta: Meta<typeof Button> = {
 	title: 'Atoms/Button',
@@ -76,8 +77,8 @@ export const NoArrow: Story = {
 
 export const AllVariants: Story = {
 	render: () => (
-		<div className="flex flex-col gap-4">
-			<div className="flex gap-4 items-center">
+		<div className={vstack({ gap: '4' })}>
+			<div className={hstack({ gap: '4' })}>
 				<Button variant="primary" size="sm">
 					Small
 				</Button>
@@ -88,7 +89,7 @@ export const AllVariants: Story = {
 					Large
 				</Button>
 			</div>
-			<div className="flex gap-4 items-center">
+			<div className={hstack({ gap: '4' })}>
 				<Button variant="outline" size="sm">
 					Small
 				</Button>
@@ -99,7 +100,14 @@ export const AllVariants: Story = {
 					Large
 				</Button>
 			</div>
-			<div className="flex gap-4 items-center p-4 bg-ocobo-dark rounded-lg">
+			<div
+				className={hstack({
+					gap: '4',
+					p: '4',
+					bg: 'ocobo.dark',
+					rounded: 'lg',
+				})}
+			>
 				<Button variant="white" size="sm">
 					Small
 				</Button>

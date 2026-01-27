@@ -1,4 +1,5 @@
 import type React from 'react';
+import { css } from 'styled-system/css';
 
 interface ContainerProps {
 	children: React.ReactNode;
@@ -7,17 +8,20 @@ interface ContainerProps {
 	narrow?: boolean;
 }
 
-const Container: React.FC<ContainerProps> = ({
+export const Container: React.FC<ContainerProps> = ({
 	children,
 	className = '',
 	narrow = false,
 }) => {
-	const maxWidth = narrow ? 'max-w-5xl' : 'max-w-7xl';
 	return (
-		<div className={`${maxWidth} mx-auto px-4 sm:px-6 lg:px-8 ${className}`}>
+		<div
+			className={`${css({
+				maxW: narrow ? '5xl' : '7xl',
+				mx: 'auto',
+				px: { base: '4', sm: '6', lg: '8' },
+			})} ${className}`}
+		>
 			{children}
 		</div>
 	);
 };
-
-export default Container;

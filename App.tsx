@@ -1,23 +1,24 @@
 import React from 'react';
 import { Route, HashRouter as Router, Routes, useLocation } from 'react-router';
-import Footer from './components/Footer';
-import Navbar from './components/Navbar';
-import NewsletterWidget from './components/NewsletterWidget';
+import { css } from 'styled-system/css';
+import { Footer } from './components/Footer';
+import { Navbar } from './components/Navbar';
+import { NewsletterWidget } from './components/NewsletterWidget';
 import About from './pages/About';
-import ArticleDetail from './pages/ArticleDetail';
+import { ArticleDetail } from './pages/ArticleDetail';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
-import JobDetail from './pages/JobDetail';
-import Jobs from './pages/Jobs';
+import { JobDetail } from './pages/JobDetail';
+import { Jobs } from './pages/Jobs';
 import Method from './pages/Method';
-import Partners from './pages/Partners';
-import Podcast from './pages/Podcast';
-import Resources from './pages/Resources';
+import { Partners } from './pages/Partners';
+import { Podcast } from './pages/Podcast';
+import { Resources } from './pages/Resources';
 import Services from './pages/Services';
-import Stories from './pages/Stories';
-import StoryDetail from './pages/StoryDetail';
-import Studio from './pages/Studio';
-import WebinarDetail from './pages/WebinarDetail';
+import { Stories } from './pages/Stories';
+import { StoryDetail } from './pages/StoryDetail';
+import { Studio } from './pages/Studio';
+import { WebinarDetail } from './pages/WebinarDetail';
 
 const ScrollToTop = () => {
 	const { pathname: _ } = useLocation();
@@ -33,9 +34,22 @@ const App: React.FC = () => {
 	return (
 		<Router>
 			<ScrollToTop />
-			<div className="flex flex-col min-h-screen bg-white text-ocobo-dark font-sans selection:bg-ocobo-yellow selection:text-ocobo-dark">
+			<div
+				className={css({
+					display: 'flex',
+					flexDir: 'column',
+					minH: 'screen',
+					bg: 'white',
+					color: 'ocobo.dark',
+					fontFamily: 'sans',
+					'& ::selection': {
+						bg: 'ocobo.yellow',
+						color: 'ocobo.dark',
+					},
+				})}
+			>
 				<Navbar />
-				<main className="flex-grow">
+				<main className={css({ flexGrow: 1 })}>
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/contact" element={<Contact />} />

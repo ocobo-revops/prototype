@@ -1,21 +1,24 @@
+import { css } from 'styled-system/css';
+import { center, flex } from 'styled-system/patterns';
+
 interface ClientMarqueeProps {
 	clients: string[];
-	/** Vertical padding: 'sm' = py-3, 'md' = py-8 */
+	/** Vertical padding: 'sm' = 3, 'md' = 8 */
 	padding?: 'sm' | 'md';
-	/** Text size: 'sm' = text-base md:text-lg, 'md' = text-base md:text-xl */
+	/** Text size: 'sm' = base/lg, 'md' = base/xl */
 	textSize?: 'sm' | 'md';
 	/** Show border-y */
 	bordered?: boolean;
 }
 
 const paddingMap = {
-	sm: 'py-3',
-	md: 'py-8',
+	sm: '3',
+	md: '8',
 } as const;
 
 const textSizeMap = {
-	sm: 'text-base md:text-lg',
-	md: 'text-base md:text-xl',
+	sm: { base: 'base', md: 'lg' },
+	md: { base: 'base', md: 'xl' },
 } as const;
 
 export const ClientMarquee = ({
@@ -28,20 +31,76 @@ export const ClientMarquee = ({
 
 	return (
 		<div
-			className={`relative w-full overflow-hidden ${paddingMap[padding]} ${bordered ? 'border-y border-white/5' : ''}`}
+			className={css({
+				position: 'relative',
+				w: 'full',
+				overflow: 'hidden',
+				py: paddingMap[padding],
+				...(bordered
+					? {
+							borderTopWidth: '1px',
+							borderBottomWidth: '1px',
+							borderColor: 'white/5',
+						}
+					: {}),
+			})}
 		>
-			<div className="absolute left-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-r from-ocobo-dark to-transparent z-10 pointer-events-none" />
-			<div className="absolute right-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-l from-ocobo-dark to-transparent z-10 pointer-events-none" />
+			<div
+				className={css({
+					position: 'absolute',
+					left: '0',
+					top: '0',
+					bottom: '0',
+					w: { base: '32', md: '64' },
+					bgGradient: 'to-r',
+					gradientFrom: 'ocobo.dark',
+					gradientTo: 'transparent',
+					zIndex: '10',
+					pointerEvents: 'none',
+				})}
+			/>
+			<div
+				className={css({
+					position: 'absolute',
+					right: '0',
+					top: '0',
+					bottom: '0',
+					w: { base: '32', md: '64' },
+					bgGradient: 'to-l',
+					gradientFrom: 'ocobo.dark',
+					gradientTo: 'transparent',
+					zIndex: '10',
+					pointerEvents: 'none',
+				})}
+			/>
 
-			<div className="flex w-max animate-marquee-ultra-slow whitespace-nowrap">
+			<div
+				className={`${flex()} ${css({
+					w: 'max',
+					animation: 'marquee-ultra-slow',
+					whiteSpace: 'nowrap',
+				})}`}
+			>
 				{extendedClients.map((client, idx) => (
 					<div
 						// biome-ignore lint/suspicious/noArrayIndexKey: marquee animation requires duplicate elements
 						key={`${client}-${idx}`}
-						className="flex items-center justify-center px-10 md:px-14"
+						className={`${center()} ${css({ px: { base: '10', md: '14' } })}`}
 					>
 						<span
-							className={`font-display font-black text-white/20 ${textSizeMap[textSize]} tracking-[0.25em] uppercase hover:text-ocobo-yellow transition-colors cursor-default select-none`}
+							className={css({
+								fontFamily: 'display',
+								fontWeight: 'black',
+								color: 'white/20',
+								fontSize: textSizeMap[textSize],
+								letterSpacing: '0.25em',
+								textTransform: 'uppercase',
+								transition: 'colors',
+								transitionDuration: '300ms',
+								cursor: 'default',
+								userSelect: 'none',
+								_hover: { color: 'ocobo.yellow' },
+							})}
 						>
 							{client}
 						</span>

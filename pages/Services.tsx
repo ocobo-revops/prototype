@@ -1,4 +1,4 @@
-import type React from 'react';
+import { css } from 'styled-system/css';
 import { CtaSection } from '../components/sections';
 import {
 	HeroSection,
@@ -11,9 +11,9 @@ import {
 	WhyOcoboSection,
 } from '../components/sections/services';
 
-const Services: React.FC = () => {
+export function Services() {
 	return (
-		<div className="w-full">
+		<div className={css({ width: 'full' })}>
 			<HeroSection />
 			<SymptomsSection />
 			<TransitionSection />
@@ -31,6 +31,6 @@ const Services: React.FC = () => {
 			/>
 		</div>
 	);
-};
+}
 
 export default Services;

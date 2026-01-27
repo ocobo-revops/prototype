@@ -1,5 +1,6 @@
 import { Linkedin } from 'lucide-react';
 import type React from 'react';
+import { css } from 'styled-system/css';
 import { ThemeColor } from '../../types';
 
 interface TeamMemberCardProps {
@@ -12,7 +13,15 @@ interface TeamMemberCardProps {
 	className?: string;
 }
 
-const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
+const borderColorMap: Record<ThemeColor, string> = {
+	[ThemeColor.YELLOW]: 'ocobo.yellow',
+	[ThemeColor.MINT]: 'ocobo.mint',
+	[ThemeColor.SKY]: 'ocobo.sky',
+	[ThemeColor.CORAL]: 'ocobo.coral',
+	[ThemeColor.DARK]: 'ocobo.dark',
+};
+
+export const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
 	name,
 	role,
 	bio,
@@ -21,34 +30,78 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
 	color = ThemeColor.YELLOW,
 	className = '',
 }) => {
-	const borderColorStyles: Record<ThemeColor, string> = {
-		[ThemeColor.YELLOW]: 'border-ocobo-yellow',
-		[ThemeColor.MINT]: 'border-ocobo-mint',
-		[ThemeColor.SKY]: 'border-ocobo-sky',
-		[ThemeColor.CORAL]: 'border-ocobo-coral',
-		[ThemeColor.DARK]: 'border-ocobo-dark',
-	};
-
 	return (
 		<div
-			className={`bg-white p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all text-center ${className}`}
+			className={`${css({
+				bg: 'white',
+				p: '8',
+				borderWidth: '1px',
+				borderColor: 'gray.100',
+				shadow: 'sm',
+				transition: 'all',
+				textAlign: 'center',
+				_hover: { shadow: 'lg' },
+			})} ${className}`}
 		>
 			<div
-				className={`w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 ${borderColorStyles[color]}`}
+				className={css({
+					w: '32',
+					h: '32',
+					mx: 'auto',
+					mb: '6',
+					rounded: 'full',
+					overflow: 'hidden',
+					borderWidth: '4px',
+					borderColor: borderColorMap[color],
+				})}
 			>
-				<img src={imageSrc} alt={name} className="w-full h-full object-cover" />
+				<img
+					src={imageSrc}
+					alt={name}
+					className={css({ w: 'full', h: 'full', objectFit: 'cover' })}
+				/>
 			</div>
-			<h3 className="font-display text-2xl font-bold text-ocobo-dark mb-1">
+			<h3
+				className={css({
+					fontFamily: 'display',
+					fontSize: '2xl',
+					fontWeight: 'bold',
+					color: 'ocobo.dark',
+					mb: '1',
+				})}
+			>
 				{name}
 			</h3>
-			<p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">
+			<p
+				className={css({
+					fontSize: 'xs',
+					fontWeight: 'bold',
+					color: 'gray.400',
+					textTransform: 'uppercase',
+					letterSpacing: 'widest',
+					mb: '4',
+				})}
+			>
 				{role}
 			</p>
-			<p className="text-gray-600 text-sm mb-6 leading-relaxed">{bio}</p>
+			<p
+				className={css({
+					color: 'gray.600',
+					fontSize: 'sm',
+					mb: '6',
+					lineHeight: 'relaxed',
+				})}
+			>
+				{bio}
+			</p>
 			{linkedInUrl && (
 				<a
 					href={linkedInUrl}
-					className="inline-block text-gray-400 hover:text-ocobo-dark"
+					className={css({
+						display: 'inline-block',
+						color: 'gray.400',
+						_hover: { color: 'ocobo.dark' },
+					})}
 					target="_blank"
 					rel="noopener noreferrer"
 					aria-label={`${name} LinkedIn profile`}
@@ -59,5 +112,3 @@ const TeamMemberCard: React.FC<TeamMemberCardProps> = ({
 		</div>
 	);
 };
-
-export default TeamMemberCard;

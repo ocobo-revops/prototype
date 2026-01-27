@@ -1,54 +1,84 @@
 import { CheckCircle2 } from 'lucide-react';
 import type React from 'react';
-import Grid from '../../layout/Grid';
+import { css } from 'styled-system/css';
+import { center, grid } from 'styled-system/patterns';
 import { SectionHeader } from '../../organisms';
 
 const REASONS = [
 	{
-		color: 'yellow',
+		color: 'yellow' as const,
 		title: 'Profils seniors',
 		description:
 			'Aucun junior. Nous opérons comme une direction Revenue interne embarquée.',
 	},
 	{
-		color: 'coral',
+		color: 'coral' as const,
 		title: 'Impact réel',
 		description:
 			'Pas de slides inutiles. Nous construisons, opérons et transmettons.',
 	},
 	{
-		color: 'mint',
+		color: 'mint' as const,
 		title: 'Système durable',
 		description:
 			'Nous laissons un système structuré et pilotable pour votre futur scale.',
 	},
 ];
 
-const WhyOcoboSection: React.FC = () => {
+const colorMap = {
+	yellow: 'ocobo.yellow',
+	coral: 'ocobo.coral',
+	mint: 'ocobo.mint',
+} as const;
+
+export const WhyOcoboSection: React.FC = () => {
 	return (
-		<section className="py-24 bg-ocobo-dark text-white">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<SectionHeader title="Pourquoi choisir Ocobo" light className="mb-16" />
-				<Grid md={3} gap={12}>
+		<section className={css({ py: '24', bg: 'ocobo.dark', color: 'white' })}>
+			<div
+				className={css({
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+				})}
+			>
+				<SectionHeader
+					title="Pourquoi choisir Ocobo"
+					light
+					className={css({ mb: '16' })}
+				/>
+				<div className={grid({ columns: { base: 1, md: 3 }, gap: '12' })}>
 					{REASONS.map((reason) => (
-						<div key={reason.title} className="text-center">
+						<div key={reason.title} className={css({ textAlign: 'center' })}>
 							<div
-								className={`w-16 h-16 bg-ocobo-${reason.color} rounded-full flex items-center justify-center text-ocobo-dark mx-auto mb-6`}
+								className={`${center()} ${css({
+									w: '16',
+									h: '16',
+									bg: colorMap[reason.color],
+									rounded: 'full',
+									color: 'ocobo.dark',
+									mx: 'auto',
+									mb: '6',
+								})}`}
 							>
 								<CheckCircle2 size={32} strokeWidth={4} />
 							</div>
-							<h3 className="font-display text-xl font-bold mb-4">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: 'xl',
+									fontWeight: 'bold',
+									mb: '4',
+								})}
+							>
 								{reason.title}
 							</h3>
-							<p className="text-gray-300 leading-relaxed">
+							<p className={css({ color: 'gray.300', lineHeight: 'relaxed' })}>
 								{reason.description}
 							</p>
 						</div>
 					))}
-				</Grid>
+				</div>
 			</div>
 		</section>
 	);
 };
-
-export default WhyOcoboSection;

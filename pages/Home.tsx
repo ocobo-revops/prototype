@@ -1,4 +1,4 @@
-import type React from 'react';
+import { css } from 'styled-system/css';
 import {
 	ComparatifSection,
 	HeroSection,
@@ -10,9 +10,9 @@ import {
 } from '../components/sections/home';
 import { CtaSection } from '../components/sections/shared';
 
-const Home: React.FC = () => {
+export function Home() {
 	return (
-		<div className="w-full">
+		<div className={css({ width: 'full' })}>
 			<HeroSection />
 			<SocialProofSection />
 			<PainPointSection />
@@ -29,6 +29,6 @@ const Home: React.FC = () => {
 			/>
 		</div>
 	);
-};
+}
 
 export default Home;

@@ -1,8 +1,10 @@
+import { Popover } from '@ark-ui/react/popover';
 import { ArrowRight, Mail, Sparkles, X } from 'lucide-react';
-import type React from 'react';
 import { useEffect, useState } from 'react';
+import { css } from 'styled-system/css';
+import { center, hstack, vstack } from 'styled-system/patterns';
 
-const NewsletterWidget: React.FC = () => {
+export function NewsletterWidget() {
 	const [isVisible, setIsVisible] = useState(false);
 	const [isExpanded, setIsExpanded] = useState(false);
 	const [isDismissed, setIsDismissed] = useState(false);
@@ -23,109 +25,276 @@ const NewsletterWidget: React.FC = () => {
 	if (isDismissed) return null;
 
 	return (
-		<div
-			className={`fixed bottom-6 right-6 z-[110] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] transform ${
-				isVisible
-					? 'translate-y-0 opacity-100'
-					: 'translate-y-12 opacity-0 pointer-events-none'
-			}`}
+		<Popover.Root
+			open={isExpanded}
+			onOpenChange={(details) => setIsExpanded(details.open)}
+			positioning={{ placement: 'top-end', offset: { mainAxis: 8 } }}
 		>
-			{!isExpanded ? (
-				<div className="relative group">
-					{/* Bouton de fermeture rapide (X) sur le badge réduit */}
+			<div
+				className={css({
+					position: 'fixed',
+					bottom: '6',
+					right: '6',
+					zIndex: 110,
+					transition: 'all 700ms cubic-bezier(0.23, 1, 0.32, 1)',
+					transform: isVisible ? 'translateY(0)' : 'translateY(3rem)',
+					opacity: isVisible ? 1 : 0,
+					pointerEvents: isVisible ? 'auto' : 'none',
+				})}
+			>
+				<div
+					className={css({
+						position: 'relative',
+						_hover: { '& .dismiss-btn': { opacity: 1 } },
+					})}
+				>
+					{/* Quick dismiss button on collapsed badge */}
 					<button
 						type="button"
 						onClick={(e) => {
 							e.stopPropagation();
 							setIsDismissed(true);
 						}}
-						className="absolute -top-2 -right-2 w-6 h-6 bg-white text-ocobo-dark rounded-full flex items-center justify-center shadow-lg border border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-ocobo-coral hover:text-white"
+						className={`dismiss-btn ${center()} ${css({
+							position: 'absolute',
+							top: '-2',
+							right: '-2',
+							width: '6',
+							height: '6',
+							bg: 'white',
+							color: 'ocobo.dark',
+							rounded: 'full',
+							shadow: 'lg',
+							border: '1px solid',
+							borderColor: 'gray.100',
+							opacity: 0,
+							transition: 'opacity 0.2s',
+							zIndex: 10,
+							cursor: 'pointer',
+							_hover: { bg: 'ocobo.coral', color: 'white' },
+						})}`}
 						title="Ne plus afficher"
 					>
 						<X size={12} strokeWidth={3} />
 					</button>
 
-					<button
-						type="button"
-						onClick={() => setIsExpanded(true)}
-						className="bg-ocobo-dark text-white p-4 rounded-2xl shadow-2xl border border-white/10 flex items-center gap-3 hover:border-ocobo-yellow/50 transition-all"
-					>
-						<div className="relative">
-							<Mail size={20} className="text-ocobo-yellow" />
-							<span className="absolute -top-1 -right-1 w-2 h-2 bg-ocobo-coral rounded-full animate-pulse"></span>
-						</div>
-						<span className="text-xs font-black uppercase tracking-[0.2em] pr-2">
-							La Lettre de l'Architecte
-						</span>
-					</button>
-				</div>
-			) : (
-				<div className="bg-ocobo-dark text-white p-6 rounded-3xl shadow-dark border border-white/10 w-[320px] relative overflow-hidden">
-					<div className="absolute top-0 left-0 w-full h-1 bg-ocobo-yellow"></div>
-
-					<button
-						type="button"
-						onClick={() => setIsExpanded(false)}
-						className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors"
-					>
-						<X size={16} />
-					</button>
-
-					<div className="mb-6 mt-2">
-						<div className="flex items-center gap-2 mb-3">
-							<Sparkles size={14} className="text-ocobo-yellow" />
-							<span className="text-xs font-black uppercase tracking-[0.3em] text-ocobo-yellow">
-								Newsletter Mensuelle
-							</span>
-						</div>
-						<h4 className="font-display text-lg font-bold leading-tight mb-2">
-							La science du revenu, <br />
-							directement dans votre boîte.
-						</h4>
-						<p className="text-xs text-gray-400 font-medium">
-							Rejoignez 2 000+ leaders. <br />
-							Pas de spam, juste de l'architecture.
-						</p>
-					</div>
-
-					<form
-						className="space-y-3"
-						onSubmit={(e) => {
-							e.preventDefault();
-							setIsDismissed(true);
-						}}
-					>
-						<input
-							type="email"
-							placeholder="votre@email.com"
-							required
-							className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-ocobo-yellow transition-all placeholder:text-gray-600"
-						/>
+					<Popover.Trigger asChild>
 						<button
-							type="submit"
-							className="w-full bg-ocobo-yellow text-ocobo-dark py-3 rounded-xl text-xs font-black uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:bg-white transition-all group"
+							type="button"
+							className={`${hstack({ gap: '3' })} ${css({
+								bg: 'ocobo.dark',
+								color: 'white',
+								p: '4',
+								rounded: '2xl',
+								shadow: '2xl',
+								border: '1px solid',
+								borderColor: 'white/10',
+								transition: 'all 0.2s',
+								cursor: 'pointer',
+								_hover: { borderColor: 'ocobo.yellow/50' },
+							})}`}
 						>
-							S'inscrire{' '}
-							<ArrowRight
-								size={14}
-								className="group-hover:translate-x-1 transition-transform"
-							/>
+							<div className={css({ position: 'relative' })}>
+								<Mail size={20} className={css({ color: 'ocobo.yellow' })} />
+								<span
+									className={css({
+										position: 'absolute',
+										top: '-1',
+										right: '-1',
+										width: '2',
+										height: '2',
+										bg: 'ocobo.coral',
+										rounded: 'full',
+										animation: 'pulse',
+									})}
+								/>
+							</div>
+							<span
+								className={css({
+									fontSize: 'xs',
+									fontWeight: 'black',
+									textTransform: 'uppercase',
+									letterSpacing: '0.2em',
+									pr: '2',
+								})}
+							>
+								La Lettre de l'Architecte
+							</span>
 						</button>
-					</form>
-
-					<button
-						type="button"
-						onClick={() => {
-							setIsDismissed(true);
-						}}
-						className="w-full mt-4 text-xs font-bold text-gray-600 hover:text-gray-400 uppercase tracking-widest transition-colors"
-					>
-						Masquer définitivement
-					</button>
+					</Popover.Trigger>
 				</div>
-			)}
-		</div>
-	);
-};
 
-export default NewsletterWidget;
+				<Popover.Positioner>
+					<Popover.Content
+						className={css({
+							bg: 'ocobo.dark',
+							color: 'white',
+							p: '6',
+							rounded: '3xl',
+							shadow: 'dark',
+							border: '1px solid',
+							borderColor: 'white/10',
+							width: '320px',
+							position: 'relative',
+							overflow: 'hidden',
+							_open: {
+								animation: 'fade-in-up 0.3s ease-out',
+							},
+						})}
+					>
+						<div
+							className={css({
+								position: 'absolute',
+								top: 0,
+								left: 0,
+								width: 'full',
+								height: '1',
+								bg: 'ocobo.yellow',
+							})}
+						/>
+
+						<Popover.CloseTrigger asChild>
+							<button
+								type="button"
+								className={css({
+									position: 'absolute',
+									top: '4',
+									right: '4',
+									color: 'gray.500',
+									transition: 'colors 0.2s',
+									cursor: 'pointer',
+									_hover: { color: 'white' },
+								})}
+							>
+								<X size={16} />
+							</button>
+						</Popover.CloseTrigger>
+
+						<div className={css({ mb: '6', mt: '2' })}>
+							<div
+								className={`${hstack({ gap: '2' })} ${css({
+									mb: '3',
+								})}`}
+							>
+								<Sparkles
+									size={14}
+									className={css({ color: 'ocobo.yellow' })}
+								/>
+								<span
+									className={css({
+										fontSize: 'xs',
+										fontWeight: 'black',
+										textTransform: 'uppercase',
+										letterSpacing: '0.3em',
+										color: 'ocobo.yellow',
+									})}
+								>
+									Newsletter Mensuelle
+								</span>
+							</div>
+							<h4
+								className={css({
+									fontFamily: 'display',
+									fontSize: 'lg',
+									fontWeight: 'bold',
+									lineHeight: 'tight',
+									mb: '2',
+								})}
+							>
+								La science du revenu, <br />
+								directement dans votre boîte.
+							</h4>
+							<p
+								className={css({
+									fontSize: 'xs',
+									color: 'gray.400',
+									fontWeight: 'medium',
+								})}
+							>
+								Rejoignez 2 000+ leaders. <br />
+								Pas de spam, juste de l'architecture.
+							</p>
+						</div>
+
+						<form
+							className={vstack({ gap: '3', alignItems: 'stretch' })}
+							onSubmit={(e) => {
+								e.preventDefault();
+								setIsDismissed(true);
+							}}
+						>
+							<input
+								type="email"
+								placeholder="votre@email.com"
+								required
+								className={css({
+									width: 'full',
+									bg: 'white/5',
+									border: '1px solid',
+									borderColor: 'white/10',
+									rounded: 'xl',
+									px: '4',
+									py: '3',
+									fontSize: 'xs',
+									outline: 'none',
+									transition: 'all 0.2s',
+									_placeholder: { color: 'gray.600' },
+									_focus: { borderColor: 'ocobo.yellow' },
+								})}
+							/>
+							<button
+								type="submit"
+								className={`${hstack({ gap: '2', justify: 'center' })} ${css({
+									width: 'full',
+									bg: 'ocobo.yellow',
+									color: 'ocobo.dark',
+									py: '3',
+									rounded: 'xl',
+									fontSize: 'xs',
+									fontWeight: 'black',
+									textTransform: 'uppercase',
+									letterSpacing: '0.2em',
+									transition: 'all 0.2s',
+									cursor: 'pointer',
+									_hover: {
+										bg: 'white',
+										'& svg': { transform: 'translateX(4px)' },
+									},
+								})}`}
+							>
+								S'inscrire{' '}
+								<ArrowRight
+									size={14}
+									className={css({
+										transition: 'transform 0.2s',
+									})}
+								/>
+							</button>
+						</form>
+
+						<button
+							type="button"
+							onClick={() => {
+								setIsDismissed(true);
+							}}
+							className={css({
+								width: 'full',
+								mt: '4',
+								fontSize: 'xs',
+								fontWeight: 'bold',
+								color: 'gray.600',
+								textTransform: 'uppercase',
+								letterSpacing: '0.15em',
+								transition: 'colors 0.2s',
+								cursor: 'pointer',
+								_hover: { color: 'gray.400' },
+							})}
+						>
+							Masquer définitivement
+						</button>
+					</Popover.Content>
+				</Popover.Positioner>
+			</div>
+		</Popover.Root>
+	);
+}

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Badge from './Badge';
+import { flex, hstack, vstack } from 'styled-system/patterns';
+import { Badge } from './Badge';
 
 const meta: Meta<typeof Badge> = {
 	title: 'Atoms/Badge',
@@ -92,8 +93,8 @@ export const RoundedFull: Story = {
 
 export const AllVariants: Story = {
 	render: () => (
-		<div className="flex flex-col gap-4">
-			<div className="flex flex-wrap gap-2">
+		<div className={vstack({ gap: '4' })}>
+			<div className={flex({ wrap: 'wrap', gap: '2' })}>
 				<Badge variant="yellow">Yellow</Badge>
 				<Badge variant="mint">Mint</Badge>
 				<Badge variant="sky">Sky</Badge>
@@ -101,7 +102,7 @@ export const AllVariants: Story = {
 				<Badge variant="dark">Dark</Badge>
 				<Badge variant="gray">Gray</Badge>
 			</div>
-			<div className="flex gap-2 items-center">
+			<div className={hstack({ gap: '2' })}>
 				<Badge variant="yellow" size="sm">
 					Small
 				</Badge>
@@ -109,7 +110,7 @@ export const AllVariants: Story = {
 					Medium
 				</Badge>
 			</div>
-			<div className="flex gap-2">
+			<div className={hstack({ gap: '2' })}>
 				<Badge variant="mint" rounded="sm">
 					Rounded sm
 				</Badge>

@@ -1,20 +1,27 @@
 import type React from 'react';
+import { css } from 'styled-system/css';
+import { center, flex, grid } from 'styled-system/patterns';
 import { ThemeColor } from '../../../types';
 import { Button } from '../../atoms';
-import Grid from '../../layout/Grid';
-import TeamMemberCard from '../../molecules/TeamMemberCard';
+import { TeamMemberCard } from '../../molecules/TeamMemberCard';
 import { Container, Section } from '../../organisms';
 
 const IconSeparator = () => {
 	return (
-		<div className="flex justify-center items-center gap-10 md:gap-20 pt-16 pb-0 bg-white">
+		<div
+			className={`${center({ gap: { base: '10', md: '20' } })} ${css({
+				pt: '16',
+				pb: '0',
+				bg: 'white',
+			})}`}
+		>
 			{/* Left Star/Sparkle - Exactly like provided image */}
 			<svg
 				width="48"
 				height="48"
 				viewBox="0 0 48 48"
 				fill="none"
-				className="text-ocobo-dark"
+				className={css({ color: 'ocobo.dark' })}
 			>
 				<title>Decorative illustration</title>
 				<circle cx="24" cy="24" r="3.5" fill="currentColor" />
@@ -60,7 +67,7 @@ const IconSeparator = () => {
 				height="84"
 				viewBox="0 0 84 84"
 				fill="none"
-				className="text-ocobo-dark"
+				className={css({ color: 'ocobo.dark' })}
 			>
 				<title>Decorative illustration</title>
 				<circle cx="42" cy="42" r="38" stroke="currentColor" strokeWidth="3" />
@@ -101,7 +108,7 @@ const IconSeparator = () => {
 				height="48"
 				viewBox="0 0 48 48"
 				fill="none"
-				className="text-ocobo-dark"
+				className={css({ color: 'ocobo.dark' })}
 			>
 				<title>Decorative illustration</title>
 				<circle cx="24" cy="24" r="3.5" fill="currentColor" />
@@ -166,28 +173,49 @@ const TEAM_MEMBERS = [
 	},
 ];
 
-const TeamSection: React.FC = () => {
+export const TeamSection: React.FC = () => {
 	return (
 		<>
 			<IconSeparator />
-			<Section bg="white" className="pt-12 pb-24">
+			<Section bg="white" className={css({ pt: '12', pb: '24' })}>
 				<Container>
-					<div className="text-center mb-16 max-w-3xl mx-auto">
-						<h2 className="font-display text-4xl font-bold mb-6">
+					<div
+						className={css({
+							textAlign: 'center',
+							mb: '16',
+							maxW: '3xl',
+							mx: 'auto',
+						})}
+					>
+						<h2
+							className={css({
+								fontFamily: 'display',
+								fontSize: '4xl',
+								fontWeight: 'bold',
+								mb: '6',
+							})}
+						>
 							L'équipe fondatrice
 						</h2>
-						<p className="text-xl font-medium text-ocobo-dark mb-4">
+						<p
+							className={css({
+								fontSize: 'xl',
+								fontWeight: 'medium',
+								color: 'ocobo.dark',
+								mb: '4',
+							})}
+						>
 							Une équipe 100% senior. Issue des meilleures scale-ups. Construite
 							pour l'impact.
 						</p>
-						<p className="text-gray-600">
+						<p className={css({ color: 'gray.600' })}>
 							Nous ne sommes ni des juniors, ni des exécutants externes. Nous
 							opérons comme une direction Revenue embarquée : exigeante,
 							stratégique, opérationnelle.
 						</p>
 					</div>
 
-					<Grid md={3} gap={8}>
+					<div className={grid({ columns: { base: 1, md: 3 }, gap: '8' })}>
 						{TEAM_MEMBERS.map((member) => (
 							<TeamMemberCard
 								key={member.name}
@@ -198,12 +226,19 @@ const TeamSection: React.FC = () => {
 								color={member.color}
 							/>
 						))}
-					</Grid>
+					</div>
 
-					<div className="text-center mt-12 flex flex-col items-center gap-8">
-						<p className="font-bold text-xl">
+					<div
+						className={`${flex({ direction: 'column', align: 'center', gap: '8' })} ${css(
+							{
+								textAlign: 'center',
+								mt: '12',
+							},
+						)}`}
+					>
+						<p className={css({ fontWeight: 'bold', fontSize: 'xl' })}>
 							Trois parcours, une même conviction :{' '}
-							<span className="bg-ocobo-yellow-light px-2">
+							<span className={css({ bg: 'ocobo.yellow.light', px: '2' })}>
 								la croissance a besoin d'architectes, pas de techniciens.
 							</span>
 						</p>
@@ -216,5 +251,3 @@ const TeamSection: React.FC = () => {
 		</>
 	);
 };
-
-export default TeamSection;

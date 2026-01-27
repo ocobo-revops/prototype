@@ -1,4 +1,5 @@
 import type React from 'react';
+import { css } from 'styled-system/css';
 import type { ThemeColor } from '../../types';
 import { Badge } from '../atoms';
 
@@ -13,7 +14,7 @@ interface SectionHeaderProps {
 	light?: boolean;
 }
 
-const SectionHeader: React.FC<SectionHeaderProps> = ({
+export const SectionHeader: React.FC<SectionHeaderProps> = ({
 	badge,
 	badgeVariant = 'yellow',
 	title,
@@ -22,29 +23,43 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
 	className = '',
 	light = false,
 }) => {
-	const alignmentClasses = centered ? 'text-center' : '';
-	const titleColour = light ? 'text-white' : 'text-ocobo-dark';
-	const subtitleColour = light ? 'text-gray-300' : 'text-gray-600';
+	const titleColour = light ? 'white' : 'ocobo.dark';
+	const subtitleColour = light ? 'gray.300' : 'gray.600';
 
 	return (
-		<div className={`${alignmentClasses} ${className}`}>
+		<div
+			className={`${css({
+				textAlign: centered ? 'center' : 'left',
+			})} ${className}`}
+		>
 			{badge && (
-				<Badge variant={badgeVariant} className="mb-8">
+				<Badge variant={badgeVariant} className={css({ mb: '8' })}>
 					{badge}
 				</Badge>
 			)}
 			<h2
-				className={`font-display text-3xl md:text-5xl font-bold ${titleColour} mb-6 leading-tight`}
+				className={css({
+					fontFamily: 'display',
+					fontSize: { base: '3xl', md: '5xl' },
+					fontWeight: 'bold',
+					color: titleColour,
+					mb: '6',
+					lineHeight: 'tight',
+				})}
 			>
 				{title}
 			</h2>
 			{subtitle && (
-				<p className={`text-lg md:text-xl ${subtitleColour} font-medium`}>
+				<p
+					className={css({
+						fontSize: { base: 'lg', md: 'xl' },
+						color: subtitleColour,
+						fontWeight: 'medium',
+					})}
+				>
 					{subtitle}
 				</p>
 			)}
 		</div>
 	);
 };
-
-export default SectionHeader;

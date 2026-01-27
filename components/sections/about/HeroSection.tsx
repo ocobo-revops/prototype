@@ -1,15 +1,39 @@
 import type React from 'react';
+import { css } from 'styled-system/css';
+import { flex } from 'styled-system/patterns';
 import { Container } from '../../organisms';
 
 const DataIllustration = () => {
 	return (
-		<div className="w-full overflow-hidden">
-			<div className="relative w-full max-w-3xl h-[280px] md:h-[420px] mx-auto p-4 flex flex-col items-center">
+		<div className={css({ w: 'full', overflow: 'hidden' })}>
+			<div
+				className={`${flex({ direction: 'column', align: 'center' })} ${css({
+					position: 'relative',
+					w: 'full',
+					maxW: '3xl',
+					h: { base: '280px', md: '420px' },
+					mx: 'auto',
+					p: '4',
+				})}`}
+			>
 				{/* Illustration Container */}
-				<div className="relative w-full h-full bg-[#FCFAF5] rounded-3xl p-6 md:p-8 shadow-soft-lg border border-gray-100 group/svg overflow-hidden">
+				<div
+					className={css({
+						position: 'relative',
+						w: 'full',
+						h: 'full',
+						bg: '#FCFAF5',
+						rounded: '3xl',
+						p: { base: '6', md: '8' },
+						shadow: 'soft-lg',
+						borderWidth: '1px',
+						borderColor: 'gray.100',
+						overflow: 'hidden',
+					})}
+				>
 					<svg
 						viewBox="0 0 800 500"
-						className="w-full h-full text-ocobo-dark"
+						className={css({ w: 'full', h: 'full', color: 'ocobo.dark' })}
 						preserveAspectRatio="xMidYMid meet"
 					>
 						{/* Background Bars (Grey/Black) - Following the image structure */}
@@ -82,7 +106,7 @@ const DataIllustration = () => {
 								width="205"
 								height="400"
 								fill="#F1CF25"
-								className="animate-slow-fade"
+								className={css({ animation: 'slow-fade' })}
 							/>
 							<rect
 								x="270"
@@ -119,7 +143,10 @@ const DataIllustration = () => {
 						/>
 
 						{/* Logo Spinner Icon (Bottom Right of yellow zone) */}
-						<g transform="translate(485, 460)" className="animate-float-cursor">
+						<g
+							transform="translate(485, 460)"
+							className={css({ animation: 'float-cursor' })}
+						>
 							<circle
 								cx="0"
 								cy="0"
@@ -146,15 +173,40 @@ const DataIllustration = () => {
 							transform="translate(470, 455) scale(1.2)"
 							d="M0,0 L25,40 L10,35 L0,55 Z"
 							fill="currentColor"
-							className="animate-float-cursor"
+							className={css({ animation: 'float-cursor' })}
 						/>
 					</svg>
 				</div>
-				<div className="mt-10 text-center max-w-lg mx-auto">
-					<h3 className="font-display text-xl md:text-2xl font-bold text-ocobo-dark mb-3 uppercase tracking-[0.2em]">
+				<div
+					className={css({
+						mt: '10',
+						textAlign: 'center',
+						maxW: 'lg',
+						mx: 'auto',
+					})}
+				>
+					<h3
+						className={css({
+							fontFamily: 'display',
+							fontSize: { base: 'xl', md: '2xl' },
+							fontWeight: 'bold',
+							color: 'ocobo.dark',
+							mb: '3',
+							textTransform: 'uppercase',
+							letterSpacing: '0.2em',
+						})}
+					>
 						Transformer le bruit en signal.
 					</h3>
-					<p className="text-gray-400 text-sm md:text-base font-medium leading-relaxed px-4">
+					<p
+						className={css({
+							color: 'gray.400',
+							fontSize: { base: 'sm', md: 'base' },
+							fontWeight: 'medium',
+							lineHeight: 'relaxed',
+							px: '4',
+						})}
+					>
 						L'architecture n'est pas qu'une question de structure, c'est une
 						question de vision. Savoir où regarder pour trouver la croissance.
 					</p>
@@ -164,21 +216,54 @@ const DataIllustration = () => {
 	);
 };
 
-const HeroSection: React.FC = () => {
+export const HeroSection: React.FC = () => {
 	return (
-		<section className="pt-40 pb-10">
+		<section className={css({ pt: '40', pb: '10' })}>
 			<Container>
-				<div className="text-center max-w-4xl mx-auto mb-20">
-					<h1 className="font-display text-5xl md:text-6xl font-bold text-ocobo-dark mb-8 leading-[0.9] tracking-tight">
+				<div
+					className={css({
+						textAlign: 'center',
+						maxW: '4xl',
+						mx: 'auto',
+						mb: '20',
+					})}
+				>
+					<h1
+						className={css({
+							fontFamily: 'display',
+							fontSize: { base: '5xl', md: '6xl' },
+							fontWeight: 'bold',
+							color: 'ocobo.dark',
+							mb: '8',
+							lineHeight: '0.9',
+							letterSpacing: 'tight',
+						})}
+					>
 						Notre mission : <br />
 						démocratiser la{' '}
-						<span className="text-ocobo-yellow">science du revenu.</span>
+						<span className={css({ color: 'ocobo.yellow' })}>
+							science du revenu.
+						</span>
 					</h1>
-					<p className="text-xl text-gray-700 leading-relaxed mb-6 font-medium">
+					<p
+						className={css({
+							fontSize: 'xl',
+							color: 'gray.700',
+							lineHeight: 'relaxed',
+							mb: '6',
+							fontWeight: 'medium',
+						})}
+					>
 						Rendre accessible à toutes les organisations B2B une discipline
 						réservée, jusqu'ici, aux scale-ups les plus avancées.
 					</p>
-					<p className="text-gray-500 leading-relaxed text-lg">
+					<p
+						className={css({
+							color: 'gray.500',
+							lineHeight: 'relaxed',
+							fontSize: 'lg',
+						})}
+					>
 						Parce qu'une croissance fiable n'est jamais un hasard : c'est le
 						résultat d'une architecture solide, d'équipes alignées, et d'un
 						système qui respire la simplicité.
@@ -189,5 +274,3 @@ const HeroSection: React.FC = () => {
 		</section>
 	);
 };
-
-export default HeroSection;

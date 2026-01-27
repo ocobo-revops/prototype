@@ -6,62 +6,253 @@ import {
 	Users,
 	Zap,
 } from 'lucide-react';
-import type React from 'react';
 import { useEffect, useState } from 'react';
+import { css, cx } from 'styled-system/css';
+import { center, flex, grid, hstack } from 'styled-system/patterns';
 import { Badge, Button } from '../components/atoms';
-import Grid from '../components/layout/Grid';
 
-const TeamPhotoIllustration = () => {
+function TeamPhotoIllustration() {
 	return (
-		<div className="relative w-full max-w-4xl mx-auto py-12 px-4 group">
-			{/* BACKGROUND DECORATIVE SPHERES - FAVORING THE SQUAD ASPECT */}
-			<div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
-				<div className="absolute top-0 left-1/4 w-64 h-64 bg-ocobo-yellow/30 rounded-full blur-3xl animate-float-blob [animation-delay:0s]"></div>
-				<div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-ocobo-mint/30 rounded-full blur-3xl animate-float-blob [animation-delay:-4s]"></div>
-				<div className="absolute top-1/2 left-10 w-48 h-48 bg-ocobo-coral/20 rounded-full blur-3xl animate-float-blob [animation-delay:-8s]"></div>
-				<div className="absolute top-1/4 right-0 w-56 h-56 bg-ocobo-sky/30 rounded-full blur-3xl animate-float-blob [animation-delay:-2s]"></div>
+		<div
+			className={css({
+				position: 'relative',
+				width: 'full',
+				maxW: '4xl',
+				mx: 'auto',
+				py: '12',
+				px: '4',
+				_hover: {
+					'& .corner-accent-tl': { borderColor: 'ocobo.yellow' },
+					'& .corner-accent-br': { borderColor: 'ocobo.mint' },
+				},
+			})}
+		>
+			{/* Background decorative spheres */}
+			<div
+				className={css({
+					position: 'absolute',
+					inset: 0,
+					zIndex: -1,
+					pointerEvents: 'none',
+					overflow: 'hidden',
+				})}
+			>
+				<div
+					className={css({
+						position: 'absolute',
+						top: 0,
+						left: '25%',
+						width: '16rem',
+						height: '16rem',
+						bg: 'ocobo.yellow/30',
+						rounded: 'full',
+						filter: 'blur(48px)',
+						animation: 'float-blob',
+					})}
+				/>
+				<div
+					className={css({
+						position: 'absolute',
+						bottom: '25%',
+						right: '25%',
+						width: '18rem',
+						height: '18rem',
+						bg: 'ocobo.mint/30',
+						rounded: 'full',
+						filter: 'blur(48px)',
+						animation: 'float-blob',
+						animationDelay: '-4s',
+					})}
+				/>
+				<div
+					className={css({
+						position: 'absolute',
+						top: '50%',
+						left: '2.5rem',
+						width: '12rem',
+						height: '12rem',
+						bg: 'ocobo.coral/20',
+						rounded: 'full',
+						filter: 'blur(48px)',
+						animation: 'float-blob',
+						animationDelay: '-8s',
+					})}
+				/>
+				<div
+					className={css({
+						position: 'absolute',
+						top: '25%',
+						right: 0,
+						width: '14rem',
+						height: '14rem',
+						bg: 'ocobo.sky/30',
+						rounded: 'full',
+						filter: 'blur(48px)',
+						animation: 'float-blob',
+						animationDelay: '-2s',
+					})}
+				/>
 			</div>
 
-			{/* PHOTO CONTAINER */}
-			<div className="relative z-10 mx-auto">
+			{/* Photo container */}
+			<div className={css({ position: 'relative', zIndex: 10, mx: 'auto' })}>
 				{/* Decorative corner accents */}
-				<div className="absolute -top-6 -left-6 w-16 h-16 border-t-2 border-l-2 border-ocobo-dark/10 group-hover:border-ocobo-yellow transition-colors duration-700"></div>
-				<div className="absolute -bottom-6 -right-6 w-16 h-16 border-b-2 border-r-2 border-ocobo-dark/10 group-hover:border-ocobo-mint transition-colors duration-700"></div>
+				<div
+					className={`corner-accent-tl ${css({
+						position: 'absolute',
+						top: '-1.5rem',
+						left: '-1.5rem',
+						width: '4rem',
+						height: '4rem',
+						borderTop: '2px solid',
+						borderLeft: '2px solid',
+						borderColor: 'ocobo.dark/10',
+						transition: 'border-color 700ms',
+					})}`}
+				/>
+				<div
+					className={`corner-accent-br ${css({
+						position: 'absolute',
+						bottom: '-1.5rem',
+						right: '-1.5rem',
+						width: '4rem',
+						height: '4rem',
+						borderBottom: '2px solid',
+						borderRight: '2px solid',
+						borderColor: 'ocobo.dark/10',
+						transition: 'border-color 700ms',
+					})}`}
+				/>
 
 				{/* Main Photo Card */}
-				<div className="relative bg-white p-2.5 rounded-3xl shadow-soft-lg border border-gray-100 overflow-hidden transform group-hover:scale-[1.01] transition-transform duration-700">
-					{/* NOTE: Remplacer l'URL ci-dessous par le lien de votre photo une fois hébergée */}
+				<div
+					className={css({
+						position: 'relative',
+						bg: 'white',
+						p: '2.5',
+						rounded: '3xl',
+						shadow: 'soft-lg',
+						border: '1px solid',
+						borderColor: 'gray.100',
+						overflow: 'hidden',
+						transition: 'transform 700ms',
+						_hover: { transform: 'scale(1.01)' },
+					})}
+				>
 					<img
 						src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
 						alt="L'équipe Ocobo"
-						className="w-full h-auto rounded-3xl grayscale contrast-[1.1] brightness-[1.05] group-hover:grayscale-0 transition-all duration-1000 ease-in-out"
+						className={css({
+							width: 'full',
+							height: 'auto',
+							rounded: '3xl',
+							filter: 'grayscale(1) contrast(1.1) brightness(1.05)',
+							transition: 'all 1000ms ease-in-out',
+							_groupHover: { filter: 'grayscale(0)' },
+						})}
 					/>
 
-					{/* Overlay Gradient for depth */}
-					<div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+					{/* Overlay Gradient */}
+					<div
+						className={css({
+							position: 'absolute',
+							inset: 0,
+							bgGradient: 'to-t',
+							gradientFrom: 'black/30',
+							gradientTo: 'transparent',
+							pointerEvents: 'none',
+							opacity: 0,
+							transition: 'opacity 700ms',
+							_groupHover: { opacity: 1 },
+						})}
+					/>
 
 					{/* Caption Badge */}
-					<div className="absolute bottom-10 left-10 bg-white/90 backdrop-blur-md px-6 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-						<div className="w-2.5 h-2.5 rounded-full bg-ocobo-mint animate-pulse"></div>
-						<span className="font-display font-black text-xs uppercase tracking-[0.25em] text-ocobo-dark">
+					<div
+						className={`${hstack({ gap: '3' })} ${css({
+							position: 'absolute',
+							bottom: '2.5rem',
+							left: '2.5rem',
+							bg: 'white/90',
+							backdropFilter: 'blur(12px)',
+							px: '6',
+							py: '3.5',
+							rounded: '2xl',
+							shadow: '2xl',
+							transform: 'translateY(1rem)',
+							opacity: 0,
+							transition: 'all 500ms',
+							transitionDelay: '100ms',
+							_groupHover: { transform: 'translateY(0)', opacity: 1 },
+						})}`}
+					>
+						<div
+							className={css({
+								width: '2.5',
+								height: '2.5',
+								rounded: 'full',
+								bg: 'ocobo.mint',
+								animation: 'pulse',
+							})}
+						/>
+						<span
+							className={css({
+								fontFamily: 'display',
+								fontWeight: 'black',
+								fontSize: 'xs',
+								textTransform: 'uppercase',
+								letterSpacing: '0.25em',
+								color: 'ocobo.dark',
+							})}
+						>
 							La Squad Ocobo
 						</span>
 					</div>
 				</div>
 
 				{/* Floating Architectural Icons */}
-				<div className="absolute -top-12 right-12 p-5 bg-white rounded-2xl shadow-xl transform rotate-12 animate-bounce-slow hidden md:flex border border-gray-50">
-					<Sparkles className="text-ocobo-yellow" size={28} />
+				<div
+					className={css({
+						position: 'absolute',
+						top: '-3rem',
+						right: '3rem',
+						p: '5',
+						bg: 'white',
+						rounded: '2xl',
+						shadow: 'xl',
+						transform: 'rotate(12deg)',
+						animation: 'bounce-slow',
+						display: { base: 'none', md: 'flex' },
+						border: '1px solid',
+						borderColor: 'gray.50',
+					})}
+				>
+					<Sparkles className={css({ color: 'ocobo.yellow' })} size={28} />
 				</div>
-				<div className="absolute -bottom-10 left-24 p-5 bg-ocobo-dark text-white rounded-2xl shadow-xl transform -rotate-6 animate-bounce-slow hidden md:flex [animation-delay:1s]">
+				<div
+					className={css({
+						position: 'absolute',
+						bottom: '-2.5rem',
+						left: '6rem',
+						p: '5',
+						bg: 'ocobo.dark',
+						color: 'white',
+						rounded: '2xl',
+						shadow: 'xl',
+						transform: 'rotate(-6deg)',
+						animation: 'bounce-slow',
+						animationDelay: '1s',
+						display: { base: 'none', md: 'flex' },
+					})}
+				>
 					<Users size={24} />
 				</div>
 			</div>
 		</div>
 	);
-};
+}
 
-const Studio: React.FC = () => {
+export function Studio() {
 	const [activeFilter, setActiveFilter] = useState('TOUS');
 	const [animate, setAnimate] = useState(false);
 
@@ -80,15 +271,17 @@ const Studio: React.FC = () => {
 			role: 'Associé',
 			desc: '12+ ans en Ops, CRM, Product et Revenue Operations (TheFork, Tripadvisor, Yousign). Spécialiste des systèmes et du pilotage opérationnel.',
 			img: 'https://placehold.co/200x200/F3F4F6/F3F4F6',
-			hoverClass: 'group-hover:bg-ocobo-yellow group-hover:text-ocobo-dark',
+			hoverBg: 'ocobo.yellow',
+			hoverText: 'ocobo.dark',
 		},
 		{
 			name: 'Aude Cadiot',
 			category: 'Architecte',
 			role: 'Associée',
-			desc: 'Référence française du Revenue Operations (TheFork, Spendesk). Experte du customer journey, des organisations GTM, du scaling d’équipes RevOps.',
+			desc: "Référence française du Revenue Operations (TheFork, Spendesk). Experte du customer journey, des organisations GTM, du scaling d'équipes RevOps.",
 			img: 'https://placehold.co/200x200/F3F4F6/F3F4F6',
-			hoverClass: 'group-hover:bg-ocobo-yellow group-hover:text-ocobo-dark',
+			hoverBg: 'ocobo.yellow',
+			hoverText: 'ocobo.dark',
 		},
 		{
 			name: 'Corentin Guérin',
@@ -96,7 +289,8 @@ const Studio: React.FC = () => {
 			role: 'Associée',
 			desc: 'Finance, Deloitte, Business Ops (TheFork). Spécialiste du forecasting, de la performance, des rémunérations variables et du pricing.',
 			img: 'https://placehold.co/200x200/F3F4F6/F3F4F6',
-			hoverClass: 'group-hover:bg-ocobo-yellow group-hover:text-ocobo-dark',
+			hoverBg: 'ocobo.yellow',
+			hoverText: 'ocobo.dark',
 		},
 		{
 			name: 'Tony Chalencon',
@@ -104,7 +298,8 @@ const Studio: React.FC = () => {
 			role: 'Senior Manager',
 			desc: 'Expert en alignement stratégique et pilotage de grands comptes. Orienté résultats et excellence opérationnelle.',
 			img: 'https://placehold.co/200x200/F3F4F6/F3F4F6',
-			hoverClass: 'group-hover:bg-ocobo-yellow group-hover:text-ocobo-dark',
+			hoverBg: 'ocobo.yellow',
+			hoverText: 'ocobo.dark',
 		},
 		{
 			name: 'Clara Lecarrie',
@@ -112,7 +307,8 @@ const Studio: React.FC = () => {
 			role: 'Manager',
 			desc: "Spécialiste de l'expérience utilisateur et de l'optimisation des parcours de vente complexes.",
 			img: 'https://placehold.co/200x200/F3F4F6/F3F4F6',
-			hoverClass: 'group-hover:bg-ocobo-yellow group-hover:text-ocobo-dark',
+			hoverBg: 'ocobo.yellow',
+			hoverText: 'ocobo.dark',
 		},
 		{
 			name: 'Louis Strauss',
@@ -120,7 +316,8 @@ const Studio: React.FC = () => {
 			role: 'RevOps Engineer',
 			desc: 'Le cerveau technique derrière nos intégrations les plus poussées et nos outils propriétaires.',
 			img: 'https://placehold.co/200x200/F3F4F6/F3F4F6',
-			hoverClass: 'group-hover:bg-ocobo-mint group-hover:text-ocobo-dark',
+			hoverBg: 'ocobo.mint',
+			hoverText: 'ocobo.dark',
 		},
 		{
 			name: 'Domitille Raimbault',
@@ -128,7 +325,8 @@ const Studio: React.FC = () => {
 			role: 'Senior RevOps Manager',
 			desc: 'Maîtrise les architectures CRM les plus complexes pour transformer la donnée en levier de croissance.',
 			img: 'https://placehold.co/200x200/F3F4F6/F3F4F6',
-			hoverClass: 'group-hover:bg-ocobo-coral group-hover:text-white',
+			hoverBg: 'ocobo.coral',
+			hoverText: 'white',
 		},
 		{
 			name: 'Ethel Gosset',
@@ -136,7 +334,8 @@ const Studio: React.FC = () => {
 			role: 'Senior RevOps Manager',
 			desc: 'Experte en automatisation et fluidification des processus opérationnels Sales & Marketing.',
 			img: 'https://placehold.co/200x200/F3F4F6/F3F4F6',
-			hoverClass: 'group-hover:bg-ocobo-coral group-hover:text-white',
+			hoverBg: 'ocobo.coral',
+			hoverText: 'white',
 		},
 		{
 			name: 'Dorian Cutullic',
@@ -144,7 +343,8 @@ const Studio: React.FC = () => {
 			role: 'RevOps Manager',
 			desc: "Accompagne les scale-ups dans la structuration de leur stack et l'adoption des rituels RevOps.",
 			img: 'https://placehold.co/200x200/F3F4F6/F3F4F6',
-			hoverClass: 'group-hover:bg-ocobo-coral group-hover:text-white',
+			hoverBg: 'ocobo.coral',
+			hoverText: 'white',
 		},
 		{
 			name: 'Damien Robert',
@@ -152,7 +352,8 @@ const Studio: React.FC = () => {
 			role: 'RevOps Manager',
 			desc: 'Spécialiste de la performance commerciale et du pilotage par la donnée fiable.',
 			img: 'https://placehold.co/200x200/F3F4F6/F3F4F6',
-			hoverClass: 'group-hover:bg-ocobo-coral group-hover:text-white',
+			hoverBg: 'ocobo.coral',
+			hoverText: 'white',
 		},
 		{
 			name: 'Mariette Baudras',
@@ -160,7 +361,8 @@ const Studio: React.FC = () => {
 			role: 'RevOps Manager',
 			desc: 'Experte en Customer Success Operations et optimisation de la rétention client.',
 			img: 'https://placehold.co/200x200/F3F4F6/F3F4F6',
-			hoverClass: 'group-hover:bg-ocobo-coral group-hover:text-white',
+			hoverBg: 'ocobo.coral',
+			hoverText: 'white',
 		},
 		{
 			name: 'Yoann Boileux',
@@ -168,7 +370,8 @@ const Studio: React.FC = () => {
 			role: 'RevOps Manager',
 			desc: "Focus sur l'enablement des équipes et la création de playbooks d'exécution robustes.",
 			img: 'https://placehold.co/200x200/F3F4F6/F3F4F6',
-			hoverClass: 'group-hover:bg-ocobo-coral group-hover:text-white',
+			hoverBg: 'ocobo.coral',
+			hoverText: 'white',
 		},
 	];
 
@@ -178,30 +381,75 @@ const Studio: React.FC = () => {
 			: team.filter((member) => member.category === activeFilter);
 
 	return (
-		<div className="w-full bg-white">
-			{/* HERO STUDIO - REIMAGINED WITH PHOTO ILLUSTRATION */}
-			<section className="pt-40 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
-				<div className="max-w-4xl mx-auto mb-16">
-					<Badge variant="mint" className="mb-10">
+		<div className={css({ width: 'full', bg: 'white' })}>
+			{/* Hero Studio */}
+			<section
+				className={css({
+					pt: '40',
+					pb: '24',
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+					position: 'relative',
+					textAlign: 'center',
+				})}
+			>
+				<div className={css({ maxW: '4xl', mx: 'auto', mb: '16' })}>
+					<Badge variant="mint" className={css({ mb: '10' })}>
 						RevOps Studio
 					</Badge>
 
-					<h1 className="font-display text-5xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
+					<h1
+						className={css({
+							fontFamily: 'display',
+							fontSize: { base: '5xl', md: '6xl' },
+							fontWeight: 'bold',
+							color: 'ocobo.dark',
+							mb: '10',
+							lineHeight: '0.95',
+							letterSpacing: 'tight',
+						})}
+					>
 						Une direction Revenue Ops <br />
-						<span className="text-ocobo-mint italic">embarquée.</span>
+						<span className={css({ color: 'ocobo.mint', fontStyle: 'italic' })}>
+							embarquée.
+						</span>
 					</h1>
 
-					<p className="text-xl text-gray-700 mb-12 leading-relaxed font-medium max-w-2xl mx-auto">
+					<p
+						className={css({
+							fontSize: 'xl',
+							color: 'gray.700',
+							mb: '12',
+							lineHeight: 'relaxed',
+							fontWeight: 'medium',
+							maxW: '2xl',
+							mx: 'auto',
+						})}
+					>
 						Nous ne sommes pas une agence classique. Nous sommes{' '}
-						<span className="font-bold">un studio d'experts seniors</span> qui
-						s'intègrent à vos équipes pour opérer de l'intérieur.
+						<span className={css({ fontWeight: 'bold' })}>
+							un studio d'experts seniors
+						</span>{' '}
+						qui s'intègrent à vos équipes pour opérer de l'intérieur.
 					</p>
 				</div>
 
 				<TeamPhotoIllustration />
 
-				<div className="flex flex-col items-center gap-12 mt-16">
-					<div className="italic font-medium text-gray-400 text-sm leading-relaxed max-w-md">
+				<div
+					className={`${flex({ direction: 'column', gap: '12', align: 'center' })} ${css({ mt: '16' })}`}
+				>
+					<div
+						className={css({
+							fontStyle: 'italic',
+							fontWeight: 'medium',
+							color: 'gray.400',
+							fontSize: 'sm',
+							lineHeight: 'relaxed',
+							maxW: 'md',
+						})}
+					>
 						"Nous rejoignons vos Slacks, vos rituels et nous construisons le
 						système à vos côtés."
 					</div>
@@ -211,97 +459,206 @@ const Studio: React.FC = () => {
 					</Button>
 				</div>
 
-				<div className="mt-16 flex justify-center w-full animate-bounce-slow">
+				<div
+					className={`${center()} ${css({
+						mt: '16',
+						width: 'full',
+						animation: 'bounce-slow',
+					})}`}
+				>
 					<ChevronDown
-						className="text-ocobo-mint"
+						className={css({ color: 'ocobo.mint' })}
 						size={24}
 						strokeWidth={1.5}
 					/>
 				</div>
 			</section>
 
-			{/* SECTION MODÈLE STUDIO (APPLAT NOIR) */}
-			<section className="bg-ocobo-dark py-32 text-white relative overflow-hidden">
-				<div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[length:40px_40px]" />
+			{/* Section Modèle Studio */}
+			<section
+				className={css({
+					bg: 'ocobo.dark',
+					py: '32',
+					color: 'white',
+					position: 'relative',
+					overflow: 'hidden',
+				})}
+			>
+				<div
+					className={css({
+						position: 'absolute',
+						inset: 0,
+						opacity: 0.03,
+						backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
+						backgroundSize: '40px 40px',
+					})}
+				/>
 
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-					<div className="max-w-3xl mb-20">
-						<h2 className="font-display text-4xl md:text-5xl font-black mb-6 tracking-tight">
+				<div
+					className={css({
+						maxW: '7xl',
+						mx: 'auto',
+						px: { base: '4', sm: '6', lg: '8' },
+						position: 'relative',
+						zIndex: 10,
+					})}
+				>
+					<div className={css({ maxW: '3xl', mb: '20' })}>
+						<h2
+							className={css({
+								fontFamily: 'display',
+								fontSize: { base: '4xl', md: '5xl' },
+								fontWeight: 'black',
+								mb: '6',
+								letterSpacing: 'tight',
+							})}
+						>
 							Le modèle Studio Ocobo™
 						</h2>
-						<p className="text-gray-400 text-lg font-medium leading-relaxed">
+						<p
+							className={css({
+								color: 'gray.400',
+								fontSize: 'lg',
+								fontWeight: 'medium',
+								lineHeight: 'relaxed',
+							})}
+						>
 							L'agence traditionnelle est souvent trop lente et trop loin de la
 							reality du terrain. Nous avons conçu une alternative pragmatique
 							pour scaler vraiment.
 						</p>
 					</div>
 
-					<Grid md={3} gap={10}>
-						<div className="bg-white p-10 rounded-xl shadow-xl group hover:-translate-y-1 transition-transform duration-300">
-							<div className="w-16 h-16 bg-ocobo-dark text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-ocobo-mint transition-colors">
-								<Users size={28} />
+					<div className={grid({ columns: { base: 1, md: 3 }, gap: '10' })}>
+						{[
+							{
+								icon: Users,
+								title: 'Squad Immergée',
+								desc: 'Nous déployons une squad pluridisciplinaire qui rejoint votre environnement de travail quotidien.',
+								hoverColor: 'ocobo.mint',
+							},
+							{
+								icon: Zap,
+								title: '100% Impact',
+								desc: "Pas de grands rapports théoriques. Nous délivrons des briques de système prêtes à l'emploi.",
+								hoverColor: 'ocobo.sky',
+							},
+							{
+								icon: Target,
+								title: 'Zéro Junior',
+								desc: 'Sur chaque compte, uniquement des profils seniors ayant déjà scalé des entreprises leaders.',
+								hoverColor: 'ocobo.yellow',
+							},
+						].map((item) => (
+							<div
+								key={item.title}
+								className={css({
+									bg: 'white',
+									p: '10',
+									rounded: 'xl',
+									shadow: 'xl',
+									transition: 'transform 300ms',
+									_hover: { transform: 'translateY(-4px)' },
+								})}
+							>
+								<div
+									className={`${center()} ${css({
+										width: '16',
+										height: '16',
+										bg: 'ocobo.dark',
+										color: 'white',
+										rounded: 'lg',
+										mb: '8',
+										transition: 'background 200ms',
+										_groupHover: { bg: item.hoverColor },
+									})}`}
+								>
+									<item.icon size={28} />
+								</div>
+								<h3
+									className={css({
+										fontFamily: 'display',
+										fontSize: '2xl',
+										fontWeight: 'black',
+										mb: '4',
+										color: 'ocobo.dark',
+									})}
+								>
+									{item.title}
+								</h3>
+								<p
+									className={css({
+										color: 'gray.600',
+										lineHeight: 'relaxed',
+										fontWeight: 'medium',
+									})}
+								>
+									{item.desc}
+								</p>
 							</div>
-							<h3 className="font-display text-2xl font-black mb-4 text-ocobo-dark">
-								Squad Immergée
-							</h3>
-							<p className="text-gray-600 leading-relaxed font-medium">
-								Nous déployons une squad pluridisciplinaire qui rejoint votre
-								environnement de travail quotidien.
-							</p>
-						</div>
-						<div className="bg-white p-10 rounded-xl shadow-xl group hover:-translate-y-1 transition-transform duration-300">
-							<div className="w-16 h-16 bg-ocobo-dark text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-ocobo-sky transition-colors">
-								<Zap size={28} />
-							</div>
-							<h3 className="font-display text-2xl font-black mb-4 text-ocobo-dark">
-								100% Impact
-							</h3>
-							<p className="text-gray-600 leading-relaxed font-medium">
-								Pas de grands rapports théoriques. Nous délivrons des briques de
-								système prêtes à l'emploi.
-							</p>
-						</div>
-						<div className="bg-white p-10 rounded-xl shadow-xl group hover:-translate-y-1 transition-transform duration-300">
-							<div className="w-16 h-16 bg-ocobo-dark text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-ocobo-yellow transition-colors">
-								<Target size={28} />
-							</div>
-							<h3 className="font-display text-2xl font-black mb-4 text-ocobo-dark">
-								Zéro Junior
-							</h3>
-							<p className="text-gray-600 leading-relaxed font-medium">
-								Sur chaque compte, uniquement des profils seniors ayant déjà
-								scalé des entreprises leaders.
-							</p>
-						</div>
-					</Grid>
+						))}
+					</div>
 				</div>
 			</section>
 
-			{/* L'ÉQUIPE (LISTE) */}
-			<section className="py-24 bg-white">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+			{/* L'Équipe */}
+			<section className={css({ py: '24', bg: 'white' })}>
+				<div
+					className={css({
+						maxW: '7xl',
+						mx: 'auto',
+						px: { base: '4', sm: '6', lg: '8' },
+					})}
+				>
+					<div
+						className={`${flex({ direction: { base: 'column', md: 'row' }, justify: 'space-between', gap: '8' })} ${css({ alignItems: { md: 'flex-end' }, mb: '16' })}`}
+					>
 						<div>
-							<h2 className="font-display text-4xl font-black mb-4 text-ocobo-dark tracking-tight">
+							<h2
+								className={css({
+									fontFamily: 'display',
+									fontSize: '4xl',
+									fontWeight: 'black',
+									mb: '4',
+									color: 'ocobo.dark',
+									letterSpacing: 'tight',
+								})}
+							>
 								Votre équipe Studio
 							</h2>
-							<p className="text-gray-500 font-medium">
+							<p className={css({ color: 'gray.500', fontWeight: 'medium' })}>
 								Des experts seniors habitués à scaler ensemble des organisations
 								complexes.
 							</p>
 						</div>
 
-						<div className="flex flex-wrap gap-2">
+						<div className={flex({ gap: '2', wrap: 'wrap' })}>
 							{categories.map((cat) => (
 								<button
 									type="button"
 									key={cat}
 									onClick={() => setActiveFilter(cat)}
-									className={`px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all border ${
-										activeFilter === cat
-											? 'bg-ocobo-dark text-white border-ocobo-dark shadow-lg'
-											: 'bg-gray-50 text-gray-500 border-gray-100 hover:border-ocobo-dark hover:text-ocobo-dark'
-									}`}
+									className={css({
+										px: '6',
+										py: '2.5',
+										rounded: 'full',
+										fontSize: 'xs',
+										fontWeight: 'black',
+										textTransform: 'uppercase',
+										letterSpacing: 'widest',
+										transition: 'all 200ms',
+										border: '1px solid',
+										cursor: 'pointer',
+										bg: activeFilter === cat ? 'ocobo.dark' : 'gray.50',
+										color: activeFilter === cat ? 'white' : 'gray.500',
+										borderColor:
+											activeFilter === cat ? 'ocobo.dark' : 'gray.100',
+										shadow: activeFilter === cat ? 'lg' : 'none',
+										_hover: {
+											borderColor: 'ocobo.dark',
+											color: activeFilter === cat ? 'white' : 'ocobo.dark',
+										},
+									})}
 								>
 									{cat === 'TOUS' ? 'Tous les profils' : cat}
 								</button>
@@ -309,55 +666,154 @@ const Studio: React.FC = () => {
 						</div>
 					</div>
 
-					<Grid
-						md={2}
-						lg={3}
-						gap={8}
-						className="transition-all duration-500 stagger-fade"
+					<div
+						className={grid({ columns: { base: 1, md: 2, lg: 3 }, gap: '8' })}
 					>
 						{filteredTeam.map((member) => (
 							<div
 								key={`${member.name}-${activeFilter}`}
-								className={`group bg-white border border-gray-100 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden rounded-xl ${animate ? 'opacity-0 animate-fade-in-up-small' : 'opacity-0'}`}
+								className={cx(
+									css({
+										bg: 'white',
+										border: '1px solid',
+										borderColor: 'gray.100',
+										p: '8',
+										position: 'relative',
+										overflow: 'hidden',
+										rounded: 'xl',
+										transition: 'all 300ms',
+										_hover: { shadow: 'xl', transform: 'translateY(-4px)' },
+									}),
+									animate
+										? css({ opacity: 0, animation: 'fade-in-up-small' })
+										: css({ opacity: 0 }),
+								)}
 							>
-								{/* Left trait that lights up on hover */}
+								{/* Left trait */}
 								<div
-									className={`absolute top-0 left-0 w-1.5 h-full bg-gray-50 transition-colors duration-300 ${member.hoverClass}`}
-								></div>
+									className={css({
+										position: 'absolute',
+										top: 0,
+										left: 0,
+										width: '1.5',
+										height: 'full',
+										bg: 'gray.50',
+										transition: 'all 300ms',
+										_groupHover: {
+											bg: member.hoverBg,
+											color: member.hoverText,
+										},
+									})}
+								/>
 
-								{/* Dynamic Badge with hover effect */}
+								{/* Category badge */}
 								<div
-									className={`absolute top-0 right-0 px-4 py-1.5 rounded-bl-xl font-display font-black text-xs uppercase tracking-widest shadow-sm bg-gray-100 text-gray-400 transition-all duration-300 ${member.hoverClass}`}
+									className={css({
+										position: 'absolute',
+										top: 0,
+										right: 0,
+										px: '4',
+										py: '1.5',
+										roundedBottomLeft: 'xl',
+										fontFamily: 'display',
+										fontWeight: 'black',
+										fontSize: 'xs',
+										textTransform: 'uppercase',
+										letterSpacing: 'widest',
+										shadow: 'sm',
+										bg: 'gray.100',
+										color: 'gray.400',
+										transition: 'all 300ms',
+									})}
 								>
 									{member.category}
 								</div>
 
-								<div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-gray-50 group-hover:border-ocobo-dark transition-all duration-500 shadow-sm bg-gray-50">
+								<div
+									className={css({
+										width: '32',
+										height: '32',
+										mx: 'auto',
+										mb: '6',
+										rounded: 'full',
+										overflow: 'hidden',
+										border: '4px solid',
+										borderColor: 'gray.50',
+										transition: 'all 500ms',
+										shadow: 'sm',
+										bg: 'gray.50',
+										_groupHover: { borderColor: 'ocobo.dark' },
+									})}
+								>
 									<img
 										src={member.img}
 										alt={member.name}
-										className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+										className={css({
+											width: 'full',
+											height: 'full',
+											objectFit: 'cover',
+											filter: 'grayscale(1)',
+											transition: 'all 500ms',
+											_groupHover: { filter: 'grayscale(0)' },
+										})}
 									/>
 								</div>
 
-								<div className="text-center">
-									<h3 className="font-display text-xl font-black text-ocobo-dark mb-1">
+								<div className={css({ textAlign: 'center' })}>
+									<h3
+										className={css({
+											fontFamily: 'display',
+											fontSize: 'xl',
+											fontWeight: 'black',
+											color: 'ocobo.dark',
+											mb: '1',
+										})}
+									>
 										{member.name}
 									</h3>
-									<p className="text-xs font-black text-gray-400 uppercase tracking-[0.2em] mb-4 h-6 flex items-center justify-center">
+									<p
+										className={`${center()} ${css({
+											fontSize: 'xs',
+											fontWeight: 'black',
+											color: 'gray.400',
+											textTransform: 'uppercase',
+											letterSpacing: '0.2em',
+											mb: '4',
+											height: '6',
+										})}`}
+									>
 										{member.role}
 									</p>
 
-									<p className="text-gray-500 text-sm mb-6 leading-relaxed min-h-[4rem] font-medium">
+									<p
+										className={css({
+											color: 'gray.500',
+											fontSize: 'sm',
+											mb: '6',
+											lineHeight: 'relaxed',
+											minH: '4rem',
+											fontWeight: 'medium',
+										})}
+									>
 										{member.desc}
 									</p>
 
-									<div className="pt-4 border-t border-gray-50 flex items-center justify-center">
+									<div
+										className={`${center()} ${css({
+											pt: '4',
+											borderTop: '1px solid',
+											borderColor: 'gray.50',
+										})}`}
+									>
 										<a
 											href="#"
 											target="_blank"
 											rel="noopener noreferrer"
-											className="text-gray-300 hover:text-ocobo-dark transition-colors"
+											className={css({
+												color: 'gray.300',
+												transition: 'color 200ms',
+												_hover: { color: 'ocobo.dark' },
+											})}
 										>
 											<Linkedin size={18} />
 										</a>
@@ -365,21 +821,55 @@ const Studio: React.FC = () => {
 								</div>
 							</div>
 						))}
-					</Grid>
+					</div>
 				</div>
 			</section>
 
-			{/* CTA FINAL */}
-			<section className="bg-ocobo-mint py-28 text-center relative overflow-hidden">
-				<div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-					<h2 className="font-display text-5xl md:text-6xl font-black text-ocobo-dark mb-10 leading-[0.9] tracking-tight">
+			{/* CTA Final */}
+			<section
+				className={css({
+					bg: 'ocobo.mint',
+					py: '28',
+					textAlign: 'center',
+					position: 'relative',
+					overflow: 'hidden',
+				})}
+			>
+				<div
+					className={css({
+						maxW: '4xl',
+						mx: 'auto',
+						px: '4',
+						textAlign: 'center',
+						position: 'relative',
+						zIndex: 10,
+					})}
+				>
+					<h2
+						className={css({
+							fontFamily: 'display',
+							fontSize: { base: '5xl', md: '6xl' },
+							fontWeight: 'black',
+							color: 'ocobo.dark',
+							mb: '10',
+							lineHeight: '0.9',
+							letterSpacing: 'tight',
+						})}
+					>
 						Envie d'une équipe qui agit vraiment ?
 					</h2>
-					<p className="text-xl text-ocobo-dark/70 mb-12 font-bold">
+					<p
+						className={css({
+							fontSize: 'xl',
+							color: 'ocobo.dark/70',
+							mb: '12',
+							fontWeight: 'bold',
+						})}
+					>
 						Évaluons ensemble la squad dont vous avez besoin pour passer au
 						niveau supérieur.
 					</p>
-					<div className="flex justify-center">
+					<div className={flex({ justify: 'center' })}>
 						<Button variant="cta" size="xl" to="/contact">
 							Discuter avec le Studio
 						</Button>
@@ -388,6 +878,6 @@ const Studio: React.FC = () => {
 			</section>
 		</div>
 	);
-};
+}
 
 export default Studio;

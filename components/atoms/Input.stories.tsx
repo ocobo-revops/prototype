@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Input from './Input';
+import { flex } from 'styled-system/patterns';
+import { Input } from './Input';
 
 const meta: Meta<typeof Input> = {
 	title: 'Atoms/Input',
@@ -64,7 +65,13 @@ export const WithValue: Story = {
 
 export const AllStates: Story = {
 	render: () => (
-		<div className="flex flex-col gap-6 max-w-md">
+		<div
+			className={flex({
+				direction: 'column',
+				gap: '6',
+				maxW: 'md',
+			})}
+		>
 			<Input label="Default" placeholder="Enter text..." name="default" />
 			<Input label="With value" name="filled" defaultValue="Some text" />
 			<Input

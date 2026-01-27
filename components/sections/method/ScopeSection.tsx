@@ -7,9 +7,10 @@ import {
 	Target,
 } from 'lucide-react';
 import type React from 'react';
+import { css } from 'styled-system/css';
+import { grid } from 'styled-system/patterns';
 import { ThemeColor } from '../../../types';
 import { UnifiedBowtie } from '../../illustrations';
-import Grid from '../../layout/Grid';
 import { ScopeCard } from '../../molecules';
 import { Container, Section } from '../../organisms';
 
@@ -76,20 +77,39 @@ const scopeData = [
 	},
 ];
 
-const ScopeSection: React.FC = () => {
+export const ScopeSection: React.FC = () => {
 	return (
-		<Section bg="white" className="overflow-hidden">
-			<Container className="text-center">
-				<h2 className="font-display text-4xl md:text-5xl font-black mb-6 tracking-tight">
+		<Section bg="white" className={css({ overflow: 'hidden' })}>
+			<Container className={css({ textAlign: 'center' })}>
+				<h2
+					className={css({
+						fontFamily: 'display',
+						fontSize: { base: '4xl', md: '5xl' },
+						fontWeight: 'black',
+						mb: '6',
+						letterSpacing: 'tight',
+					})}
+				>
 					Notre périmètre d'action
 				</h2>
-				<p className="text-xl text-gray-500 mb-12 max-w-2xl mx-auto font-medium">
+				<p
+					className={css({
+						fontSize: 'xl',
+						color: 'gray.500',
+						mb: '12',
+						maxW: '2xl',
+						mx: 'auto',
+						fontWeight: 'medium',
+					})}
+				>
 					Nous intervenons sur l'intégralité de la chaîne de valeur du revenu.
 				</p>
 
 				<UnifiedBowtie />
 
-				<Grid md={2} lg={3} gap={8} className="text-left mt-24">
+				<div
+					className={`${grid({ columns: { base: 1, md: 2, lg: 3 }, gap: '8' })} ${css({ textAlign: 'left', mt: '24' })}`}
+				>
 					{scopeData.map((scope) => (
 						<ScopeCard
 							key={scope.title}
@@ -99,10 +119,8 @@ const ScopeSection: React.FC = () => {
 							icon={scope.icon}
 						/>
 					))}
-				</Grid>
+				</div>
 			</Container>
 		</Section>
 	);
 };
-
-export default ScopeSection;

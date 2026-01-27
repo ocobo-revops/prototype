@@ -16,8 +16,9 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 import { Link } from 'react-router';
+import { css, cx } from 'styled-system/css';
+import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
 import { Badge } from '../components/atoms';
-import Grid from '../components/layout/Grid';
 
 interface VideoStoryCardProps {
 	episode: string;
@@ -29,7 +30,7 @@ interface VideoStoryCardProps {
 	videoThumb: string;
 }
 
-const _VideoStoryCard: React.FC<VideoStoryCardProps> = ({
+const VideoStoryCard: React.FC<VideoStoryCardProps> = ({
 	episode,
 	pitch,
 	consultant,
@@ -39,50 +40,185 @@ const _VideoStoryCard: React.FC<VideoStoryCardProps> = ({
 	videoThumb,
 }) => {
 	return (
-		<div className="flex flex-col gap-4 group">
+		<div
+			className={`${vstack({ gap: '4', alignItems: 'stretch' })} ${css({
+				'& .play-btn': {
+					transition: 'all',
+					transitionDuration: '500ms',
+				},
+				'&:hover .play-btn': {
+					transform: 'scale(1.1)',
+					bg: 'white',
+					color: 'ocobo.dark',
+				},
+				'& img': {
+					transition: 'all',
+					transitionDuration: '700ms',
+				},
+				'&:hover img': {
+					filter: 'grayscale(0)',
+					opacity: 1,
+				},
+			})}`}
+		>
 			{/* Title Header */}
-			<div className="flex items-center gap-2 px-1">
-				<span className="text-white text-base">🎬</span>
-				<h4 className="font-display font-black text-white text-sm md:text-base tracking-tight">
+			<div className={`${hstack({ gap: '2' })} ${css({ px: '1' })}`}>
+				<span className={css({ color: 'white', fontSize: 'base' })}>🎬</span>
+				<h4
+					className={css({
+						fontFamily: 'display',
+						fontWeight: 'black',
+						color: 'white',
+						fontSize: { base: 'sm', md: 'base' },
+						letterSpacing: 'tight',
+					})}
+				>
 					Ocobo Stories — Épisode {episode}
 				</h4>
 			</div>
 
 			{/* Pitch Box */}
-			<div className="bg-[#2D2F2F] p-5 rounded-2xl border border-white/5 min-h-[90px] flex items-start gap-4">
-				<span className="text-xl shrink-0">{icon}</span>
-				<p className="text-gray-300 text-xs md:text-sm font-medium leading-snug">
+			<div
+				className={`${flex({ gap: '4', align: 'start' })} ${css({
+					bg: '#2D2F2F',
+					p: '5',
+					rounded: '2xl',
+					borderWidth: '1px',
+					borderColor: 'white/5',
+					minH: '90px',
+				})}`}
+			>
+				<span className={css({ fontSize: 'xl', flexShrink: 0 })}>{icon}</span>
+				<p
+					className={css({
+						color: 'gray.300',
+						fontSize: { base: 'xs', md: 'sm' },
+						fontWeight: 'medium',
+						lineHeight: 'snug',
+					})}
+				>
 					{pitch}
 				</p>
 			</div>
 
 			{/* Video Placeholder Card */}
-			<div className="relative aspect-[9/16] w-full rounded-3xl overflow-hidden bg-gray-800 border border-white/5 shadow-2xl group-hover:shadow-ocobo-yellow/10 transition-all duration-500">
+			<div
+				className={css({
+					position: 'relative',
+					aspectRatio: '9/16',
+					w: 'full',
+					rounded: '3xl',
+					overflow: 'hidden',
+					bg: 'gray.800',
+					borderWidth: '1px',
+					borderColor: 'white/5',
+					shadow: '2xl',
+					_hover: { shadow: 'ocobo.yellow/10' },
+					transition: 'all',
+					transitionDuration: '500ms',
+				})}
+			>
 				<img
 					src={videoThumb}
-					className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+					className={css({
+						w: 'full',
+						h: 'full',
+						objectFit: 'cover',
+						filter: 'grayscale(100%)',
+						opacity: 0.6,
+					})}
 					alt={consultant}
 				/>
 				{/* Play Button Overlay */}
-				<div className="absolute inset-0 flex items-center justify-center">
-					<div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white border border-white/20 group-hover:scale-110 group-hover:bg-white group-hover:text-ocobo-dark transition-all duration-500 shadow-2xl">
-						<Play fill="currentColor" size={28} className="ml-1" />
+				<div
+					className={`${center()} ${css({
+						position: 'absolute',
+						inset: '0',
+					})}`}
+				>
+					<div
+						className={`play-btn ${center()} ${css({
+							w: '16',
+							h: '16',
+							bg: 'white/10',
+							backdropFilter: 'blur(12px)',
+							rounded: 'full',
+							color: 'white',
+							borderWidth: '1px',
+							borderColor: 'white/20',
+							shadow: '2xl',
+						})}`}
+					>
+						<Play fill="currentColor" size={28} className={css({ ml: '1' })} />
 					</div>
 				</div>
 
 				{/* Logo Overlay top left (as seen in screenshot) */}
-				<div className="absolute top-6 left-6 w-10 h-10 border-2 border-white rounded-full flex items-center justify-center opacity-80">
-					<div className="w-6 h-6 border-r-2 border-white rounded-full"></div>
+				<div
+					className={`${center()} ${css({
+						position: 'absolute',
+						top: '6',
+						left: '6',
+						w: '10',
+						h: '10',
+						borderWidth: '2px',
+						borderColor: 'white',
+						rounded: 'full',
+						opacity: 0.8,
+					})}`}
+				>
+					<div
+						className={css({
+							w: '6',
+							h: '6',
+							borderRightWidth: '2px',
+							borderColor: 'white',
+							rounded: 'full',
+						})}
+					/>
 				</div>
 			</div>
 
 			{/* Footer Info */}
-			<div className="px-1 mt-2">
-				<h5 className="text-white font-black text-base mb-1">{consultant}</h5>
-				<p className="text-gray-500 italic text-sm mb-4 font-medium">{role}</p>
+			<div className={css({ px: '1', mt: '2' })}>
+				<h5
+					className={css({
+						color: 'white',
+						fontWeight: 'black',
+						fontSize: 'base',
+						mb: '1',
+					})}
+				>
+					{consultant}
+				</h5>
+				<p
+					className={css({
+						color: 'gray.500',
+						fontStyle: 'italic',
+						fontSize: 'sm',
+						mb: '4',
+						fontWeight: 'medium',
+					})}
+				>
+					{role}
+				</p>
 
-				<div className="relative pl-4 border-l border-white/20">
-					<p className="text-gray-400 text-sm leading-relaxed font-medium">
+				<div
+					className={css({
+						position: 'relative',
+						pl: '4',
+						borderLeftWidth: '1px',
+						borderColor: 'white/20',
+					})}
+				>
+					<p
+						className={css({
+							color: 'gray.400',
+							fontSize: 'sm',
+							lineHeight: 'relaxed',
+							fontWeight: 'medium',
+						})}
+					>
 						"{quote}"
 					</p>
 				</div>
@@ -91,7 +227,7 @@ const _VideoStoryCard: React.FC<VideoStoryCardProps> = ({
 	);
 };
 
-const Jobs: React.FC = () => {
+export const Jobs: React.FC = () => {
 	const stories = [
 		{
 			episode: '1',
@@ -101,7 +237,7 @@ const Jobs: React.FC = () => {
 			consultant: 'Domitille',
 			role: 'RevOps Manager',
 			quote:
-				'Un vrai gain de temps dans l’évolution de sa carrière grâce à la variété des sujets que l’on traite',
+				"Un vrai gain de temps dans l'évolution de sa carrière grâce à la variété des sujets que l'on traite",
 			videoThumb:
 				'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
 		},
@@ -109,11 +245,11 @@ const Jobs: React.FC = () => {
 			episode: '2',
 			icon: '🧑‍💻',
 			pitch:
-				'À quoi ressemble une journée chez Ocobo quand on fait du RevOps “pour de vrai” ?',
+				'À quoi ressemble une journée chez Ocobo quand on fait du RevOps "pour de vrai" ?',
 			consultant: 'Dorian',
 			role: 'RevOps Manager',
 			quote:
-				'On est en permanence challengé par la dimension premium que l’on vient délivrer chez nos clients',
+				"On est en permanence challengé par la dimension premium que l'on vient délivrer chez nos clients",
 			videoThumb:
 				'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
 		},
@@ -121,11 +257,11 @@ const Jobs: React.FC = () => {
 			episode: '3',
 			icon: '💥',
 			pitch:
-				'De l’impact dès le début ! Cadrage clair & intégration a une squad avec des expert·e·s.',
+				"De l'impact dès le début ! Cadrage clair & intégration a une squad avec des expert·e·s.",
 			consultant: 'Ethel',
 			role: 'RevOps Manager',
 			quote:
-				'Comment avoir de l’autonomie? Grâce à l’équilibre parfait entre cadre et autonomie ! On a également beaucoup de temps pour se former et s’entre aider',
+				"Comment avoir de l'autonomie? Grâce à l'équilibre parfait entre cadre et autonomie ! On a également beaucoup de temps pour se former et s'entre aider",
 			videoThumb:
 				'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
 		},
@@ -135,30 +271,30 @@ const Jobs: React.FC = () => {
 		{
 			title: 'Excellence Senior',
 			desc: "Ici, on ne bricole pas. On architecture des systèmes robustes avec l'exigence des meilleurs standards du marché.",
-			icon: <Sparkles className="text-ocobo-yellow" size={24} />,
-			bg: 'bg-ocobo-yellow-light',
-			border: 'border-ocobo-yellow',
+			icon: <Sparkles className={css({ color: 'ocobo.yellow' })} size={24} />,
+			bg: 'ocobo.yellowLight',
+			border: 'ocobo.yellow',
 		},
 		{
 			title: 'Transparence Radicale',
 			desc: 'Pas de politique, pas de non-dits. On progresse par le feedback honnête et la remise en question permanente.',
-			icon: <ShieldCheck className="text-ocobo-sky" size={24} />,
-			bg: 'bg-ocobo-sky-light',
-			border: 'border-ocobo-sky',
+			icon: <ShieldCheck className={css({ color: 'ocobo.sky' })} size={24} />,
+			bg: 'ocobo.skyLight',
+			border: 'ocobo.sky',
 		},
 		{
 			title: 'Impact Mesurable',
 			desc: 'Chaque sprint, chaque ligne de process, chaque dashboard doit créer de la valeur concrète pour nos clients.',
-			icon: <Zap className="text-ocobo-mint" size={24} />,
-			bg: 'bg-ocobo-mint-light',
-			border: 'border-ocobo-mint',
+			icon: <Zap className={css({ color: 'ocobo.mint' })} size={24} />,
+			bg: 'ocobo.mintLight',
+			border: 'ocobo.mint',
 		},
 		{
 			title: 'Esprit de Squad',
 			desc: 'On ne travaille jamais seul. On partage nos blocages, nos victoires et nos apprentissages en temps réel.',
-			icon: <Heart className="text-ocobo-coral" size={24} />,
-			bg: 'bg-ocobo-coral-light',
-			border: 'border-ocobo-coral',
+			icon: <Heart className={css({ color: 'ocobo.coral' })} size={24} />,
+			bg: 'ocobo.coralLight',
+			border: 'ocobo.coral',
 		},
 	];
 
@@ -170,7 +306,7 @@ const Jobs: React.FC = () => {
 			location: 'Paris / Remote',
 			exp: '> 7 ans',
 			tag: 'Senior',
-			theme: 'bg-ocobo-yellow-light border-ocobo-yellow',
+			highlightColor: 'ocobo.yellow',
 		},
 		{
 			id: 2,
@@ -179,7 +315,7 @@ const Jobs: React.FC = () => {
 			location: 'Paris / Remote',
 			exp: '4-6 ans',
 			tag: 'Confirmé',
-			theme: 'bg-ocobo-sky-light border-ocobo-sky',
+			highlightColor: 'ocobo.sky',
 		},
 		{
 			id: 3,
@@ -188,7 +324,7 @@ const Jobs: React.FC = () => {
 			location: 'Paris / Remote',
 			exp: '> 3 ans',
 			tag: 'Expert',
-			theme: 'bg-ocobo-mint-light border-ocobo-mint',
+			highlightColor: 'ocobo.mint',
 		},
 	];
 
@@ -196,13 +332,13 @@ const Jobs: React.FC = () => {
 		{
 			title: 'RH, Fit et Motivation',
 			duration: '30 min',
-			desc: 'Première discussion avec le référant RH sur l’expérience professionnelle du candidat, ses motivations sur le poste et Ocobo.',
+			desc: "Première discussion avec le référant RH sur l'expérience professionnelle du candidat, ses motivations sur le poste et Ocobo.",
 			icon: <Phone size={24} strokeWidth={1.5} />,
 		},
 		{
 			title: 'Hiring Manager Call',
 			duration: '45 min',
-			desc: 'Première discussion avec son/sa manager RevOps pour un échange plus détaillé sur l’expérience professionnelle et les enjeux du poste.',
+			desc: "Première discussion avec son/sa manager RevOps pour un échange plus détaillé sur l'expérience professionnelle et les enjeux du poste.",
 			icon: <Video size={24} strokeWidth={1.5} />,
 		},
 		{
@@ -220,7 +356,7 @@ const Jobs: React.FC = () => {
 		{
 			title: 'Cultural Fit',
 			duration: '45 min',
-			desc: 'Échange avec un collaborateur pour valider le fit avec les valeurs et l’ambition d’Ocobo et permettre au candidat de poser ses questions à un consultant RevOps Ocobo.',
+			desc: "Échange avec un collaborateur pour valider le fit avec les valeurs et l'ambition d'Ocobo et permettre au candidat de poser ses questions à un consultant RevOps Ocobo.",
 			icon: <Star size={24} strokeWidth={1.5} />,
 		},
 		{
@@ -232,59 +368,156 @@ const Jobs: React.FC = () => {
 	];
 
 	return (
-		<div className="w-full pt-32 pb-24 bg-white">
+		<div className={css({ width: 'full', pt: '32', pb: '24', bg: 'white' })}>
 			{/* 1. Header & Intro */}
-			<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-32">
-				<div className="flex flex-col lg:flex-row items-start gap-20">
-					<div className="lg:w-1/2">
-						<Badge variant="mint" className="mb-10">
+			<section
+				className={css({
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+					mb: '32',
+				})}
+			>
+				<div
+					className={flex({
+						direction: { base: 'column', lg: 'row' },
+						align: 'start',
+						gap: '20',
+					})}
+				>
+					<div className={css({ lg: { w: '1/2' } })}>
+						<Badge variant="mint" className={css({ mb: '10' })}>
 							RECRUTEMENT
 						</Badge>
-						<h1 className="font-display text-5xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
+						<h1
+							className={css({
+								fontFamily: 'display',
+								fontSize: { base: '5xl', md: '6xl' },
+								fontWeight: 'bold',
+								color: 'ocobo.dark',
+								mb: '10',
+								lineHeight: '0.95',
+								letterSpacing: 'tight',
+							})}
+						>
 							Rejoignez les
 							<br />
 							architectes.
 						</h1>
-						<p className="text-xl text-gray-700 mb-8 leading-relaxed font-medium">
+						<p
+							className={css({
+								fontSize: 'xl',
+								color: 'gray.700',
+								mb: '8',
+								lineHeight: 'relaxed',
+								fontWeight: 'medium',
+							})}
+						>
 							Rejoindre Ocobo, c'est intégrer une équipe d'experts issus des
 							plus belles scale-ups (TheFork, PayFit, Qonto).
 						</p>
-						<div className="text-gray-600 space-y-4 leading-relaxed border-l-4 border-ocobo-yellow pl-8 py-2">
-							<p className="font-medium">
+						<div
+							className={`${vstack({ gap: '4', alignItems: 'stretch' })} ${css({
+								color: 'gray.600',
+								lineHeight: 'relaxed',
+								borderLeftWidth: '4px',
+								borderColor: 'ocobo.yellow',
+								pl: '8',
+								py: '2',
+							})}`}
+						>
+							<p className={css({ fontWeight: 'medium' })}>
 								Ici, pas de "juniors vendus comme des seniors". Nous cherchons
 								l'excellence opérationnelle et la capacité à comprendre les
 								enjeux business profonds de nos clients.
 							</p>
-							<p className="text-gray-400 text-sm">
+							<p className={css({ color: 'gray.400', fontSize: 'sm' })}>
 								C'est une occasion unique d'apprendre les meilleures
 								méthodologies RevOps et de façonner le futur de la discipline en
 								France.
 							</p>
 						</div>
 					</div>
-					<div className="lg:w-1/2 relative mt-12 lg:mt-0">
-						<div className="grid grid-cols-2 gap-6">
-							<div className="space-y-6 mt-12">
-								<div className="bg-ocobo-dark text-white p-8 aspect-square flex flex-col justify-between rounded-3xl shadow-xl">
-									<Lightbulb size={32} className="text-ocobo-yellow" />
-									<span className="font-display font-bold text-xl">
+					<div
+						className={css({
+							lg: { w: '1/2' },
+							position: 'relative',
+							mt: { base: '12', lg: '0' },
+						})}
+					>
+						<div className={grid({ columns: 2, gap: '6' })}>
+							<div
+								className={`${vstack({ gap: '6', alignItems: 'stretch' })} ${css({ mt: '12' })}`}
+							>
+								<div
+									className={`${vstack({ justify: 'space-between', alignItems: 'stretch' })} ${css(
+										{
+											bg: 'ocobo.dark',
+											color: 'white',
+											p: '8',
+											aspectRatio: '1',
+											rounded: '3xl',
+											shadow: 'xl',
+										},
+									)}`}
+								>
+									<Lightbulb
+										size={32}
+										className={css({ color: 'ocobo.yellow' })}
+									/>
+									<span
+										className={css({
+											fontFamily: 'display',
+											fontWeight: 'bold',
+											fontSize: 'xl',
+										})}
+									>
 										Intelligence Collective
 									</span>
 								</div>
 								<img
 									src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80"
 									alt="Team collaboration"
-									className="w-full aspect-square object-cover rounded-3xl grayscale"
+									className={css({
+										w: 'full',
+										aspectRatio: '1',
+										objectFit: 'cover',
+										rounded: '3xl',
+										filter: 'grayscale(100%)',
+									})}
 								/>
 							</div>
-							<div className="space-y-6">
+							<div className={vstack({ gap: '6', alignItems: 'stretch' })}>
 								<img
 									src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=400&q=80"
 									alt="Team meeting"
-									className="w-full aspect-square object-cover rounded-3xl grayscale"
+									className={css({
+										w: 'full',
+										aspectRatio: '1',
+										objectFit: 'cover',
+										rounded: '3xl',
+										filter: 'grayscale(100%)',
+									})}
 								/>
-								<div className="bg-ocobo-yellow p-8 aspect-square flex flex-col justify-between rounded-3xl shadow-xl">
-									<span className="font-display font-bold text-4xl text-ocobo-dark">
+								<div
+									className={`${vstack({ justify: 'space-between', alignItems: 'stretch' })} ${css(
+										{
+											bg: 'ocobo.yellow',
+											p: '8',
+											aspectRatio: '1',
+											rounded: '3xl',
+											shadow: 'xl',
+										},
+									)}`}
+								>
+									<span
+										className={css({
+											fontFamily: 'display',
+											fontWeight: 'bold',
+											fontSize: '4xl',
+											color: 'ocobo.dark',
+										})}
+									>
 										100%
 										<br />
 										Impact
@@ -297,27 +530,90 @@ const Jobs: React.FC = () => {
 			</section>
 
 			{/* 2. OCOBO STORIES (DARK MODE) */}
-			<section className="bg-ocobo-dark py-32 mb-24 relative overflow-hidden">
+			<section
+				className={css({
+					bg: 'ocobo.dark',
+					py: '32',
+					mb: '24',
+					position: 'relative',
+					overflow: 'hidden',
+				})}
+			>
 				{/* Subtle Background Pattern */}
-				<div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(white_1px,transparent_1px)] bg-[length:40px_40px]" />
+				<div
+					className={css({
+						position: 'absolute',
+						inset: '0',
+						opacity: 0.03,
+						pointerEvents: 'none',
+						backgroundImage: 'radial-gradient(white 1px, transparent 1px)',
+						backgroundSize: '40px 40px',
+					})}
+				/>
 
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-					<div className="max-w-3xl mb-20">
-						<span className="font-display font-black text-ocobo-yellow bg-ocobo-yellow/10 px-4 py-1.5 text-xs uppercase tracking-[0.3em] mb-8 inline-block border border-ocobo-yellow/20 rounded-full">
+				<div
+					className={css({
+						maxW: '7xl',
+						mx: 'auto',
+						px: { base: '4', sm: '6', lg: '8' },
+						position: 'relative',
+						zIndex: 10,
+					})}
+				>
+					<div className={css({ maxW: '3xl', mb: '20' })}>
+						<span
+							className={css({
+								fontFamily: 'display',
+								fontWeight: 'black',
+								color: 'ocobo.yellow',
+								bg: 'ocobo.yellow/10',
+								px: '4',
+								py: '1.5',
+								fontSize: 'xs',
+								textTransform: 'uppercase',
+								letterSpacing: '0.3em',
+								mb: '8',
+								display: 'inline-block',
+								borderWidth: '1px',
+								borderColor: 'ocobo.yellow/20',
+								rounded: 'full',
+							})}
+						>
 							SÉRIE ORIGINALE
 						</span>
-						<h2 className="font-display text-4xl md:text-6xl font-black text-white mb-8 tracking-tight">
+						<h2
+							className={css({
+								fontFamily: 'display',
+								fontSize: { base: '4xl', md: '6xl' },
+								fontWeight: 'black',
+								color: 'white',
+								mb: '8',
+								letterSpacing: 'tight',
+							})}
+						>
 							Ocobo Stories
 						</h2>
-						<p className="text-gray-400 text-xl font-medium leading-relaxed">
+						<p
+							className={css({
+								color: 'gray.400',
+								fontSize: 'xl',
+								fontWeight: 'medium',
+								lineHeight: 'relaxed',
+							})}
+						>
 							Immersion totale. Nos consultants racontent la réalité du Studio,
 							leurs défis et ce qui fait d'Ocobo une aventure à part.
 						</p>
 					</div>
 
-					<Grid md={3} gap={12} className="lg:gap-16">
+					<div
+						className={grid({
+							columns: { base: 1, md: 3 },
+							gap: { base: '12', lg: '16' },
+						})}
+					>
 						{stories.map((story) => (
-							<_VideoStoryCard
+							<VideoStoryCard
 								key={story.episode}
 								episode={story.episode}
 								pitch={story.pitch}
@@ -328,92 +624,301 @@ const Jobs: React.FC = () => {
 								videoThumb={story.videoThumb}
 							/>
 						))}
-					</Grid>
+					</div>
 				</div>
 			</section>
 
 			{/* 3. NOS VALEURS / CULTURE (REINTEGRATED) */}
-			<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 mb-16">
-				<div className="text-center mb-20">
-					<span className="font-display font-black text-ocobo-coral bg-ocobo-coral-light px-4 py-1.5 text-xs uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-coral/20 rounded-full">
+			<section
+				className={css({
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+					py: '24',
+					mb: '16',
+				})}
+			>
+				<div className={css({ textAlign: 'center', mb: '20' })}>
+					<span
+						className={css({
+							fontFamily: 'display',
+							fontWeight: 'black',
+							color: 'ocobo.coral',
+							bg: 'ocobo.coralLight',
+							px: '4',
+							py: '1.5',
+							fontSize: 'xs',
+							textTransform: 'uppercase',
+							letterSpacing: '0.3em',
+							mb: '6',
+							display: 'inline-block',
+							borderWidth: '1px',
+							borderColor: 'ocobo.coral/20',
+							rounded: 'full',
+						})}
+					>
 						NOTRE ADN
 					</span>
-					<h2 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark tracking-tight">
+					<h2
+						className={css({
+							fontFamily: 'display',
+							fontSize: { base: '4xl', md: '6xl' },
+							fontWeight: 'black',
+							color: 'ocobo.dark',
+							letterSpacing: 'tight',
+						})}
+					>
 						Ce qui définit notre culture
 					</h2>
 				</div>
 
-				<Grid md={2} lg={4} gap={8}>
+				<div className={grid({ columns: { base: 1, md: 2, lg: 4 }, gap: '8' })}>
 					{values.map((val) => (
 						<div
 							key={val.title}
-							className={`p-10 rounded-3xl border ${val.border} ${val.bg} flex flex-col gap-6 hover:shadow-xl transition-all duration-500 group`}
+							className={`${vstack({ gap: '6', alignItems: 'stretch' })} ${css({
+								p: '10',
+								rounded: '3xl',
+								borderWidth: '1px',
+								borderColor: val.border,
+								bg: val.bg,
+								transition: 'all',
+								transitionDuration: '500ms',
+								_hover: { shadow: 'xl' },
+								'& .icon-box': {
+									transition: 'transform',
+									transitionDuration: '500ms',
+								},
+								'&:hover .icon-box': {
+									transform: 'scale(1.1)',
+								},
+							})}`}
 						>
-							<div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-black/5 group-hover:scale-110 transition-transform duration-500">
+							<div
+								className={`icon-box ${center()} ${css({
+									w: '14',
+									h: '14',
+									bg: 'white',
+									rounded: '2xl',
+									shadow: 'sm',
+									borderWidth: '1px',
+									borderColor: 'black/5',
+								})}`}
+							>
 								{val.icon}
 							</div>
-							<h3 className="font-display text-2xl font-bold text-ocobo-dark leading-tight">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: '2xl',
+									fontWeight: 'bold',
+									color: 'ocobo.dark',
+									lineHeight: 'tight',
+								})}
+							>
 								{val.title}
 							</h3>
-							<p className="text-gray-600 text-sm font-medium leading-relaxed">
+							<p
+								className={css({
+									color: 'gray.600',
+									fontSize: 'sm',
+									fontWeight: 'medium',
+									lineHeight: 'relaxed',
+								})}
+							>
 								{val.desc}
 							</p>
 						</div>
 					))}
-				</Grid>
+				</div>
 			</section>
 
 			{/* 4. Nos offres à pourvoir */}
-			<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-40">
-				<div className="flex justify-between items-end mb-16">
+			<section
+				className={css({
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+					mb: '40',
+				})}
+			>
+				<div
+					className={`${flex({ justify: 'space-between', align: 'end' })} ${css({ mb: '16' })}`}
+				>
 					<div>
-						<h2 className="font-display text-4xl md:text-5xl font-black text-ocobo-dark tracking-tight">
+						<h2
+							className={css({
+								fontFamily: 'display',
+								fontSize: { base: '4xl', md: '5xl' },
+								fontWeight: 'black',
+								color: 'ocobo.dark',
+								letterSpacing: 'tight',
+							})}
+						>
 							Postes ouverts
 						</h2>
-						<p className="text-gray-500 font-medium mt-4">
+						<p
+							className={css({
+								color: 'gray.500',
+								fontWeight: 'medium',
+								mt: '4',
+							})}
+						>
 							Nous recherchons des architectes passionnés par la donnée et les
 							systèmes.
 						</p>
 					</div>
-					<div className="hidden md:block">
-						<span className="text-xs font-black uppercase tracking-widest text-gray-300">
+					<div className={css({ display: { base: 'none', md: 'block' } })}>
+						<span
+							className={css({
+								fontSize: 'xs',
+								fontWeight: 'black',
+								textTransform: 'uppercase',
+								letterSpacing: 'widest',
+								color: 'gray.300',
+							})}
+						>
 							3 OPPORTUNITÉS DISPONIBLES
 						</span>
 					</div>
 				</div>
-				<div className="flex flex-col gap-6">
+				<div className={vstack({ gap: '6', alignItems: 'stretch' })}>
 					{jobs.map((job) => (
-						<Link key={job.id} to={`/jobs/${job.id}`} className="group">
+						<Link
+							key={job.id}
+							to={`/jobs/${job.id}`}
+							className={css({
+								'& .arrow-box': {
+									transition: 'all',
+									transitionDuration: '500ms',
+								},
+								'&:hover .arrow-box': {
+									bg: 'ocobo.dark',
+									color: 'white',
+									shadow: 'xl',
+									transform: 'rotate(-12deg)',
+								},
+								'&:hover .highlight-bar': {
+									opacity: 1,
+								},
+								'&:hover h3': {
+									color: 'black',
+								},
+							})}
+						>
 							<div
-								className={`flex flex-col md:flex-row justify-between items-center p-8 md:p-12 rounded-3xl border border-gray-100 bg-white hover:bg-white hover:shadow-soft-lg transition-all duration-500 relative overflow-hidden`}
+								className={`${flex({
+									direction: { base: 'column', md: 'row' },
+									justify: 'space-between',
+									align: 'center',
+								})} ${css({
+									p: { base: '8', md: '12' },
+									rounded: '3xl',
+									borderWidth: '1px',
+									borderColor: 'gray.100',
+									bg: 'white',
+									transition: 'all',
+									transitionDuration: '500ms',
+									position: 'relative',
+									overflow: 'hidden',
+									_hover: { bg: 'white', shadow: 'soft-lg' },
+								})}`}
 							>
 								{/* Hover Highlight Bar */}
 								<div
-									className={`absolute top-0 left-0 w-1.5 h-full transition-all duration-500 opacity-0 group-hover:opacity-100 ${job.theme.split(' ')[1].replace('border-', 'bg-')}`}
-								></div>
+									className={`highlight-bar ${css({
+										position: 'absolute',
+										top: '0',
+										left: '0',
+										w: '1.5',
+										h: 'full',
+										transition: 'all',
+										transitionDuration: '500ms',
+										opacity: 0,
+										bg: job.highlightColor,
+									})}`}
+								/>
 
-								<div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-16 w-full">
-									<div className="md:w-5/12">
-										<h3 className="font-display text-2xl md:text-3xl font-bold text-ocobo-dark group-hover:text-black transition-colors">
+								<div
+									className={`${flex({
+										direction: { base: 'column', md: 'row' },
+										gap: { base: '8', md: '16' },
+									})} ${css({
+										md: { alignItems: 'center' },
+										w: 'full',
+									})}`}
+								>
+									<div className={css({ md: { w: '5/12' } })}>
+										<h3
+											className={css({
+												fontFamily: 'display',
+												fontSize: { base: '2xl', md: '3xl' },
+												fontWeight: 'bold',
+												color: 'ocobo.dark',
+												transition: 'colors',
+											})}
+										>
 											{job.title}
 										</h3>
 									</div>
 
-									<div className="flex flex-wrap gap-6 text-sm font-bold text-gray-500 uppercase tracking-widest md:w-4/12">
-										<span className="flex items-center gap-2">
-											<MapPin size={16} className="text-ocobo-coral" />{' '}
+									<div
+										className={`${flex({ wrap: 'wrap', gap: '6' })} ${css({
+											fontSize: 'sm',
+											fontWeight: 'bold',
+											color: 'gray.500',
+											textTransform: 'uppercase',
+											letterSpacing: 'widest',
+											md: { w: '4/12' },
+										})}`}
+									>
+										<span className={hstack({ gap: '2' })}>
+											<MapPin
+												size={16}
+												className={css({ color: 'ocobo.coral' })}
+											/>{' '}
 											{job.location}
 										</span>
-										<span className="flex items-center gap-2 px-3 py-1 bg-gray-50 rounded-lg">
+										<span
+											className={`${hstack({ gap: '2' })} ${css({
+												px: '3',
+												py: '1',
+												bg: 'gray.50',
+												rounded: 'lg',
+											})}`}
+										>
 											{job.type}
 										</span>
 									</div>
 
-									<div className="md:w-3/12 flex justify-end items-center gap-6">
-										<span className="text-xs font-black text-gray-400 uppercase tracking-widest">
+									<div
+										className={`${flex({ justify: 'end', align: 'center', gap: '6' })} ${css(
+											{
+												md: { w: '3/12' },
+											},
+										)}`}
+									>
+										<span
+											className={css({
+												fontSize: 'xs',
+												fontWeight: 'black',
+												color: 'gray.400',
+												textTransform: 'uppercase',
+												letterSpacing: 'widest',
+											})}
+										>
 											Exp : {job.exp}
 										</span>
-										<div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center text-gray-300 group-hover:bg-ocobo-dark group-hover:text-white transition-all duration-500 shadow-sm group-hover:shadow-xl group-hover:-rotate-12">
+										<div
+											className={`arrow-box ${center()} ${css({
+												w: '14',
+												h: '14',
+												bg: 'gray.50',
+												rounded: '2xl',
+												color: 'gray.300',
+												shadow: 'sm',
+											})}`}
+										>
 											<ArrowRight size={24} />
 										</div>
 									</div>
@@ -425,70 +930,245 @@ const Jobs: React.FC = () => {
 			</section>
 
 			{/* 5. Processus de recrutement */}
-			<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-40">
-				<div className="border-[1.5px] border-gray-100 rounded-3xl p-8 md:p-24 bg-gray-50/30 relative overflow-hidden">
-					<div className="text-center mb-32 relative z-10">
-						<span className="font-display font-black text-ocobo-sky bg-ocobo-sky/10 px-4 py-1.5 text-xs uppercase tracking-[0.3em] mb-6 inline-block border border-ocobo-sky/20 rounded-full">
+			<section
+				className={css({
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+					mb: '40',
+				})}
+			>
+				<div
+					className={css({
+						borderWidth: '1.5px',
+						borderColor: 'gray.100',
+						rounded: '3xl',
+						p: { base: '8', md: '24' },
+						bg: 'gray.50/30',
+						position: 'relative',
+						overflow: 'hidden',
+					})}
+				>
+					<div
+						className={css({
+							textAlign: 'center',
+							mb: '32',
+							position: 'relative',
+							zIndex: 10,
+						})}
+					>
+						<span
+							className={css({
+								fontFamily: 'display',
+								fontWeight: 'black',
+								color: 'ocobo.sky',
+								bg: 'ocobo.sky/10',
+								px: '4',
+								py: '1.5',
+								fontSize: 'xs',
+								textTransform: 'uppercase',
+								letterSpacing: '0.3em',
+								mb: '6',
+								display: 'inline-block',
+								borderWidth: '1px',
+								borderColor: 'ocobo.sky/20',
+								rounded: 'full',
+							})}
+						>
 							TRANSPARENCE
 						</span>
-						<h2 className="font-display text-4xl md:text-6xl font-black mb-6 text-ocobo-dark tracking-tight">
+						<h2
+							className={css({
+								fontFamily: 'display',
+								fontSize: { base: '4xl', md: '6xl' },
+								fontWeight: 'black',
+								mb: '6',
+								color: 'ocobo.dark',
+								letterSpacing: 'tight',
+							})}
+						>
 							Processus de recrutement
 						</h2>
-						<p className="text-gray-500 text-xl font-medium">
+						<p
+							className={css({
+								color: 'gray.500',
+								fontSize: 'xl',
+								fontWeight: 'medium',
+							})}
+						>
 							Simple, rigoureux et bienveillant.
 						</p>
 					</div>
 
-					<div className="relative max-w-5xl mx-auto">
+					<div
+						className={css({ position: 'relative', maxW: '5xl', mx: 'auto' })}
+					>
 						{/* Central Line (Desktop) */}
-						<div className="absolute left-1/2 top-0 bottom-0 w-[1.5px] bg-gray-200 -translate-x-1/2 hidden md:block"></div>
+						<div
+							className={css({
+								position: 'absolute',
+								left: '50%',
+								top: '0',
+								bottom: '0',
+								w: '1.5px',
+								bg: 'gray.200',
+								transform: 'translateX(-50%)',
+								display: { base: 'none', md: 'block' },
+							})}
+						/>
 						{/* Left Line (Mobile) */}
-						<div className="absolute left-6 top-0 bottom-0 w-[1.5px] bg-gray-200 md:hidden"></div>
+						<div
+							className={css({
+								position: 'absolute',
+								left: '6',
+								top: '0',
+								bottom: '0',
+								w: '1.5px',
+								bg: 'gray.200',
+								md: { display: 'none' },
+							})}
+						/>
 
-						<div className="space-y-24 relative z-10">
+						<div
+							className={`${vstack({ gap: '24' })} ${css({
+								position: 'relative',
+								zIndex: 10,
+							})}`}
+						>
 							{processSteps.map((step, idx) => {
 								const isEven = idx % 2 === 0;
 
 								return (
 									<div
 										key={step.title}
-										className={`relative flex flex-col md:flex-row items-center w-full ${isEven ? 'md:flex-row-reverse' : ''}`}
+										className={`${flex({
+											direction: { base: 'column', md: 'row' },
+											align: 'center',
+										})} ${css({
+											position: 'relative',
+											w: 'full',
+											md: { flexDir: isEven ? 'row-reverse' : 'row' },
+										})}`}
 									>
 										{/* Center Circle */}
-										<div className="absolute left-6 md:left-1/2 w-4 h-4 bg-white border-[2.5px] border-ocobo-dark rounded-full z-10 -translate-x-1/2 shadow-ring"></div>
+										<div
+											className={css({
+												position: 'absolute',
+												left: { base: '6', md: '50%' },
+												w: '4',
+												h: '4',
+												bg: 'white',
+												borderWidth: '2.5px',
+												borderColor: 'ocobo.dark',
+												rounded: 'full',
+												zIndex: 10,
+												transform: 'translateX(-50%)',
+												shadow: 'ring',
+											})}
+										/>
 
 										{/* Content Half */}
 										<div
-											className={`w-full md:w-1/2 pl-16 md:pl-0 ${isEven ? 'md:pl-24' : 'md:pr-24'}`}
+											className={cx(
+												css({
+													w: { base: 'full', md: '1/2' },
+													pl: { base: '16', md: '0' },
+												}),
+												isEven
+													? css({ md: { pl: '24' } })
+													: css({ md: { pr: '24' } }),
+											)}
 										>
 											<div
-												className={`flex items-start gap-8 ${isEven ? 'md:justify-start md:text-right' : 'md:justify-end md:text-left'} flex-row`}
+												className={cx(
+													flex({
+														align: 'start',
+														gap: '8',
+														direction: 'row',
+													}),
+													isEven
+														? css({
+																md: {
+																	justifyContent: 'start',
+																	textAlign: 'right',
+																},
+															})
+														: css({
+																md: {
+																	justifyContent: 'end',
+																	textAlign: 'left',
+																},
+															}),
+												)}
 											>
 												{/* Icon Box */}
 												<div
-													className={`
-                                            w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-ocobo-dark shrink-0 shadow-lg border border-gray-100
-                                            ${isEven ? 'md:order-2' : 'md:order-1'}
-                                            order-1 transform transition-transform group-hover:scale-110
-                                        `}
+													className={cx(
+														center(),
+														css({
+															w: '16',
+															h: '16',
+															bg: 'white',
+															rounded: '2xl',
+															color: 'ocobo.dark',
+															flexShrink: 0,
+															shadow: 'lg',
+															borderWidth: '1px',
+															borderColor: 'gray.100',
+															order: 1,
+															transition: 'transform',
+															_groupHover: { transform: 'scale(1.1)' },
+														}),
+														isEven
+															? css({ md: { order: 2 } })
+															: css({ md: { order: 1 } }),
+													)}
 												>
 													{step.icon}
 												</div>
 
 												{/* Text */}
 												<div
-													className={`
-                                            ${isEven ? 'md:order-1' : 'md:order-2'}
-                                            order-2
-                                        `}
+													className={cx(
+														css({ order: 2 }),
+														isEven
+															? css({ md: { order: 1 } })
+															: css({ md: { order: 2 } }),
+													)}
 												>
-													<h3 className="font-display text-2xl font-bold text-ocobo-dark mb-2 tracking-tight">
+													<h3
+														className={css({
+															fontFamily: 'display',
+															fontSize: '2xl',
+															fontWeight: 'bold',
+															color: 'ocobo.dark',
+															mb: '2',
+															letterSpacing: 'tight',
+														})}
+													>
 														{step.title}
 													</h3>
-													<p className="text-xs font-black text-ocobo-coral mb-3 uppercase tracking-[0.2em]">
+													<p
+														className={css({
+															fontSize: 'xs',
+															fontWeight: 'black',
+															color: 'ocobo.coral',
+															mb: '3',
+															textTransform: 'uppercase',
+															letterSpacing: '0.2em',
+														})}
+													>
 														{step.duration}
 													</p>
-													<p className="text-base text-gray-500 leading-relaxed max-w-sm font-medium">
+													<p
+														className={css({
+															fontSize: 'base',
+															color: 'gray.500',
+															lineHeight: 'relaxed',
+															maxW: 'sm',
+															fontWeight: 'medium',
+														})}
+													>
 														{step.desc}
 													</p>
 												</div>
@@ -496,7 +1176,12 @@ const Jobs: React.FC = () => {
 										</div>
 
 										{/* Empty Half */}
-										<div className="hidden md:block md:w-1/2"></div>
+										<div
+											className={css({
+												display: { base: 'none', md: 'block' },
+												md: { w: '1/2' },
+											})}
+										/>
 									</div>
 								);
 							})}
@@ -506,56 +1191,201 @@ const Jobs: React.FC = () => {
 			</section>
 
 			{/* 6. Nos Bureaux */}
-			<section className="py-24 border-t border-gray-100">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
+			<section
+				className={css({
+					py: '24',
+					borderTopWidth: '1px',
+					borderColor: 'gray.100',
+				})}
+			>
+				<div
+					className={css({
+						maxW: '7xl',
+						mx: 'auto',
+						px: { base: '4', sm: '6', lg: '8' },
+					})}
+				>
+					<div
+						className={`${flex({
+							direction: { base: 'column', md: 'row' },
+							justify: 'space-between',
+							align: { base: 'start', md: 'end' },
+							gap: '8',
+						})} ${css({ mb: '16' })}`}
+					>
 						<div>
-							<h2 className="font-display text-4xl font-black mb-2 tracking-tight">
+							<h2
+								className={css({
+									fontFamily: 'display',
+									fontSize: '4xl',
+									fontWeight: 'black',
+									mb: '2',
+									letterSpacing: 'tight',
+								})}
+							>
 								Nos bureaux
 							</h2>
-							<p className="text-gray-500 font-medium text-lg italic">
+							<p
+								className={css({
+									color: 'gray.500',
+									fontWeight: 'medium',
+									fontSize: 'lg',
+									fontStyle: 'italic',
+								})}
+							>
 								9ème arrondissement, Paris.
 							</p>
 						</div>
 						<a
 							href="https://maps.google.com"
 							target="_blank"
-							className="inline-flex items-center gap-3 text-sm font-black uppercase tracking-widest text-ocobo-dark border-b-2 border-ocobo-yellow pb-1 hover:text-ocobo-coral hover:border-ocobo-coral transition-all"
+							className={`${hstack({ gap: '3' })} ${css({
+								display: 'inline-flex',
+								fontSize: 'sm',
+								fontWeight: 'black',
+								textTransform: 'uppercase',
+								letterSpacing: 'widest',
+								color: 'ocobo.dark',
+								borderBottomWidth: '2px',
+								borderColor: 'ocobo.yellow',
+								pb: '1',
+								transition: 'all',
+								_hover: { color: 'ocobo.coral', borderColor: 'ocobo.coral' },
+							})}`}
 							rel="noopener"
 						>
 							Voir sur Maps <ArrowRight size={14} />
 						</a>
 					</div>
 
-					<div className="grid grid-cols-2 md:grid-cols-4 gap-6 h-[500px]">
-						<div className="col-span-2 row-span-2 relative overflow-hidden group rounded-3xl">
+					<div
+						className={`${grid({ columns: { base: 2, md: 4 }, gap: '6' })} ${css(
+							{
+								h: '500px',
+							},
+						)}`}
+					>
+						<div
+							className={css({
+								gridColumn: 'span 2',
+								gridRow: 'span 2',
+								position: 'relative',
+								overflow: 'hidden',
+								rounded: '3xl',
+								'& img': {
+									transition: 'transform',
+									transitionDuration: '1000ms',
+								},
+								'&:hover img': {
+									transform: 'scale(1.05)',
+								},
+								'&:hover .overlay': {
+									bg: 'transparent',
+								},
+							})}
+						>
 							<img
 								src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
 								alt="Ocobo office space"
-								className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale"
+								className={css({
+									w: 'full',
+									h: 'full',
+									objectFit: 'cover',
+									filter: 'grayscale(100%)',
+								})}
 							/>
-							<div className="absolute inset-0 bg-ocobo-dark/10 group-hover:bg-transparent transition-colors"></div>
+							<div
+								className={`overlay ${css({
+									position: 'absolute',
+									inset: '0',
+									bg: 'ocobo.dark/10',
+									transition: 'colors',
+								})}`}
+							/>
 						</div>
-						<div className="relative overflow-hidden group rounded-3xl">
+						<div
+							className={css({
+								position: 'relative',
+								overflow: 'hidden',
+								rounded: '3xl',
+								'& img': {
+									transition: 'transform',
+									transitionDuration: '1000ms',
+								},
+								'&:hover img': {
+									transform: 'scale(1.05)',
+								},
+							})}
+						>
 							<img
 								src="https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=400&q=80"
 								alt="Office interior"
-								className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale"
+								className={css({
+									w: 'full',
+									h: 'full',
+									objectFit: 'cover',
+									filter: 'grayscale(100%)',
+								})}
 							/>
 						</div>
-						<div className="relative overflow-hidden group rounded-3xl">
+						<div
+							className={css({
+								position: 'relative',
+								overflow: 'hidden',
+								rounded: '3xl',
+								'& img': {
+									transition: 'transform',
+									transitionDuration: '1000ms',
+								},
+								'&:hover img': {
+									transform: 'scale(1.05)',
+								},
+							})}
+						>
 							<img
 								src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=400&q=80"
 								alt="Meeting room"
-								className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale"
+								className={css({
+									w: 'full',
+									h: 'full',
+									objectFit: 'cover',
+									filter: 'grayscale(100%)',
+								})}
 							/>
 						</div>
-						<div className="col-span-2 bg-ocobo-yellow p-12 flex flex-col justify-center items-start rounded-3xl shadow-xl">
-							<span className="font-display font-black text-3xl text-ocobo-dark mb-6 tracking-tight leading-tight">
+						<div
+							className={`${flex({ direction: 'column', justify: 'center', align: 'start' })} ${css(
+								{
+									gridColumn: 'span 2',
+									bg: 'ocobo.yellow',
+									p: '12',
+									rounded: '3xl',
+									shadow: 'xl',
+								},
+							)}`}
+						>
+							<span
+								className={css({
+									fontFamily: 'display',
+									fontWeight: 'black',
+									fontSize: '3xl',
+									color: 'ocobo.dark',
+									mb: '6',
+									letterSpacing: 'tight',
+									lineHeight: 'tight',
+								})}
+							>
 								Venez prendre <br />
 								un café.
 							</span>
-							<p className="text-lg text-ocobo-dark/80 font-bold leading-relaxed">
+							<p
+								className={css({
+									fontSize: 'lg',
+									color: 'ocobo.dark/80',
+									fontWeight: 'bold',
+									lineHeight: 'relaxed',
+								})}
+							>
 								On adore parler RevOps, même si vous ne cherchez pas de job tout
 								de suite.
 							</p>
@@ -566,5 +1396,3 @@ const Jobs: React.FC = () => {
 		</div>
 	);
 };
-
-export default Jobs;

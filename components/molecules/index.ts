@@ -1,8 +1,8 @@
-export { default as AccentCard } from './AccentCard';
-export { default as Card } from './Card';
-export { default as PillarCard } from './PillarCard';
-export { default as ScopeCard } from './ScopeCard';
-export { default as ServiceCard } from './ServiceCard';
-export { default as TeamMemberCard } from './TeamMemberCard';
-export { default as TestimonialCard } from './TestimonialCard';
-export { default as ValueCard } from './ValueCard';
+export { AccentCard } from './AccentCard';
+export { Card } from './Card';
+export { PillarCard } from './PillarCard';
+export { ScopeCard } from './ScopeCard';
+export { ServiceCard } from './ServiceCard';
+export { TeamMemberCard } from './TeamMemberCard';
+export { TestimonialCard } from './TestimonialCard';
+export { ValueCard } from './ValueCard';

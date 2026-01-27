@@ -1,10 +1,11 @@
 import { ArrowRight, BookOpen, Mic, Play, Video } from 'lucide-react';
-import type React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router';
+import { css } from 'styled-system/css';
+import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
 import { Button } from '../components/atoms';
 
-const Resources: React.FC = () => {
+export function Resources() {
 	const [activeTab, setActiveTab] = useState<
 		'all' | 'podcast' | 'webinar' | 'blog'
 	>('all');
@@ -81,25 +82,65 @@ const Resources: React.FC = () => {
 			: resources.filter((r) => r.type === activeTab);
 
 	return (
-		<div className="w-full pt-32 pb-24 bg-white">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div className={css({ width: 'full', pt: '32', pb: '24', bg: 'white' })}>
+			<div
+				className={css({
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+				})}
+			>
 				{/* Header */}
-				<div className="mb-20 border-b border-gray-200 pb-12 flex flex-col md:flex-row justify-between items-end gap-8">
-					<div className="max-w-2xl">
-						<span className="font-display font-bold text-ocobo-coral uppercase tracking-widest text-sm mb-2 block">
+				<div
+					className={`${flex({ direction: { base: 'column', md: 'row' }, gap: '8', justify: 'space-between', align: { md: 'flex-end' } })} ${css(
+						{
+							mb: '20',
+							borderBottom: '1px solid',
+							borderColor: 'gray.200',
+							pb: '12',
+						},
+					)}`}
+				>
+					<div className={css({ maxW: '2xl' })}>
+						<span
+							className={css({
+								fontFamily: 'display',
+								fontWeight: 'bold',
+								color: 'ocobo.coral',
+								textTransform: 'uppercase',
+								letterSpacing: 'widest',
+								fontSize: 'sm',
+								mb: '2',
+								display: 'block',
+							})}
+						>
 							RevOps Library
 						</span>
-						<h1 className="font-display text-5xl font-bold text-ocobo-dark mb-6">
+						<h1
+							className={css({
+								fontFamily: 'display',
+								fontSize: '5xl',
+								fontWeight: 'bold',
+								color: 'ocobo.dark',
+								mb: '6',
+							})}
+						>
 							Explorez la science du revenu.
 						</h1>
-						<p className="text-xl text-gray-600 font-medium">
+						<p
+							className={css({
+								fontSize: 'xl',
+								color: 'gray.600',
+								fontWeight: 'medium',
+							})}
+						>
 							Articles, interviews et masterclasses pour structurer votre
 							croissance.
 						</p>
 					</div>
 
 					{/* Tabs */}
-					<div className="flex flex-wrap gap-2">
+					<div className={flex({ wrap: 'wrap', gap: '2' })}>
 						{[
 							{ id: 'all', label: 'Tout voir' },
 							{
@@ -122,11 +163,24 @@ const Resources: React.FC = () => {
 								type="button"
 								key={tab.id}
 								onClick={() => setActiveTab(tab.id)}
-								className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 border ${
-									activeTab === tab.id
-										? 'bg-ocobo-dark text-white border-ocobo-dark'
-										: 'bg-white text-gray-600 border-gray-200 hover:border-gray-300 hover:bg-gray-50'
-								}`}
+								className={`${hstack({ gap: '2' })} ${css({
+									px: '5',
+									py: '2.5',
+									rounded: 'full',
+									fontSize: 'sm',
+									fontWeight: 'bold',
+									transition: 'all 200ms',
+									border: '1px solid',
+									cursor: 'pointer',
+									bg: activeTab === tab.id ? 'ocobo.dark' : 'white',
+									color: activeTab === tab.id ? 'white' : 'gray.600',
+									borderColor: activeTab === tab.id ? 'ocobo.dark' : 'gray.200',
+									_hover: {
+										borderColor:
+											activeTab === tab.id ? 'ocobo.dark' : 'gray.300',
+										bg: activeTab === tab.id ? 'ocobo.dark' : 'gray.50',
+									},
+								})}`}
 							>
 								{tab.icon} {tab.label}
 							</button>
@@ -134,26 +188,92 @@ const Resources: React.FC = () => {
 					</div>
 				</div>
 
-				{/* Featured Resource (First item) */}
+				{/* Featured Resource */}
 				{activeTab === 'all' && (
-					<div className="mb-16">
-						<div className="group relative rounded-3xl overflow-hidden bg-ocobo-dark text-white grid md:grid-cols-2 shadow-2xl">
-							<div className="relative overflow-hidden h-64 md:h-auto">
+					<div className={css({ mb: '16' })}>
+						<div
+							className={`${grid({ columns: { md: 2 } })} ${css({
+								position: 'relative',
+								rounded: '3xl',
+								overflow: 'hidden',
+								bg: 'ocobo.dark',
+								color: 'white',
+								shadow: '2xl',
+							})}`}
+						>
+							<div
+								className={css({
+									position: 'relative',
+									overflow: 'hidden',
+									height: { base: '16rem', md: 'auto' },
+								})}
+							>
 								<img
 									src="https://picsum.photos/800/600?grayscale&random=99"
 									alt="Featured"
-									className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
+									className={css({
+										position: 'absolute',
+										inset: 0,
+										width: 'full',
+										height: 'full',
+										objectFit: 'cover',
+										transition: 'transform 700ms',
+										opacity: 0.8,
+										_groupHover: { transform: 'scale(1.05)' },
+									})}
 								/>
-								<div className="absolute inset-0 bg-gradient-to-t from-ocobo-dark/90 to-transparent md:bg-gradient-to-r"></div>
+								<div
+									className={css({
+										position: 'absolute',
+										inset: 0,
+										bgGradient: { base: 'to-t', md: 'to-r' },
+										gradientFrom: 'ocobo.dark/90',
+										gradientTo: 'transparent',
+									})}
+								/>
 							</div>
-							<div className="p-10 md:p-16 flex flex-col justify-center items-start">
-								<span className="bg-ocobo-yellow text-ocobo-dark px-3 py-1 rounded text-xs font-bold uppercase tracking-widest mb-6">
+							<div
+								className={`${flex({ direction: 'column', gap: '0', justify: 'center', align: 'flex-start' })} ${css(
+									{
+										p: { base: '10', md: '16' },
+									},
+								)}`}
+							>
+								<span
+									className={css({
+										bg: 'ocobo.yellow',
+										color: 'ocobo.dark',
+										px: '3',
+										py: '1',
+										rounded: 'base',
+										fontSize: 'xs',
+										fontWeight: 'bold',
+										textTransform: 'uppercase',
+										letterSpacing: 'widest',
+										mb: '6',
+									})}
+								>
 									À la une
 								</span>
-								<h2 className="font-display text-3xl md:text-4xl font-bold mb-6 group-hover:text-ocobo-yellow transition-colors">
+								<h2
+									className={css({
+										fontFamily: 'display',
+										fontSize: { base: '3xl', md: '4xl' },
+										fontWeight: 'bold',
+										mb: '6',
+										transition: 'color 200ms',
+										_groupHover: { color: 'ocobo.yellow' },
+									})}
+								>
 									The Revenue Experience System™ : Le Framework complet
 								</h2>
-								<p className="text-gray-400 mb-8 leading-relaxed">
+								<p
+									className={css({
+										color: 'gray.400',
+										mb: '8',
+										lineHeight: 'relaxed',
+									})}
+								>
 									Découvrez notre méthodologie propriétaire pour aligner vos
 									équipes et scaler vos revenus. Un guide complet de 40 pages.
 								</p>
@@ -164,7 +284,11 @@ const Resources: React.FC = () => {
 				)}
 
 				{/* Grid */}
-				<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+				<div
+					className={`${grid({ columns: { md: 2, lg: 3 }, gap: '8' })} ${css({
+						rowGap: '12',
+					})}`}
+				>
 					{filteredResources.map((item) => (
 						<Link
 							key={item.id}
@@ -173,19 +297,54 @@ const Resources: React.FC = () => {
 									? `/blog/${item.slug}`
 									: item.type === 'webinar'
 										? `/webinar/${item.slug}`
-										: `/resources`
+										: '/resources'
 							}
-							className="group cursor-pointer flex flex-col h-full"
+							className={`${vstack({ gap: '0' })} ${css({
+								height: 'full',
+								cursor: 'pointer',
+								_hover: { '& .title': { color: 'ocobo.coral' } },
+							})}`}
 						>
-							<div className="relative overflow-hidden mb-5 border border-gray-100 aspect-[4/3]">
+							<div
+								className={css({
+									position: 'relative',
+									overflow: 'hidden',
+									mb: '5',
+									border: '1px solid',
+									borderColor: 'gray.100',
+									aspectRatio: '4/3',
+								})}
+							>
 								<img
 									src={item.image}
 									alt={item.title}
-									className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+									className={css({
+										width: 'full',
+										height: 'full',
+										objectFit: 'cover',
+										transition: 'transform 700ms',
+										_groupHover: { transform: 'scale(1.05)' },
+									})}
 								/>
 
 								{/* Type Badge */}
-								<div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-ocobo-dark flex items-center gap-2 shadow-sm">
+								<div
+									className={`${hstack({ gap: '2' })} ${css({
+										position: 'absolute',
+										top: '4',
+										left: '4',
+										bg: 'white/95',
+										backdropFilter: 'blur(4px)',
+										px: '3',
+										py: '1.5',
+										fontSize: 'xs',
+										fontWeight: 'bold',
+										textTransform: 'uppercase',
+										letterSpacing: 'wider',
+										color: 'ocobo.dark',
+										shadow: 'sm',
+									})}`}
+								>
 									{item.type === 'podcast' && <Mic size={12} />}
 									{item.type === 'webinar' && <Video size={12} />}
 									{item.type === 'blog' && <BookOpen size={12} />}
@@ -194,36 +353,104 @@ const Resources: React.FC = () => {
 
 								{/* Play Button Overlay */}
 								{(item.type === 'podcast' || item.type === 'webinar') && (
-									<div className="absolute inset-0 flex items-center justify-center bg-ocobo-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-										<div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-ocobo-dark shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-											<Play fill="currentColor" size={24} className="ml-1" />
+									<div
+										className={`${center()} ${css({
+											position: 'absolute',
+											inset: 0,
+											bg: 'ocobo.dark/20',
+											opacity: 0,
+											transition: 'opacity 300ms',
+											_groupHover: { opacity: 1 },
+										})}`}
+									>
+										<div
+											className={`${center()} ${css({
+												width: '16',
+												height: '16',
+												bg: 'white',
+												rounded: 'full',
+												color: 'ocobo.dark',
+												shadow: 'xl',
+												transform: 'translateY(1rem)',
+												transition: 'transform 300ms',
+												_groupHover: { transform: 'translateY(0)' },
+											})}`}
+										>
+											<Play
+												fill="currentColor"
+												size={24}
+												className={css({ ml: '1' })}
+											/>
 										</div>
 									</div>
 								)}
 							</div>
 
-							<div className="flex-grow flex flex-col">
-								<div className="flex items-center justify-between text-xs font-bold text-gray-400 mb-3 uppercase tracking-wider">
+							<div
+								className={`${vstack()} ${css({
+									flexGrow: 1,
+								})}`}
+							>
+								<div
+									className={`${flex({ align: 'center', justify: 'space-between' })} ${css(
+										{
+											fontSize: 'xs',
+											fontWeight: 'bold',
+											color: 'gray.400',
+											mb: '3',
+											textTransform: 'uppercase',
+											letterSpacing: 'wider',
+										},
+									)}`}
+								>
 									<span>{item.tag}</span>
 									<span>{item.date}</span>
 								</div>
 
-								<h3 className="font-display text-2xl font-bold mb-3 group-hover:text-ocobo-coral transition-colors leading-tight">
+								<h3
+									className={`title ${css({
+										fontFamily: 'display',
+										fontSize: '2xl',
+										fontWeight: 'bold',
+										mb: '3',
+										transition: 'color 200ms',
+										lineHeight: 'tight',
+									})}`}
+								>
 									{item.title}
 								</h3>
 
-								<div className="mt-auto pt-4 flex items-center text-sm font-medium text-gray-500 border-t border-gray-100">
+								<div
+									className={`${flex({ align: 'center' })} ${css({
+										mt: 'auto',
+										pt: '4',
+										fontSize: 'sm',
+										fontWeight: 'medium',
+										color: 'gray.500',
+										borderTop: '1px solid',
+										borderColor: 'gray.100',
+									})}`}
+								>
 									{item.guest ? (
 										<span>
 											Invité :{' '}
-											<span className="text-ocobo-dark">{item.guest}</span>
+											<span className={css({ color: 'ocobo.dark' })}>
+												{item.guest}
+											</span>
 										</span>
 									) : (
 										<span>{item.readTime || item.status}</span>
 									)}
 									<ArrowRight
 										size={16}
-										className="ml-auto opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-ocobo-dark"
+										className={css({
+											ml: 'auto',
+											opacity: 0,
+											transform: 'translateX(-8px)',
+											transition: 'all 200ms',
+											color: 'ocobo.dark',
+											_groupHover: { opacity: 1, transform: 'translateX(0)' },
+										})}
 									/>
 								</div>
 							</div>
@@ -231,41 +458,135 @@ const Resources: React.FC = () => {
 					))}
 				</div>
 
-				{/* Newsletter / Community Section */}
-				<div className="mt-32 border-t-2 border-ocobo-dark pt-20">
-					<div className="grid md:grid-cols-2 gap-16 items-center">
+				{/* Newsletter Section */}
+				<div
+					className={css({
+						mt: '32',
+						borderTop: '2px solid',
+						borderColor: 'ocobo.dark',
+						pt: '20',
+					})}
+				>
+					<div
+						className={`${grid({ columns: { md: 2 }, gap: '16' })} ${css({
+							alignItems: 'center',
+						})}`}
+					>
 						<div>
-							<h2 className="font-display text-4xl font-bold mb-6">
+							<h2
+								className={css({
+									fontFamily: 'display',
+									fontSize: '4xl',
+									fontWeight: 'bold',
+									mb: '6',
+								})}
+							>
 								Rejoignez le cercle des architectes RevOps.
 							</h2>
-							<p className="text-xl text-gray-600 mb-8">
+							<p
+								className={css({ fontSize: 'xl', color: 'gray.600', mb: '8' })}
+							>
 								Pas de spam. Juste des playbooks, des templates et des retours
 								d'expérience concrets. Une fois par mois.
 							</p>
-							<div className="flex flex-col sm:flex-row gap-4">
+							<div
+								className={flex({
+									direction: { base: 'column', sm: 'row' },
+									gap: '4',
+								})}
+							>
 								<input
 									type="email"
 									placeholder="votre@email.com"
-									className="flex-grow px-6 py-4 bg-gray-50 border border-gray-200 focus:border-ocobo-dark focus:bg-white focus:ring-0 outline-none transition-all placeholder-gray-400"
+									className={css({
+										flexGrow: 1,
+										px: '6',
+										py: '4',
+										bg: 'gray.50',
+										border: '1px solid',
+										borderColor: 'gray.200',
+										outline: 'none',
+										transition: 'all 200ms',
+										_placeholder: { color: 'gray.400' },
+										_focus: { borderColor: 'ocobo.dark', bg: 'white' },
+									})}
 								/>
 								<Button>S'inscrire</Button>
 							</div>
 						</div>
-						<div className="bg-ocobo-yellow-light p-10 border border-ocobo-yellow/20 relative">
-							<div className="absolute -top-4 -left-4 w-8 h-8 bg-ocobo-dark"></div>
-							<div className="absolute -bottom-4 -right-4 w-8 h-8 bg-ocobo-dark"></div>
-							<h3 className="font-display text-2xl font-bold mb-4">
+						<div
+							className={css({
+								bg: 'ocobo.yellow-light',
+								p: '10',
+								border: '1px solid',
+								borderColor: 'ocobo.yellow/20',
+								position: 'relative',
+							})}
+						>
+							<div
+								className={css({
+									position: 'absolute',
+									top: '-4',
+									left: '-4',
+									width: '8',
+									height: '8',
+									bg: 'ocobo.dark',
+								})}
+							/>
+							<div
+								className={css({
+									position: 'absolute',
+									bottom: '-4',
+									right: '-4',
+									width: '8',
+									height: '8',
+									bg: 'ocobo.dark',
+								})}
+							/>
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: '2xl',
+									fontWeight: 'bold',
+									mb: '4',
+								})}
+							>
 								Dernier playbook envoyé :
 							</h3>
-							<div className="bg-white p-6 shadow-sm border border-gray-100 flex items-start gap-4">
-								<div className="w-12 h-12 bg-ocobo-mint/20 text-ocobo-mint flex items-center justify-center font-bold text-xl">
-									<span className="font-display">%</span>
+							<div
+								className={`${flex({ align: 'flex-start', gap: '4' })} ${css({
+									bg: 'white',
+									p: '6',
+									shadow: 'sm',
+									border: '1px solid',
+									borderColor: 'gray.100',
+								})}`}
+							>
+								<div
+									className={`${center()} ${css({
+										width: '12',
+										height: '12',
+										bg: 'ocobo.mint/20',
+										color: 'ocobo.mint',
+										fontWeight: 'bold',
+										fontSize: 'xl',
+									})}`}
+								>
+									<span className={css({ fontFamily: 'display' })}>%</span>
 								</div>
 								<div>
-									<h4 className="font-bold text-ocobo-dark">
+									<h4
+										className={css({ fontWeight: 'bold', color: 'ocobo.dark' })}
+									>
 										Modèle de Variable Sales 2024
 									</h4>
-									<p className="text-sm text-gray-500 mt-1">
+									<p
+										className={css({
+											fontSize: 'sm',
+											color: 'gray.500',
+											mt: '1',
+										})}
+									>
 										Template GSheet + Guide de calcul
 									</p>
 								</div>
@@ -276,6 +597,6 @@ const Resources: React.FC = () => {
 			</div>
 		</div>
 	);
-};
+}
 
 export default Resources;

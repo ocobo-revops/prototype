@@ -1,4 +1,5 @@
 import type React from 'react';
+import { css } from 'styled-system/css';
 import { ThemeColor } from '../../types';
 import { NumberCircle } from '../atoms';
 
@@ -10,7 +11,7 @@ interface ServiceCardProps {
 	className?: string;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({
+export const ServiceCard: React.FC<ServiceCardProps> = ({
 	number,
 	title,
 	description,
@@ -19,15 +20,33 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
 	return (
 		<div
-			className={`bg-white border border-gray-100 rounded-2xl p-6 transition-all duration-300 hover:border-ocobo-dark ${className}`}
+			className={`${css({
+				bg: 'white',
+				borderWidth: '1px',
+				borderColor: 'gray.100',
+				rounded: '2xl',
+				p: '6',
+				transition: 'all',
+				transitionDuration: '300ms',
+				_hover: { borderColor: 'ocobo.dark' },
+			})} ${className}`}
 		>
 			<NumberCircle number={number} variant={color} size="md" />
-			<h3 className="font-display font-bold text-lg text-ocobo-dark mt-4 mb-2">
+			<h3
+				className={css({
+					fontFamily: 'display',
+					fontWeight: 'bold',
+					fontSize: 'lg',
+					color: 'ocobo.dark',
+					mt: '4',
+					mb: '2',
+				})}
+			>
 				{title}
 			</h3>
-			<p className="text-gray-600 text-sm">{description}</p>
+			<p className={css({ color: 'gray.600', fontSize: 'sm' })}>
+				{description}
+			</p>
 		</div>
 	);
 };
-
-export default ServiceCard;

@@ -1,4 +1,5 @@
 import type React from 'react';
+import { css } from 'styled-system/css';
 import { ThemeColor } from '../../types';
 
 interface ValueCardProps {
@@ -10,7 +11,15 @@ interface ValueCardProps {
 	className?: string;
 }
 
-const ValueCard: React.FC<ValueCardProps> = ({
+const titleColorMap: Record<ThemeColor, string> = {
+	[ThemeColor.YELLOW]: 'ocobo.yellow',
+	[ThemeColor.MINT]: 'ocobo.mint',
+	[ThemeColor.SKY]: 'ocobo.sky',
+	[ThemeColor.CORAL]: 'ocobo.coral',
+	[ThemeColor.DARK]: 'ocobo.dark',
+};
+
+export const ValueCard: React.FC<ValueCardProps> = ({
 	title,
 	description,
 	detail,
@@ -18,30 +27,40 @@ const ValueCard: React.FC<ValueCardProps> = ({
 	variant = 'light',
 	className = '',
 }) => {
-	const titleColorStyles: Record<ThemeColor, string> = {
-		[ThemeColor.YELLOW]: 'text-ocobo-yellow',
-		[ThemeColor.MINT]: 'text-ocobo-mint',
-		[ThemeColor.SKY]: 'text-ocobo-sky',
-		[ThemeColor.CORAL]: 'text-ocobo-coral',
-		[ThemeColor.DARK]: variant === 'dark' ? 'text-white' : 'text-ocobo-dark',
-	};
-
-	const descriptionClass =
-		variant === 'dark' ? 'text-gray-300' : 'text-gray-600';
+	const titleColor =
+		color === ThemeColor.DARK && variant === 'dark'
+			? 'white'
+			: titleColorMap[color];
+	const descriptionColor = variant === 'dark' ? 'gray.300' : 'gray.600';
 
 	return (
-		<div className={`${className}`}>
+		<div className={className}>
 			<h3
-				className={`font-display font-bold text-2xl mb-4 ${titleColorStyles[color]}`}
+				className={css({
+					fontFamily: 'display',
+					fontWeight: 'bold',
+					fontSize: '2xl',
+					mb: '4',
+					color: titleColor,
+				})}
 			>
 				{title}
 			</h3>
-			<p className={`${descriptionClass} leading-relaxed`}>{description}</p>
+			<p className={css({ color: descriptionColor, lineHeight: 'relaxed' })}>
+				{description}
+			</p>
 			{detail && (
-				<p className="text-sm text-gray-500 mt-2 italic">→ {detail}</p>
+				<p
+					className={css({
+						fontSize: 'sm',
+						color: 'gray.500',
+						mt: '2',
+						fontStyle: 'italic',
+					})}
+				>
+					→ {detail}
+				</p>
 			)}
 		</div>
 	);
 };
-
-export default ValueCard;

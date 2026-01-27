@@ -1,55 +1,172 @@
 import { ArrowRight, Cpu, Layers, Users } from 'lucide-react';
 import type React from 'react';
 import { Link } from 'react-router';
-import Grid from '../../layout/Grid';
+import { css } from 'styled-system/css';
+import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
 import { SectionHeader } from '../../organisms';
 
-const LeviersSection: React.FC = () => {
+export const LeviersSection: React.FC = () => {
 	return (
-		<section className="py-24 bg-white border-y border-gray-50">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<section
+			className={css({
+				py: '24',
+				bg: 'white',
+				borderTopWidth: '1px',
+				borderBottomWidth: '1px',
+				borderColor: 'gray.50',
+			})}
+		>
+			<div
+				className={css({
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+				})}
+			>
 				<SectionHeader
 					badge="LEVIERS DE CROISSANCE"
 					title="Nos 3 leviers d'accompagnement."
 					subtitle="Pour mettre votre stratégie Revenue en mouvement, nous combinons méthode, technologie et expertise."
 					centered={false}
-					className="max-w-3xl mb-20"
+					className={css({ maxW: '3xl', mb: '20' })}
 				/>
 
-				<Grid lg={3} gap={8} className="gap-12 lg:gap-8">
+				<div
+					className={grid({
+						columns: { base: 1, lg: 3 },
+						gap: { base: '12', lg: '8' },
+					})}
+				>
 					{/* Levier 1: Méthode */}
-					<Link to="/method" className="group flex flex-col h-full">
-						<div className="relative p-10 bg-gray-50 rounded-3xl border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
-							<div className="mb-12 flex justify-between items-center">
-								<div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-ocobo-yellow shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
+					<Link
+						to="/method"
+						className={vstack({ h: 'full', alignItems: 'stretch' })}
+					>
+						<div
+							className={`${vstack({ alignItems: 'stretch' })} ${css({
+								position: 'relative',
+								p: '10',
+								bg: 'gray.50',
+								rounded: '3xl',
+								borderWidth: '1px',
+								borderColor: 'gray.100',
+								flexGrow: '1',
+								transition: 'all',
+								transitionDuration: '500',
+								overflow: 'hidden',
+								_hover: {
+									shadow: '2xl',
+									bg: 'white',
+									transform: 'translateY(-8px)',
+								},
+							})}`}
+						>
+							<div
+								className={`${hstack({ justify: 'space-between' })} ${css({ mb: '12' })}`}
+							>
+								<div
+									className={`${center()} ${css({
+										w: '14',
+										h: '14',
+										bg: 'white',
+										rounded: '2xl',
+										color: 'ocobo.yellow',
+										shadow: 'sm',
+										borderWidth: '1px',
+										borderColor: 'gray.100',
+										_groupHover: { transform: 'scale(1.1)' },
+										transition: 'transform',
+									})}`}
+								>
 									<Layers size={28} />
 								</div>
 								<ArrowRight
-									className="text-gray-200 group-hover:text-ocobo-dark transition-colors"
+									className={css({
+										color: 'gray.200',
+										_groupHover: { color: 'ocobo.dark' },
+										transition: 'colors',
+									})}
 									size={24}
 								/>
 							</div>
-							<h3 className="font-display text-2xl font-bold mb-6 group-hover:text-ocobo-yellow transition-colors">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: '2xl',
+									fontWeight: 'bold',
+									mb: '6',
+									_groupHover: { color: 'ocobo.yellow' },
+									transition: 'colors',
+								})}
+							>
 								Notre méthode
 							</h3>
-							<p className="text-gray-400 font-display font-black text-xs uppercase tracking-widest mb-4">
+							<p
+								className={css({
+									color: 'gray.400',
+									fontFamily: 'display',
+									fontWeight: 'black',
+									fontSize: 'xs',
+									textTransform: 'uppercase',
+									letterSpacing: 'widest',
+									mb: '4',
+								})}
+							>
 								The Revenue Experience System™
 							</p>
-							<p className="text-gray-600 text-sm leading-relaxed mb-10 font-medium flex-grow">
+							<p
+								className={css({
+									color: 'gray.600',
+									fontSize: 'sm',
+									lineHeight: 'relaxed',
+									mb: '10',
+									fontWeight: 'medium',
+									flexGrow: '1',
+								})}
+							>
 								Une méthode vivante, opérée en sprints, conçue pour durer :
 								alignement des équipes, stack utile, data fiable et équipes
 								autonomes.
 							</p>
 
-							{/* Internal Colored Separator */}
-							<div className="w-full h-1 bg-ocobo-yellow opacity-20 mb-8 rounded-full group-hover:opacity-100 transition-opacity"></div>
+							<div
+								className={css({
+									w: 'full',
+									h: '1',
+									bg: 'ocobo.yellow',
+									opacity: '0.2',
+									mb: '8',
+									rounded: 'full',
+									_groupHover: { opacity: '1' },
+									transition: 'opacity',
+								})}
+							/>
 
-							<div className="flex flex-wrap gap-2 h-[48px] content-start">
+							<div
+								className={flex({
+									wrap: 'wrap',
+									gap: '2',
+									h: '48px',
+									alignContent: 'flex-start',
+								})}
+							>
 								{['Alignment', 'Technology', 'Performance', 'Enablement'].map(
 									(tag) => (
 										<span
 											key={tag}
-											className="px-3 py-1 bg-white border border-gray-100 rounded-full text-xs font-black uppercase tracking-wider text-gray-400"
+											className={css({
+												px: '3',
+												py: '1',
+												bg: 'white',
+												borderWidth: '1px',
+												borderColor: 'gray.100',
+												rounded: 'full',
+												fontSize: 'xs',
+												fontWeight: 'black',
+												textTransform: 'uppercase',
+												letterSpacing: 'wider',
+												color: 'gray.400',
+											})}
 										>
 											{tag}
 										</span>
@@ -60,49 +177,148 @@ const LeviersSection: React.FC = () => {
 					</Link>
 
 					{/* Levier 2: Technologie */}
-					<Link to="/technology" className="group flex flex-col h-full">
-						<div className="relative p-10 bg-gray-50 rounded-3xl border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
-							<div className="mb-12 flex justify-between items-center">
-								<div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-ocobo-sky shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
+					<Link
+						to="/technology"
+						className={vstack({ h: 'full', alignItems: 'stretch' })}
+					>
+						<div
+							className={`${vstack({ alignItems: 'stretch' })} ${css({
+								position: 'relative',
+								p: '10',
+								bg: 'gray.50',
+								rounded: '3xl',
+								borderWidth: '1px',
+								borderColor: 'gray.100',
+								flexGrow: '1',
+								transition: 'all',
+								transitionDuration: '500',
+								overflow: 'hidden',
+								_hover: {
+									shadow: '2xl',
+									bg: 'white',
+									transform: 'translateY(-8px)',
+								},
+							})}`}
+						>
+							<div
+								className={`${hstack({ justify: 'space-between' })} ${css({ mb: '12' })}`}
+							>
+								<div
+									className={`${center()} ${css({
+										w: '14',
+										h: '14',
+										bg: 'white',
+										rounded: '2xl',
+										color: 'ocobo.sky',
+										shadow: 'sm',
+										borderWidth: '1px',
+										borderColor: 'gray.100',
+										_groupHover: { transform: 'scale(1.1)' },
+										transition: 'transform',
+									})}`}
+								>
 									<Cpu size={28} />
 								</div>
 								<ArrowRight
-									className="text-gray-200 group-hover:text-ocobo-dark transition-colors"
+									className={css({
+										color: 'gray.200',
+										_groupHover: { color: 'ocobo.dark' },
+										transition: 'colors',
+									})}
 									size={24}
 								/>
 							</div>
-							<h3 className="font-display text-2xl font-bold mb-6 group-hover:text-ocobo-sky transition-colors">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: '2xl',
+									fontWeight: 'bold',
+									mb: '6',
+									_groupHover: { color: 'ocobo.sky' },
+									transition: 'colors',
+								})}
+							>
 								Notre technologie
 							</h3>
-							<p className="text-gray-400 font-display font-black text-xs uppercase tracking-widest mb-4">
+							<p
+								className={css({
+									color: 'gray.400',
+									fontFamily: 'display',
+									fontWeight: 'black',
+									fontSize: 'xs',
+									textTransform: 'uppercase',
+									letterSpacing: 'widest',
+									mb: '4',
+								})}
+							>
 								Infrastructure Unifiée
 							</p>
-							<p className="text-gray-600 text-sm leading-relaxed mb-10 font-medium flex-grow">
+							<p
+								className={css({
+									color: 'gray.600',
+									fontSize: 'sm',
+									lineHeight: 'relaxed',
+									mb: '10',
+									fontWeight: 'medium',
+									flexGrow: '1',
+								})}
+							>
 								Une stack rationalisée, co-conçue avec les leaders (HubSpot,
 								Salesforce, Modjo...). Nous sommes des architectes agnostiques,
 								chaque choix sert votre stratégie.
 							</p>
 
-							{/* Internal Colored Separator */}
-							<div className="w-full h-1 bg-ocobo-sky opacity-20 mb-8 rounded-full group-hover:opacity-100 transition-opacity"></div>
+							<div
+								className={css({
+									w: 'full',
+									h: '1',
+									bg: 'ocobo.sky',
+									opacity: '0.2',
+									mb: '8',
+									rounded: 'full',
+									_groupHover: { opacity: '1' },
+									transition: 'opacity',
+								})}
+							/>
 
-							<div className="h-[48px] flex flex-col justify-start gap-3">
-								<div className="flex items-center gap-4 grayscale opacity-40 group-hover:opacity-100 group-hover:grayscale-0 transition-all">
+							<div
+								className={vstack({
+									h: '48px',
+									justify: 'flex-start',
+									gap: '3',
+									alignItems: 'flex-start',
+								})}
+							>
+								<div
+									className={`${hstack({ gap: '4' })} ${css({
+										filter: 'grayscale(1)',
+										opacity: '0.4',
+										_groupHover: { opacity: '1', filter: 'grayscale(0)' },
+										transition: 'all',
+									})}`}
+								>
 									<img
 										src="https://www.vectorlogo.zone/logos/hubspot/hubspot-icon.svg"
-										className="h-4 w-auto"
+										className={css({ h: '4', w: 'auto' })}
 										alt="Hubspot"
 									/>
 									<img
 										src="https://www.vectorlogo.zone/logos/salesforce/salesforce-icon.svg"
-										className="h-4 w-auto"
+										className={css({ h: '4', w: 'auto' })}
 										alt="Salesforce"
 									/>
 								</div>
-								<div className="flex items-center grayscale opacity-40 group-hover:opacity-100 group-hover:grayscale-0 transition-all">
+								<div
+									className={`${hstack()} ${css({
+										filter: 'grayscale(1)',
+										opacity: '0.4',
+										_groupHover: { opacity: '1', filter: 'grayscale(0)' },
+										transition: 'all',
+									})}`}
+								>
 									<img
 										src="https://dust.tt/static/logo_icon.png"
-										className="h-4 w-auto"
+										className={css({ h: '4', w: 'auto' })}
 										alt="Dust"
 									/>
 								</div>
@@ -111,46 +327,146 @@ const LeviersSection: React.FC = () => {
 					</Link>
 
 					{/* Levier 3: Équipe */}
-					<Link to="/studio" className="group flex flex-col h-full">
-						<div className="relative p-10 bg-gray-50 rounded-3xl border border-gray-100 flex-grow transition-all duration-500 hover:shadow-2xl hover:bg-white hover:-translate-y-2 overflow-hidden flex flex-col">
-							<div className="mb-12 flex justify-between items-center">
-								<div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-ocobo-mint shadow-sm border border-gray-100 group-hover:scale-110 transition-transform">
+					<Link
+						to="/studio"
+						className={vstack({ h: 'full', alignItems: 'stretch' })}
+					>
+						<div
+							className={`${vstack({ alignItems: 'stretch' })} ${css({
+								position: 'relative',
+								p: '10',
+								bg: 'gray.50',
+								rounded: '3xl',
+								borderWidth: '1px',
+								borderColor: 'gray.100',
+								flexGrow: '1',
+								transition: 'all',
+								transitionDuration: '500',
+								overflow: 'hidden',
+								_hover: {
+									shadow: '2xl',
+									bg: 'white',
+									transform: 'translateY(-8px)',
+								},
+							})}`}
+						>
+							<div
+								className={`${hstack({ justify: 'space-between' })} ${css({ mb: '12' })}`}
+							>
+								<div
+									className={`${center()} ${css({
+										w: '14',
+										h: '14',
+										bg: 'white',
+										rounded: '2xl',
+										color: 'ocobo.mint',
+										shadow: 'sm',
+										borderWidth: '1px',
+										borderColor: 'gray.100',
+										_groupHover: { transform: 'scale(1.1)' },
+										transition: 'transform',
+									})}`}
+								>
 									<Users size={28} />
 								</div>
 								<ArrowRight
-									className="text-gray-200 group-hover:text-ocobo-dark transition-colors"
+									className={css({
+										color: 'gray.200',
+										_groupHover: { color: 'ocobo.dark' },
+										transition: 'colors',
+									})}
 									size={24}
 								/>
 							</div>
-							<h3 className="font-display text-2xl font-bold mb-6 group-hover:text-ocobo-mint transition-colors">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: '2xl',
+									fontWeight: 'bold',
+									mb: '6',
+									_groupHover: { color: 'ocobo.mint' },
+									transition: 'colors',
+								})}
+							>
 								Notre équipe
 							</h3>
-							<p className="text-gray-400 font-display font-black text-xs uppercase tracking-widest mb-4">
+							<p
+								className={css({
+									color: 'gray.400',
+									fontFamily: 'display',
+									fontWeight: 'black',
+									fontSize: 'xs',
+									textTransform: 'uppercase',
+									letterSpacing: 'widest',
+									mb: '4',
+								})}
+							>
 								Le RevOps Studio
 							</p>
-							<p className="text-gray-600 text-sm leading-relaxed mb-10 font-medium flex-grow">
+							<p
+								className={css({
+									color: 'gray.600',
+									fontSize: 'sm',
+									lineHeight: 'relaxed',
+									mb: '10',
+									fontWeight: 'medium',
+									flexGrow: '1',
+								})}
+							>
 								Votre squad d'experts seniors, issus des meilleures scale-ups :
 								TheFork, Qonto, Payfit, Spendesk... Ils pensent comme une
 								direction Revenue embarquée.
 							</p>
 
-							{/* Internal Colored Separator */}
-							<div className="w-full h-1 bg-ocobo-mint opacity-20 mb-8 rounded-full group-hover:opacity-100 transition-opacity"></div>
+							<div
+								className={css({
+									w: 'full',
+									h: '1',
+									bg: 'ocobo.mint',
+									opacity: '0.2',
+									mb: '8',
+									rounded: 'full',
+									_groupHover: { opacity: '1' },
+									transition: 'opacity',
+								})}
+							/>
 
-							<div className="h-[48px] flex flex-col justify-start">
-								<div className="text-xs font-black text-gray-400 uppercase tracking-widest leading-relaxed">
+							<div
+								className={vstack({
+									h: '48px',
+									justify: 'flex-start',
+									alignItems: 'flex-start',
+								})}
+							>
+								<div
+									className={css({
+										fontSize: 'xs',
+										fontWeight: 'black',
+										color: 'gray.400',
+										textTransform: 'uppercase',
+										letterSpacing: 'widest',
+										lineHeight: 'relaxed',
+									})}
+								>
 									TheFork • Qonto • Payfit
 								</div>
-								<div className="text-xs font-black text-gray-400 uppercase tracking-widest leading-relaxed">
+								<div
+									className={css({
+										fontSize: 'xs',
+										fontWeight: 'black',
+										color: 'gray.400',
+										textTransform: 'uppercase',
+										letterSpacing: 'widest',
+										lineHeight: 'relaxed',
+									})}
+								>
 									Spendesk • Zenchef
 								</div>
 							</div>
 						</div>
 					</Link>
-				</Grid>
+				</div>
 			</div>
 		</section>
 	);
 };
-
-export default LeviersSection;

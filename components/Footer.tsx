@@ -1,28 +1,61 @@
 import { ArrowRight, Linkedin, Youtube } from 'lucide-react';
 import type React from 'react';
-// Changed import from 'react-router-dom' to 'react-router' to fix missing export errors
 import { Link } from 'react-router';
+import { css } from 'styled-system/css';
+import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
 
-const Footer: React.FC = () => {
+export const Footer: React.FC = () => {
 	return (
-		<footer className="bg-ocobo-dark text-white pt-20 pb-10">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<footer
+			className={css({
+				bg: 'ocobo.dark',
+				color: 'white',
+				pt: '20',
+				pb: '10',
+			})}
+		>
+			<div
+				className={css({
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+				})}
+			>
 				{/* Top Section */}
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20 border-b border-gray-800 pb-12">
+				<div
+					className={`${grid({ columns: { base: 1, md: 2, lg: 4 }, gap: '12' })} ${css(
+						{
+							mb: '20',
+							borderBottomWidth: '1px',
+							borderColor: 'gray.800',
+							pb: '12',
+						},
+					)}`}
+				>
 					{/* Brand & Social - Aligned Left */}
-					<div className="flex flex-col items-start space-y-6">
+					<div
+						className={`${flex({ direction: 'column', gap: '6' })} ${css({ alignItems: 'flex-start' })}`}
+					>
 						<img
 							src="https://27107933.fs1.hubspotusercontent-eu1.net/hubfs/27107933/logo-ocobo_full-white.svg"
 							alt="Ocobo Logo"
-							className="h-10 w-auto object-contain"
+							className={css({ h: '10', w: 'auto', objectFit: 'contain' })}
 						/>
 
-						<div className="flex space-x-4">
+						<div className={hstack({ gap: '4' })}>
 							<a
 								href="https://www.linkedin.com/company/ocobofr/"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-white hover:text-ocobo-dark transition-all duration-300"
+								className={`${center()} ${css({
+									w: '8',
+									h: '8',
+									rounded: 'full',
+									bg: 'gray.800',
+									transition: 'all',
+									transitionDuration: '300ms',
+									_hover: { bg: 'white', color: 'ocobo.dark' },
+								})}`}
 							>
 								<Linkedin size={16} />
 							</a>
@@ -30,29 +63,71 @@ const Footer: React.FC = () => {
 								href="https://www.youtube.com/@Ocobo-Revenue"
 								target="_blank"
 								rel="noopener noreferrer"
-								className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 hover:bg-white hover:text-ocobo-dark transition-all duration-300"
+								className={`${center()} ${css({
+									w: '8',
+									h: '8',
+									rounded: 'full',
+									bg: 'gray.800',
+									transition: 'all',
+									transitionDuration: '300ms',
+									_hover: { bg: 'white', color: 'ocobo.dark' },
+								})}`}
 							>
 								<Youtube size={16} />
 							</a>
 						</div>
 						<Link
 							to="/contact"
-							className="inline-flex items-center text-xs font-bold uppercase tracking-widest border border-white/30 rounded-full px-6 py-3 hover:bg-white hover:text-ocobo-dark transition-all"
+							className={css({
+								display: 'inline-flex',
+								alignItems: 'center',
+								fontSize: 'xs',
+								fontWeight: 'bold',
+								textTransform: 'uppercase',
+								letterSpacing: 'widest',
+								borderWidth: '1px',
+								borderColor: 'white/30',
+								rounded: 'full',
+								px: '6',
+								py: '3',
+								transition: 'all',
+								_hover: { bg: 'white', color: 'ocobo.dark' },
+							})}
 						>
-							Prendre RDV <ArrowRight className="ml-2 w-3 h-3" />
+							Prendre RDV{' '}
+							<ArrowRight className={css({ ml: '2', w: '3', h: '3' })} />
 						</Link>
 					</div>
 
 					{/* Links 1 */}
 					<div>
-						<h4 className="font-display font-bold mb-6 text-gray-400 text-sm uppercase tracking-wider">
+						<h4
+							className={css({
+								fontFamily: 'display',
+								fontWeight: 'bold',
+								mb: '6',
+								color: 'gray.400',
+								fontSize: 'sm',
+								textTransform: 'uppercase',
+								letterSpacing: 'wider',
+							})}
+						>
 							Ocobo
 						</h4>
-						<ul className="space-y-3 text-sm text-gray-300">
+						<ul
+							className={css({
+								spaceY: '3',
+								fontSize: 'sm',
+								color: 'gray.300',
+							})}
+						>
 							<li>
 								<Link
 									to="/about"
-									className="hover:text-ocobo-yellow transition-colors"
+									className={css({
+										transition: 'colors',
+										_hover: { color: 'ocobo.yellow' },
+									})}
 								>
 									Qui sommes-nous
 								</Link>
@@ -60,7 +135,10 @@ const Footer: React.FC = () => {
 							<li>
 								<Link
 									to="/jobs"
-									className="hover:text-ocobo-yellow transition-colors"
+									className={css({
+										transition: 'colors',
+										_hover: { color: 'ocobo.yellow' },
+									})}
 								>
 									Nous rejoindre
 								</Link>
@@ -70,14 +148,33 @@ const Footer: React.FC = () => {
 
 					{/* Links 2 - UPDATED TO METHODE */}
 					<div>
-						<h4 className="font-display font-bold mb-6 text-gray-400 text-sm uppercase tracking-wider">
+						<h4
+							className={css({
+								fontFamily: 'display',
+								fontWeight: 'bold',
+								mb: '6',
+								color: 'gray.400',
+								fontSize: 'sm',
+								textTransform: 'uppercase',
+								letterSpacing: 'wider',
+							})}
+						>
 							Méthode
 						</h4>
-						<ul className="space-y-3 text-sm text-gray-300">
+						<ul
+							className={css({
+								spaceY: '3',
+								fontSize: 'sm',
+								color: 'gray.300',
+							})}
+						>
 							<li>
 								<Link
 									to="/method"
-									className="hover:text-ocobo-yellow transition-colors"
+									className={css({
+										transition: 'colors',
+										_hover: { color: 'ocobo.yellow' },
+									})}
 								>
 									The Revenue Experience System
 								</Link>
@@ -85,7 +182,10 @@ const Footer: React.FC = () => {
 							<li>
 								<Link
 									to="/technology"
-									className="hover:text-ocobo-yellow transition-colors"
+									className={css({
+										transition: 'colors',
+										_hover: { color: 'ocobo.yellow' },
+									})}
 								>
 									Technologie
 								</Link>
@@ -93,7 +193,10 @@ const Footer: React.FC = () => {
 							<li>
 								<Link
 									to="/studio"
-									className="hover:text-ocobo-yellow transition-colors"
+									className={css({
+										transition: 'colors',
+										_hover: { color: 'ocobo.yellow' },
+									})}
 								>
 									Le RevOps Studio
 								</Link>
@@ -103,38 +206,99 @@ const Footer: React.FC = () => {
 
 					{/* Newsletter */}
 					<div>
-						<h4 className="font-display font-bold mb-6 text-gray-400 text-sm uppercase tracking-wider">
+						<h4
+							className={css({
+								fontFamily: 'display',
+								fontWeight: 'bold',
+								mb: '6',
+								color: 'gray.400',
+								fontSize: 'sm',
+								textTransform: 'uppercase',
+								letterSpacing: 'wider',
+							})}
+						>
 							Ne manquez pas nos actualités
 						</h4>
-						<form className="flex flex-col gap-3">
-							<div className="relative">
+						<form className={vstack({ gap: '3' })}>
+							<div className={css({ position: 'relative' })}>
 								<input
 									type="email"
 									placeholder="votre@email.com"
-									className="w-full bg-white text-ocobo-dark px-4 py-3 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-ocobo-yellow"
+									className={css({
+										w: 'full',
+										bg: 'white',
+										color: 'ocobo.dark',
+										px: '4',
+										py: '3',
+										rounded: 'md',
+										fontSize: 'sm',
+										outline: 'none',
+										_focus: { ring: '2px', ringColor: 'ocobo.yellow' },
+									})}
 								/>
 								<button
 									type="button"
-									className="absolute right-1 top-1 bottom-1 bg-ocobo-dark text-white text-xs px-3 rounded hover:bg-gray-800 transition-colors"
+									className={css({
+										position: 'absolute',
+										right: '1',
+										top: '1',
+										bottom: '1',
+										bg: 'ocobo.dark',
+										color: 'white',
+										fontSize: 'xs',
+										px: '3',
+										rounded: 'sm',
+										transition: 'colors',
+										_hover: { bg: 'gray.800' },
+									})}
 								>
 									S'inscrire
 								</button>
 							</div>
 						</form>
-						<div className="mt-6 flex items-center text-sm text-gray-400">
-							<span className="mr-2">🇫🇷</span> Français
+						<div
+							className={`${flex({ align: 'center' })} ${css({
+								mt: '6',
+								fontSize: 'sm',
+								color: 'gray.400',
+							})}`}
+						>
+							<span className={css({ mr: '2' })}>🇫🇷</span> Français
 						</div>
 					</div>
 				</div>
 
 				{/* Bottom Section */}
-				<div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+				<div
+					className={`${flex({
+						direction: { base: 'column', md: 'row' },
+						justify: 'space-between',
+						align: 'center',
+					})} ${css({
+						fontSize: 'xs',
+						color: 'gray.500',
+					})}`}
+				>
 					<p>2025 © Ocobo - Tous droits réservés</p>
-					<div className="flex space-x-6 mt-4 md:mt-0">
-						<a href="#" className="hover:text-white transition-colors">
+					<div
+						className={`${flex({ gap: '6' })} ${css({ mt: { base: '4', md: '0' } })}`}
+					>
+						<a
+							href="#"
+							className={css({
+								transition: 'colors',
+								_hover: { color: 'white' },
+							})}
+						>
 							Confidentialité
 						</a>
-						<a href="#" className="hover:text-white transition-colors">
+						<a
+							href="#"
+							className={css({
+								transition: 'colors',
+								_hover: { color: 'white' },
+							})}
+						>
 							Conditions d'utilisation
 						</a>
 					</div>
@@ -143,5 +307,3 @@ const Footer: React.FC = () => {
 		</footer>
 	);
 };
-
-export default Footer;

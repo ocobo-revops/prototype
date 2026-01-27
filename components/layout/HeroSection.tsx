@@ -1,5 +1,7 @@
 import { ChevronDown } from 'lucide-react';
 import type React from 'react';
+import { css } from 'styled-system/css';
+import { center, flex } from 'styled-system/patterns';
 import type { ThemeColor } from '../../types';
 import { Badge, Button } from '../atoms';
 
@@ -29,7 +31,7 @@ interface HeroSectionProps {
 	className?: string;
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({
+export const HeroSection: React.FC<HeroSectionProps> = ({
 	layout = 'centered',
 	badge,
 	title,
@@ -37,50 +39,62 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 	cta,
 	illustration,
 	showScrollIndicator = false,
-	scrollIndicatorColor = 'text-gray-200',
+	scrollIndicatorColor = 'gray.200',
 	className = '',
 }) => {
 	const isCentered = layout === 'centered';
 
-	const containerClasses = [
-		'pt-40 pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative',
-		isCentered ? 'text-center' : '',
-		className,
-	]
-		.filter(Boolean)
-		.join(' ');
-
-	const contentWrapperClasses = isCentered
-		? 'max-w-4xl mx-auto'
-		: 'flex flex-col lg:flex-row items-center gap-16 lg:gap-24';
-
-	const textContentClasses = isCentered ? '' : 'lg:w-1/2';
-
-	const illustrationClasses = isCentered
-		? 'flex justify-center mt-10'
-		: 'lg:w-1/2 flex justify-center lg:justify-end items-center';
-
 	return (
-		<section className={containerClasses}>
-			<div className={contentWrapperClasses}>
+		<section
+			className={`${css({
+				pt: '40',
+				pb: '16',
+				maxW: '7xl',
+				mx: 'auto',
+				px: { base: '4', sm: '6', lg: '8' },
+				position: 'relative',
+				textAlign: isCentered ? 'center' : 'left',
+			})} ${className}`}
+		>
+			<div
+				className={`${isCentered ? css({ maxW: '4xl', mx: 'auto' }) : flex({ direction: { base: 'column', lg: 'row' }, align: 'center', gap: { base: '16', lg: '24' } })}`}
+			>
 				{/* Text content */}
-				<div className={textContentClasses}>
+				<div className={css(isCentered ? {} : { w: { lg: '1/2' } })}>
 					{badge && (
-						<Badge variant={badge.variant || 'yellow'} className="mb-10">
+						<Badge
+							variant={badge.variant || 'yellow'}
+							className={css({ mb: '10' })}
+						>
 							{badge.text}
 						</Badge>
 					)}
 
-					<h1 className="font-display text-5xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
+					<h1
+						className={css({
+							fontFamily: 'display',
+							fontSize: { base: '5xl', md: '6xl' },
+							fontWeight: 'bold',
+							color: 'ocobo.dark',
+							mb: '10',
+							lineHeight: '0.95',
+							letterSpacing: 'tight',
+						})}
+					>
 						{title}
 					</h1>
 
 					{subtitle && (
 						<p
-							className={[
-								'text-xl text-gray-700 leading-relaxed font-medium',
-								isCentered ? 'max-w-2xl mx-auto mb-8' : 'max-w-xl mb-12',
-							].join(' ')}
+							className={css({
+								fontSize: 'xl',
+								color: 'gray.700',
+								lineHeight: 'relaxed',
+								fontWeight: 'medium',
+								maxW: isCentered ? '2xl' : 'xl',
+								mx: isCentered ? 'auto' : '0',
+								mb: isCentered ? '8' : '12',
+							})}
 						>
 							{subtitle}
 						</p>
@@ -99,20 +113,26 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
 				{/* Illustration (for split layout, positioned in flex) */}
 				{!isCentered && illustration && (
-					<div className={illustrationClasses}>{illustration}</div>
+					<div
+						className={`${flex({ justify: { base: 'center', lg: 'flex-end' }, align: 'center' })} ${css({ w: { lg: '1/2' } })}`}
+					>
+						{illustration}
+					</div>
 				)}
 			</div>
 
 			{/* Illustration (for centered layout, below content) */}
 			{isCentered && illustration && (
-				<div className={illustrationClasses}>{illustration}</div>
+				<div className={`${center()} ${css({ mt: '10' })}`}>{illustration}</div>
 			)}
 
 			{/* Scroll indicator */}
 			{showScrollIndicator && (
-				<div className="mt-16 flex justify-center w-full animate-bounce-slow">
+				<div
+					className={`${center()} ${css({ mt: '16', w: 'full', animation: 'bounce-slow' })}`}
+				>
 					<ChevronDown
-						className={scrollIndicatorColor}
+						className={css({ color: scrollIndicatorColor })}
 						size={24}
 						strokeWidth={1.5}
 					/>
@@ -121,5 +141,3 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 		</section>
 	);
 };
-
-export default HeroSection;
