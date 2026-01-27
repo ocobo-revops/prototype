@@ -6,11 +6,11 @@ import {
 	Clock,
 	Play,
 } from 'lucide-react';
-import type React from 'react';
 import { Link, useParams } from 'react-router';
+import { css } from 'styled-system/css';
 import { Badge, Button } from '../components/atoms';
 
-const WebinarDetail: React.FC = () => {
+export function WebinarDetail() {
 	const { slug } = useParams();
 
 	// biome-ignore lint/suspicious/noExplicitAny: mock data structure
@@ -20,7 +20,7 @@ const WebinarDetail: React.FC = () => {
 			category: 'DATA',
 			date: '05 OCT 2024',
 			duration: '45 min',
-			youtubeId: 'dQw4w9WgXcQ', // Example placeholder ID
+			youtubeId: 'dQw4w9WgXcQ',
 			description:
 				'La donnée est le carburant de votre machine revenue. Un CRM pollué par des doublons, des champs vides et des process obsolètes freine votre croissance. Dans ce webinar, nous vous montrons comment reprendre le contrôle et transformer votre CRM en actif stratégique.',
 			topics: [
@@ -51,77 +51,248 @@ const WebinarDetail: React.FC = () => {
 	const webinar = webinars[slug || ''] || webinars['nettoyer-crm-5-etapes'];
 
 	return (
-		<div className="w-full pt-40 pb-24 bg-white font-sans">
-			{/* Background Subtle Pattern */}
-			<div className="fixed inset-0 opacity-[0.02] pointer-events-none -z-10 bg-dots-dark"></div>
+		<div
+			className={css({
+				width: 'full',
+				pt: '40',
+				pb: '24',
+				bg: 'white',
+				fontFamily: 'sans',
+			})}
+		>
+			{/* Background Pattern */}
+			<div
+				className={css({
+					position: 'fixed',
+					inset: 0,
+					opacity: 0.02,
+					pointerEvents: 'none',
+					zIndex: -1,
+					backgroundImage: 'radial-gradient(ocobo.dark 1px, transparent 1px)',
+					backgroundSize: '20px 20px',
+				})}
+			/>
 
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div
+				className={css({
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+				})}
+			>
 				{/* Back Button */}
-				<div className="mb-12">
+				<div className={css({ mb: '12' })}>
 					<Link
 						to="/resources"
-						className="inline-flex items-center text-gray-400 hover:text-ocobo-dark font-black uppercase tracking-[0.2em] text-xs transition-colors"
+						className={css({
+							display: 'inline-flex',
+							alignItems: 'center',
+							color: 'gray.400',
+							fontWeight: 'black',
+							textTransform: 'uppercase',
+							letterSpacing: '0.2em',
+							fontSize: 'xs',
+							transition: 'color 200ms',
+							_hover: { color: 'ocobo.dark' },
+						})}
 					>
-						<ArrowLeft size={14} className="mr-2" /> Retour à la librairie
+						<ArrowLeft size={14} className={css({ mr: '2' })} /> Retour à la
+						librairie
 					</Link>
 				</div>
 
-				{/* Header Section */}
-				<div className="max-w-4xl mb-16">
-					<Badge variant="sky" className="mb-8">
+				{/* Header */}
+				<div className={css({ maxW: '4xl', mb: '16' })}>
+					<Badge variant="sky" className={css({ mb: '8' })}>
 						WEBINAR / {webinar.category}
 					</Badge>
-					<h1 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-8 leading-tight tracking-tight">
+					<h1
+						className={css({
+							fontFamily: 'display',
+							fontSize: { base: '4xl', md: '6xl' },
+							fontWeight: 'black',
+							color: 'ocobo.dark',
+							mb: '8',
+							lineHeight: 'tight',
+							letterSpacing: 'tight',
+						})}
+					>
 						{webinar.title}
 					</h1>
-					<div className="flex gap-8 text-xs font-black text-gray-400 uppercase tracking-widest">
-						<div className="flex items-center gap-2">
-							<Calendar size={14} className="text-ocobo-yellow" />{' '}
+					<div
+						className={css({
+							display: 'flex',
+							gap: '8',
+							fontSize: 'xs',
+							fontWeight: 'black',
+							color: 'gray.400',
+							textTransform: 'uppercase',
+							letterSpacing: 'widest',
+						})}
+					>
+						<div
+							className={css({
+								display: 'flex',
+								alignItems: 'center',
+								gap: '2',
+							})}
+						>
+							<Calendar size={14} className={css({ color: 'ocobo.yellow' })} />{' '}
 							{webinar.date}
 						</div>
-						<div className="flex items-center gap-2">
-							<Clock size={14} className="text-ocobo-sky" /> {webinar.duration}
+						<div
+							className={css({
+								display: 'flex',
+								alignItems: 'center',
+								gap: '2',
+							})}
+						>
+							<Clock size={14} className={css({ color: 'ocobo.sky' })} />{' '}
+							{webinar.duration}
 						</div>
 					</div>
 				</div>
 
-				{/* Video Player Section */}
-				<div className="mb-20">
-					<div className="relative aspect-video w-full rounded-3xl overflow-hidden shadow-soft-lg bg-ocobo-dark group">
+				{/* Video Player */}
+				<div className={css({ mb: '20' })}>
+					<div
+						className={css({
+							position: 'relative',
+							aspectRatio: '16/9',
+							width: 'full',
+							rounded: '3xl',
+							overflow: 'hidden',
+							shadow: 'soft-lg',
+							bg: 'ocobo.dark',
+						})}
+					>
 						<iframe
 							src={`https://www.youtube.com/embed/${webinar.youtubeId}?autoplay=0&rel=0&modestbranding=1`}
 							title={webinar.title}
-							className="absolute inset-0 w-full h-full border-none"
+							className={css({
+								position: 'absolute',
+								inset: 0,
+								width: 'full',
+								height: 'full',
+								border: 'none',
+							})}
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 							allowFullScreen
-						></iframe>
+						/>
 					</div>
 				</div>
 
-				{/* Main Content Layout */}
-				<div className="grid lg:grid-cols-12 gap-16 md:gap-24">
+				{/* Main Content */}
+				<div
+					className={css({
+						display: 'grid',
+						gridTemplateColumns: { lg: 'repeat(12, 1fr)' },
+						gap: { base: '16', md: '24' },
+					})}
+				>
 					{/* Content Body */}
-					<div className="lg:col-span-8 space-y-16">
+					<div
+						className={css({
+							lg: { gridColumn: 'span 8' },
+							display: 'flex',
+							flexDirection: 'column',
+							gap: '16',
+						})}
+					>
 						<div>
-							<h2 className="font-display text-3xl font-black text-ocobo-dark mb-8 tracking-tight">
+							<h2
+								className={css({
+									fontFamily: 'display',
+									fontSize: '3xl',
+									fontWeight: 'black',
+									color: 'ocobo.dark',
+									mb: '8',
+									letterSpacing: 'tight',
+								})}
+							>
 								Résumé du webinar
 							</h2>
-							<p className="text-xl text-gray-600 font-medium leading-relaxed mb-10">
+							<p
+								className={css({
+									fontSize: 'xl',
+									color: 'gray.600',
+									fontWeight: 'medium',
+									lineHeight: 'relaxed',
+									mb: '10',
+								})}
+							>
 								{webinar.description}
 							</p>
 						</div>
 
-						<div className="bg-gray-50 p-10 rounded-3xl border border-gray-100">
-							<h3 className="font-display text-2xl font-black text-ocobo-dark mb-8">
+						<div
+							className={css({
+								bg: 'gray.50',
+								p: '10',
+								rounded: '3xl',
+								border: '1px solid',
+								borderColor: 'gray.100',
+							})}
+						>
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: '2xl',
+									fontWeight: 'black',
+									color: 'ocobo.dark',
+									mb: '8',
+								})}
+							>
 								Au programme :
 							</h3>
-							<ul className="space-y-6">
+							<ul
+								className={css({
+									display: 'flex',
+									flexDirection: 'column',
+									gap: '6',
+								})}
+							>
 								{webinar.topics.map((topic: string) => (
-									<li key={topic} className="flex items-start gap-5 group">
-										<div className="mt-1 w-6 h-6 rounded-full bg-white border border-gray-200 flex items-center justify-center text-ocobo-sky shrink-0 shadow-sm group-hover:bg-ocobo-sky group-hover:text-white transition-all">
+									<li
+										key={topic}
+										className={css({
+											display: 'flex',
+											alignItems: 'flex-start',
+											gap: '5',
+											_hover: {
+												'& .icon-wrapper': { bg: 'ocobo.sky', color: 'white' },
+												'& .topic-text': { color: 'black' },
+											},
+										})}
+									>
+										<div
+											className={`icon-wrapper ${css({
+												mt: '1',
+												width: '6',
+												height: '6',
+												rounded: 'full',
+												bg: 'white',
+												border: '1px solid',
+												borderColor: 'gray.200',
+												display: 'flex',
+												alignItems: 'center',
+												justifyContent: 'center',
+												color: 'ocobo.sky',
+												flexShrink: 0,
+												shadow: 'sm',
+												transition: 'all 200ms',
+											})}`}
+										>
 											<CheckCircle2 size={14} />
 										</div>
-										<span className="text-lg font-bold text-ocobo-dark group-hover:text-black transition-colors">
+										<span
+											className={`topic-text ${css({
+												fontSize: 'lg',
+												fontWeight: 'bold',
+												color: 'ocobo.dark',
+												transition: 'color 200ms',
+											})}`}
+										>
 											{topic}
 										</span>
 									</li>
@@ -130,17 +301,55 @@ const WebinarDetail: React.FC = () => {
 						</div>
 					</div>
 
-					{/* Sidebar CTA */}
-					<div className="lg:col-span-4">
-						<div className="sticky top-32">
-							<div className="p-10 bg-ocobo-dark rounded-3xl text-white shadow-2xl relative overflow-hidden">
-								{/* Decorative element */}
-								<div className="absolute top-0 right-0 w-24 h-24 bg-ocobo-sky/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+					{/* Sidebar */}
+					<div className={css({ lg: { gridColumn: 'span 4' } })}>
+						<div className={css({ position: 'sticky', top: '32' })}>
+							<div
+								className={css({
+									p: '10',
+									bg: 'ocobo.dark',
+									rounded: '3xl',
+									color: 'white',
+									shadow: '2xl',
+									position: 'relative',
+									overflow: 'hidden',
+								})}
+							>
+								{/* Decorative */}
+								<div
+									className={css({
+										position: 'absolute',
+										top: 0,
+										right: 0,
+										width: '24',
+										height: '24',
+										bg: 'ocobo.sky/10',
+										rounded: 'full',
+										filter: 'blur(48px)',
+										transform: 'translate(50%, -50%)',
+									})}
+								/>
 
-								<h4 className="font-display text-2xl font-black mb-6 leading-tight">
+								<h4
+									className={css({
+										fontFamily: 'display',
+										fontSize: '2xl',
+										fontWeight: 'black',
+										mb: '6',
+										lineHeight: 'tight',
+									})}
+								>
 									Prêt à transformer votre machine revenue ?
 								</h4>
-								<p className="text-gray-400 font-medium mb-10 leading-relaxed text-sm">
+								<p
+									className={css({
+										color: 'gray.400',
+										fontWeight: 'medium',
+										mb: '10',
+										lineHeight: 'relaxed',
+										fontSize: 'sm',
+									})}
+								>
 									Nos architectes RevOps vous accompagnent dans l'audit et
 									l'assainissement de vos systèmes pour libérer votre
 									croissance.
@@ -148,18 +357,46 @@ const WebinarDetail: React.FC = () => {
 								<Button
 									variant="white"
 									size="lg"
-									className="w-full text-xs font-black uppercase tracking-widest border-none hover:bg-ocobo-sky hover:text-white transition-all"
+									className={css({
+										width: 'full',
+										fontSize: 'xs',
+										fontWeight: 'black',
+										textTransform: 'uppercase',
+										letterSpacing: 'widest',
+										border: 'none',
+										transition: 'all 200ms',
+										_hover: { bg: 'ocobo.sky', color: 'white' },
+									})}
 									to="/contact"
 								>
 									Réserver mon audit flash
 								</Button>
 
-								<div className="mt-10 pt-8 border-t border-white/10 flex items-center gap-4">
-									<div className="flex -space-x-2">
+								<div
+									className={css({
+										mt: '10',
+										pt: '8',
+										borderTop: '1px solid',
+										borderColor: 'white/10',
+										display: 'flex',
+										alignItems: 'center',
+										gap: '4',
+									})}
+								>
+									<div className={css({ display: 'flex' })}>
 										{[1, 2, 3].map((i) => (
 											<div
 												key={i}
-												className="w-8 h-8 rounded-full border-2 border-ocobo-dark bg-gray-600 overflow-hidden"
+												className={css({
+													width: '8',
+													height: '8',
+													rounded: 'full',
+													border: '2px solid',
+													borderColor: 'ocobo.dark',
+													bg: 'gray.600',
+													overflow: 'hidden',
+													ml: i > 1 ? '-2' : '0',
+												})}
 											>
 												<img
 													src={`https://i.pravatar.cc/100?img=${i + 10}`}
@@ -168,68 +405,250 @@ const WebinarDetail: React.FC = () => {
 											</div>
 										))}
 									</div>
-									<span className="text-xs font-black text-gray-500 uppercase tracking-widest leading-none">
+									<span
+										className={css({
+											fontSize: 'xs',
+											fontWeight: 'black',
+											color: 'gray.500',
+											textTransform: 'uppercase',
+											letterSpacing: 'widest',
+											lineHeight: 'none',
+										})}
+									>
 										+100 architectes <br /> déjà engagés
 									</span>
 								</div>
 							</div>
 
-							{/* Related Resource link */}
-							<div className="mt-8 p-8 border border-gray-100 rounded-3xl bg-white shadow-sm hover:shadow-md transition-all group cursor-pointer">
-								<span className="text-xs font-black text-ocobo-coral uppercase tracking-widest mb-2 block">
+							{/* Related Resource */}
+							<div
+								className={css({
+									mt: '8',
+									p: '8',
+									border: '1px solid',
+									borderColor: 'gray.100',
+									rounded: '3xl',
+									bg: 'white',
+									shadow: 'sm',
+									transition: 'shadow 200ms',
+									cursor: 'pointer',
+									_hover: {
+										shadow: 'md',
+										'& .title': { color: 'ocobo.yellow' },
+										'& .link': { color: 'ocobo.dark' },
+									},
+								})}
+							>
+								<span
+									className={css({
+										fontSize: 'xs',
+										fontWeight: 'black',
+										color: 'ocobo.coral',
+										textTransform: 'uppercase',
+										letterSpacing: 'widest',
+										mb: '2',
+										display: 'block',
+									})}
+								>
 									Dernier Article
 								</span>
-								<h5 className="font-display text-lg font-bold text-ocobo-dark group-hover:text-ocobo-yellow transition-colors leading-tight">
+								<h5
+									className={`title ${css({
+										fontFamily: 'display',
+										fontSize: 'lg',
+										fontWeight: 'bold',
+										color: 'ocobo.dark',
+										transition: 'color 200ms',
+										lineHeight: 'tight',
+									})}`}
+								>
 									Pourquoi votre reporting HubSpot est faux (et comment le
 									réparer)
 								</h5>
-								<div className="mt-4 flex items-center text-xs font-black text-gray-300 group-hover:text-ocobo-dark transition-colors uppercase tracking-[0.2em]">
-									Lire l'article <ArrowRight size={14} className="ml-2" />
+								<div
+									className={`link ${css({
+										mt: '4',
+										display: 'flex',
+										alignItems: 'center',
+										fontSize: 'xs',
+										fontWeight: 'black',
+										color: 'gray.300',
+										transition: 'color 200ms',
+										textTransform: 'uppercase',
+										letterSpacing: '0.2em',
+									})}`}
+								>
+									Lire l'article{' '}
+									<ArrowRight size={14} className={css({ ml: '2' })} />
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				{/* Footer Area with more webinars */}
-				<div className="mt-40 pt-20 border-t border-gray-100">
-					<div className="flex items-center justify-between mb-12">
-						<h3 className="font-display text-3xl font-black text-ocobo-dark">
+				{/* More Webinars */}
+				<div
+					className={css({
+						mt: '40',
+						pt: '20',
+						borderTop: '1px solid',
+						borderColor: 'gray.100',
+					})}
+				>
+					<div
+						className={css({
+							display: 'flex',
+							alignItems: 'center',
+							justifyContent: 'space-between',
+							mb: '12',
+						})}
+					>
+						<h3
+							className={css({
+								fontFamily: 'display',
+								fontSize: '3xl',
+								fontWeight: 'black',
+								color: 'ocobo.dark',
+							})}
+						>
 							Autres masterclasses
 						</h3>
 						<Link
 							to="/resources"
-							className="text-xs font-black uppercase tracking-[0.3em] text-gray-400 hover:text-ocobo-dark transition-colors flex items-center gap-2"
+							className={css({
+								fontSize: 'xs',
+								fontWeight: 'black',
+								textTransform: 'uppercase',
+								letterSpacing: '0.3em',
+								color: 'gray.400',
+								transition: 'color 200ms',
+								display: 'flex',
+								alignItems: 'center',
+								gap: '2',
+								_hover: { color: 'ocobo.dark' },
+							})}
 						>
 							Tout voir <ArrowRight size={14} />
 						</Link>
 					</div>
 
-					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+					<div
+						className={css({
+							display: 'grid',
+							gridTemplateColumns: {
+								md: 'repeat(2, 1fr)',
+								lg: 'repeat(3, 1fr)',
+							},
+							gap: '10',
+						})}
+					>
 						{[1, 2].map((i) => (
-							<div key={i} className="group cursor-pointer">
-								<div className="aspect-[16/10] overflow-hidden rounded-2xl mb-6 bg-gray-100 relative shadow-sm">
+							<div
+								key={i}
+								className={css({
+									cursor: 'pointer',
+									_hover: {
+										'& img': {
+											filter: 'grayscale(0)',
+											transform: 'scale(1.05)',
+										},
+										'& .play-btn': { opacity: 1, transform: 'translateY(0)' },
+										'& .title': { color: 'ocobo.sky' },
+										'& .link': { color: 'ocobo.dark' },
+									},
+								})}
+							>
+								<div
+									className={css({
+										aspectRatio: '16/10',
+										overflow: 'hidden',
+										rounded: '2xl',
+										mb: '6',
+										bg: 'gray.100',
+										position: 'relative',
+										shadow: 'sm',
+									})}
+								>
 									<img
 										src={`https://picsum.photos/600/400?grayscale&random=${i + 60}`}
-										className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+										className={css({
+											width: 'full',
+											height: 'full',
+											objectFit: 'cover',
+											filter: 'grayscale(1)',
+											transition: 'all 700ms',
+										})}
 										alt="Related"
 									/>
-									<div className="absolute inset-0 flex items-center justify-center">
-										<div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center text-ocobo-dark opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all">
+									<div
+										className={css({
+											position: 'absolute',
+											inset: 0,
+											display: 'flex',
+											alignItems: 'center',
+											justifyContent: 'center',
+										})}
+									>
+										<div
+											className={`play-btn ${css({
+												width: '12',
+												height: '12',
+												bg: 'white/90',
+												rounded: 'full',
+												display: 'flex',
+												alignItems: 'center',
+												justifyContent: 'center',
+												color: 'ocobo.dark',
+												opacity: 0,
+												transform: 'translateY(1rem)',
+												transition: 'all 200ms',
+											})}`}
+										>
 											<Play fill="currentColor" size={16} />
 										</div>
 									</div>
 								</div>
-								<span className="font-display font-black text-xs uppercase tracking-[0.2em] text-ocobo-sky mb-3 block">
+								<span
+									className={css({
+										fontFamily: 'display',
+										fontWeight: 'black',
+										fontSize: 'xs',
+										textTransform: 'uppercase',
+										letterSpacing: '0.2em',
+										color: 'ocobo.sky',
+										mb: '3',
+										display: 'block',
+									})}
+								>
 									WEBINAR
 								</span>
-								<h4 className="font-display text-xl font-black text-ocobo-dark mb-4 group-hover:text-ocobo-sky transition-colors leading-tight">
+								<h4
+									className={`title ${css({
+										fontFamily: 'display',
+										fontSize: 'xl',
+										fontWeight: 'black',
+										color: 'ocobo.dark',
+										mb: '4',
+										transition: 'color 200ms',
+										lineHeight: 'tight',
+									})}`}
+								>
 									Scaling des flux Data : les secrets des leaders SaaS
 								</h4>
-								<div className="flex items-center text-xs font-black uppercase tracking-widest text-gray-400 gap-2">
-									<div className="flex items-center gap-1 group-hover:text-ocobo-dark transition-colors">
-										Voir le replay <ArrowRight size={12} />
-									</div>
+								<div
+									className={`link ${css({
+										display: 'flex',
+										alignItems: 'center',
+										fontSize: 'xs',
+										fontWeight: 'black',
+										textTransform: 'uppercase',
+										letterSpacing: 'widest',
+										color: 'gray.400',
+										gap: '2',
+										transition: 'color 200ms',
+									})}`}
+								>
+									Voir le replay <ArrowRight size={12} />
 								</div>
 							</div>
 						))}
@@ -238,6 +657,6 @@ const WebinarDetail: React.FC = () => {
 			</div>
 		</div>
 	);
-};
+}
 
 export default WebinarDetail;

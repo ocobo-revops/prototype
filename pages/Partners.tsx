@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 import { useEffect, useState } from 'react';
+import { css } from 'styled-system/css';
 import { Badge, Button } from '../components/atoms';
 import FlexPair from '../components/layout/FlexPair';
 import { Grid } from '../components/layout/Grid';
@@ -22,7 +23,7 @@ import {
 	ModularStackGrid,
 } from '../components/layout/ModularStackGrid';
 
-const Partners: React.FC = () => {
+export const Partners: React.FC = () => {
 	const [filter, setFilter] = useState('TOUS');
 	const [animate, setAnimate] = useState(false);
 	const [formSubmitted, setFormSubmitted] = useState(false);
@@ -338,28 +339,77 @@ const Partners: React.FC = () => {
 	};
 
 	return (
-		<div className="w-full bg-white">
+		<div className={css({ width: 'full', bg: 'white' })}>
 			{/* HERO TECHNOLOGIE */}
-			<section className="pt-40 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
-				<div className="max-w-4xl mx-auto mb-16 relative z-10">
-					<Badge variant="sky" className="mb-10">
+			<section
+				className={css({
+					pt: '40',
+					pb: '24',
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+					position: 'relative',
+					textAlign: 'center',
+				})}
+			>
+				<div
+					className={css({
+						maxW: '4xl',
+						mx: 'auto',
+						mb: '16',
+						position: 'relative',
+						zIndex: 10,
+					})}
+				>
+					<Badge variant="sky" className={css({ mb: '10' })}>
 						TECHNOLOGIE
 					</Badge>
 
-					<h1 className="font-display text-5xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
+					<h1
+						className={css({
+							fontFamily: 'display',
+							fontSize: { base: '5xl', md: '6xl' },
+							fontWeight: 'bold',
+							color: 'ocobo.dark',
+							mb: '10',
+							lineHeight: '0.95',
+							letterSpacing: 'tight',
+						})}
+					>
 						Un écosystème <br />
 						de solutions{' '}
-						<span className="text-ocobo-sky italic">connectées.</span>
+						<span className={css({ color: 'ocobo.sky', fontStyle: 'italic' })}>
+							connectées.
+						</span>
 					</h1>
 
-					<p className="text-xl text-gray-700 mb-12 leading-relaxed font-medium max-w-2xl mx-auto">
+					<p
+						className={css({
+							fontSize: 'xl',
+							color: 'gray.700',
+							mb: '12',
+							lineHeight: 'relaxed',
+							fontWeight: 'medium',
+							maxW: '2xl',
+							mx: 'auto',
+						})}
+					>
 						Nous maîtrisons les architectures technologiques les plus avancées
 						pour transformer vos outils en{' '}
-						<span className="font-bold">véritable levier de croissance.</span>
+						<span className={css({ fontWeight: 'bold' })}>
+							véritable levier de croissance.
+						</span>
 					</p>
 				</div>
 
-				<div className="flex justify-center mb-16 px-4">
+				<div
+					className={css({
+						display: 'flex',
+						justifyContent: 'center',
+						mb: '16',
+						px: '4',
+					})}
+				>
 					<ModularStackGrid
 						items={DEFAULT_STACK_ITEMS}
 						maxWidth="xl"
@@ -367,27 +417,91 @@ const Partners: React.FC = () => {
 					/>
 				</div>
 
-				<div className="flex flex-col items-center gap-12">
+				<div
+					className={css({
+						display: 'flex',
+						flexDir: 'column',
+						alignItems: 'center',
+						gap: '12',
+					})}
+				>
 					<Button variant="cta" size="xl" to="/contact">
 						Auditer ma stack
 					</Button>
 				</div>
 
-				<div className="mt-16 flex justify-center w-full animate-bounce-slow">
-					<ChevronDown className="text-ocobo-sky" size={24} strokeWidth={1.5} />
+				<div
+					className={css({
+						mt: '16',
+						display: 'flex',
+						justifyContent: 'center',
+						w: 'full',
+						animation: 'bounce-slow',
+					})}
+				>
+					<ChevronDown
+						className={css({ color: 'ocobo.sky' })}
+						size={24}
+						strokeWidth={1.5}
+					/>
 				</div>
 			</section>
 
 			{/* SECTION PHILOSOPHIE */}
-			<section className="bg-ocobo-dark py-32 text-white relative overflow-hidden">
-				<div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] bg-[length:40px_40px]" />
+			<section
+				className={css({
+					bg: 'ocobo.dark',
+					py: '32',
+					color: 'white',
+					position: 'relative',
+					overflow: 'hidden',
+				})}
+			>
+				<div
+					className={css({
+						position: 'absolute',
+						inset: '0',
+						opacity: 0.03,
+						backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
+						backgroundSize: '40px 40px',
+					})}
+				/>
 
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-					<div className="max-w-3xl mb-20 text-center md:text-left">
-						<h2 className="font-display text-4xl md:text-5xl font-black mb-6 tracking-tight">
+				<div
+					className={css({
+						maxW: '7xl',
+						mx: 'auto',
+						px: { base: '4', sm: '6', lg: '8' },
+						position: 'relative',
+						zIndex: 10,
+					})}
+				>
+					<div
+						className={css({
+							maxW: '3xl',
+							mb: '20',
+							textAlign: { base: 'center', md: 'left' },
+						})}
+					>
+						<h2
+							className={css({
+								fontFamily: 'display',
+								fontSize: { base: '4xl', md: '5xl' },
+								fontWeight: 'black',
+								mb: '6',
+								letterSpacing: 'tight',
+							})}
+						>
 							Le système avant l'outil.
 						</h2>
-						<p className="text-gray-400 text-lg font-medium leading-relaxed">
+						<p
+							className={css({
+								color: 'gray.400',
+								fontSize: 'lg',
+								fontWeight: 'medium',
+								lineHeight: 'relaxed',
+							})}
+						>
 							L'outil n'est qu'un moyen. Notre valeur réside dans l'architecture
 							qui permet à ces technologies de communiquer et de produire de la
 							donnée fiable.
@@ -395,38 +509,164 @@ const Partners: React.FC = () => {
 					</div>
 
 					<Grid md={3} gap={10}>
-						<div className="bg-white p-10 rounded-xl shadow-xl group hover:-translate-y-1 transition-transform duration-300">
-							<div className="w-16 h-16 bg-ocobo-dark text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-ocobo-sky transition-colors">
+						<div
+							className={css({
+								bg: 'white',
+								p: '10',
+								rounded: 'xl',
+								shadow: 'xl',
+								transition: 'transform',
+								transitionDuration: '300ms',
+								_hover: { transform: 'translateY(-4px)' },
+								'& .icon-box': {
+									transition: 'colors',
+								},
+								'&:hover .icon-box': {
+									bg: 'ocobo.sky',
+								},
+							})}
+						>
+							<div
+								className={`icon-box ${css({
+									w: '16',
+									h: '16',
+									bg: 'ocobo.dark',
+									color: 'white',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									rounded: 'lg',
+									mb: '8',
+								})}`}
+							>
 								<Lock size={28} />
 							</div>
-							<h3 className="font-display text-2xl font-black mb-4 text-ocobo-dark">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: '2xl',
+									fontWeight: 'black',
+									mb: '4',
+									color: 'ocobo.dark',
+								})}
+							>
 								Agnostique
 							</h3>
-							<p className="text-gray-600 leading-relaxed font-medium">
+							<p
+								className={css({
+									color: 'gray.600',
+									lineHeight: 'relaxed',
+									fontWeight: 'medium',
+								})}
+							>
 								On ne force pas un outil. On choisit celui qui sert votre
 								stratégie de manière juste.
 							</p>
 						</div>
-						<div className="bg-white p-10 rounded-xl shadow-xl group hover:-translate-y-1 transition-transform duration-300">
-							<div className="w-16 h-16 bg-ocobo-dark text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-ocobo-mint transition-colors">
+						<div
+							className={css({
+								bg: 'white',
+								p: '10',
+								rounded: 'xl',
+								shadow: 'xl',
+								transition: 'transform',
+								transitionDuration: '300ms',
+								_hover: { transform: 'translateY(-4px)' },
+								'& .icon-box': {
+									transition: 'colors',
+								},
+								'&:hover .icon-box': {
+									bg: 'ocobo.mint',
+								},
+							})}
+						>
+							<div
+								className={`icon-box ${css({
+									w: '16',
+									h: '16',
+									bg: 'ocobo.dark',
+									color: 'white',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									rounded: 'lg',
+									mb: '8',
+								})}`}
+							>
 								<LinkIcon size={28} />
 							</div>
-							<h3 className="font-display text-2xl font-black mb-4 text-ocobo-dark">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: '2xl',
+									fontWeight: 'black',
+									mb: '4',
+									color: 'ocobo.dark',
+								})}
+							>
 								Connectée
 							</h3>
-							<p className="text-gray-600 leading-relaxed font-medium">
+							<p
+								className={css({
+									color: 'gray.600',
+									lineHeight: 'relaxed',
+									fontWeight: 'medium',
+								})}
+							>
 								La donnée doit circuler fluidement. Nous supprimons les silos
 								pour une vérité unique.
 							</p>
 						</div>
-						<div className="bg-white p-10 rounded-xl shadow-xl group hover:-translate-y-1 transition-transform duration-300">
-							<div className="w-16 h-16 bg-ocobo-dark text-white flex items-center justify-center rounded-lg mb-8 group-hover:bg-ocobo-yellow transition-colors">
+						<div
+							className={css({
+								bg: 'white',
+								p: '10',
+								rounded: 'xl',
+								shadow: 'xl',
+								transition: 'transform',
+								transitionDuration: '300ms',
+								_hover: { transform: 'translateY(-4px)' },
+								'& .icon-box': {
+									transition: 'colors',
+								},
+								'&:hover .icon-box': {
+									bg: 'ocobo.yellow',
+								},
+							})}
+						>
+							<div
+								className={`icon-box ${css({
+									w: '16',
+									h: '16',
+									bg: 'ocobo.dark',
+									color: 'white',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									rounded: 'lg',
+									mb: '8',
+								})}`}
+							>
 								<ShieldCheck size={28} />
 							</div>
-							<h3 className="font-display text-2xl font-black mb-4 text-ocobo-dark">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: '2xl',
+									fontWeight: 'black',
+									mb: '4',
+									color: 'ocobo.dark',
+								})}
+							>
 								Certifiée
 							</h3>
-							<p className="text-gray-600 leading-relaxed font-medium">
+							<p
+								className={css({
+									color: 'gray.600',
+									lineHeight: 'relaxed',
+									fontWeight: 'medium',
+								})}
+							>
 								Nous sommes partenaires officiels et certifiés sur les solutions
 								les plus puissantes du marché.
 							</p>
@@ -436,29 +676,66 @@ const Partners: React.FC = () => {
 			</section>
 
 			{/* ECOSYSTEME TECH */}
-			<section className="py-24 bg-white">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+			<section className={css({ py: '24', bg: 'white' })}>
+				<div
+					className={css({
+						maxW: '7xl',
+						mx: 'auto',
+						px: { base: '4', sm: '6', lg: '8' },
+					})}
+				>
+					<div
+						className={css({
+							display: 'flex',
+							flexDir: { base: 'column', md: 'row' },
+							justifyContent: 'space-between',
+							alignItems: 'end',
+							mb: '20',
+							gap: '8',
+						})}
+					>
 						<div>
-							<h2 className="font-display text-4xl font-black mb-4 text-ocobo-dark tracking-tight">
+							<h2
+								className={css({
+									fontFamily: 'display',
+									fontSize: '4xl',
+									fontWeight: 'black',
+									mb: '4',
+									color: 'ocobo.dark',
+									letterSpacing: 'tight',
+								})}
+							>
 								Notre Ecosystème Tech
 							</h2>
-							<p className="text-gray-500 font-medium">
+							<p className={css({ color: 'gray.500', fontWeight: 'medium' })}>
 								Les solutions que nous implémentons, des partenariats officiels
 								aux maîtrises techniques d'experts.
 							</p>
 						</div>
-						<div className="flex flex-wrap gap-2">
+						<div
+							className={css({ display: 'flex', flexWrap: 'wrap', gap: '2' })}
+						>
 							{categories.map((cat) => (
 								<button
 									type="button"
 									key={cat}
 									onClick={() => setFilter(cat)}
-									className={`px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all border ${
-										filter === cat
-											? 'bg-ocobo-dark text-white border-ocobo-dark shadow-lg'
-											: 'bg-gray-50 text-gray-500 border-gray-100 hover:border-ocobo-dark'
-									}`}
+									className={css({
+										px: '6',
+										py: '2.5',
+										rounded: 'full',
+										fontSize: 'xs',
+										fontWeight: 'black',
+										textTransform: 'uppercase',
+										letterSpacing: 'widest',
+										transition: 'all',
+										borderWidth: '1px',
+										bg: filter === cat ? 'ocobo.dark' : 'gray.50',
+										color: filter === cat ? 'white' : 'gray.500',
+										borderColor: filter === cat ? 'ocobo.dark' : 'gray.100',
+										shadow: filter === cat ? 'lg' : 'none',
+										_hover: filter !== cat ? { borderColor: 'ocobo.dark' } : {},
+									})}
 								>
 									{cat === 'TOUS'
 										? 'Tous les outils'
@@ -474,26 +751,145 @@ const Partners: React.FC = () => {
 						md={2}
 						lg={3}
 						gap={8}
-						className="transition-all duration-500 stagger-fade"
+						className={css({ transition: 'all', transitionDuration: '500ms' })}
 					>
 						{filtered.map((partner) => (
 							<div
 								key={`${partner.name}-${filter}`}
-								className={`group bg-white border border-gray-100 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 relative overflow-hidden rounded-xl flex flex-col h-full ${animate ? 'opacity-0 animate-fade-in-up-small' : 'opacity-0'}`}
+								className={css({
+									bg: 'white',
+									borderWidth: '1px',
+									borderColor: 'gray.100',
+									p: '8',
+									transition: 'all',
+									transitionDuration: '300ms',
+									position: 'relative',
+									overflow: 'hidden',
+									rounded: 'xl',
+									display: 'flex',
+									flexDir: 'column',
+									h: 'full',
+									animation: animate ? 'fade-in-up-small' : 'none',
+									opacity: animate ? 0 : 1,
+									_hover: { shadow: 'xl', transform: 'translateY(-4px)' },
+									'& .logo-img': {
+										transition: 'all',
+										transitionDuration: '500ms',
+									},
+									'&:hover .logo-img': {
+										filter: 'grayscale(0)',
+										opacity: 1,
+									},
+									'& .cat-badge': {
+										transition: 'all',
+									},
+									'&:hover .cat-badge': {
+										bg: 'ocobo.dark',
+										color: 'white',
+									},
+									'& .tag': {
+										transition: 'all',
+									},
+									'&:hover .tag': {
+										borderColor: 'ocobo.dark/10',
+										color: 'ocobo.dark',
+									},
+									'& .separator': {
+										transition: 'opacity',
+									},
+									'&:hover .separator': {
+										opacity: 1,
+									},
+									'& .cert-img': {
+										transition: 'all',
+										transitionDuration: '500ms',
+									},
+									'&:hover .cert-img': {
+										filter: 'grayscale(0)',
+									},
+									'& .tech-label': {
+										transition: 'colors',
+									},
+									'&:hover .tech-label': {
+										color: 'ocobo.mint',
+									},
+									'& .tech-icon': {
+										transition: 'opacity',
+									},
+									'&:hover .tech-icon': {
+										opacity: 1,
+									},
+									'& .external-link': {
+										transition: 'all',
+										transitionDuration: '300ms',
+									},
+									'&:hover .external-link': {
+										transform: 'translateX(4px)',
+									},
+								})}
 							>
-								<div className="flex justify-between items-start mb-8">
-									<div className="w-16 h-16 flex items-center justify-center p-3 bg-gray-50 rounded-xl group-hover:bg-white transition-all duration-500 border border-transparent group-hover:border-gray-100 shadow-inner group-hover:shadow-none">
+								<div
+									className={css({
+										display: 'flex',
+										justifyContent: 'space-between',
+										alignItems: 'start',
+										mb: '8',
+									})}
+								>
+									<div
+										className={css({
+											w: '16',
+											h: '16',
+											display: 'flex',
+											alignItems: 'center',
+											justifyContent: 'center',
+											p: '3',
+											bg: 'gray.50',
+											rounded: 'xl',
+											borderWidth: '1px',
+											borderColor: 'transparent',
+											shadow: 'inner',
+											_groupHover: {
+												bg: 'white',
+												borderColor: 'gray.100',
+												shadow: 'none',
+											},
+										})}
+									>
 										<img
 											src={partner.logo}
 											alt={partner.name}
-											className="max-w-full max-h-full object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+											className={`logo-img ${css({
+												maxW: 'full',
+												maxH: 'full',
+												objectFit: 'contain',
+												filter: 'grayscale(100%)',
+												opacity: 0.6,
+											})}`}
 										/>
 									</div>
-									<div className="flex flex-col items-end gap-1">
+									<div
+										className={css({
+											display: 'flex',
+											flexDir: 'column',
+											alignItems: 'end',
+											gap: '1',
+										})}
+									>
 										{partner.category.map((cat) => (
 											<div
 												key={cat}
-												className="text-xs font-black uppercase tracking-widest bg-gray-100 text-gray-400 px-3 py-1 rounded-md group-hover:bg-ocobo-dark group-hover:text-white transition-all"
+												className={`cat-badge ${css({
+													fontSize: 'xs',
+													fontWeight: 'black',
+													textTransform: 'uppercase',
+													letterSpacing: 'widest',
+													bg: 'gray.100',
+													color: 'gray.400',
+													px: '3',
+													py: '1',
+													rounded: 'md',
+												})}`}
 											>
 												{cat === 'NO-CODE' ? 'No-Code & Automatisation' : cat}
 											</div>
@@ -501,48 +897,146 @@ const Partners: React.FC = () => {
 									</div>
 								</div>
 
-								<div className="mb-6 flex-grow flex flex-col">
-									<h3 className="font-display text-2xl font-black text-ocobo-dark mb-4 tracking-tight">
+								<div
+									className={css({
+										mb: '6',
+										flexGrow: 1,
+										display: 'flex',
+										flexDir: 'column',
+									})}
+								>
+									<h3
+										className={css({
+											fontFamily: 'display',
+											fontSize: '2xl',
+											fontWeight: 'black',
+											color: 'ocobo.dark',
+											mb: '4',
+											letterSpacing: 'tight',
+										})}
+									>
 										{partner.name}
 									</h3>
-									<div className="h-[48px] flex flex-wrap gap-1.5 mb-4 content-start overflow-hidden">
+									<div
+										className={css({
+											h: '48px',
+											display: 'flex',
+											flexWrap: 'wrap',
+											gap: '1.5',
+											mb: '4',
+											alignContent: 'start',
+											overflow: 'hidden',
+										})}
+									>
 										{partner.tags.map((tag) => (
 											<span
 												key={tag}
-												className="text-xs font-bold bg-gray-50 text-gray-400 border border-gray-100 px-2 py-0.5 rounded transition-all group-hover:border-ocobo-dark/10 group-hover:text-ocobo-dark whitespace-nowrap"
+												className={`tag ${css({
+													fontSize: 'xs',
+													fontWeight: 'bold',
+													bg: 'gray.50',
+													color: 'gray.400',
+													borderWidth: '1px',
+													borderColor: 'gray.100',
+													px: '2',
+													py: '0.5',
+													rounded: 'sm',
+													whiteSpace: 'nowrap',
+												})}`}
 											>
 												{tag}
 											</span>
 										))}
 									</div>
-									<p className="text-gray-500 text-sm leading-relaxed font-medium min-h-[4rem]">
+									<p
+										className={css({
+											color: 'gray.500',
+											fontSize: 'sm',
+											lineHeight: 'relaxed',
+											fontWeight: 'medium',
+											minH: '4rem',
+										})}
+									>
 										{partner.desc}
 									</p>
 								</div>
 
-								{/* Horizontal Black Separator - Aligned correctly for all tiles */}
-								<div className="w-full h-1 bg-ocobo-dark opacity-10 mb-6 rounded-full group-hover:opacity-100 transition-opacity"></div>
+								{/* Horizontal Black Separator */}
+								<div
+									className={`separator ${css({
+										w: 'full',
+										h: '1',
+										bg: 'ocobo.dark',
+										opacity: 0.1,
+										mb: '6',
+										rounded: 'full',
+									})}`}
+								/>
 
-								<div className="flex items-center justify-between mt-auto h-12">
-									<div className="flex-1">
+								<div
+									className={css({
+										display: 'flex',
+										alignItems: 'center',
+										justifyContent: 'space-between',
+										mt: 'auto',
+										h: '12',
+									})}
+								>
+									<div className={css({ flex: 1 })}>
 										{partner.certificationLogo ? (
-											<div className="flex items-center gap-2">
+											<div
+												className={css({
+													display: 'flex',
+													alignItems: 'center',
+													gap: '2',
+												})}
+											>
 												<img
 													src={partner.certificationLogo}
 													alt={`${partner.name} Platinum`}
-													className="h-10 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-500"
+													className={`cert-img ${css({
+														h: '10',
+														w: 'auto',
+														objectFit: 'contain',
+														filter: 'grayscale(100%)',
+													})}`}
 												/>
 											</div>
 										) : partner.status === 'OFFICIAL' ? (
-											<div className="flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-ocobo-dark">
-												<Award size={12} className="text-ocobo-yellow" />
+											<div
+												className={css({
+													display: 'flex',
+													alignItems: 'center',
+													gap: '1.5',
+													fontSize: 'xs',
+													fontWeight: 'black',
+													textTransform: 'uppercase',
+													letterSpacing: 'widest',
+													color: 'ocobo.dark',
+												})}
+											>
+												<Award
+													size={12}
+													className={css({ color: 'ocobo.yellow' })}
+												/>
 												Partenaire Officiel
 											</div>
 										) : (
-											<div className="flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-gray-400 group-hover:text-ocobo-mint transition-colors">
+											<div
+												className={`tech-label ${css({
+													display: 'flex',
+													alignItems: 'center',
+													gap: '1.5',
+													fontSize: 'xs',
+													fontWeight: 'black',
+													textTransform: 'uppercase',
+													letterSpacing: 'widest',
+													color: 'gray.400',
+												})}`}
+											>
 												<Zap
 													size={12}
-													className="opacity-50 group-hover:opacity-100"
+													className={`tech-icon ${css({ opacity: 0.5 })}`}
 												/>
 												Maîtrise Technique
 											</div>
@@ -553,7 +1047,11 @@ const Partners: React.FC = () => {
 										href="#"
 										target="_blank"
 										rel="noopener noreferrer"
-										className="text-gray-300 hover:text-ocobo-dark transition-colors p-2 transform group-hover:translate-x-1 duration-300"
+										className={`external-link ${css({
+											color: 'gray.300',
+											p: '2',
+											_hover: { color: 'ocobo.dark' },
+										})}`}
 									>
 										<ExternalLink size={20} />
 									</a>
@@ -564,38 +1062,114 @@ const Partners: React.FC = () => {
 				</div>
 			</section>
 
-			{/* SECTION DEVENIR PARTENAIRE - UPDATED TO SKY THEME AND SQUARE FORM STYLE */}
-			<section className="py-32 bg-gray-50 relative overflow-hidden">
-				<div className="absolute top-0 right-0 w-1/3 h-full bg-white skew-x-12 translate-x-1/2 -z-10"></div>
+			{/* SECTION DEVENIR PARTENAIRE */}
+			<section
+				className={css({
+					py: '32',
+					bg: 'gray.50',
+					position: 'relative',
+					overflow: 'hidden',
+				})}
+			>
+				<div
+					className={css({
+						position: 'absolute',
+						top: '0',
+						right: '0',
+						w: '1/3',
+						h: 'full',
+						bg: 'white',
+						transform: 'skewX(12deg) translateX(50%)',
+						zIndex: -10,
+					})}
+				/>
 
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="flex flex-col lg:flex-row gap-20 items-center">
-						<div className="lg:w-1/2">
-							<Badge variant="sky" className="mb-10">
+				<div
+					className={css({
+						maxW: '7xl',
+						mx: 'auto',
+						px: { base: '4', sm: '6', lg: '8' },
+					})}
+				>
+					<div
+						className={css({
+							display: 'flex',
+							flexDir: { base: 'column', lg: 'row' },
+							gap: '20',
+							alignItems: 'center',
+						})}
+					>
+						<div className={css({ lg: { w: '1/2' } })}>
+							<Badge variant="sky" className={css({ mb: '10' })}>
 								CO-CONSTRUCTION
 							</Badge>
-							<h2 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-8 leading-[0.95] tracking-tight">
+							<h2
+								className={css({
+									fontFamily: 'display',
+									fontSize: { base: '4xl', md: '6xl' },
+									fontWeight: 'black',
+									color: 'ocobo.dark',
+									mb: '8',
+									lineHeight: '0.95',
+									letterSpacing: 'tight',
+								})}
+							>
 								Rejoignez <br />
-								l’écosystème <span className="text-ocobo-sky">Ocobo.</span>
+								l'écosystème{' '}
+								<span className={css({ color: 'ocobo.sky' })}>Ocobo.</span>
 							</h2>
-							<p className="text-xl text-gray-600 mb-10 leading-relaxed font-medium">
+							<p
+								className={css({
+									fontSize: 'xl',
+									color: 'gray.600',
+									mb: '10',
+									lineHeight: 'relaxed',
+									fontWeight: 'medium',
+								})}
+							>
 								Vous développez une solution logicielle qui transforme la
 								croissance des entreprises B2B ? Intégrez notre écosystème
 								d'architectes.
 							</p>
 
-							<div className="space-y-6 mb-12">
+							<div
+								className={css({
+									display: 'flex',
+									flexDir: 'column',
+									gap: '6',
+									mb: '12',
+								})}
+							>
 								<FlexPair gap={5}>
 									<FlexPair.Icon>
-										<div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-sky">
+										<div
+											className={css({
+												w: '10',
+												h: '10',
+												bg: 'white',
+												shadow: 'sm',
+												borderWidth: '1px',
+												borderColor: 'gray.100',
+												rounded: 'xl',
+												display: 'flex',
+												alignItems: 'center',
+												justifyContent: 'center',
+												color: 'ocobo.sky',
+											})}
+										>
 											<Handshake size={20} />
 										</div>
 									</FlexPair.Icon>
 									<FlexPair.Content>
-										<h4 className="font-bold text-ocobo-dark">
+										<h4
+											className={css({
+												fontWeight: 'bold',
+												color: 'ocobo.dark',
+											})}
+										>
 											Partenariat Stratégique
 										</h4>
-										<p className="text-sm text-gray-500">
+										<p className={css({ fontSize: 'sm', color: 'gray.500' })}>
 											Accès privilégié à notre Studio pour le déploiement de
 											votre solution chez nos clients.
 										</p>
@@ -603,15 +1177,34 @@ const Partners: React.FC = () => {
 								</FlexPair>
 								<FlexPair gap={5}>
 									<FlexPair.Icon>
-										<div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-yellow">
+										<div
+											className={css({
+												w: '10',
+												h: '10',
+												bg: 'white',
+												shadow: 'sm',
+												borderWidth: '1px',
+												borderColor: 'gray.100',
+												rounded: 'xl',
+												display: 'flex',
+												alignItems: 'center',
+												justifyContent: 'center',
+												color: 'ocobo.yellow',
+											})}
+										>
 											<Sparkles size={20} />
 										</div>
 									</FlexPair.Icon>
 									<FlexPair.Content>
-										<h4 className="font-bold text-ocobo-dark">
+										<h4
+											className={css({
+												fontWeight: 'bold',
+												color: 'ocobo.dark',
+											})}
+										>
 											Co-Marketing & Events
 										</h4>
-										<p className="text-sm text-gray-500">
+										<p className={css({ fontSize: 'sm', color: 'gray.500' })}>
 											Webinars, podcasts et masterclasses en commun pour
 											évangéliser le marché.
 										</p>
@@ -619,15 +1212,34 @@ const Partners: React.FC = () => {
 								</FlexPair>
 								<FlexPair gap={5}>
 									<FlexPair.Icon>
-										<div className="w-10 h-10 bg-white shadow-sm border border-gray-100 rounded-xl flex items-center justify-center text-ocobo-mint">
+										<div
+											className={css({
+												w: '10',
+												h: '10',
+												bg: 'white',
+												shadow: 'sm',
+												borderWidth: '1px',
+												borderColor: 'gray.100',
+												rounded: 'xl',
+												display: 'flex',
+												alignItems: 'center',
+												justifyContent: 'center',
+												color: 'ocobo.mint',
+											})}
+										>
 											<Layers size={20} />
 										</div>
 									</FlexPair.Icon>
 									<FlexPair.Content>
-										<h4 className="font-bold text-ocobo-dark">
+										<h4
+											className={css({
+												fontWeight: 'bold',
+												color: 'ocobo.dark',
+											})}
+										>
 											Expertise Produit
 										</h4>
-										<p className="text-sm text-gray-500">
+										<p className={css({ fontSize: 'sm', color: 'gray.500' })}>
 											Feedback opérationnel de nos architectes seniors pour
 											optimiser vos intégrations.
 										</p>
@@ -636,94 +1248,301 @@ const Partners: React.FC = () => {
 							</div>
 						</div>
 
-						<div className="lg:w-1/2 w-full">
-							<div className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-gray-100 relative overflow-hidden">
+						<div className={css({ lg: { w: '1/2' }, w: 'full' })}>
+							<div
+								className={css({
+									bg: 'white',
+									p: { base: '8', md: '12' },
+									rounded: '3xl',
+									shadow: '2xl',
+									borderWidth: '1px',
+									borderColor: 'gray.100',
+									position: 'relative',
+									overflow: 'hidden',
+								})}
+							>
 								{/* Multi-color top bar */}
-								<div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-ocobo-yellow via-ocobo-sky to-ocobo-mint"></div>
+								<div
+									className={css({
+										position: 'absolute',
+										top: '0',
+										left: '0',
+										w: 'full',
+										h: '1.5',
+										background:
+											'linear-gradient(to right, token(colors.ocobo.yellow), token(colors.ocobo.sky), token(colors.ocobo.mint))',
+									})}
+								/>
 
 								{formSubmitted ? (
-									<div className="py-12 text-center animate-fade-in-up">
-										<div className="w-20 h-20 bg-ocobo-mint-light text-ocobo-mint rounded-full flex items-center justify-center mx-auto mb-6">
+									<div
+										className={css({
+											py: '12',
+											textAlign: 'center',
+											animation: 'fade-in-up',
+										})}
+									>
+										<div
+											className={css({
+												w: '20',
+												h: '20',
+												bg: 'ocobo.mintLight',
+												color: 'ocobo.mint',
+												rounded: 'full',
+												display: 'flex',
+												alignItems: 'center',
+												justifyContent: 'center',
+												mx: 'auto',
+												mb: '6',
+											})}
+										>
 											<CheckCircle2 size={40} />
 										</div>
-										<h3 className="font-display text-2xl font-black text-ocobo-dark mb-4">
+										<h3
+											className={css({
+												fontFamily: 'display',
+												fontSize: '2xl',
+												fontWeight: 'black',
+												color: 'ocobo.dark',
+												mb: '4',
+											})}
+										>
 											Demande reçue !
 										</h3>
-										<p className="text-gray-500 mb-8">
+										<p className={css({ color: 'gray.500', mb: '8' })}>
 											Notre équipe étudiera votre solution et vous recontactera
 											sous 48h.
 										</p>
 										<button
 											type="button"
 											onClick={() => setFormSubmitted(false)}
-											className="text-xs font-black uppercase tracking-widest text-gray-400 hover:text-ocobo-dark transition-colors"
+											className={css({
+												fontSize: 'xs',
+												fontWeight: 'black',
+												textTransform: 'uppercase',
+												letterSpacing: 'widest',
+												color: 'gray.400',
+												transition: 'colors',
+												_hover: { color: 'ocobo.dark' },
+											})}
 										>
 											Envoyer une autre demande
 										</button>
 									</div>
 								) : (
-									<form onSubmit={handlePartnerSubmit} className="space-y-6">
-										<h3 className="font-display text-2xl font-black text-ocobo-dark mb-8">
+									<form
+										onSubmit={handlePartnerSubmit}
+										className={css({
+											display: 'flex',
+											flexDir: 'column',
+											gap: '6',
+										})}
+									>
+										<h3
+											className={css({
+												fontFamily: 'display',
+												fontSize: '2xl',
+												fontWeight: 'black',
+												color: 'ocobo.dark',
+												mb: '8',
+											})}
+										>
 											Devenez partenaire
 										</h3>
 										<Grid md={2} gap={6}>
-											<div className="space-y-2">
+											<div
+												className={css({
+													display: 'flex',
+													flexDir: 'column',
+													gap: '2',
+												})}
+											>
 												{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-												<label className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">
+												<label
+													className={css({
+														fontSize: 'xs',
+														fontWeight: 'black',
+														textTransform: 'uppercase',
+														letterSpacing: '0.2em',
+														color: 'gray.400',
+													})}
+												>
 													Nom de la solution*
 												</label>
 												<input
 													required
 													type="text"
 													placeholder="ex: HubSpot"
-													className="w-full bg-gray-50 border border-gray-100 focus:border-ocobo-dark focus:bg-white outline-none p-4 rounded-none text-sm font-bold placeholder:text-gray-300"
+													className={css({
+														w: 'full',
+														bg: 'gray.50',
+														borderWidth: '1px',
+														borderColor: 'gray.100',
+														outline: 'none',
+														p: '4',
+														rounded: 'none',
+														fontSize: 'sm',
+														fontWeight: 'bold',
+														_placeholder: { color: 'gray.300' },
+														_focus: {
+															borderColor: 'ocobo.dark',
+															bg: 'white',
+														},
+													})}
 												/>
 											</div>
-											<div className="space-y-2">
+											<div
+												className={css({
+													display: 'flex',
+													flexDir: 'column',
+													gap: '2',
+												})}
+											>
 												{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-												<label className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">
+												<label
+													className={css({
+														fontSize: 'xs',
+														fontWeight: 'black',
+														textTransform: 'uppercase',
+														letterSpacing: '0.2em',
+														color: 'gray.400',
+													})}
+												>
 													Site Web*
 												</label>
 												<input
 													required
 													type="url"
 													placeholder="https://..."
-													className="w-full bg-gray-50 border border-gray-100 focus:border-ocobo-dark focus:bg-white outline-none p-4 rounded-none text-sm font-bold placeholder:text-gray-300"
+													className={css({
+														w: 'full',
+														bg: 'gray.50',
+														borderWidth: '1px',
+														borderColor: 'gray.100',
+														outline: 'none',
+														p: '4',
+														rounded: 'none',
+														fontSize: 'sm',
+														fontWeight: 'bold',
+														_placeholder: { color: 'gray.300' },
+														_focus: {
+															borderColor: 'ocobo.dark',
+															bg: 'white',
+														},
+													})}
 												/>
 											</div>
 										</Grid>
-										<div className="space-y-2">
+										<div
+											className={css({
+												display: 'flex',
+												flexDir: 'column',
+												gap: '2',
+											})}
+										>
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-											<label className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">
+											<label
+												className={css({
+													fontSize: 'xs',
+													fontWeight: 'black',
+													textTransform: 'uppercase',
+													letterSpacing: '0.2em',
+													color: 'gray.400',
+												})}
+											>
 												E-mail pro*
 											</label>
 											<input
 												required
 												type="email"
 												placeholder="nom@solution.com"
-												className="w-full bg-gray-50 border border-gray-100 focus:border-ocobo-dark focus:bg-white outline-none p-4 rounded-none text-sm font-bold placeholder:text-gray-300"
+												className={css({
+													w: 'full',
+													bg: 'gray.50',
+													borderWidth: '1px',
+													borderColor: 'gray.100',
+													outline: 'none',
+													p: '4',
+													rounded: 'none',
+													fontSize: 'sm',
+													fontWeight: 'bold',
+													_placeholder: { color: 'gray.300' },
+													_focus: {
+														borderColor: 'ocobo.dark',
+														bg: 'white',
+													},
+												})}
 											/>
 										</div>
-										<div className="space-y-2">
+										<div
+											className={css({
+												display: 'flex',
+												flexDir: 'column',
+												gap: '2',
+											})}
+										>
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-											<label className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">
+											<label
+												className={css({
+													fontSize: 'xs',
+													fontWeight: 'black',
+													textTransform: 'uppercase',
+													letterSpacing: '0.2em',
+													color: 'gray.400',
+												})}
+											>
 												Votre message
 											</label>
 											<textarea
 												rows={4}
 												placeholder="Parlez-nous de votre vision et de vos envies de partenariat..."
-												className="w-full bg-gray-50 border border-gray-100 focus:border-ocobo-dark focus:bg-white outline-none p-4 rounded-none text-sm font-bold placeholder:text-gray-300 resize-none"
-											></textarea>
+												className={css({
+													w: 'full',
+													bg: 'gray.50',
+													borderWidth: '1px',
+													borderColor: 'gray.100',
+													outline: 'none',
+													p: '4',
+													rounded: 'none',
+													fontSize: 'sm',
+													fontWeight: 'bold',
+													resize: 'none',
+													_placeholder: { color: 'gray.300' },
+													_focus: {
+														borderColor: 'ocobo.dark',
+														bg: 'white',
+													},
+												})}
+											/>
 										</div>
 										<button
 											type="submit"
-											className="w-full py-5 bg-ocobo-dark text-white font-black uppercase tracking-[0.25em] text-xs rounded-none hover:bg-black transition-all shadow-xl flex items-center justify-center gap-3 group"
+											className={css({
+												w: 'full',
+												py: '5',
+												bg: 'ocobo.dark',
+												color: 'white',
+												fontWeight: 'black',
+												textTransform: 'uppercase',
+												letterSpacing: '0.25em',
+												fontSize: 'xs',
+												rounded: 'none',
+												transition: 'all',
+												shadow: 'xl',
+												display: 'flex',
+												alignItems: 'center',
+												justifyContent: 'center',
+												gap: '3',
+												_hover: { bg: 'black' },
+												'& svg': {
+													transition: 'transform',
+												},
+												'&:hover svg': {
+													transform: 'translateX(4px) translateY(-4px)',
+												},
+											})}
 										>
-											Soumettre ma solution{' '}
-											<Send
-												size={16}
-												className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-											/>
+											Soumettre ma solution <Send size={16} />
 										</button>
 									</form>
 								)}
@@ -734,16 +1553,50 @@ const Partners: React.FC = () => {
 			</section>
 
 			{/* CTA FINAL */}
-			<section className="bg-ocobo-sky py-28 text-center relative overflow-hidden">
-				<div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-					<h2 className="font-display text-5xl md:text-6xl font-black text-ocobo-dark mb-10 leading-[0.9] tracking-tight">
+			<section
+				className={css({
+					bg: 'ocobo.sky',
+					py: '28',
+					textAlign: 'center',
+					position: 'relative',
+					overflow: 'hidden',
+				})}
+			>
+				<div
+					className={css({
+						maxW: '4xl',
+						mx: 'auto',
+						px: '4',
+						textAlign: 'center',
+						position: 'relative',
+						zIndex: 10,
+					})}
+				>
+					<h2
+						className={css({
+							fontFamily: 'display',
+							fontSize: { base: '5xl', md: '6xl' },
+							fontWeight: 'black',
+							color: 'ocobo.dark',
+							mb: '10',
+							lineHeight: '0.9',
+							letterSpacing: 'tight',
+						})}
+					>
 						Besoin d'un architecte pour votre stack ?
 					</h2>
-					<p className="text-xl text-ocobo-dark/70 mb-12 font-bold">
+					<p
+						className={css({
+							fontSize: 'xl',
+							color: 'ocobo.dark/70',
+							mb: '12',
+							fontWeight: 'bold',
+						})}
+					>
 						Évaluons ensemble l'interconnexion de vos outils pour supprimer les
 						silos.
 					</p>
-					<div className="flex justify-center">
+					<div className={css({ display: 'flex', justifyContent: 'center' })}>
 						<Button variant="cta" size="xl" to="/contact">
 							Prendre RDV
 						</Button>
@@ -753,5 +1606,3 @@ const Partners: React.FC = () => {
 		</div>
 	);
 };
-
-export default Partners;

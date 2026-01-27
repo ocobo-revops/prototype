@@ -11,19 +11,46 @@ import {
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
+import { css } from 'styled-system/css';
 import { Badge, Button } from '../components/atoms';
 import { ClientMarquee } from '../components/layout/ClientMarquee';
 import { Grid } from '../components/layout/Grid';
 
 const StoriesIllustration = () => {
 	return (
-		<div className="relative w-full max-w-[540px] aspect-square flex items-center justify-center overflow-visible">
+		<div
+			className={css({
+				position: 'relative',
+				w: 'full',
+				maxW: '540px',
+				aspectRatio: '1',
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+				overflow: 'visible',
+			})}
+		>
 			{/* BACKGROUND ARCHITECTURAL GRID */}
-			<div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(#212323_1px,transparent_1px),linear-gradient(rgba(33,35,35,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(33,35,35,0.1)_1px,transparent_1px)] bg-[length:40px_40px,80px_80px,80px_80px]" />
+			<div
+				className={css({
+					position: 'absolute',
+					inset: '0',
+					opacity: 0.05,
+					pointerEvents: 'none',
+					backgroundImage:
+						'radial-gradient(#212323 1px, transparent 1px), linear-gradient(rgba(33,35,35,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(33,35,35,0.1) 1px, transparent 1px)',
+					backgroundSize: '40px 40px, 80px 80px, 80px 80px',
+				})}
+			/>
 
 			<svg
 				viewBox="0 0 600 600"
-				className="w-full h-full overflow-visible text-ocobo-dark"
+				className={css({
+					w: 'full',
+					h: 'full',
+					overflow: 'visible',
+					color: 'ocobo.dark',
+				})}
 				fill="none"
 			>
 				<defs>
@@ -80,14 +107,14 @@ const StoriesIllustration = () => {
 						height="90"
 						rx="20"
 						fill="currentColor"
-						className="shadow-2xl"
+						className={css({ shadow: '2xl' })}
 					/>
 					<Star
 						x="-20"
 						y="-20"
 						size={40}
 						fill="#9ADBBA"
-						className="text-ocobo-mint"
+						className={css({ color: 'ocobo.mint' })}
 					/>
 
 					{/* Decorative dots around core */}
@@ -110,17 +137,58 @@ const StoriesIllustration = () => {
 					height="100"
 					className="animate-float-gentle"
 				>
-					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset">
-						<div className="flex items-center gap-2 mb-2">
-							<TrendingUp size={14} className="text-ocobo-coral" />
-							<span className="text-xs font-black uppercase tracking-widest text-ocobo-dark opacity-40">
+					<div
+						className={css({
+							bg: 'white',
+							borderWidth: '2px',
+							borderColor: 'ocobo.dark',
+							p: '4',
+							rounded: '2xl',
+							shadow: 'offset',
+						})}
+					>
+						<div
+							className={css({
+								display: 'flex',
+								alignItems: 'center',
+								gap: '2',
+								mb: '2',
+							})}
+						>
+							<TrendingUp size={14} className={css({ color: 'ocobo.coral' })} />
+							<span
+								className={css({
+									fontSize: 'xs',
+									fontWeight: 'black',
+									textTransform: 'uppercase',
+									letterSpacing: 'widest',
+									color: 'ocobo.dark',
+									opacity: 0.4,
+								})}
+							>
 								Impact
 							</span>
 						</div>
-						<div className="text-2xl font-display font-black text-ocobo-dark leading-none">
+						<div
+							className={css({
+								fontSize: '2xl',
+								fontFamily: 'display',
+								fontWeight: 'black',
+								color: 'ocobo.dark',
+								lineHeight: 'none',
+							})}
+						>
 							+50%
 						</div>
-						<div className="text-xs font-bold text-gray-400 mt-1 uppercase">
+						<div
+							className={css({
+								fontSize: 'xs',
+								fontWeight: 'bold',
+								color: 'gray.400',
+								mt: '1',
+								textTransform: 'uppercase',
+							})}
+						>
 							Efficacité GTM
 						</div>
 					</div>
@@ -134,17 +202,58 @@ const StoriesIllustration = () => {
 					height="100"
 					className="animate-float-gentle [animation-delay:1.2s]"
 				>
-					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset">
-						<div className="flex items-center gap-2 mb-2">
-							<Zap size={14} className="text-ocobo-sky" />
-							<span className="text-xs font-black uppercase tracking-widest text-ocobo-dark opacity-40">
+					<div
+						className={css({
+							bg: 'white',
+							borderWidth: '2px',
+							borderColor: 'ocobo.dark',
+							p: '4',
+							rounded: '2xl',
+							shadow: 'offset',
+						})}
+					>
+						<div
+							className={css({
+								display: 'flex',
+								alignItems: 'center',
+								gap: '2',
+								mb: '2',
+							})}
+						>
+							<Zap size={14} className={css({ color: 'ocobo.sky' })} />
+							<span
+								className={css({
+									fontSize: 'xs',
+									fontWeight: 'black',
+									textTransform: 'uppercase',
+									letterSpacing: 'widest',
+									color: 'ocobo.dark',
+									opacity: 0.4,
+								})}
+							>
 								Process
 							</span>
 						</div>
-						<div className="text-2xl font-display font-black text-ocobo-dark leading-none">
+						<div
+							className={css({
+								fontSize: '2xl',
+								fontFamily: 'display',
+								fontWeight: 'black',
+								color: 'ocobo.dark',
+								lineHeight: 'none',
+							})}
+						>
 							100%
 						</div>
-						<div className="text-xs font-bold text-gray-400 mt-1 uppercase">
+						<div
+							className={css({
+								fontSize: 'xs',
+								fontWeight: 'bold',
+								color: 'gray.400',
+								mt: '1',
+								textTransform: 'uppercase',
+							})}
+						>
 							Automatisé
 						</div>
 					</div>
@@ -158,17 +267,58 @@ const StoriesIllustration = () => {
 					height="100"
 					className="animate-float-gentle [animation-delay:2.5s]"
 				>
-					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset">
-						<div className="flex items-center gap-2 mb-2">
-							<BarChart3 size={14} className="text-ocobo-yellow" />
-							<span className="text-xs font-black uppercase tracking-widest text-ocobo-dark opacity-40">
+					<div
+						className={css({
+							bg: 'white',
+							borderWidth: '2px',
+							borderColor: 'ocobo.dark',
+							p: '4',
+							rounded: '2xl',
+							shadow: 'offset',
+						})}
+					>
+						<div
+							className={css({
+								display: 'flex',
+								alignItems: 'center',
+								gap: '2',
+								mb: '2',
+							})}
+						>
+							<BarChart3 size={14} className={css({ color: 'ocobo.yellow' })} />
+							<span
+								className={css({
+									fontSize: 'xs',
+									fontWeight: 'black',
+									textTransform: 'uppercase',
+									letterSpacing: 'widest',
+									color: 'ocobo.dark',
+									opacity: 0.4,
+								})}
+							>
 								Data
 							</span>
 						</div>
-						<div className="text-2xl font-display font-black text-ocobo-dark leading-none">
+						<div
+							className={css({
+								fontSize: '2xl',
+								fontFamily: 'display',
+								fontWeight: 'black',
+								color: 'ocobo.dark',
+								lineHeight: 'none',
+							})}
+						>
 							Clean
 						</div>
-						<div className="text-xs font-bold text-gray-400 mt-1 uppercase">
+						<div
+							className={css({
+								fontSize: 'xs',
+								fontWeight: 'bold',
+								color: 'gray.400',
+								mt: '1',
+								textTransform: 'uppercase',
+							})}
+						>
 							Donnée fiable
 						</div>
 					</div>
@@ -182,15 +332,54 @@ const StoriesIllustration = () => {
 					height="100"
 					className="animate-float-gentle [animation-delay:0.6s]"
 				>
-					<div className="bg-white border-2 border-ocobo-dark p-4 rounded-2xl shadow-offset">
-						<div className="flex items-center gap-2 mb-2">
-							<Smile size={14} className="text-ocobo-mint" />
-							<span className="text-xs font-black uppercase tracking-widest text-ocobo-dark opacity-40">
+					<div
+						className={css({
+							bg: 'white',
+							borderWidth: '2px',
+							borderColor: 'ocobo.dark',
+							p: '4',
+							rounded: '2xl',
+							shadow: 'offset',
+						})}
+					>
+						<div
+							className={css({
+								display: 'flex',
+								alignItems: 'center',
+								gap: '2',
+								mb: '2',
+							})}
+						>
+							<Smile size={14} className={css({ color: 'ocobo.mint' })} />
+							<span
+								className={css({
+									fontSize: 'xs',
+									fontWeight: 'black',
+									textTransform: 'uppercase',
+									letterSpacing: 'widest',
+									color: 'ocobo.dark',
+									opacity: 0.4,
+								})}
+							>
 								User Experience
 							</span>
 						</div>
-						<div className="flex items-center gap-3">
-							<div className="text-2xl font-display font-black text-ocobo-dark leading-none">
+						<div
+							className={css({
+								display: 'flex',
+								alignItems: 'center',
+								gap: '3',
+							})}
+						>
+							<div
+								className={css({
+									fontSize: '2xl',
+									fontFamily: 'display',
+									fontWeight: 'black',
+									color: 'ocobo.dark',
+									lineHeight: 'none',
+								})}
+							>
 								Fluidité
 							</div>
 							<svg
@@ -198,7 +387,7 @@ const StoriesIllustration = () => {
 								height="24"
 								viewBox="0 0 84 84"
 								fill="none"
-								className="text-ocobo-mint"
+								className={css({ color: 'ocobo.mint' })}
 							>
 								<circle
 									cx="42"
@@ -217,7 +406,15 @@ const StoriesIllustration = () => {
 								/>
 							</svg>
 						</div>
-						<div className="text-xs font-bold text-gray-400 mt-1 uppercase">
+						<div
+							className={css({
+								fontSize: 'xs',
+								fontWeight: 'bold',
+								color: 'gray.400',
+								mt: '1',
+								textTransform: 'uppercase',
+							})}
+						>
 							Adoption & Engagement
 						</div>
 					</div>
@@ -272,7 +469,7 @@ const STORIES_CLIENTS = [
 	'QOBRA',
 ];
 
-const Stories: React.FC = () => {
+export const Stories: React.FC = () => {
 	const [activeFilter, setActiveFilter] = useState('Tout');
 	const [animate, setAnimate] = useState(false);
 
@@ -545,55 +742,148 @@ const Stories: React.FC = () => {
 			: cases.filter((c) => c.segment === activeFilter);
 
 	return (
-		<div className="w-full bg-white">
+		<div className={css({ width: 'full', bg: 'white' })}>
 			{/* Hero Section */}
-			<section className="pt-40 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-20">
-					<div className="lg:w-1/2">
-						<Badge variant="yellow" className="mb-10">
+			<section
+				className={css({
+					pt: '40',
+					pb: '20',
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+				})}
+			>
+				<div
+					className={css({
+						display: 'flex',
+						flexDir: { base: 'column', lg: 'row' },
+						alignItems: 'center',
+						justifyContent: 'space-between',
+						gap: { base: '16', lg: '20' },
+					})}
+				>
+					<div className={css({ lg: { w: '1/2' } })}>
+						<Badge variant="yellow" className={css({ mb: '10' })}>
 							SUCCESS STORIES
 						</Badge>
-						<h1 className="font-display text-5xl md:text-6xl font-bold text-ocobo-dark mb-10 leading-[0.95] tracking-tight">
+						<h1
+							className={css({
+								fontFamily: 'display',
+								fontSize: { base: '5xl', md: '6xl' },
+								fontWeight: 'bold',
+								color: 'ocobo.dark',
+								mb: '10',
+								lineHeight: '0.95',
+								letterSpacing: 'tight',
+							})}
+						>
 							Ils ont choisi
 							<br />
-							l’architecture.
+							l'architecture.
 						</h1>
-						<p className="text-xl text-gray-700 leading-relaxed font-medium max-w-md">
+						<p
+							className={css({
+								fontSize: 'xl',
+								color: 'gray.700',
+								lineHeight: 'relaxed',
+								fontWeight: 'medium',
+								maxW: 'md',
+							})}
+						>
 							Découvrez comment nous accompagnons les plus belles scale-ups
-							européennes dans leur quête d’excellence opérationnelle.
+							européennes dans leur quête d'excellence opérationnelle.
 						</p>
 					</div>
-					<div className="lg:w-1/2 flex justify-center lg:justify-end items-center relative">
+					<div
+						className={css({
+							lg: { w: '1/2' },
+							display: 'flex',
+							justifyContent: { base: 'center', lg: 'end' },
+							alignItems: 'center',
+							position: 'relative',
+						})}
+					>
 						<StoriesIllustration />
 					</div>
 				</div>
 			</section>
 
 			{/* Black Marquee Banner */}
-			<section className="bg-ocobo-dark overflow-hidden border-y border-white/5">
+			<section
+				className={css({
+					bg: 'ocobo.dark',
+					overflow: 'hidden',
+					borderTopWidth: '1px',
+					borderBottomWidth: '1px',
+					borderColor: 'white/5',
+				})}
+			>
 				<ClientMarquee clients={STORIES_CLIENTS} padding="md" textSize="md" />
 			</section>
 
 			{/* Filter Section */}
-			<section className="max-w-7xl mx-auto px-4 py-12">
-				<div className="flex flex-col md:flex-row justify-between items-center border-t border-b border-gray-100 py-8 gap-6">
-					<div className="flex items-center gap-3">
-						<Filter size={14} className="text-gray-400" />
-						<span className="text-xs font-black uppercase tracking-[0.4em] text-gray-400">
+			<section className={css({ maxW: '7xl', mx: 'auto', px: '4', py: '12' })}>
+				<div
+					className={css({
+						display: 'flex',
+						flexDir: { base: 'column', md: 'row' },
+						justifyContent: 'space-between',
+						alignItems: 'center',
+						borderTopWidth: '1px',
+						borderBottomWidth: '1px',
+						borderColor: 'gray.100',
+						py: '8',
+						gap: '6',
+					})}
+				>
+					<div
+						className={css({ display: 'flex', alignItems: 'center', gap: '3' })}
+					>
+						<Filter size={14} className={css({ color: 'gray.400' })} />
+						<span
+							className={css({
+								fontSize: 'xs',
+								fontWeight: 'black',
+								textTransform: 'uppercase',
+								letterSpacing: '0.4em',
+								color: 'gray.400',
+							})}
+						>
 							Filtrer par segment
 						</span>
 					</div>
-					<div className="flex flex-wrap justify-center gap-3">
+					<div
+						className={css({
+							display: 'flex',
+							flexWrap: 'wrap',
+							justifyContent: 'center',
+							gap: '3',
+						})}
+					>
 						{categories.map((cat) => (
 							<button
 								type="button"
 								key={cat}
 								onClick={() => setActiveFilter(cat)}
-								className={`px-8 py-2.5 rounded-full text-xs font-black uppercase tracking-[0.2em] transition-all duration-300 ${
-									activeFilter === cat
-										? 'bg-ocobo-dark text-white shadow-xl scale-105'
-										: 'bg-gray-50 text-gray-400 hover:bg-gray-100 hover:text-ocobo-dark'
-								}`}
+								className={css({
+									px: '8',
+									py: '2.5',
+									rounded: 'full',
+									fontSize: 'xs',
+									fontWeight: 'black',
+									textTransform: 'uppercase',
+									letterSpacing: '0.2em',
+									transition: 'all',
+									transitionDuration: '300ms',
+									bg: activeFilter === cat ? 'ocobo.dark' : 'gray.50',
+									color: activeFilter === cat ? 'white' : 'gray.400',
+									shadow: activeFilter === cat ? 'xl' : 'none',
+									transform: activeFilter === cat ? 'scale(1.05)' : 'none',
+									_hover:
+										activeFilter !== cat
+											? { bg: 'gray.100', color: 'ocobo.dark' }
+											: {},
+								})}
 							>
 								{cat}
 							</button>
@@ -603,83 +893,313 @@ const Stories: React.FC = () => {
 			</section>
 
 			{/* Bento Grid Stories */}
-			<section className="max-w-7xl mx-auto px-4 pb-40">
+			<section className={css({ maxW: '7xl', mx: 'auto', px: '4', pb: '40' })}>
 				<Grid md={2} lg={3} gap={8} className="stagger-fade">
 					{filteredCases.map((item) => (
 						<Link
 							key={item.id}
 							to={`/stories/${item.id}`}
-							className={`group relative flex flex-col bg-white border border-gray-100 rounded-3xl p-6 transition-all duration-500 hover:shadow-soft-lg hover:-translate-y-2 overflow-hidden h-full ${animate ? 'opacity-0 animate-fade-in-up' : ''}`}
+							className={css({
+								position: 'relative',
+								display: 'flex',
+								flexDir: 'column',
+								bg: 'white',
+								borderWidth: '1px',
+								borderColor: 'gray.100',
+								rounded: '3xl',
+								p: '6',
+								transition: 'all',
+								transitionDuration: '500ms',
+								overflow: 'hidden',
+								h: 'full',
+								animation: animate ? 'fade-in-up' : 'none',
+								opacity: animate ? 0 : 1,
+								_hover: { shadow: 'soft-lg', transform: 'translateY(-8px)' },
+								'& .color-blur': {
+									transition: 'opacity',
+								},
+								'&:hover .color-blur': {
+									opacity: 0.05,
+								},
+								'& img.main-img': {
+									transition: 'all',
+									transitionDuration: '700ms',
+								},
+								'&:hover img.main-img': {
+									filter: 'grayscale(0)',
+									opacity: 1,
+									transform: 'scale(1.05)',
+								},
+								'& .logo-overlay': {
+									transition: 'all',
+									transitionDuration: '500ms',
+								},
+								'&:hover .logo-overlay': {
+									opacity: 1,
+									transform: 'translateY(0)',
+								},
+								'& h3': {
+									transition: 'colors',
+								},
+								'&:hover h3': {
+									color: 'black',
+								},
+								'& .arrow': {
+									transition: 'all',
+								},
+								'&:hover .arrow': {
+									color: 'ocobo.dark',
+									transform: 'translateX(4px)',
+								},
+								'& .tools': {
+									transition: 'all',
+								},
+								'&:hover .tools': {
+									opacity: 1,
+								},
+							})}
 						>
 							<div
-								className={`absolute top-0 right-0 w-32 h-32 bg-ocobo-${item.color.split('-')[1]} opacity-0 group-hover:opacity-5 blur-3xl transition-opacity`}
-							></div>
+								className={`color-blur ${css({
+									position: 'absolute',
+									top: '0',
+									right: '0',
+									w: '32',
+									h: '32',
+									opacity: 0,
+									filter: 'blur(48px)',
+									bg:
+										item.color === 'ocobo-yellow'
+											? 'ocobo.yellow'
+											: item.color === 'ocobo-mint'
+												? 'ocobo.mint'
+												: item.color === 'ocobo-sky'
+													? 'ocobo.sky'
+													: 'ocobo.coral',
+								})}`}
+							/>
 
-							<div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-gray-50 mb-8">
+							<div
+								className={css({
+									position: 'relative',
+									aspectRatio: '16/10',
+									overflow: 'hidden',
+									rounded: '2xl',
+									bg: 'gray.50',
+									mb: '8',
+								})}
+							>
 								<img
 									src={item.image}
 									alt={item.company}
-									className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+									className={`main-img ${css({
+										w: 'full',
+										h: 'full',
+										objectFit: 'cover',
+										filter: 'grayscale(100%)',
+										opacity: 0.8,
+									})}`}
 								/>
-								<div className="absolute bottom-4 right-4 bg-ocobo-dark p-3 rounded-xl shadow-2xl opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+								<div
+									className={`logo-overlay ${css({
+										position: 'absolute',
+										bottom: '4',
+										right: '4',
+										bg: 'ocobo.dark',
+										p: '3',
+										rounded: 'xl',
+										shadow: '2xl',
+										opacity: 0,
+										transform: 'translateY(8px)',
+									})}`}
+								>
 									<img
 										src={item.logo}
 										alt={item.company}
-										className="h-4 w-auto object-contain"
+										className={css({ h: '4', w: 'auto', objectFit: 'contain' })}
 									/>
 								</div>
 							</div>
 
-							<div className="flex flex-col flex-grow">
-								<div className="flex items-center gap-2 mb-4">
-									<span className="text-xs font-black uppercase tracking-[0.2em] text-gray-400">
+							<div
+								className={css({
+									display: 'flex',
+									flexDir: 'column',
+									flexGrow: 1,
+								})}
+							>
+								<div
+									className={css({
+										display: 'flex',
+										alignItems: 'center',
+										gap: '2',
+										mb: '4',
+									})}
+								>
+									<span
+										className={css({
+											fontSize: 'xs',
+											fontWeight: 'black',
+											textTransform: 'uppercase',
+											letterSpacing: '0.2em',
+											color: 'gray.400',
+										})}
+									>
 										{item.segment}
 									</span>
-									<span className="w-1 h-1 bg-gray-200 rounded-full"></span>
-									<span className="text-xs font-black uppercase tracking-[0.2em] text-ocobo-dark">
+									<span
+										className={css({
+											w: '1',
+											h: '1',
+											bg: 'gray.200',
+											rounded: 'full',
+										})}
+									/>
+									<span
+										className={css({
+											fontSize: 'xs',
+											fontWeight: 'black',
+											textTransform: 'uppercase',
+											letterSpacing: '0.2em',
+											color: 'ocobo.dark',
+										})}
+									>
 										{item.company}
 									</span>
 								</div>
 
-								<h3 className="font-display text-2xl font-bold text-ocobo-dark leading-tight mb-2 tracking-tight group-hover:text-black transition-colors">
+								<h3
+									className={css({
+										fontFamily: 'display',
+										fontSize: '2xl',
+										fontWeight: 'bold',
+										color: 'ocobo.dark',
+										lineHeight: 'tight',
+										mb: '2',
+										letterSpacing: 'tight',
+									})}
+								>
 									{item.headline}
 								</h3>
 
-								<div className="mb-6">
-									<span className="text-xs font-black uppercase tracking-widest text-ocobo-dark opacity-60 block">
+								<div className={css({ mb: '6' })}>
+									<span
+										className={css({
+											fontSize: 'xs',
+											fontWeight: 'black',
+											textTransform: 'uppercase',
+											letterSpacing: 'widest',
+											color: 'ocobo.dark',
+											opacity: 0.6,
+											display: 'block',
+										})}
+									>
 										{item.name}
 									</span>
-									<span className="text-xs font-medium text-gray-400">
+									<span
+										className={css({
+											fontSize: 'xs',
+											fontWeight: 'medium',
+											color: 'gray.400',
+										})}
+									>
 										{item.role}
 									</span>
 								</div>
 
-								<div className="mt-auto space-y-4">
+								<div
+									className={css({
+										mt: 'auto',
+										display: 'flex',
+										flexDir: 'column',
+										gap: '4',
+									})}
+								>
 									{/* ROI Section */}
-									<div className="bg-gray-50 group-hover:bg-white border border-gray-100 p-5 rounded-2xl transition-all">
-										<span className="text-xs font-black uppercase tracking-[0.3em] text-gray-400 block mb-1">
+									<div
+										className={css({
+											bg: 'gray.50',
+											borderWidth: '1px',
+											borderColor: 'gray.100',
+											p: '5',
+											rounded: '2xl',
+											transition: 'all',
+											_groupHover: { bg: 'white' },
+										})}
+									>
+										<span
+											className={css({
+												fontSize: 'xs',
+												fontWeight: 'black',
+												textTransform: 'uppercase',
+												letterSpacing: '0.3em',
+												color: 'gray.400',
+												display: 'block',
+												mb: '1',
+											})}
+										>
 											Impact mesuré
 										</span>
-										<div className="font-display text-xl font-black text-ocobo-dark flex items-center gap-3">
+										<div
+											className={css({
+												fontFamily: 'display',
+												fontSize: 'xl',
+												fontWeight: 'black',
+												color: 'ocobo.dark',
+												display: 'flex',
+												alignItems: 'center',
+												gap: '3',
+											})}
+										>
 											{item.roi}
 											<ArrowRight
 												size={18}
-												className="text-gray-300 group-hover:text-ocobo-dark group-hover:translate-x-1 transition-all"
+												className={`arrow ${css({ color: 'gray.300' })}`}
 											/>
 										</div>
 									</div>
 
 									{/* Tools Section */}
-									<div className="px-5 py-3 border-t border-gray-100 flex items-center justify-between">
-										<span className="text-xs font-black uppercase tracking-[0.3em] text-gray-400">
+									<div
+										className={css({
+											px: '5',
+											py: '3',
+											borderTopWidth: '1px',
+											borderColor: 'gray.100',
+											display: 'flex',
+											alignItems: 'center',
+											justifyContent: 'space-between',
+										})}
+									>
+										<span
+											className={css({
+												fontSize: 'xs',
+												fontWeight: 'black',
+												textTransform: 'uppercase',
+												letterSpacing: '0.3em',
+												color: 'gray.400',
+											})}
+										>
 											Stack Opérée
 										</span>
-										<div className="flex items-center gap-3 grayscale opacity-40 group-hover:opacity-100 transition-all">
+										<div
+											className={`tools ${css({
+												display: 'flex',
+												alignItems: 'center',
+												gap: '3',
+												filter: 'grayscale(100%)',
+												opacity: 0.4,
+											})}`}
+										>
 											{item.tools.map((tool) => (
 												<img
 													key={tool}
 													src={tool}
-													className="h-3.5 w-auto object-contain"
+													className={css({
+														h: '3.5',
+														w: 'auto',
+														objectFit: 'contain',
+													})}
 													alt="tool"
 												/>
 											))}
@@ -693,21 +1213,63 @@ const Stories: React.FC = () => {
 			</section>
 
 			{/* CTA Section */}
-			<section className="bg-ocobo-yellow py-32 text-center relative overflow-hidden">
-				<div className="absolute top-1/2 left-10 -translate-y-1/2 opacity-10">
+			<section
+				className={css({
+					bg: 'ocobo.yellow',
+					py: '32',
+					textAlign: 'center',
+					position: 'relative',
+					overflow: 'hidden',
+				})}
+			>
+				<div
+					className={css({
+						position: 'absolute',
+						top: '50%',
+						left: '10',
+						transform: 'translateY(-50%)',
+						opacity: 0.1,
+					})}
+				>
 					<Plus size={120} strokeWidth={1} />
 				</div>
-				<div className="absolute top-1/2 right-10 -translate-y-1/2 opacity-10">
+				<div
+					className={css({
+						position: 'absolute',
+						top: '50%',
+						right: '10',
+						transform: 'translateY(-50%)',
+						opacity: 0.1,
+					})}
+				>
 					<Plus size={120} strokeWidth={1} />
 				</div>
 
-				<div className="max-w-4xl mx-auto px-4 relative z-10">
-					<h2 className="font-display text-5xl md:text-6xl font-black text-ocobo-dark mb-10 leading-[0.9] tracking-tighter">
+				<div
+					className={css({
+						maxW: '4xl',
+						mx: 'auto',
+						px: '4',
+						position: 'relative',
+						zIndex: 10,
+					})}
+				>
+					<h2
+						className={css({
+							fontFamily: 'display',
+							fontSize: { base: '5xl', md: '6xl' },
+							fontWeight: 'black',
+							color: 'ocobo.dark',
+							mb: '10',
+							lineHeight: '0.9',
+							letterSpacing: 'tighter',
+						})}
+					>
 						Prêt à devenir la prochaine
 						<br />
 						success story ?
 					</h2>
-					<div className="flex justify-center">
+					<div className={css({ display: 'flex', justifyContent: 'center' })}>
 						<Button variant="cta" size="xl" to="/contact">
 							Discutons de votre architecture
 						</Button>
@@ -717,5 +1279,3 @@ const Stories: React.FC = () => {
 		</div>
 	);
 };
-
-export default Stories;

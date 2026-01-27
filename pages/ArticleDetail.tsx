@@ -1,4 +1,3 @@
-// Added missing 'Layout' icon to imports from 'lucide-react'
 import {
 	ArrowLeft,
 	ArrowRight,
@@ -14,9 +13,10 @@ import {
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
+import { css } from 'styled-system/css';
 import { Badge } from '../components/atoms';
 
-const ArticleDetail: React.FC = () => {
+export const ArticleDetail: React.FC = () => {
 	const { slug: _slug } = useParams();
 	const [activeSection, setActiveSection] = useState<string>('');
 
@@ -90,28 +90,64 @@ const ArticleDetail: React.FC = () => {
 	}, []);
 
 	return (
-		<div className="w-full bg-white pt-32 pb-24">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div className={css({ width: 'full', bg: 'white', pt: '32', pb: '24' })}>
+			<div
+				className={css({
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+				})}
+			>
 				{/* BREADCRUMBS & TOP NAV */}
-				<div className="mb-12 flex items-center justify-between">
+				<div
+					className={css({
+						mb: '12',
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'space-between',
+					})}
+				>
 					<Link
 						to="/resources"
-						className="inline-flex items-center text-gray-400 hover:text-ocobo-dark font-black uppercase tracking-widest text-xs transition-colors"
+						className={css({
+							display: 'inline-flex',
+							alignItems: 'center',
+							color: 'gray.400',
+							fontWeight: 'black',
+							textTransform: 'uppercase',
+							letterSpacing: 'widest',
+							fontSize: 'xs',
+							transition: 'colors',
+							_hover: { color: 'ocobo.dark' },
+						})}
 					>
-						<ArrowLeft size={14} className="mr-2" /> Retour au blog
+						<ArrowLeft size={14} className={css({ mr: '2' })} /> Retour au blog
 					</Link>
-					<div className="flex items-center gap-4 text-gray-300">
+					<div
+						className={css({
+							display: 'flex',
+							alignItems: 'center',
+							gap: '4',
+							color: 'gray.300',
+						})}
+					>
 						<Share2 size={16} />
-						<span className="h-4 w-px bg-gray-200"></span>
+						<span className={css({ h: '4', w: 'px', bg: 'gray.200' })} />
 						<button
 							type="button"
-							className="hover:text-ocobo-dark transition-colors"
+							className={css({
+								transition: 'colors',
+								_hover: { color: 'ocobo.dark' },
+							})}
 						>
 							<Linkedin size={16} />
 						</button>
 						<button
 							type="button"
-							className="hover:text-ocobo-dark transition-colors"
+							className={css({
+								transition: 'colors',
+								_hover: { color: 'ocobo.dark' },
+							})}
 						>
 							<Twitter size={16} />
 						</button>
@@ -119,62 +155,199 @@ const ArticleDetail: React.FC = () => {
 				</div>
 
 				{/* HERO ARTICLE */}
-				<div className="max-w-4xl mx-auto text-center mb-20">
-					<Badge variant="coral" className="mb-8">
+				<div
+					className={css({
+						maxW: '4xl',
+						mx: 'auto',
+						textAlign: 'center',
+						mb: '20',
+					})}
+				>
+					<Badge variant="coral" className={css({ mb: '8' })}>
 						{article.category}
 					</Badge>
-					<h1 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-10 leading-[1.05] tracking-tight">
+					<h1
+						className={css({
+							fontFamily: 'display',
+							fontSize: { base: '4xl', md: '6xl' },
+							fontWeight: 'black',
+							color: 'ocobo.dark',
+							mb: '10',
+							lineHeight: '1.05',
+							letterSpacing: 'tight',
+						})}
+					>
 						{article.title}
 					</h1>
-					<div className="flex flex-wrap items-center justify-center gap-8 text-sm font-bold text-gray-400 uppercase tracking-widest">
-						<div className="flex items-center gap-2">
-							<Calendar size={14} className="text-ocobo-yellow" />
+					<div
+						className={css({
+							display: 'flex',
+							flexWrap: 'wrap',
+							alignItems: 'center',
+							justifyContent: 'center',
+							gap: '8',
+							fontSize: 'sm',
+							fontWeight: 'bold',
+							color: 'gray.400',
+							textTransform: 'uppercase',
+							letterSpacing: 'widest',
+						})}
+					>
+						<div
+							className={css({
+								display: 'flex',
+								alignItems: 'center',
+								gap: '2',
+							})}
+						>
+							<Calendar size={14} className={css({ color: 'ocobo.yellow' })} />
 							<span>{article.date}</span>
 						</div>
-						<div className="flex items-center gap-2">
-							<Clock size={14} className="text-ocobo-sky" />
+						<div
+							className={css({
+								display: 'flex',
+								alignItems: 'center',
+								gap: '2',
+							})}
+						>
+							<Clock size={14} className={css({ color: 'ocobo.sky' })} />
 							<span>{article.readTime} de lecture</span>
 						</div>
 					</div>
 				</div>
 
 				{/* MAIN LAYOUT */}
-				<div className="flex flex-col lg:flex-row gap-16">
+				<div
+					className={css({
+						display: 'flex',
+						flexDir: { base: 'column', lg: 'row' },
+						gap: '16',
+					})}
+				>
 					{/* SIDEBAR : SOMMAIRE */}
-					<aside className="lg:w-1/4">
-						<div className="sticky top-32">
-							<h4 className="font-display font-black text-xs uppercase tracking-[0.4em] text-ocobo-dark mb-8">
+					<aside className={css({ lg: { w: '1/4' } })}>
+						<div className={css({ position: 'sticky', top: '32' })}>
+							<h4
+								className={css({
+									fontFamily: 'display',
+									fontWeight: 'black',
+									fontSize: 'xs',
+									textTransform: 'uppercase',
+									letterSpacing: '0.4em',
+									color: 'ocobo.dark',
+									mb: '8',
+								})}
+							>
 								Sommaire
 							</h4>
-							<nav className="space-y-4">
+							<nav
+								className={css({
+									display: 'flex',
+									flexDir: 'column',
+									gap: '4',
+								})}
+							>
 								{article.sections.map((section) => (
 									<a
 										key={section.id}
 										href={`#${section.id}`}
-										className={`block text-sm font-medium transition-all duration-300 border-l-2 pl-4 ${
-											activeSection === section.id
-												? 'border-ocobo-yellow text-ocobo-dark translate-x-1'
-												: 'border-gray-100 text-gray-400 hover:border-gray-300 hover:text-gray-600'
-										}`}
+										className={css({
+											display: 'block',
+											fontSize: 'sm',
+											fontWeight: 'medium',
+											transition: 'all',
+											transitionDuration: '300ms',
+											borderLeftWidth: '2px',
+											pl: '4',
+											borderColor:
+												activeSection === section.id
+													? 'ocobo.yellow'
+													: 'gray.100',
+											color:
+												activeSection === section.id
+													? 'ocobo.dark'
+													: 'gray.400',
+											transform:
+												activeSection === section.id
+													? 'translateX(4px)'
+													: 'none',
+											_hover: {
+												borderColor:
+													activeSection === section.id
+														? 'ocobo.yellow'
+														: 'gray.300',
+												color:
+													activeSection === section.id
+														? 'ocobo.dark'
+														: 'gray.600',
+											},
+										})}
 									>
 										{section.title}
 									</a>
 								))}
 							</nav>
 
-							<div className="mt-20 p-8 bg-ocobo-dark rounded-2xl text-white relative overflow-hidden">
-								<div className="absolute top-0 right-0 w-24 h-24 bg-ocobo-yellow/10 rounded-full blur-2xl"></div>
-								<h5 className="font-display text-lg font-bold mb-4">
+							<div
+								className={css({
+									mt: '20',
+									p: '8',
+									bg: 'ocobo.dark',
+									rounded: '2xl',
+									color: 'white',
+									position: 'relative',
+									overflow: 'hidden',
+								})}
+							>
+								<div
+									className={css({
+										position: 'absolute',
+										top: '0',
+										right: '0',
+										w: '24',
+										h: '24',
+										bg: 'ocobo.yellow/10',
+										rounded: 'full',
+										filter: 'blur(32px)',
+									})}
+								/>
+								<h5
+									className={css({
+										fontFamily: 'display',
+										fontSize: 'lg',
+										fontWeight: 'bold',
+										mb: '4',
+									})}
+								>
 									Besoin d'aide pour structurer votre équipe ?
 								</h5>
-								<p className="text-xs text-gray-400 mb-6 leading-relaxed">
+								<p
+									className={css({
+										fontSize: 'xs',
+										color: 'gray.400',
+										mb: '6',
+										lineHeight: 'relaxed',
+									})}
+								>
 									Nos architectes vous accompagnent dans la définition de votre
 									modèle RevOps.
 								</p>
 								<Link to="/contact">
 									<button
 										type="button"
-										className="w-full py-3 bg-ocobo-yellow text-ocobo-dark font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-white transition-colors"
+										className={css({
+											w: 'full',
+											py: '3',
+											bg: 'ocobo.yellow',
+											color: 'ocobo.dark',
+											fontWeight: 'bold',
+											fontSize: 'xs',
+											textTransform: 'uppercase',
+											letterSpacing: 'widest',
+											rounded: 'lg',
+											transition: 'colors',
+											_hover: { bg: 'white' },
+										})}
 									>
 										Discuter avec nous
 									</button>
@@ -184,36 +357,98 @@ const ArticleDetail: React.FC = () => {
 					</aside>
 
 					{/* CONTENT AREA */}
-					<article className="lg:w-3/4 max-w-3xl">
+					<article className={css({ lg: { w: '3/4' }, maxW: '3xl' })}>
 						{/* Intro text */}
-						<div className="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed mb-16 italic border-l-4 border-ocobo-yellow pl-8">
+						<div
+							className={css({
+								fontSize: { base: 'xl', md: '2xl' },
+								color: 'gray.600',
+								fontWeight: 'medium',
+								lineHeight: 'relaxed',
+								mb: '16',
+								fontStyle: 'italic',
+								borderLeftWidth: '4px',
+								borderColor: 'ocobo.yellow',
+								pl: '8',
+							})}
+						>
 							{article.intro}
 						</div>
 
 						{/* Content blocks */}
-						<div className="space-y-16">
+						<div
+							className={css({
+								display: 'flex',
+								flexDir: 'column',
+								gap: '16',
+							})}
+						>
 							{article.sections.map((section) => (
 								<section
 									key={section.id}
 									id={section.id}
-									className="scroll-mt-40"
+									className={css({ scrollMarginTop: '40' })}
 								>
-									<h2 className="font-display text-3xl font-black text-ocobo-dark mb-8 tracking-tight">
+									<h2
+										className={css({
+											fontFamily: 'display',
+											fontSize: '3xl',
+											fontWeight: 'black',
+											color: 'ocobo.dark',
+											mb: '8',
+											letterSpacing: 'tight',
+										})}
+									>
 										{section.title}
 									</h2>
-									<div className="prose prose-xl prose-ocobo max-w-none text-gray-600 leading-relaxed font-medium">
-										<p className="mb-6">{section.content}</p>
+									<div
+										className={css({
+											maxW: 'none',
+											color: 'gray.600',
+											lineHeight: 'relaxed',
+											fontWeight: 'medium',
+										})}
+									>
+										<p className={css({ mb: '6' })}>{section.content}</p>
 										{section.list && (
-											<ul className="space-y-4 mt-8">
+											<ul
+												className={css({
+													display: 'flex',
+													flexDir: 'column',
+													gap: '4',
+													mt: '8',
+												})}
+											>
 												{section.list.map((item) => (
 													<li
 														key={item}
-														className="flex items-start gap-4 p-5 bg-gray-50 rounded-xl border border-transparent hover:border-ocobo-yellow/20 transition-all"
+														className={css({
+															display: 'flex',
+															alignItems: 'start',
+															gap: '4',
+															p: '5',
+															bg: 'gray.50',
+															rounded: 'xl',
+															borderWidth: '1px',
+															borderColor: 'transparent',
+															transition: 'all',
+															_hover: { borderColor: 'ocobo.yellow/20' },
+														})}
 													>
-														<div className="mt-1 text-ocobo-yellow">
+														<div
+															className={css({
+																mt: '1',
+																color: 'ocobo.yellow',
+															})}
+														>
 															<CheckCircle2 size={18} />
 														</div>
-														<span className="text-gray-800 font-bold">
+														<span
+															className={css({
+																color: 'gray.800',
+																fontWeight: 'bold',
+															})}
+														>
 															{item}
 														</span>
 													</li>
@@ -226,36 +461,109 @@ const ArticleDetail: React.FC = () => {
 						</div>
 
 						{/* AUTHOR BIO */}
-						<div className="mt-24 pt-12 border-t border-gray-100 flex flex-col md:flex-row items-center gap-8 bg-gray-50/50 p-10 rounded-3xl">
-							<div className="w-24 h-24 rounded-full overflow-hidden grayscale shrink-0 border-4 border-white shadow-lg">
+						<div
+							className={css({
+								mt: '24',
+								pt: '12',
+								borderTopWidth: '1px',
+								borderColor: 'gray.100',
+								display: 'flex',
+								flexDir: { base: 'column', md: 'row' },
+								alignItems: 'center',
+								gap: '8',
+								bg: 'gray.50/50',
+								p: '10',
+								rounded: '3xl',
+							})}
+						>
+							<div
+								className={css({
+									w: '24',
+									h: '24',
+									rounded: 'full',
+									overflow: 'hidden',
+									filter: 'grayscale(100%)',
+									flexShrink: 0,
+									borderWidth: '4px',
+									borderColor: 'white',
+									shadow: 'lg',
+								})}
+							>
 								<img
 									src={article.author.image}
 									alt={article.author.name}
-									className="w-full h-full object-cover"
+									className={css({
+										w: 'full',
+										h: 'full',
+										objectFit: 'cover',
+									})}
 								/>
 							</div>
-							<div className="text-center md:text-left">
-								<h4 className="font-display text-2xl font-bold text-ocobo-dark mb-1">
+							<div
+								className={css({
+									textAlign: { base: 'center', md: 'left' },
+								})}
+							>
+								<h4
+									className={css({
+										fontFamily: 'display',
+										fontSize: '2xl',
+										fontWeight: 'bold',
+										color: 'ocobo.dark',
+										mb: '1',
+									})}
+								>
 									{article.author.name}
 								</h4>
-								<p className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">
+								<p
+									className={css({
+										fontSize: 'sm',
+										fontWeight: 'bold',
+										color: 'gray.400',
+										textTransform: 'uppercase',
+										letterSpacing: 'widest',
+										mb: '4',
+									})}
+								>
 									{article.author.role}
 								</p>
-								<p className="text-gray-500 text-sm leading-relaxed max-w-md">
+								<p
+									className={css({
+										color: 'gray.500',
+										fontSize: 'sm',
+										lineHeight: 'relaxed',
+										maxW: 'md',
+									})}
+								>
 									Experte en architecture de revenus et transformation
 									opérationnelle. Aude accompagne les dirigeants à transformer
 									leur vision en système pilotable.
 								</p>
-								<div className="mt-6 flex justify-center md:justify-start gap-4">
+								<div
+									className={css({
+										mt: '6',
+										display: 'flex',
+										justifyContent: { base: 'center', md: 'flex-start' },
+										gap: '4',
+									})}
+								>
 									<a
 										href="#"
-										className="text-gray-400 hover:text-ocobo-dark transition-colors"
+										className={css({
+											color: 'gray.400',
+											transition: 'colors',
+											_hover: { color: 'ocobo.dark' },
+										})}
 									>
 										<Linkedin size={20} />
 									</a>
 									<a
 										href="#"
-										className="text-gray-400 hover:text-ocobo-dark transition-colors"
+										className={css({
+											color: 'gray.400',
+											transition: 'colors',
+											_hover: { color: 'ocobo.dark' },
+										})}
 									>
 										<MessageSquare size={20} />
 									</a>
@@ -264,27 +572,96 @@ const ArticleDetail: React.FC = () => {
 						</div>
 
 						{/* NEWSLETTER INTEGRATION */}
-						<div className="mt-20 bg-ocobo-yellow p-10 md:p-14 rounded-3xl relative overflow-hidden">
-							<div className="absolute top-0 right-0 p-4 opacity-5">
+						<div
+							className={css({
+								mt: '20',
+								bg: 'ocobo.yellow',
+								p: { base: '10', md: '14' },
+								rounded: '3xl',
+								position: 'relative',
+								overflow: 'hidden',
+							})}
+						>
+							<div
+								className={css({
+									position: 'absolute',
+									top: '0',
+									right: '0',
+									p: '4',
+									opacity: 0.05,
+								})}
+							>
 								<Layout size={200} strokeWidth={1} />
 							</div>
-							<div className="relative z-10 max-w-xl">
-								<h3 className="font-display text-3xl font-black text-ocobo-dark mb-4 italic">
+							<div
+								className={css({
+									position: 'relative',
+									zIndex: 10,
+									maxW: 'xl',
+								})}
+							>
+								<h3
+									className={css({
+										fontFamily: 'display',
+										fontSize: '3xl',
+										fontWeight: 'black',
+										color: 'ocobo.dark',
+										mb: '4',
+										fontStyle: 'italic',
+									})}
+								>
 									Le RevOps vous passionne ?
 								</h3>
-								<p className="text-ocobo-dark/70 font-bold text-lg mb-8">
+								<p
+									className={css({
+										color: 'ocobo.dark/70',
+										fontWeight: 'bold',
+										fontSize: 'lg',
+										mb: '8',
+									})}
+								>
 									Rejoignez 2 000+ décideurs qui revents nos meilleures
 									méthodologies une fois par mois.
 								</p>
-								<form className="flex flex-col sm:flex-row gap-4">
+								<form
+									className={css({
+										display: 'flex',
+										flexDir: { base: 'column', sm: 'row' },
+										gap: '4',
+									})}
+								>
 									<input
 										type="email"
 										placeholder="votre@email.com"
-										className="flex-grow px-6 py-4 bg-white/90 focus:bg-white border-none outline-none text-ocobo-dark font-bold placeholder-gray-400 rounded-xl"
+										className={css({
+											flexGrow: 1,
+											px: '6',
+											py: '4',
+											bg: 'white/90',
+											border: 'none',
+											outline: 'none',
+											color: 'ocobo.dark',
+											fontWeight: 'bold',
+											rounded: 'xl',
+											_placeholder: { color: 'gray.400' },
+											_focus: { bg: 'white' },
+										})}
 									/>
 									<button
 										type="submit"
-										className="px-8 py-4 bg-ocobo-dark text-white font-black uppercase tracking-widest text-xs rounded-xl hover:bg-black transition-all"
+										className={css({
+											px: '8',
+											py: '4',
+											bg: 'ocobo.dark',
+											color: 'white',
+											fontWeight: 'black',
+											textTransform: 'uppercase',
+											letterSpacing: 'widest',
+											fontSize: 'xs',
+											rounded: 'xl',
+											transition: 'all',
+											_hover: { bg: 'black' },
+										})}
 									>
 										S'inscrire
 									</button>
@@ -295,30 +672,134 @@ const ArticleDetail: React.FC = () => {
 				</div>
 
 				{/* RELATED ARTICLES */}
-				<div className="mt-32 pt-20 border-t border-gray-100">
-					<h3 className="font-display text-3xl font-black text-ocobo-dark mb-12">
+				<div
+					className={css({
+						mt: '32',
+						pt: '20',
+						borderTopWidth: '1px',
+						borderColor: 'gray.100',
+					})}
+				>
+					<h3
+						className={css({
+							fontFamily: 'display',
+							fontSize: '3xl',
+							fontWeight: 'black',
+							color: 'ocobo.dark',
+							mb: '12',
+						})}
+					>
 						À lire ensuite
 					</h3>
-					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+					<div
+						className={css({
+							display: 'grid',
+							gridTemplateColumns: {
+								base: '1fr',
+								md: 'repeat(2, 1fr)',
+								lg: 'repeat(3, 1fr)',
+							},
+							gap: '8',
+						})}
+					>
 						{[1, 2, 3].map((i) => (
-							<div key={i} className="group cursor-pointer">
-								<div className="aspect-[16/10] overflow-hidden rounded-2xl mb-6 bg-gray-100 border border-gray-100">
+							<div
+								key={i}
+								className={css({
+									cursor: 'pointer',
+									'& img': {
+										transition: 'transform',
+										transitionDuration: '700ms',
+									},
+									'&:hover img': {
+										transform: 'scale(1.05)',
+									},
+									'&:hover h4': {
+										color: 'ocobo.yellow',
+									},
+									'&:hover .read-more': {
+										color: 'ocobo.dark',
+									},
+								})}
+							>
+								<div
+									className={css({
+										aspectRatio: '16/10',
+										overflow: 'hidden',
+										rounded: '2xl',
+										mb: '6',
+										bg: 'gray.100',
+										borderWidth: '1px',
+										borderColor: 'gray.100',
+									})}
+								>
 									<img
 										src={`https://picsum.photos/600/400?grayscale&random=${i + 20}`}
-										className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
+										className={css({
+											w: 'full',
+											h: 'full',
+											objectFit: 'cover',
+											opacity: 0.8,
+										})}
 										alt="Related"
 									/>
 								</div>
-								<span className="font-display font-bold text-xs uppercase tracking-widest text-ocobo-coral mb-3 block">
+								<span
+									className={css({
+										fontFamily: 'display',
+										fontWeight: 'bold',
+										fontSize: 'xs',
+										textTransform: 'uppercase',
+										letterSpacing: 'widest',
+										color: 'ocobo.coral',
+										mb: '3',
+										display: 'block',
+									})}
+								>
 									Performance
 								</span>
-								<h4 className="font-display text-xl font-bold text-ocobo-dark mb-4 group-hover:text-ocobo-yellow transition-colors leading-tight">
+								<h4
+									className={css({
+										fontFamily: 'display',
+										fontSize: 'xl',
+										fontWeight: 'bold',
+										color: 'ocobo.dark',
+										mb: '4',
+										transition: 'colors',
+										lineHeight: 'tight',
+									})}
+								>
 									Comment réduire votre CAC via l'automatisation RevOps
 								</h4>
-								<div className="flex items-center text-xs font-black uppercase tracking-widest text-gray-400 gap-2">
+								<div
+									className={css({
+										display: 'flex',
+										alignItems: 'center',
+										fontSize: 'xs',
+										fontWeight: 'black',
+										textTransform: 'uppercase',
+										letterSpacing: 'widest',
+										color: 'gray.400',
+										gap: '2',
+									})}
+								>
 									<span>8 MIN</span>
-									<span className="w-1 h-1 bg-gray-200 rounded-full"></span>
-									<div className="flex items-center gap-1 group-hover:text-ocobo-dark transition-colors">
+									<span
+										className={css({
+											w: '1',
+											h: '1',
+											bg: 'gray.200',
+											rounded: 'full',
+										})}
+									/>
+									<div
+										className={`read-more ${css({
+											display: 'flex',
+											alignItems: 'center',
+											gap: '1',
+											transition: 'colors',
+										})}`}
+									>
 										Lire l'article <ArrowRight size={12} />
 									</div>
 								</div>
@@ -330,5 +811,3 @@ const ArticleDetail: React.FC = () => {
 		</div>
 	);
 };
-
-export default ArticleDetail;

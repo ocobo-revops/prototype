@@ -1,4 +1,3 @@
-// Added missing ArrowRight icon to imports from 'lucide-react'
 import {
 	ArrowLeft,
 	ArrowRight,
@@ -17,9 +16,10 @@ import {
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
+import { css } from 'styled-system/css';
 import { Badge } from '../components/atoms';
 
-const JobDetail: React.FC = () => {
+export const JobDetail: React.FC = () => {
 	const { id: _ } = useParams();
 	const [activeSection, setActiveSection] = useState<string>('mission');
 
@@ -31,22 +31,26 @@ const JobDetail: React.FC = () => {
 			{
 				label: 'Contrat',
 				value: 'CDI',
-				icon: <Briefcase size={14} className="text-ocobo-yellow" />,
+				icon: (
+					<Briefcase size={14} className={css({ color: 'ocobo.yellow' })} />
+				),
 			},
 			{
 				label: 'Lieu',
 				value: 'Paris / Remote',
-				icon: <MapPin size={14} className="text-ocobo-sky" />,
+				icon: <MapPin size={14} className={css({ color: 'ocobo.sky' })} />,
 			},
 			{
 				label: 'Expérience',
 				value: '> 7 ans',
-				icon: <Clock size={14} className="text-ocobo-mint" />,
+				icon: <Clock size={14} className={css({ color: 'ocobo.mint' })} />,
 			},
 			{
 				label: 'Éducation',
 				value: 'Master',
-				icon: <GraduationCap size={14} className="text-ocobo-coral" />,
+				icon: (
+					<GraduationCap size={14} className={css({ color: 'ocobo.coral' })} />
+				),
 			},
 		],
 		intro:
@@ -121,92 +125,274 @@ const JobDetail: React.FC = () => {
 
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
-	}, []);
+	}, [job.sections]);
 
 	return (
-		<div className="w-full bg-white pt-32 pb-24 font-sans">
+		<div
+			className={css({
+				width: 'full',
+				bg: 'white',
+				pt: '32',
+				pb: '24',
+				fontFamily: 'sans',
+			})}
+		>
 			{/* Blueprint background pattern ultra-léger */}
-			<div className="fixed inset-0 opacity-[0.02] pointer-events-none -z-10 bg-dots-dark"></div>
+			<div
+				className={css({
+					position: 'fixed',
+					inset: '0',
+					opacity: 0.02,
+					pointerEvents: 'none',
+					zIndex: -10,
+					bg: 'dots-dark',
+				})}
+			/>
 
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div
+				className={css({
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+				})}
+			>
 				{/* BREADCRUMBS & TOP NAV (Style Blog) */}
-				<div className="mb-12 flex items-center justify-between">
+				<div
+					className={css({
+						mb: '12',
+						display: 'flex',
+						alignItems: 'center',
+						justifyContent: 'space-between',
+					})}
+				>
 					<Link
 						to="/jobs"
-						className="inline-flex items-center text-gray-400 hover:text-ocobo-dark font-black uppercase tracking-widest text-xs transition-colors"
+						className={css({
+							display: 'inline-flex',
+							alignItems: 'center',
+							color: 'gray.400',
+							fontWeight: 'black',
+							textTransform: 'uppercase',
+							letterSpacing: 'widest',
+							fontSize: 'xs',
+							transition: 'colors',
+							_hover: { color: 'ocobo.dark' },
+						})}
 					>
-						<ArrowLeft size={14} className="mr-2" /> Retour aux offres
+						<ArrowLeft size={14} className={css({ mr: '2' })} /> Retour aux
+						offres
 					</Link>
 				</div>
 
 				{/* HERO OFFRE (Style Blog) */}
-				<div className="max-w-5xl mx-auto text-center mb-20">
-					<Badge variant="yellow" className="mb-8">
+				<div
+					className={css({
+						maxW: '5xl',
+						mx: 'auto',
+						textAlign: 'center',
+						mb: '20',
+					})}
+				>
+					<Badge variant="yellow" className={css({ mb: '8' })}>
 						{job.category}
 					</Badge>
-					<h1 className="font-display text-4xl md:text-6xl font-black text-ocobo-dark mb-10 leading-[1.05] tracking-tight">
+					<h1
+						className={css({
+							fontFamily: 'display',
+							fontSize: { base: '4xl', md: '6xl' },
+							fontWeight: 'black',
+							color: 'ocobo.dark',
+							mb: '10',
+							lineHeight: '1.05',
+							letterSpacing: 'tight',
+						})}
+					>
 						{job.title}
 					</h1>
-					<div className="flex flex-wrap items-center justify-center gap-6 text-xs font-black text-gray-400 uppercase tracking-widest">
+					<div
+						className={css({
+							display: 'flex',
+							flexWrap: 'wrap',
+							alignItems: 'center',
+							justifyContent: 'center',
+							gap: '6',
+							fontSize: 'xs',
+							fontWeight: 'black',
+							color: 'gray.400',
+							textTransform: 'uppercase',
+							letterSpacing: 'widest',
+						})}
+					>
 						{job.meta.map((m) => (
 							<div
 								key={m.label}
-								className="flex items-center gap-2.5 px-4 py-2 bg-gray-50/50 border border-gray-100 rounded-full"
+								className={css({
+									display: 'flex',
+									alignItems: 'center',
+									gap: '2.5',
+									px: '4',
+									py: '2',
+									bg: 'gray.50/50',
+									borderWidth: '1px',
+									borderColor: 'gray.100',
+									rounded: 'full',
+								})}
 							>
 								{m.icon}
-								<span className="text-ocobo-dark">{m.value}</span>
+								<span className={css({ color: 'ocobo.dark' })}>{m.value}</span>
 							</div>
 						))}
 					</div>
 				</div>
 
 				{/* MAIN LAYOUT (Style Blog) */}
-				<div className="flex flex-col lg:flex-row gap-16 relative">
+				<div
+					className={css({
+						display: 'flex',
+						flexDir: { base: 'column', lg: 'row' },
+						gap: '16',
+						position: 'relative',
+					})}
+				>
 					{/* SIDEBAR : SOMMAIRE (Style Blog) */}
-					<aside className="lg:w-1/4">
-						<div className="sticky top-32">
-							<h4 className="font-display font-black text-xs uppercase tracking-[0.4em] text-ocobo-dark mb-8">
+					<aside className={css({ lg: { w: '1/4' } })}>
+						<div className={css({ position: 'sticky', top: '32' })}>
+							<h4
+								className={css({
+									fontFamily: 'display',
+									fontWeight: 'black',
+									fontSize: 'xs',
+									textTransform: 'uppercase',
+									letterSpacing: '0.4em',
+									color: 'ocobo.dark',
+									mb: '8',
+								})}
+							>
 								Navigation
 							</h4>
-							<nav className="space-y-4">
+							<nav
+								className={css({
+									display: 'flex',
+									flexDir: 'column',
+									gap: '4',
+								})}
+							>
 								{job.sections.map((section) => (
 									<a
 										key={section.id}
 										href={`#${section.id}`}
-										className={`flex items-center justify-between py-2 text-xs font-black uppercase tracking-[0.3em] transition-all border-l-2 pl-6 ${
-											activeSection === section.id
-												? 'border-ocobo-yellow text-ocobo-dark translate-x-2'
-												: 'border-gray-50 text-gray-300 hover:text-ocobo-dark'
-										}`}
+										className={css({
+											display: 'flex',
+											alignItems: 'center',
+											justifyContent: 'space-between',
+											py: '2',
+											fontSize: 'xs',
+											fontWeight: 'black',
+											textTransform: 'uppercase',
+											letterSpacing: '0.3em',
+											transition: 'all',
+											borderLeftWidth: '2px',
+											pl: '6',
+											borderColor:
+												activeSection === section.id
+													? 'ocobo.yellow'
+													: 'gray.50',
+											color:
+												activeSection === section.id
+													? 'ocobo.dark'
+													: 'gray.300',
+											transform:
+												activeSection === section.id
+													? 'translateX(8px)'
+													: 'none',
+											_hover: { color: 'ocobo.dark' },
+										})}
 									>
 										{section.title}
 										{activeSection === section.id && (
-											<ChevronRight size={14} className="text-ocobo-yellow" />
+											<ChevronRight
+												size={14}
+												className={css({ color: 'ocobo.yellow' })}
+											/>
 										)}
 									</a>
 								))}
 								<a
 									href="#apply"
-									className={`flex items-center justify-between py-2 text-xs font-black uppercase tracking-[0.3em] transition-all border-l-2 pl-6 ${
-										activeSection === 'apply'
-											? 'border-ocobo-yellow text-ocobo-dark translate-x-2'
-											: 'border-gray-50 text-ocobo-yellow hover:text-ocobo-dark'
-									}`}
+									className={css({
+										display: 'flex',
+										alignItems: 'center',
+										justifyContent: 'space-between',
+										py: '2',
+										fontSize: 'xs',
+										fontWeight: 'black',
+										textTransform: 'uppercase',
+										letterSpacing: '0.3em',
+										transition: 'all',
+										borderLeftWidth: '2px',
+										pl: '6',
+										borderColor:
+											activeSection === 'apply' ? 'ocobo.yellow' : 'gray.50',
+										color:
+											activeSection === 'apply' ? 'ocobo.dark' : 'ocobo.yellow',
+										transform:
+											activeSection === 'apply' ? 'translateX(8px)' : 'none',
+										_hover: { color: 'ocobo.dark' },
+									})}
 								>
 									Postuler
 									{activeSection === 'apply' && (
-										<ChevronRight size={14} className="text-ocobo-yellow" />
+										<ChevronRight
+											size={14}
+											className={css({ color: 'ocobo.yellow' })}
+										/>
 									)}
 								</a>
 							</nav>
 
 							{/* BOX SIDEBAR (Style Blog) */}
-							<div className="mt-20 p-8 bg-ocobo-dark rounded-2xl text-white relative overflow-hidden shadow-xl">
-								<div className="absolute top-0 right-0 w-24 h-24 bg-ocobo-yellow/10 rounded-full blur-2xl"></div>
-								<h5 className="font-display text-lg font-bold mb-4">
+							<div
+								className={css({
+									mt: '20',
+									p: '8',
+									bg: 'ocobo.dark',
+									rounded: '2xl',
+									color: 'white',
+									position: 'relative',
+									overflow: 'hidden',
+									shadow: 'xl',
+								})}
+							>
+								<div
+									className={css({
+										position: 'absolute',
+										top: '0',
+										right: '0',
+										w: '24',
+										h: '24',
+										bg: 'ocobo.yellow/10',
+										rounded: 'full',
+										filter: 'blur(32px)',
+									})}
+								/>
+								<h5
+									className={css({
+										fontFamily: 'display',
+										fontSize: 'lg',
+										fontWeight: 'bold',
+										mb: '4',
+									})}
+								>
 									Pourquoi nous rejoindre ?
 								</h5>
-								<ul className="space-y-4 mb-8">
+								<ul
+									className={css({
+										display: 'flex',
+										flexDir: 'column',
+										gap: '4',
+										mb: '8',
+									})}
+								>
 									{[
 										'Management 100% Senior',
 										'Culture du feedback radical',
@@ -215,11 +401,24 @@ const JobDetail: React.FC = () => {
 									].map((benefit) => (
 										<li
 											key={benefit}
-											className="flex items-start gap-3 text-xs font-bold uppercase tracking-widest text-gray-400"
+											className={css({
+												display: 'flex',
+												alignItems: 'start',
+												gap: '3',
+												fontSize: 'xs',
+												fontWeight: 'bold',
+												textTransform: 'uppercase',
+												letterSpacing: 'widest',
+												color: 'gray.400',
+											})}
 										>
 											<Plus
 												size={12}
-												className="text-ocobo-yellow shrink-0 mt-0.5"
+												className={css({
+													color: 'ocobo.yellow',
+													flexShrink: 0,
+													mt: '0.5',
+												})}
 											/>
 											{benefit}
 										</li>
@@ -228,7 +427,19 @@ const JobDetail: React.FC = () => {
 								<a href="#apply">
 									<button
 										type="button"
-										className="w-full py-3 bg-ocobo-yellow text-ocobo-dark font-black text-xs uppercase tracking-widest rounded-lg hover:bg-white transition-colors"
+										className={css({
+											w: 'full',
+											py: '3',
+											bg: 'ocobo.yellow',
+											color: 'ocobo.dark',
+											fontWeight: 'black',
+											fontSize: 'xs',
+											textTransform: 'uppercase',
+											letterSpacing: 'widest',
+											rounded: 'lg',
+											transition: 'colors',
+											_hover: { bg: 'white' },
+										})}
 									>
 										Postuler maintenant
 									</button>
@@ -238,36 +449,108 @@ const JobDetail: React.FC = () => {
 					</aside>
 
 					{/* CONTENT AREA (Style Blog) */}
-					<article className="lg:w-3/4 max-w-3xl">
+					<article className={css({ lg: { w: '3/4' }, maxW: '3xl' })}>
 						{/* Intro text (Style Blog) */}
-						<div className="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed mb-16 italic border-l-4 border-ocobo-yellow pl-8">
+						<div
+							className={css({
+								fontSize: { base: 'xl', md: '2xl' },
+								color: 'gray.600',
+								fontWeight: 'medium',
+								lineHeight: 'relaxed',
+								mb: '16',
+								fontStyle: 'italic',
+								borderLeftWidth: '4px',
+								borderColor: 'ocobo.yellow',
+								pl: '8',
+							})}
+						>
 							{job.intro}
 						</div>
 
 						{/* Content blocks (Style Blog) */}
-						<div className="space-y-24">
+						<div
+							className={css({
+								display: 'flex',
+								flexDir: 'column',
+								gap: '24',
+							})}
+						>
 							{job.sections.map((section) => (
 								<section
 									key={section.id}
 									id={section.id}
-									className="scroll-mt-40"
+									className={css({ scrollMarginTop: '40' })}
 								>
-									<h2 className="font-display text-3xl font-black text-ocobo-dark mb-8 tracking-tight">
+									<h2
+										className={css({
+											fontFamily: 'display',
+											fontSize: '3xl',
+											fontWeight: 'black',
+											color: 'ocobo.dark',
+											mb: '8',
+											letterSpacing: 'tight',
+										})}
+									>
 										{section.title}
 									</h2>
-									<div className="prose prose-xl prose-ocobo max-w-none text-gray-600 leading-relaxed font-medium">
-										<p className="mb-10">{section.content}</p>
+									<div
+										className={css({
+											maxW: 'none',
+											color: 'gray.600',
+											lineHeight: 'relaxed',
+											fontWeight: 'medium',
+										})}
+									>
+										<p className={css({ mb: '10' })}>{section.content}</p>
 										{section.list && (
-											<ul className="space-y-4 mt-8">
+											<ul
+												className={css({
+													display: 'flex',
+													flexDir: 'column',
+													gap: '4',
+													mt: '8',
+												})}
+											>
 												{section.list.map((item) => (
 													<li
 														key={item}
-														className="flex items-start gap-5 p-6 bg-gray-50/50 rounded-xl border border-transparent hover:border-ocobo-yellow/20 hover:bg-white transition-all group"
+														className={css({
+															display: 'flex',
+															alignItems: 'start',
+															gap: '5',
+															p: '6',
+															bg: 'gray.50/50',
+															rounded: 'xl',
+															borderWidth: '1px',
+															borderColor: 'transparent',
+															transition: 'all',
+															'& .check-icon': {
+																transition: 'colors',
+															},
+															_hover: {
+																borderColor: 'ocobo.yellow/20',
+																bg: 'white',
+															},
+															'&:hover .check-icon': {
+																color: 'ocobo.yellow',
+															},
+														})}
 													>
-														<div className="mt-1 text-gray-200 group-hover:text-ocobo-yellow transition-colors">
+														<div
+															className={`check-icon ${css({
+																mt: '1',
+																color: 'gray.200',
+															})}`}
+														>
 															<CheckCircle2 size={20} />
 														</div>
-														<span className="text-ocobo-dark font-bold text-lg">
+														<span
+															className={css({
+																color: 'ocobo.dark',
+																fontWeight: 'bold',
+																fontSize: 'lg',
+															})}
+														>
 															{item}
 														</span>
 													</li>
@@ -280,34 +563,107 @@ const JobDetail: React.FC = () => {
 						</div>
 
 						{/* BIOGRAPHIE CONTACT (Style Blog Author Bio) */}
-						<div className="mt-24 pt-12 border-t border-gray-100 flex flex-col md:flex-row items-center gap-8 bg-gray-50/50 p-10 rounded-3xl">
-							<div className="w-24 h-24 rounded-full overflow-hidden grayscale shrink-0 border-4 border-white shadow-lg">
+						<div
+							className={css({
+								mt: '24',
+								pt: '12',
+								borderTopWidth: '1px',
+								borderColor: 'gray.100',
+								display: 'flex',
+								flexDir: { base: 'column', md: 'row' },
+								alignItems: 'center',
+								gap: '8',
+								bg: 'gray.50/50',
+								p: '10',
+								rounded: '3xl',
+							})}
+						>
+							<div
+								className={css({
+									w: '24',
+									h: '24',
+									rounded: 'full',
+									overflow: 'hidden',
+									filter: 'grayscale(100%)',
+									flexShrink: 0,
+									borderWidth: '4px',
+									borderColor: 'white',
+									shadow: 'lg',
+								})}
+							>
 								<img
 									src={job.contact.image}
 									alt={job.contact.name}
-									className="w-full h-full object-cover"
+									className={css({
+										w: 'full',
+										h: 'full',
+										objectFit: 'cover',
+									})}
 								/>
 							</div>
-							<div className="text-center md:text-left">
-								<h4 className="font-display text-2xl font-bold text-ocobo-dark mb-1">
+							<div
+								className={css({
+									textAlign: { base: 'center', md: 'left' },
+								})}
+							>
+								<h4
+									className={css({
+										fontFamily: 'display',
+										fontSize: '2xl',
+										fontWeight: 'bold',
+										color: 'ocobo.dark',
+										mb: '1',
+									})}
+								>
 									{job.contact.name}
 								</h4>
-								<p className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">
+								<p
+									className={css({
+										fontSize: 'sm',
+										fontWeight: 'bold',
+										color: 'gray.400',
+										textTransform: 'uppercase',
+										letterSpacing: 'widest',
+										mb: '4',
+									})}
+								>
 									{job.contact.role}
 								</p>
-								<p className="text-gray-500 text-sm leading-relaxed max-w-md">
+								<p
+									className={css({
+										color: 'gray.500',
+										fontSize: 'sm',
+										lineHeight: 'relaxed',
+										maxW: 'md',
+									})}
+								>
 									{job.contact.bio}
 								</p>
-								<div className="mt-6 flex justify-center md:justify-start gap-4">
+								<div
+									className={css({
+										mt: '6',
+										display: 'flex',
+										justifyContent: { base: 'center', md: 'flex-start' },
+										gap: '4',
+									})}
+								>
 									<a
 										href="#"
-										className="text-gray-400 hover:text-ocobo-dark transition-colors"
+										className={css({
+											color: 'gray.400',
+											transition: 'colors',
+											_hover: { color: 'ocobo.dark' },
+										})}
 									>
 										<Linkedin size={20} />
 									</a>
 									<a
 										href="#"
-										className="text-gray-400 hover:text-ocobo-dark transition-colors"
+										className={css({
+											color: 'gray.400',
+											transition: 'colors',
+											_hover: { color: 'ocobo.dark' },
+										})}
 									>
 										<MessageSquare size={20} />
 									</a>
@@ -318,70 +674,253 @@ const JobDetail: React.FC = () => {
 						{/* FORMULAIRE CANDIDATURE (Style Newsletter Blog) */}
 						<div
 							id="apply"
-							className="mt-24 bg-ocobo-yellow p-10 md:p-14 rounded-3xl relative overflow-hidden shadow-2xl scroll-mt-40"
+							className={css({
+								mt: '24',
+								bg: 'ocobo.yellow',
+								p: { base: '10', md: '14' },
+								rounded: '3xl',
+								position: 'relative',
+								overflow: 'hidden',
+								shadow: '2xl',
+								scrollMarginTop: '40',
+							})}
 						>
 							{/* Motif architectural discret */}
-							<div className="absolute top-0 right-0 p-4 opacity-[0.05]">
+							<div
+								className={css({
+									position: 'absolute',
+									top: '0',
+									right: '0',
+									p: '4',
+									opacity: 0.05,
+								})}
+							>
 								<FileText size={200} strokeWidth={1} />
 							</div>
 
-							<div className="relative z-10">
-								<h2 className="font-display text-4xl font-black text-ocobo-dark mb-4 tracking-tight">
+							<div className={css({ position: 'relative', zIndex: 10 })}>
+								<h2
+									className={css({
+										fontFamily: 'display',
+										fontSize: '4xl',
+										fontWeight: 'black',
+										color: 'ocobo.dark',
+										mb: '4',
+										letterSpacing: 'tight',
+									})}
+								>
 									Prêt(e) pour l'impact ?
 								</h2>
-								<p className="text-ocobo-dark/70 font-bold text-lg mb-12 max-w-xl">
+								<p
+									className={css({
+										color: 'ocobo.dark/70',
+										fontWeight: 'bold',
+										fontSize: 'lg',
+										mb: '12',
+										maxW: 'xl',
+									})}
+								>
 									Envoie-nous ton profil. On ne cherche pas des exécutants, mais
 									des architectes du revenu.
 								</p>
 
-								<form className="space-y-8 max-w-2xl">
-									<div className="grid md:grid-cols-2 gap-6">
-										<div className="space-y-2">
+								<form
+									className={css({
+										display: 'flex',
+										flexDir: 'column',
+										gap: '8',
+										maxW: '2xl',
+									})}
+								>
+									<div
+										className={css({
+											display: 'grid',
+											gridTemplateColumns: {
+												base: '1fr',
+												md: 'repeat(2, 1fr)',
+											},
+											gap: '6',
+										})}
+									>
+										<div
+											className={css({
+												display: 'flex',
+												flexDir: 'column',
+												gap: '2',
+											})}
+										>
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-											<label className="text-xs font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">
+											<label
+												className={css({
+													fontSize: 'xs',
+													fontWeight: 'black',
+													textTransform: 'uppercase',
+													letterSpacing: '0.3em',
+													color: 'ocobo.dark',
+													opacity: 0.5,
+												})}
+											>
 												Prénom Nom*
 											</label>
 											<input
 												type="text"
-												className="w-full bg-white/90 focus:bg-white border-none outline-none text-ocobo-dark font-bold p-4 rounded-xl placeholder-gray-300"
+												className={css({
+													w: 'full',
+													bg: 'white/90',
+													border: 'none',
+													outline: 'none',
+													color: 'ocobo.dark',
+													fontWeight: 'bold',
+													p: '4',
+													rounded: 'xl',
+													_placeholder: { color: 'gray.300' },
+													_focus: { bg: 'white' },
+												})}
 												placeholder="John Doe"
 											/>
 										</div>
-										<div className="space-y-2">
+										<div
+											className={css({
+												display: 'flex',
+												flexDir: 'column',
+												gap: '2',
+											})}
+										>
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-											<label className="text-xs font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">
+											<label
+												className={css({
+													fontSize: 'xs',
+													fontWeight: 'black',
+													textTransform: 'uppercase',
+													letterSpacing: '0.3em',
+													color: 'ocobo.dark',
+													opacity: 0.5,
+												})}
+											>
 												Email Pro*
 											</label>
 											<input
 												type="email"
-												className="w-full bg-white/90 focus:bg-white border-none outline-none text-ocobo-dark font-bold p-4 rounded-xl placeholder-gray-300"
+												className={css({
+													w: 'full',
+													bg: 'white/90',
+													border: 'none',
+													outline: 'none',
+													color: 'ocobo.dark',
+													fontWeight: 'bold',
+													p: '4',
+													rounded: 'xl',
+													_placeholder: { color: 'gray.300' },
+													_focus: { bg: 'white' },
+												})}
 												placeholder="john@company.com"
 											/>
 										</div>
-										<div className="space-y-2 md:col-span-2">
+										<div
+											className={css({
+												display: 'flex',
+												flexDir: 'column',
+												gap: '2',
+												md: { gridColumn: 'span 2' },
+											})}
+										>
 											{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-											<label className="text-xs font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">
+											<label
+												className={css({
+													fontSize: 'xs',
+													fontWeight: 'black',
+													textTransform: 'uppercase',
+													letterSpacing: '0.3em',
+													color: 'ocobo.dark',
+													opacity: 0.5,
+												})}
+											>
 												Lien LinkedIn*
 											</label>
 											<input
 												type="url"
-												className="w-full bg-white/90 focus:bg-white border-none outline-none text-ocobo-dark font-bold p-4 rounded-xl placeholder-gray-300"
+												className={css({
+													w: 'full',
+													bg: 'white/90',
+													border: 'none',
+													outline: 'none',
+													color: 'ocobo.dark',
+													fontWeight: 'bold',
+													p: '4',
+													rounded: 'xl',
+													_placeholder: { color: 'gray.300' },
+													_focus: { bg: 'white' },
+												})}
 												placeholder="https://linkedin.com/in/..."
 											/>
 										</div>
 									</div>
 
-									<div className="space-y-2">
+									<div
+										className={css({
+											display: 'flex',
+											flexDir: 'column',
+											gap: '2',
+										})}
+									>
 										{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-										<label className="text-xs font-black uppercase tracking-[0.3em] text-ocobo-dark opacity-50">
+										<label
+											className={css({
+												fontSize: 'xs',
+												fontWeight: 'black',
+												textTransform: 'uppercase',
+												letterSpacing: '0.3em',
+												color: 'ocobo.dark',
+												opacity: 0.5,
+											})}
+										>
 											Ton CV (PDF)*
 										</label>
-										<div className="border-2 border-dashed border-ocobo-dark/10 p-10 text-center bg-white/40 rounded-2xl hover:bg-white transition-all cursor-pointer group">
+										<div
+											className={css({
+												borderWidth: '2px',
+												borderStyle: 'dashed',
+												borderColor: 'ocobo.dark/10',
+												p: '10',
+												textAlign: 'center',
+												bg: 'white/40',
+												rounded: '2xl',
+												cursor: 'pointer',
+												transition: 'all',
+												'& .file-icon': {
+													transition: 'colors',
+												},
+												'& .file-text': {
+													transition: 'colors',
+												},
+												_hover: {
+													bg: 'white',
+												},
+												'&:hover .file-icon': {
+													color: 'ocobo.dark',
+												},
+												'&:hover .file-text': {
+													color: 'ocobo.dark',
+												},
+											})}
+										>
 											<FileText
-												className="mx-auto mb-3 text-ocobo-dark/20 group-hover:text-ocobo-dark transition-colors"
+												className={`file-icon ${css({
+													mx: 'auto',
+													mb: '3',
+													color: 'ocobo.dark/20',
+												})}`}
 												size={32}
 											/>
-											<p className="text-xs font-black uppercase tracking-widest text-ocobo-dark/40 group-hover:text-ocobo-dark transition-colors">
+											<p
+												className={`file-text ${css({
+													fontSize: 'xs',
+													fontWeight: 'black',
+													textTransform: 'uppercase',
+													letterSpacing: 'widest',
+													color: 'ocobo.dark/40',
+												})}`}
+											>
 												Dépose ton fichier ou clique ici
 											</p>
 										</div>
@@ -389,12 +928,34 @@ const JobDetail: React.FC = () => {
 
 									<button
 										type="button"
-										className="w-full py-5 bg-ocobo-dark text-white font-black uppercase tracking-[0.4em] text-xs rounded-xl hover:bg-black transition-all shadow-xl flex items-center justify-center gap-3 group"
+										className={css({
+											w: 'full',
+											py: '5',
+											bg: 'ocobo.dark',
+											color: 'white',
+											fontWeight: 'black',
+											textTransform: 'uppercase',
+											letterSpacing: '0.4em',
+											fontSize: 'xs',
+											rounded: 'xl',
+											transition: 'all',
+											shadow: 'xl',
+											display: 'flex',
+											alignItems: 'center',
+											justifyContent: 'center',
+											gap: '3',
+											'& .send-icon': {
+												transition: 'transform',
+											},
+											_hover: {
+												bg: 'black',
+											},
+											'&:hover .send-icon': {
+												transform: 'translateX(4px) translateY(-4px)',
+											},
+										})}
 									>
-										<Send
-											size={14}
-											className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
-										/>
+										<Send size={14} className={`send-icon`} />
 										Envoyer ma candidature
 									</button>
 								</form>
@@ -402,11 +963,32 @@ const JobDetail: React.FC = () => {
 						</div>
 
 						{/* RELATED JOBS (Style Related Articles Blog) */}
-						<div className="mt-32 pt-20 border-t border-gray-100">
-							<h3 className="font-display text-3xl font-black text-ocobo-dark mb-12">
+						<div
+							className={css({
+								mt: '32',
+								pt: '20',
+								borderTopWidth: '1px',
+								borderColor: 'gray.100',
+							})}
+						>
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: '3xl',
+									fontWeight: 'black',
+									color: 'ocobo.dark',
+									mb: '12',
+								})}
+							>
 								Autres opportunités
 							</h3>
-							<div className="grid md:grid-cols-2 gap-8">
+							<div
+								className={css({
+									display: 'grid',
+									gridTemplateColumns: { base: '1fr', md: 'repeat(2, 1fr)' },
+									gap: '8',
+								})}
+							>
 								{[
 									{
 										title: 'Consultant RevOps Senior',
@@ -417,21 +999,94 @@ const JobDetail: React.FC = () => {
 								].map((other) => (
 									<div
 										key={other.title}
-										className="group p-8 border border-gray-100 bg-white hover:border-ocobo-yellow hover:shadow-xl transition-all rounded-2xl"
+										className={css({
+											p: '8',
+											borderWidth: '1px',
+											borderColor: 'gray.100',
+											bg: 'white',
+											rounded: '2xl',
+											transition: 'all',
+											'&:hover h4': {
+												color: 'ocobo.yellow',
+											},
+											'&:hover .view-link': {
+												color: 'ocobo.dark',
+											},
+											_hover: {
+												borderColor: 'ocobo.yellow',
+												shadow: 'xl',
+											},
+										})}
 									>
-										<div className="flex items-center gap-3 mb-4">
-											<span className="text-xs font-black uppercase tracking-widest text-ocobo-coral bg-ocobo-coral-light px-2 py-0.5 border border-ocobo-coral/10">
+										<div
+											className={css({
+												display: 'flex',
+												alignItems: 'center',
+												gap: '3',
+												mb: '4',
+											})}
+										>
+											<span
+												className={css({
+													fontSize: 'xs',
+													fontWeight: 'black',
+													textTransform: 'uppercase',
+													letterSpacing: 'widest',
+													color: 'ocobo.coral',
+													bg: 'ocobo.coralLight',
+													px: '2',
+													py: '0.5',
+													borderWidth: '1px',
+													borderColor: 'ocobo.coral/10',
+												})}
+											>
 												{other.exp}
 											</span>
-											<span className="text-xs font-black uppercase tracking-widest text-gray-300">
+											<span
+												className={css({
+													fontSize: 'xs',
+													fontWeight: 'black',
+													textTransform: 'uppercase',
+													letterSpacing: 'widest',
+													color: 'gray.300',
+												})}
+											>
 												{other.type}
 											</span>
 										</div>
-										<h4 className="font-display text-2xl font-black text-ocobo-dark mb-6 group-hover:text-ocobo-yellow transition-colors leading-tight">
+										<h4
+											className={css({
+												fontFamily: 'display',
+												fontSize: '2xl',
+												fontWeight: 'black',
+												color: 'ocobo.dark',
+												mb: '6',
+												transition: 'colors',
+												lineHeight: 'tight',
+											})}
+										>
 											{other.title}
 										</h4>
-										<div className="flex items-center text-xs font-black uppercase tracking-widest text-gray-400 gap-2">
-											<div className="flex items-center gap-1 group-hover:text-ocobo-dark transition-colors">
+										<div
+											className={css({
+												display: 'flex',
+												alignItems: 'center',
+												fontSize: 'xs',
+												fontWeight: 'black',
+												textTransform: 'uppercase',
+												letterSpacing: 'widest',
+												color: 'gray.400',
+												gap: '2',
+											})}
+										>
+											<div
+												className={`view-link ${css({
+													display: 'flex',
+													alignItems: 'center',
+													gap: '1',
+													transition: 'colors',
+												})}`}
+											>
 												Voir l'offre <ArrowRight size={12} />
 											</div>
 										</div>
@@ -445,5 +1100,3 @@ const JobDetail: React.FC = () => {
 		</div>
 	);
 };
-
-export default JobDetail;
