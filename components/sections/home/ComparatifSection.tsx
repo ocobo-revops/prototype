@@ -1,8 +1,8 @@
 import { Check, X } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { grid } from 'styled-system/patterns';
 import { Button } from '../../atoms';
-import { Grid } from '../../layout/Grid';
 import { Container, Section } from '../../organisms';
 
 const OCOBO_BENEFITS = [
@@ -44,7 +44,9 @@ export const ComparatifSection: React.FC = () => {
 					</p>
 				</div>
 
-				<Grid md={2} gap={8} className={css({ maxW: '5xl', mx: 'auto' })}>
+				<div
+					className={`${grid({ columns: { base: 1, md: 2 }, gap: '8' })} ${css({ maxW: '5xl', mx: 'auto' })}`}
+				>
 					<div
 						className={css({
 							bg: 'white',
@@ -149,7 +151,7 @@ export const ComparatifSection: React.FC = () => {
 							))}
 						</ul>
 					</div>
-				</Grid>
+				</div>
 
 				<div
 					className={css({

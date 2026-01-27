@@ -1,13 +1,42 @@
+import { css } from 'styled-system/css';
+
 export const DashboardIllustration = () => {
 	return (
 		<div
-			className="relative w-full max-w-[580px] aspect-square flex items-center justify-center opacity-0 animate-hero-reveal"
+			className={css({
+				position: 'relative',
+				w: 'full',
+				maxW: '580px',
+				aspectRatio: 'square',
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+				opacity: '0',
+				animation: 'hero-reveal',
+			})}
 			style={{ animationDelay: '0.4s' }}
 		>
 			{/* SHARP ARCHITECTURAL BACKGROUND SHAPES - More refined */}
 
 			{/* Top Center: Mint Circle with Burst */}
-			<div className="absolute top-[8%] left-[38%] w-[110px] h-[110px] rounded-full bg-ocobo-mint/80 flex items-center justify-center transform rotate-12 transition-transform hover:rotate-45 duration-1000">
+			<div
+				className={css({
+					position: 'absolute',
+					top: '8%',
+					left: '38%',
+					w: '110px',
+					h: '110px',
+					rounded: 'full',
+					bg: 'ocobo.mint/80',
+					display: 'flex',
+					alignItems: 'center',
+					justifyContent: 'center',
+					transform: 'rotate(12deg)',
+					transition: 'transform',
+					transitionDuration: '1000ms',
+					_hover: { transform: 'rotate(45deg)' },
+				})}
+			>
 				<svg
 					width="40"
 					height="40"
@@ -23,21 +52,60 @@ export const DashboardIllustration = () => {
 			</div>
 
 			{/* Top Right: Coral Square */}
-			<div className="absolute top-[12%] right-[12%] w-[90px] h-[90px] bg-ocobo-coral/80 transform -rotate-6 rounded-sm"></div>
+			<div
+				className={css({
+					position: 'absolute',
+					top: '12%',
+					right: '12%',
+					w: '90px',
+					h: '90px',
+					bg: 'ocobo.coral/80',
+					transform: 'rotate(-6deg)',
+					rounded: 'sm',
+				})}
+			/>
 
 			{/* Mid Left: Yellow Square */}
-			<div className="absolute top-[42%] left-[5%] w-[85px] h-[100px] bg-ocobo-yellow/80 transform rotate-3 rounded-sm"></div>
+			<div
+				className={css({
+					position: 'absolute',
+					top: '42%',
+					left: '5%',
+					w: '85px',
+					h: '100px',
+					bg: 'ocobo.yellow/80',
+					transform: 'rotate(3deg)',
+					rounded: 'sm',
+				})}
+			/>
 
 			{/* Bottom Center: Sky Circle */}
-			<div className="absolute bottom-[8%] left-[48%] w-[100px] h-[100px] rounded-full bg-ocobo-sky/80"></div>
+			<div
+				className={css({
+					position: 'absolute',
+					bottom: '8%',
+					left: '48%',
+					w: '100px',
+					h: '100px',
+					rounded: 'full',
+					bg: 'ocobo.sky/80',
+				})}
+			/>
 
 			<svg
 				viewBox="0 0 600 600"
-				className="relative z-10 w-full h-full overflow-visible text-ocobo-dark"
+				className={css({
+					position: 'relative',
+					zIndex: '10',
+					w: 'full',
+					h: 'full',
+					overflow: 'visible',
+					color: 'ocobo.dark',
+				})}
 				fill="none"
 			>
 				{/* WINDOW 1: HORIZONTAL BARS (TOP LEFT) - Higher rx and thinner stroke */}
-				<g className="animate-float-very-slow">
+				<g className={css({ animation: 'float-very-slow' })}>
 					<rect
 						x="50"
 						y="100"
@@ -47,7 +115,7 @@ export const DashboardIllustration = () => {
 						fill="white"
 						stroke="currentColor"
 						strokeWidth="1.5"
-						className="shadow-2xl"
+						className={css({ shadow: '2xl' })}
 					/>
 					<line
 						x1="50"
@@ -116,7 +184,7 @@ export const DashboardIllustration = () => {
 
 				{/* WINDOW 2: PIE CHART (TOP RIGHT) */}
 				<g
-					className="animate-float-very-slow"
+					className={css({ animation: 'float-very-slow' })}
 					style={{ animationDelay: '-4s' }}
 				>
 					<rect
@@ -128,7 +196,7 @@ export const DashboardIllustration = () => {
 						fill="white"
 						stroke="currentColor"
 						strokeWidth="1.5"
-						className="shadow-2xl"
+						className={css({ shadow: '2xl' })}
 					/>
 					<line
 						x1="350"
@@ -180,7 +248,7 @@ export const DashboardIllustration = () => {
 
 				{/* WINDOW 3: WAVE CHART (BOTTOM RIGHT) */}
 				<g
-					className="animate-float-very-slow"
+					className={css({ animation: 'float-very-slow' })}
 					style={{ animationDelay: '-8s' }}
 				>
 					<rect
@@ -192,7 +260,7 @@ export const DashboardIllustration = () => {
 						fill="white"
 						stroke="currentColor"
 						strokeWidth="1.5"
-						className="shadow-2xl"
+						className={css({ shadow: '2xl' })}
 					/>
 					<line
 						x1="350"
@@ -230,7 +298,7 @@ export const DashboardIllustration = () => {
 
 				{/* WINDOW 4: COLUMN CHART (CENTER BOTTOM) */}
 				<g
-					className="animate-float-very-slow"
+					className={css({ animation: 'float-very-slow' })}
 					style={{ animationDelay: '-2s' }}
 				>
 					<rect
@@ -242,7 +310,7 @@ export const DashboardIllustration = () => {
 						fill="white"
 						stroke="currentColor"
 						strokeWidth="1.5"
-						className="shadow-2xl"
+						className={css({ shadow: '2xl' })}
 					/>
 					<line
 						x1="200"
@@ -299,7 +367,7 @@ export const DashboardIllustration = () => {
 
 				{/* WINDOW 5: CANDLE CHART (BOTTOM LEFT) */}
 				<g
-					className="animate-float-very-slow"
+					className={css({ animation: 'float-very-slow' })}
 					style={{ animationDelay: '-6s' }}
 				>
 					<rect
@@ -311,7 +379,7 @@ export const DashboardIllustration = () => {
 						fill="white"
 						stroke="currentColor"
 						strokeWidth="1.5"
-						className="shadow-2xl"
+						className={css({ shadow: '2xl' })}
 					/>
 					<line
 						x1="50"

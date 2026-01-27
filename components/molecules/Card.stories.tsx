@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Card from './Card';
+import { css } from 'styled-system/css';
+import { Card } from './Card';
 
 const meta: Meta<typeof Card> = {
 	title: 'Molecules/Card',
@@ -13,11 +14,19 @@ type Story = StoryObj<typeof Card>;
 export const Default: Story = {
 	args: {
 		children: (
-			<div className="p-8">
-				<h3 className="font-display font-bold text-xl text-ocobo-dark mb-2">
+			<div className={css({ p: '8' })}>
+				<h3
+					className={css({
+						fontFamily: 'display',
+						fontWeight: 'bold',
+						fontSize: 'xl',
+						color: 'ocobo.dark',
+						mb: '2',
+					})}
+				>
 					Card title
 				</h3>
-				<p className="text-gray-600">Card content goes here.</p>
+				<p className={css({ color: 'gray.600' })}>Card content goes here.</p>
 			</div>
 		),
 	},
@@ -26,13 +35,21 @@ export const Default: Story = {
 export const WithCustomClass: Story = {
 	args: {
 		children: (
-			<div className="p-8">
-				<h3 className="font-display font-bold text-xl text-ocobo-dark mb-2">
+			<div className={css({ p: '8' })}>
+				<h3
+					className={css({
+						fontFamily: 'display',
+						fontWeight: 'bold',
+						fontSize: 'xl',
+						color: 'ocobo.dark',
+						mb: '2',
+					})}
+				>
 					Custom styled
 				</h3>
-				<p className="text-gray-600">With shadow and padding.</p>
+				<p className={css({ color: 'gray.600' })}>With shadow and padding.</p>
 			</div>
 		),
-		className: 'shadow-soft-lg p-4',
+		className: css({ shadow: 'soft-lg', p: '4' }),
 	},
 };

@@ -1,4 +1,5 @@
 import { Plus } from 'lucide-react';
+import { css } from 'styled-system/css';
 
 interface StackItem {
 	type: 'logo' | 'empty';
@@ -8,7 +9,7 @@ interface StackItem {
 
 interface ModularStackGridProps {
 	items: StackItem[];
-	/** Container max width: 'lg' = max-w-lg, 'xl' = max-w-xl */
+	/** Container max width: 'lg' or 'xl' */
 	maxWidth?: 'lg' | 'xl';
 	/** Show label text below logos */
 	showLabels?: boolean;
@@ -17,8 +18,8 @@ interface ModularStackGridProps {
 }
 
 const maxWidthMap = {
-	lg: 'max-w-lg',
-	xl: 'max-w-xl',
+	lg: 'lg',
+	xl: 'xl',
 } as const;
 
 export const ModularStackGrid = ({
@@ -29,10 +30,22 @@ export const ModularStackGrid = ({
 }: ModularStackGridProps) => {
 	return (
 		<div
-			className={`relative w-full ${maxWidthMap[maxWidth]} mx-auto aspect-square p-4`}
+			className={css({
+				position: 'relative',
+				w: 'full',
+				maxW: maxWidthMap[maxWidth],
+				mx: 'auto',
+				aspectRatio: 'square',
+				p: '4',
+			})}
 		>
 			<div
-				className="absolute inset-0 opacity-[0.03] pointer-events-none"
+				className={css({
+					position: 'absolute',
+					inset: '0',
+					opacity: '0.03',
+					pointerEvents: 'none',
+				})}
 				style={{
 					backgroundImage:
 						'linear-gradient(#212323 1px, transparent 1px), linear-gradient(90deg, #212323 1px, transparent 1px)',
@@ -40,19 +53,51 @@ export const ModularStackGrid = ({
 				}}
 			/>
 
-			<div className="grid grid-cols-4 gap-3 md:gap-4 relative z-10 h-full">
+			<div
+				className={css({
+					display: 'grid',
+					gridTemplateColumns: 'repeat(4, 1fr)',
+					gap: { base: '3', md: '4' },
+					position: 'relative',
+					zIndex: '10',
+					h: 'full',
+				})}
+			>
 				{items.map((item, i) => (
 					<div
 						key={item.label ?? `empty-${i}`}
-						className={`
-							aspect-square rounded-xl md:rounded-2xl border transition-all duration-500 flex items-center justify-center
-							${
-								item.type === 'logo'
-									? 'group bg-white border-gray-100 shadow-soft hover:shadow-xl hover:-translate-y-1 hover:border-ocobo-sky/30'
-									: 'bg-gray-50/50 border-dashed border-gray-200 group/empty hover:bg-white hover:border-solid hover:border-ocobo-yellow/40'
-							}
-							${animated ? 'animate-fade-in-up' : ''}
-						`}
+						className={`${css({
+							aspectRatio: 'square',
+							rounded: { base: 'xl', md: '2xl' },
+							borderWidth: '1px',
+							transition: 'all',
+							transitionDuration: '500ms',
+							display: 'flex',
+							alignItems: 'center',
+							justifyContent: 'center',
+							...(item.type === 'logo'
+								? {
+										bg: 'white',
+										borderColor: 'gray.100',
+										shadow: 'soft',
+										_hover: {
+											shadow: 'xl',
+											transform: 'translateY(-4px)',
+											borderColor: 'ocobo.sky/30',
+										},
+									}
+								: {
+										bg: 'gray.50/50',
+										borderStyle: 'dashed',
+										borderColor: 'gray.200',
+										_hover: {
+											bg: 'white',
+											borderStyle: 'solid',
+											borderColor: 'ocobo.yellow/40',
+										},
+									}),
+							...(animated ? { animation: 'fade-in-up' } : {}),
+						})} group`}
 						style={
 							animated
 								? {
@@ -64,14 +109,39 @@ export const ModularStackGrid = ({
 						}
 					>
 						{item.type === 'logo' ? (
-							<div className="flex flex-col items-center gap-1.5">
+							<div
+								className={css({
+									display: 'flex',
+									flexDir: 'column',
+									alignItems: 'center',
+									gap: '1.5',
+								})}
+							>
 								<img
 									src={item.logo}
 									alt={item.label}
-									className="w-6 h-6 md:w-8 md:h-8 object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all"
+									className={css({
+										w: { base: '6', md: '8' },
+										h: { base: '6', md: '8' },
+										objectFit: 'contain',
+										filter: 'grayscale(100%)',
+										opacity: '0.6',
+										transition: 'all',
+										transitionDuration: '300ms',
+										_groupHover: { filter: 'grayscale(0%)', opacity: '1' },
+									})}
 								/>
 								{showLabels && item.label && (
-									<span className="text-xs font-black uppercase tracking-widest text-ocobo-dark opacity-30">
+									<span
+										className={css({
+											fontSize: 'xs',
+											fontWeight: 'black',
+											textTransform: 'uppercase',
+											letterSpacing: 'widest',
+											color: 'ocobo.dark',
+											opacity: '0.3',
+										})}
+									>
 										{item.label}
 									</span>
 								)}
@@ -79,14 +149,31 @@ export const ModularStackGrid = ({
 						) : (
 							<Plus
 								size={16}
-								className="text-gray-200 group-hover/empty:text-ocobo-yellow transition-colors"
+								className={css({
+									color: 'gray.200',
+									transition: 'colors',
+									transitionDuration: '300ms',
+									_groupHover: { color: 'ocobo.yellow' },
+								})}
 							/>
 						)}
 					</div>
 				))}
 			</div>
 
-			<div className="absolute -bottom-6 -right-6 w-24 h-24 bg-ocobo-yellow/5 rounded-full blur-2xl -z-10" />
+			<div
+				className={css({
+					position: 'absolute',
+					bottom: '-6',
+					right: '-6',
+					w: '24',
+					h: '24',
+					bg: 'ocobo.yellow/5',
+					rounded: 'full',
+					filter: 'blur(32px)',
+					zIndex: '-10',
+				})}
+			/>
 		</div>
 	);
 };

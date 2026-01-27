@@ -1,9 +1,9 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { grid } from 'styled-system/patterns';
 import { ThemeColor } from '../../../types';
 import { Button } from '../../atoms';
-import { Grid } from '../../layout/Grid';
-import TeamMemberCard from '../../molecules/TeamMemberCard';
+import { TeamMemberCard } from '../../molecules/TeamMemberCard';
 import { Container, Section } from '../../organisms';
 
 const IconSeparator = () => {
@@ -219,7 +219,7 @@ export const TeamSection: React.FC = () => {
 						</p>
 					</div>
 
-					<Grid md={3} gap={8}>
+					<div className={grid({ columns: { base: 1, md: 3 }, gap: '8' })}>
 						{TEAM_MEMBERS.map((member) => (
 							<TeamMemberCard
 								key={member.name}
@@ -230,7 +230,7 @@ export const TeamSection: React.FC = () => {
 								color={member.color}
 							/>
 						))}
-					</Grid>
+					</div>
 
 					<div
 						className={css({

@@ -8,9 +8,9 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { grid } from 'styled-system/patterns';
 import { ThemeColor } from '../../../types';
 import { UnifiedBowtie } from '../../illustrations';
-import { Grid } from '../../layout/Grid';
 import { ScopeCard } from '../../molecules';
 import { Container, Section } from '../../organisms';
 
@@ -107,11 +107,8 @@ export const ScopeSection: React.FC = () => {
 
 				<UnifiedBowtie />
 
-				<Grid
-					md={2}
-					lg={3}
-					gap={8}
-					className={css({ textAlign: 'left', mt: '24' })}
+				<div
+					className={`${grid({ columns: { base: 1, md: 2, lg: 3 }, gap: '8' })} ${css({ textAlign: 'left', mt: '24' })}`}
 				>
 					{scopeData.map((scope) => (
 						<ScopeCard
@@ -122,7 +119,7 @@ export const ScopeSection: React.FC = () => {
 							icon={scope.icon}
 						/>
 					))}
-				</Grid>
+				</div>
 			</Container>
 		</Section>
 	);

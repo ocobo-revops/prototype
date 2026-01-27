@@ -17,8 +17,8 @@ import {
 import type React from 'react';
 import { Link } from 'react-router';
 import { css, cx } from 'styled-system/css';
+import { grid } from 'styled-system/patterns';
 import { Badge } from '../components/atoms';
-import { Grid } from '../components/layout/Grid';
 
 interface VideoStoryCardProps {
 	episode: string;
@@ -651,7 +651,12 @@ export const Jobs: React.FC = () => {
 						</p>
 					</div>
 
-					<Grid md={3} gap={12} className={css({ lg: { gap: '16' } })}>
+					<div
+						className={grid({
+							columns: { base: 1, md: 3 },
+							gap: { base: '12', lg: '16' },
+						})}
+					>
 						{stories.map((story) => (
 							<VideoStoryCard
 								key={story.episode}
@@ -664,7 +669,7 @@ export const Jobs: React.FC = () => {
 								videoThumb={story.videoThumb}
 							/>
 						))}
-					</Grid>
+					</div>
 				</div>
 			</section>
 
@@ -712,7 +717,7 @@ export const Jobs: React.FC = () => {
 					</h2>
 				</div>
 
-				<Grid md={2} lg={4} gap={8}>
+				<div className={grid({ columns: { base: 1, md: 2, lg: 4 }, gap: '8' })}>
 					{values.map((val) => (
 						<div
 							key={val.title}
@@ -776,7 +781,7 @@ export const Jobs: React.FC = () => {
 							</p>
 						</div>
 					))}
-				</Grid>
+				</div>
 			</section>
 
 			{/* 4. Nos offres à pourvoir */}

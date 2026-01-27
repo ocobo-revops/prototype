@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { MemoryRouter } from 'react-router';
-import TestimonialCard from './TestimonialCard';
+import { css } from 'styled-system/css';
+import { TestimonialCard } from './TestimonialCard';
 
 const meta: Meta<typeof TestimonialCard> = {
 	title: 'Molecules/TestimonialCard',
@@ -9,7 +10,7 @@ const meta: Meta<typeof TestimonialCard> = {
 	decorators: [
 		(Story) => (
 			<MemoryRouter>
-				<div className="bg-ocobo-dark p-8">
+				<div className={css({ bg: 'ocobo.dark', p: '8' })}>
 					<Story />
 				</div>
 			</MemoryRouter>

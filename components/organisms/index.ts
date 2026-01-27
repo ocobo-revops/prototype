@@ -1,3 +1,3 @@
-export { default as Container } from './Container';
+export { Container } from './Container';
 export { Section } from './Section';
-export { default as SectionHeader } from './SectionHeader';
+export { SectionHeader } from './SectionHeader';

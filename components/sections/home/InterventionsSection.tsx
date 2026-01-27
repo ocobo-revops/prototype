@@ -1,7 +1,7 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { grid } from 'styled-system/patterns';
 import { Button } from '../../atoms';
-import { Grid } from '../../layout/Grid';
 import { Container, Section } from '../../organisms';
 
 const INTERVENTIONS = [
@@ -52,7 +52,7 @@ export const InterventionsSection: React.FC = () => {
 					croissance.
 				</p>
 
-				<Grid md={3} gap={8}>
+				<div className={grid({ columns: { base: 1, md: 3 }, gap: '8' })}>
 					{INTERVENTIONS.map((intervention) => (
 						<div
 							key={intervention.number}
@@ -94,7 +94,7 @@ export const InterventionsSection: React.FC = () => {
 							</p>
 						</div>
 					))}
-				</Grid>
+				</div>
 
 				<div
 					className={css({

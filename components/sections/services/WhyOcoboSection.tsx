@@ -1,7 +1,7 @@
 import { CheckCircle2 } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
-import { Grid } from '../../layout/Grid';
+import { grid } from 'styled-system/patterns';
 import { SectionHeader } from '../../organisms';
 
 const REASONS = [
@@ -46,7 +46,7 @@ export const WhyOcoboSection: React.FC = () => {
 					light
 					className={css({ mb: '16' })}
 				/>
-				<Grid md={3} gap={12}>
+				<div className={grid({ columns: { base: 1, md: 3 }, gap: '12' })}>
 					{REASONS.map((reason) => (
 						<div key={reason.title} className={css({ textAlign: 'center' })}>
 							<div
@@ -80,7 +80,7 @@ export const WhyOcoboSection: React.FC = () => {
 							</p>
 						</div>
 					))}
-				</Grid>
+				</div>
 			</div>
 		</section>
 	);

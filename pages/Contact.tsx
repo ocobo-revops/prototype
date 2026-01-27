@@ -43,67 +43,224 @@ export function Contact() {
 	};
 
 	return (
-		<div className="w-full pt-32 pb-24 bg-white relative overflow-hidden">
+		<div
+			className={css({
+				w: 'full',
+				pt: '32',
+				pb: '24',
+				bg: 'white',
+				position: 'relative',
+				overflow: 'hidden',
+			})}
+		>
 			{/* Background Abstract Elements */}
-			<div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50 -z-10"></div>
-			<div className="absolute top-40 right-20 w-64 h-64 bg-ocobo-yellow rounded-full filter blur-[100px] opacity-20"></div>
+			<div
+				className={css({
+					position: 'absolute',
+					top: '0',
+					right: '0',
+					w: '1/3',
+					h: 'full',
+					bg: 'gray.50',
+					zIndex: -10,
+				})}
+			/>
+			<div
+				className={css({
+					position: 'absolute',
+					top: '40',
+					right: '20',
+					w: '64',
+					h: '64',
+					bg: 'ocobo.yellow',
+					rounded: 'full',
+					filter: 'blur(100px)',
+					opacity: 0.2,
+				})}
+			/>
 
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="flex flex-col lg:flex-row gap-20">
+			<div
+				className={css({
+					maxW: '7xl',
+					mx: 'auto',
+					px: { base: '4', sm: '6', lg: '8' },
+				})}
+			>
+				<div
+					className={css({
+						display: 'flex',
+						flexDir: { base: 'column', lg: 'row' },
+						gap: '20',
+					})}
+				>
 					{/* Left Side: Copy */}
-					<div className="lg:w-1/2 pt-10">
-						<div className="sticky top-32">
-							<span className="font-display font-bold text-ocobo-coral uppercase tracking-widest text-sm mb-4 block">
+					<div className={css({ lg: { w: '1/2' }, pt: '10' })}>
+						<div className={css({ position: 'sticky', top: '32' })}>
+							<span
+								className={css({
+									fontFamily: 'display',
+									fontWeight: 'bold',
+									color: 'ocobo.coral',
+									textTransform: 'uppercase',
+									letterSpacing: 'widest',
+									fontSize: 'sm',
+									mb: '4',
+									display: 'block',
+								})}
+							>
 								Première consultation
 							</span>
-							<h1 className="font-display text-5xl md:text-6xl font-bold text-ocobo-dark mb-8 leading-tight">
+							<h1
+								className={css({
+									fontFamily: 'display',
+									fontSize: { base: '5xl', md: '6xl' },
+									fontWeight: 'bold',
+									color: 'ocobo.dark',
+									mb: '8',
+									lineHeight: 'tight',
+								})}
+							>
 								Parlez à un architecte.
 								<br />
-								<span className="text-gray-400">Pas à un vendeur.</span>
+								<span className={css({ color: 'gray.400' })}>
+									Pas à un vendeur.
+								</span>
 							</h1>
 
-							<p className="text-xl text-gray-600 mb-12 leading-relaxed font-medium">
+							<p
+								className={css({
+									fontSize: 'xl',
+									color: 'gray.600',
+									mb: '12',
+									lineHeight: 'relaxed',
+									fontWeight: 'medium',
+								})}
+							>
 								En 30 minutes, nous analysons la maturité de votre machine
 								revenue et identifions vos leviers de croissance immédiats.
 							</p>
 
-							<div className="space-y-8">
-								<div className="flex gap-6 items-start group">
-									<div className="w-12 h-12 bg-ocobo-mint-light text-ocobo-mint rounded-xl flex items-center justify-center shrink-0 group-hover:bg-ocobo-mint group-hover:text-white transition-colors duration-300">
+							<div className={css({ spaceY: '8' })}>
+								<div
+									className={css({
+										display: 'flex',
+										gap: '6',
+										alignItems: 'flex-start',
+									})}
+								>
+									<div
+										className={css({
+											w: '12',
+											h: '12',
+											bg: 'ocobo.mint.light',
+											color: 'ocobo.mint',
+											rounded: 'xl',
+											display: 'flex',
+											alignItems: 'center',
+											justifyContent: 'center',
+											flexShrink: 0,
+											transition: 'all',
+											transitionDuration: '300ms',
+											_groupHover: { bg: 'ocobo.mint', color: 'white' },
+										})}
+									>
 										<Check strokeWidth={3} size={20} />
 									</div>
 									<div>
-										<h3 className="font-display text-lg font-bold text-ocobo-dark">
+										<h3
+											className={css({
+												fontFamily: 'display',
+												fontSize: 'lg',
+												fontWeight: 'bold',
+												color: 'ocobo.dark',
+											})}
+										>
 											Audit flash
 										</h3>
-										<p className="text-sm text-gray-600">
+										<p className={css({ fontSize: 'sm', color: 'gray.600' })}>
 											Diagnostic rapide de vos processus actuels et de votre
 											stack.
 										</p>
 									</div>
 								</div>
-								<div className="flex gap-6 items-start group">
-									<div className="w-12 h-12 bg-ocobo-sky-light text-ocobo-sky rounded-xl flex items-center justify-center shrink-0 group-hover:bg-ocobo-sky group-hover:text-white transition-colors duration-300">
+								<div
+									className={css({
+										display: 'flex',
+										gap: '6',
+										alignItems: 'flex-start',
+									})}
+								>
+									<div
+										className={css({
+											w: '12',
+											h: '12',
+											bg: 'ocobo.sky.light',
+											color: 'ocobo.sky',
+											rounded: 'xl',
+											display: 'flex',
+											alignItems: 'center',
+											justifyContent: 'center',
+											flexShrink: 0,
+											transition: 'all',
+											transitionDuration: '300ms',
+											_groupHover: { bg: 'ocobo.sky', color: 'white' },
+										})}
+									>
 										<MessageSquare strokeWidth={3} size={20} />
 									</div>
 									<div>
-										<h3 className="font-display text-lg font-bold text-ocobo-dark">
+										<h3
+											className={css({
+												fontFamily: 'display',
+												fontSize: 'lg',
+												fontWeight: 'bold',
+												color: 'ocobo.dark',
+											})}
+										>
 											Clarté radicale
 										</h3>
-										<p className="text-sm text-gray-600">
+										<p className={css({ fontSize: 'sm', color: 'gray.600' })}>
 											Recommandations stratégiques immédiates, sans jargon.
 										</p>
 									</div>
 								</div>
-								<div className="flex gap-6 items-start group">
-									<div className="w-12 h-12 bg-ocobo-yellow-light text-ocobo-yellow rounded-xl flex items-center justify-center shrink-0 group-hover:bg-ocobo-yellow group-hover:text-white transition-colors duration-300">
+								<div
+									className={css({
+										display: 'flex',
+										gap: '6',
+										alignItems: 'flex-start',
+									})}
+								>
+									<div
+										className={css({
+											w: '12',
+											h: '12',
+											bg: 'ocobo.yellow.light',
+											color: 'ocobo.yellow',
+											rounded: 'xl',
+											display: 'flex',
+											alignItems: 'center',
+											justifyContent: 'center',
+											flexShrink: 0,
+											transition: 'all',
+											transitionDuration: '300ms',
+											_groupHover: { bg: 'ocobo.yellow', color: 'white' },
+										})}
+									>
 										<Calendar strokeWidth={3} size={20} />
 									</div>
 									<div>
-										<h3 className="font-display text-lg font-bold text-ocobo-dark">
+										<h3
+											className={css({
+												fontFamily: 'display',
+												fontSize: 'lg',
+												fontWeight: 'bold',
+												color: 'ocobo.dark',
+											})}
+										>
 											Zéro engagement
 										</h3>
-										<p className="text-sm text-gray-600">
+										<p className={css({ fontSize: 'sm', color: 'gray.600' })}>
 											Un échange entre pairs pour valider la pertinence d'une
 											collaboration.
 										</p>
@@ -114,27 +271,62 @@ export function Contact() {
 					</div>
 
 					{/* Right Side: Form */}
-					<div className="lg:w-1/2">
-						<div className="bg-white p-8 md:p-12 shadow-card border border-gray-100 relative">
-							<div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-ocobo-yellow via-ocobo-coral to-ocobo-sky"></div>
+					<div className={css({ lg: { w: '1/2' } })}>
+						<div
+							className={css({
+								bg: 'white',
+								p: { base: '8', md: '12' },
+								shadow: 'card',
+								borderWidth: '1px',
+								borderColor: 'gray.100',
+								position: 'relative',
+							})}
+						>
+							<div
+								className={css({
+									position: 'absolute',
+									top: '0',
+									left: '0',
+									w: 'full',
+									h: '1',
+									bgGradient: 'to-r',
+									gradientFrom: 'ocobo.yellow',
+									gradientVia: 'ocobo.coral',
+									gradientTo: 'ocobo.sky',
+								})}
+							/>
 
-							<h3 className="font-display text-2xl font-bold mb-8 text-ocobo-dark">
+							<h3
+								className={css({
+									fontFamily: 'display',
+									fontSize: '2xl',
+									fontWeight: 'bold',
+									mb: '8',
+									color: 'ocobo.dark',
+								})}
+							>
 								Dites-nous en plus sur vos enjeux
 							</h3>
 
-							<form onSubmit={handleSubmit} className="space-y-6">
+							<form onSubmit={handleSubmit} className={css({ spaceY: '6' })}>
 								<Input
 									type="email"
 									name="email"
 									label="E-mail professionnel*"
 									required
 									placeholder="name@company.com"
-									className="placeholder-gray-300"
+									className={css({ _placeholder: { color: 'gray.300' } })}
 									value={formState.email}
 									onChange={handleChange}
 								/>
 
-								<div className="grid grid-cols-2 gap-4">
+								<div
+									className={css({
+										display: 'grid',
+										gridTemplateColumns: 'repeat(2, 1fr)',
+										gap: '4',
+									})}
+								>
 									<Input
 										type="text"
 										name="firstName"
@@ -263,14 +455,33 @@ export function Contact() {
 									onChange={handleChange}
 								/>
 
-								<div className="pt-6">
+								<div className={css({ pt: '6' })}>
 									<Button
 										type="submit"
-										className="w-full py-4 text-base bg-ocobo-dark hover:bg-black text-white shadow-xl hover:shadow-2xl hover:-translate-y-1"
+										className={css({
+											w: 'full',
+											py: '4',
+											fontSize: 'base',
+											bg: 'ocobo.dark',
+											color: 'white',
+											shadow: 'xl',
+											_hover: {
+												bg: 'black',
+												shadow: '2xl',
+												transform: 'translateY(-1px)',
+											},
+										})}
 									>
 										Prendre rendez-vous
 									</Button>
-									<p className="text-center text-xs text-gray-400 mt-4">
+									<p
+										className={css({
+											textAlign: 'center',
+											fontSize: 'xs',
+											color: 'gray.400',
+											mt: '4',
+										})}
+									>
 										En cliquant, vous acceptez d'être recontacté par l'équipe
 										Ocobo.
 									</p>

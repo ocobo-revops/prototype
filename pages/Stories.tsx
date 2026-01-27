@@ -12,9 +12,9 @@ import type React from 'react';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { css } from 'styled-system/css';
+import { grid } from 'styled-system/patterns';
 import { Badge, Button } from '../components/atoms';
 import { ClientMarquee } from '../components/layout/ClientMarquee';
-import { Grid } from '../components/layout/Grid';
 
 const StoriesIllustration = () => {
 	return (
@@ -894,7 +894,9 @@ export const Stories: React.FC = () => {
 
 			{/* Bento Grid Stories */}
 			<section className={css({ maxW: '7xl', mx: 'auto', px: '4', pb: '40' })}>
-				<Grid md={2} lg={3} gap={8} className="stagger-fade">
+				<div
+					className={`${grid({ columns: { base: 1, md: 2, lg: 3 }, gap: '8' })} stagger-fade`}
+				>
 					{filteredCases.map((item) => (
 						<Link
 							key={item.id}
@@ -1209,7 +1211,7 @@ export const Stories: React.FC = () => {
 							</div>
 						</Link>
 					))}
-				</Grid>
+				</div>
 			</section>
 
 			{/* CTA Section */}

@@ -15,9 +15,9 @@ import {
 import type React from 'react';
 import { useEffect, useState } from 'react';
 import { css } from 'styled-system/css';
+import { grid } from 'styled-system/patterns';
 import { Badge, Button } from '../components/atoms';
 import FlexPair from '../components/layout/FlexPair';
-import { Grid } from '../components/layout/Grid';
 import {
 	DEFAULT_STACK_ITEMS,
 	ModularStackGrid,
@@ -508,7 +508,7 @@ export const Partners: React.FC = () => {
 						</p>
 					</div>
 
-					<Grid md={3} gap={10}>
+					<div className={grid({ columns: { base: 1, md: 3 }, gap: '10' })}>
 						<div
 							className={css({
 								bg: 'white',
@@ -671,7 +671,7 @@ export const Partners: React.FC = () => {
 								les plus puissantes du marché.
 							</p>
 						</div>
-					</Grid>
+					</div>
 				</div>
 			</section>
 
@@ -747,11 +747,8 @@ export const Partners: React.FC = () => {
 						</div>
 					</div>
 
-					<Grid
-						md={2}
-						lg={3}
-						gap={8}
-						className={css({ transition: 'all', transitionDuration: '500ms' })}
+					<div
+						className={`${grid({ columns: { base: 1, md: 2, lg: 3 }, gap: '8' })} ${css({ transition: 'all', transitionDuration: '500ms' })}`}
 					>
 						{filtered.map((partner) => (
 							<div
@@ -1058,7 +1055,7 @@ export const Partners: React.FC = () => {
 								</div>
 							</div>
 						))}
-					</Grid>
+					</div>
 				</div>
 			</section>
 
@@ -1349,7 +1346,12 @@ export const Partners: React.FC = () => {
 										>
 											Devenez partenaire
 										</h3>
-										<Grid md={2} gap={6}>
+										<div
+											className={grid({
+												columns: { base: 1, md: 2 },
+												gap: '6',
+											})}
+										>
 											<div
 												className={css({
 													display: 'flex',
@@ -1432,7 +1434,7 @@ export const Partners: React.FC = () => {
 													})}
 												/>
 											</div>
-										</Grid>
+										</div>
 										<div
 											className={css({
 												display: 'flex',

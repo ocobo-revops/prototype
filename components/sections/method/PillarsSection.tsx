@@ -1,8 +1,8 @@
 import { GraduationCap, Layout, LineChart, Sliders } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { grid } from 'styled-system/patterns';
 import { ThemeColor } from '../../../types';
-import { Grid } from '../../layout/Grid';
 import { PillarCard } from '../../molecules';
 import { Container, Section } from '../../organisms';
 
@@ -158,7 +158,7 @@ export const PillarsSection: React.FC = () => {
 					</p>
 				</div>
 
-				<Grid lg={2} gap={10}>
+				<div className={grid({ columns: { base: 1, lg: 2 }, gap: '10' })}>
 					{pillarsData.map((pillar) => (
 						<PillarCard
 							key={pillar.number}
@@ -170,7 +170,7 @@ export const PillarsSection: React.FC = () => {
 							icon={pillar.icon}
 						/>
 					))}
-				</Grid>
+				</div>
 			</Container>
 		</Section>
 	);

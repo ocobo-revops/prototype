@@ -1,5 +1,6 @@
 import { Plus } from 'lucide-react';
 import type React from 'react';
+import { css } from 'styled-system/css';
 import type { ThemeColor } from '../../types';
 
 interface FeatureCardProps {
@@ -12,11 +13,11 @@ interface FeatureCardProps {
 }
 
 const colourStyles: Record<ThemeColor, { bg: string; text: string }> = {
-	yellow: { bg: 'bg-ocobo-yellow-light', text: 'text-ocobo-yellow' },
-	mint: { bg: 'bg-ocobo-mint-light', text: 'text-ocobo-mint' },
-	sky: { bg: 'bg-ocobo-sky-light', text: 'text-ocobo-sky' },
-	coral: { bg: 'bg-ocobo-coral-light', text: 'text-ocobo-coral' },
-	dark: { bg: 'bg-gray-100', text: 'text-ocobo-dark' },
+	yellow: { bg: 'ocobo.yellow.light', text: 'ocobo.yellow' },
+	mint: { bg: 'ocobo.mint.light', text: 'ocobo.mint' },
+	sky: { bg: 'ocobo.sky.light', text: 'ocobo.sky' },
+	coral: { bg: 'ocobo.coral.light', text: 'ocobo.coral' },
+	dark: { bg: 'gray.100', text: 'ocobo.dark' },
 };
 
 export const FeatureCard: React.FC<FeatureCardProps> = ({
@@ -31,36 +32,104 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
 
 	return (
 		<div
-			className={`group relative bg-white border border-gray-100 p-12 aspect-square rounded-2xl transition-all duration-500 hover:shadow-soft-lg hover:-translate-y-2 flex flex-col items-center justify-center text-center ${className}`}
+			className={`${css({
+				position: 'relative',
+				bg: 'white',
+				borderWidth: '1px',
+				borderColor: 'gray.100',
+				p: '12',
+				aspectRatio: 'square',
+				rounded: '2xl',
+				transition: 'all',
+				transitionDuration: '500ms',
+				display: 'flex',
+				flexDir: 'column',
+				alignItems: 'center',
+				justifyContent: 'center',
+				textAlign: 'center',
+				_hover: { shadow: 'soft-lg', transform: 'translateY(-8px)' },
+			})} group ${className}`}
 		>
 			<div
-				className={`absolute inset-0 ${styles.bg} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity`}
+				className={css({
+					position: 'absolute',
+					inset: '0',
+					bg: styles.bg,
+					opacity: '0',
+					rounded: '2xl',
+					transition: 'opacity',
+					transitionDuration: '300ms',
+					_groupHover: { opacity: '0.1' },
+				})}
 			/>
 
 			<div
-				className={`mb-8 ${styles.text} transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}
+				className={css({
+					mb: '8',
+					color: styles.text,
+					transition: 'all',
+					transitionDuration: '500ms',
+					_groupHover: { transform: 'scale(1.1) rotate(6deg)' },
+				})}
 			>
 				{icon}
 			</div>
 
 			{label && (
-				<span className="font-display font-black text-ocobo-dark/30 text-xs uppercase tracking-[0.5em] mb-4">
+				<span
+					className={css({
+						fontFamily: 'display',
+						fontWeight: 'black',
+						color: 'ocobo.dark/30',
+						fontSize: 'xs',
+						textTransform: 'uppercase',
+						letterSpacing: '0.5em',
+						mb: '4',
+					})}
+				>
 					{label}
 				</span>
 			)}
 
 			<h3
-				className={`font-display text-4xl font-black text-ocobo-dark group-hover:${styles.text} mb-3 tracking-tighter transition-colors`}
+				className={css({
+					fontFamily: 'display',
+					fontSize: '4xl',
+					fontWeight: 'black',
+					color: 'ocobo.dark',
+					mb: '3',
+					letterSpacing: 'tighter',
+					transition: 'colors',
+					transitionDuration: '300ms',
+					_groupHover: { color: styles.text },
+				})}
 			>
 				{title}
 			</h3>
 
-			<p className="text-gray-400 font-bold text-xs uppercase tracking-[0.2em]">
+			<p
+				className={css({
+					color: 'gray.400',
+					fontWeight: 'bold',
+					fontSize: 'xs',
+					textTransform: 'uppercase',
+					letterSpacing: '0.2em',
+				})}
+			>
 				{description}
 			</p>
 
-			<div className="absolute bottom-6 opacity-0 group-hover:opacity-20 transition-opacity">
-				<Plus size={20} className="text-ocobo-dark" />
+			<div
+				className={css({
+					position: 'absolute',
+					bottom: '6',
+					opacity: '0',
+					transition: 'opacity',
+					transitionDuration: '300ms',
+					_groupHover: { opacity: '0.2' },
+				})}
+			>
+				<Plus size={20} className={css({ color: 'ocobo.dark' })} />
 			</div>
 		</div>
 	);

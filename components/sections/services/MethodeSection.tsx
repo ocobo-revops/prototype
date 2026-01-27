@@ -1,7 +1,7 @@
 import { BarChart3, Cog, GraduationCap, Layout } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
-import { Grid } from '../../layout/Grid';
+import { grid } from 'styled-system/patterns';
 import { SectionHeader } from '../../organisms';
 
 const STEPS = [
@@ -41,7 +41,7 @@ export const MethodeSection: React.FC = () => {
 					title="Notre méthode en 4 étapes"
 					className={css({ mb: '16' })}
 				/>
-				<Grid md={4} gap={6}>
+				<div className={grid({ columns: { base: 1, md: 4 }, gap: '6' })}>
 					{STEPS.map((step, i) => (
 						<div
 							key={step.title}
@@ -113,7 +113,7 @@ export const MethodeSection: React.FC = () => {
 							</div>
 						</div>
 					))}
-				</Grid>
+				</div>
 			</div>
 		</section>
 	);

@@ -1,4 +1,5 @@
 import type React from 'react';
+import { css } from 'styled-system/css';
 
 type GapSize = 2 | 3 | 4 | 5 | 6 | 8;
 type AlignItems = 'start' | 'center' | 'end';
@@ -15,19 +16,10 @@ interface SubComponentProps {
 	className?: string;
 }
 
-const gapClasses: Record<GapSize, string> = {
-	2: 'gap-2',
-	3: 'gap-3',
-	4: 'gap-4',
-	5: 'gap-5',
-	6: 'gap-6',
-	8: 'gap-8',
-};
-
-const alignClasses: Record<AlignItems, string> = {
-	start: 'items-start',
-	center: 'items-center',
-	end: 'items-end',
+const alignMap: Record<AlignItems, 'flex-start' | 'center' | 'flex-end'> = {
+	start: 'flex-start',
+	center: 'center',
+	end: 'flex-end',
 };
 
 const FlexPairRoot: React.FC<FlexPairProps> = ({
@@ -36,21 +28,31 @@ const FlexPairRoot: React.FC<FlexPairProps> = ({
 	align = 'start',
 	className = '',
 }) => {
-	const classes = ['flex', gapClasses[gap], alignClasses[align], className]
-		.filter(Boolean)
-		.join(' ');
-
-	return <div className={classes}>{children}</div>;
+	return (
+		<div
+			className={`${css({
+				display: 'flex',
+				gap: String(gap),
+				alignItems: alignMap[align],
+			})} ${className}`}
+		>
+			{children}
+		</div>
+	);
 };
 
 const Icon: React.FC<SubComponentProps> = ({ children, className = '' }) => {
-	const classes = ['shrink-0', className].filter(Boolean).join(' ');
-	return <div className={classes}>{children}</div>;
+	return (
+		<div className={`${css({ flexShrink: 0 })} ${className}`}>{children}</div>
+	);
 };
 
 const Content: React.FC<SubComponentProps> = ({ children, className = '' }) => {
-	const classes = ['flex-1 min-w-0', className].filter(Boolean).join(' ');
-	return <div className={classes}>{children}</div>;
+	return (
+		<div className={`${css({ flex: '1', minW: '0' })} ${className}`}>
+			{children}
+		</div>
+	);
 };
 
 const FlexPair = Object.assign(FlexPairRoot, {

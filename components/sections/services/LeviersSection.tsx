@@ -2,7 +2,7 @@ import { ArrowRight, Cpu, Layers, Users } from 'lucide-react';
 import type React from 'react';
 import { Link } from 'react-router';
 import { css } from 'styled-system/css';
-import { Grid } from '../../layout/Grid';
+import { grid } from 'styled-system/patterns';
 import { SectionHeader } from '../../organisms';
 
 export const LeviersSection: React.FC = () => {
@@ -31,7 +31,12 @@ export const LeviersSection: React.FC = () => {
 					className={css({ maxW: '3xl', mb: '20' })}
 				/>
 
-				<Grid lg={3} gap={8} className={css({ gap: { base: '12', lg: '8' } })}>
+				<div
+					className={grid({
+						columns: { base: 1, lg: 3 },
+						gap: { base: '12', lg: '8' },
+					})}
+				>
 					{/* Levier 1: Méthode */}
 					<Link
 						to="/method"
@@ -498,7 +503,7 @@ export const LeviersSection: React.FC = () => {
 							</div>
 						</div>
 					</Link>
-				</Grid>
+				</div>
 			</div>
 		</section>
 	);

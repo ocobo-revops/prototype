@@ -1,4 +1,5 @@
 import type React from 'react';
+import { css } from 'styled-system/css';
 import { ThemeColor } from '../../types';
 
 interface AccentCardProps {
@@ -8,30 +9,47 @@ interface AccentCardProps {
 	className?: string;
 }
 
-const AccentCard: React.FC<AccentCardProps> = ({
+const colorStyles: Record<ThemeColor, { borderColor: string; bg: string }> = {
+	[ThemeColor.YELLOW]: {
+		borderColor: 'ocobo.yellow',
+		bg: 'ocobo.yellow.light',
+	},
+	[ThemeColor.MINT]: { borderColor: 'ocobo.mint', bg: 'ocobo.mint.light' },
+	[ThemeColor.SKY]: { borderColor: 'ocobo.sky', bg: 'ocobo.sky.light' },
+	[ThemeColor.CORAL]: { borderColor: 'ocobo.coral', bg: 'ocobo.coral.light' },
+	[ThemeColor.DARK]: { borderColor: 'ocobo.dark', bg: 'gray.100' },
+};
+
+export const AccentCard: React.FC<AccentCardProps> = ({
 	title,
 	description,
 	color = ThemeColor.YELLOW,
 	className = '',
 }) => {
-	const colorStyles: Record<ThemeColor, string> = {
-		[ThemeColor.YELLOW]: 'border-l-ocobo-yellow bg-ocobo-yellow-light',
-		[ThemeColor.MINT]: 'border-l-ocobo-mint bg-ocobo-mint-light',
-		[ThemeColor.SKY]: 'border-l-ocobo-sky bg-ocobo-sky-light',
-		[ThemeColor.CORAL]: 'border-l-ocobo-coral bg-ocobo-coral-light',
-		[ThemeColor.DARK]: 'border-l-ocobo-dark bg-gray-100',
-	};
+	const style = colorStyles[color];
 
 	return (
 		<div
-			className={`border-l-4 rounded-lg p-6 ${colorStyles[color]} ${className}`}
+			className={`${css({
+				borderLeftWidth: '4px',
+				borderLeftColor: style.borderColor,
+				rounded: 'lg',
+				p: '6',
+				bg: style.bg,
+			})} ${className}`}
 		>
-			<h3 className="font-display font-bold text-lg text-ocobo-dark mb-2">
+			<h3
+				className={css({
+					fontFamily: 'display',
+					fontWeight: 'bold',
+					fontSize: 'lg',
+					color: 'ocobo.dark',
+					mb: '2',
+				})}
+			>
 				{title}
 			</h3>
-			<p className="text-gray-600">{description}</p>
+			<p className={css({ color: 'gray.600' })}>{description}</p>
 		</div>
 	);
 };
-
-export default AccentCard;

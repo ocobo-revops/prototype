@@ -1,4 +1,5 @@
 import React from 'react';
+import { css } from 'styled-system/css';
 
 type GapSize = 6 | 8 | 10 | 12 | 16;
 type AsideWidth = '1/3' | '5/12';
@@ -22,29 +23,14 @@ interface ContentProps {
 	className?: string;
 }
 
-const gapClasses: Record<GapSize, string> = {
-	6: 'gap-6',
-	8: 'gap-8',
-	10: 'gap-10',
-	12: 'gap-12',
-	16: 'gap-16',
+const sidebarWidths: Record<AsideWidth, string> = {
+	'1/3': '1/3',
+	'5/12': '5/12',
 };
 
-const sidebarWidthClasses: Record<AsideWidth, string> = {
-	'1/3': 'lg:w-1/3',
-	'5/12': 'lg:w-5/12',
-};
-
-const contentWidthClasses: Record<AsideWidth, string> = {
-	'1/3': 'lg:w-2/3',
-	'5/12': 'lg:w-7/12',
-};
-
-const stickyTopClasses: Record<StickyTop, string> = {
-	20: 'lg:top-20',
-	24: 'lg:top-24',
-	28: 'lg:top-28',
-	32: 'lg:top-32',
+const contentWidths: Record<AsideWidth, string> = {
+	'1/3': '2/3',
+	'5/12': '7/12',
 };
 
 const StickyAsideRoot: React.FC<StickyAsideProps> = ({
@@ -54,10 +40,6 @@ const StickyAsideRoot: React.FC<StickyAsideProps> = ({
 	stickyTop = 24,
 	className = '',
 }) => {
-	const classes = ['flex flex-col lg:flex-row', gapClasses[gap], className]
-		.filter(Boolean)
-		.join(' ');
-
 	// Clone children to inject width/stickyTop props
 	const enhancedChildren = React.Children.map(children, (child) => {
 		if (!React.isValidElement(child)) return child;
@@ -75,7 +57,17 @@ const StickyAsideRoot: React.FC<StickyAsideProps> = ({
 		return child;
 	});
 
-	return <div className={classes}>{enhancedChildren}</div>;
+	return (
+		<div
+			className={`${css({
+				display: 'flex',
+				flexDir: { base: 'column', lg: 'row' },
+				gap: String(gap),
+			})} ${className}`}
+		>
+			{enhancedChildren}
+		</div>
+	);
 };
 
 interface SidebarInternalProps extends SidebarProps {
@@ -89,15 +81,19 @@ const Sidebar: React.FC<SidebarInternalProps> = ({
 	_asideWidth = '1/3',
 	_stickyTop = 24,
 }) => {
-	const classes = [
-		'shrink-0 lg:sticky lg:self-start',
-		stickyTopClasses[_stickyTop],
-		sidebarWidthClasses[_asideWidth],
-		className,
-	]
-		.filter(Boolean)
-		.join(' ');
-	return <aside className={classes}>{children}</aside>;
+	return (
+		<aside
+			className={`${css({
+				flexShrink: 0,
+				position: { lg: 'sticky' },
+				alignSelf: { lg: 'flex-start' },
+				top: { lg: String(_stickyTop) },
+				w: { lg: sidebarWidths[_asideWidth] },
+			})} ${className}`}
+		>
+			{children}
+		</aside>
+	);
 };
 
 interface ContentInternalProps extends ContentProps {
@@ -109,10 +105,15 @@ const Content: React.FC<ContentInternalProps> = ({
 	className = '',
 	_asideWidth = '1/3',
 }) => {
-	const classes = [contentWidthClasses[_asideWidth], className]
-		.filter(Boolean)
-		.join(' ');
-	return <div className={classes}>{children}</div>;
+	return (
+		<div
+			className={`${css({
+				w: { lg: contentWidths[_asideWidth] },
+			})} ${className}`}
+		>
+			{children}
+		</div>
+	);
 };
 
 const StickyAside = Object.assign(StickyAsideRoot, {

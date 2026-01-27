@@ -1,6 +1,6 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
-import { Grid } from '../../layout/Grid';
+import { grid } from 'styled-system/patterns';
 
 export const TransitionSection: React.FC = () => {
 	return (
@@ -41,7 +41,9 @@ export const TransitionSection: React.FC = () => {
 						RevOps vient remettre de l'ordre.
 					</h2>
 
-					<Grid md={2} lg={4} gap={12}>
+					<div
+						className={grid({ columns: { base: 1, md: 2, lg: 4 }, gap: '12' })}
+					>
 						<div className={css({ spaceY: '4' })}>
 							<h3
 								className={css({
@@ -130,7 +132,7 @@ export const TransitionSection: React.FC = () => {
 								parcours client.
 							</p>
 						</div>
-					</Grid>
+					</div>
 				</div>
 			</div>
 		</section>

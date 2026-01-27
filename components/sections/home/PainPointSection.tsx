@@ -1,9 +1,9 @@
 import { BarChart3, Layout, Target, Zap } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { grid } from 'styled-system/patterns';
 import { ThemeColor } from '../../../types';
 import { FeatureCard } from '../../layout/FeatureCard';
-import { Grid } from '../../layout/Grid';
 import { Container, Section } from '../../organisms';
 
 export const PainPointSection: React.FC = () => {
@@ -90,7 +90,7 @@ export const PainPointSection: React.FC = () => {
 			<Container
 				className={css({ mt: '28', position: 'relative', zIndex: '10' })}
 			>
-				<Grid md={2} lg={4} gap={6}>
+				<div className={grid({ columns: { base: 1, md: 2, lg: 4 }, gap: '6' })}>
 					<FeatureCard
 						icon={<Layout size={28} />}
 						title="Aligner"
@@ -119,7 +119,7 @@ export const PainPointSection: React.FC = () => {
 						colour={ThemeColor.MINT}
 						label="Organiser ="
 					/>
-				</Grid>
+				</div>
 			</Container>
 
 			<div

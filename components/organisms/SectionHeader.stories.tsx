@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import SectionHeader from './SectionHeader';
+import { css } from 'styled-system/css';
+import { SectionHeader } from './SectionHeader';
 
 const meta: Meta<typeof SectionHeader> = {
 	title: 'Organisms/SectionHeader',
@@ -67,7 +68,7 @@ export const LightMode: Story = {
 	},
 	decorators: [
 		(Story) => (
-			<div className="bg-ocobo-dark p-8">
+			<div className={css({ bg: 'ocobo.dark', p: '8' })}>
 				<Story />
 			</div>
 		),
@@ -76,7 +77,7 @@ export const LightMode: Story = {
 
 export const AllBadgeVariants: Story = {
 	render: () => (
-		<div className="flex flex-col gap-12">
+		<div className={css({ display: 'flex', flexDir: 'column', gap: '12' })}>
 			<SectionHeader
 				badge="Yellow"
 				badgeVariant="yellow"

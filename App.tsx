@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, HashRouter as Router, Routes, useLocation } from 'react-router';
+import { css } from 'styled-system/css';
 import { Footer } from './components/Footer';
 import { Navbar } from './components/Navbar';
 import { NewsletterWidget } from './components/NewsletterWidget';
@@ -33,9 +34,22 @@ const App: React.FC = () => {
 	return (
 		<Router>
 			<ScrollToTop />
-			<div className="flex flex-col min-h-screen bg-white text-ocobo-dark font-sans selection:bg-ocobo-yellow selection:text-ocobo-dark">
+			<div
+				className={css({
+					display: 'flex',
+					flexDir: 'column',
+					minH: 'screen',
+					bg: 'white',
+					color: 'ocobo.dark',
+					fontFamily: 'sans',
+					'& ::selection': {
+						bg: 'ocobo.yellow',
+						color: 'ocobo.dark',
+					},
+				})}
+			>
 				<Navbar />
-				<main className="flex-grow">
+				<main className={css({ flexGrow: 1 })}>
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/contact" element={<Contact />} />

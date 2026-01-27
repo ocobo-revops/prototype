@@ -1,19 +1,42 @@
+import { css } from 'styled-system/css';
+
 export const UnifiedBowtie = () => {
 	return (
-		<div className="relative w-full max-w-7xl mx-auto py-12 px-4 overflow-visible group/bowtie">
-			<div className="relative w-full aspect-[21/9] md:aspect-[28/9]">
+		<div
+			className={css({
+				position: 'relative',
+				w: 'full',
+				maxW: '7xl',
+				mx: 'auto',
+				py: '12',
+				px: '4',
+				overflow: 'visible',
+			})}
+		>
+			<div
+				className={css({
+					position: 'relative',
+					w: 'full',
+					aspectRatio: { base: '21/9', md: '28/9' },
+				})}
+			>
 				{/* GRID BACKGROUND FOR BOWTIE */}
 				<div
-					className="absolute inset-0 opacity-[0.03]"
+					className={css({ position: 'absolute', inset: '0', opacity: '0.03' })}
 					style={{
 						backgroundImage: 'radial-gradient(#212323 1px, transparent 1px)',
 						backgroundSize: '20px 20px',
 					}}
-				></div>
+				/>
 
 				<svg
 					viewBox="0 0 1200 350"
-					className="w-full h-full overflow-visible text-ocobo-dark"
+					className={css({
+						w: 'full',
+						h: 'full',
+						overflow: 'visible',
+						color: 'ocobo.dark',
+					})}
 					fill="none"
 				>
 					<defs>
@@ -66,7 +89,11 @@ export const UnifiedBowtie = () => {
 							fillOpacity="0.15"
 							fontSize="7"
 							fontWeight="900"
-							className="font-display uppercase tracking-[0.3em]"
+							className={css({
+								fontFamily: 'display',
+								textTransform: 'uppercase',
+								letterSpacing: '0.3em',
+							})}
 						>
 							Acquisition
 						</text>
@@ -89,7 +116,11 @@ export const UnifiedBowtie = () => {
 							fillOpacity="0.15"
 							fontSize="7"
 							fontWeight="900"
-							className="font-display uppercase tracking-[0.3em]"
+							className={css({
+								fontFamily: 'display',
+								textTransform: 'uppercase',
+								letterSpacing: '0.3em',
+							})}
 						>
 							Expansion
 						</text>
@@ -143,7 +174,7 @@ export const UnifiedBowtie = () => {
 							height="100"
 							fill="currentColor"
 							rx="4"
-							className="shadow-lg"
+							className={css({ shadow: 'lg' })}
 						/>
 						<text
 							x="600"
@@ -152,7 +183,11 @@ export const UnifiedBowtie = () => {
 							fill="white"
 							fontSize="9"
 							fontWeight="900"
-							className="font-display uppercase tracking-[0.2em]"
+							className={css({
+								fontFamily: 'display',
+								textTransform: 'uppercase',
+								letterSpacing: '0.2em',
+							})}
 						>
 							Nouveau
 						</text>
@@ -163,7 +198,11 @@ export const UnifiedBowtie = () => {
 							fill="white"
 							fontSize="9"
 							fontWeight="900"
-							className="font-display uppercase tracking-[0.2em]"
+							className={css({
+								fontFamily: 'display',
+								textTransform: 'uppercase',
+								letterSpacing: '0.2em',
+							})}
 						>
 							Client
 						</text>
@@ -173,7 +212,7 @@ export const UnifiedBowtie = () => {
 							cy="125"
 							r="3"
 							fill="#9ADBBA"
-							className="animate-pulse"
+							className={css({ animation: 'pulse' })}
 						/>
 					</g>
 
@@ -183,7 +222,11 @@ export const UnifiedBowtie = () => {
 						fillOpacity="0.3"
 						fontSize="8"
 						fontWeight="900"
-						className="font-display uppercase tracking-[0.2em]"
+						className={css({
+							fontFamily: 'display',
+							textTransform: 'uppercase',
+							letterSpacing: '0.2em',
+						})}
 					>
 						{/* Left Flow */}
 						<text x="40" y="240" textAnchor="start" dx="5">
@@ -210,7 +253,7 @@ export const UnifiedBowtie = () => {
 
 					{/* MAIN LABELS */}
 					<g
-						className="font-display"
+						className={css({ fontFamily: 'display' })}
 						fontSize="11"
 						fontWeight="900"
 						fill="currentColor"

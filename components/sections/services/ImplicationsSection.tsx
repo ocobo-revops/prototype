@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
-import { Grid } from '../../layout/Grid';
+import { grid } from 'styled-system/patterns';
 
 const BLOCKS = [
 	{
@@ -113,7 +113,7 @@ export const ImplicationsSection: React.FC = () => {
 					</p>
 				</div>
 
-				<Grid md={2} lg={3} gap={8}>
+				<div className={grid({ columns: { base: 1, md: 2, lg: 3 }, gap: '8' })}>
 					{BLOCKS.map((block) => (
 						<div
 							key={block.title}
@@ -180,7 +180,7 @@ export const ImplicationsSection: React.FC = () => {
 							</ul>
 						</div>
 					))}
-				</Grid>
+				</div>
 			</div>
 		</section>
 	);

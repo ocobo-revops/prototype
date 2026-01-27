@@ -8,8 +8,8 @@ import {
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { css, cx } from 'styled-system/css';
+import { grid } from 'styled-system/patterns';
 import { Badge, Button } from '../components/atoms';
-import { Grid } from '../components/layout/Grid';
 
 function TeamPhotoIllustration() {
 	return (
@@ -540,7 +540,7 @@ export function Studio() {
 						</p>
 					</div>
 
-					<Grid md={3} gap={10}>
+					<div className={grid({ columns: { base: 1, md: 3 }, gap: '10' })}>
 						{[
 							{
 								icon: Users,
@@ -611,7 +611,7 @@ export function Studio() {
 								</p>
 							</div>
 						))}
-					</Grid>
+					</div>
 				</div>
 			</section>
 
@@ -689,7 +689,9 @@ export function Studio() {
 						</div>
 					</div>
 
-					<Grid md={2} lg={3} gap={8}>
+					<div
+						className={grid({ columns: { base: 1, md: 2, lg: 3 }, gap: '8' })}
+					>
 						{filteredTeam.map((member) => (
 							<div
 								key={`${member.name}-${activeFilter}`}
@@ -848,7 +850,7 @@ export function Studio() {
 								</div>
 							</div>
 						))}
-					</Grid>
+					</div>
 				</div>
 			</section>
 

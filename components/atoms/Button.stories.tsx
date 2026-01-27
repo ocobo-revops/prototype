@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { css } from 'styled-system/css';
 import { Button } from './Button';
 
 const meta: Meta<typeof Button> = {
@@ -76,8 +77,8 @@ export const NoArrow: Story = {
 
 export const AllVariants: Story = {
 	render: () => (
-		<div className="flex flex-col gap-4">
-			<div className="flex gap-4 items-center">
+		<div className={css({ display: 'flex', flexDir: 'column', gap: '4' })}>
+			<div className={css({ display: 'flex', gap: '4', alignItems: 'center' })}>
 				<Button variant="primary" size="sm">
 					Small
 				</Button>
@@ -88,7 +89,7 @@ export const AllVariants: Story = {
 					Large
 				</Button>
 			</div>
-			<div className="flex gap-4 items-center">
+			<div className={css({ display: 'flex', gap: '4', alignItems: 'center' })}>
 				<Button variant="outline" size="sm">
 					Small
 				</Button>
@@ -99,7 +100,16 @@ export const AllVariants: Story = {
 					Large
 				</Button>
 			</div>
-			<div className="flex gap-4 items-center p-4 bg-ocobo-dark rounded-lg">
+			<div
+				className={css({
+					display: 'flex',
+					gap: '4',
+					alignItems: 'center',
+					p: '4',
+					bg: 'ocobo.dark',
+					rounded: 'lg',
+				})}
+			>
 				<Button variant="white" size="sm">
 					Small
 				</Button>
