@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
-import { center, flex, grid, hstack } from 'styled-system/patterns';
+import { center, grid, hstack } from 'styled-system/patterns';
 
 const BLOCKS = [
 	{

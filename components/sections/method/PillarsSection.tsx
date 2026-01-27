@@ -3,8 +3,9 @@ import type React from 'react';
 import { css } from 'styled-system/css';
 import { grid } from 'styled-system/patterns';
 import { ThemeColor } from '../../../types';
-import { PillarCard } from '../../molecules';
-import { Container, Section } from '../../organisms';
+import { PillarCard } from '../../molecules/PillarCard';
+import { Container } from '../../organisms/Container';
+import { Section } from '../../organisms/Section';
 
 const pillarsData = [
 	{

@@ -13,7 +13,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { css } from 'styled-system/css';
 import { center, flex, grid, hstack, vstack } from 'styled-system/patterns';
-import { Badge, Button } from '../components/atoms';
+import { Badge } from '../components/atoms/Badge';
+import { Button } from '../components/atoms/Button';
 import { ClientMarquee } from '../components/layout/ClientMarquee';
 
 const StoriesIllustration = () => {

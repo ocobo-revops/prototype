@@ -1,7 +1,7 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
 import type { ThemeColor } from '../../types';
-import { Badge } from '../atoms';
+import { Badge } from '../atoms/Badge';
 
 interface SectionHeaderProps {
 	badge?: string;

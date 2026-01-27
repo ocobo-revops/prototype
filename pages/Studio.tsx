@@ -9,7 +9,8 @@ import {
 import { useEffect, useState } from 'react';
 import { css, cx } from 'styled-system/css';
 import { center, flex, grid, hstack } from 'styled-system/patterns';
-import { Badge, Button } from '../components/atoms';
+import { Badge } from '../components/atoms/Badge';
+import { Button } from '../components/atoms/Button';
 
 function TeamPhotoIllustration() {
 	return (

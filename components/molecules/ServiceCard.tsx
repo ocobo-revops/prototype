@@ -1,7 +1,7 @@
 import type React from 'react';
 import { css } from 'styled-system/css';
 import { ThemeColor } from '../../types';
-import { NumberCircle } from '../atoms';
+import NumberCircle from '../atoms/NumberCircle';
 
 interface ServiceCardProps {
 	number: number;

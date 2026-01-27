@@ -2,9 +2,10 @@ import type React from 'react';
 import { css } from 'styled-system/css';
 import { center, flex, grid } from 'styled-system/patterns';
 import { ThemeColor } from '../../../types';
-import { Button } from '../../atoms';
+import { Button } from '../../atoms/Button';
 import { TeamMemberCard } from '../../molecules/TeamMemberCard';
-import { Container, Section } from '../../organisms';
+import { Container } from '../../organisms/Container';
+import { Section } from '../../organisms/Section';
 
 const IconSeparator = () => {
 	return (

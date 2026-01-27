@@ -13,7 +13,7 @@ import {
 import { useState } from 'react';
 import { css } from 'styled-system/css';
 import { center, flex, hstack, vstack } from 'styled-system/patterns';
-import { Button } from '../components/atoms';
+import { Button } from '../components/atoms/Button';
 
 export function Podcast() {
 	const [isPlaying, setIsPlaying] = useState(false);

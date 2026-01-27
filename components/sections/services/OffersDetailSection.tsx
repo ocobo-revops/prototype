@@ -2,7 +2,7 @@ import { CheckCircle2 } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
 import { center, flex, grid } from 'styled-system/patterns';
-import { SectionHeader } from '../../organisms';
+import { SectionHeader } from '../../organisms/SectionHeader';
 
 export const OffersDetailSection: React.FC = () => {
 	return (
