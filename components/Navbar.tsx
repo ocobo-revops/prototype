@@ -285,6 +285,7 @@ function NavItemWithDropdown({
 				rounded: 'full',
 				fontSize: 'sm',
 				fontWeight: 'bold',
+				cursor: 'pointer',
 				transition: 'all',
 				transitionDuration: '300ms',
 				color: isDropdownActive || isCurrent ? 'white' : 'gray.300',
@@ -297,7 +298,8 @@ function NavItemWithDropdown({
 			py: '2',
 			rounded: 'full',
 			fontSize: 'sm',
-			fontWeight: isDropdownActive || isCurrent ? '900' : 'bold',
+			fontWeight: 'bold',
+			cursor: 'pointer',
 			transition: 'all',
 			transitionDuration: '300ms',
 			color: isDropdownActive || isCurrent ? 'ocobo.dark' : 'gray.500',
@@ -317,83 +319,66 @@ function NavItemWithDropdown({
 		<Menu.Root
 			open={isOpen}
 			onOpenChange={(details) => {
-				if (details.open) {
-					setActiveDropdown(item.label);
-				} else {
-					setActiveDropdown(null);
-				}
+				setActiveDropdown(details.open ? item.label : null);
 			}}
 			positioning={{ placement: 'bottom', gutter: 16 }}
 			closeOnSelect
 		>
-			{/* biome-ignore lint/a11y/noStaticElementInteractions: hover behaviour for dropdown */}
-			<div
-				className={css({ position: 'relative' })}
-				onMouseEnter={() => setActiveDropdown(item.label)}
-				onMouseLeave={() => setActiveDropdown(null)}
+			<Menu.Trigger asChild>
+				<button type="button" className={getLinkStyles(isOpen, isCurrentPath)}>
+					{item.label}
+					<ChevronDown
+						size={14}
+						className={css({
+							transition: 'transform 0.3s',
+							opacity: isOpen ? 0.6 : 0.3,
+							transform: isOpen ? 'rotate(180deg)' : 'rotate(0)',
+						})}
+					/>
+				</button>
+			</Menu.Trigger>
+			<Menu.Positioner
+				className={css({
+					position: 'absolute',
+					top: '100%',
+					left: '50%',
+					transform: 'translateX(-50%)',
+					pt: '4',
+					zIndex: 200,
+				})}
 			>
-				<Menu.Trigger asChild>
-					<Link
-						to={item.path}
-						className={getLinkStyles(isOpen, isCurrentPath)}
-						onClick={() => {
-							setActiveDropdown(null);
-						}}
-					>
-						{item.label}
-						<ChevronDown
-							size={14}
-							className={css({
-								transition: 'transform 0.5s',
-								opacity: isOpen ? 0.6 : 0.3,
-								transform: isOpen ? 'rotate(180deg)' : 'rotate(0)',
-							})}
-						/>
-					</Link>
-				</Menu.Trigger>
-				<Menu.Positioner
+				<Menu.Content
 					className={css({
-						position: 'absolute',
-						top: '100%',
-						left: '50%',
-						transform: 'translateX(-50%)',
-						pt: '4',
-						zIndex: 200,
+						w: '380px',
+						bg: 'white',
+						rounded: '3xl',
+						p: '2',
+						shadow: 'soft-lg',
+						borderWidth: '1px',
+						borderColor: 'gray.50',
+						overflow: 'hidden',
+						outline: 'none',
+						transition: 'all 0.3s',
+						'&[data-state="open"]': {
+							opacity: 1,
+							transform: 'translateY(0)',
+						},
+						'&[data-state="closed"]': {
+							opacity: 0,
+							transform: 'translateY(-8px)',
+							pointerEvents: 'none',
+						},
 					})}
 				>
-					<Menu.Content
-						className={css({
-							w: '380px',
-							bg: 'white',
-							rounded: '3xl',
-							p: '2',
-							shadow: 'soft-lg',
-							borderWidth: '1px',
-							borderColor: 'gray.50',
-							overflow: 'hidden',
-							outline: 'none',
-							transition: 'all 0.3s',
-							'&[data-state="open"]': {
-								opacity: 1,
-								transform: 'translateY(0)',
-							},
-							'&[data-state="closed"]': {
-								opacity: 0,
-								transform: 'translateY(-8px)',
-								pointerEvents: 'none',
-							},
-						})}
-					>
-						{item.dropdown.map((subItem) => (
-							<NavDropdownItem
-								key={`${item.label}-${subItem.label}`}
-								item={subItem}
-								onClose={() => setActiveDropdown(null)}
-							/>
-						))}
-					</Menu.Content>
-				</Menu.Positioner>
-			</div>
+					{item.dropdown.map((subItem) => (
+						<NavDropdownItem
+							key={`${item.label}-${subItem.label}`}
+							item={subItem}
+							onClose={() => setActiveDropdown(null)}
+						/>
+					))}
+				</Menu.Content>
+			</Menu.Positioner>
 		</Menu.Root>
 	);
 }
