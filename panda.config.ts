@@ -1,5 +1,155 @@
 import { defineConfig, defineRecipe } from '@pandacss/dev';
 
+const textRecipe = defineRecipe({
+	className: 'text',
+	description: 'Typography component styles',
+	base: {},
+	variants: {
+		variant: {
+			'display-xl': {
+				fontFamily: 'display',
+				fontSize: { base: '5xl', md: '6xl' },
+				fontWeight: 'bold',
+				lineHeight: '0.95',
+				letterSpacing: 'tight',
+			},
+			'display-lg': {
+				fontFamily: 'display',
+				fontSize: { base: '4xl', md: '5xl' },
+				fontWeight: 'black',
+				letterSpacing: 'tight',
+			},
+			'display-md': {
+				fontFamily: 'display',
+				fontSize: '2xl',
+				fontWeight: 'black',
+			},
+			subtitle: {
+				fontSize: 'xl',
+				lineHeight: 'relaxed',
+				fontWeight: 'medium',
+			},
+			body: {
+				fontSize: 'base',
+				lineHeight: 'relaxed',
+				fontWeight: 'medium',
+			},
+			label: {
+				fontSize: 'xs',
+				letterSpacing: '0.3em',
+				textTransform: 'uppercase',
+				fontWeight: 'semibold',
+			},
+		},
+		color: {
+			dark: { color: 'ocobo.dark' },
+			muted: { color: 'gray.600' },
+			'muted-light': { color: 'gray.400' },
+			white: { color: 'white' },
+			sky: { color: 'ocobo.sky' },
+			mint: { color: 'ocobo.mint' },
+			yellow: { color: 'ocobo.yellow' },
+			coral: { color: 'ocobo.coral' },
+		},
+	},
+	defaultVariants: {
+		variant: 'body',
+		color: 'dark',
+	},
+});
+
+const iconBoxRecipe = defineRecipe({
+	className: 'icon-box',
+	description: 'Icon container component styles',
+	base: {
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		flexShrink: 0,
+	},
+	variants: {
+		size: {
+			sm: { w: '8', h: '8', rounded: 'md' },
+			md: { w: '10', h: '10', rounded: 'md' },
+			lg: { w: '16', h: '16', rounded: 'lg' },
+		},
+		variant: {
+			solid: {},
+			outline: {
+				borderWidth: '1px',
+				borderStyle: 'solid',
+			},
+			ghost: {
+				bg: 'transparent',
+			},
+		},
+		color: {
+			default: {},
+			sky: {},
+			mint: {},
+			yellow: {},
+			coral: {},
+		},
+	},
+	compoundVariants: [
+		{
+			variant: 'solid',
+			color: 'default',
+			css: { bg: 'ocobo.dark', color: 'white' },
+		},
+		{
+			variant: 'solid',
+			color: 'sky',
+			css: { bg: 'ocobo.sky', color: 'ocobo.dark' },
+		},
+		{
+			variant: 'solid',
+			color: 'mint',
+			css: { bg: 'ocobo.mint', color: 'ocobo.dark' },
+		},
+		{
+			variant: 'solid',
+			color: 'yellow',
+			css: { bg: 'ocobo.yellow', color: 'ocobo.dark' },
+		},
+		{
+			variant: 'solid',
+			color: 'coral',
+			css: { bg: 'ocobo.coral', color: 'ocobo.dark' },
+		},
+		{
+			variant: 'outline',
+			color: 'default',
+			css: { borderColor: 'ocobo.dark', color: 'ocobo.dark' },
+		},
+		{
+			variant: 'outline',
+			color: 'sky',
+			css: { borderColor: 'ocobo.sky', color: 'ocobo.sky' },
+		},
+		{
+			variant: 'outline',
+			color: 'mint',
+			css: { borderColor: 'ocobo.mint', color: 'ocobo.mint' },
+		},
+		{
+			variant: 'outline',
+			color: 'yellow',
+			css: { borderColor: 'ocobo.yellow', color: 'ocobo.yellow' },
+		},
+		{
+			variant: 'outline',
+			color: 'coral',
+			css: { borderColor: 'ocobo.coral', color: 'ocobo.coral' },
+		},
+	],
+	defaultVariants: {
+		size: 'md',
+		variant: 'solid',
+		color: 'default',
+	},
+});
+
 const sectionRecipe = defineRecipe({
 	className: 'section',
 	description: 'Section component styles',
@@ -297,8 +447,10 @@ export default defineConfig({
 		recipes: {
 			badge: badgeRecipe,
 			button: buttonRecipe,
+			iconBox: iconBoxRecipe,
 			input: inputRecipe,
 			section: sectionRecipe,
+			text: textRecipe,
 		},
 		extend: {
 			tokens: {

@@ -7,7 +7,7 @@ import {
 	type PartnerCategory,
 	partners,
 } from '../../../data/partners-data';
-import { PartnerCard } from './partner-card';
+import { PartnerCardFromData } from './partner-card';
 
 function filterPartners(filter: 'TOUS' | PartnerCategory): Partner[] {
 	const filtered =
@@ -106,7 +106,7 @@ export function EcosystemSection() {
 					className={`${grid({ columns: { base: 1, md: 2, lg: 3 }, gap: '8' })} ${css({ transition: 'all', transitionDuration: '500ms' })}`}
 				>
 					{filtered.map((partner) => (
-						<PartnerCard
+						<PartnerCardFromData
 							key={`${partner.name}-${filter}`}
 							partner={partner}
 							animate={animate}

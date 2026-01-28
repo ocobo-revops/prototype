@@ -1,12 +1,42 @@
 import { Link as LinkIcon, Lock, ShieldCheck } from 'lucide-react';
 import { css } from 'styled-system/css';
-import { center, grid } from 'styled-system/patterns';
+import { styled } from 'styled-system/jsx';
+import { grid } from 'styled-system/patterns';
+import { IconBox } from '../../atoms/icon-box';
+import { Text } from '../../atoms/text';
+import { Container } from '../../organisms/Container';
+
+// ===== LOCAL STYLE WRAPPER (non-exported) =====
+
+const PhilosophyCardWrapper = styled('div', {
+	base: {
+		bg: 'white',
+		p: '10',
+		rounded: 'xl',
+		shadow: 'xl',
+		transition: 'transform',
+		transitionDuration: '300ms',
+		_hover: { transform: 'translateY(-4px)' },
+		'& .icon-box': {
+			transition: 'colors',
+		},
+	},
+	variants: {
+		hoverColor: {
+			sky: { '&:hover .icon-box': { bg: 'ocobo.sky' } },
+			mint: { '&:hover .icon-box': { bg: 'ocobo.mint' } },
+			yellow: { '&:hover .icon-box': { bg: 'ocobo.yellow' } },
+		},
+	},
+});
+
+// ===== COMPONENTS =====
 
 interface PhilosophyCardProps {
 	icon: React.ReactNode;
 	title: string;
 	description: string;
-	hoverColor: string;
+	hoverColor: 'sky' | 'mint' | 'yellow';
 }
 
 function PhilosophyCard({
@@ -16,46 +46,22 @@ function PhilosophyCard({
 	hoverColor,
 }: PhilosophyCardProps) {
 	return (
-		<div
-			className={css({
-				bg: 'white',
-				p: '10',
-				rounded: 'xl',
-				shadow: 'xl',
-				transition: 'transform',
-				transitionDuration: '300ms',
-				_hover: { transform: 'translateY(-4px)' },
-				'& .icon-box': {
-					transition: 'colors',
-				},
-				'&:hover .icon-box': {
-					bg: hoverColor,
-				},
-			})}
-		>
-			<div
-				className={`icon-box ${center()} ${css({
-					w: '16',
-					h: '16',
-					bg: 'ocobo.dark',
-					color: 'white',
-					rounded: 'lg',
-					mb: '8',
-				})}`}
+		<PhilosophyCardWrapper hoverColor={hoverColor}>
+			<IconBox
+				size="lg"
+				variant="solid"
+				className={`icon-box ${css({ mb: '8' })}`}
 			>
 				{icon}
-			</div>
-			<h3
-				className={css({
-					fontFamily: 'display',
-					fontSize: '2xl',
-					fontWeight: 'black',
-					mb: '4',
-					color: 'ocobo.dark',
-				})}
+			</IconBox>
+			<Text
+				as="h3"
+				variant="display-md"
+				color="dark"
+				className={css({ mb: '4' })}
 			>
 				{title}
-			</h3>
+			</Text>
 			<p
 				className={css({
 					color: 'gray.600',
@@ -65,7 +71,7 @@ function PhilosophyCard({
 			>
 				{description}
 			</p>
-		</div>
+		</PhilosophyCardWrapper>
 	);
 }
 
@@ -90,15 +96,7 @@ export function PhilosophySection() {
 				})}
 			/>
 
-			<div
-				className={css({
-					maxW: '7xl',
-					mx: 'auto',
-					px: { base: '4', sm: '6', lg: '8' },
-					position: 'relative',
-					zIndex: 10,
-				})}
-			>
+			<Container className={css({ position: 'relative', zIndex: 10 })}>
 				<div
 					className={css({
 						maxW: '3xl',
@@ -106,17 +104,14 @@ export function PhilosophySection() {
 						textAlign: { base: 'center', md: 'left' },
 					})}
 				>
-					<h2
-						className={css({
-							fontFamily: 'display',
-							fontSize: { base: '4xl', md: '5xl' },
-							fontWeight: 'black',
-							mb: '6',
-							letterSpacing: 'tight',
-						})}
+					<Text
+						as="h2"
+						variant="display-lg"
+						color="white"
+						className={css({ mb: '6' })}
 					>
 						Le système avant l'outil.
-					</h2>
+					</Text>
 					<p
 						className={css({
 							color: 'gray.400',
@@ -136,22 +131,22 @@ export function PhilosophySection() {
 						icon={<Lock size={28} />}
 						title="Agnostique"
 						description="On ne force pas un outil. On choisit celui qui sert votre stratégie de manière juste."
-						hoverColor="ocobo.sky"
+						hoverColor="sky"
 					/>
 					<PhilosophyCard
 						icon={<LinkIcon size={28} />}
 						title="Connectée"
 						description="La donnée doit circuler fluidement. Nous supprimons les silos pour une vérité unique."
-						hoverColor="ocobo.mint"
+						hoverColor="mint"
 					/>
 					<PhilosophyCard
 						icon={<ShieldCheck size={28} />}
 						title="Certifiée"
 						description="Nous sommes partenaires officiels et certifiés sur les solutions les plus puissantes du marché."
-						hoverColor="ocobo.yellow"
+						hoverColor="yellow"
 					/>
 				</div>
-			</div>
+			</Container>
 		</section>
 	);
 }

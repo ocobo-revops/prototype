@@ -1,6 +1,8 @@
 import { css } from 'styled-system/css';
 import { flex } from 'styled-system/patterns';
 import { Button } from '../../atoms/Button';
+import { Text } from '../../atoms/text';
+import { Container } from '../../organisms/Container';
 
 export function CtaSection() {
 	return (
@@ -13,29 +15,25 @@ export function CtaSection() {
 				overflow: 'hidden',
 			})}
 		>
-			<div
+			<Container
+				narrow
 				className={css({
-					maxW: '4xl',
-					mx: 'auto',
-					px: '4',
 					textAlign: 'center',
 					position: 'relative',
 					zIndex: 10,
 				})}
 			>
-				<h2
+				<Text
+					as="h2"
+					variant="display-xl"
+					color="dark"
 					className={css({
-						fontFamily: 'display',
-						fontSize: { base: '5xl', md: '6xl' },
-						fontWeight: 'black',
-						color: 'ocobo.dark',
 						mb: '10',
 						lineHeight: '0.9',
-						letterSpacing: 'tight',
 					})}
 				>
 					Besoin d'un architecte pour votre stack ?
-				</h2>
+				</Text>
 				<p
 					className={css({
 						fontSize: 'xl',
@@ -52,7 +50,7 @@ export function CtaSection() {
 						Prendre RDV
 					</Button>
 				</div>
-			</div>
+			</Container>
 		</section>
 	);
 }
