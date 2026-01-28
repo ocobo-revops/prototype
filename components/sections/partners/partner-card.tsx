@@ -1,34 +1,91 @@
 import { Award, ExternalLink, Zap } from 'lucide-react';
 import type React from 'react';
-import { createContext, useContext } from 'react';
 import { css } from 'styled-system/css';
 import { center, flex, vstack } from 'styled-system/patterns';
-import {
-	type PartnerCardVariantProps,
-	partnerCard,
-} from 'styled-system/recipes';
 import type { Partner } from '../../../data/partners-data';
 
-// ===== CONTEXT =====
+// ===== STYLE WRAPPER (local, not exported) =====
 
-interface PartnerCardContextValue {
-	animate: boolean;
-}
+const partnerCardStyles = css.raw({
+	display: 'flex',
+	flexDirection: 'column',
+	alignItems: 'stretch',
+	bg: 'white',
+	borderWidth: '1px',
+	borderColor: 'gray.100',
+	p: '8',
+	transition: 'all',
+	transitionDuration: '300ms',
+	position: 'relative',
+	overflow: 'hidden',
+	rounded: 'xl',
+	h: 'full',
+	_hover: { shadow: 'xl', transform: 'translateY(-4px)' },
+	'& .logo-img': {
+		transition: 'all',
+		transitionDuration: '500ms',
+	},
+	'&:hover .logo-img': {
+		filter: 'grayscale(0)',
+		opacity: 1,
+	},
+	'& .cat-badge': {
+		transition: 'all',
+	},
+	'&:hover .cat-badge': {
+		bg: 'ocobo.dark',
+		color: 'white',
+	},
+	'& .tag': {
+		transition: 'all',
+	},
+	'&:hover .tag': {
+		borderColor: 'ocobo.dark/10',
+		color: 'ocobo.dark',
+	},
+	'& .separator': {
+		transition: 'opacity',
+	},
+	'&:hover .separator': {
+		opacity: 1,
+	},
+	'& .cert-img': {
+		transition: 'all',
+		transitionDuration: '500ms',
+	},
+	'&:hover .cert-img': {
+		filter: 'grayscale(0)',
+	},
+	'& .tech-label': {
+		transition: 'colors',
+	},
+	'&:hover .tech-label': {
+		color: 'ocobo.mint',
+	},
+	'& .tech-icon': {
+		transition: 'opacity',
+	},
+	'&:hover .tech-icon': {
+		opacity: 1,
+	},
+	'& .external-link': {
+		transition: 'all',
+		transitionDuration: '300ms',
+	},
+	'&:hover .external-link': {
+		transform: 'translateX(4px)',
+	},
+});
 
-const PartnerCardContext = createContext<PartnerCardContextValue | null>(null);
-
-function _usePartnerCardContext() {
-	const ctx = useContext(PartnerCardContext);
-	if (!ctx)
-		throw new Error(
-			'PartnerCard compound components must be used within PartnerCard',
-		);
-	return ctx;
-}
+const animateStyles = css.raw({
+	animation: 'fade-in-up-small',
+	opacity: 0,
+});
 
 // ===== ROOT =====
 
-interface PartnerCardRootProps extends PartnerCardVariantProps {
+interface PartnerCardRootProps {
+	animate?: boolean;
 	children: React.ReactNode;
 	className?: string;
 }
@@ -38,14 +95,10 @@ function PartnerCardRoot({
 	children,
 	className = '',
 }: PartnerCardRootProps) {
-	const recipeClasses = partnerCard({ animate });
-	const classes = className ? `${recipeClasses} ${className}` : recipeClasses;
+	const baseClasses = css(partnerCardStyles, animate && animateStyles);
+	const classes = className ? `${baseClasses} ${className}` : baseClasses;
 
-	return (
-		<PartnerCardContext.Provider value={{ animate }}>
-			<div className={classes}>{children}</div>
-		</PartnerCardContext.Provider>
-	);
+	return <div className={classes}>{children}</div>;
 }
 
 // ===== HEADER =====
