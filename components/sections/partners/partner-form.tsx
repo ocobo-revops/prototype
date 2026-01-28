@@ -4,7 +4,11 @@ import { useState } from 'react';
 import { css } from 'styled-system/css';
 import { center, flex, grid, vstack } from 'styled-system/patterns';
 import { Badge } from '../../atoms/Badge';
+import { FormField } from '../../atoms/form-field';
+import { IconBox } from '../../atoms/icon-box';
+import { Text } from '../../atoms/text';
 import FlexPair from '../../layout/FlexPair';
+import { Container } from '../../organisms/Container';
 
 function BenefitItem({
 	icon,
@@ -27,9 +31,9 @@ function BenefitItem({
 				>
 					{title}
 				</h4>
-				<p className={css({ fontSize: 'sm', color: 'gray.500' })}>
+				<Text variant="body" color="muted">
 					{description}
-				</p>
+				</Text>
 			</FlexPair.Content>
 		</FlexPair>
 	);
@@ -57,20 +61,17 @@ function SuccessMessage({ onReset }: { onReset: () => void }) {
 			>
 				<CheckCircle2 size={40} />
 			</div>
-			<h3
-				className={css({
-					fontFamily: 'display',
-					fontSize: '2xl',
-					fontWeight: 'black',
-					color: 'ocobo.dark',
-					mb: '4',
-				})}
+			<Text
+				as="h3"
+				variant="display-md"
+				color="dark"
+				className={css({ mb: '4' })}
 			>
 				Demande reçue !
-			</h3>
-			<p className={css({ color: 'gray.500', mb: '8' })}>
+			</Text>
+			<Text color="muted" className={css({ mb: '8' })}>
 				Notre équipe étudiera votre solution et vous recontactera sous 48h.
-			</p>
+			</Text>
 			<button
 				type="button"
 				onClick={onReset}
@@ -113,76 +114,57 @@ function PartnerFormFields({ onSubmit }: { onSubmit: () => void }) {
 		},
 	});
 
-	const labelStyles = css({
-		fontSize: 'xs',
-		fontWeight: 'black',
-		textTransform: 'uppercase',
-		letterSpacing: '0.2em',
-		color: 'gray.400',
-	});
-
 	return (
 		<form
 			onSubmit={handleSubmit}
 			className={vstack({ gap: '6', alignItems: 'stretch' })}
 		>
-			<h3
-				className={css({
-					fontFamily: 'display',
-					fontSize: '2xl',
-					fontWeight: 'black',
-					color: 'ocobo.dark',
-					mb: '8',
-				})}
+			<Text
+				as="h3"
+				variant="display-md"
+				color="dark"
+				className={css({ mb: '8' })}
 			>
 				Devenez partenaire
-			</h3>
+			</Text>
 			<div
 				className={grid({
 					columns: { base: 1, md: 2 },
 					gap: '6',
 				})}
 			>
-				<div className={vstack({ gap: '2', alignItems: 'stretch' })}>
-					{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-					<label className={labelStyles}>Nom de la solution*</label>
+				<FormField label="Nom de la solution" required>
 					<input
 						required
 						type="text"
 						placeholder="ex: HubSpot"
 						className={inputStyles}
 					/>
-				</div>
-				<div className={vstack({ gap: '2', alignItems: 'stretch' })}>
-					{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-					<label className={labelStyles}>Site Web*</label>
+				</FormField>
+				<FormField label="Site Web" required>
 					<input
 						required
 						type="url"
 						placeholder="https://..."
 						className={inputStyles}
 					/>
-				</div>
+				</FormField>
 			</div>
-			<div className={vstack({ gap: '2', alignItems: 'stretch' })}>
-				{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-				<label className={labelStyles}>E-mail pro*</label>
+			<FormField label="E-mail pro" required>
 				<input
 					required
 					type="email"
 					placeholder="nom@solution.com"
 					className={inputStyles}
 				/>
-			</div>
-			<div className={vstack({ gap: '2', alignItems: 'stretch' })}>
-				{/* biome-ignore lint/a11y/noLabelWithoutControl: form label */}
-				<label className={labelStyles}>Votre message</label>
+			</FormField>
+			<FormField label="Votre message">
 				<textarea
 					rows={4}
 					placeholder="Parlez-nous de votre vision et de vos envies de partenariat..."
 					className={`${inputStyles} ${css({ resize: 'none' })}`}
 				/>
-			</div>
+			</FormField>
 			<button
 				type="submit"
 				className={`${center()} ${css({
@@ -238,13 +220,7 @@ export function PartnerFormSection() {
 				})}
 			/>
 
-			<div
-				className={css({
-					maxW: '7xl',
-					mx: 'auto',
-					px: { base: '4', sm: '6', lg: '8' },
-				})}
-			>
+			<Container>
 				<div
 					className={flex({
 						direction: { base: 'column', lg: 'row' },
@@ -256,34 +232,28 @@ export function PartnerFormSection() {
 						<Badge variant="sky" className={css({ mb: '10' })}>
 							CO-CONSTRUCTION
 						</Badge>
-						<h2
+						<Text
+							as="h2"
+							variant="display-xl"
+							color="dark"
 							className={css({
-								fontFamily: 'display',
-								fontSize: { base: '4xl', md: '6xl' },
-								fontWeight: 'black',
-								color: 'ocobo.dark',
 								mb: '8',
 								lineHeight: '0.95',
-								letterSpacing: 'tight',
 							})}
 						>
 							Rejoignez <br />
 							l'écosystème{' '}
 							<span className={css({ color: 'ocobo.sky' })}>Ocobo.</span>
-						</h2>
-						<p
-							className={css({
-								fontSize: 'xl',
-								color: 'gray.600',
-								mb: '10',
-								lineHeight: 'relaxed',
-								fontWeight: 'medium',
-							})}
+						</Text>
+						<Text
+							variant="subtitle"
+							color="muted"
+							className={css({ mb: '10' })}
 						>
 							Vous développez une solution logicielle qui transforme la
 							croissance des entreprises B2B ? Intégrez notre écosystème
 							d'architectes.
-						</p>
+						</Text>
 
 						<div
 							className={`${vstack({ gap: '6' })} ${css({
@@ -292,60 +262,27 @@ export function PartnerFormSection() {
 						>
 							<BenefitItem
 								icon={
-									<div
-										className={`${center()} ${css({
-											w: '10',
-											h: '10',
-											bg: 'white',
-											shadow: 'sm',
-											borderWidth: '1px',
-											borderColor: 'gray.100',
-											rounded: 'xl',
-											color: 'ocobo.sky',
-										})}`}
-									>
+									<IconBox size="md" variant="outline" color="sky">
 										<Handshake size={20} />
-									</div>
+									</IconBox>
 								}
 								title="Partenariat Stratégique"
 								description="Accès privilégié à notre Studio pour le déploiement de votre solution chez nos clients."
 							/>
 							<BenefitItem
 								icon={
-									<div
-										className={`${center()} ${css({
-											w: '10',
-											h: '10',
-											bg: 'white',
-											shadow: 'sm',
-											borderWidth: '1px',
-											borderColor: 'gray.100',
-											rounded: 'xl',
-											color: 'ocobo.yellow',
-										})}`}
-									>
+									<IconBox size="md" variant="outline" color="yellow">
 										<Sparkles size={20} />
-									</div>
+									</IconBox>
 								}
 								title="Co-Marketing & Events"
 								description="Webinars, podcasts et masterclasses en commun pour évangéliser le marché."
 							/>
 							<BenefitItem
 								icon={
-									<div
-										className={`${center()} ${css({
-											w: '10',
-											h: '10',
-											bg: 'white',
-											shadow: 'sm',
-											borderWidth: '1px',
-											borderColor: 'gray.100',
-											rounded: 'xl',
-											color: 'ocobo.mint',
-										})}`}
-									>
+									<IconBox size="md" variant="outline" color="mint">
 										<Layers size={20} />
-									</div>
+									</IconBox>
 								}
 								title="Expertise Produit"
 								description="Feedback opérationnel de nos architectes seniors pour optimiser vos intégrations."
@@ -387,7 +324,7 @@ export function PartnerFormSection() {
 						</div>
 					</div>
 				</div>
-			</div>
+			</Container>
 		</section>
 	);
 }

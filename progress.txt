@@ -13,6 +13,7 @@ Read this section FIRST on each iteration.
 - Named exports only, no default exports
 - Kebab-case filenames (text.tsx, icon-box.tsx)
 - Existing organisms: Section, Container, SectionHeader in components/organisms/
+- Import casing must match filename exactly (Container.tsx → `from './Container'`)
 
 ---
 
@@ -113,4 +114,34 @@ Created: 2026-01-27T10:00:00Z
 - Removed redundant maxW/mx/px from section (now in Container)
 - TypeScript compiles ✅
 - Build passes ✅
+- ✅ Passed
+
+## Feature 9: Update philosophy-section
+- Updated components/sections/partners/philosophy-section.tsx
+- Created local PhilosophyCardWrapper with styled() for hover effects
+- Replaced inline h2/h3 with Text variants
+- Replaced inline icon container with IconBox size="lg" variant="solid"
+- Added Container organism for layout
+- TypeScript compiles ✅
+- ✅ Passed
+
+## Feature 10: Update partner-form
+- Updated components/sections/partners/partner-form.tsx
+- Replaced inline h2/h3/p with Text variants
+- Replaced inline labels with FormField component
+- Replaced inline icon containers with IconBox size="md" variant="outline"
+- Added Container organism for layout
+- TypeScript compiles ✅
+- ✅ Passed
+
+## Feature 11: Update cta-section
+- Updated components/sections/partners/cta-section.tsx
+- Replaced inline h2 with Text variant="display-xl"
+- Added Container narrow for 4xl max-width layout
+- TypeScript compiles ✅
+- ✅ Passed
+
+## Feature 12: TypeScript validation
+- `pnpm exec tsc --noEmit` passes
+- `pnpm run build` passes
 - ✅ Passed
