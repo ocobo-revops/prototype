@@ -82,9 +82,9 @@ Created: 2026-01-27T10:00:00Z
 
 ## Feature 5: PartnerCard styles (refactored)
 - Initially added partnerCardRecipe to panda.config.ts
-- **REFACTORED**: Moved to local css.raw() wrapper in partner-card.tsx
+- **REFACTORED**: Moved to local styled() wrapper in partner-card.tsx
 - Rationale: Single-use styles should be local, not global recipes (per spec)
-- Styles now colocated with component using css.raw() pattern
+- Uses styled() with base + variants (more idiomatic than css.raw())
 - ✅ Passed
 
 ## Feature 6: Refactor PartnerCard compound component
