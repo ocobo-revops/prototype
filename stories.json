@@ -66,10 +66,10 @@
 				"Run pnpm run codegen",
 				"Verify iconBox recipe is exported"
 			],
-			"passes": false,
+			"passes": true,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": null
+			"completed_at": "2026-01-28T10:10:00Z"
 		},
 		{
 			"id": 4,

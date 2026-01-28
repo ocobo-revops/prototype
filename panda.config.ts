@@ -58,6 +58,98 @@ const textRecipe = defineRecipe({
 	},
 });
 
+const iconBoxRecipe = defineRecipe({
+	className: 'icon-box',
+	description: 'Icon container component styles',
+	base: {
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		flexShrink: 0,
+	},
+	variants: {
+		size: {
+			sm: { w: '8', h: '8', rounded: 'md' },
+			md: { w: '10', h: '10', rounded: 'md' },
+			lg: { w: '16', h: '16', rounded: 'lg' },
+		},
+		variant: {
+			solid: {},
+			outline: {
+				borderWidth: '1px',
+				borderStyle: 'solid',
+			},
+			ghost: {
+				bg: 'transparent',
+			},
+		},
+		color: {
+			default: {},
+			sky: {},
+			mint: {},
+			yellow: {},
+			coral: {},
+		},
+	},
+	compoundVariants: [
+		{
+			variant: 'solid',
+			color: 'default',
+			css: { bg: 'ocobo.dark', color: 'white' },
+		},
+		{
+			variant: 'solid',
+			color: 'sky',
+			css: { bg: 'ocobo.sky', color: 'ocobo.dark' },
+		},
+		{
+			variant: 'solid',
+			color: 'mint',
+			css: { bg: 'ocobo.mint', color: 'ocobo.dark' },
+		},
+		{
+			variant: 'solid',
+			color: 'yellow',
+			css: { bg: 'ocobo.yellow', color: 'ocobo.dark' },
+		},
+		{
+			variant: 'solid',
+			color: 'coral',
+			css: { bg: 'ocobo.coral', color: 'ocobo.dark' },
+		},
+		{
+			variant: 'outline',
+			color: 'default',
+			css: { borderColor: 'ocobo.dark', color: 'ocobo.dark' },
+		},
+		{
+			variant: 'outline',
+			color: 'sky',
+			css: { borderColor: 'ocobo.sky', color: 'ocobo.sky' },
+		},
+		{
+			variant: 'outline',
+			color: 'mint',
+			css: { borderColor: 'ocobo.mint', color: 'ocobo.mint' },
+		},
+		{
+			variant: 'outline',
+			color: 'yellow',
+			css: { borderColor: 'ocobo.yellow', color: 'ocobo.yellow' },
+		},
+		{
+			variant: 'outline',
+			color: 'coral',
+			css: { borderColor: 'ocobo.coral', color: 'ocobo.coral' },
+		},
+	],
+	defaultVariants: {
+		size: 'md',
+		variant: 'solid',
+		color: 'default',
+	},
+});
+
 const sectionRecipe = defineRecipe({
 	className: 'section',
 	description: 'Section component styles',
@@ -355,6 +447,7 @@ export default defineConfig({
 		recipes: {
 			badge: badgeRecipe,
 			button: buttonRecipe,
+			iconBox: iconBoxRecipe,
 			input: inputRecipe,
 			section: sectionRecipe,
 			text: textRecipe,
