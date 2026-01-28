@@ -29,10 +29,10 @@
 				"Run pnpm run codegen to generate styled-system/recipes",
 				"Verify text recipe is exported from styled-system/recipes"
 			],
-			"passes": false,
+			"passes": true,
 			"blocked": false,
 			"blocked_reason": null,
-			"completed_at": null
+			"completed_at": "2026-01-28T10:00:00Z"
 		},
 		{
 			"id": 2,

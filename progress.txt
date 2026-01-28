@@ -6,7 +6,7 @@ Read this section FIRST on each iteration.
 -->
 
 - Use pnpm, not npm
-- Panda CSS recipes defined in panda.config.ts under theme.extend.recipes
+- Panda CSS recipes defined in panda.config.ts under theme.recipes (not theme.extend.recipes)
 - Run `pnpm run codegen` after modifying panda.config.ts to regenerate styled-system
 - Recipes exported from styled-system/recipes
 - Compound components use Object.assign pattern (see FlexPair, HeroSplit)
@@ -49,3 +49,10 @@ Created: 2026-01-27T10:00:00Z
 | 14 | high     | Visual regression test |
 
 ---
+
+## Feature 1: Add text recipe
+- Added textRecipe to panda.config.ts
+- Variants: display-xl, display-lg, display-md, subtitle, body, label
+- Colors: dark, muted, muted-light, white, sky, mint, yellow, coral
+- Ran codegen, verified styled-system/recipes/text.mjs generated
+- ✅ Passed

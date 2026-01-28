@@ -1,5 +1,63 @@
 import { defineConfig, defineRecipe } from '@pandacss/dev';
 
+const textRecipe = defineRecipe({
+	className: 'text',
+	description: 'Typography component styles',
+	base: {},
+	variants: {
+		variant: {
+			'display-xl': {
+				fontFamily: 'display',
+				fontSize: { base: '5xl', md: '6xl' },
+				fontWeight: 'bold',
+				lineHeight: '0.95',
+				letterSpacing: 'tight',
+			},
+			'display-lg': {
+				fontFamily: 'display',
+				fontSize: { base: '4xl', md: '5xl' },
+				fontWeight: 'black',
+				letterSpacing: 'tight',
+			},
+			'display-md': {
+				fontFamily: 'display',
+				fontSize: '2xl',
+				fontWeight: 'black',
+			},
+			subtitle: {
+				fontSize: 'xl',
+				lineHeight: 'relaxed',
+				fontWeight: 'medium',
+			},
+			body: {
+				fontSize: 'base',
+				lineHeight: 'relaxed',
+				fontWeight: 'medium',
+			},
+			label: {
+				fontSize: 'xs',
+				letterSpacing: '0.3em',
+				textTransform: 'uppercase',
+				fontWeight: 'semibold',
+			},
+		},
+		color: {
+			dark: { color: 'ocobo.dark' },
+			muted: { color: 'gray.600' },
+			'muted-light': { color: 'gray.400' },
+			white: { color: 'white' },
+			sky: { color: 'ocobo.sky' },
+			mint: { color: 'ocobo.mint' },
+			yellow: { color: 'ocobo.yellow' },
+			coral: { color: 'ocobo.coral' },
+		},
+	},
+	defaultVariants: {
+		variant: 'body',
+		color: 'dark',
+	},
+});
+
 const sectionRecipe = defineRecipe({
 	className: 'section',
 	description: 'Section component styles',
@@ -299,6 +357,7 @@ export default defineConfig({
 			button: buttonRecipe,
 			input: inputRecipe,
 			section: sectionRecipe,
+			text: textRecipe,
 		},
 		extend: {
 			tokens: {
