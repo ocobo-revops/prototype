@@ -21,13 +21,6 @@ pnpm test
 
 - Apply `vercel-react-best-practices` during React refactoring
 
-## Ralph loop
-
-When running via `ralph-once.sh` or `afk-ralph.sh`:
-- Commit after each completed story without asking
-- Use conventional commit format
-- Update progress.txt after committing
-
 ## Codebase pointers
 
 | Path | Purpose |
@@ -46,3 +39,4 @@ Load only when task-relevant:
 - [Data models](docs/data-models.md) - TypeScript interfaces
 - [API](docs/api-architecture.md) - Gemini integration, state
 - [Development](docs/development-guide.md) - setup, workflow
+- [Style components](specs/style-components.md) - Text/IconBox/styled() patterns, recipe vs local decision
