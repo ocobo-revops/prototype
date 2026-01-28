@@ -1,85 +1,97 @@
 import { Award, ExternalLink, Zap } from 'lucide-react';
 import type React from 'react';
 import { css } from 'styled-system/css';
+import { styled } from 'styled-system/jsx';
 import { center, flex, vstack } from 'styled-system/patterns';
 import type { Partner } from '../../../data/partners-data';
 
 // ===== STYLE WRAPPER (local, not exported) =====
 
-const partnerCardStyles = css.raw({
-	display: 'flex',
-	flexDirection: 'column',
-	alignItems: 'stretch',
-	bg: 'white',
-	borderWidth: '1px',
-	borderColor: 'gray.100',
-	p: '8',
-	transition: 'all',
-	transitionDuration: '300ms',
-	position: 'relative',
-	overflow: 'hidden',
-	rounded: 'xl',
-	h: 'full',
-	_hover: { shadow: 'xl', transform: 'translateY(-4px)' },
-	'& .logo-img': {
-		transition: 'all',
-		transitionDuration: '500ms',
-	},
-	'&:hover .logo-img': {
-		filter: 'grayscale(0)',
-		opacity: 1,
-	},
-	'& .cat-badge': {
-		transition: 'all',
-	},
-	'&:hover .cat-badge': {
-		bg: 'ocobo.dark',
-		color: 'white',
-	},
-	'& .tag': {
-		transition: 'all',
-	},
-	'&:hover .tag': {
-		borderColor: 'ocobo.dark/10',
-		color: 'ocobo.dark',
-	},
-	'& .separator': {
-		transition: 'opacity',
-	},
-	'&:hover .separator': {
-		opacity: 1,
-	},
-	'& .cert-img': {
-		transition: 'all',
-		transitionDuration: '500ms',
-	},
-	'&:hover .cert-img': {
-		filter: 'grayscale(0)',
-	},
-	'& .tech-label': {
-		transition: 'colors',
-	},
-	'&:hover .tech-label': {
-		color: 'ocobo.mint',
-	},
-	'& .tech-icon': {
-		transition: 'opacity',
-	},
-	'&:hover .tech-icon': {
-		opacity: 1,
-	},
-	'& .external-link': {
+const PartnerCardWrapper = styled('div', {
+	base: {
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'stretch',
+		bg: 'white',
+		borderWidth: '1px',
+		borderColor: 'gray.100',
+		p: '8',
 		transition: 'all',
 		transitionDuration: '300ms',
+		position: 'relative',
+		overflow: 'hidden',
+		rounded: 'xl',
+		h: 'full',
+		_hover: { shadow: 'xl', transform: 'translateY(-4px)' },
+		'& .logo-img': {
+			transition: 'all',
+			transitionDuration: '500ms',
+		},
+		'&:hover .logo-img': {
+			filter: 'grayscale(0)',
+			opacity: 1,
+		},
+		'& .cat-badge': {
+			transition: 'all',
+		},
+		'&:hover .cat-badge': {
+			bg: 'ocobo.dark',
+			color: 'white',
+		},
+		'& .tag': {
+			transition: 'all',
+		},
+		'&:hover .tag': {
+			borderColor: 'ocobo.dark/10',
+			color: 'ocobo.dark',
+		},
+		'& .separator': {
+			transition: 'opacity',
+		},
+		'&:hover .separator': {
+			opacity: 1,
+		},
+		'& .cert-img': {
+			transition: 'all',
+			transitionDuration: '500ms',
+		},
+		'&:hover .cert-img': {
+			filter: 'grayscale(0)',
+		},
+		'& .tech-label': {
+			transition: 'colors',
+		},
+		'&:hover .tech-label': {
+			color: 'ocobo.mint',
+		},
+		'& .tech-icon': {
+			transition: 'opacity',
+		},
+		'&:hover .tech-icon': {
+			opacity: 1,
+		},
+		'& .external-link': {
+			transition: 'all',
+			transitionDuration: '300ms',
+		},
+		'&:hover .external-link': {
+			transform: 'translateX(4px)',
+		},
 	},
-	'&:hover .external-link': {
-		transform: 'translateX(4px)',
+	variants: {
+		animate: {
+			true: {
+				animation: 'fade-in-up-small',
+				opacity: 0,
+			},
+			false: {
+				opacity: 1,
+			},
+		},
 	},
-});
-
-const animateStyles = css.raw({
-	animation: 'fade-in-up-small',
-	opacity: 0,
+	defaultVariants: {
+		animate: false,
+	},
 });
 
 // ===== ROOT =====
@@ -93,12 +105,13 @@ interface PartnerCardRootProps {
 function PartnerCardRoot({
 	animate = false,
 	children,
-	className = '',
+	className,
 }: PartnerCardRootProps) {
-	const baseClasses = css(partnerCardStyles, animate && animateStyles);
-	const classes = className ? `${baseClasses} ${className}` : baseClasses;
-
-	return <div className={classes}>{children}</div>;
+	return (
+		<PartnerCardWrapper animate={animate} className={className}>
+			{children}
+		</PartnerCardWrapper>
+	);
 }
 
 // ===== HEADER =====
