@@ -79,3 +79,39 @@ Created: 2026-01-27T10:00:00Z
 - Props: size, variant, color, children, className
 - TypeScript compiles ✅
 - ✅ Passed
+
+## Feature 5: Add partnerCard recipe
+- Added partnerCardRecipe to panda.config.ts
+- Base styles: flex column, border, rounded, hover shadow/translate
+- Hover selectors for .logo-img, .cat-badge, .tag, .separator, .cert-img, .tech-label, .tech-icon, .external-link
+- Animate variant: true/false for fade-in animation
+- Ran codegen, verified styled-system/recipes/partner-card.mjs generated
+- ✅ Passed
+
+## Feature 6: Refactor PartnerCard compound component
+- Refactored components/sections/partners/partner-card.tsx
+- Created compound component with Object.assign pattern
+- Sub-components: Header, Body, Separator, Footer
+- Context for animate prop sharing
+- Added PartnerCardFromData convenience wrapper
+- Updated ecosystem-section.tsx to use new component
+- TypeScript compiles ✅
+- ✅ Passed
+
+## Feature 7: Create FormField atom component
+- Created components/atoms/form-field.tsx
+- Props: label, required, children, className
+- Uses Text component with variant="label"
+- Wraps label + children in vstack
+- TypeScript compiles ✅
+- ✅ Passed
+
+## Feature 8: Update hero-section
+- Updated components/sections/partners/hero-section.tsx
+- Replaced inline h1 with Text variant="display-xl"
+- Replaced inline p with Text variant="subtitle" color="muted"
+- Added Container organism for layout consistency
+- Removed redundant maxW/mx/px from section (now in Container)
+- TypeScript compiles ✅
+- Build passes ✅
+- ✅ Passed
