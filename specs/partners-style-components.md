@@ -27,7 +27,7 @@ Appliquer les patterns de composition Vercel et créer des style components pour
 3. As a **developer**, I want icon containers as reusable components, so that I don't duplicate centering/sizing logic
 4. As a **developer**, I want form fields with built-in labels, so that form markup is consistent
 5. As a **developer**, I want PartnerCard as a compound component, so that I can compose card layouts flexibly
-6. As a **developer**, I want hover states in a recipe, so that card animations are maintainable
+6. As a **developer**, I want hover states in a local styled() wrapper, so that card animations are maintainable without polluting global recipes
 7. As a **developer**, I want sections using Container/Section organisms, so that layout is consistent
 8. As a **designer**, I want consistent typography scales, so that the design system is cohesive
 9. As a **developer**, I want parent wrappers to set inherited styles (color, fontSize), so that children don't need explicit className
@@ -72,9 +72,11 @@ Appliquer les patterns de composition Vercel et créer des style components pour
 
 ### Local style wrappers pattern
 
-```tsx
-// ===== STYLE WRAPPERS (haut du fichier, non exportés) =====
+**Deux approches selon le use case:**
 
+#### A) `css()` — styles simples sans variants
+
+```tsx
 function SectionContainer({ children }: { children: React.ReactNode }) {
   return (
     <section className={css({ bg: 'ocobo.dark', py: '32', color: 'white' })}>
@@ -82,45 +84,83 @@ function SectionContainer({ children }: { children: React.ReactNode }) {
     </section>
   );
 }
+```
 
-function CardContainer({ hoverColor, children }: Props) {
-  return (
-    <div className={css({
-      bg: 'white', p: '10', rounded: 'xl', shadow: 'xl',
-      _hover: { transform: 'translateY(-4px)' },
-      '&:hover .icon-box': { bg: hoverColor },
-    })}>
-      {children}
-    </div>
-  );
-}
+#### B) `styled()` — styles avec variants (PRÉFÉRÉ)
+
+Quand le wrapper a besoin de variants (props qui changent les styles), utiliser `styled()` plutôt que `css.raw()` :
+
+```tsx
+import { styled } from 'styled-system/jsx';
+
+// ===== STYLE WRAPPER avec variants (haut du fichier, non exporté) =====
+
+const CardWrapper = styled('div', {
+  base: {
+    bg: 'white',
+    p: '10',
+    rounded: 'xl',
+    shadow: 'xl',
+    transition: 'all',
+    _hover: { transform: 'translateY(-4px)' },
+    '&:hover .icon-box': { bg: 'var(--hover-color)' },
+  },
+  variants: {
+    animate: {
+      true: { animation: 'fade-in-up', opacity: 0 },
+      false: { opacity: 1 },
+    },
+    size: {
+      sm: { p: '6' },
+      md: { p: '8' },
+      lg: { p: '10' },
+    },
+  },
+  defaultVariants: {
+    animate: false,
+    size: 'md',
+  },
+});
 
 // ===== COMPOSANT PRINCIPAL (contenu seulement) =====
 
-export function PhilosophySection() {
+export function PartnerCard({ animate, children }) {
   return (
-    <SectionContainer>
-      <Container>
-        <Text as="h2" variant="display-lg">Le système avant l'outil.</Text>
-        ...
-      </Container>
-    </SectionContainer>
+    <CardWrapper animate={animate}>
+      {children}
+    </CardWrapper>
   );
 }
 ```
 
-**Avantages:**
+**Pourquoi `styled()` > `css.raw()` pour les variants:**
+- Props typées automatiquement par Panda CSS
+- Pattern identique aux recipes globales (base + variants + defaultVariants)
+- Plus déclaratif et lisible
+- Pas de composition manuelle avec `css()`
+
+**Avantages des local wrappers (vs recipes globales):**
 - Le composant principal ne contient que la structure/contenu
 - Les styles sont isolés et lisibles en haut du fichier
-- Pas de pollution de `atoms/` avec des composants non-réutilisables
+- Pas de pollution de `panda.config.ts` avec des styles à usage unique
+- Recipes globales réservées aux patterns réutilisables (Text, Badge, Button...)
 
 ### Technical choices
 
-- **Panda CSS recipes** over styled-components — aligns with existing design system
+- **Panda CSS recipes pour styles réutilisables** — Text, IconBox, Badge dans panda.config.ts
+- **Local `styled()` wrappers pour usage unique** — PartnerCardWrapper dans le fichier composant
 - **Compound components via Object.assign** — follows existing FlexPair/HeroSplit pattern
-- **Context for compound components** — enables state sharing (animate prop) across slots
 - **Polymorphic `as` prop for Text** — allows h1/h2/h3/p/span/label semantic tags
 - **Recipe variants over props** — `variant="display-xl"` cleaner than `size="6xl" weight="black"`
+
+### Quand utiliser recipe vs styled()
+
+| Critère | Recipe (panda.config.ts) | styled() (local) |
+|---------|--------------------------|------------------|
+| Réutilisation | Multi-fichiers/pages | Fichier unique |
+| Exemples | Text, Badge, Button | PartnerCardWrapper |
+| Où | panda.config.ts | Haut du fichier composant |
+| Export | Via styled-system/recipes | Non exporté |
 
 ### CSS inheritance example
 
@@ -138,9 +178,9 @@ export function PhilosophySection() {
 
 ## Definition of done
 
-1. [ ] All 3 recipes added to panda.config.ts (text, iconBox, partnerCard)
+1. [ ] 2 recipes added to panda.config.ts (text, iconBox) — réutilisables cross-project
 2. [ ] All 3 atom components created (text.tsx, icon-box.tsx, form-field.tsx)
-3. [ ] PartnerCard refactored to compound component
+3. [ ] PartnerCard refactored to compound component with local `styled()` wrapper
 4. [ ] All 5 partner section files updated to use new components
 5. [ ] `pnpm run build` passes
 6. [ ] `pnpm exec tsc --noEmit` passes
@@ -157,7 +197,9 @@ export function PhilosophySection() {
 
 This is Phase 2 of the Partners refactoring POC. Phase 1 extracted data and split into section components. Phase 2 focuses on style abstraction and composition patterns.
 
-Recipes to create:
+Recipes to create (global, réutilisables):
 - `text` — 6 variants (display-xl, display-lg, display-md, subtitle, body, label) + 6 colours
 - `iconBox` — 3 sizes (sm, md, lg) + 3 variants (solid, outline, ghost) + 5 colours
-- `partnerCard` — base hover states + animate variant
+
+Local styled() wrappers (usage unique):
+- `PartnerCardWrapper` — base hover states + animate variant (dans partner-card.tsx)
