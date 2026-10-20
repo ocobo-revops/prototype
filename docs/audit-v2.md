@@ -14,7 +14,7 @@ Périmètre : les pages listées dans le tableau du README. Les variantes (`accu
 | Pages enjeu | Le gabarit tient pour 5 pages sur 6 | L'ADR 0002 doit être revu sur quatre points |
 | Revenue AI | La page sort du gabarit | Page codée à la main, à trancher |
 | site.js | Plus lourd, mais portable avec deux hooks partagés | Le hero animé de la home est le seul gros lot |
-| Textes à fournir | 117 champs entre crochets, contre environ 30 | Collecte de contenus à planifier côté Ocobo |
+| Textes à fournir | 117 champs entre crochets | Collecte de contenus à planifier côté Ocobo |
 
 ## 1. Bloc DS face à Panda et ADR-0001
 
@@ -93,17 +93,30 @@ Le bloc est propre, les pages l'appliquent peu.
 - Les classes du bloc sont souvent recopiées en ligne. `.ds-pill` est recopiée 12 fois sur la home. `.ds-p-ring` n'est jamais utilisée : l'anneau est reconstruit en ligne.
 - Deux cartes retournables contournent `.ds-flip` : `.ej-flip` (cartes enjeu de la home) et `.flip` (10 cartes outils de `technologie.html`).
 
-Beaucoup de valeurs brutes égalent un token (999px, 16px). Le recalage sur l'échelle est donc mécanique pour une bonne part.
+Valeurs distinctes sur 12 pages (home, méthode, 6 enjeux, équipe, à propos, roi, technologie), bloc DS compris :
+
+| Propriété | Valeurs distinctes |
+|---|---|
+| Couleurs | 439 |
+| Paddings | 150 |
+| Transitions | 82 |
+| Dégradés | 70 |
+| Tailles de police | 70 |
+| Ombres | 57 |
+| Espacements de lettres | 46 |
+| Gaps | 46 |
+| Rayons | 39 |
+
+Beaucoup de valeurs brutes égalent un token (999px, 16px). Le recalage sur l'échelle est donc mécanique pour une bonne part. Il reste un poste de travail à part entière, page par page.
 
 ### Dégradé IA
 
 - Le dégradé officiel coral vers yellow est écrit en dur 75 fois. `var(--ds-ai)` ne sert qu'environ 5 fois hors du bloc.
-- 14 variantes coexistent, contre 8 dans l'export précédent : angles 135, 110 et 180deg, versions assombries (#F2785C vers #D9A800, 22 usages), teintes transparentes, spinner conique, halo radial.
-- L'ancien dégradé IA mint, sky, coral a disparu. Seuls restent les traits de liaison du schéma IA en 3 couches.
+- 14 variantes coexistent : angles 135, 110 et 180deg, versions assombries (#F2785C vers #D9A800, 22 usages), teintes transparentes, spinner conique, halo radial.
 
 ### Gris zinc
 
-Ils sont toujours là. Trois sont devenus des tokens (`--ds-ink-2/3/4`). #F4F4F5 (402 usages), #E4E4E7 (198), #D4D4D8 (64) et #3F3F46 (111) n'ont aucun token. `composants.html` lui-même utilise du zinc brut.
+Les gris zinc restent très présents. Trois ont un token (`--ds-ink-2/3/4`). #F4F4F5 (402 usages), #E4E4E7 (198), #D4D4D8 (64) et #3F3F46 (111) n'ont aucun token. `composants.html` lui-même utilise du zinc brut.
 
 ## 2. Squelette des 6 pages enjeu
 
@@ -130,14 +143,14 @@ Abréviations : RP Revenue Performance (`enjeux-previsibilite`), SE Sales Experi
 
 ### Ce qui change pour l'ADR 0002
 
-L'ADR 0002 a été écrit sur l'export précédent. Quatre de ses hypothèses ne tiennent plus.
+Quatre hypothèses de l'ADR 0002 ne tiennent plus.
 
 1. **La section « Comment nous travaillons » n'est plus commune.** Seuls le H2 et les trois titres d'étape restent identiques. Le sous-titre, les textes d'étape, les outils et la note varient d'une page à l'autre. `method` devient un champ de contenu sur chaque page.
 2. **Le pont IA est devenu une section entière.** Il a un titre, 3 puces et une fenêtre d'agent animée propre à chaque page. Une fenêtre contient titre, agent, heure, prompt, KPIs, lignes de statut, boutons et pied. En contenu, cela demande un schéma profond.
 3. **Quatre blocs propres à une page** : stack (SY), thèse (AI), journée de commercial (AI), Qobra (SC). L'ADR prévoit d'être revu au-delà de trois. Le compte retombe à trois si le bloc partenaire devient un champ optionnel générique.
 4. **Revenue AI sort du gabarit.** 7 de ses 13 sections sont reformulées, déplacées ou remplacées.
 
-Nouveautés sur toutes les pages : la section symptômes, « Les autres enjeux », et un hero enrichi (citation de douleur, chapô en deux parties, deux CTA).
+Sections absentes de l'ADR, présentes sur toutes les pages : la section symptômes, « Les autres enjeux », et un hero enrichi (citation de douleur, chapô en deux parties, deux CTA).
 
 ### Bow tie
 
@@ -184,7 +197,7 @@ Les cartes enjeu de `index.html` recopient mot pour mot la citation du hero, l'i
 
 ## 3. Comportements de site.js
 
-`assets/site.js` fait 320 lignes, contre 6,9 Ko dans l'export précédent. Le contenu est visible par défaut. Le JS le masque puis le révèle, et s'arrête avant sous `prefers-reduced-motion`.
+`assets/site.js` fait 320 lignes. Le contenu est visible par défaut. Le JS le masque puis le révèle, et s'arrête avant sous `prefers-reduced-motion`.
 
 | Comportement | Pages | Portage | Taille |
 |---|---|---|---|
@@ -203,7 +216,6 @@ Les cartes enjeu de `index.html` recopient mot pour mot la citation du hero, l'i
 | Tracé des bow ties | home, méthode, enjeux | étendre `unified-bowtie.tsx` | M |
 | Calculateur ROI (script en ligne) | roi | fonction de calcul et formulaire | M |
 
-- **Nouveautés depuis l'export précédent** : `hxAnim`, `pwAnim`, `dayAnim`, `clampPanels`, `rcScrub`, `baSlide`, `csFilter`, et le calculateur ROI.
 - **Code mort à ne pas porter** : `hzScrub` et `hwAnim` visent des éléments absents de toutes les pages. Une partie du CSS n'a pas de balisage correspondant.
 - **Safari et Firefox.** La navbar en pastille utilise `animation-timeline: scroll()` sans `@supports` : ces navigateurs affichent l'état final, ce qui reste acceptable. Les bow ties de la home et de `methode.html` ont un repli statique sous `@supports`.
 - **À créer dans `website`** : un hook `useInView`, un hook de progression au scroll, et les composants tooltip, flip et onglets.
@@ -220,7 +232,7 @@ Les cartes enjeu de `index.html` recopient mot pour mot la citation du hero, l'i
 
 ### Champs entre crochets
 
-117 au total, 110 uniques. L'export précédent en comptait environ 30.
+117 au total, 110 uniques.
 
 | Type | Nombre | Où |
 |---|---|---|
@@ -248,30 +260,7 @@ Sans crochets mais à remplacer : initiales à la place des photos (équipe, à 
 - **ROI** : « Hypothèses prudentes, observées chez nos clients » est une affirmation à étayer.
 - **Comptes fictifs** dans les fenêtres d'agent (Northwind, Brightlane, Kestrel). Seule `clients.html` précise qu'ils sont fictifs.
 
-## 5. Écarts avec l'audit précédent
-
-Mesures sur les mêmes 12 pages, bloc DS compris :
-
-| Propriété | Export v1 | Export v2 |
-|---|---|---|
-| Couleurs | 404 | 439 |
-| Paddings | 136 | 150 |
-| Dégradés | 42 | 70 |
-| Tailles de police | 77 | 70 |
-| Rayons | 30 | 39 |
-| Ombres | 75 | 57 |
-| Espacements de lettres | 40 | 46 |
-| Transitions | 67 | 82 |
-| Gaps | 42 | 46 |
-
-- **Ce qui progresse** : un bloc DS existe et nomme les tokens. Les ombres sont moins variées. La carte Consultant est unifiée.
-- **Ce qui ne progresse pas** : la variété des valeurs brutes reste la même. Les dégradés ont presque doublé, surtout des halos et trames de points sur les pages enjeu.
-- **Ce qui change de sens** : le dégradé IA passe de mint, sky, coral à coral vers yellow. Le one-pager de projection doit être corrigé sur ce point.
-- **Ce qui s'ajoute au périmètre** : calculateur ROI, journée de commercial, curseur avant/après, filtre des stories, bandeau photo en diagonale.
-
-Conséquence pour le chiffrage : le recalage des valeurs brutes reste un poste à part entière. Le bloc DS fixe la cible. Le recalage de chaque page reste à faire.
-
-## 6. Questions à trancher
+## 5. Questions à trancher
 
 Ces questions alimentent la séance de grilling, avant toute mise à jour d'ADR.
 
