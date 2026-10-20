@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ocobo, Composants</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/702244c72e6f4543fa3f1455456a2c25.png">
+<style>
+
+/*DS:start*/
+/* Ocobo design system v1 : source unique, synchronisée dans chaque page (ds/ds_sync.py) */
+:root{
+--ds-dark:#212323;--ds-mint:#9ADBBA;--ds-sky:#99D1DF;--ds-coral:#FE9C87;--ds-yellow:#F1CF25;--ds-grey:#767676;
+--ds-ink-2:#52525B;--ds-ink-3:#71717A;--ds-ink-4:#A1A1AA;--ds-line:#ECECEE;--ds-paper:#F5F5F0;
+--ds-ai:linear-gradient(90deg,#FE9C87,#F1CF25);
+--ds-r-s:8px;--ds-r-m:16px;--ds-r-l:24px;--ds-r-full:999px;
+--ds-sh-1:0 15px 40px -20px rgba(33,35,35,.12);
+--ds-sh-2:0 22px 44px -24px rgba(33,35,35,.24);
+--ds-sh-3:0 30px 60px -26px rgba(33,35,35,.45);
+--ds-h2:clamp(34px,3.6vw,48px);--ds-h3:24px;
+--ds-sec:112px;--ds-sec-c:80px
+}
+/* Pastilles */
+.ds-pill{display:inline-block;font-family:'Bermia',sans-serif;font-weight:900;font-size:12px;letter-spacing:.3em;text-transform:uppercase;padding:6px 16px;border-radius:var(--ds-r-full);color:var(--ds-dark);background:var(--ds-yellow)}
+.ds-pill-ai{background:var(--ds-ai)}
+.ds-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-ink-3)}
+.ds-tag i{width:7px;height:7px;border-radius:var(--ds-r-full);background:currentColor}
+.ds-eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ds-ink-4)}
+/* Carte */
+.ds-card{background:#FFFFFF;border:1px solid var(--ds-line);border-radius:var(--ds-r-m);box-shadow:var(--ds-sh-1)}
+/* Carte qui se retourne (mecanique commune) */
+.ds-flip{perspective:1200px;cursor:pointer}
+.ds-flip-in{position:relative;width:100%;height:100%;transition:transform .6s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.ds-flip:hover .ds-flip-in,.ds-flip:focus-within .ds-flip-in{transform:rotateY(180deg)}
+.ds-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--ds-r-m);box-sizing:border-box}
+.ds-face-b{transform:rotateY(180deg)}
+@media (prefers-reduced-motion: reduce){.ds-flip-in{transition:none}}
+/* Carte Consultant (unique) */
+.ds-person{height:300px;font-family:'Bornia','Inter',sans-serif;color:var(--ds-dark)}
+.ds-person .ds-face{display:flex;flex-direction:column}
+.ds-p-front{background:#FFFFFF;border:1px solid var(--ds-line);box-shadow:var(--ds-sh-1);padding:32px 20px 28px;align-items:center;justify-content:center;gap:14px;text-align:center}
+.ds-p-back{padding:24px 22px;gap:8px;text-align:left;background:var(--ds-paper)}
+.ds-p-ring{width:120px;height:120px;border-radius:var(--ds-r-full);padding:4px;box-sizing:border-box;display:flex}
+.ds-p-av{flex:1;border-radius:var(--ds-r-full);background:var(--ds-paper);display:flex;align-items:center;justify-content:center;font-family:'Bermia',sans-serif;font-weight:900;font-size:30px;color:var(--ds-dark);overflow:hidden}
+.ds-p-av img{width:100%;height:100%;object-fit:cover}
+.ds-p-name{font-family:'Bermia',sans-serif;font-weight:900;font-size:20px;line-height:1.15}
+.ds-p-role{font-size:14px;color:var(--ds-ink-3);font-weight:500}
+.ds-p-label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:var(--ds-r-full)}
+.ds-p-hint{position:absolute;top:14px;right:14px;width:28px;height:28px;border-radius:var(--ds-r-full);background:var(--ds-paper);display:flex;align-items:center;justify-content:center;color:var(--ds-ink-4)}
+.ds-p-first{font-family:'Bermia',sans-serif;font-weight:900;font-size:18px}
+.ds-p-k{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;opacity:.6}
+.ds-p-k+.ds-p-txt{margin-bottom:4px}
+.ds-p-txt{font-size:14px;line-height:1.45}
+.ds-p-sub{font-size:13px;line-height:1.45}
+.ds-p-foot{margin-top:auto;font-size:13px;font-weight:700}
+
+/*DS:end*/
+@font-face{font-family:"Bermia";src:url("assets/8ec5a196dae191e1579c3de6d0bc6bfa.woff2") format("woff2");font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:"Bornia";src:url("assets/f55320b4f5c92c7aa444cb300598c57c.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Bornia";src:url("assets/3a7993bb88639848c7433c275c92ccfa.otf") format("opentype");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Bornia";src:url("assets/87420463dd01f48342e4075e61fe5381.otf") format("opentype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Bornia";src:url("assets/4a195e06fa9d1934f4972d87325993e8.otf") format("opentype");font-weight:700;font-style:normal;font-display:swap}
+body{margin:0;background:#FFFFFF}
+.cp{font-family:'Bornia',sans-serif;color:#212323;max-width:1280px;margin:0 auto;padding:96px 32px 120px;box-sizing:border-box}
+.cp-top{padding-bottom:56px;border-bottom:1px solid var(--ds-line)}
+.cp-top h1{font-family:'Bermia',sans-serif;font-weight:900;font-size:72px;line-height:1;margin:24px 0 18px;letter-spacing:-.02em}
+.cp-top p{font-size:18px;line-height:1.6;color:#52525B;max-width:720px;margin:0}
+.cp-sec{padding:64px 0;border-bottom:1px solid var(--ds-line)}
+.cp-head{display:flex;gap:24px;align-items:flex-start;margin-bottom:36px}
+.cp-n{font-family:'Bermia',sans-serif;font-weight:900;font-size:14px;color:#A1A1AA;padding-top:10px;min-width:28px}
+.cp-h2{font-family:'Bermia',sans-serif;font-weight:900;font-size:36px;margin:0 0 6px}
+.cp-d{margin:0;color:#71717A;font-size:16px}
+.cp-colors{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.cp-sw{display:flex;flex-direction:column;gap:6px;font-size:14px}
+.cp-wide{grid-column:span 5}
+.cp-chip{height:88px;border-radius:var(--ds-r-m);display:block;margin-bottom:6px}
+.cp-wide .cp-chip{height:56px}
+code{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#71717A}
+.cp-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.cp-note{font-size:14px;color:#71717A;margin:20px 0 0;max-width:760px;line-height:1.55}
+.cp-type{display:flex;flex-direction:column;gap:32px}
+.cp-k{display:block;font-size:12px;font-weight:600;color:#A1A1AA;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.cp-toks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.cp-tok{display:flex;flex-direction:column;gap:6px;font-size:14px}
+.cp-tok small{color:#71717A;font-size:13px}
+.cp-box{display:block;height:120px;background:var(--ds-paper);margin-bottom:10px}
+.cp-grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start}
+.cp-cell{display:flex;flex-direction:column;gap:12px;padding:24px;border:1px solid var(--ds-line);border-radius:var(--ds-r-m);align-items:flex-start}
+.cp-cell small{color:#71717A;font-size:14px;line-height:1.55}
+.cp-btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:13px 24px;border-radius:var(--ds-r-full);text-decoration:none;cursor:pointer}
+@media (max-width:767px){.cp{padding:64px 16px}.cp-colors,.cp-toks,.cp-grid3{grid-template-columns:minmax(0,1fr)}.cp-wide{grid-column:auto}.cp-top h1{font-size:44px}}
+
+</style>
+<style>
+html{scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+img,svg{max-width:100%}
+body{overflow-x:hidden}
+.sn-burger{display:none}
+@media (max-width:1023px){
+  .sn-wrap{padding:12px!important;height:72px!important}
+  .sn-nav{padding:8px 16px!important;animation:none!important;background:rgba(255,255,255,.95)!important;border:1px solid #F4F4F5!important;border-radius:999px!important;box-shadow:0 10px 15px -3px rgba(0,0,0,.08)!important;max-width:100%!important}
+  .sn-logo{height:30px!important;animation:none!important}
+  .sn-row{height:40px!important}
+  .sn-burger{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:0;background:none;color:#212323;cursor:pointer;margin-left:auto}
+  .sn-row>.sn-cta{display:none!important}
+  .sn-links{display:none!important}
+  .sn-nav.sn-open{border-radius:24px!important}
+  .sn-nav.sn-open .sn-links{display:flex!important;flex-direction:column;align-items:stretch;gap:4px;position:absolute;top:calc(100% + 8px);left:0;right:0;background:#FFFFFF;border:1px solid #F4F4F5;border-radius:24px;box-shadow:0 25px 60px -15px rgba(0,0,0,.2);padding:12px;max-height:calc(100vh - 100px);overflow-y:auto}
+  .sn-links .sn-link{justify-content:space-between;width:100%;font-size:17px;padding:14px 16px;color:#212323}
+  .sn-dd::after{display:none}
+  .sn-dd .sn-panel,.sn-dd:hover .sn-panel,.sn-dd:focus-within .sn-panel{position:static!important;display:none;opacity:1!important;visibility:visible!important;transform:none!important;width:auto!important;box-shadow:none!important;border:0!important;padding:0 0 8px!important;pointer-events:auto!important}
+  .sn-dd.sn-dd-open .sn-panel{display:block}
+  .sn-dd.sn-dd-open .sn-chev{transform:rotate(180deg)}
+  .sn-mgrid,.sn-egrid{grid-template-columns:1fr!important}
+  .sn-ecol{grid-template-columns:1fr!important}
+  .sn-bow,.sn-mfoot .sn-steps{display:none!important}
+  .sn-mfoot{flex-direction:column;align-items:flex-start!important}
+  .sn-chips{display:none}
+  html.sn-lock{overflow:hidden}
+}
+html,body{overflow-x:clip}
+@media (max-width:1023px){
+  [style*="grid-template-columns: repeat(4, minmax(0, 1fr))"]:not([style*="height: 100%"]),
+  [style*="grid-template-columns: repeat(5, minmax(0, 1fr))"],
+  [style*="grid-template-columns: repeat(6, minmax(0, 1fr))"],
+  [style*="grid-template-columns: repeat(3, minmax(0, 1fr))"]{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  [style*="grid-template-columns: repeat(10, minmax(0, 1fr))"]{grid-template-columns:repeat(5,minmax(0,1fr))!important}
+  [style*="minmax(0, 1fr) 360px minmax(0, 1fr)"],[style*="minmax(0, 1fr) 240px minmax(0, 1fr)"],[style*="grid-template-columns: 1fr auto 1fr"],
+  [style*="grid-template-columns: 440px minmax"]{grid-template-columns:minmax(0,1fr)!important}
+  [style*="padding: 112px 0"],[style*="padding: 128px 0"],[style*="padding: 120px 0"]{padding-top:80px!important;padding-bottom:80px!important}
+}
+@media (max-width:767px){
+  [style*="grid-template-columns"]:not([role="group"]):not([style*="44px minmax"]):not([style*="height: 100%"]){grid-template-columns:minmax(0,1fr)!important}
+  [style*="grid-column: span"],[style*="grid-column:span"]{grid-column:auto!important}
+  [style*="grid-row: span"]{grid-row:auto!important}
+  [style*="padding: 112px 0"],[style*="padding: 128px 0"],[style*="padding: 120px 0"],[style*="padding: 96px 0"]{padding-top:64px!important;padding-bottom:64px!important}
+  [style*="gap: 64px"],[style*="gap: 56px"],[style*="gap: 48px"]{gap:32px!important}
+  [style*="padding: 48px"],[style*="padding: 40px"]{padding:28px!important}
+  [style*="max-width: 440px"],[style*="max-width: 380px"]{max-width:none!important}
+  [style*="position: sticky"]{position:static!important}
+}
+@media (max-width:767px){
+  #dc-root [style*="grid-template-columns: 250px repeat(5"]{grid-template-columns:250px repeat(5,minmax(0,1fr))!important}
+  div:has(> [style*="grid-template-columns: 250px repeat(5"]){min-width:1100px}
+  div:has(> div > [style*="grid-template-columns: 250px repeat(5"]){overflow-x:auto;padding-bottom:12px}
+  #dc-root [style*="grid-template-columns: repeat(7, minmax(0, 1fr))"]{grid-template-columns:repeat(7,minmax(0,1fr))!important}
+  .hx-chip{font-size:11px;padding:5px 9px}
+  .hx-end{font-size:13px!important;padding:7px 12px!important;transform:translate(-100%,calc(-100% - 14px))!important}
+  .hx-c1,.hx-c2{display:none}
+}
+@media (max-width:767px){
+  .pg-ex{flex-direction:column;gap:10px!important}
+  [style*="min-width: 680px"]{min-width:0!important}
+  .crow{grid-template-columns:28px minmax(0,1.2fr) auto minmax(0,1fr)!important;row-gap:6px!important;column-gap:10px!important;padding:12px 10px!important}
+  .crow>:nth-child(1){grid-column:1;grid-row:1/3}
+  .crow>:nth-child(2){grid-column:2/5;grid-row:1}
+  .crow>:nth-child(3){grid-column:2;grid-row:2}
+  .crow>:nth-child(4){grid-column:3;grid-row:2}
+  .crow>:nth-child(5){grid-column:4;grid-row:2}
+  .chead>:nth-child(2){display:none}
+  #dc-root [style*="display: grid"]:has(> .flip:nth-child(12)){grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+}
+@media (max-width:767px){
+  .chead>:nth-child(4){visibility:hidden}
+  .chead{font-size:10px!important}
+  .crow>:nth-child(5){font-size:17px!important;white-space:nowrap}
+}
+@media (max-width:767px){
+  .hm{margin-top:56px!important}
+  .hm-chip{font-size:11px;padding:5px 9px}
+  .hm-end{font-size:13px!important;padding:7px 12px!important;transform:translate(-100%,calc(-100% - 14px))!important}
+  .hm-c1,.hm-c2{display:none}
+}
+@media (max-width:767px){
+  div:has(> div > [style*="grid-template-columns: 250px repeat(5"])::before,.pg-scroll::before{
+    content:"Faites glisser pour voir la suite \2192";position:sticky;left:0;display:block;width:max-content;min-width:0!important;
+    font-size:12px;font-weight:600;color:#71717A;background:#FFFFFF;border:1px solid #E4E4E7;border-radius:999px;padding:5px 12px;margin:0 0 12px;z-index:5}
+}
+@media (max-width:767px){
+  [role="img"][aria-label*="cycle Revenue"],[role="img"][aria-label*="Bowtie"]{height:120px!important}
+  [role="img"][aria-label*="cycle Revenue"] .hv-cell,[role="img"][aria-label*="Bowtie"] .hv-cell{padding-left:1px!important;padding-right:1px!important}
+  [role="img"][aria-label*="cycle Revenue"] .hv-cell[style*="padding: 52px"],[role="img"][aria-label*="Bowtie"] .hv-cell[style*="padding: 52px"]{padding-top:36px!important;padding-bottom:36px!important}
+  .hv-tip{display:none!important}
+  #dc-root :has(> [role="img"][aria-label*="cycle Revenue"]) > [style*="repeat(7"] *,#dc-root :has(> [role="img"][aria-label*="Bowtie"]) > [style*="repeat(7"] *{font-size:7.5px!important;letter-spacing:-0.01em!important;line-height:1.2!important;text-transform:none!important;overflow-wrap:normal;word-break:keep-all}
+}
+@media (max-width:767px){
+  #dc-root [style*="grid-template-columns: 1fr auto 1fr"]{display:flex!important;flex-wrap:wrap;justify-content:center;gap:6px!important;padding:0!important;margin-bottom:10px}
+  #dc-root [style*="grid-template-columns: 1fr auto 1fr"] *{font-size:9px!important;letter-spacing:.08em!important}
+  #dc-root [style*="grid-template-columns: 1fr auto 1fr"] > *{justify-self:auto!important;align-self:auto!important}
+}
+@media (max-width:767px){
+  .hx-chip{font-size:11px!important;padding:5px 9px!important}
+  .hx-end{font-size:13px!important;padding:7px 12px!important;transform:translate(-100%,calc(-100% - 14px))!important}
+  .hx-c1,.hx-c2{display:none}
+}
+
+@media (max-width: 1023px){.hy{margin:24px auto 0}.hy-f2{left:-8px}}
+@media (max-width: 767px){
+  .hy-card{padding:20px 18px 0!important;border-radius:20px!important}
+  .hy-top{flex-direction:column;gap:14px}
+  .hy-big{font-size:46px!important}
+  .hy-ch{width:calc(100% + 36px)!important;margin:14px -18px 0!important}
+  .hy-lv{margin:0 -18px!important}
+  .hy-lv>div{padding:12px 10px 14px 14px!important}
+  .hy-lk{font-size:11px!important}.hy-lval{font-size:17px!important}
+  .hy-f1{top:-30px!important;left:auto!important;right:8px}
+  .hy-f2{display:none}
+}
+
+/* Gouttières alignées sur le site actuel (Container Panda : px 4 / sm 6 / lg 8, maxW 7xl) */
+@media (max-width:1023px){[style*="padding: 0 32px"],[style*="padding: 64px 32px"]{padding-left:24px!important;padding-right:24px!important}}
+@media (max-width:639px){[style*="padding: 0 32px"],[style*="padding: 64px 32px"]{padding-left:16px!important;padding-right:16px!important}}
+
+@media (min-width: 768px){.sn-panel{max-width:calc(100vw - 32px)}}
+
+/*SNX:start*/
+@media (min-width: 768px){
+.sn-nav .sn-dd .sn-panel{transform:translate(calc(-50% - 24px),0);transition:opacity .28s ease,transform .45s cubic-bezier(.2,.8,.2,1),visibility .28s}
+.sn-nav .sn-dd:hover .sn-panel,.sn-nav .sn-dd:focus-within .sn-panel{transform:translate(-50%,0)}
+.sn-nav .sn-dd .sn-panel a{opacity:0;transform:translateX(-10px);transition:opacity .3s ease,transform .45s cubic-bezier(.2,.8,.2,1),background-color .3s ease,color .3s ease,border-color .3s ease}
+.sn-nav .sn-dd:hover .sn-panel a,.sn-nav .sn-dd:focus-within .sn-panel a{opacity:1;transform:none}
+.sn-nav .sn-dd:hover .sn-panel a:nth-child(1){transition-delay:.06s}
+.sn-nav .sn-dd:hover .sn-panel a:nth-child(2){transition-delay:.11s}
+.sn-nav .sn-dd:hover .sn-panel a:nth-child(3){transition-delay:.16s}
+.sn-nav .sn-dd:hover .sn-panel a:nth-child(4){transition-delay:.21s}
+.sn-nav .sn-dd:hover .sn-panel a:nth-child(n+5){transition-delay:.26s}
+.sn-nav .sn-dd:hover .sn-panel .sn-bow{transition-delay:.18s}
+}
+@media (prefers-reduced-motion: reduce){.sn-nav .sn-dd .sn-panel,.sn-nav .sn-dd .sn-panel a{transition:opacity .2s ease!important;transform:translate(-50%,0)}.sn-nav .sn-dd .sn-panel a{transform:none!important}}
+/*SNX:end*/
+
+</style>
+</head>
+<body>
+<div id="dc-root">
+
+<div class="cp"><header class="cp-top"><span class="ds-pill">Design system</span><h1>Composants Ocobo</h1><p>Source unique des tokens et composants de la maquette. Toutes les pages du périmètre (home, Méthode, enjeux, Équipe, Qui sommes-nous, ROI, Technologie) lisent ces mêmes variables.</p></header><section class="cp-sec"><div class="cp-head"><span class="cp-n">01</span><div><h2 class="cp-h2">Couleurs</h2><p class="cp-d">Palette de marque et couleur par enjeu.</p></div></div><div class="cp-colors"><div class="cp-sw"><span class="cp-chip" style="background: var(--ds-dark)"></span><b>Dark</b><code>--ds-dark</code><code>#212323</code></div><div class="cp-sw"><span class="cp-chip" style="background: var(--ds-mint)"></span><b>Mint</b><code>--ds-mint</code><code>#9ADBBA</code></div><div class="cp-sw"><span class="cp-chip" style="background: var(--ds-sky)"></span><b>Sky</b><code>--ds-sky</code><code>#99D1DF</code></div><div class="cp-sw"><span class="cp-chip" style="background: var(--ds-coral)"></span><b>Coral</b><code>--ds-coral</code><code>#FE9C87</code></div><div class="cp-sw"><span class="cp-chip" style="background: var(--ds-yellow)"></span><b>Yellow</b><code>--ds-yellow</code><code>#F1CF25</code></div><div class="cp-sw"><span class="cp-chip" style="background: var(--ds-grey)"></span><b>Grey</b><code>--ds-grey</code><code>#767676</code></div><div class="cp-sw"><span class="cp-chip" style="background: var(--ds-ink-2)"></span><b>Ink 2</b><code>--ds-ink-2</code><code>#52525B</code></div><div class="cp-sw"><span class="cp-chip" style="background: var(--ds-ink-3)"></span><b>Ink 3</b><code>--ds-ink-3</code><code>#71717A</code></div><div class="cp-sw"><span class="cp-chip" style="background: var(--ds-line); border: 1px solid #ECECEE"></span><b>Line</b><code>--ds-line</code><code>#ECECEE</code></div><div class="cp-sw"><span class="cp-chip" style="background: var(--ds-paper); border: 1px solid #ECECEE"></span><b>Paper</b><code>--ds-paper</code><code>#F5F5F0</code></div><div class="cp-sw cp-wide"><span class="cp-chip" style="background: var(--ds-ai)"></span><b>Dégradé IA</b><code>--ds-ai</code><code>réservé aux sujets IA</code></div></div><div class="cp-row" style="margin-top: 24px"><span class="ds-tag" style="background: #9ADBBA; color: #212323">Sales Experience</span><span class="ds-tag" style="background: #99D1DF; color: #212323">Customer Experience</span><span class="ds-tag" style="background: #FE9C87; color: #212323">Revenue Performance</span><span class="ds-tag" style="background: #F1CF25; color: #212323">Sales Compensation</span><span class="ds-tag" style="background: #767676; color: #FFFFFF">Revenue Systems</span><span class="ds-tag" style="background: var(--ds-ai); color: #212323">Revenue AI</span></div><p class="cp-note">Une couleur par enjeu, appliquée partout (pastilles, bow tie, cartes).</p></section><section class="cp-sec"><div class="cp-head"><span class="cp-n">02</span><div><h2 class="cp-h2">Typographie</h2><p class="cp-d">Bermia pour les titres, Bornia pour le texte. Une seule taille de H2.</p></div></div><div class="cp-type"><div><span class="cp-k">Display · Bermia 900 · 64 à 72px</span><div style="font-family: Bermia; font-weight: 900; font-size: 64px; line-height: 1.02; letter-spacing: -.02em">Orchestrer le Revenue</div></div><div><span class="cp-k">H2 · Bermia 900 · --ds-h2 (34 à 48px), taille unique</span><div style="font-family: Bermia; font-weight: 900; font-size: var(--ds-h2); line-height: 1.08">Six problèmes que nous réglons</div></div><div><span class="cp-k">H3 · Bornia 700 · 24px</span><div style="font-weight: 700; font-size: var(--ds-h3)">Une équipe RevOps senior</div></div><div><span class="cp-k">Corps · Bornia 400 · 17px / 1.6</span><div style="font-size: 17px; line-height: 1.6; color: #52525B; max-width: 640px">Nous alignons Marketing, Sales, Customer Success et Finance autour d'un même axe de croissance.</div></div><div><span class="cp-k">Petit · Bornia 500 · 14px</span><div style="font-size: 14px; font-weight: 500; color: #71717A">Texte secondaire, légendes, métadonnées</div></div></div></section><section class="cp-sec"><div class="cp-head"><span class="cp-n">03</span><div><h2 class="cp-h2">Rayons</h2><p class="cp-d">Quatre valeurs, plus aucune autre.</p></div></div><div class="cp-toks"><div class="cp-tok"><span class="cp-box" style="border-radius: var(--ds-r-s)"></span><b>S</b><code>--ds-r-s · 8px</code><small>champs, petits blocs, tooltips</small></div><div class="cp-tok"><span class="cp-box" style="border-radius: var(--ds-r-m)"></span><b>M</b><code>--ds-r-m · 16px</code><small>cartes, fenêtres, schémas</small></div><div class="cp-tok"><span class="cp-box" style="border-radius: var(--ds-r-l)"></span><b>L</b><code>--ds-r-l · 24px</code><small>grands blocs, sections encadrées</small></div><div class="cp-tok"><span class="cp-box" style="border-radius: var(--ds-r-full)"></span><b>Full</b><code>--ds-r-full · 999px</code><small>boutons, pastilles, avatars</small></div></div></section><section class="cp-sec"><div class="cp-head"><span class="cp-n">04</span><div><h2 class="cp-h2">Ombres</h2><p class="cp-d">Trois niveaux.</p></div></div><div class="cp-toks"><div class="cp-tok"><span class="cp-box" style="box-shadow: var(--ds-sh-1); border: 1px solid #ECECEE; background: #FFFFFF"></span><b>Niveau 1</b><code>--ds-sh-1</code><small>cartes au repos</small></div><div class="cp-tok"><span class="cp-box" style="box-shadow: var(--ds-sh-2); border: 1px solid #ECECEE; background: #FFFFFF"></span><b>Niveau 2</b><code>--ds-sh-2</code><small>survol, éléments flottants</small></div><div class="cp-tok"><span class="cp-box" style="box-shadow: var(--ds-sh-3); border: 1px solid #ECECEE; background: #FFFFFF"></span><b>Niveau 3</b><code>--ds-sh-3</code><small>fenêtres, hero, modales</small></div></div></section><section class="cp-sec"><div class="cp-head"><span class="cp-n">05</span><div><h2 class="cp-h2">Pastilles</h2><p class="cp-d">Trois types, chacun avec un rôle.</p></div></div><div class="cp-grid3"><div class="cp-cell"><span class="cp-k">1 · Label de section</span><span class="ds-pill">Enjeu 01</span><small>Bermia, capitales, interlettrage .3em. Couleur de l'enjeu ou jaune par défaut.</small></div><div class="cp-cell"><span class="cp-k">2 · Tag</span><div class="cp-row"><span class="ds-tag" style="background: #F4F4F5">HubSpot</span><span class="ds-tag" style="background: #F4F4F5">Salesforce</span></div><small>Outils, métadonnées. Fond neutre, texte 12px.</small></div><div class="cp-cell"><span class="cp-k">3 · Pastille IA</span><span class="ds-pill ds-pill-ai">Revenue AI</span><small>Dégradé corail vers jaune, uniquement pour l'IA.</small></div></div></section><section class="cp-sec"><div class="cp-head"><span class="cp-n">06</span><div><h2 class="cp-h2">Boutons</h2><p class="cp-d">Primaire, secondaire, lien.</p></div></div><div class="cp-row"><a class="cp-btn" style="background: #212323; color: #FFFFFF">Prendre rendez-vous<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a><a class="cp-btn" style="background: #FFFFFF; color: #212323; border: 1px solid #D4D4D8">Voir vos enjeux</a><a class="cp-btn" style="background: transparent; color: #212323; padding-left: 0; padding-right: 0; text-decoration: underline; text-underline-offset: 4px">Lien texte</a></div><p class="cp-note">Hauteur 48px, padding 13 / 24, rayon full, Bornia 600 15px. Un seul bouton primaire par écran.</p></section><section class="cp-sec"><div class="cp-head"><span class="cp-n">07</span><div><h2 class="cp-h2">Carte Consultant</h2><p class="cp-d">Composant unique pour présenter une personne.</p></div></div><div class="cp-grid3"><div class="ds-flip ds-person"><div class="ds-flip-in">
+<div class="ds-face ds-p-front">
+<span style="width: 120px; height: 120px; border-radius: 999px; padding: 5px; background: #9ADBBA; display: flex; box-sizing: border-box"><span style="flex: 1; border-radius: 999px; background: #EBFDF5; border: 3px solid #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'Bermia', sans-serif; font-weight: 900; font-size: 30px; color: #212323">PN</span></span>
+<span style="display: flex; flex-direction: column; gap: 4px"><span class="ds-p-name">Prénom Nom</span><span class="ds-p-role">Senior RevOps Consultant</span></span>
+<span class="ds-p-label" style="background: #9ADBBA; color: #212323">Sales Experience</span>
+<span class="ds-p-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 3v5h-5"></path></svg></span>
+</div>
+<div class="ds-face ds-face-b ds-p-back" style="background: #EBFDF5; color: #212323">
+<span class="ds-p-first">Prénom</span>
+<span class="ds-p-k">Ce qu'il ou elle apporte</span>
+<span class="ds-p-txt">Une phrase sur ce que la personne apporte aux clients.</span>
+<span class="ds-p-k">Ses outils</span>
+<span class="ds-p-sub">HubSpot, Salesforce, Clay</span>
+<span class="ds-p-foot">Avant Ocobo : [entreprise]</span>
+</div>
+</div></div><div class="ds-flip ds-person"><div class="ds-flip-in">
+<div class="ds-face ds-p-front">
+<span style="width: 120px; height: 120px; border-radius: 999px; padding: 5px; background: #99D1DF; display: flex; box-sizing: border-box"><span style="flex: 1; border-radius: 999px; background: #F0F9FB; border: 3px solid #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'Bermia', sans-serif; font-weight: 900; font-size: 30px; color: #212323">PN</span></span>
+<span style="display: flex; flex-direction: column; gap: 4px"><span class="ds-p-name">Prénom Nom</span><span class="ds-p-role">RevOps Manager</span></span>
+<span class="ds-p-label" style="background: #99D1DF; color: #212323">Customer Experience</span>
+<span class="ds-p-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 3v5h-5"></path></svg></span>
+</div>
+<div class="ds-face ds-face-b ds-p-back" style="background: #F0F9FB; color: #212323">
+<span class="ds-p-first">Prénom</span>
+<span class="ds-p-k">Ce qu'il ou elle apporte</span>
+<span class="ds-p-txt">Une phrase sur ce que la personne apporte aux clients.</span>
+<span class="ds-p-k">Ses outils</span>
+<span class="ds-p-sub">Gainsight, Planhat, HubSpot</span>
+<span class="ds-p-foot">Avant Ocobo : [entreprise]</span>
+</div>
+</div></div><div class="ds-flip ds-person"><div class="ds-flip-in">
+<div class="ds-face ds-p-front">
+<span style="width: 120px; height: 120px; border-radius: 999px; padding: 5px; background: #FE9C87; display: flex; box-sizing: border-box"><span style="flex: 1; border-radius: 999px; background: #FFF5F2; border: 3px solid #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'Bermia', sans-serif; font-weight: 900; font-size: 30px; color: #212323">PN</span></span>
+<span style="display: flex; flex-direction: column; gap: 4px"><span class="ds-p-name">Prénom Nom</span><span class="ds-p-role">Associé</span></span>
+<span class="ds-p-label" style="background: #FE9C87; color: #212323">Fondateur</span>
+<span class="ds-p-hint" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 3v5h-5"></path></svg></span>
+</div>
+<div class="ds-face ds-face-b ds-p-back" style="background: #FFF5F2; color: #212323">
+<span class="ds-p-first">Prénom</span>
+<span class="ds-p-k">Ce qu'il ou elle apporte</span>
+<span class="ds-p-txt">Une phrase sur ce que la personne apporte aux clients.</span>
+<span class="ds-p-k">Ses outils</span>
+<span class="ds-p-sub">[à compléter]</span>
+<span class="ds-p-foot">Avant Ocobo : [entreprise]</span>
+</div>
+</div></div></div><p class="cp-note">Carte unique utilisée sur Équipe, Qui sommes-nous et chaque page Enjeu. Survol ou focus clavier : la carte se retourne (.ds-flip). Initiales tant que les photos ne sont pas disponibles. Anneau = couleur de l'enjeu principal.</p></section><section class="cp-sec"><div class="cp-head"><span class="cp-n">08</span><div><h2 class="cp-h2">Carte retournable</h2><p class="cp-d">Base commune à toutes les cartes qui se retournent.</p></div></div><div class="cp-grid3"><div class="ds-flip" style="height: 260px"><div class="ds-flip-in"><div class="ds-face ds-card" style="padding: 28px; display: flex; flex-direction: column; gap: 14px"><span class="ds-pill" style="background: #9ADBBA; align-self: flex-start">Enjeu 01</span><b style="font-size: 22px">Face avant</b><span style="color: #71717A">Titre et promesse.</span></div><div class="ds-face ds-face-b" style="padding: 28px; background: #212323; color: #FFFFFF; border-radius: var(--ds-r-m); display: flex; flex-direction: column; gap: 10px"><b>Dos</b><span style="color: #A1A1AA">Chantiers, outils, lien vers la page.</span></div></div></div><div class="cp-cell"><span class="cp-k">Mécanique commune</span><small><code>.ds-flip</code> &gt; <code>.ds-flip-in</code> &gt; <code>.ds-face</code> + <code>.ds-face.ds-face-b</code>. Rotation Y 180°, 0,6 s. Déclenché au survol et au focus clavier. Seule la hauteur et le contenu changent selon l'usage.</small></div><div class="cp-cell"><span class="cp-k">Usages</span><small>Carte Consultant (300px), carte Enjeu de la home, cartes outils de la page Technologie.</small></div></div></section><section class="cp-sec"><div class="cp-head"><span class="cp-n">09</span><div><h2 class="cp-h2">Espacements</h2><p class="cp-d">Deux rythmes de section et un conteneur.</p></div></div><div class="cp-grid3"><div class="cp-cell"><span class="cp-k">Section standard</span><b style="font-size: 28px">112px</b><small><code>--ds-sec</code> haut et bas</small></div><div class="cp-cell"><span class="cp-k">Section compacte</span><b style="font-size: 28px">80px</b><small><code>--ds-sec-c</code>, bandeaux et transitions</small></div><div class="cp-cell"><span class="cp-k">Conteneur</span><b style="font-size: 28px">1280px</b><small>Gouttières 32 / 24 / 16px, alignées sur le Container du site</small></div></div></section></div>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>
