@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Ce que le prototype cache</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Layout: one column of five big pictures, each with a one-line headline and almost no text. */
+:root {
+  --bg: #FBFBF8;
+  --surface: #FFFFFF;
+  --ink: #212323;
+  --ink-2: #5B5F5D;
+  --line: #E3E5E0;
+  --no: #C2553D;
+  --yes: #2F8A5E;
+  --water: #DCEFF4;
+  --water-deep: #C3E3EC;
+  --ice: #FFFFFF;
+  --ice-edge: #99D1DF;
+  --violet: #7B61FF;
+  --teal: #00C2A8;
+  --coral: #FE9C87;
+  --coral-dark: #F2785C;
+  --yellow: #F1CF25;
+  --mint: #9ADBBA;
+  --sky: #99D1DF;
+  --specimen: #FFFFFF;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #171919; --surface: #1F2222; --ink: #ECEEEB; --ink-2: #A6ABA8; --line: #333837;
+    --no: #F2937C; --yes: #7FD3A8; --water: #1C2E33; --water-deep: #16262B; --ice: #E9F3F5; --ice-edge: #5E9AA8;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #171919; --surface: #1F2222; --ink: #ECEEEB; --ink-2: #A6ABA8; --line: #333837;
+  --no: #F2937C; --yes: #7FD3A8; --water: #1C2E33; --water-deep: #16262B; --ice: #E9F3F5; --ice-edge: #5E9AA8;
+  color-scheme: dark;
+}
+body {
+  margin: 0;
+  background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 18px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 56px 88px;
+}
+main { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 88px; }
+h1, h2 { font-family: var(--display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(36px, 7vw, 64px); font-weight: 900; line-height: 1.02; letter-spacing: -0.015em; }
+h2 { font-size: clamp(26px, 4.4vw, 38px); font-weight: 800; line-height: 1.1; }
+p { margin: 0; max-width: 60ch; }
+section, header { display: flex; flex-direction: column; gap: 22px; }
+.meta { font-size: 14px; color: var(--ink-2); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
+.lede { font-size: 22px; color: var(--ink-2); }
+.small { font-size: 15px; color: var(--ink-2); }
+.kicker { font-family: var(--display); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2); }
+
+/* 1. Iceberg */
+.berg { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 28px; align-items: center; }
+.berg svg { width: 100%; height: auto; display: block; }
+.checks { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); overflow: hidden; }
+.check { display: grid; grid-template-columns: 1fr 64px 64px; align-items: center; border-top: 1px solid var(--line); }
+.check:first-child { border-top: 0; }
+.check > * { padding: 11px 14px; min-width: 0; }
+.check .h { font-family: var(--display); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); text-align: center; }
+.check .h:first-child { text-align: left; }
+.check .mark { text-align: center; font-family: var(--display); font-weight: 900; font-size: 20px; line-height: 1; }
+.mark.no { color: var(--no); } .mark.yes { color: var(--yes); }
+.check.top { background: var(--water); }
+
+/* 2. Dots */
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.stat { border-top: 4px solid var(--ink); padding-top: 10px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.stat b { font-family: var(--display); font-size: clamp(28px, 5vw, 44px); font-weight: 900; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 15px; color: var(--ink-2); }
+.stat.bad { border-color: var(--no); } .stat.bad b { color: var(--no); }
+.dots { display: grid; grid-template-columns: repeat(auto-fill, minmax(14px, 1fr)); gap: 5px; padding: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.dot { aspect-ratio: 1; max-width: 100%; border-radius: 50%; background: linear-gradient(135deg, var(--violet), var(--teal)); }
+.dot.miss { background: linear-gradient(90deg, var(--coral-dark), #D9A800); outline: 2px solid var(--no); outline-offset: 1px; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 15px; color: var(--ink-2); }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; vertical-align: -1px; margin-right: 6px; }
+
+.menu-demo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+.menu-card { background: var(--specimen); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; color: #212323; }
+.menu-card .kicker { color: #5B5F5D; }
+.entry { border-radius: 10px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px; }
+.entry .num { font-family: var(--display); font-size: 12px; font-weight: 800; letter-spacing: 0.12em; -webkit-background-clip: text; background-clip: text; color: transparent; width: max-content; }
+.entry .t { font-family: var(--display); font-weight: 900; font-size: 17px; line-height: 1.2; color: #212323; }
+.before { background: linear-gradient(90deg, rgba(254,156,135,.12), rgba(241,207,37,.12)); }
+.before .num, .after .num { background-image: linear-gradient(90deg, #F2785C, #D9A800); }
+.after { background: linear-gradient(90deg, rgba(123,97,255,.12), rgba(0,194,168,.12)); }
+.flag { font-size: 14px; color: #A8432E; font-weight: 600; }
+
+/* 3. Swatches */
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.sw { background: var(--specimen); border: 1px solid var(--line); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 8px; min-width: 0; color: #212323; }
+.sw .chip { height: 56px; border-radius: 8px; border: 1px solid #ECECEE; }
+.sw b { font-family: var(--display); font-size: 20px; font-weight: 900; font-variant-numeric: tabular-nums; }
+.sw span { font-size: 13px; color: #5B5F5D; line-height: 1.3; }
+.sw.missed { outline: 3px solid var(--no); outline-offset: 2px; }
+.sw.missed span { color: #A8432E; font-weight: 600; }
+
+/* 4. Layers */
+.layers { display: flex; flex-direction: column; gap: 10px; position: relative; }
+.layer { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 16px; align-items: center; border-radius: 12px; padding: 18px 20px; background: var(--surface); border: 1px solid var(--line); border-left: 8px solid var(--c); }
+.layer .n { font-family: var(--display); font-weight: 900; font-size: 26px; color: var(--ink-2); }
+.layer h3 { margin: 0; font-family: var(--display); font-size: 20px; font-weight: 800; }
+.layer p { font-size: 16px; color: var(--ink-2); }
+.layer .here { font-family: var(--display); font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; white-space: nowrap; }
+.here.proto { background: var(--no); color: var(--bg); }
+.here.miss { border: 2px dashed var(--no); color: var(--no); }
+.l3 { --c: var(--yellow); } .l2 { --c: var(--sky); } .l1 { --c: var(--mint); }
+blockquote { margin: 0; font-family: var(--display); font-size: clamp(22px, 3.6vw, 30px); font-weight: 800; line-height: 1.2; border-left: 6px solid var(--coral); padding-left: 18px; max-width: 30ch; }
+blockquote cite { display: block; margin-top: 8px; font-family: var(--body); font-size: 15px; font-weight: 400; font-style: normal; color: var(--ink-2); }
+
+/* 5. Rule */
+.rule { background: var(--ink); color: var(--bg); border-radius: 16px; padding: 32px 28px; display: flex; flex-direction: column; gap: 24px; }
+.rule h2 { font-size: clamp(28px, 5vw, 44px); }
+.flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; counter-reset: f; }
+.flow li { counter-increment: f; display: flex; flex-direction: column; gap: 6px; min-width: 0; border-top: 3px solid var(--mint); padding-top: 10px; font-size: 17px; }
+.flow li::before { content: counter(f); font-family: var(--display); font-size: 28px; font-weight: 900; color: var(--mint); line-height: 1; }
+.punch { font-family: var(--display); font-size: clamp(22px, 3.6vw, 30px); font-weight: 800; line-height: 1.2; text-wrap: balance; }
+
+@media (max-width: 680px) {
+  body { padding-block: 32px 64px; }
+  main { gap: 64px; }
+  .berg { grid-template-columns: 1fr; }
+  .berg svg { max-width: 320px; margin: 0 auto; }
+  .menu-demo { grid-template-columns: 1fr; }
+  .flow { grid-template-columns: 1fr; }
+  .layer { grid-template-columns: 40px minmax(0, 1fr); }
+  .layer .here { grid-column: 2; justify-self: start; }
+  .check { grid-template-columns: 1fr 52px 52px; }
+  .check > * { padding: 10px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .dot.miss { animation: blink 2.4s ease-in-out 1s 3; }
+  @keyframes blink { 50% { transform: scale(1.35); } }
+}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="meta">Refonte ocobo.co · en images</div>
+    <h1>Ce que tu vois marche. Le reste ne se voit pas.</h1>
+    <p class="lede">Ton prototype est beau sur ton écran. Un site doit faire beaucoup plus.</p>
+  </header>
+
+  <section aria-labelledby="s1">
+    <h2 id="s1">Le prototype, c'est la partie émergée</h2>
+    <div class="berg">
+      <svg viewBox="0 0 360 380" role="img" aria-label="Un iceberg : une petite pointe au-dessus de l'eau, une grande masse dessous">
+        <rect x="0" y="0" width="360" height="380" fill="var(--bg)"/>
+        <rect x="0" y="118" width="360" height="262" fill="var(--water)"/>
+        <rect x="0" y="250" width="360" height="130" fill="var(--water-deep)"/>
+        <polygon points="150,36 196,70 222,118 120,118 132,74" fill="var(--ice)" stroke="var(--ice-edge)" stroke-width="2"/>
+        <polygon points="120,118 222,118 290,168 318,250 276,334 180,366 82,334 40,246 70,166" fill="var(--ice)" fill-opacity=".72" stroke="var(--ice-edge)" stroke-width="2"/>
+        <line x1="0" y1="118" x2="360" y2="118" stroke="var(--ice-edge)" stroke-width="2" stroke-dasharray="6 6"/>
+        <text x="180" y="22" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="15" font-weight="800" fill="var(--ink)">Ce que tu vois</text>
+        <text x="180" y="230" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="17" font-weight="800" fill="var(--ink)">Ce que le site</text>
+        <text x="180" y="252" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="17" font-weight="800" fill="var(--ink)">doit faire</text>
+      </svg>
+      <div class="checks" role="table" aria-label="Ce que fait le prototype et ce que fait le site">
+        <div class="check" role="row"><span class="h" role="columnheader">Le site doit…</span><span class="h" role="columnheader">Proto</span><span class="h" role="columnheader">Site</span></div>
+        <div class="check top" role="row"><span role="cell">Être beau à l'écran</span><span class="mark yes" role="cell" aria-label="oui">✓</span><span class="mark yes" role="cell" aria-label="oui">✓</span></div>
+        <div class="check" role="row"><span role="cell">Être trouvé sur Google</span><span class="mark no" role="cell" aria-label="non">✗</span><span class="mark yes" role="cell" aria-label="oui">✓</span></div>
+        <div class="check" role="row"><span role="cell">Marcher au doigt, sur mobile</span><span class="mark no" role="cell" aria-label="non">✗</span><span class="mark yes" role="cell" aria-label="oui">✓</span></div>
+        <div class="check" role="row"><span role="cell">Marcher au clavier</span><span class="mark no" role="cell" aria-label="non">✗</span><span class="mark yes" role="cell" aria-label="oui">✓</span></div>
+        <div class="check" role="row"><span role="cell">Exister en anglais</span><span class="mark no" role="cell" aria-label="non">✗</span><span class="mark yes" role="cell" aria-label="oui">✓</span></div>
+        <div class="check" role="row"><span role="cell">Laisser ton équipe publier un article</span><span class="mark no" role="cell" aria-label="non">✗</span><span class="mark yes" role="cell" aria-label="oui">✓</span></div>
+        <div class="check" role="row"><span role="cell">Annuler une erreur</span><span class="mark no" role="cell" aria-label="non">✗</span><span class="mark yes" role="cell" aria-label="oui">✓</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="s2">
+    <h2 id="s2">L'IA écrit vite. Personne ne vérifie.</h2>
+    <p>Le test : un seul prompt pour passer le dégradé IA au violet, sur une copie de ton prototype.</p>
+    <div class="stats">
+      <div class="stat"><b>4 min</b><span>de travail</span></div>
+      <div class="stat"><b>« Fait »</b><span>a répondu Claude</span></div>
+      <div class="stat bad"><b>30</b><span>oublis</span></div>
+    </div>
+    <div class="dots" id="dots" role="img" aria-label="316 points : 286 violets, remplacés, et 30 encore corail, oubliés"></div>
+    <div class="legend"><span><i style="background:linear-gradient(135deg,#7B61FF,#00C2A8)"></i>286 remplacés</span><span><i style="background:linear-gradient(90deg,#F2785C,#D9A800)"></i>30 oubliés. Tu les vois ?</span></div>
+    <div class="menu-demo">
+      <div class="menu-card">
+        <span class="kicker">Ton menu, avant</span>
+        <div class="entry before"><span class="num">06</span><span class="t">Une IA qui travaille pour vos équipes Revenue</span></div>
+      </div>
+      <div class="menu-card">
+        <span class="kicker">Ton menu, après « c'est fait »</span>
+        <div class="entry after"><span class="num">06</span><span class="t">Une IA qui travaille pour vos équipes Revenue</span></div>
+        <span class="flag">Fond violet, numéro corail. Sur 24 pages.</span>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="s3">
+    <h2 id="s3">Un dégradé prévu. 12 versions dans ton prototype.</h2>
+    <p>L'IA recopie, puis retouche chaque copie. Voici les versions trouvées, et combien de fois chacune revient.</p>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:linear-gradient(90deg,#FE9C87,#F1CF25)"></div><b>106</b><span>la version prévue</span></div>
+      <div class="sw"><div class="chip" style="background:linear-gradient(135deg,#FE9C87,#F1CF25)"></div><b>75</b><span>en biais</span></div>
+      <div class="sw missed"><div class="chip" style="background:linear-gradient(90deg,#F2785C,#D9A800)"></div><b>30</b><span>plus foncée : Claude ne l'a pas reconnue</span></div>
+      <div class="sw"><div class="chip" style="background:linear-gradient(90deg,rgba(254,156,135,.22),rgba(241,207,37,.22))"></div><b>30</b><span>pâle</span></div>
+      <div class="sw"><div class="chip" style="background:linear-gradient(90deg,rgba(254,156,135,.12),rgba(241,207,37,.12))"></div><b>30</b><span>très pâle</span></div>
+      <div class="sw"><div class="chip" style="background:conic-gradient(from 0deg,rgba(254,156,135,0) 0deg,rgba(254,156,135,0) 220deg,rgba(254,156,135,.6) 320deg,#F1CF25 360deg)"></div><b>24</b><span>en cercle</span></div>
+      <div class="sw"><div class="chip" style="background:linear-gradient(90deg,rgba(254,156,135,.7),rgba(241,207,37,.7))"></div><b>7</b><span>presque</span></div>
+      <div class="sw"><div class="chip" style="background:linear-gradient(110deg,#FE9C87,#F1CF25)"></div><b>6</b><span>autre biais</span></div>
+      <div class="sw"><div class="chip" style="background:linear-gradient(110deg,rgba(254,156,135,.9),rgba(241,207,37,.7))"></div><b>3</b><span>biais et pâle</span></div>
+      <div class="sw"><div class="chip" style="background:radial-gradient(circle,rgba(241,207,37,.25) 0%,rgba(254,156,135,.12) 35%,transparent 68%)"></div><b>3</b><span>halo</span></div>
+      <div class="sw"><div class="chip" style="background:linear-gradient(180deg,#FE9C87,#F1CF25)"></div><b>1</b><span>vertical</span></div>
+      <div class="sw"><div class="chip" style="background:linear-gradient(to bottom,#FE9C87,#F1CF25)"></div><b>1</b><span>vertical, écrit autrement</span></div>
+    </div>
+    <p class="small">Dans le site, le dégradé sera écrit une seule fois. Le changer, c'est changer une ligne.</p>
+  </section>
+
+  <section aria-labelledby="s4">
+    <h2 id="s4">Ta page Revenue AI le dit déjà</h2>
+    <blockquote>« Le pilote IA a plu en démonstration, puis s'est arrêté. »<cite>Ton prototype, page Revenue AI</cite></blockquote>
+    <div class="layers">
+      <div class="layer l3"><span class="n">03</span><div><h3>Activation</h3><p>Claude Code modifie le site</p></div><span class="here proto">Ton prototype est ici</span></div>
+      <div class="layer l2"><span class="n">02</span><div><h3>Contexte</h3><p>La documentation du site, les règles écrites</p></div><span class="here miss">Sauté</span></div>
+      <div class="layer l1"><span class="n">01</span><div><h3>Fondation</h3><p>Le design system : chaque couleur à un seul endroit</p></div><span class="here miss">Sauté</span></div>
+    </div>
+    <p>Tu le dis à tes clients : chaque couche repose sur celle du dessous. Ton site, c'est pareil.</p>
+  </section>
+
+  <section class="rule" aria-labelledby="s5">
+    <h2 id="s5">La règle : tout part du site, sur une branche</h2>
+    <ol class="flow">
+      <li>Tu demandes à Claude Code, dans le site</li>
+      <li>Tu regardes le résultat, à part</li>
+      <li>On relit, puis ça part en ligne</li>
+    </ol>
+    <p class="punch">L'IA écrit vite. Vérifier, c'est le travail.</p>
+  </section>
+</main>
+
+<script>
+(function () {
+  var box = document.getElementById('dots');
+  if (!box) return;
+  var total = 316, miss = 30, out = [];
+  // Spread the 30 misses at fixed, uneven positions so they are hard to spot.
+  var picks = {};
+  var seed = 7;
+  while (Object.keys(picks).length < miss) {
+    seed = (seed * 9301 + 49297) % 233280;
+    picks[Math.floor(seed / 233280 * total)] = true;
+  }
+  for (var i = 0; i < total; i++) out.push('<span class="dot' + (picks[i] ? ' miss' : '') + '"></span>');
+  box.innerHTML = out.join('');
+})();
+</script>
+</body>
+</html>
