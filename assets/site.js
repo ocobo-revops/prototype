@@ -300,6 +300,7 @@
     if (w8) hwAnim(w8);
     iaScrub();
     var k8 = document.getElementById('stk8');
+    var cx8 = document.querySelector('.cx'); if (cx8) arm(cx8, null, 'cx-armed', 'cx-go', 0.3);
     if (k8) { if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) k8.classList.add('st-go'); else arm(k8, null, 'st-armed', 'st-go', 0.3); }
     clampPanels();
     var cs8 = document.getElementById('stories');
