@@ -108,7 +108,7 @@
 
   function hxAnim(h) {
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var X = [150, 400, 650, 900], AX = 250, Y0 = [118, 186, 100, 170], W = [111, 82, 162, 97];
+    var X = [150, 345, 540, 735], AX = 250, Y0 = [118, 186, 100, 170], W = [111, 82, 162, 97];
     var COL = ['#E0BC12', '#5FC495', '#5DB8CF', '#F07A61'];
     var q = function (s) { return Array.prototype.slice.call(h.querySelectorAll(s)); };
     var teams = q('.hx-team'), guides = q('.hx-guide'), nodes = q('.hx-node'), gains = q('.hx-gain'), dots = q('.hx-dot'), grids = q('.hx-grid');
@@ -139,13 +139,25 @@
         var cy = Y0[i] + (AX - Y0[i]) * al + bob + (1 - a) * 12;
         teams[i].setAttribute('transform', 'translate(' + X[i] + ',' + cy.toFixed(1) + ')');
         teams[i].style.opacity = a;
-        var gb = eio(seg(g, 0.05 + i * 0.16, 0.3 + i * 0.16));
-        var top = (AX - 8) + (f(X[i]) + 5 - (AX - 8)) * gb;
+      }
+      for (var i = 0; i < gains.length; i++) {
+        var gx = gpos[i][0];
+        var gb = eio(seg(g, 0.05 + i * 0.13, 0.3 + i * 0.13));
+        var top = (AX - 8) + (f(gx) + 5 - (AX - 8)) * gb;
         guides[i].setAttribute('y2', top.toFixed(1)); guides[i].style.opacity = gb > 0.01 ? 1 : 0;
         nodes[i].setAttribute('cy', (top - 6 * gb).toFixed(1)); nodes[i].style.opacity = eo(seg(gb, 0.6, 1));
         var gg = eo(seg(gb, 0.7, 1));
         gains[i].style.opacity = gg;
         gains[i].setAttribute('transform', 'translate(' + gpos[i][0] + ',' + (gpos[i][1] + 8 * (1 - gg)).toFixed(1) + ')');
+      }
+      var ai = teams[4];
+      if (ai) {
+        var a5 = eo(seg(t, 1.0, 1.7)), al5 = eio(seg(hx, 850, 1020));
+        var bob5 = (1 - al5) * 5 * Math.sin(t * 1.3 + 2.4);
+        var ax5 = 985 - 55 * al5, ay5 = 62 + (AX - 62) * al5 + bob5 + (1 - a5) * 12;
+        ai.setAttribute('transform', 'translate(' + ax5.toFixed(1) + ',' + ay5.toFixed(1) + ')');
+        ai.style.opacity = a5;
+        var rg = ai.querySelector('.hx-ai-ring'); if (rg) { rg.setAttribute('opacity', (0.9 * (1 - al5)).toFixed(3)); rg.style.transform = 'rotate(' + (t * 40).toFixed(1) + 'deg)'; }
       }
       var gc = eio(seg(g, 0.64, 0.95));
       curve.style.strokeDashoffset = (1 - gc).toFixed(4);
